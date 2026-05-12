@@ -1,333 +1,103 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Privacy Policy – My Tool Lab</title>
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: #f5f7fa;
-      color: #1a1a2e;
-      line-height: 1.7;
-    }
-
-    /* ── Header ── */
-    header {
-      background: #1a1a2e;
-      padding: 16px 32px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    header .logo {
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: #fff;
-      text-decoration: none;
-    }
-    header .logo span { color: #6c63ff; }
-    header nav a {
-      color: #ccc;
-      text-decoration: none;
-      margin-left: 24px;
-      font-size: 0.9rem;
-      transition: color .2s;
-    }
-    header nav a:hover { color: #fff; }
-
-    /* ── Hero ── */
-    .hero {
-      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%);
-      color: #fff;
-      text-align: center;
-      padding: 64px 24px 48px;
-    }
-    .hero h1 { font-size: 2.2rem; font-weight: 800; margin-bottom: 12px; }
-    .hero p  { font-size: 1rem; color: #a0aec0; max-width: 520px; margin: 0 auto; }
-
-    /* ── Content ── */
-    .container {
-      max-width: 760px;
-      margin: 48px auto 80px;
-      padding: 0 24px;
-    }
-
-    .card {
-      background: #fff;
-      border-radius: 16px;
-      padding: 48px 52px;
-      box-shadow: 0 4px 24px rgba(0,0,0,.07);
-    }
-
-    .last-updated {
-      font-size: 0.82rem;
-      color: #888;
-      margin-bottom: 36px;
-    }
-
-    /* sections */
-    .policy-section { margin-bottom: 36px; }
-    .policy-section:last-child { margin-bottom: 0; }
-
-    .policy-section h2 {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: #1a1a2e;
-      margin-bottom: 10px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .policy-section h2 .icon {
-      width: 30px;
-      height: 30px;
-      border-radius: 8px;
-      background: #ede9fe;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.95rem;
-      flex-shrink: 0;
-    }
-
-    .policy-section p {
-      font-size: 0.95rem;
-      color: #444;
-      margin-bottom: 10px;
-    }
-    .policy-section p:last-child { margin-bottom: 0; }
-
-    .policy-section ul {
-      list-style: none;
-      padding: 0;
-      margin: 8px 0 0;
-    }
-    .policy-section ul li {
-      font-size: 0.95rem;
-      color: #444;
-      padding: 5px 0 5px 22px;
-      position: relative;
-    }
-    .policy-section ul li::before {
-      content: "•";
-      color: #6c63ff;
-      font-weight: 700;
-      position: absolute;
-      left: 6px;
-    }
-
-    /* callout box */
-    .callout {
-      background: #fef9ec;
-      border-left: 4px solid #f6c90e;
-      border-radius: 0 10px 10px 0;
-      padding: 14px 18px;
-      margin-top: 10px;
-    }
-    .callout p {
-      font-size: 0.9rem;
-      color: #5a4a00;
-      margin: 0;
-    }
-
-    /* divider */
-    .divider {
-      border: none;
-      border-top: 1px solid #eee;
-      margin: 32px 0;
-    }
-
-    /* contact */
-    .contact-link {
-      color: #6c63ff;
-      text-decoration: none;
-      font-weight: 600;
-    }
-    .contact-link:hover { text-decoration: underline; }
-
-    /* ── Footer ── */
-    footer {
-      background: #1a1a2e;
-      color: #888;
-      text-align: center;
-      padding: 28px 24px;
-      font-size: 0.82rem;
-    }
-    footer a { color: #6c63ff; text-decoration: none; }
-    footer a:hover { text-decoration: underline; }
-
-    @media (max-width: 600px) {
-      .card { padding: 32px 24px; }
-      .hero h1 { font-size: 1.7rem; }
-    }
-  </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact | My Tool Lab</title>
+  <meta name="description" content="Contact My Tool Lab for tool feedback, bug reports, and new tool requests." />
+  <link rel="stylesheet" href="/_css/main.css" />
 </head>
 <body>
-
-  <!-- Header -->
-  <header>
-    <a href="../index.html" class="logo">My<span>Tool</span>Lab</a>
-    <nav>
-      <a href="../index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
+  <header class="site-header">
+    <nav class="site-nav">
+      <a href="/">My Tool Lab</a>
+      <div class="nav-links">
+        <a href="/categories/text.html">Text Tools</a>
+        <a href="/about.html">About</a>
+        <a href="/contact.html" aria-current="page">Contact</a>
+        <a href="/privacy.html">Privacy Policy</a>
+      </div>
     </nav>
   </header>
 
-  <!-- Hero -->
-  <section class="hero">
-    <h1>Privacy Policy</h1>
-    <p>We keep things simple and honest. Here's exactly how My Tool Lab handles your data.</p>
-  </section>
+  <main class="page-shell">
+    <section class="content-card">
+      <p class="eyebrow">Contact</p>
+      <h1>Contact Us</h1>
+      <p>
+        Have a bug report, feedback, or a new tool idea? We’d love to hear from you.
+        Please use the form below or email us directly.
+      </p>
 
-  <!-- Policy Content -->
-  <main class="container">
-    <div class="card">
-
-      <p class="last-updated">Last updated: May 2025</p>
-
-      <!-- 1 -->
-      <div class="policy-section">
-        <h2><span class="icon">🖥️</span> Your Browser Does the Work</h2>
-        <p>
-          Most tools on My Tool Lab run entirely inside your browser. That means your text,
-          files, and inputs are processed locally on your device — they never leave it.
-          No data is sent to our servers for these tools to function.
-        </p>
-        <p>
-          A few tools may need to contact a server (for example, to fetch external data or
-          perform a heavy calculation). When that's the case, we'll say so on the tool page.
-        </p>
-      </div>
-
-      <hr class="divider" />
-
-      <!-- 2 -->
-      <div class="policy-section">
-        <h2><span class="icon">📝</span> We Don't Store What You Type</h2>
-        <p>
-          We do not intentionally log, save, or store any text or content you enter into
-          our tools. Once you close or refresh the page, that data is gone.
-        </p>
-        <p>
-          We say "intentionally" because standard web infrastructure (servers, CDNs, proxies)
-          may briefly handle request data in transit — but we don't collect or retain it.
-        </p>
-        <div class="callout">
+      <div class="contact-grid">
+        <div class="contact-block">
+          <h2>Email</h2>
           <p>
-            ⚠️ <strong>Heads up:</strong> If you're unsure about a tool's privacy, please
-            don't paste passwords, personal IDs, financial details, or other sensitive
-            information into it. When in doubt, leave it out.
+            <a href="mailto:z2302855409@gmail.com">z2302855409@gmail.com</a>
+          </p>
+          <p class="muted">
+            For general questions, bug reports, and tool suggestions.
+          </p>
+        </div>
+
+        <div class="contact-block">
+          <h2>What to send</h2>
+          <ul class="simple-list">
+            <li>Bug reports or broken tool behavior</li>
+            <li>Feature requests or new tool ideas</li>
+            <li>Content corrections or layout suggestions</li>
+            <li>Monetization or partnership inquiries</li>
+          </ul>
+        </div>
+
+        <div class="contact-block">
+          <h2>Response time</h2>
+          <p>
+            We usually reply within 1–3 business days, depending on the number of messages we receive.
           </p>
         </div>
       </div>
 
-      <hr class="divider" />
+      <section class="contact-form-wrap">
+        <h2>Send a message</h2>
+        <form class="contact-form">
+          <label>
+            Your name
+            <input type="text" name="name" placeholder="Your name" />
+          </label>
 
-      <!-- 3 -->
-      <div class="policy-section">
-        <h2><span class="icon">📊</span> Analytics</h2>
-        <p>
-          We use or may use basic analytics (such as Google Analytics or a privacy-friendly
-          alternative) to understand how people use the site — things like which tools are
-          popular, how long pages take to load, and where visitors come from in general terms.
+          <label>
+            Your email
+            <input type="email" name="email" placeholder="you@example.com" required />
+          </label>
+
+          <label>
+            Subject
+            <input type="text" name="subject" placeholder="How can we help?" />
+          </label>
+
+          <label>
+            Message
+            <textarea name="message" rows="6" placeholder="Write your message here..." required></textarea>
+          </label>
+
+          <button type="submit" class="btn-primary">Send Message</button>
+        </form>
+
+        <p class="muted small">
+          If you prefer not to use the form, you can also email us directly at
+          <a href="mailto:z2302855409@gmail.com">z2302855409@gmail.com</a>.
         </p>
-        <p>This helps us improve the site. It does not identify you personally.</p>
-      </div>
-
-      <hr class="divider" />
-
-      <!-- 4 -->
-      <div class="policy-section">
-        <h2><span class="icon">💰</span> Advertising</h2>
-        <p>
-          My Tool Lab is free to use. To keep it running, we may display ads — now or in
-          the future — through services like Google AdSense. These ad networks may use
-          cookies to show you relevant ads based on your browsing history across other sites.
-        </p>
-        <p>
-          We don't control what those networks collect. You can opt out of personalized ads
-          through your browser settings or tools like
-          <a class="contact-link" href="https://optout.aboutads.info" target="_blank" rel="noopener">
-            aboutads.info
-          </a>.
-        </p>
-      </div>
-
-      <hr class="divider" />
-
-      <!-- 5 -->
-      <div class="policy-section">
-        <h2><span class="icon">🍪</span> Cookies</h2>
-        <p>Cookies are small text files stored in your browser. We may use them for:</p>
-        <ul>
-          <li>Remembering your preferences (like dark mode or last-used settings)</li>
-          <li>Analytics — counting visits and understanding usage patterns</li>
-          <li>Advertising — served by third-party ad networks (see above)</li>
-        </ul>
-        <p>
-          You can block or delete cookies at any time through your browser settings.
-          Some features may not work perfectly without them, but the core tools will.
-        </p>
-      </div>
-
-      <hr class="divider" />
-
-      <!-- 6 -->
-      <div class="policy-section">
-        <h2><span class="icon">🔗</span> Third-Party Services</h2>
-        <p>My Tool Lab may load resources from third-party services, including:</p>
-        <ul>
-          <li><strong>Google Fonts</strong> — for typography (Google may log your IP)</li>
-          <li><strong>Analytics providers</strong> — to measure site usage</li>
-          <li><strong>Ad networks</strong> — to display relevant advertisements</li>
-        </ul>
-        <p>
-          Each of these services has its own privacy policy. We encourage you to review
-          them if you have concerns. We only use services we consider reputable, but we
-          can't control their data practices.
-        </p>
-      </div>
-
-      <hr class="divider" />
-
-      <!-- 7 -->
-      <div class="policy-section">
-        <h2><span class="icon">🔄</span> Changes to This Policy</h2>
-        <p>
-          If we make meaningful changes to this policy, we'll update the date at the top
-          of this page. We won't send you an email about it, so feel free to check back
-          occasionally if this matters to you.
-        </p>
-      </div>
-
-      <hr class="divider" />
-
-      <!-- 8 -->
-      <div class="policy-section">
-        <h2><span class="icon">✉️</span> Questions?</h2>
-        <p>
-          If you have any questions about this policy or how a specific tool handles data,
-          reach out at <a class="contact-link" href="mailto:hello@mytoollab.com">hello@mytoollab.com</a>.
-          We're happy to explain anything in plain English.
-        </p>
-      </div>
-
-    </div>
+      </section>
+    </section>
   </main>
 
-  <!-- Footer -->
-  <footer>
-    <p>
-      &copy; 2025 MyToolLab &nbsp;|&nbsp;
-      <a href="privacy.html">Privacy Policy</a> &nbsp;|&nbsp;
-      <a href="disclaimer.html">Terms of Use</a> &nbsp;|&nbsp;
-      <a href="contact.html">Contact</a>
-    </p>
+  <footer class="site-footer">
+    <a href="/">Home</a>
+    <a href="/categories/text.html">Text Tools</a>
+    <a href="/about.html">About</a>
+    <a href="/privacy.html">Privacy Policy</a>
+    <a href="/disclaimer.html">Disclaimer</a>
   </footer>
-
 </body>
 </html>

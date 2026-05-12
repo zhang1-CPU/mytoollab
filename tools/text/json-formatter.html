@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JSON Formatter – Instant JSON Format & Validate Online</title>
+  <meta name="description" content="Free online JSON formatter with real-time formatting, syntax error detection with line number warnings, code highlighting, collapsible view, and one-click copy. Perfect for developers debugging APIs, validating configs, or inspecting JSON responses on any device — no button clicks needed, just paste and go." />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --brand: #2563eb;
+      --brand-hover: #1d4ed8;
+      --text: #1e293b;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --bg: #ffffff;
+      --bg-subtle: #f8fafc;
+      --radius: 12px;
+      --shadow: 0 2px 8px rgba(0,0,0,0.06);
+      --max-w: 1100px;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+      padding-bottom: 48px;
+    }
+
+    a { color: var(--brand); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 16px; }
+
+    /* ── Header ── */
+    header { text-align: center; margin-bottom: 32px; padding-top: 40px; }
+    h1 {
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--text);
+      line-height: 1.2;
+    }
+    .subtitle {
+      color: var(--muted);
+      font-size: 1rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* ── Tool Layout ── */
+    .tool-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+    .tool-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+    @media (max-width: 700px) {
+      .tool-grid { grid-template-columns: 1fr; }
+    }
+
+    .panel-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    textarea#json-input {
+      width: 100%;
+      height: 280px;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+      font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+      font-size: 0.85rem;
+      padding: 14px;
+      resize: vertical;
+      outline: none;
+      transition: border-color 0.2s;
+      line-height: 1.6;
+    }
+    textarea#json-input:focus { border-color: var(--brand); }
+    textarea#json-input.has-error { border-color: #ef4444; }
+    textarea#json-input.is-valid { border-color: #10b981; }
+
+    /* ── Output Panel ── */
+    .output-panel {
+      background: #1e293b;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      height: 280px;
+      overflow: auto;
+      position: relative;
+    }
+    .output-panel pre {
+      margin: 0;
+      padding: 14px;
+      font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+      font-size: 0.85rem;
+      line-height: 1.6;
+      white-space: pre;
+      min-width: max-content;
+    }
+    .output-placeholder {
+      color: #64748b;
+      font-style: italic;
+      padding: 14px;
+      font-size: 0.85rem;
+    }
+
+    /* ── Syntax Highlighting ── */
+    .json-key    { color: #60a5fa; }
+    .json-string { color: #34d399; }
+    .json-number { color: #fb923c; }
+    .json-bool   { color: #a78bfa; }
+    .json-null   { color: #94a3b8; }
+    .json-brace  { color: #e2e8f0; }
+
+    /* ── Error Banner ── */
+    #error-banner {
+      display: none;
+      background: #fef2f2;
+      border: 1px solid #ef4444;
+      border-radius: 8px;
+      padding: 12px 14px;
+      color: #dc2626;
+      font-size: 0.88rem;
+      margin-bottom: 12px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    #error-banner.visible { display: flex; align-items: flex-start; gap: 8px; }
+    #error-banner .err-icon { font-size: 1rem; flex-shrink: 0; margin-top: 1px; }
+
+    /* ── Toolbar ── */
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 16px;
+      align-items: center;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 18px;
+      border-radius: 8px;
+      border: none;
+      font-size: 0.87rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: opacity 0.15s, transform 0.1s;
+      white-space: nowrap;
+    }
+    .btn:active { transform: scale(0.97); }
+    .btn-copy    { background: var(--brand); color: #fff; }
+    .btn-copy:hover { background: var(--brand-hover); }
+    .btn-clear   { background: #f1f5f9; color: var(--text); border: 1px solid var(--border); }
+    .btn-sample  { background: var(--bg-subtle); color: var(--brand); border: 1px solid var(--brand); }
+    .btn-collapse { background: #ecfdf5; color: #059669; border: 1px solid #10b981; }
+    .btn:hover:not(:disabled) { opacity: 0.9; }
+    .btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+    .copy-feedback {
+      font-size: 0.8rem;
+      color: #10b981;
+      margin-left: 4px;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .copy-feedback.show { opacity: 1; }
+
+    /* ── Collapsible nodes ── */
+    .collapsible-toggle {
+      cursor: pointer;
+      user-select: none;
+      color: #64748b;
+      font-size: 0.75rem;
+      margin-right: 2px;
+    }
+    .collapsible-toggle:hover { color: #94a3b8; }
+    .collapsed-placeholder {
+      color: #64748b;
+      font-style: italic;
+    }
+
+    /* ── Content Sections ── */
+    .content-section {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      margin-bottom: 20px;
+    }
+    .content-section h2 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 14px;
+    }
+    .content-section h3 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--brand);
+      margin-bottom: 8px;
+    }
+    .content-section p {
+      color: var(--muted);
+      font-size: 0.92rem;
+      margin-bottom: 12px;
+      line-height: 1.65;
+    }
+    .content-section p:last-child { margin-bottom: 0; }
+
+    /* Steps */
+    .steps { counter-reset: step; display: flex; flex-direction: column; gap: 14px; }
+    .step {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .step-num {
+      counter-increment: step;
+      background: var(--brand);
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.82rem;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .step-text { color: var(--muted); font-size: 0.92rem; line-height: 1.6; }
+    .step-text strong { color: var(--text); }
+
+    /* Examples */
+    .example-block {
+      background: var(--bg-subtle);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+      margin-top: 12px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.82rem;
+      color: var(--muted);
+      overflow-x: auto;
+      white-space: pre;
+    }
+
+    /* FAQ */
+    .faq-item { margin-bottom: 16px; }
+    .faq-item:last-child { margin-bottom: 0; }
+    .faq-q {
+      font-weight: 600;
+      color: var(--text);
+      font-size: 0.92rem;
+      margin-bottom: 6px;
+    }
+    .faq-a {
+      color: var(--muted);
+      font-size: 0.88rem;
+      line-height: 1.6;
+    }
+
+    /* Related Tools */
+    .related-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .related-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 16px;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--brand);
+      text-decoration: none;
+      font-size: 0.87rem;
+      font-weight: 500;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .related-link:hover {
+      border-color: var(--brand);
+      background: #eff6ff;
+    }
+
+    /* Valid badge */
+    .valid-badge {
+      display: none;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.8rem;
+      color: #10b981;
+      margin-left: auto;
+    }
+    .valid-badge.show { display: flex; }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- ── Header ── -->
+  <header>
+    <h1>JSON Formatter — Paste, Format & Validate Instantly</h1>
+    <p class="subtitle">Real-time formatting, syntax error detection with line numbers, code highlighting, and one-click copy. No button clicks needed.</p>
+  </header>
+
+  <!-- ── Toolbar ── -->
+  <div class="toolbar">
+    <button class="btn btn-sample" onclick="loadSample()">⚡ Load Sample</button>
+    <button class="btn btn-collapse" id="btn-collapse" onclick="toggleCollapse()" disabled>⊟ Collapse All</button>
+    <button class="btn btn-copy" id="btn-copy" onclick="copyOutput()" disabled>⎘ Copy JSON</button>
+    <button class="btn btn-clear" onclick="clearAll()">✕ Clear</button>
+    <span class="copy-feedback" id="copy-feedback">Copied!</span>
+    <span class="valid-badge" id="valid-badge">✓ Valid JSON</span>
+  </div>
+
+  <!-- ── Error Banner ── -->
+  <div id="error-banner">
+    <span class="err-icon">⚠</span>
+    <span id="error-text"></span>
+  </div>
+
+  <!-- ── Main Tool Grid ── -->
+  <div class="tool-card">
+    <div class="tool-grid">
+      <div>
+        <div class="panel-label">Input — paste your JSON here</div>
+        <textarea id="json-input" placeholder='Paste JSON here, e.g. {"name":"Alice","age":30}' spellcheck="false" autocomplete="off"></textarea>
+      </div>
+      <div>
+        <div class="panel-label">Formatted Output</div>
+        <div class="output-panel" id="output-panel">
+          <div class="output-placeholder">Formatted JSON will appear here as you type…</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── About ── -->
+  <div class="content-section">
+    <h2>What Is This Tool For?</h2>
+    <p>Working with raw JSON from an API response, a config file, or a database dump can be painful when it's all on one line. This formatter instantly structures your JSON into a readable, indented layout as you type — no button clicks, no page reloads.</p>
+    <p>It's built for developers who need to debug REST APIs, inspect webhook payloads, validate JSON configs before deployment, or just make sense of a messy data blob on the go. Works equally well on desktop and mobile, with horizontal scrolling so nothing gets squished.</p>
+  </div>
+
+  <!-- ── Steps ── -->
+  <div class="content-section">
+    <h2>How to Use It — 3 Steps</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-text"><strong>Paste your JSON</strong> into the left panel. Formatting starts immediately — no button needed.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-text"><strong>Check for errors.</strong> If your JSON has a syntax issue, the red banner shows the exact line and a hint on what's wrong.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-text"><strong>Copy or collapse.</strong> Hit "Copy JSON" to grab the formatted output, or use "Collapse All" to fold nested objects for a cleaner overview.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Examples ── -->
+  <div class="content-section">
+    <h2>Practical Examples</h2>
+
+    <h3>Example 1 — Debugging an API Response</h3>
+    <p>You get a minified response from a REST endpoint and need to find a nested field fast. Paste it in and the formatter expands every level instantly, with keys highlighted in blue so they're easy to scan.</p>
+    <div class="example-block">Input:  {"user":{"id":42,"name":"Alice","roles":["admin","editor"]},"token":"abc123"}
+
+Output:
+{
+  "user": {
+    "id": 42,
+    "name": "Alice",
+    "roles": [
+      "admin",
+      "editor"
+    ]
+  },
+  "token": "abc123"
+}</div>
+
+    <h3>Example 2 — Catching a Config Error Before Deployment</h3>
+    <p>You edited a JSON config file manually and aren't sure if you left a trailing comma. Paste it in — the error banner will flag the exact line so you can fix it before it breaks your build.</p>
+    <div class="example-block">Input:  {"host":"localhost","port":5432,"debug":true,}
+
+Error:  ⚠ SyntaxError at line 1 — Unexpected token } 
+        → Check for a trailing comma before the closing brace.</div>
+  </div>
+
+  <!-- ── FAQ ── -->
+  <div class="content-section">
+    <h2>FAQ</h2>
+
+    <div class="faq-item">
+      <div class="faq-q">Does it send my JSON to a server?</div>
+      <div class="faq-a">No. Everything runs in your browser. Your data never leaves your device, which makes it safe to use with sensitive API keys or internal configs.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Why does the error message say "line 1" even for multi-line JSON?</div>
+      <div class="faq-a">The browser's built-in JSON parser reports the character position, not always the visual line. The tool converts that offset to an approximate line number — it's usually accurate within one or two lines for large inputs.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Can I format very large JSON files?</div>
+      <div class="faq-a">Yes, up to a few MB works fine in most modern browsers. For files over 5 MB, performance depends on your device. If it feels slow, try a desktop browser.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">What does "Collapse All" do?</div>
+      <div class="faq-a">It folds every object and array into a single line so you can see the top-level structure at a glance. Click any ▶ arrow to expand individual nodes.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Does it work on mobile?</div>
+      <div class="faq-a">Yes. The output panel scrolls horizontally on small screens so deeply nested JSON stays readable without wrapping or squishing.</div>
+    </div>
+  </div>
+
+  <!-- ── Related Tools ── -->
+  <div class="content-section">
+    <h2>Related Tools</h2>
+    <div class="related-links">
+      <a href="word-counter.html" class="related-link">📝 Word Counter</a>
+      <a href="case-converter.html" class="related-link">🔡 Case Converter</a>
+      <a href="lorem-ipsum.html" class="related-link">📄 Lorem Ipsum</a>
+      <a href="base64.html" class="related-link">⎗ Base64 Encoder</a>
+      <a href="json-formatter.html" class="related-link">📋 JSON Formatter</a>
+      <a href="../../pages/about.html" class="related-link">ℹ About</a>
+    </div>
+  </div>
+
+</div><!-- /container -->
+
+<script>
+  // ── State ──
+  let formattedJSON = '';
+  let isCollapsed = false;
+  let parsedData = null;
+
+  const input      = document.getElementById('json-input');
+  const outputPanel = document.getElementById('output-panel');
+  const errorBanner = document.getElementById('error-banner');
+  const errorText   = document.getElementById('error-text');
+  const btnCopy     = document.getElementById('btn-copy');
+  const btnCollapse = document.getElementById('btn-collapse');
+  const validBadge  = document.getElementById('valid-badge');
+  const copyFeedback = document.getElementById('copy-feedback');
+
+  // ── Real-time listener ──
+  input.addEventListener('input', () => {
+    const raw = input.value.trim();
+    if (!raw) { reset(); return; }
+    parseAndRender(raw);
+  });
+
+  function parseAndRender(raw) {
+    try {
+      parsedData = JSON.parse(raw);
+      formattedJSON = JSON.stringify(parsedData, null, 2);
+      showOutput(parsedData);
+      clearError();
+      input.classList.remove('has-error');
+      input.classList.add('is-valid');
+      btnCopy.disabled = false;
+      btnCollapse.disabled = false;
+      validBadge.classList.add('show');
+    } catch (e) {
+      parsedData = null;
+      formattedJSON = '';
+      showError(e, raw);
+      outputPanel.innerHTML = '<div class="output-placeholder">Fix the error to see formatted output.</div>';
+      input.classList.add('has-error');
+      input.classList.remove('is-valid');
+      btnCopy.disabled = true;
+      btnCollapse.disabled = true;
+      validBadge.classList.remove('show');
+    }
+  }
+
+  // ── Error parsing ──
+  function showError(e, raw) {
+    const msg = e.message || String(e);
+    const posMatch = msg.match(/position (\d+)/i) || msg.match(/at (\d+)/i);
+    let lineHint = '';
+    if (posMatch) {
+      const pos = parseInt(posMatch[1], 10);
+      const lineNum = raw.substring(0, pos).split('\n').length;
+      lineHint = ` at line ${lineNum}`;
+    }
+    let hint = '';
+    if (/unexpected token }/i.test(msg))  hint = ' → Check for a trailing comma before a closing brace or bracket.';
+    else if (/unexpected token/i.test(msg)) hint = ' → Look for missing quotes, colons, or commas near that position.';
+    else if (/unexpected end/i.test(msg))   hint = ' → Your JSON looks incomplete — a closing bracket or brace may be missing.';
+
+    errorText.textContent = `SyntaxError${lineHint}: ${msg}${hint}`;
+    errorBanner.classList.add('visible');
+  }
+
+  function clearError() {
+    errorBanner.classList.remove('visible');
+    errorText.textContent = '';
+  }
+
+  // ── Syntax-highlighted render ──
+  function showOutput(data) {
+    isCollapsed = false;
+    btnCollapse.textContent = '⊟ Collapse All';
+    const pre = document.createElement('pre');
+    const code = document.createElement('code');
+    code.innerHTML = buildHighlightedHTML(data, 0);
+    pre.appendChild(code);
+    outputPanel.innerHTML = '';
+    outputPanel.appendChild(pre);
+  }
+
+  function buildHighlightedHTML(val, depth) {
+    if (val === null) return `<span class="json-null">null</span>`;
+    if (typeof val === 'boolean') return `<span class="json-bool">${val}</span>`;
+    if (typeof val === 'number')  return `<span class="json-number">${val}</span>`;
+    if (typeof val === 'string')  return `<span class="json-string">"${escapeHTML(val)}"</span>`;
+
+    const indent  = '  '.repeat(depth + 1);
+    const outdent = '  '.repeat(depth);
+
+    if (Array.isArray(val)) {
+      if (val.length === 0) return `<span class="json-brace">[]</span>`;
+      const id = uid();
+      const items = val.map(item => `${indent}${buildHighlightedHTML(item, depth + 1)}`).join(',\n');
+      return `<span class="json-brace">[</span><span class="collapsible-toggle" data-id="${id}" onclick="toggleNode(this)">▾</span>\n<span class="collapsible-body" id="${id}">${items}\n${outdent}</span><span class="json-brace">]</span>`;
+    }
+
+    if (typeof val === 'object') {
+      const keys = Object.keys(val);
+      if (keys.length === 0) return `<span class="json-brace">{}</span>`;
+      const id = uid();
+      const entries = keys.map(k => {
+        return `${indent}<span class="json-key">"${escapeHTML(k)}"</span><span class="json-brace">: </span>${buildHighlightedHTML(val[k], depth + 1)}`;
+      }).join(',\n');
+      return `<span class="json-brace">{</span><span class="collapsible-toggle" data-id="${id}" onclick="toggleNode(this)">▾</span>\n<span class="collapsible-body" id="${id}">${entries}\n${outdent}</span><span class="json-brace">}</span>`;
+    }
+
+    return escapeHTML(String(val));
+  }
+
+  function escapeHTML(str) {
+    return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  let _uid = 0;
+  function uid() { return 'n' + (++_uid); }
+
+  // ── Toggle individual node ──
+  function toggleNode(btn) {
+    const id = btn.dataset.id;
+    const body = document.getElementById(id);
+    if (!body) return;
+    const hidden = body.style.display === 'none';
+    if (hidden) {
+      body.style.display = '';
+      btn.textContent = '▾';
+      const ph = btn.nextElementSibling;
+      if (ph && ph.classList.contains('collapsed-placeholder')) ph.remove();
+    } else {
+      body.style.display = 'none';
+      btn.textContent = '▸';
+      const ph = document.createElement('span');
+      ph.className = 'collapsed-placeholder';
+      ph.textContent = '…';
+      btn.after(ph);
+    }
+  }
+
+  // ── Collapse / Expand All ──
+  function toggleCollapse() {
+    const bodies = outputPanel.querySelectorAll('.collapsible-body');
+    const toggles = outputPanel.querySelectorAll('.collapsible-toggle');
+    if (!isCollapsed) {
+      bodies.forEach(b => { b.style.display = 'none'; });
+      toggles.forEach(t => {
+        t.textContent = '▸';
+        const ph = t.nextElementSibling;
+        if (!ph || !ph.classList.contains('collapsed-placeholder')) {
+          const span = document.createElement('span');
+          span.className = 'collapsed-placeholder';
+          span.textContent = '…';
+          t.after(span);
+        }
+      });
+      isCollapsed = true;
+      btnCollapse.textContent = '⊞ Expand All';
+    } else {
+      bodies.forEach(b => { b.style.display = ''; });
+      toggles.forEach(t => { t.textContent = '▾'; });
+      outputPanel.querySelectorAll('.collapsed-placeholder').forEach(p => p.remove());
+      isCollapsed = false;
+      btnCollapse.textContent = '⊟ Collapse All';
+    }
+  }
+
+  // ── Copy ──
+  function copyOutput() {
+    if (!formattedJSON) return;
+    navigator.clipboard.writeText(formattedJSON).then(() => {
+      copyFeedback.classList.add('show');
+      setTimeout(() => copyFeedback.classList.remove('show'), 1800);
+    }).catch(() => {
+      const ta = document.createElement('textarea');
+      ta.value = formattedJSON;
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+      copyFeedback.classList.add('show');
+      setTimeout(() => copyFeedback.classList.remove('show'), 1800);
+    });
+  }
+
+  // ── Clear ──
+  function clearAll() {
+    input.value = '';
+    reset();
+  }
+
+  function reset() {
+    parsedData = null;
+    formattedJSON = '';
+    outputPanel.innerHTML = '<div class="output-placeholder">Formatted JSON will appear here as you type…</div>';
+    clearError();
+    input.classList.remove('has-error', 'is-valid');
+    btnCopy.disabled = true;
+    btnCollapse.disabled = true;
+    validBadge.classList.remove('show');
+    isCollapsed = false;
+    btnCollapse.textContent = '⊟ Collapse All';
+  }
+
+  // ── Sample ──
+  function loadSample() {
+    input.value = `{"store":{"name":"BookShop","open":true,"rating":4.8,"inventory":[{"id":1,"title":"Clean Code","author":"Robert C. Martin","price":29.99,"inStock":true},{"id":2,"title":"The Pragmatic Programmer","author":"David Thomas","price":34.95,"inStock":false}],"address":{"street":"123 Main St","city":"San Francisco","zip":"94105"},"contact":null}}`;
+    parseAndRender(input.value.trim());
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Base64编解码 - My Tool Lab</title>
+    <link rel="stylesheet" href="../../_css/main.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">My Tool Lab</div>
+            <ul>
+                <li><a href="../../index.html">首页</a></li>
+                <li><a href="../../categories/text.html">文本工具</a></li>
+                <li><a href="../../pages/about.html">关于</a></li>
+                <li><a href="../../pages/contact.html">联系</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="tool-container">
+            <h2>Base64 编解码工具</h2>
+            <textarea id="inputText" rows="5" placeholder="在此输入文本..."></textarea>
+            <div>
+                <button onclick="encodeBase64()">Base64编码</button>
+                <button onclick="decodeBase64()">Base64解码</button>
+            </div>
+            <div class="result">
+                <textarea id="outputText" rows="5" readonly placeholder="结果将显示在这里..."></textarea>
+                <button onclick="copyToClipboard(document.getElementById('outputText').value, this)">复制结果</button>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 My Tool Lab. All rights reserved.</p>
+        <nav>
+            <a href="../../pages/privacy.html">隐私政策</a>
+            <a href="../../pages/disclaimer.html">免责声明</a>
+        </nav>
+    </footer>
+    <script>
+        function encodeBase64() {
+            const text = document.getElementById('inputText').value;
+            const encoded = btoa(unescape(encodeURIComponent(text)));
+            document.getElementById('outputText').value = encoded;
+        }
+        function decodeBase64() {
+            try {
+                const text = document.getElementById('inputText').value;
+                const decoded = decodeURIComponent(escape(atob(text)));
+                document.getElementById('outputText').value = decoded;
+            } catch (e) {
+                document.getElementById('outputText').value = '解码失败，请输入有效的Base64编码';
+            }
+        }
+        function copyToClipboard(text, element) {
+            navigator.clipboard.writeText(text).then(() => {
+                element.textContent = '已复制!';
+                setTimeout(() => element.textContent = '复制结果', 2000);
+            });
+        }
+    </script>
+</body>
+</html>

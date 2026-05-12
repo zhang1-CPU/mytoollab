@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Base64 Encode / Decode – Free Online Tool</title>
+  <meta name="description" content="Free online Base64 encoder and decoder. Instantly encode text to Base64 or decode Base64 strings back to plain text. Supports Unicode, Chinese characters, and special symbols. One-click copy, real-time conversion, and a mobile-friendly interface — perfect for developers, students, and everyday users who need quick, reliable Base64 conversion." />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --brand: #2563eb;
+      --brand-hover: #1d4ed8;
+      --success: #10b981;
+      --bg: #ffffff;
+      --surface: #ffffff;
+      --border: #e2e8f0;
+      --text: #1e293b;
+      --muted: #64748b;
+      --radius: 12px;
+      --shadow: 0 2px 8px rgba(0,0,0,0.06);
+      --max-w: 780px;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 0 16px 48px;
+    }
+
+    a { color: var(--brand); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .container { max-width: var(--max-w); margin: 0 auto; }
+
+    /* ── Header ── */
+    header {
+      text-align: center;
+      margin-bottom: 32px;
+      padding-top: 40px;
+    }
+    header h1 {
+      font-size: clamp(1.5rem, 4vw, 2.2rem);
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+    header p {
+      font-size: 1rem;
+      color: var(--muted);
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    /* ── Tool Card ── */
+    .tool-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+
+    /* ── Mode Toggle ── */
+    .mode-toggle {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .mode-btn {
+      flex: 1;
+      padding: 12px 16px;
+      font-size: 1.05rem;
+      font-weight: 600;
+      border: 2px solid var(--brand);
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.18s, color 0.18s;
+      background: var(--bg);
+      color: var(--brand);
+      min-height: 52px;
+    }
+
+    .mode-btn.active {
+      background: var(--brand);
+      color: #fff;
+    }
+
+    .mode-btn:hover:not(.active) {
+      background: #eff6ff;
+    }
+
+    /* ── Labels ── */
+    .field-label {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+    }
+
+    /* ── Textareas ── */
+    textarea {
+      width: 100%;
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      padding: 14px;
+      font-size: 0.97rem;
+      font-family: "SFMono-Regular", Consolas, monospace;
+      resize: vertical;
+      min-height: 140px;
+      transition: border-color 0.18s;
+      background: #f8fafc;
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    textarea:focus {
+      outline: none;
+      border-color: var(--brand);
+      background: var(--bg);
+    }
+
+    .textarea-wrap { margin-bottom: 12px; }
+
+    /* ── Arrow ── */
+    .arrow-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 8px 0;
+      color: var(--muted);
+      font-size: 1.3rem;
+      user-select: none;
+    }
+
+    /* ── Copy Button ── */
+    .copy-btn {
+      width: 100%;
+      padding: 12px 16px;
+      font-size: 1rem;
+      font-weight: 600;
+      background: var(--success);
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.18s, transform 0.1s;
+      min-height: 52px;
+      margin-top: 8px;
+    }
+
+    .copy-btn:hover { background: #059669; }
+    .copy-btn:active { transform: scale(0.98); }
+    .copy-btn.copied { background: #065f46; }
+
+    /* ── Error ── */
+    .error-msg {
+      color: #ef4444;
+      font-size: 0.88rem;
+      margin-top: 8px;
+      min-height: 1.4em;
+    }
+
+    /* ── Content Sections ── */
+    .content-section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      margin-bottom: 20px;
+      box-shadow: var(--shadow);
+    }
+    .content-section h2 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 14px;
+      color: var(--text);
+    }
+    .content-section p { color: var(--muted); font-size: 0.92rem; margin-bottom: 12px; line-height: 1.65; }
+    .content-section p:last-child { margin-bottom: 0; }
+
+    /* Steps */
+    ol.steps {
+      padding-left: 0;
+      list-style: none;
+      counter-reset: step;
+    }
+
+    ol.steps li {
+      counter-increment: step;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      margin-bottom: 14px;
+      font-size: 0.92rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    ol.steps li::before {
+      content: counter(step);
+      min-width: 28px;
+      height: 28px;
+      background: var(--brand);
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.82rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* Examples */
+    .example-block {
+      background: #f0f9ff;
+      border-left: 4px solid var(--brand);
+      border-radius: 0 8px 8px 0;
+      padding: 16px;
+      margin-bottom: 14px;
+    }
+
+    .example-block strong {
+      display: block;
+      font-size: 0.95rem;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .example-block code {
+      font-family: "SFMono-Regular", Consolas, monospace;
+      font-size: 0.88rem;
+      color: var(--muted);
+      word-break: break-all;
+    }
+
+    /* FAQ */
+    details {
+      border-bottom: 1px solid var(--border);
+      padding: 14px 0;
+    }
+    details:first-of-type { padding-top: 0; }
+    details:last-of-type  { border-bottom: none; padding-bottom: 0; }
+    summary {
+      font-weight: 600;
+      font-size: 0.94rem;
+      cursor: pointer;
+      color: var(--text);
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      user-select: none;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: "+"; font-size: 1.25rem; color: var(--brand); flex-shrink: 0; }
+    details[open] summary::after { content: "−"; }
+    details p { margin-top: 12px; font-size: 0.9rem; color: var(--muted); line-height: 1.6; }
+
+    /* Related Tools */
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 10px;
+    }
+
+    .related-grid a {
+      display: block;
+      padding: 12px 14px;
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      text-decoration: none;
+      color: var(--brand);
+      font-size: 0.93rem;
+      font-weight: 600;
+      transition: border-color 0.18s;
+    }
+
+    .related-grid a:hover {
+      border-color: var(--brand);
+    }
+
+    /* Mobile */
+    @media (max-width: 480px) {
+      .tool-card { padding: 20px 16px; }
+      textarea { min-height: 120px; font-size: 0.93rem; }
+      .mode-btn, .copy-btn { font-size: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <header>
+    <h1>Base64 Encode & Decode — Instant Online Converter</h1>
+    <p>Encode plain text to Base64 or decode Base64 strings back — in real time, no page reload needed.</p>
+  </header>
+
+  <div class="tool-card">
+    <div class="mode-toggle">
+      <button class="mode-btn active" id="btn-encode" onclick="setMode('encode')">⬆ Encode</button>
+      <button class="mode-btn" id="btn-decode" onclick="setMode('decode')">⬇ Decode</button>
+    </div>
+
+    <div class="textarea-wrap">
+      <div class="field-label" id="label-input">Plain Text</div>
+      <textarea id="input-text" placeholder="Type or paste your text here…" oninput="convert()" autocomplete="off" spellcheck="false"></textarea>
+    </div>
+
+    <div class="arrow-row">↕</div>
+
+    <div class="textarea-wrap">
+      <div class="field-label" id="label-output">Base64 Output</div>
+      <textarea id="output-text" placeholder="Result appears here automatically…" readonly></textarea>
+      <div class="error-msg" id="error-msg"></div>
+    </div>
+
+    <button class="copy-btn" id="copy-btn" onclick="copyResult()">Copy Result</button>
+  </div>
+
+  <div class="content-section">
+    <h2>What Is This Tool For?</h2>
+    <p>Base64 encoding converts binary or text data into a safe ASCII string — commonly used when embedding images in HTML/CSS, passing data through URLs, or storing credentials in config files. If you're a developer working with APIs, email attachments, or JWT tokens, you'll run into Base64 constantly.</p>
+    <p>This tool works just as well for non-developers. Need to decode a mysterious string you found in a config file or a web request? Paste it in, flip to Decode mode, and you'll see the original text instantly. It handles Unicode and Chinese characters too, so no garbled output.</p>
+  </div>
+
+  <div class="content-section">
+    <h2>How to Use</h2>
+    <ol class="steps">
+      <li>Choose your mode — hit <strong>Encode</strong> to convert plain text to Base64, or <strong>Decode</strong> to reverse a Base64 string back to readable text.</li>
+      <li>Type or paste your content into the top input box. The result appears in the output box instantly as you type — no button to click.</li>
+      <li>Hit <strong>Copy Result</strong> to grab the output with one tap, then paste it wherever you need it.</li>
+    </ol>
+  </div>
+
+  <div class="content-section">
+    <h2>Examples</h2>
+
+    <div class="example-block">
+      <strong>Example 1 — Encoding an API key for an HTTP header</strong>
+      <code>
+        Input: myuser:s3cr3tP@ss<br/>
+        Base64 Output: bXl1c2VyOnMzY3IzdFBAc3M=<br/>
+        Use it as: Authorization: Basic bXl1c2VyOnMzY3IzdFBAc3M=
+      </code>
+    </div>
+
+    <div class="example-block">
+      <strong>Example 2 — Decoding a Base64 string from a JWT payload</strong>
+      <code>
+        Input: eyJ1c2VyIjoiYWxpY2UiLCJyb2xlIjoiYWRtaW4ifQ==<br/>
+        Decoded Output: {"user":"alice","role":"admin"}
+      </code>
+    </div>
+  </div>
+
+  <div class="content-section">
+    <h2>FAQ</h2>
+
+    <details>
+      <summary>Is Base64 a form of encryption?</summary>
+      <p>No. Base64 is encoding, not encryption. Anyone with this tool can decode a Base64 string immediately. Don't use it to hide sensitive data — use proper encryption like AES for that.</p>
+    </details>
+
+    <details>
+      <summary>Why does my decoded output look garbled?</summary>
+      <p>The input might not be valid Base64, or it could be encoding binary data (like an image) rather than text. This tool is designed for text content. Binary files need a different approach.</p>
+    </details>
+
+    <details>
+      <summary>Does it support Chinese characters and emoji?</summary>
+      <p>Yes. The tool uses UTF-8 encoding under the hood, so Chinese, Japanese, Arabic, emoji, and other Unicode characters all encode and decode correctly.</p>
+    </details>
+
+    <details>
+      <summary>Is my data sent to a server?</summary>
+      <p>No. Everything runs locally in your browser using native JavaScript. Nothing you type is transmitted anywhere — safe to use with sensitive strings.</p>
+    </details>
+
+    <details>
+      <summary>What's the "=" padding at the end of Base64 strings?</summary>
+      <p>Base64 works in 3-byte chunks. If the input isn't a multiple of 3 bytes, "=" characters are added to pad the output to the correct length. It's normal and expected.</p>
+    </details>
+  </div>
+
+  <div class="content-section">
+    <h2>Related Tools</h2>
+    <div class="related-grid">
+      <a href="word-counter.html">📝 Word Counter</a>
+      <a href="case-converter.html">🔡 Case Converter</a>
+      <a href="lorem-ipsum.html">📄 Lorem Ipsum Generator</a>
+      <a href="json-formatter.html">📋 JSON Formatter</a>
+      <a href="base64.html">⚙️ Base64 Encode/Decode</a>
+      <a href="../../pages/about.html">ℹ About</a>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  let currentMode = 'encode';
+
+  function setMode(mode) {
+    currentMode = mode;
+    document.getElementById('btn-encode').classList.toggle('active', mode === 'encode');
+    document.getElementById('btn-decode').classList.toggle('active', mode === 'decode');
+    document.getElementById('label-input').textContent  = mode === 'encode' ? 'Plain Text'     : 'Base64 String';
+    document.getElementById('label-output').textContent = mode === 'encode' ? 'Base64 Output'  : 'Decoded Text';
+    document.getElementById('input-text').placeholder   = mode === 'encode'
+      ? 'Type or paste your text here…'
+      : 'Paste a Base64 string here…';
+    const inp = document.getElementById('input-text');
+    const out = document.getElementById('output-text');
+    inp.value = out.value;
+    convert();
+  }
+
+  function safeEncode(str) {
+    return btoa(
+      encodeURIComponent(str).replace(/%([0-9A-F]{2})/g, (_, p1) =>
+        String.fromCharCode(parseInt(p1, 16))
+      )
+    );
+  }
+
+  function safeDecode(str) {
+    return decodeURIComponent(
+      atob(str)
+        .split('')
+        .map(c => '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2))
+        .join('')
+    );
+  }
+
+  function convert() {
+    const input  = document.getElementById('input-text').value;
+    const outEl  = document.getElementById('output-text');
+    const errEl  = document.getElementById('error-msg');
+    errEl.textContent = '';
+
+    if (!input.trim()) {
+      outEl.value = '';
+      return;
+    }
+
+    try {
+      outEl.value = currentMode === 'encode' ? safeEncode(input) : safeDecode(input);
+    } catch (e) {
+      outEl.value = '';
+      errEl.textContent = currentMode === 'decode'
+        ? '⚠ Invalid Base64 string. Check your input and try again.'
+        : '⚠ Encoding failed. Please check your input.';
+    }
+  }
+
+  function copyResult() {
+    const out = document.getElementById('output-text').value;
+    if (!out) return;
+    const btn = document.getElementById('copy-btn');
+
+    navigator.clipboard.writeText(out).then(() => {
+      btn.textContent = '✓ Copied!';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.textContent = 'Copy Result';
+        btn.classList.remove('copied');
+      }, 2000);
+    }).catch(() => {
+      const ta = document.createElement('textarea');
+      ta.value = out;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+      btn.textContent = '✓ Copied!';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.textContent = 'Copy Result';
+        btn.classList.remove('copied');
+      }, 2000);
+    });
+  }
+</script>
+
+</body>
+</html>

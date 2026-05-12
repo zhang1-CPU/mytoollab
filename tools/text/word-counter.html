@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Word Counter – Instant Word & Character Count Online</title>
+  <meta name="description" content="Free real-time word and character counter. Paste or type your text and instantly see total words, characters, and trimmed length — no button clicks needed. Perfect for writers, students, developers, and content creators who need quick, accurate text stats on any device." />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f7f8fa;
+      --surface: #ffffff;
+      --border: #e2e5ea;
+      --accent: #4f6ef7;
+      --accent-light: #eef0fe;
+      --text: #1a1d23;
+      --muted: #6b7280;
+      --radius: 0.75rem;
+      --shadow: 0 2px 12px rgba(0,0,0,0.07);
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 1rem;
+      line-height: 1.6;
+      padding: 1.5rem 1rem 4rem;
+    }
+
+    .container {
+      max-width: 52rem;
+      margin: 0 auto;
+    }
+
+    /* ── Header ── */
+    header { text-align: center; margin-bottom: 2rem; }
+
+    h1 {
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      font-size: clamp(0.9rem, 2.5vw, 1rem);
+    }
+
+    /* ── Textarea ── */
+    .editor-wrap {
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      margin-bottom: 1rem;
+    }
+
+    #inputText {
+      width: 100%;
+      min-height: 14rem;
+      padding: 1.1rem 1.2rem;
+      font-size: clamp(0.95rem, 2.5vw, 1.05rem);
+      font-family: inherit;
+      line-height: 1.7;
+      border: none;
+      outline: none;
+      resize: vertical;
+      color: var(--text);
+      background: transparent;
+    }
+
+    #inputText::placeholder { color: #b0b7c3; }
+
+    .editor-footer {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 0.5rem 1rem;
+      border-top: 1px solid var(--border);
+      background: #fafbfc;
+    }
+
+    #clearBtn {
+      font-size: 0.85rem;
+      color: var(--muted);
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.25rem 0.5rem;
+      border-radius: 0.4rem;
+      transition: color 0.15s, background 0.15s;
+    }
+
+    #clearBtn:hover { color: #e53e3e; background: #fff0f0; }
+
+    /* ── Stats Grid ── */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .stat-card {
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.1rem 0.8rem;
+      text-align: center;
+      transition: border-color 0.2s;
+    }
+
+    .stat-card.active { border-color: var(--accent); background: var(--accent-light); }
+
+    .stat-value {
+      font-size: clamp(1.8rem, 5vw, 2.4rem);
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+
+    .stat-label {
+      font-size: clamp(0.72rem, 2vw, 0.8rem);
+      color: var(--muted);
+      margin-top: 0.3rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* ── Prose sections ── */
+    .section { margin-bottom: 2.2rem; }
+
+    h2 {
+      font-size: clamp(1.1rem, 3vw, 1.3rem);
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+      letter-spacing: -0.01em;
+    }
+
+    p { color: #374151; font-size: clamp(0.9rem, 2.5vw, 0.97rem); margin-bottom: 0.6rem; }
+
+    /* ── Steps ── */
+    .steps { list-style: none; counter-reset: steps; display: flex; flex-direction: column; gap: 0.6rem; }
+
+    .steps li {
+      counter-increment: steps;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 0.6rem;
+      padding: 0.75rem 1rem;
+      font-size: clamp(0.88rem, 2.5vw, 0.95rem);
+    }
+
+    .steps li::before {
+      content: counter(steps);
+      min-width: 1.6rem;
+      height: 1.6rem;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    /* ── Examples ── */
+    .example-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 0.6rem;
+      padding: 0.9rem 1rem;
+      margin-bottom: 0.75rem;
+      font-size: clamp(0.88rem, 2.5vw, 0.95rem);
+    }
+
+    .example-card strong { display: block; margin-bottom: 0.25rem; color: var(--text); }
+
+    /* ── FAQ ── */
+    .faq { display: flex; flex-direction: column; gap: 0.6rem; }
+
+    details {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 0.6rem;
+      overflow: hidden;
+    }
+
+    summary {
+      padding: 0.85rem 1rem;
+      font-weight: 600;
+      font-size: clamp(0.88rem, 2.5vw, 0.95rem);
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+    }
+
+    summary::-webkit-details-marker { display: none; }
+
+    summary::after {
+      content: "+";
+      font-size: 1.1rem;
+      color: var(--accent);
+      font-weight: 400;
+      transition: transform 0.2s;
+    }
+
+    details[open] summary::after { content: "−"; }
+
+    details p { padding: 0 1rem 0.85rem; color: var(--muted); }
+
+    /* ── Related Tools ── */
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+      gap: 0.6rem;
+    }
+
+    .related-grid a {
+      display: block;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 0.6rem;
+      padding: 0.7rem 0.9rem;
+      font-size: clamp(0.82rem, 2.2vw, 0.88rem);
+      color: var(--accent);
+      text-decoration: none;
+      text-align: center;
+      transition: background 0.15s, border-color 0.15s;
+    }
+
+    .related-grid a:hover { background: var(--accent-light); border-color: var(--accent); }
+
+    /* ── Divider ── */
+    hr { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
+
+    @media (max-width: 30rem) {
+      .stats { grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
+      .stat-card { padding: 0.85rem 0.4rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- ── H1 ── -->
+  <header>
+    <h1>Word Counter — Instant Word &amp; Character Count</h1>
+    <p class="subtitle">Type or paste your text. Stats update as you go — no button needed.</p>
+  </header>
+
+  <!-- ── Tool ── -->
+  <div class="editor-wrap">
+    <textarea id="inputText" placeholder="Start typing or paste your text here…" aria-label="Text input for word and character counting" spellcheck="true"></textarea>
+    <div class="editor-footer">
+      <button id="clearBtn" aria-label="Clear text">✕ Clear</button>
+    </div>
+  </div>
+
+  <div class="stats" role="region" aria-label="Text statistics">
+    <div class="stat-card" id="cardWords">
+      <div class="stat-value" id="wordCount">0</div>
+      <div class="stat-label">Words</div>
+    </div>
+    <div class="stat-card" id="cardChars">
+      <div class="stat-value" id="charCount">0</div>
+      <div class="stat-label">Characters</div>
+    </div>
+    <div class="stat-card" id="cardTrimmed">
+      <div class="stat-value" id="trimmedCount">0</div>
+      <div class="stat-label">Trimmed</div>
+    </div>
+  </div>
+
+  <hr />
+
+  <!-- ── About ── -->
+  <div class="section">
+    <h2>Who is this for?</h2>
+    <p>Whether you're a blogger hitting a 1,000-word target, a developer checking a UI string length, or a student staying within an essay limit — this tool gives you the numbers the moment you type. No sign-up, no ads, no data sent anywhere.</p>
+    <p>Content creators use it to nail SEO word counts. Translators use it to estimate project size. Social media managers use it to trim copy before it hits a platform character cap. If text length matters to you, this is your go-to.</p>
+  </div>
+
+  <!-- ── Steps ── -->
+  <div class="section">
+    <h2>How to use it — 3 steps</h2>
+    <ol class="steps">
+      <li>Paste or type your text into the box above.</li>
+      <li>Watch the word count, character count, and trimmed length update instantly — no clicking required.</li>
+      <li>Hit <strong>Clear</strong> to reset everything and start fresh with new text.</li>
+    </ol>
+  </div>
+
+  <!-- ── Examples ── -->
+  <div class="section">
+    <h2>Real-world examples</h2>
+    <div class="example-card">
+      <strong>📝 Blog post check</strong>
+      You've drafted an article and your editor wants "at least 800 words." Paste the draft — the word count updates immediately so you know exactly how far you are from the target without copying into Google Docs.
+    </div>
+    <div class="example-card">
+      <strong>📱 Social media copy</strong>
+      Twitter/X allows 280 characters. Paste your tweet draft and watch the character count in real time. Trim until you're under the limit — no guessing, no surprises when you hit Post.
+    </div>
+  </div>
+
+  <hr />
+
+  <!-- ── FAQ ── -->
+  <div class="section">
+    <h2>FAQ</h2>
+    <div class="faq">
+      <details>
+        <summary>What's the difference between "Characters" and "Trimmed"?</summary>
+        <p><strong>Characters</strong> is the raw total — every letter, space, and punctuation mark. <strong>Trimmed</strong> strips leading and trailing whitespace first, so it reflects the actual content length most APIs and platforms care about.</p>
+      </details>
+      <details>
+        <summary>Is my text stored or sent anywhere?</summary>
+        <p>No. Everything runs in your browser. Nothing is transmitted to any server. You can even use this tool offline once the page has loaded.</p>
+      </details>
+      <details>
+        <summary>How are words counted?</summary>
+        <p>Words are split on whitespace. Consecutive spaces count as one separator, so extra blank lines won't inflate your word count. Hyphenated words like "well-known" count as one word.</p>
+      </details>
+      <details>
+        <summary>Does it work on mobile?</summary>
+        <p>Yes. The layout, text area, and stat cards are all sized with relative units so they scale cleanly on any screen — phone, tablet, or desktop.</p>
+      </details>
+      <details>
+        <summary>Is there a character or word limit?</summary>
+        <p>No hard limit. The counter handles long documents, code files, and large pastes without slowing down.</p>
+      </details>
+    </div>
+  </div>
+
+  <!-- ── Related Tools ── -->
+  <div class="section">
+    <h2>Related tools</h2>
+    <div class="related-grid">
+      <a href="case-converter.html">Case Converter</a>
+      <a href="lorem-ipsum.html">Lorem Ipsum Generator</a>
+      <a href="base64.html">Base64 Encode/Decode</a>
+      <a href="json-formatter.html">JSON Formatter</a>
+      <a href="word-counter.html">Word Counter</a>
+      <a href="../../pages/about.html">About</a>
+    </div>
+  </div>
+
+</div><!-- /container -->
+
+<script>
+  const input      = document.getElementById('inputText');
+  const wordEl     = document.getElementById('wordCount');
+  const charEl     = document.getElementById('charCount');
+  const trimmedEl  = document.getElementById('trimmedCount');
+  const clearBtn   = document.getElementById('clearBtn');
+  const cardWords  = document.getElementById('cardWords');
+  const cardChars  = document.getElementById('cardChars');
+  const cardTrimmed= document.getElementById('cardTrimmed');
+
+  function update() {
+    const raw     = input.value;
+    const trimmed = raw.trim();
+    const words   = trimmed === '' ? 0 : trimmed.split(/\s+/).length;
+    const chars   = raw.length;
+    const trimLen = trimmed.length;
+
+    wordEl.textContent    = words.toLocaleString();
+    charEl.textContent    = chars.toLocaleString();
+    trimmedEl.textContent = trimLen.toLocaleString();
+
+    // Highlight active cards
+    cardWords.classList.toggle('active', words > 0);
+    cardChars.classList.toggle('active', chars > 0);
+    cardTrimmed.classList.toggle('active', trimLen > 0);
+  }
+
+  input.addEventListener('input', update);
+
+  clearBtn.addEventListener('click', () => {
+    input.value = '';
+    update();
+    input.focus();
+  });
+
+  // Init
+  update();
+</script>
+</body>
+</html>

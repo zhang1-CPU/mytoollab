@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>字数统计 - My Tool Lab</title>
+    <link rel="stylesheet" href="../../_css/main.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">My Tool Lab</div>
+            <ul>
+                <li><a href="../../index.html">首页</a></li>
+                <li><a href="../../categories/text.html">文本工具</a></li>
+                <li><a href="../../pages/about.html">关于</a></li>
+                <li><a href="../../pages/contact.html">联系</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="tool-container">
+            <h2>字数统计工具</h2>
+            <p>输入文本，统计字符数、单词数和行数</p>
+            <textarea id="inputText" rows="10" placeholder="在此输入文本..."></textarea>
+            <div class="result">
+                <p>字符数（含空格）: <span id="charCount">0</span></p>
+                <p>字符数（不含空格）: <span id="charCountNoSpace">0</span></p>
+                <p>单词数: <span id="wordCount">0</span></p>
+                <p>行数: <span id="lineCount">0</span></p>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 My Tool Lab. All rights reserved.</p>
+        <nav>
+            <a href="../../pages/privacy.html">隐私政策</a>
+            <a href="../../pages/disclaimer.html">免责声明</a>
+        </nav>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const inputText = document.getElementById('inputText');
+            
+            inputText.addEventListener('input', function() {
+                const text = inputText.value;
+                document.getElementById('charCount').textContent = text.length;
+                document.getElementById('charCountNoSpace').textContent = text.replace(/\s/g, '').length;
+                document.getElementById('wordCount').textContent = text.trim() ? text.trim().split(/\s+/).length : 0;
+                document.getElementById('lineCount').textContent = text.split('\n').length;
+            });
+        });
+    </script>
+</body>
+</html>

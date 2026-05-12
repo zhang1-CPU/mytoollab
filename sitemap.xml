@@ -1,57 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://zhang1-CPU.github.io/</loc>
+    <loc>https://zhang1-CPU.github.io/mytoollab/</loc>
     <priority>1.0</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://zhang1-CPU.github.io/categories/text.html</loc>
+    <loc>https://zhang1-CPU.github.io/mytoollab/categories/text.html</loc>
     <priority>0.8</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://zhang1-CPU.github.io/tools/text/word-counter.html</loc>
+    <loc>https://zhang1-CPU.github.io/mytoollab/tools/text/word-counter.html</loc>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://zhang1-CPU.github.io/tools/text/json-formatter.html</loc>
+    <loc>https://zhang1-CPU.github.io/mytoollab/tools/text/json-formatter.html</loc>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://zhang1-CPU.github.io/tools/text/case-converter.html</loc>
+    <loc>https://zhang1-CPU.github.io/mytoollab/tools/text/case-converter.html</loc>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://zhang1-CPU.github.io/tools/text/lorem-ipsum.html</loc>
+    <loc>https://zhang1-CPU.github.io/mytoollab/tools/text/lorem-ipsum.html</loc>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://zhang1-CPU.github.io/tools/text/base64.html</loc>
+    <loc>https://zhang1-CPU.github.io/mytoollab/tools/text/base64.html</loc>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://zhang1-CPU.github.io/pages/about.html</loc>
+    <loc>https://zhang1-CPU.github.io/mytoollab/pages/about.html</loc>
     <priority>0.6</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://zhang1-CPU.github.io/pages/contact.html</loc>
+    <loc>https://zhang1-CPU.github.io/mytoollab/pages/contact.html</loc>
     <priority>0.6</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://zhang1-CPU.github.io/pages/privacy.html</loc>
+    <loc>https://zhang1-CPU.github.io/mytoollab/pages/privacy.html</loc>
     <priority>0.6</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://zhang1-CPU.github.io/pages/disclaimer.html</loc>
+    <loc>https://zhang1-CPU.github.io/mytoollab/pages/disclaimer.html</loc>
     <priority>0.6</priority>
     <changefreq>monthly</changefreq>
   </url>

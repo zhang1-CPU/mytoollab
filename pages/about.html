@@ -1,164 +1,52 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About – My Tool Lab</title>
-  <meta name="description" content="Learn what My Tool Lab is, who it's for, and why every tool is free, browser-based, and requires no signup." />
-  <style>
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background: #f9f9f9;
-      color: #1a1a1a;
-      line-height: 1.7;
-      padding: 2rem 1rem;
-    }
-
-    .container {
-      max-width: 680px;
-      margin: 0 auto;
-      background: #ffffff;
-      border-radius: 10px;
-      padding: 2.5rem 2rem;
-      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
-    }
-
-    header {
-      margin-bottom: 2rem;
-    }
-
-    header a {
-      font-size: 0.9rem;
-      color: #555;
-      text-decoration: none;
-    }
-
-    header a:hover {
-      color: #000;
-    }
-
-    h1 {
-      font-size: 1.75rem;
-      font-weight: 700;
-      margin-top: 1rem;
-      color: #111;
-    }
-
-    section {
-      margin-top: 1.75rem;
-    }
-
-    h2 {
-      font-size: 1rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: #555;
-      margin-bottom: 0.5rem;
-    }
-
-    p {
-      font-size: 1rem;
-      color: #333;
-    }
-
-    .closing {
-      margin-top: 2rem;
-      padding-top: 1.5rem;
-      border-top: 1px solid #eee;
-      font-size: 1rem;
-      color: #333;
-    }
-
-    .closing a {
-      color: #2563eb;
-      text-decoration: none;
-      font-weight: 500;
-    }
-
-    .closing a:hover {
-      text-decoration: underline;
-    }
-
-    footer {
-      margin-top: 2.5rem;
-      text-align: center;
-      font-size: 0.8rem;
-      color: #aaa;
-    }
-  </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About | My Tool Lab</title>
+  <meta name="description" content="Learn about My Tool Lab, a free browser-based online tools website for text and developer tasks." />
+  <link rel="stylesheet" href="/_css/main.css" />
 </head>
 <body>
-  <div class="container">
-    <header>
-      <a href="../index.html">&larr; Back to tools</a>
+  <header class="site-header">
+    <nav class="site-nav">
+      <a href="/">My Tool Lab</a>
+      <div class="nav-links">
+        <a href="/categories/text.html">Text Tools</a>
+        <a href="/about.html" aria-current="page">About</a>
+        <a href="/contact.html">Contact</a>
+        <a href="/privacy.html">Privacy Policy</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="page-shell">
+    <section class="content-card">
+      <p class="eyebrow">About</p>
       <h1>About My Tool Lab</h1>
-    </header>
-
-    <section>
-      <h2>What this site is</h2>
       <p>
-        My Tool Lab is a collection of small, useful tools built for everyday tasks —
-        things like formatting text, converting files, generating colors, or cleaning up data.
-        Nothing fancy, just tools that work.
+        My Tool Lab is a simple online tools website built to help people get quick results without signing up or installing anything.
+        The site focuses on lightweight browser-based tools for text tasks and developer tasks, so you can use them instantly on desktop or mobile.
+      </p>
+      <p>
+        Our goal is to make everyday tasks faster and easier. Whether you want to count words, convert text case, format JSON, or encode Base64,
+        the tools are designed to be clear, fast, and practical.
+      </p>
+      <p>
+        We keep the site minimal on purpose. That means fewer distractions, faster loading, and a better experience for people who just want to get something done.
+      </p>
+      <p>
+        If you find a bug or want a new tool added, please use the Contact page. We review feedback and keep improving the site over time.
       </p>
     </section>
+  </main>
 
-    <section>
-      <h2>Who it's for</h2>
-      <p>
-        Anyone who needs to get something done quickly without downloading software or
-        creating an account. Developers, designers, writers, students — if you've ever
-        searched "free online [tool] no signup," this site is for you.
-      </p>
-    </section>
-
-    <section>
-      <h2>Why browser-based and free</h2>
-      <p>
-        Every tool on this site runs directly in your browser. That means nothing is
-        installed on your computer, and in most cases, your data never leaves your device
-        at all. Free means free — no trials, no paywalls, no "premium" version hiding
-        the features you actually need.
-      </p>
-    </section>
-
-    <section>
-      <h2>How we think about tools</h2>
-      <p>
-        A good tool does one thing well. It loads fast, works without explanation, and
-        gets out of your way. That's the standard we hold every tool to here. If it's
-        slow, confusing, or bloated, it doesn't belong on this site.
-      </p>
-    </section>
-
-    <section>
-      <h2>Privacy and trust</h2>
-      <p>
-        We don't track what you type, we don't store your files, and we don't ask you
-        to sign up. Most tools process everything locally, so your data stays on your
-        machine. No account, no email, no strings attached.
-      </p>
-    </section>
-
-    <p class="closing">
-      Take a look around — there's probably something here that saves you a few minutes today.
-      <a href="../index.html">Explore the tools &rarr;</a>
-    </p>
-  </div>
-
-  <footer>
-    &copy; <span id="year"></span> My Tool Lab
+  <footer class="site-footer">
+    <a href="/">Home</a>
+    <a href="/categories/text.html">Text Tools</a>
+    <a href="/contact.html">Contact</a>
+    <a href="/privacy.html">Privacy Policy</a>
+    <a href="/disclaimer.html">Disclaimer</a>
   </footer>
-
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>

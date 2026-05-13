@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>JSON Formatter – Instant JSON Format & Validate Online</title>
   <meta name="description" content="Free online JSON formatter with real-time formatting, syntax error detection with line number warnings, code highlighting, collapsible view, and one-click copy. Perfect for developers debugging APIs, validating configs, or inspecting JSON responses on any device — no button clicks needed, just paste and go." />
+  <link rel="canonical" href="https://zlbox.site/tools/text/json-formatter.html" />
+  <meta name="google-site-verification" content="google4bd1e08685667667" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" 
       crossorigin="anonymous"></script>
   <style>
@@ -36,7 +38,7 @@
 
     .container { max-width: var(--max-w); margin: 0 auto; padding: 0 16px; }
 
-    /* ── Header ── */
+    /* ── Header ─ */
     header { text-align: center; margin-bottom: 32px; padding-top: 40px; }
     h1 {
       font-size: clamp(1.6rem, 4vw, 2.2rem);
@@ -328,7 +330,7 @@
     <p class="subtitle">Real-time formatting, syntax error detection with line numbers, code highlighting, and one-click copy. No button clicks needed.</p>
   </header>
 
-  <!-- ── Toolbar ── -->
+  <!-- ── Toolbar ─ -->
   <div class="toolbar">
     <button class="btn btn-sample" onclick="loadSample()">⚡ Load Sample</button>
     <button class="btn btn-collapse" id="btn-collapse" onclick="toggleCollapse()" disabled>⊟ Collapse All</button>
@@ -360,14 +362,14 @@
     </div>
   </div>
 
-  <!-- ── About ── -->
+  <!-- ── About ─ -->
   <div class="content-section">
     <h2>What Is This Tool For?</h2>
     <p>Working with raw JSON from an API response, a config file, or a database dump can be painful when it's all on one line. This formatter instantly structures your JSON into a readable, indented layout as you type — no button clicks, no page reloads.</p>
     <p>It's built for developers who need to debug REST APIs, inspect webhook payloads, validate JSON configs before deployment, or just make sense of a messy data blob on the go. Works equally well on desktop and mobile, with horizontal scrolling so nothing gets squished.</p>
   </div>
 
-  <!-- ── Steps ── -->
+  <!-- ── Steps ─ -->
   <div class="content-section">
     <h2>How to Use It — 3 Steps</h2>
     <div class="steps">
@@ -415,7 +417,7 @@ Error:  ⚠ SyntaxError at line 1 — Unexpected token }
         → Check for a trailing comma before the closing brace.</div>
   </div>
 
-  <!-- ── FAQ ── -->
+  <!-- ── FAQ ─ -->
   <div class="content-section">
     <h2>FAQ</h2>
 
@@ -454,7 +456,7 @@ Error:  ⚠ SyntaxError at line 1 — Unexpected token }
       <a href="lorem-ipsum.html" class="related-link">📄 Lorem Ipsum</a>
       <a href="base64.html" class="related-link">⎗ Base64 Encoder</a>
       <a href="json-formatter.html" class="related-link">📋 JSON Formatter</a>
-      <a href="../../pages/about.html" class="related-link">ℹ About</a>
+      <a href="../../index.html" class="related-link">ℹ Home</a>
     </div>
   </div>
 
@@ -530,117 +532,111 @@ Error:  ⚠ SyntaxError at line 1 — Unexpected token }
     errorText.textContent = '';
   }
 
-  // ── Syntax-highlighted render ──
+  // ── Syntax-highlighted rendering ──
   function showOutput(data) {
-    isCollapsed = false;
-    btnCollapse.textContent = '⊟ Collapse All';
-    const pre = document.createElement('pre');
-    const code = document.createElement('code');
-    code.innerHTML = buildHighlightedHTML(data, 0);
-    pre.appendChild(code);
-    outputPanel.innerHTML = '';
-    outputPanel.appendChild(pre);
+    outputPanel.innerHTML = '<pre>' + syntaxHighlight(JSON.stringify(data, null, 2)) + '</pre>';
+    addCollapseHandlers();
   }
 
-  function buildHighlightedHTML(val, depth) {
-    if (val === null) return `<span class="json-null">null</span>`;
-    if (typeof val === 'boolean') return `<span class="json-bool">${val}</span>`;
-    if (typeof val === 'number')  return `<span class="json-number">${val}</span>`;
-    if (typeof val === 'string')  return `<span class="json-string">"${escapeHTML(val)}"</span>`;
-
-    const indent  = '  '.repeat(depth + 1);
-    const outdent = '  '.repeat(depth);
-
-    if (Array.isArray(val)) {
-      if (val.length === 0) return `<span class="json-brace">[]</span>`;
-      const id = uid();
-      const items = val.map(item => `${indent}${buildHighlightedHTML(item, depth + 1)}`).join(',\n');
-      return `<span class="json-brace">[</span><span class="collapsible-toggle" data-id="${id}" onclick="toggleNode(this)">▾</span>\n<span class="collapsible-body" id="${id}">${items}\n${outdent}</span><span class="json-brace">]</span>`;
-    }
-
-    if (typeof val === 'object') {
-      const keys = Object.keys(val);
-      if (keys.length === 0) return `<span class="json-brace">{}</span>`;
-      const id = uid();
-      const entries = keys.map(k => {
-        return `${indent}<span class="json-key">"${escapeHTML(k)}"</span><span class="json-brace">: </span>${buildHighlightedHTML(val[k], depth + 1)}`;
-      }).join(',\n');
-      return `<span class="json-brace">{</span><span class="collapsible-toggle" data-id="${id}" onclick="toggleNode(this)">▾</span>\n<span class="collapsible-body" id="${id}">${entries}\n${outdent}</span><span class="json-brace">}</span>`;
-    }
-
-    return escapeHTML(String(val));
-  }
-
-  function escapeHTML(str) {
-    return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-  }
-
-  let _uid = 0;
-  function uid() { return 'n' + (++_uid); }
-
-  // ── Toggle individual node ──
-  function toggleNode(btn) {
-    const id = btn.dataset.id;
-    const body = document.getElementById(id);
-    if (!body) return;
-    const hidden = body.style.display === 'none';
-    if (hidden) {
-      body.style.display = '';
-      btn.textContent = '▾';
-      const ph = btn.nextElementSibling;
-      if (ph && ph.classList.contains('collapsed-placeholder')) ph.remove();
-    } else {
-      body.style.display = 'none';
-      btn.textContent = '▸';
-      const ph = document.createElement('span');
-      ph.className = 'collapsed-placeholder';
-      ph.textContent = '…';
-      btn.after(ph);
-    }
-  }
-
-  // ── Collapse / Expand All ──
-  function toggleCollapse() {
-    const bodies = outputPanel.querySelectorAll('.collapsible-body');
-    const toggles = outputPanel.querySelectorAll('.collapsible-toggle');
-    if (!isCollapsed) {
-      bodies.forEach(b => { b.style.display = 'none'; });
-      toggles.forEach(t => {
-        t.textContent = '▸';
-        const ph = t.nextElementSibling;
-        if (!ph || !ph.classList.contains('collapsed-placeholder')) {
-          const span = document.createElement('span');
-          span.className = 'collapsed-placeholder';
-          span.textContent = '…';
-          t.after(span);
+  function syntaxHighlight(json) {
+    json = json.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    return json.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, (match) => {
+      let cls = 'json-number';
+      if (/^"/.test(match)) {
+        if (/:$/.test(match)) {
+          cls = 'json-key';
+        } else {
+          cls = 'json-string';
         }
-      });
-      isCollapsed = true;
-      btnCollapse.textContent = '⊞ Expand All';
-    } else {
-      bodies.forEach(b => { b.style.display = ''; });
-      toggles.forEach(t => { t.textContent = '▾'; });
-      outputPanel.querySelectorAll('.collapsed-placeholder').forEach(p => p.remove());
-      isCollapsed = false;
-      btnCollapse.textContent = '⊟ Collapse All';
-    }
+      } else if (/true|false/.test(match)) {
+        cls = 'json-bool';
+      } else if (/null/.test(match)) {
+        cls = 'json-null';
+      }
+      return '<span class="' + cls + '">' + match + '</span>';
+    });
   }
 
-  // ── Copy ──
+  // ── Collapse ─
+  function addCollapseHandlers() {
+    const pre = outputPanel.querySelector('pre');
+    if (!pre) return;
+
+    let depth = 0;
+    const lines = pre.innerHTML.split('\n');
+    const newLines = [];
+    const stack = [];
+
+    for (let i = 0; i < lines.length; i++) {
+      const line = lines[i];
+      const trimmed = line.trim();
+      const openMatch = trimmed.match(/([{[])/);
+      const closeMatch = trimmed.match(/([}\]])/);
+      
+      if (openMatch && !closeMatch) {
+        const brace = openMatch[1];
+        const toggleId = `collapse-${depth}`;
+        newLines.push(`<span class="collapsible-toggle" data-target="${toggleId}" data-type="${brace}">▼</span>` + line);
+        newLines.push(`<span id="${toggleId}" class="collapsed-placeholder" style="display:none;">…</span>`);
+        stack.push({ id: toggleId, lines: [] });
+        depth++;
+      } else if (closeMatch && !openMatch) {
+        if (stack.length > 0) {
+          const top = stack[stack.length - 1];
+          for (const childLine of top.lines) {
+            newLines.splice(newLines.indexOf(childLine) - 1, 0, `<span style="display:none" class="collapsed-content-${top.id}">${childLine}</span>`);
+          }
+          const el = document.getElementById(top.id);
+          if (el) {
+            const contentSpans = outputPanel.querySelectorAll(`.collapsed-content-${top.id}`);
+            contentSpans.forEach(s => s.style.display = 'none');
+          }
+        }
+        depth = Math.max(0, depth - 1);
+        newLines.push(line);
+      } else {
+        newLines.push(line);
+      }
+    }
+
+    pre.innerHTML = newLines.join('\n');
+  }
+
+  function toggleCollapse() {
+    const toggles = outputPanel.querySelectorAll('.collapsible-toggle');
+    const isCurrentlyCollapsed = toggles.length > 0 && toggles[0].textContent === '▶';
+
+    toggles.forEach(toggle => {
+      const targetId = toggle.dataset.target;
+      const type = toggle.dataset.type;
+      const contentSpans = outputPanel.querySelectorAll(`.collapsed-content-${targetId}`);
+      
+      if (isCurrentlyCollapsed) {
+        toggle.textContent = '▼';
+        contentSpans.forEach(s => s.style.display = '');
+        const placeholder = document.getElementById(targetId);
+        if (placeholder) placeholder.style.display = 'none';
+      } else {
+        toggle.textContent = '▶';
+        contentSpans.forEach(s => s.style.display = 'none');
+        const placeholder = document.getElementById(targetId);
+        if (placeholder) placeholder.style.display = '';
+      }
+    });
+  }
+
+  // ── Sample data ──
+  function loadSample() {
+    input.value = '{"user":{"id":42,"name":"Alice","roles":["admin","editor"],"active":true},"token":"abc123","meta":null}';
+    parseAndRender(input.value);
+  }
+
+  // ── Copy output ──
   function copyOutput() {
     if (!formattedJSON) return;
     navigator.clipboard.writeText(formattedJSON).then(() => {
       copyFeedback.classList.add('show');
-      setTimeout(() => copyFeedback.classList.remove('show'), 1800);
-    }).catch(() => {
-      const ta = document.createElement('textarea');
-      ta.value = formattedJSON;
-      document.body.appendChild(ta);
-      ta.select();
-      document.execCommand('copy');
-      document.body.removeChild(ta);
-      copyFeedback.classList.add('show');
-      setTimeout(() => copyFeedback.classList.remove('show'), 1800);
+      setTimeout(() => copyFeedback.classList.remove('show'), 2000);
     });
   }
 
@@ -648,25 +644,19 @@ Error:  ⚠ SyntaxError at line 1 — Unexpected token }
   function clearAll() {
     input.value = '';
     reset();
+    input.focus();
   }
 
   function reset() {
-    parsedData = null;
     formattedJSON = '';
+    parsedData = null;
+    isCollapsed = false;
     outputPanel.innerHTML = '<div class="output-placeholder">Formatted JSON will appear here as you type…</div>';
     clearError();
     input.classList.remove('has-error', 'is-valid');
     btnCopy.disabled = true;
     btnCollapse.disabled = true;
     validBadge.classList.remove('show');
-    isCollapsed = false;
-    btnCollapse.textContent = '⊟ Collapse All';
-  }
-
-  // ── Sample ──
-  function loadSample() {
-    input.value = `{"store":{"name":"BookShop","open":true,"rating":4.8,"inventory":[{"id":1,"title":"Clean Code","author":"Robert C. Martin","price":29.99,"inStock":true},{"id":2,"title":"The Pragmatic Programmer","author":"David Thomas","price":34.95,"inStock":false}],"address":{"street":"123 Main St","city":"San Francisco","zip":"94105"},"contact":null}}`;
-    parseAndRender(input.value.trim());
   }
 </script>
 </body>

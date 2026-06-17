@@ -18,7 +18,6 @@
   </script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
       --brand: #2563eb;
       --brand-hover: #1d4ed8;
@@ -32,7 +31,6 @@
       --shadow: 0 2px 8px rgba(0,0,0,0.06);
       --max-w: 720px;
     }
-
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       background: var(--bg);
@@ -40,12 +38,13 @@
       line-height: 1.65;
       padding: 0 16px 48px;
     }
-
     a { color: var(--brand); text-decoration: none; }
     a:hover { text-decoration: underline; }
-
     .container { max-width: var(--max-w); margin: 0 auto; }
-
+    .ad-container {
+      margin: 1.5rem auto;
+      text-align: center;
+    }
     /* ── Header ── */
     header {
       text-align: center;
@@ -65,7 +64,6 @@
       max-width: 500px;
       margin: 0 auto;
     }
-
     /* ── Tool Card ── */
     .tool-card {
       background: var(--surface);
@@ -75,20 +73,17 @@
       padding: 24px;
       margin-bottom: 24px;
     }
-
     .controls-row {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
       gap: 14px;
       margin-bottom: 22px;
     }
-
     .control-group {
       display: flex;
       flex-direction: column;
       gap: 6px;
     }
-
     .control-label {
       font-size: 0.75rem;
       font-weight: 700;
@@ -96,7 +91,6 @@
       text-transform: uppercase;
       letter-spacing: 0.05em;
     }
-
     .control-input {
       width: 100%;
       padding: 11px 14px;
@@ -114,7 +108,6 @@
       border-color: var(--brand);
       background: var(--surface);
     }
-
     .btn-generate {
       width: 100%;
       padding: 14px;
@@ -130,14 +123,12 @@
     }
     .btn-generate:hover { background: var(--brand-hover); }
     .btn-generate:active { transform: scale(0.98); }
-
     .result-area {
       background: #1e293b;
       border-radius: 10px;
       padding: 18px;
       margin-bottom: 16px;
     }
-
     .result-text {
       color: #e2e8f0;
       font-size: 0.95rem;
@@ -147,7 +138,6 @@
       white-space: pre-wrap;
       word-wrap: break-word;
     }
-
     .result-meta {
       display: flex;
       justify-content: space-between;
@@ -157,7 +147,6 @@
       font-size: 0.85rem;
       color: var(--muted);
     }
-
     .btn-copy {
       display: inline-flex;
       align-items: center;
@@ -174,7 +163,6 @@
     }
     .btn-copy:hover { background: #059669; }
     .btn-copy.copied { background: #065f46; }
-
     /* ── Content Sections ── */
     .content-section {
       background: var(--surface);
@@ -192,7 +180,6 @@
     }
     .content-section p { color: var(--muted); font-size: 0.92rem; margin-bottom: 12px; line-height: 1.65; }
     .content-section p:last-child { margin-bottom: 0; }
-
     /* Steps */
     .steps-list {
       display: flex;
@@ -219,7 +206,6 @@
     }
     .step-text { color: var(--muted); font-size: 0.92rem; line-height: 1.6; }
     .step-text strong { color: var(--text); }
-
     /* FAQ */
     .faq-item { margin-bottom: 14px; }
     .faq-item:last-child { margin-bottom: 0; }
@@ -234,7 +220,6 @@
       font-size: 0.9rem;
       line-height: 1.6;
     }
-
     /* Related Tools */
     .related-grid {
       display: grid;
@@ -254,7 +239,6 @@
       transition: border-color 0.15s;
     }
     .related-grid a:hover { border-color: var(--brand); }
-
     /* Mobile */
     @media (max-width: 480px) {
       .tool-card { padding: 18px; }
@@ -264,14 +248,24 @@
   </style>
 </head>
 <body>
-
 <div class="container">
+  <!-- ── Banner Ad ── -->
+  <div class="ad-container">
+    <ins class="adsbygoogle"
+         style="display:block; width:100%; max-width:728px; height:90px; margin:0 auto;"
+         data-ad-client="ca-pub-5420550088713746"
+         data-ad-slot="4567890123"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
 
   <header>
     <h1>Lorem Ipsum Generator — Create Placeholder Text in Seconds</h1>
     <p>Generate clean, customizable placeholder text for your designs. Choose paragraphs, sentences, or words — it's all instant.</p>
   </header>
-
   <div class="tool-card">
     <div class="controls-row">
       <div class="control-group">
@@ -287,13 +281,10 @@
         <input type="number" id="wordCount" class="control-input" value="8" min="1" max="50" />
       </div>
     </div>
-
     <button class="btn-generate" onclick="generate()">Generate Lorem Ipsum</button>
-
     <div class="result-area">
       <div class="result-text" id="resultText">Click "Generate Lorem Ipsum" to create placeholder text.</div>
     </div>
-
     <div class="result-meta">
       <span id="stats">0 words | 0 sentences | 0 paragraphs</span>
       <button class="btn-copy" id="copyBtn" onclick="copyResult()">
@@ -306,11 +297,23 @@
     </div>
   </div>
 
+  <!-- ── Inline Ad ── -->
+  <div class="ad-container">
+    <ins class="adsbygoogle"
+         style="display:block; width:100%; max-width:728px; height:90px; margin:0 auto;"
+         data-ad-client="ca-pub-5420550088713746"
+         data-ad-slot="5678901234"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+
   <div class="content-section">
     <h2>Who Uses This?</h2>
     <p>Designers use Lorem Ipsum to fill wireframes and mockups with realistic-looking text before the real copy is ready. Developers use it to test layout responsiveness and typography. Content managers use it to set up page templates. It's the universal placeholder text for anyone building something visual.</p>
   </div>
-
   <div class="content-section">
     <h2>How to Use</h2>
     <div class="steps-list">
@@ -328,7 +331,6 @@
       </div>
     </div>
   </div>
-
   <div class="content-section">
     <h2>FAQ</h2>
     <div class="faq-item">
@@ -345,6 +347,19 @@
     </div>
   </div>
 
+  <!-- ── Inline Ad 2 ── -->
+  <div class="ad-container">
+    <ins class="adsbygoogle"
+         style="display:block; width:100%; max-width:728px; height:90px; margin:0 auto;"
+         data-ad-client="ca-pub-5420550088713746"
+         data-ad-slot="6789012345"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+
   <div class="content-section">
     <h2>Related Tools</h2>
     <div class="related-grid">
@@ -356,9 +371,7 @@
       <a href="../../index.html">ℹ Home</a>
     </div>
   </div>
-
 </div>
-
 <script>
   const LOREM_WORDS = [
     'Lorem', 'ipsum', 'dolor', 'sit', 'amet', 'consectetur', 'adipiscing', 'elit',
@@ -378,7 +391,6 @@
     'posuere', 'morbi', 'leo', 'urna', 'mollis', 'eu', 'imperdiet', 'nulla',
     'ac', 'ultrices', 'sagittis', 'Nam', 'dui', 'vel', 'sapien', 'cursus'
   ];
-
   function generate() {
     const paraCount = parseInt(document.getElementById('paraCount').value) || 3;
     const sentCount = parseInt(document.getElementById('sentCount').value) || 4;
@@ -408,9 +420,8 @@
     }
     
     document.getElementById('resultText').textContent = result;
-    document.getElementById('stats').textContent = `${totalWords.toLocaleString()} words | ${totalSents} sentences | ${paraCount} paragraphs`;
+    document.getElementById('stats').textContent = totalWords.toLocaleString() + ' words | ' + totalSents + ' sentences | ' + paraCount + ' paragraphs';
   }
-
   function copyResult() {
     const text = document.getElementById('resultText').textContent;
     if (!text || text.includes('Click "Generate')) return;
@@ -421,7 +432,7 @@
       btn.innerHTML = '✓ Copied!';
       btn.classList.add('copied');
       setTimeout(() => {
-        btn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy`;
+        btn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy';
         btn.classList.remove('copied');
       }, 2000);
     }).catch(() => {
@@ -435,12 +446,11 @@
       btn.innerHTML = '✓ Copied!';
       btn.classList.add('copied');
       setTimeout(() => {
-        btn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy`;
+        btn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy';
         btn.classList.remove('copied');
       }, 2000);
     });
   }
 </script>
-
 </body>
 </html>

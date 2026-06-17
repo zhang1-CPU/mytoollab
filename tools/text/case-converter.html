@@ -42,7 +42,7 @@
     a:hover { text-decoration: underline; }
     .container { max-width: var(--max-w); margin: 0 auto; }
     .ad-container {
-      margin: 20px auto;
+      margin: 1.5rem auto;
       text-align: center;
     }
     /* ── Header ── */
@@ -295,7 +295,7 @@
     <ins class="adsbygoogle"
          style="display:block; width:100%; max-width:728px; height:90px; margin:0 auto;"
          data-ad-client="ca-pub-5420550088713746"
-         data-ad-slot="1122334455"
+         data-ad-slot="1234567890"
          data-ad-format="auto"
          data-full-width-responsive="true"></ins>
     <script>
@@ -364,7 +364,7 @@
     <ins class="adsbygoogle"
          style="display:block; width:100%; max-width:728px; height:90px; margin:0 auto;"
          data-ad-client="ca-pub-5420550088713746"
-         data-ad-slot="2233445566"
+         data-ad-slot="2345678901"
          data-ad-format="auto"
          data-full-width-responsive="true"></ins>
     <script>
@@ -427,7 +427,7 @@
     <ins class="adsbygoogle"
          style="display:block; width:100%; max-width:728px; height:90px; margin:0 auto;"
          data-ad-client="ca-pub-5420550088713746"
-         data-ad-slot="3344556677"
+         data-ad-slot="3456789012"
          data-ad-format="auto"
          data-full-width-responsive="true"></ins>
     <script>
@@ -443,7 +443,7 @@
       <a href="base64.html">⚙️ Base64 Encode/Decode</a>
       <a href="json-formatter.html">📋 JSON Formatter</a>
       <a href="case-converter.html">🔡 Case Converter</a>
-      <a href="../../index.html">ℹ Home</a>
+      <a href="../../about.html">ℹ About</a>
     </div>
   </div>
 </div>
@@ -469,20 +469,16 @@
     lowercase: function (t) { return t.toLowerCase(); },
     titlecase: function (t) {
       var tokens = t.trim().split(/(\s+)/);
-      var result = '';
-      for (var i = 0; i < tokens.length; i++) {
-        if (tokens[i].match(/\s+/)) {
-          result += tokens[i];
-        } else {
-          var word = tokens[i];
-          if (i === 0 || i === tokens.length - 1 || !MINOR.has(word.toLowerCase())) {
-            result += word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
-          } else {
-            result += word.toLowerCase();
-          }
-        }
-      }
-      return result;
+      return tokens.map(function (part, i) {
+        if (!/\S/.test(part)) return part;
+        var words = part.split(/\s+/).filter(Boolean);
+        if (!words.length) return part;
+        var first = words[0].charAt(0).toUpperCase() + words[0].slice(1).toLowerCase();
+        var rest = words.slice(1).map(function (w) {
+          return MINOR.has(w.toLowerCase()) ? w.toLowerCase() : w.charAt(0).toUpperCase() + w.slice(1).toLowerCase();
+        });
+        return [first].concat(rest).join(' ');
+      }).join('');
     },
     snakecase: function (t) {
       return splitWords(t).join('_').toLowerCase();
@@ -491,12 +487,11 @@
       return splitWords(t).join('-').toLowerCase();
     },
     camelcase: function (t) {
-      var words = splitWords(t).map(function (w) {
+      var words = splitWords(t);
+      if (!words.length) return '';
+      return words[0].toLowerCase() + words.slice(1).map(function (w) {
         return w.charAt(0).toUpperCase() + w.slice(1).toLowerCase();
-      });
-      if (words.length === 0) return '';
-      words[0] = words[0].toLowerCase();
-      return words.join('');
+      }).join('');
     },
     pascalcase: function (t) {
       return splitWords(t).map(function (w) {
@@ -504,53 +499,51 @@
       }).join('');
     }
   };
-  var input = document.getElementById('inputText');
-  var output = document.getElementById('outputText');
-  var copyBtn = document.getElementById('copyBtn');
+  var inputEl   = document.getElementById('inputText');
+  var outputEl  = document.getElementById('outputText');
   var modeBadge = document.getElementById('modeBadge');
-  var buttons = document.querySelectorAll('.btn-convert');
-  var activeMode = null;
-  function convert(mode) {
-    if (!input.value.trim()) {
-      output.value = '';
-      modeBadge.hidden = true;
-      activeMode = null;
-      buttons.forEach(function (b) { b.classList.remove('active'); });
-      return;
-    }
-    output.value = converters[mode](input.value);
-    modeBadge.textContent = mode;
-    modeBadge.hidden = false;
-    activeMode = mode;
-    buttons.forEach(function (b) {
-      b.classList.toggle('active', b.dataset.mode === mode);
-    });
-    copyBtn.disabled = false;
-  }
-  buttons.forEach(function (btn) {
+  var copyBtn   = document.getElementById('copyBtn');
+  var lastMode  = null;
+
+  document.querySelectorAll('.btn-convert').forEach(function (btn) {
     btn.addEventListener('click', function () {
-      convert(btn.dataset.mode);
+      var mode = btn.dataset.mode;
+      var converter = converters[mode];
+      if (!converter) return;
+      var result = converter(inputEl.value);
+      outputEl.value = result;
+      modeBadge.textContent = mode;
+      modeBadge.hidden = false;
+      lastMode = mode;
+      document.querySelectorAll('.btn-convert').forEach(function (b) {
+        b.classList.toggle('active', b.dataset.mode === mode);
+      });
     });
   });
-  function copyResult() {
-    output.select();
-    document.execCommand('copy');
-    copyBtn.innerHTML = '✓ Copied!';
-    copyBtn.classList.add('copied');
-    setTimeout(function () {
-      copyBtn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy';
-      copyBtn.classList.remove('copied');
-    }, 2000);
-  }
-  function clearAll() {
-    input.value = '';
-    output.value = '';
+
+  window.copyResult = function () {
+    if (!outputEl.value) return;
+    navigator.clipboard.writeText(outputEl.value).then(function () {
+      copyBtn.innerHTML = '✓ Copied!';
+      copyBtn.classList.add('copied');
+      setTimeout(function () {
+        copyBtn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy';
+        copyBtn.classList.remove('copied');
+      }, 2000);
+    }).catch(function () {
+      outputEl.select();
+      document.execCommand('copy');
+    });
+  };
+
+  window.clearAll = function () {
+    inputEl.value = '';
+    outputEl.value = '';
     modeBadge.hidden = true;
-    activeMode = null;
-    buttons.forEach(function (b) { b.classList.remove('active'); });
-    copyBtn.disabled = true;
-    input.focus();
-  }
+    lastMode = null;
+    document.querySelectorAll('.btn-convert').forEach(function (b) { b.classList.remove('active'); });
+    inputEl.focus();
+  };
 })();
 </script>
 </body>

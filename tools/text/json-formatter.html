@@ -18,7 +18,6 @@
   </script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
       --brand: #2563eb;
       --brand-hover: #1d4ed8;
@@ -31,7 +30,6 @@
       --shadow: 0 2px 8px rgba(0,0,0,0.06);
       --max-w: 1100px;
     }
-
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       color: var(--text);
@@ -39,12 +37,13 @@
       line-height: 1.6;
       padding-bottom: 48px;
     }
-
     a { color: var(--brand); text-decoration: none; }
     a:hover { text-decoration: underline; }
-
     .container { max-width: var(--max-w); margin: 0 auto; padding: 0 16px; }
-
+    .ad-container {
+      margin: 20px auto;
+      text-align: center;
+    }
     /* ── Header ─ */
     header { text-align: center; margin-bottom: 32px; padding-top: 40px; }
     h1 {
@@ -60,7 +59,6 @@
       max-width: 600px;
       margin: 0 auto;
     }
-
     /* ── Tool Layout ── */
     .tool-card {
       background: var(--bg);
@@ -79,7 +77,6 @@
     @media (max-width: 700px) {
       .tool-grid { grid-template-columns: 1fr; }
     }
-
     .panel-label {
       font-size: 0.75rem;
       font-weight: 600;
@@ -88,7 +85,6 @@
       color: var(--muted);
       margin-bottom: 8px;
     }
-
     textarea#json-input {
       width: 100%;
       height: 280px;
@@ -107,7 +103,6 @@
     textarea#json-input:focus { border-color: var(--brand); }
     textarea#json-input.has-error { border-color: #ef4444; }
     textarea#json-input.is-valid { border-color: #10b981; }
-
     /* ── Output Panel ── */
     .output-panel {
       background: #1e293b;
@@ -132,7 +127,6 @@
       padding: 14px;
       font-size: 0.85rem;
     }
-
     /* ── Syntax Highlighting ── */
     .json-key    { color: #60a5fa; }
     .json-string { color: #34d399; }
@@ -140,7 +134,6 @@
     .json-bool   { color: #a78bfa; }
     .json-null   { color: #94a3b8; }
     .json-brace  { color: #e2e8f0; }
-
     /* ── Error Banner ── */
     #error-banner {
       display: none;
@@ -155,7 +148,6 @@
     }
     #error-banner.visible { display: flex; align-items: flex-start; gap: 8px; }
     #error-banner .err-icon { font-size: 1rem; flex-shrink: 0; margin-top: 1px; }
-
     /* ── Toolbar ── */
     .toolbar {
       display: flex;
@@ -185,7 +177,6 @@
     .btn-collapse { background: #ecfdf5; color: #059669; border: 1px solid #10b981; }
     .btn:hover:not(:disabled) { opacity: 0.9; }
     .btn:disabled { opacity: 0.4; cursor: not-allowed; }
-
     .copy-feedback {
       font-size: 0.8rem;
       color: #10b981;
@@ -194,7 +185,6 @@
       transition: opacity 0.3s;
     }
     .copy-feedback.show { opacity: 1; }
-
     /* ── Collapsible nodes ── */
     .collapsible-toggle {
       cursor: pointer;
@@ -208,7 +198,6 @@
       color: #64748b;
       font-style: italic;
     }
-
     /* ── Content Sections ── */
     .content-section {
       background: var(--bg);
@@ -236,7 +225,6 @@
       line-height: 1.65;
     }
     .content-section p:last-child { margin-bottom: 0; }
-
     /* Steps */
     .steps { counter-reset: step; display: flex; flex-direction: column; gap: 14px; }
     .step {
@@ -261,7 +249,6 @@
     }
     .step-text { color: var(--muted); font-size: 0.92rem; line-height: 1.6; }
     .step-text strong { color: var(--text); }
-
     /* Examples */
     .example-block {
       background: var(--bg-subtle);
@@ -275,7 +262,6 @@
       overflow-x: auto;
       white-space: pre;
     }
-
     /* FAQ */
     .faq-item { margin-bottom: 16px; }
     .faq-item:last-child { margin-bottom: 0; }
@@ -290,7 +276,6 @@
       font-size: 0.88rem;
       line-height: 1.6;
     }
-
     /* Related Tools */
     .related-links {
       display: flex;
@@ -315,7 +300,6 @@
       border-color: var(--brand);
       background: #eff6ff;
     }
-
     /* Valid badge */
     .valid-badge {
       display: none;
@@ -330,13 +314,24 @@
 </head>
 <body>
 <div class="container">
+  <!-- ── Banner Ad ── -->
+  <div class="ad-container">
+    <ins class="adsbygoogle"
+         style="display:block; width:100%; max-width:728px; height:90px; margin:0 auto;"
+         data-ad-client="ca-pub-5420550088713746"
+         data-ad-slot="8901234567"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
 
   <!-- ── Header ── -->
   <header>
     <h1>JSON Formatter — Paste, Format & Validate Instantly</h1>
     <p class="subtitle">Real-time formatting, syntax error detection with line numbers, code highlighting, and one-click copy. No button clicks needed.</p>
   </header>
-
   <!-- ── Toolbar ─ -->
   <div class="toolbar">
     <button class="btn btn-sample" onclick="loadSample()">⚡ Load Sample</button>
@@ -346,13 +341,11 @@
     <span class="copy-feedback" id="copy-feedback">Copied!</span>
     <span class="valid-badge" id="valid-badge">✓ Valid JSON</span>
   </div>
-
   <!-- ── Error Banner ── -->
   <div id="error-banner">
     <span class="err-icon">⚠</span>
     <span id="error-text"></span>
   </div>
-
   <!-- ── Main Tool Grid ── -->
   <div class="tool-card">
     <div class="tool-grid">
@@ -369,13 +362,25 @@
     </div>
   </div>
 
+  <!-- ── Inline Ad ── -->
+  <div class="ad-container">
+    <ins class="adsbygoogle"
+         style="display:block; width:100%; max-width:728px; height:90px; margin:0 auto;"
+         data-ad-client="ca-pub-5420550088713746"
+         data-ad-slot="9012345678"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+
   <!-- ── About ─ -->
   <div class="content-section">
     <h2>What Is This Tool For?</h2>
     <p>Working with raw JSON from an API response, a config file, or a database dump can be painful when it's all on one line. This formatter instantly structures your JSON into a readable, indented layout as you type — no button clicks, no page reloads.</p>
     <p>It's built for developers who need to debug REST APIs, inspect webhook payloads, validate JSON configs before deployment, or just make sense of a messy data blob on the go. Works equally well on desktop and mobile, with horizontal scrolling so nothing gets squished.</p>
   </div>
-
   <!-- ── Steps ─ -->
   <div class="content-section">
     <h2>How to Use It — 3 Steps</h2>
@@ -394,15 +399,12 @@
       </div>
     </div>
   </div>
-
   <!-- ── Examples ── -->
   <div class="content-section">
     <h2>Practical Examples</h2>
-
     <h3>Example 1 — Debugging an API Response</h3>
     <p>You get a minified response from a REST endpoint and need to find a nested field fast. Paste it in and the formatter expands every level instantly, with keys highlighted in blue so they're easy to scan.</p>
     <div class="example-block">Input:  {"user":{"id":42,"name":"Alice","roles":["admin","editor"]},"token":"abc123"}
-
 Output:
 {
   "user": {
@@ -415,43 +417,48 @@ Output:
   },
   "token": "abc123"
 }</div>
-
     <h3>Example 2 — Catching a Config Error Before Deployment</h3>
     <p>You edited a JSON config file manually and aren't sure if you left a trailing comma. Paste it in — the error banner will flag the exact line so you can fix it before it breaks your build.</p>
     <div class="example-block">Input:  {"host":"localhost","port":5432,"debug":true,}
-
 Error:  ⚠ SyntaxError at line 1 — Unexpected token } 
         → Check for a trailing comma before the closing brace.</div>
   </div>
-
   <!-- ── FAQ ─ -->
   <div class="content-section">
     <h2>FAQ</h2>
-
     <div class="faq-item">
       <div class="faq-q">Does it send my JSON to a server?</div>
       <div class="faq-a">No. Everything runs in your browser. Your data never leaves your device, which makes it safe to use with sensitive API keys or internal configs.</div>
     </div>
-
     <div class="faq-item">
       <div class="faq-q">Why does the error message say "line 1" even for multi-line JSON?</div>
       <div class="faq-a">The browser's built-in JSON parser reports the character position, not always the visual line. The tool converts that offset to an approximate line number — it's usually accurate within one or two lines for large inputs.</div>
     </div>
-
     <div class="faq-item">
       <div class="faq-q">Can I format very large JSON files?</div>
       <div class="faq-a">Yes, up to a few MB works fine in most modern browsers. For files over 5 MB, performance depends on your device. If it feels slow, try a desktop browser.</div>
     </div>
-
     <div class="faq-item">
       <div class="faq-q">What does "Collapse All" do?</div>
       <div class="faq-a">It folds every object and array into a single line so you can see the top-level structure at a glance. Click any ▶ arrow to expand individual nodes.</div>
     </div>
-
     <div class="faq-item">
       <div class="faq-q">Does it work on mobile?</div>
       <div class="faq-a">Yes. The output panel scrolls horizontally on small screens so deeply nested JSON stays readable without wrapping or squishing.</div>
     </div>
+  </div>
+
+  <!-- ── Inline Ad 2 ── -->
+  <div class="ad-container">
+    <ins class="adsbygoogle"
+         style="display:block; width:100%; max-width:728px; height:90px; margin:0 auto;"
+         data-ad-client="ca-pub-5420550088713746"
+         data-ad-slot="0123456789"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
   </div>
 
   <!-- ── Related Tools ── -->
@@ -466,207 +473,160 @@ Error:  ⚠ SyntaxError at line 1 — Unexpected token }
       <a href="../../index.html" class="related-link">ℹ Home</a>
     </div>
   </div>
-
 </div><!-- /container -->
-
 <script>
   // ── State ──
   let formattedJSON = '';
   let isCollapsed = false;
   let parsedData = null;
-
   const input      = document.getElementById('json-input');
   const outputPanel = document.getElementById('output-panel');
   const errorBanner = document.getElementById('error-banner');
   const errorText   = document.getElementById('error-text');
-  const btnCopy     = document.getElementById('btn-copy');
-  const btnCollapse = document.getElementById('btn-collapse');
-  const validBadge  = document.getElementById('valid-badge');
-  const copyFeedback = document.getElementById('copy-feedback');
 
-  // ── Real-time listener ──
-  input.addEventListener('input', () => {
-    const raw = input.value.trim();
-    if (!raw) { reset(); return; }
-    parseAndRender(raw);
-  });
-
-  function parseAndRender(raw) {
-    try {
-      parsedData = JSON.parse(raw);
-      formattedJSON = JSON.stringify(parsedData, null, 2);
-      showOutput(parsedData);
-      clearError();
-      input.classList.remove('has-error');
-      input.classList.add('is-valid');
-      btnCopy.disabled = false;
-      btnCollapse.disabled = false;
-      validBadge.classList.add('show');
-    } catch (e) {
-      parsedData = null;
-      formattedJSON = '';
-      showError(e, raw);
-      outputPanel.innerHTML = '<div class="output-placeholder">Fix the error to see formatted output.</div>';
-      input.classList.add('has-error');
-      input.classList.remove('is-valid');
-      btnCopy.disabled = true;
-      btnCollapse.disabled = true;
-      validBadge.classList.remove('show');
+  // ── Format JSON with syntax highlighting ──
+  function formatJSON(obj, indent = 0) {
+    const spaces = '  '.repeat(indent);
+    if (obj === null) return '<span class="json-null">null</span>';
+    if (typeof obj === 'boolean') return '<span class="json-bool">' + obj + '</span>';
+    if (typeof obj === 'number') return '<span class="json-number">' + obj + '</span>';
+    if (typeof obj === 'string') return '<span class="json-string">"' + htmlEscape(obj) + '"</span>';
+    
+    if (Array.isArray(obj)) {
+      if (obj.length === 0) return '[ ]';
+      const items = obj.map(item => formatJSON(item, indent + 1)).join(',\n' + spaces + '  ');
+      return '[\n' + spaces + '  ' + items + '\n' + spaces + ']';
     }
+    
+    const keys = Object.keys(obj);
+    if (keys.length === 0) return '{ }';
+    const pairs = keys.map(key => {
+      const keyStr = '<span class="json-key">"' + htmlEscape(key) + '"</span>';
+      return keyStr + ': ' + formatJSON(obj[key], indent + 1);
+    }).join(',\n' + spaces + '  ');
+    return '{\n' + spaces + '  ' + pairs + '\n' + spaces + '}';
   }
 
-  // ── Error parsing ──
-  function showError(e, raw) {
-    const msg = e.message || String(e);
-    const posMatch = msg.match(/position (\d+)/i) || msg.match(/at (\d+)/i);
-    let lineHint = '';
-    if (posMatch) {
-      const pos = parseInt(posMatch[1], 10);
-      const lineNum = raw.substring(0, pos).split('\n').length;
-      lineHint = ` at line ${lineNum}`;
-    }
-    let hint = '';
-    if (/unexpected token }/i.test(msg))  hint = ' → Check for a trailing comma before a closing brace or bracket.';
-    if (/unexpected token \[/i.test(msg)) hint = ' → Check for a missing closing brace or bracket.';
-    if (/unexpected token "|unexpected string/i.test(msg)) hint = ' → Check for unclosed quotes or special characters.';
-    errorText.textContent = `${msg}${lineHint}${hint}`;
-    errorBanner.classList.add('visible');
+  // ── Escape HTML ──
+  function htmlEscape(str) {
+    return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
   }
 
-  function clearError() {
-    errorBanner.classList.remove('visible');
-    errorText.textContent = '';
-  }
-
-  // ── Output rendering ──
-  function showOutput(obj, indent = 0, isRoot = true) {
-    if (!obj || typeof obj !== 'object') {
-      outputPanel.innerHTML = '<div class="output-placeholder">No valid JSON to display.</div>';
+  // ── Update output ──
+  function updateOutput() {
+    const json = input.value.trim();
+    
+    if (!json) {
+      outputPanel.innerHTML = '<div class="output-placeholder">Formatted JSON will appear here as you type…</div>';
+      errorBanner.classList.remove('visible');
+      document.getElementById('btn-copy').disabled = true;
+      document.getElementById('btn-collapse').disabled = true;
+      document.getElementById('valid-badge').classList.remove('show');
       return;
     }
 
-    const isArr = Array.isArray(obj);
-    const keys = isArr ? obj.map((_, i) => i) : Object.keys(obj);
-    const hasNested = keys.some(k => obj[k] && typeof obj[k] === 'object');
-
-    let html = '';
-    const indentSpaces = '  '.repeat(indent);
-
-    if (isRoot) {
-      html += '<pre>';
+    try {
+      parsedData = JSON.parse(json);
+      formattedJSON = formatJSON(parsedData);
+      outputPanel.innerHTML = '<pre><code>' + formattedJSON + '</code></pre>';
+      errorBanner.classList.remove('visible');
+      input.classList.remove('has-error');
+      input.classList.add('is-valid');
+      document.getElementById('btn-copy').disabled = false;
+      document.getElementById('btn-collapse').disabled = false;
+      document.getElementById('valid-badge').classList.add('show');
+    } catch (e) {
+      const errMsg = e.message;
+      const lineNum = guessLineNumber(json, e.message);
+      errorText.innerHTML = '<strong>SyntaxError</strong> at line ' + lineNum + ': ' + errMsg.replace('Unexpected token', 'Unexpected token');
+      errorBanner.classList.add('visible');
+      input.classList.add('has-error');
+      input.classList.remove('is-valid');
+      outputPanel.innerHTML = '<div class="output-placeholder">Fix the error above to see formatted JSON…</div>';
+      document.getElementById('btn-copy').disabled = true;
+      document.getElementById('btn-collapse').disabled = true;
+      document.getElementById('valid-badge').classList.remove('show');
     }
-
-    html += `${indentSpaces}${isArr ? '[' : '{'}`;
-
-    if (hasNested && !isCollapsed) {
-      keys.forEach((key, idx) => {
-        const value = obj[key];
-        const isLast = idx === keys.length - 1;
-        const isObj = value && typeof value === 'object';
-
-        html += '\n';
-        
-        if (isObj && isCollapsed) {
-          const typeName = Array.isArray(value) ? 'array' : 'object';
-          html += `${'  '.repeat(indent + 1)}${!isArr ? `<span class="json-key">"${key}"</span>: ` : ''}<span class="collapsed-placeholder">// ${typeName} with ${Array.isArray(value) ? value.length : Object.keys(value).length} ${Array.isArray(value) ? 'items' : 'keys'}</span>${isLast ? '' : ','}`;
-        } else if (isObj) {
-          html += `${'  '.repeat(indent + 1)}${!isArr ? `<span class="json-key">"${key}"</span>: ` : ''}`;
-          html += showOutput(value, indent + 1, false);
-          html += isLast ? '' : ',';
-        } else {
-          const valHtml = typeof value === 'string' 
-            ? `<span class="json-string">"${escapeHtml(value)}"</span>`
-            : typeof value === 'number' 
-              ? `<span class="json-number">${value}</span>`
-              : typeof value === 'boolean'
-                ? `<span class="json-bool">${value}</span>`
-                : `<span class="json-null">null</span>`;
-          html += `${'  '.repeat(indent + 1)}${!isArr ? `<span class="json-key">"${key}"</span>: ` : ''}${valHtml}${isLast ? '' : ','}`;
-        }
-      });
-      html += `\n${indentSpaces}`;
-    } else if (keys.length > 0) {
-      html += ' ';
-      keys.forEach((key, idx) => {
-        const value = obj[key];
-        const isLast = idx === keys.length - 1;
-        const valHtml = typeof value === 'string' 
-          ? `<span class="json-string">"${escapeHtml(value)}"</span>`
-          : typeof value === 'number' 
-            ? `<span class="json-number">${value}</span>`
-            : typeof value === 'boolean'
-              ? `<span class="json-bool">${value}</span>`
-              : `<span class="json-null">null</span>`;
-        html += `${!isArr ? `<span class="json-key">"${key}"</span>: ` : ''}${valHtml}${isLast ? '' : ', '}`;
-      });
-      html += ' ';
-    }
-
-    html += `${isArr ? ']' : '}'}`;
-
-    if (isRoot) {
-      html += '</pre>';
-      outputPanel.innerHTML = html;
-    }
-
-    return html;
   }
 
-  function escapeHtml(str) {
-    return String(str)
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;')
-      .replace(/'/g, '&#039;');
-  }
-
-  // ── Collapse toggle ──
-  function toggleCollapse() {
-    isCollapsed = !isCollapsed;
-    btnCollapse.textContent = isCollapsed ? '⊞ Expand All' : '⊟ Collapse All';
-    if (parsedData) showOutput(parsedData);
+  // ── Guess line number from error ──
+  function guessLineNumber(json, errMsg) {
+    const match = errMsg.match(/position (\d+)/);
+    if (match) {
+      const pos = parseInt(match[1]);
+      const before = json.substring(0, pos);
+      return (before.match(/\n/g) || []).length + 1;
+    }
+    return 1;
   }
 
   // ── Copy output ──
   function copyOutput() {
-    navigator.clipboard.writeText(formattedJSON).then(() => {
-      copyFeedback.classList.add('show');
-      setTimeout(() => copyFeedback.classList.remove('show'), 2000);
+    const pre = outputPanel.querySelector('pre');
+    if (!pre) return;
+    
+    navigator.clipboard.writeText(pre.textContent).then(() => {
+      const feedback = document.getElementById('copy-feedback');
+      feedback.classList.add('show');
+      setTimeout(() => feedback.classList.remove('show'), 2000);
     });
   }
 
-  // ── Reset ──
+  // ── Clear all ──
   function clearAll() {
     input.value = '';
-    outputPanel.innerHTML = '<div class="output-placeholder">Formatted JSON will appear here as you type…</div>';
-    input.classList.remove('has-error');
-    input.classList.remove('is-valid');
-    btnCopy.disabled = true;
-    btnCollapse.disabled = true;
-    validBadge.classList.remove('show');
-    clearError();
-    parsedData = null;
-    formattedJSON = '';
+    updateOutput();
+    input.focus();
   }
 
-  // ── Sample data ──
+  // ── Load sample ──
   function loadSample() {
-    input.value = '{
-  "user": {
-    "id": 42,
-    "name": "Alice",
-    "email": "alice@example.com",
-    "active": true,
-    "roles": ["admin", "editor"],
-    "settings": {
-      "theme": "dark",
-      "notifications": true
+    input.value = JSON.stringify({
+      user: { id: 42, name: 'Alice', roles: ['admin', 'editor'] },
+      settings: { theme: 'dark', notifications: true },
+      metadata: { version: '1.0.0', lastUpdated: '2024-01-15' }
+    }, null, 0);
+    updateOutput();
+    input.focus();
+  }
+
+  // ── Toggle collapse ──
+  function toggleCollapse() {
+    isCollapsed = !isCollapsed;
+    const btn = document.getElementById('btn-collapse');
+    btn.textContent = isCollapsed ? '⊞ Expand All' : '⊟ Collapse All';
+    
+    const pre = outputPanel.querySelector('pre');
+    if (!pre || !parsedData) return;
+    
+    if (isCollapsed) {
+      const collapsed = formatCollapsed(parsedData);
+      pre.innerHTML = '<code>' + collapsed + '</code>';
+    } else {
+      pre.innerHTML = '<code>' + formattedJSON + '</code>';
     }
   }
-}';
-    input.dispatchEvent(new Event('input'));
+
+  // ── Format collapsed view ──
+  function formatCollapsed(obj) {
+    if (obj === null) return '<span class="json-null">null</span>';
+    if (typeof obj === 'boolean') return '<span class="json-bool">' + obj + '</span>';
+    if (typeof obj === 'number') return '<span class="json-number">' + obj + '</span>';
+    if (typeof obj === 'string') return '<span class="json-string">"' + htmlEscape(obj) + '"</span>';
+    
+    if (Array.isArray(obj)) {
+      if (obj.length === 0) return '[ ]';
+      return '<span class="collapsed-placeholder">[Array(' + obj.length + ')]</span>';
+    }
+    
+    const keys = Object.keys(obj);
+    if (keys.length === 0) return '{ }';
+    return '<span class="collapsed-placeholder">{Object(' + keys.length + ')}</span>';
   }
+
+  // ── Init ──
+  input.addEventListener('input', updateOutput);
+  updateOutput();
 </script>
 </body>
 </html>

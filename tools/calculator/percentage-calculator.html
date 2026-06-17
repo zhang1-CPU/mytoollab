@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Percentage Calculator – Calculate X% of Y, % Change | My Tool Lab</title>
+  <meta name="description" content="Free online percentage calculator. Calculate what is X% of Y, what percentage X is of Y, and percentage change between two numbers. Fast and accurate." />
+  <link rel="canonical" href="https://www.zlbox.site/tools/calculator/percentage-calculator.html" />
+  <meta name="google-site-verification" content="google4bd1e08685667667" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    :root{--brand:#2563eb;--brand-hover:#1d4ed8;--text:#1e293b;--muted:#64748b;--border:#e2e8f0;--bg:#f8fafc;--surface:#ffffff;--radius:12px;--max-w:720px;}
+    body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;color:var(--text);background:var(--text);}
+    body{color:var(--text);background:var(--bg);line-height:1.6;padding:16px 16px 48px;}
+    a{color:var(--brand);text-decoration:none;}a:hover{text-decoration:underline;}
+    .container{max-width:var(--max-w);margin:0 auto;}
+    header{text-align:center;margin:24px 0 28px;}
+    .breadcrumb{font-size:.82rem;color:var(--muted);margin-bottom:10px;}
+    .breadcrumb a{color:var(--muted);}.breadcrumb a:hover{color:var(--brand);}
+    header h1{font-size:clamp(1.4rem,4vw,1.9rem);font-weight:800;line-height:1.2;margin-bottom:8px;}
+    header p{font-size:.95rem;color:var(--muted);max-width:520px;margin:0 auto;}
+    .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:22px;margin-bottom:20px;}
+    .card h2{font-size:1.05rem;font-weight:700;margin-bottom:14px;}
+    .row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+    .field label{display:block;font-size:.82rem;font-weight:600;margin-bottom:6px;color:var(--muted);}
+    input[type=number]{width:100%;padding:11px 12px;border:1px solid var(--border);border-radius:8px;font-size:1rem;background:#fff;color:var(--text);}
+    input[type=number]:focus{outline:2px solid var(--brand);outline-offset:1px;border-color:var(--brand);}
+    .btn{display:inline-flex;align-items:center;justify-content:center;font-size:.95rem;font-weight:600;color:#fff;background:var(--brand);padding:11px 22px;border:none;border-radius:8px;cursor:pointer;transition:background .15s;width:100%;margin-top:14px;}
+    .btn:hover{background:var(--brand-hover);}
+    .result-box{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:16px;margin-top:14px;font-size:1.1rem;font-weight:700;color:var(--brand);text-align:center;}
+    .faq-item{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin-bottom:10px;}
+    .faq-item h3{font-size:.95rem;font-weight:700;margin-bottom:6px;}
+    .faq-item p{font-size:.85rem;color:var(--muted);margin:0;}
+    footer{padding-top:24px;border-top:1px solid var(--border);text-align:center;margin-top:24px;}
+    .footer-links{display:flex;justify-content:center;flex-wrap:wrap;gap:4px 18px;font-size:.82rem;margin-bottom:12px;}
+    .footer-links a{color:var(--muted);}.footer-links a:hover{color:var(--brand);text-decoration:none;}
+    .footer-copy{font-size:.78rem;color:#94a3b8;}
+    .ad-unit{margin:20px auto;text-align:center;}
+    .ad-unit ins{display:block;width:100%;max-width:728px;height:90px;margin:0 auto;}
+    @media (max-width:600px){.row{grid-template-columns:1fr;}.card{padding:18px;}}
+  </style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <div class="breadcrumb"><a href="../../index.html">Home</a> &rsaquo; <a href="../../categories/calculator.html">Calculator Tools</a> &rsaquo; Percentage Calculator</div>
+    <h1>Percentage Calculator</h1>
+    <p>Calculate X% of Y, what percentage X is of Y, and the percentage change between two numbers.</p>
+  </header>
+
+  <div class="ad-unit">
+    <ins class="adsbygoogle" style="display:block;width:100%;max-width:728px;height:90px;margin:0 auto;" data-ad-client="ca-pub-5420550088713746" data-ad-slot="9999999999" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+
+  <div class="card">
+    <h2>1. What is X% of Y?</h2>
+    <div class="row">
+      <div class="field"><label>X (%)</label><input type="number" id="p1" placeholder="25" /></div>
+      <div class="field"><label>Y</label><input type="number" id="v1" placeholder="200" /></div>
+    </div>
+    <button class="btn" data-id="1">Calculate</button>
+    <div class="result-box" id="r1" style="display:none;"></div>
+  </div>
+
+  <div class="card">
+    <h2>2. X is what % of Y?</h2>
+    <div class="row">
+      <div class="field"><label>X</label><input type="number" id="p2a" placeholder="50" /></div>
+      <div class="field"><label>Y</label><input type="number" id="p2b" placeholder="200" /></div>
+    </div>
+    <button class="btn" data-id="2">Calculate</button>
+    <div class="result-box" id="r2" style="display:none;"></div>
+  </div>
+
+  <div class="card">
+    <h2>3. Percentage change from X to Y</h2>
+    <div class="row">
+      <div class="field"><label>X (original)</label><input type="number" id="p3a" placeholder="100" /></div>
+      <div class="field"><label>Y (new)</label><input type="number" id="p3b" placeholder="120" /></div>
+    </div>
+    <button class="btn" data-id="3">Calculate</button>
+    <div class="result-box" id="r3" style="display:none;"></div>
+  </div>
+
+  <div class="ad-unit">
+    <ins class="adsbygoogle" style="display:block;width:100%;max-width:728px;height:90px;margin:0 auto;" data-ad-client="ca-pub-5420550088713746" data-ad-slot="9999999999" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+
+  <div class="card">
+    <h2>FAQ</h2>
+    <div class="faq-item"><h3>How do you calculate X percent of a number?</h3><p>Multiply the number by the percentage and divide by 100. Example: 25% of 200 = (25 × 200) ÷ 100 = 50.</p></div>
+    <div class="faq-item"><h3>How do I find what percentage X is of Y?</h3><p>Divide X by Y, then multiply the result by 100. Example: 50 out of 200 = (50 ÷ 200) × 100 = 25%.</p></div>
+    <div class="faq-item"><h3>How do you calculate percentage change?</h3><p>Subtract the original number from the new number, divide by the original number, and multiply by 100. A positive result means an increase; a negative result means a decrease.</p></div>
+  </div>
+
+  <footer>
+    <div class="footer-links">
+      <a href="age-calculator.html">Age Calculator</a>
+      <a href="basic-calculator.html">Basic Calculator</a>
+      <span style="color:var(--border);margin:0 4px;">|</span>
+      <a href="../../about.html">About</a>
+      <a href="../../contact.html">Contact</a>
+      <a href="../../privacy.html">Privacy</a>
+      <a href="../../disclaimer.html">Disclaimer</a>
+    </div>
+    <p class="footer-copy">&copy; 2026 My Tool Lab. All rights reserved.</p>
+  </footer>
+</div>
+
+<script>
+(function(){
+  function show(el,text){el.textContent=text;el.style.display='block';}
+  function num(id){return parseFloat(document.getElementById(id).value);}
+  function has(id){var v=document.getElementById(id).value.trim();return v!==''&&!isNaN(parseFloat(v));}
+  document.querySelectorAll('button[data-id]').forEach(function(b){
+    b.addEventListener('click',function(){
+      var id=b.getAttribute('data-id');
+      if(id==='1'){
+        if(!has('p1')||!has('v1')){show(document.getElementById('r1'),'Please enter both values.');return;}
+        var r=(num('p1')*num('v1'))/100;
+        show(document.getElementById('r1'),num('p1')+'% of '+num('v1')+' = '+r.toLocaleString(undefined,{maximumFractionDigits:6}));
+      }else if(id==='2'){
+        if(!has('p2a')||!has('p2b')){show(document.getElementById('r2'),'Please enter both values.');return;}
+        if(num('p2b')===0){show(document.getElementById('r2'),'Y cannot be zero.');return;}
+        var r2=(num('p2a')/num('p2b'))*100;
+        show(document.getElementById('r2'),num('p2a')+' is '+r2.toFixed(2)+'% of '+num('p2b'));
+      }else if(id==='3'){
+        if(!has('p3a')||!has('p3b')){show(document.getElementById('r3'),'Please enter both values.');return;}
+        if(num('p3a')===0){show(document.getElementById('r3'),'Original value cannot be zero.');return;}
+        var r3=((num('p3b')-num('p3a'))/Math.abs(num('p3a')))*100;
+        var dir=r3>=0?'increase':'decrease';
+        show(document.getElementById('r3'),Math.abs(r3).toFixed(2)+'% '+dir+' (from '+num('p3a')+' to '+num('p3b')+')'));
+      }
+    });
+  });
+})();
+</script>
+</body>
+</html>

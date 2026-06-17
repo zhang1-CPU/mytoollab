@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Remove Duplicate Lines – Free Online Text Deduplication Tool | My Tool Lab</title>
+  <meta name="description" content="Free online tool to remove duplicate lines from text or lists. Paste your text and instantly get unique lines. Option to ignore case and blank lines." />
+  <link rel="canonical" href="https://www.zlbox.site/tools/text/remove-duplicates.html" />
+  <meta name="google-site-verification" content="google4bd1e08685667667" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    :root{--brand:#2563eb;--brand-hover:#1d4ed8;--text:#1e293b;--muted:#64748b;--border:#e2e8f0;--bg:#f8fafc;--surface:#ffffff;--radius:12px;--max-w:720px;}
+    body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;color:var(--text);background:var(--bg);line-height:1.6;padding:16px 16px 48px;}
+    a{color:var(--brand);text-decoration:none;}a:hover{text-decoration:underline;}
+    .container{max-width:var(--max-w);margin:0 auto;}
+    header{text-align:center;margin:24px 0 24px;}
+    .breadcrumb{font-size:.82rem;color:var(--muted);margin-bottom:10px;}
+    .breadcrumb a{color:var(--muted);}.breadcrumb a:hover{color:var(--brand);}
+    header h1{font-size:clamp(1.4rem,4vw,1.9rem);font-weight:800;line-height:1.2;margin-bottom:8px;}
+    header p{font-size:.95rem;color:var(--muted);max-width:520px;margin:0 auto;}
+    .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:18px;}
+    label{font-size:.9rem;font-weight:600;color:var(--muted);display:block;margin-bottom:6px;}
+    textarea{width:100%;min-height:180px;padding:12px;border:1px solid var(--border);border-radius:10px;font-size:.95rem;resize:vertical;font-family:ui-monospace,Consolas,monospace;background:#fff;color:var(--text);}
+    textarea:focus{outline:2px solid var(--brand);outline-offset:1px;border-color:var(--brand);}
+    .opts{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:10px 0 0;}
+    .opt{display:flex;align-items:center;gap:8px;font-size:.9rem;color:var(--muted);}
+    .opt input{width:18px;height:18px;}
+    select{padding:8px 10px;border:1px solid var(--border);border-radius:8px;background:#fff;}
+    .btn{background:var(--brand);color:#fff;border:none;padding:12px;border-radius:10px;font-size:1rem;font-weight:700;cursor:pointer;width:100%;margin-top:12px;transition:background .15s;}
+    .btn:hover{background:var(--brand-hover);}
+    .btn.ghost{background:#fff;color:var(--brand-hover);border:1px solid var(--border);}
+    .btn.ghost:hover{background:#f1f5f9;}
+    .stats{font-size:.85rem;color:var(--muted);}
+    footer{padding-top:24px;border-top:1px solid var(--border);text-align:center;margin-top:24px;}
+    .footer-links{display:flex;justify-content:center;flex-wrap:wrap;gap:4px 18px;font-size:.82rem;margin-bottom:12px;}
+    .footer-links a{color:var(--muted);}.footer-links a:hover{color:var(--brand);text-decoration:none;}
+    .footer-copy{font-size:.78rem;color:#94a3b8;}
+    .ad-unit{margin:20px auto;text-align:center;}
+    .ad-unit ins{display:block;width:100%;max-width:728px;height:90px;margin:0 auto;}
+    @media (max-width:560px){.opts{grid-template-columns:1fr;}}
+  </style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <div class="breadcrumb"><a href="../../index.html">Home</a> &rsaquo; <a href="../../categories/text.html">Text Tools</a> &rsaquo; Remove Duplicates</div>
+    <h1>Remove Duplicate Lines</h1>
+    <p>Paste a list or text and instantly clean up duplicated lines. Options: ignore case, remove blank lines, keep first or last occurrence.</p>
+  </header>
+
+  <div class="ad-unit">
+    <ins class="adsbygoogle" style="display:block;width:100%;max-width:728px;height:90px;margin:0 auto;" data-ad-client="ca-pub-5420550088713746" data-ad-slot="9999999999" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+
+  <div class="card">
+    <label>Input text</label>
+    <textarea id="in" placeholder="Paste your lines here..."></textarea>
+    <div class="opts">
+      <span class="opt"><input type="checkbox" id="o-case" /> Ignore case</span>
+      <span class="opt"><input type="checkbox" id="o-blank" checked /> Remove blank lines</span>
+      <span class="opt"><input type="checkbox" id="o-trim" checked /> Trim spaces</span>
+      <span class="opt"><label style="margin:0;">Keep:</label><select id="o-keep"><option value="first">First occurrence</option><option value="last">Last occurrence</option></select></span>
+    </div>
+    <button class="btn" id="proc">Remove Duplicates</button>
+    <button class="btn ghost" id="clr">Clear</button>
+  </div>
+
+  <div class="card">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;"><label style="margin:0;">Result</label><button class="btn ghost" id="cpy" style="margin:0;padding:8px 14px;">Copy</button></div>
+    <textarea id="out" readonly placeholder="Unique lines will appear here..."></textarea>
+    <div class="stats" id="stats" style="margin-top:8px;"></div>
+  </div>
+
+  <div class="ad-unit">
+    <ins class="adsbygoogle" style="display:block;width:100%;max-width:728px;height:90px;margin:0 auto;" data-ad-client="ca-pub-5420550088713746" data-ad-slot="9999999999" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+
+  <footer>
+    <div class="footer-links">
+      <a href="word-counter.html">Word Counter</a>
+      <a href="json-formatter.html">JSON Formatter</a>
+      <a href="case-converter.html">Case Converter</a>
+      <a href="lorem-ipsum.html">Lorem Ipsum</a>
+      <a href="base64.html">Base64</a>
+      <span style="color:var(--border);margin:0 4px;">|</span>
+      <a href="../../about.html">About</a>
+      <a href="../../contact.html">Contact</a>
+    </div>
+    <p class="footer-copy">&copy; 2026 My Tool Lab. All rights reserved.</p>
+  </footer>
+</div>
+
+<script>
+(function(){
+  var i=document.getElementById('in'),o=document.getElementById('out');
+  var c=document.getElementById('o-case'),b=document.getElementById('o-blank'),t=document.getElementById('o-trim'),k=document.getElementById('o-keep');
+  var s=document.getElementById('stats');
+  document.getElementById('proc').addEventListener('click',function(){
+    var lines=i.value.split(/\r?\n/);var keep=k.value==='last'?{}:[];var out=[];var seen=new Set();
+    for(var x=0;x<lines.length;x++){var line=t.checked?lines[x].replace(/^\s+|\s+$/g,''):lines[x];if(b.checked&&line==='')continue;var key=c.checked?line.toLowerCase():line;if(keep==='last'){if(!seen.has(key)){seen.add(key);out.push(line);}}else{if(!seen.has(key)){seen.add(key);out.push(line);}}}
+    if(k.value==='last'){out=[];seen=new Set();for(var x=lines.length-1;x>=0;x--){var line=t.checked?lines[x].replace(/^\s+|\s+$/g,''):lines[x];if(b.checked&&line==='')continue;var key=c.checked?line.toLowerCase():line;if(!seen.has(key)){seen.add(key);out.push(line);}}out.reverse();}
+    o.value=out.join('\n');s.textContent='Input: '+lines.length+' lines → Output: '+out.length+' lines (removed '+(lines.length-out.length)+')';
+  });
+  document.getElementById('clr').addEventListener('click',function(){i.value='';o.value='';s.textContent='';});
+  document.getElementById('cpy').addEventListener('click',function(){if(!o.value)return;if(navigator.clipboard){navigator.clipboard.writeText(o.value);}var btn=document.getElementById('cpy');var old=btn.textContent;btn.textContent='Copied!';setTimeout(function(){btn.textContent=old;},1000);});
+})();
+</script>
+</body>
+</html>

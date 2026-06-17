@@ -7,7 +7,6 @@
   <meta name="description" content="Free real-time word and character counter. Paste or type your text and instantly see total words, characters, and trimmed length — no button clicks needed. Perfect for writers, students, developers, and content creators who need quick, accurate text stats on any device." />
   <link rel="canonical" href="https://www.zlbox.site/tools/text/word-counter.html" />
   <meta name="google-site-verification" content="google4bd1e08685667667" />
-
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" 
       crossorigin="anonymous"></script>
   <script type="text/javascript">
@@ -19,7 +18,6 @@
   </script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
       --bg: #f7f8fa;
       --surface: #ffffff;
@@ -31,7 +29,6 @@
       --radius: 0.75rem;
       --shadow: 0 2px 12px rgba(0,0,0,0.07);
     }
-
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       background: var(--bg);
@@ -40,27 +37,26 @@
       line-height: 1.6;
       padding: 1.5rem 1rem 4rem;
     }
-
     .container {
       max-width: 52rem;
       margin: 0 auto;
     }
-
+    .ad-container {
+      margin: 1.5rem auto;
+      text-align: center;
+    }
     /* ── Header ─ */
     header { text-align: center; margin-bottom: 2rem; }
-
     h1 {
       font-size: clamp(1.6rem, 4vw, 2.2rem);
       font-weight: 700;
       letter-spacing: -0.02em;
       margin-bottom: 0.5rem;
     }
-
     .subtitle {
       color: var(--muted);
       font-size: clamp(0.9rem, 2.5vw, 1rem);
     }
-
     /* ── Textarea ─ */
     .editor-wrap {
       background: var(--surface);
@@ -70,7 +66,6 @@
       overflow: hidden;
       margin-bottom: 1rem;
     }
-
     #inputText {
       width: 100%;
       min-height: 14rem;
@@ -84,9 +79,7 @@
       color: var(--text);
       background: transparent;
     }
-
     #inputText::placeholder { color: #b0b7c3; }
-
     .editor-footer {
       display: flex;
       align-items: center;
@@ -95,7 +88,6 @@
       border-top: 1px solid var(--border);
       background: #fafbfc;
     }
-
     #clearBtn {
       font-size: 0.85rem;
       color: var(--muted);
@@ -106,9 +98,7 @@
       border-radius: 0.4rem;
       transition: color 0.15s, background 0.15s;
     }
-
     #clearBtn:hover { color: #e53e3e; background: #fff0f0; }
-
     /* ─ Stats Grid ── */
     .stats {
       display: grid;
@@ -116,7 +106,6 @@
       gap: 0.75rem;
       margin-bottom: 2.5rem;
     }
-
     .stat-card {
       background: var(--surface);
       border: 1.5px solid var(--border);
@@ -126,9 +115,7 @@
       text-align: center;
       transition: border-color 0.2s;
     }
-
     .stat-card.active { border-color: var(--accent); background: var(--accent-light); }
-
     .stat-value {
       font-size: clamp(1.8rem, 5vw, 2.4rem);
       font-weight: 700;
@@ -136,7 +123,6 @@
       line-height: 1.1;
       letter-spacing: -0.02em;
     }
-
     .stat-label {
       font-size: clamp(0.72rem, 2vw, 0.8rem);
       color: var(--muted);
@@ -144,22 +130,17 @@
       text-transform: uppercase;
       letter-spacing: 0.05em;
     }
-
     /* ── Prose sections ── */
     .section { margin-bottom: 2.2rem; }
-
     h2 {
       font-size: clamp(1.1rem, 3vw, 1.3rem);
       font-weight: 600;
       margin-bottom: 0.6rem;
       letter-spacing: -0.01em;
     }
-
     p { color: #374151; font-size: clamp(0.9rem, 2.5vw, 0.97rem); margin-bottom: 0.6rem; }
-
     /* ── Steps ── */
     .steps { list-style: none; counter-reset: steps; display: flex; flex-direction: column; gap: 0.6rem; }
-
     .steps li {
       counter-increment: steps;
       display: flex;
@@ -171,7 +152,6 @@
       padding: 0.75rem 1rem;
       font-size: clamp(0.88rem, 2.5vw, 0.95rem);
     }
-
     .steps li::before {
       content: counter(steps);
       min-width: 1.6rem;
@@ -186,7 +166,6 @@
       font-weight: 700;
       flex-shrink: 0;
     }
-
     /* ─ Examples ── */
     .example-card {
       background: var(--surface);
@@ -197,19 +176,15 @@
       margin-bottom: 0.75rem;
       font-size: clamp(0.88rem, 2.5vw, 0.95rem);
     }
-
     .example-card strong { display: block; margin-bottom: 0.25rem; color: var(--text); }
-
     /* ── FAQ ── */
     .faq { display: flex; flex-direction: column; gap: 0.6rem; }
-
     details {
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 0.6rem;
       overflow: hidden;
     }
-
     summary {
       padding: 0.85rem 1rem;
       font-weight: 600;
@@ -221,9 +196,7 @@
       align-items: center;
       user-select: none;
     }
-
     summary::-webkit-details-marker { display: none; }
-
     summary::after {
       content: "+";
       font-size: 1.1rem;
@@ -231,18 +204,14 @@
       font-weight: 400;
       transition: transform 0.2s;
     }
-
     details[open] summary::after { content: "−"; }
-
     details p { padding: 0 1rem 0.85rem; color: var(--muted); }
-
     /* ── Related Tools ── */
     .related-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
       gap: 0.6rem;
     }
-
     .related-grid a {
       display: block;
       background: var(--surface);
@@ -255,12 +224,9 @@
       text-align: center;
       transition: background 0.15s, border-color 0.15s;
     }
-
     .related-grid a:hover { background: var(--accent-light); border-color: var(--accent); }
-
     /* ── Divider ── */
     hr { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
-
     @media (max-width: 30rem) {
       .stats { grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
       .stat-card { padding: 0.85rem 0.4rem; }
@@ -269,13 +235,24 @@
 </head>
 <body>
 <div class="container">
+  <!-- ── Banner Ad ── -->
+  <div class="ad-container">
+    <ins class="adsbygoogle"
+         style="display:block; width:100%; max-width:728px; height:90px; margin:0 auto;"
+         data-ad-client="ca-pub-5420550088713746"
+         data-ad-slot="5678901234"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
 
   <!-- ── H1 ── -->
   <header>
     <h1>Word Counter — Instant Word &amp; Character Count</h1>
     <p class="subtitle">Type or paste your text. Stats update as you go — no button needed.</p>
   </header>
-
   <!-- ── Tool ── -->
   <div class="editor-wrap">
     <textarea id="inputText" placeholder="Start typing or paste your text here…" aria-label="Text input for word and character counting" spellcheck="true"></textarea>
@@ -283,7 +260,6 @@
       <button id="clearBtn" aria-label="Clear text">✕ Clear</button>
     </div>
   </div>
-
   <div class="stats" role="region" aria-label="Text statistics">
     <div class="stat-card" id="cardWords">
       <div class="stat-value" id="wordCount">0</div>
@@ -299,15 +275,26 @@
     </div>
   </div>
 
-  <hr />
+  <!-- ── Inline Ad ── -->
+  <div class="ad-container">
+    <ins class="adsbygoogle"
+         style="display:block; width:100%; max-width:728px; height:90px; margin:0 auto;"
+         data-ad-client="ca-pub-5420550088713746"
+         data-ad-slot="6789012345"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
 
+  <hr />
   <!-- ── About ── -->
   <div class="section">
     <h2>Who is this for?</h2>
-    <p>Whether you're a blogger hitting a 1,000-word target, a developer checking a UI string length, or a student staying within an essay limit — this tool gives you the numbers the moment you type. No sign-up, no ads, no data sent anywhere.</p>
+    <p>Whether you're a blogger hitting a 1,000-word target, a developer checking a UI string length, or a student staying within an essay limit — this tool gives you the numbers the moment you type. No sign-up, no data sent anywhere.</p>
     <p>Content creators use it to nail SEO word counts. Translators use it to estimate project size. Social media managers use it to trim copy before it hits a platform character cap. If text length matters to you, this is your go-to.</p>
   </div>
-
   <!-- ── Steps ── -->
   <div class="section">
     <h2>How to use it — 3 steps</h2>
@@ -317,7 +304,6 @@
       <li>Hit <strong>Clear</strong> to reset everything and start fresh with new text.</li>
     </ol>
   </div>
-
   <!-- ─ Examples ── -->
   <div class="section">
     <h2>Real-world examples</h2>
@@ -330,9 +316,7 @@
       Twitter/X allows 280 characters. Paste your tweet draft and watch the character count in real time. Trim until you're under the limit — no guessing, no surprises when you hit Post.
     </div>
   </div>
-
   <hr />
-
   <!-- ── FAQ ── -->
   <div class="section">
     <h2>FAQ</h2>
@@ -360,6 +344,19 @@
     </div>
   </div>
 
+  <!-- ── Inline Ad 2 ── -->
+  <div class="ad-container">
+    <ins class="adsbygoogle"
+         style="display:block; width:100%; max-width:728px; height:90px; margin:0 auto;"
+         data-ad-client="ca-pub-5420550088713746"
+         data-ad-slot="7890123456"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+
   <!-- ─ Related Tools ── -->
   <div class="section">
     <h2>Related tools</h2>
@@ -371,9 +368,7 @@
       <a href="../../index.html">Home</a>
     </div>
   </div>
-
 </div><!-- /container -->
-
 <script>
   const input      = document.getElementById('inputText');
   const wordEl     = document.getElementById('wordCount');
@@ -383,32 +378,26 @@
   const cardWords  = document.getElementById('cardWords');
   const cardChars  = document.getElementById('cardChars');
   const cardTrimmed= document.getElementById('cardTrimmed');
-
   function update() {
     const raw     = input.value;
     const trimmed = raw.trim();
     const words   = trimmed === '' ? 0 : trimmed.split(/\s+/).length;
     const chars   = raw.length;
     const trimLen = trimmed.length;
-
     wordEl.textContent    = words.toLocaleString();
     charEl.textContent    = chars.toLocaleString();
     trimmedEl.textContent = trimLen.toLocaleString();
-
     // Highlight active cards
     cardWords.classList.toggle('active', words > 0);
     cardChars.classList.toggle('active', chars > 0);
     cardTrimmed.classList.toggle('active', trimLen > 0);
   }
-
   input.addEventListener('input', update);
-
   clearBtn.addEventListener('click', () => {
     input.value = '';
     update();
     input.focus();
   });
-
   // Init
   update();
 </script>

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>JSON Formatter – Instant JSON Format & Validate Online</title>
   <meta name="description" content="Free online JSON formatter with real-time formatting, syntax error detection with line number warnings, code highlighting, collapsible view, and one-click copy. Perfect for developers debugging APIs, validating configs, or inspecting JSON responses on any device — no button clicks needed, just paste and go." />
-  <link rel="canonical" href="https://zlbox.site/tools/text/json-formatter.html" />
+  <link rel="canonical" href="https://www.zlbox.site/tools/text/json-formatter.html" />
   <meta name="google-site-verification" content="google4bd1e08685667667" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" 
       crossorigin="anonymous"></script>
@@ -527,10 +527,9 @@ Error:  ⚠ SyntaxError at line 1 — Unexpected token }
     }
     let hint = '';
     if (/unexpected token }/i.test(msg))  hint = ' → Check for a trailing comma before a closing brace or bracket.';
-    else if (/unexpected token/i.test(msg)) hint = ' → Look for missing quotes, colons, or commas near that position.';
-    else if (/unexpected end/i.test(msg))   hint = ' → Your JSON looks incomplete — a closing bracket or brace may be missing.';
-
-    errorText.textContent = `SyntaxError${lineHint}: ${msg}${hint}`;
+    if (/unexpected token \[/i.test(msg)) hint = ' → Check for a missing closing brace or bracket.';
+    if (/unexpected token "|unexpected string/i.test(msg)) hint = ' → Check for unclosed quotes or special characters.';
+    errorText.textContent = `${msg}${lineHint}${hint}`;
     errorBanner.classList.add('visible');
   }
 
@@ -539,131 +538,134 @@ Error:  ⚠ SyntaxError at line 1 — Unexpected token }
     errorText.textContent = '';
   }
 
-  // ── Syntax-highlighted rendering ──
-  function showOutput(data) {
-    outputPanel.innerHTML = '<pre>' + syntaxHighlight(JSON.stringify(data, null, 2)) + '</pre>';
-    addCollapseHandlers();
-  }
-
-  function syntaxHighlight(json) {
-    json = json.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-    return json.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, (match) => {
-      let cls = 'json-number';
-      if (/^"/.test(match)) {
-        if (/:$/.test(match)) {
-          cls = 'json-key';
-        } else {
-          cls = 'json-string';
-        }
-      } else if (/true|false/.test(match)) {
-        cls = 'json-bool';
-      } else if (/null/.test(match)) {
-        cls = 'json-null';
-      }
-      return '<span class="' + cls + '">' + match + '</span>';
-    });
-  }
-
-  // ── Collapse ─
-  function addCollapseHandlers() {
-    const pre = outputPanel.querySelector('pre');
-    if (!pre) return;
-
-    let depth = 0;
-    const lines = pre.innerHTML.split('\n');
-    const newLines = [];
-    const stack = [];
-
-    for (let i = 0; i < lines.length; i++) {
-      const line = lines[i];
-      const trimmed = line.trim();
-      const openMatch = trimmed.match(/([{[])/);
-      const closeMatch = trimmed.match(/([}\]])/);
-      
-      if (openMatch && !closeMatch) {
-        const brace = openMatch[1];
-        const toggleId = `collapse-${depth}`;
-        newLines.push(`<span class="collapsible-toggle" data-target="${toggleId}" data-type="${brace}">▼</span>` + line);
-        newLines.push(`<span id="${toggleId}" class="collapsed-placeholder" style="display:none;">…</span>`);
-        stack.push({ id: toggleId, lines: [] });
-        depth++;
-      } else if (closeMatch && !openMatch) {
-        if (stack.length > 0) {
-          const top = stack[stack.length - 1];
-          for (const childLine of top.lines) {
-            newLines.splice(newLines.indexOf(childLine) - 1, 0, `<span style="display:none" class="collapsed-content-${top.id}">${childLine}</span>`);
-          }
-          const el = document.getElementById(top.id);
-          if (el) {
-            const contentSpans = outputPanel.querySelectorAll(`.collapsed-content-${top.id}`);
-            contentSpans.forEach(s => s.style.display = 'none');
-          }
-        }
-        depth = Math.max(0, depth - 1);
-        newLines.push(line);
-      } else {
-        newLines.push(line);
-      }
+  // ── Output rendering ──
+  function showOutput(obj, indent = 0, isRoot = true) {
+    if (!obj || typeof obj !== 'object') {
+      outputPanel.innerHTML = '<div class="output-placeholder">No valid JSON to display.</div>';
+      return;
     }
 
-    pre.innerHTML = newLines.join('\n');
+    const isArr = Array.isArray(obj);
+    const keys = isArr ? obj.map((_, i) => i) : Object.keys(obj);
+    const hasNested = keys.some(k => obj[k] && typeof obj[k] === 'object');
+
+    let html = '';
+    const indentSpaces = '  '.repeat(indent);
+
+    if (isRoot) {
+      html += '<pre>';
+    }
+
+    html += `${indentSpaces}${isArr ? '[' : '{'}`;
+
+    if (hasNested && !isCollapsed) {
+      keys.forEach((key, idx) => {
+        const value = obj[key];
+        const isLast = idx === keys.length - 1;
+        const isObj = value && typeof value === 'object';
+
+        html += '\n';
+        
+        if (isObj && isCollapsed) {
+          const typeName = Array.isArray(value) ? 'array' : 'object';
+          html += `${'  '.repeat(indent + 1)}${!isArr ? `<span class="json-key">"${key}"</span>: ` : ''}<span class="collapsed-placeholder">// ${typeName} with ${Array.isArray(value) ? value.length : Object.keys(value).length} ${Array.isArray(value) ? 'items' : 'keys'}</span>${isLast ? '' : ','}`;
+        } else if (isObj) {
+          html += `${'  '.repeat(indent + 1)}${!isArr ? `<span class="json-key">"${key}"</span>: ` : ''}`;
+          html += showOutput(value, indent + 1, false);
+          html += isLast ? '' : ',';
+        } else {
+          const valHtml = typeof value === 'string' 
+            ? `<span class="json-string">"${escapeHtml(value)}"</span>`
+            : typeof value === 'number' 
+              ? `<span class="json-number">${value}</span>`
+              : typeof value === 'boolean'
+                ? `<span class="json-bool">${value}</span>`
+                : `<span class="json-null">null</span>`;
+          html += `${'  '.repeat(indent + 1)}${!isArr ? `<span class="json-key">"${key}"</span>: ` : ''}${valHtml}${isLast ? '' : ','}`;
+        }
+      });
+      html += `\n${indentSpaces}`;
+    } else if (keys.length > 0) {
+      html += ' ';
+      keys.forEach((key, idx) => {
+        const value = obj[key];
+        const isLast = idx === keys.length - 1;
+        const valHtml = typeof value === 'string' 
+          ? `<span class="json-string">"${escapeHtml(value)}"</span>`
+          : typeof value === 'number' 
+            ? `<span class="json-number">${value}</span>`
+            : typeof value === 'boolean'
+              ? `<span class="json-bool">${value}</span>`
+              : `<span class="json-null">null</span>`;
+        html += `${!isArr ? `<span class="json-key">"${key}"</span>: ` : ''}${valHtml}${isLast ? '' : ', '}`;
+      });
+      html += ' ';
+    }
+
+    html += `${isArr ? ']' : '}'}`;
+
+    if (isRoot) {
+      html += '</pre>';
+      outputPanel.innerHTML = html;
+    }
+
+    return html;
   }
 
+  function escapeHtml(str) {
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#039;');
+  }
+
+  // ── Collapse toggle ──
   function toggleCollapse() {
-    const toggles = outputPanel.querySelectorAll('.collapsible-toggle');
-    const isCurrentlyCollapsed = toggles.length > 0 && toggles[0].textContent === '▶';
-
-    toggles.forEach(toggle => {
-      const targetId = toggle.dataset.target;
-      const type = toggle.dataset.type;
-      const contentSpans = outputPanel.querySelectorAll(`.collapsed-content-${targetId}`);
-      
-      if (isCurrentlyCollapsed) {
-        toggle.textContent = '▼';
-        contentSpans.forEach(s => s.style.display = '');
-        const placeholder = document.getElementById(targetId);
-        if (placeholder) placeholder.style.display = 'none';
-      } else {
-        toggle.textContent = '▶';
-        contentSpans.forEach(s => s.style.display = 'none');
-        const placeholder = document.getElementById(targetId);
-        if (placeholder) placeholder.style.display = '';
-      }
-    });
-  }
-
-  // ── Sample data ──
-  function loadSample() {
-    input.value = '{"user":{"id":42,"name":"Alice","roles":["admin","editor"],"active":true},"token":"abc123","meta":null}';
-    parseAndRender(input.value);
+    isCollapsed = !isCollapsed;
+    btnCollapse.textContent = isCollapsed ? '⊞ Expand All' : '⊟ Collapse All';
+    if (parsedData) showOutput(parsedData);
   }
 
   // ── Copy output ──
   function copyOutput() {
-    if (!formattedJSON) return;
     navigator.clipboard.writeText(formattedJSON).then(() => {
       copyFeedback.classList.add('show');
       setTimeout(() => copyFeedback.classList.remove('show'), 2000);
     });
   }
 
-  // ── Clear ──
+  // ── Reset ──
   function clearAll() {
     input.value = '';
-    reset();
-    input.focus();
-  }
-
-  function reset() {
-    formattedJSON = '';
-    parsedData = null;
-    isCollapsed = false;
     outputPanel.innerHTML = '<div class="output-placeholder">Formatted JSON will appear here as you type…</div>';
-    clearError();
-    input.classList.remove('has-error', 'is-valid');
+    input.classList.remove('has-error');
+    input.classList.remove('is-valid');
     btnCopy.disabled = true;
     btnCollapse.disabled = true;
     validBadge.classList.remove('show');
+    clearError();
+    parsedData = null;
+    formattedJSON = '';
+  }
+
+  // ── Sample data ──
+  function loadSample() {
+    input.value = '{
+  "user": {
+    "id": 42,
+    "name": "Alice",
+    "email": "alice@example.com",
+    "active": true,
+    "roles": ["admin", "editor"],
+    "settings": {
+      "theme": "dark",
+      "notifications": true
+    }
+  }
+}';
+    input.dispatchEvent(new Event('input'));
   }
 </script>
 </body>

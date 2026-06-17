@@ -429,7 +429,7 @@
       <a href="base64.html">⚙️ Base64 Encode/Decode</a>
       <a href="json-formatter.html">📋 JSON Formatter</a>
       <a href="case-converter.html">🔡 Case Converter</a>
-      <a href="../../pages/about.html">ℹ About</a>
+      <a href="../../about.html">ℹ About</a>
     </div>
   </div>
 
@@ -509,23 +509,12 @@
       badgeEl.hidden = false;
       buttons.forEach(function (b) {
         b.classList.toggle('active',   b === btn);
-        b.classList.toggle('inactive', b !== btn);
+        b.classList.toggle('inactive', b !== btn && input.trim());
       });
     });
   });
 
-  inputEl.addEventListener('input', function () {
-    if (!inputEl.value.trim()) {
-      outputEl.value = '';
-      badgeEl.hidden = true;
-      buttons.forEach(function (b) {
-        b.classList.remove('active');
-        b.classList.remove('inactive');
-      });
-    }
-  });
-
-  function clearAll() {
+  document.getElementById('clearBtn').addEventListener('click', function () {
     inputEl.value = '';
     outputEl.value = '';
     badgeEl.hidden = true;
@@ -534,15 +523,15 @@
       b.classList.remove('inactive');
     });
     inputEl.focus();
-  }
+  });
 
-  function copyResult() {
+  document.getElementById('copyBtn').addEventListener('click', function () {
     var text = outputEl.value;
     if (!text) return;
     var btn = document.getElementById('copyBtn');
 
     navigator.clipboard.writeText(text).then(function () {
-      btn.innerHTML = '✓ Copied!';
+      btn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> ✓ Copied';
       btn.classList.add('copied');
       setTimeout(function () {
         btn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy';
@@ -551,19 +540,22 @@
     }).catch(function () {
       var ta = document.createElement('textarea');
       ta.value = text;
-      ta.style.cssText = 'position:fixed;top:-9999px';
+      ta.style.position = 'fixed';
+      ta.style.left = '-9999px';
       document.body.appendChild(ta);
       ta.select();
       document.execCommand('copy');
       document.body.removeChild(ta);
-      btn.innerHTML = '✓ Copied!';
+      btn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> ✓ Copied';
       btn.classList.add('copied');
       setTimeout(function () {
         btn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy';
         btn.classList.remove('copied');
       }, 2000);
     });
-  }
+  });
+
+  inputEl.focus();
 })();
 </script>
 </body>

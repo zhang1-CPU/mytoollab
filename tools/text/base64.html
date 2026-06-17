@@ -18,7 +18,6 @@
   </script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
       --brand: #2563eb;
       --brand-hover: #1d4ed8;
@@ -32,7 +31,6 @@
       --shadow: 0 2px 8px rgba(0,0,0,0.06);
       --max-w: 780px;
     }
-
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       background: var(--bg);
@@ -40,12 +38,13 @@
       line-height: 1.6;
       padding: 0 16px 48px;
     }
-
     a { color: var(--brand); text-decoration: none; }
     a:hover { text-decoration: underline; }
-
     .container { max-width: var(--max-w); margin: 0 auto; }
-
+    .ad-container {
+      margin: 1.5rem auto;
+      text-align: center;
+    }
     /* ── Header ── */
     header {
       text-align: center;
@@ -65,7 +64,6 @@
       max-width: 560px;
       margin: 0 auto;
     }
-
     /* ── Tool Card ── */
     .tool-card {
       background: var(--surface);
@@ -75,14 +73,12 @@
       padding: 24px;
       margin-bottom: 24px;
     }
-
     /* ── Mode Toggle ── */
     .mode-toggle {
       display: flex;
       gap: 10px;
       margin-bottom: 18px;
     }
-
     .mode-btn {
       flex: 1;
       padding: 12px 16px;
@@ -96,16 +92,13 @@
       color: var(--brand);
       min-height: 52px;
     }
-
     .mode-btn.active {
       background: var(--brand);
       color: #fff;
     }
-
     .mode-btn:hover:not(.active) {
       background: #eff6ff;
     }
-
     /* ── Labels ── */
     .field-label {
       font-size: 0.82rem;
@@ -115,7 +108,6 @@
       letter-spacing: 0.05em;
       margin-bottom: 8px;
     }
-
     /* ── Textareas ── */
     textarea {
       width: 100%;
@@ -131,15 +123,12 @@
       color: var(--text);
       line-height: 1.6;
     }
-
     textarea:focus {
       outline: none;
       border-color: var(--brand);
       background: var(--bg);
     }
-
     .textarea-wrap { margin-bottom: 12px; }
-
     /* ── Arrow ── */
     .arrow-row {
       display: flex;
@@ -150,7 +139,6 @@
       font-size: 1.3rem;
       user-select: none;
     }
-
     /* ── Copy Button ── */
     .copy-btn {
       width: 100%;
@@ -166,11 +154,9 @@
       min-height: 52px;
       margin-top: 8px;
     }
-
     .copy-btn:hover { background: #059669; }
     .copy-btn:active { transform: scale(0.98); }
     .copy-btn.copied { background: #065f46; }
-
     /* ── Error ── */
     .error-msg {
       color: #ef4444;
@@ -178,7 +164,6 @@
       margin-top: 8px;
       min-height: 1.4em;
     }
-
     /* ── Content Sections ── */
     .content-section {
       background: var(--surface);
@@ -196,14 +181,12 @@
     }
     .content-section p { color: var(--muted); font-size: 0.92rem; margin-bottom: 12px; line-height: 1.65; }
     .content-section p:last-child { margin-bottom: 0; }
-
     /* Steps */
     ol.steps {
       padding-left: 0;
       list-style: none;
       counter-reset: step;
     }
-
     ol.steps li {
       counter-increment: step;
       display: flex;
@@ -214,7 +197,6 @@
       color: var(--muted);
       line-height: 1.6;
     }
-
     ol.steps li::before {
       content: counter(step);
       min-width: 28px;
@@ -230,7 +212,6 @@
       flex-shrink: 0;
       margin-top: 2px;
     }
-
     /* Examples */
     .example-block {
       background: #f0f9ff;
@@ -239,21 +220,18 @@
       padding: 16px;
       margin-bottom: 14px;
     }
-
     .example-block strong {
       display: block;
       font-size: 0.95rem;
       color: var(--text);
       margin-bottom: 8px;
     }
-
     .example-block code {
       font-family: "SFMono-Regular", Consolas, monospace;
       font-size: 0.88rem;
       color: var(--muted);
       word-break: break-all;
     }
-
     /* FAQ */
     details {
       border-bottom: 1px solid var(--border);
@@ -277,14 +255,12 @@
     summary::after { content: "+"; font-size: 1.25rem; color: var(--brand); flex-shrink: 0; }
     details[open] summary::after { content: "−"; }
     details p { margin-top: 12px; font-size: 0.9rem; color: var(--muted); line-height: 1.6; }
-
     /* Related Tools */
     .related-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
       gap: 10px;
     }
-
     .related-grid a {
       display: block;
       padding: 12px 14px;
@@ -297,11 +273,9 @@
       font-weight: 600;
       transition: border-color 0.18s;
     }
-
     .related-grid a:hover {
       border-color: var(--brand);
     }
-
     /* Mobile */
     @media (max-width: 480px) {
       .tool-card { padding: 20px 16px; }
@@ -311,34 +285,53 @@
   </style>
 </head>
 <body>
-
 <div class="container">
+  <!-- ── Banner Ad ── -->
+  <div class="ad-container">
+    <ins class="adsbygoogle"
+         style="display:block; width:100%; max-width:728px; height:90px; margin:0 auto;"
+         data-ad-client="ca-pub-5420550088713746"
+         data-ad-slot="7890123456"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
 
   <header>
     <h1>Base64 Encode & Decode — Instant Online Converter</h1>
     <p>Encode plain text to Base64 or decode Base64 strings back — in real time, no page reload needed.</p>
   </header>
-
   <div class="tool-card">
     <div class="mode-toggle">
       <button class="mode-btn active" id="btn-encode" onclick="setMode('encode')">⬆ Encode</button>
       <button class="mode-btn" id="btn-decode" onclick="setMode('decode')">⬇ Decode</button>
     </div>
-
     <div class="textarea-wrap">
       <div class="field-label" id="label-input">Plain Text</div>
       <textarea id="input-text" placeholder="Type or paste your text here…" oninput="convert()" autocomplete="off" spellcheck="false"></textarea>
     </div>
-
     <div class="arrow-row">↕</div>
-
     <div class="textarea-wrap">
       <div class="field-label" id="label-output">Base64 Output</div>
       <textarea id="output-text" placeholder="Result appears here automatically…" readonly></textarea>
       <div class="error-msg" id="error-msg"></div>
     </div>
-
     <button class="copy-btn" id="copy-btn" onclick="copyResult()">Copy Result</button>
+  </div>
+
+  <!-- ── Inline Ad ── -->
+  <div class="ad-container">
+    <ins class="adsbygoogle"
+         style="display:block; width:100%; max-width:728px; height:90px; margin:0 auto;"
+         data-ad-client="ca-pub-5420550088713746"
+         data-ad-slot="8901234567"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
   </div>
 
   <div class="content-section">
@@ -346,7 +339,6 @@
     <p>Base64 encoding converts binary or text data into a safe ASCII string — commonly used when embedding images in HTML/CSS, passing data through URLs, or storing credentials in config files. If you're a developer working with APIs, email attachments, or JWT tokens, you'll run into Base64 constantly.</p>
     <p>This tool works just as well for non-developers. Need to decode a mysterious string you found in a config file or a web request? Paste it in, flip to Decode mode, and you'll see the original text instantly. It handles Unicode and Chinese characters too, so no garbled output.</p>
   </div>
-
   <div class="content-section">
     <h2>How to Use</h2>
     <ol class="steps">
@@ -355,55 +347,62 @@
       <li>Hit <strong>Copy Result</strong> to grab the output with one tap, then paste it wherever you need it.</li>
     </ol>
   </div>
-
   <div class="content-section">
     <h2>Examples</h2>
-
     <div class="example-block">
       <strong>Example 1 — Encoding an API key for an HTTP header</strong>
       <code>
-        Input: myuser:s3cr3tP@ss<br/>
-        Base64 Output: bXl1c2VyOnMzY3IzdFBAc3M=<br/>
+        Input: myuser:s3cr3tP@ss
+
+        Base64 Output: bXl1c2VyOnMzY3IzdFBAc3M=
+
         Use it as: Authorization: Basic bXl1c2VyOnMzY3IzdFBAc3M=
       </code>
     </div>
-
     <div class="example-block">
       <strong>Example 2 — Decoding a Base64 string from a JWT payload</strong>
       <code>
-        Input: eyJ1c2VyIjoiYWxpY2UiLCJyb2xlIjoiYWRtaW4ifQ==<br/>
+        Input: eyJ1c2VyIjoiYWxpY2UiLCJyb2xlIjoiYWRtaW4ifQ==
+
         Decoded Output: {"user":"alice","role":"admin"}
       </code>
     </div>
   </div>
-
   <div class="content-section">
     <h2>FAQ</h2>
-
     <details>
       <summary>Is Base64 a form of encryption?</summary>
       <p>No. Base64 is encoding, not encryption. Anyone with this tool can decode a Base64 string immediately. Don't use it to hide sensitive data — use proper encryption like AES for that.</p>
     </details>
-
     <details>
       <summary>Why does my decoded output look garbled?</summary>
       <p>The input might not be valid Base64, or it could be encoding binary data (like an image) rather than text. This tool is designed for text content. Binary files need a different approach.</p>
     </details>
-
     <details>
       <summary>Does it support Chinese characters and emoji?</summary>
       <p>Yes. The tool uses UTF-8 encoding under the hood, so Chinese, Japanese, Arabic, emoji, and other Unicode characters all encode and decode correctly.</p>
     </details>
-
     <details>
       <summary>Is my data sent to a server?</summary>
       <p>No. Everything runs locally in your browser using native JavaScript. Nothing you type is transmitted anywhere — safe to use with sensitive strings.</p>
     </details>
-
     <details>
       <summary>What's the "=" padding at the end of Base64 strings?</summary>
       <p>Base64 works in 3-byte chunks. If the input isn't a multiple of 3 bytes, "=" characters are added to pad the output to the correct length. It's normal and expected.</p>
     </details>
+  </div>
+
+  <!-- ── Inline Ad 2 ── -->
+  <div class="ad-container">
+    <ins class="adsbygoogle"
+         style="display:block; width:100%; max-width:728px; height:90px; margin:0 auto;"
+         data-ad-client="ca-pub-5420550088713746"
+         data-ad-slot="9012345678"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
   </div>
 
   <div class="content-section">
@@ -417,12 +416,9 @@
       <a href="../../index.html">ℹ Home</a>
     </div>
   </div>
-
 </div>
-
 <script>
   let currentMode = 'encode';
-
   function setMode(mode) {
     currentMode = mode;
     document.getElementById('btn-encode').classList.toggle('active', mode === 'encode');
@@ -437,7 +433,6 @@
     inp.value = out.value;
     convert();
   }
-
   function safeEncode(str) {
     return btoa(
       encodeURIComponent(str).replace(/%([0-9A-F]{2})/g, (_, p1) =>
@@ -445,7 +440,6 @@
       )
     );
   }
-
   function safeDecode(str) {
     return decodeURIComponent(
       atob(str)
@@ -454,18 +448,15 @@
         .join('')
     );
   }
-
   function convert() {
     const input  = document.getElementById('input-text').value;
     const outEl  = document.getElementById('output-text');
     const errEl  = document.getElementById('error-msg');
     errEl.textContent = '';
-
     if (!input.trim()) {
       outEl.value = '';
       return;
     }
-
     try {
       outEl.value = currentMode === 'encode' ? safeEncode(input) : safeDecode(input);
     } catch (e) {
@@ -475,12 +466,10 @@
         : '⚠ Encoding failed. Please check your input.';
     }
   }
-
   function copyResult() {
     const out = document.getElementById('output-text').value;
     if (!out) return;
     const btn = document.getElementById('copy-btn');
-
     navigator.clipboard.writeText(out).then(() => {
       btn.textContent = '✓ Copied!';
       btn.classList.add('copied');
@@ -506,6 +495,5 @@
     });
   }
 </script>
-
 </body>
 </html>

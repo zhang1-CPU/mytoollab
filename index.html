@@ -3,408 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Tool Lab – Free Online Tools: Text, Calculator, Image, QR & Password</title>
-  <meta name="description" content="30+ free online tools: PDF processing, text tools, calculators, image tools, QR codes, password generators, UUID, hash, and more. All tools run in your browser, no signup, no data saved." />
-  <meta name="keywords" content="free online tools, word counter, json formatter, age calculator, percentage calculator, password generator, qr code generator, image compressor, color picker, text tools, uuid generator, hash generator, scientific calculator, unit converter, bmi calculator, loan calculator, markdown to html" />
+  <title>My Tool Lab – Free Online Tools: Text, Calculator, Image, QR & PDF</title>
+  <meta name="description" content="25+ free online tools. Word counter, JSON formatter, case converter, Base64, QR code generator, password generator, PDF tools, image tools, and calculators. Runs in your browser, no signup." />
+  <meta name="keywords" content="free online tools, word counter, json formatter, html formatter, sql formatter, case converter, base64 encoder, url encoder, lorem ipsum, remove duplicate lines, age calculator, percentage calculator, basic calculator, password generator, qr code generator, qr code scanner, image compressor, image converter, image resizer, color picker, color converter, pdf compressor, pdf merge, pdf split, jpg to pdf" />
   <link rel="canonical" href="https://www.zlbox.site/" />
   <meta name="google-site-verification" content="google4bd1e08685667667" />
   <meta name="robots" content="index, follow" />
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746"
-      crossorigin="anonymous"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-9V6L0Z956X"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-9V6L0Z956X');
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "My Tool Lab",
-    "url": "https://www.zlbox.site/",
-    "description": "Free online tools for text processing, calculation, image compression, and more. No signup required."
-  }
-  </script>
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --brand:        #2563eb;
-      --brand-hover:  #1d4ed8;
-      --brand-light:  #eff6ff;
-      --text:         #0f172a;
-      --muted:        #64748b;
-      --border:       #e2e8f0;
-      --bg:           #ffffff;
-      --bg-subtle:    #f8fafc;
-      --radius:       12px;
-      --radius-sm:    8px;
-      --radius-lg:    16px;
-      --shadow:       0 1px 3px rgba(0,0,0,0.05);
-      --shadow-hover: 0 4px 12px rgba(37,99,235,0.12);
-      --max-w:        1200px;
-    }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      color: var(--text);
-      background: var(--bg-subtle);
-      line-height: 1.5;
-      font-size: 15px;
-    }
-    a { color: var(--brand); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 20px; width: 100%; }
-    .brand-line { 
-      font-size: 0.65rem; 
-      font-weight: 600; 
-      letter-spacing: 1.6px; 
-      text-transform: uppercase; 
-      color: var(--brand); 
-      text-align: center; 
-      padding: 8px 0 4px; 
-      background: var(--bg);
-    }
-    
-    .hero { 
-      text-align: center; 
-      padding: 8px 0 12px; 
-      background: var(--bg);
-      border-bottom: 1px solid var(--border);
-    }
-    .hero h1 { 
-      font-size: clamp(1.4rem, 4vw, 2rem); 
-      font-weight: 700; 
-      line-height: 1.15; 
-      margin: 0 auto 6px; 
-      max-width: 800px;
-      letter-spacing: -0.02em;
-    }
-    .hero h1 .highlight { color: var(--brand); }
-    .hero-sub { 
-      font-size: 0.85rem; 
-      color: var(--muted); 
-      max-width: 620px; 
-      margin: 0 auto 8px; 
-      line-height: 1.5;
-    }
-    .hero-pills { 
-      display: flex; 
-      flex-wrap: wrap; 
-      justify-content: center; 
-      gap: 6px; 
-      margin-bottom: 0; 
-    }
-    .hero-pill { 
-      font-size: 0.7rem; 
-      font-weight: 500; 
-      color: var(--text); 
-      background: var(--bg-subtle); 
-      border: 1px solid var(--border); 
-      border-radius: 999px; 
-      padding: 4px 10px; 
-      transition: all 0.2s;
-    }
-    .hero-pill:hover { 
-      background: var(--brand-light); 
-      border-color: var(--brand); 
-      color: var(--brand); 
-    }
-    
-    .tools-section { 
-      padding: 12px 0; 
-    }
-    
-    .tools-grid { 
-      display: grid; 
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
-      gap: 12px; 
-    }
-    
-    .tool-card { 
-      background: var(--bg); 
-      border: 1px solid var(--border); 
-      border-radius: var(--radius); 
-      padding: 16px; 
-      transition: all 0.25s ease; 
-      display: flex; 
-      flex-direction: column; 
-      align-items: flex-start; 
-      gap: 12px;
-      box-shadow: var(--shadow);
-    }
-    .tool-card:hover { 
-      border-color: var(--brand); 
-      background: var(--bg); 
-      box-shadow: var(--shadow-hover);
-      transform: translateY(-2px);
-    }
-    
-    .tool-icon { 
-      width: 48px; 
-      height: 48px; 
-      background: linear-gradient(135deg, var(--brand-light) 0%, #dbeafe 100%); 
-      border-radius: var(--radius-sm); 
-      display: flex; 
-      align-items: center; 
-      justify-content: center; 
-      font-size: 1.5rem; 
-      flex-shrink: 0;
-      transition: all 0.2s;
-    }
-    .tool-card:hover .tool-icon { 
-      background: var(--brand);
-      transform: scale(1.05);
-    }
-    
-    .tool-card-content { 
-      display: flex; 
-      flex-direction: column; 
-      flex-grow: 1; 
-      min-width: 0; 
-      width: 100%;
-    }
-    
-    .tool-card h3 { 
-      font-size: 0.95rem; 
-      font-weight: 600; 
-      color: var(--text); 
-      line-height: 1.3; 
-      margin-bottom: 4px; 
-    }
-    
-    .tool-card p { 
-      font-size: 0.8rem; 
-      color: var(--muted); 
-      line-height: 1.4; 
-      overflow: hidden; 
-      text-overflow: ellipsis; 
-      white-space: nowrap; 
-    }
-    
-    .tool-link { 
-      display: inline-flex; 
-      align-items: center; 
-      justify-content: center; 
-      gap: 4px; 
-      font-size: 0.8rem; 
-      font-weight: 600; 
-      color: var(--brand); 
-      padding: 6px 12px; 
-      border-radius: var(--radius-sm); 
-      background: var(--bg-subtle);
-      margin-top: 8px;
-      align-self: flex-start;
-      transition: all 0.2s;
-    }
-    .tool-link::after { content: '\2192'; font-size: 0.7rem; }
-    .tool-link:hover { 
-      background: var(--brand); 
-      color: white; 
-      text-decoration: none;
-    }
-    
-    .category-row { margin-bottom: 8px; }
-    
-    .category-header { 
-      display: flex; 
-      align-items: center; 
-      justify-content: space-between; 
-      margin-bottom: 6px; 
-      padding-bottom: 4px; 
-      border-bottom: 1px solid var(--border);
-    }
-    .category-header h2 { 
-      font-size: 1.15rem; 
-      font-weight: 700; 
-      display: flex; 
-      align-items: center; 
-      gap: 10px; 
-    }
-    .category-header h2 .emoji { font-size: 1.3rem; }
-    .category-view-all { 
-      font-size: 0.85rem; 
-      font-weight: 600; 
-      color: var(--brand); 
-      padding: 4px 10px;
-      border-radius: var(--radius-sm);
-    }
-    .category-view-all:hover { 
-      background: var(--brand-light); 
-      text-decoration: none;
-    }
-    
-    .section-title { text-align: center; margin-bottom: 10px; }
-    .section-title h2 { font-size: 1.1rem; font-weight: 700; margin-bottom: 2px; }
-    .section-title p { font-size: 0.8rem; color: var(--muted); }
-
-    .features-section { 
-      padding: 16px 0; 
-      background: var(--bg); 
-      border-top: 1px solid var(--border);
-    }
-    .features-grid { 
-      display: grid; 
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); 
-      gap: 12px; 
-      max-width: 900px; 
-      margin: 0 auto; 
-    }
-    .feature-card { 
-      background: var(--bg-subtle); 
-      border-radius: var(--radius); 
-      padding: 16px; 
-      border: 1px solid var(--border); 
-      display: flex; 
-      align-items: center; 
-      gap: 14px;
-      transition: all 0.2s;
-    }
-    .feature-card:hover {
-      border-color: var(--brand);
-      background: var(--brand-light);
-    }
-    .feature-icon { 
-      font-size: 1.5rem; 
-      flex-shrink: 0; 
-      width: 40px;
-      height: 40px;
-      background: var(--bg);
-      border-radius: var(--radius-sm);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .feature-card h3 { 
-      font-size: 0.9rem; 
-      font-weight: 600; 
-      margin-bottom: 2px; 
-      text-align: left; 
-    }
-    .feature-card p { 
-      font-size: 0.78rem; 
-      color: var(--muted); 
-      line-height: 1.4; 
-      text-align: left; 
-    }
-    
-    .faq-section { padding: 16px 0; }
-    .faq-list { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 8px; }
-    .faq-item { 
-      border: 1px solid var(--border); 
-      border-radius: var(--radius); 
-      overflow: hidden;
-      transition: all 0.2s;
-    }
-    .faq-item:hover { border-color: var(--brand); }
-    .faq-item summary { 
-      font-size: 0.92rem; 
-      font-weight: 600; 
-      padding: 14px 16px; 
-      cursor: pointer; 
-      list-style: none; 
-      display: flex; 
-      justify-content: space-between; 
-      align-items: center; 
-      background: var(--bg);
-      transition: background 0.2s;
-    }
-    .faq-item summary:hover { background: var(--bg-subtle); }
-    .faq-item summary::-webkit-details-marker { display: none; }
-    .faq-item summary::after { 
-      content: '+'; 
-      font-size: 1.1rem; 
-      color: var(--brand); 
-      font-weight: 400;
-      flex-shrink: 0; 
-      margin-left: 12px; 
-      transition: transform 0.2s;
-    }
-    .faq-item[open] summary::after { 
-      content: '\2212'; 
-    }
-    .faq-item[open] summary { 
-      background: var(--brand-light); 
-      border-bottom: 1px solid var(--border);
-    }
-    .faq-item p { 
-      font-size: 0.88rem; 
-      color: var(--muted); 
-      line-height: 1.6; 
-      padding: 12px 16px 16px; 
-    }
-    
-    footer { 
-      padding: 16px 0 12px; 
-      border-top: 1px solid var(--border); 
-      text-align: center; 
-      background: var(--bg);
-    }
-    .footer-tagline { 
-      font-size: 0.8rem; 
-      color: var(--muted); 
-      margin: 0 auto 8px; 
-      max-width: 520px; 
-      line-height: 1.5;
-    }
-    .footer-tagline strong { color: var(--text); }
-    .footer-links { 
-      display: flex; 
-      justify-content: center; 
-      flex-wrap: wrap; 
-      gap: 2px 12px; 
-      font-size: 0.8rem; 
-      margin-bottom: 8px; 
-    }
-    .footer-links a { 
-      color: var(--muted); 
-      padding: 4px 10px;
-      border-radius: var(--radius-sm);
-      transition: all 0.2s;
-    }
-    .footer-links a:hover { 
-      color: var(--brand); 
-      background: var(--brand-light); 
-      text-decoration: none;
-    }
-    .footer-divider { 
-      width: 1px; 
-      height: 14px; 
-      background: var(--border); 
-      display: inline-block; 
-      vertical-align: middle; 
-    }
-    .footer-copy { 
-      font-size: 0.78rem; 
-      color: #94a3b8; 
-    }
-    
-    @media (max-width: 768px) { 
-      .features-grid { grid-template-columns: repeat(2, 1fr); } 
-      .tools-grid { grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 10px; }
-      .tool-card { padding: 14px; }
-      .tool-icon { width: 42px; height: 42px; font-size: 1.3rem; }
-      .hero { padding: 10px 0 16px; }
-      .hero-pill { padding: 5px 10px; font-size: 0.75rem; }
-    }
-    
-    @media (max-width: 480px) { 
-      .tools-grid { grid-template-columns: 1fr; gap: 10px; } 
-      .features-grid { grid-template-columns: 1fr; }
-      .container { padding: 0 16px; }
-      .tool-icon { width: 44px; height: 44px; font-size: 1.4rem; }
-      .tool-card { padding: 16px; }
-      .category-header { flex-direction: column; align-items: flex-start; gap: 8px; }
-      .category-view-all { align-self: flex-end; }
-    }
-  </style>
+  <script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-9V6L0Z956X');</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"My Tool Lab","url":"https://www.zlbox.site/","description":"Free online tools for text processing, calculation, image compression, QR codes, and PDF handling. No signup required."}</script>
+  <style>*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}:root{--brand:#2563eb;--brand-hover:#1d4ed8;--text:#0f172a;--muted:#64748b;--border:#e2e8f0;--bg:#ffffff;--bg-subtle:#f8fafc;--radius:12px;--radius-sm:8px;--radius-lg:16px;--shadow:0 1px 3px rgba(0,0,0,.05);--shadow-hover:0 4px 12px rgba(37,99,235,.12);--max-w:1200px}body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;color:var(--text);background:var(--bg-subtle);line-height:1.5;font-size:15px}a{color:var(--brand);text-decoration:none}a:hover{text-decoration:underline}.container{max-width:var(--max-w);margin:0 auto;padding:0 20px;width:100%}.brand-line{font-size:.65rem;font-weight:600;letter-spacing:1.6px;text-transform:uppercase;color:var(--brand);text-align:center;padding:8px 0 4px;background:var(--bg)}.hero{text-align:center;padding:8px 0 12px;background:var(--bg);border-bottom:1px solid var(--border)}.hero h1{font-size:clamp(1.4rem,4vw,2rem);font-weight:700;line-height:1.15;margin:0 auto 6px;max-width:800px;letter-spacing:-0.02em}.hero h1 .highlight{color:var(--brand)}.hero-sub{font-size:.85rem;color:var(--muted);max-width:620px;margin:0 auto 8px;line-height:1.5}.hero-pills{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin-bottom:0}.hero-pill{font-size:.7rem;font-weight:500;color:var(--text);background:var(--bg-subtle);border:1px solid var(--border);border-radius:999px;padding:4px 10px;transition:all .2s}.hero-pill:hover{background:#dbeafe;border-color:var(--brand);color:var(--brand)}.tools-section{padding:12px 0}.tools-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}.tool-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:16px;transition:all .25s ease;display:flex;flex-direction:column;align-items:flex-start;gap:12px;box-shadow:var(--shadow)}.tool-card:hover{border-color:var(--brand);background:var(--bg);box-shadow:var(--shadow-hover);transform:translateY(-2px)}.tool-icon{width:48px;height:48px;background:linear-gradient(135deg,#eff6ff 0%,#dbeafe 100%);border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0;transition:all .2s}.tool-card:hover .tool-icon{background:var(--brand);transform:scale(1.05)}.tool-card-content{display:flex;flex-direction:column;flex-grow:1;min-width:0;width:100%}.tool-card h3{font-size:.95rem;font-weight:600;color:var(--text);line-height:1.3;margin-bottom:4px}.tool-card p{font-size:.8rem;color:var(--muted);line-height:1.4;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.tool-link{display:inline-flex;align-items:center;justify-content:center;gap:4px;font-size:.8rem;font-weight:600;color:var(--brand);padding:6px 12px;border-radius:var(--radius-sm);background:var(--bg-subtle);margin-top:8px;align-self:flex-start;transition:all .2s}.tool-link::after{content:'\2192';font-size:.7rem}.tool-link:hover{background:var(--brand);color:#fff;text-decoration:none}.category-row{margin-bottom:8px}.category-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;padding-bottom:4px;border-bottom:1px solid var(--border)}.category-header h2{font-size:1.15rem;font-weight:700;display:flex;align-items:center;gap:10px}.category-header h2 .emoji{font-size:1.3rem}.category-view-all{font-size:.85rem;font-weight:600;color:var(--brand);padding:4px 10px;border-radius:var(--radius-sm)}.category-view-all:hover{background:#dbeafe;text-decoration:none}.section-title{text-align:center;margin-bottom:10px}.section-title h2{font-size:1.1rem;font-weight:700;margin-bottom:2px}.section-title p{font-size:.8rem;color:var(--muted)}.features-section{padding:16px 0;background:var(--bg);border-top:1px solid var(--border)}.features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;max-width:900px;margin:0 auto}.feature-card{background:var(--bg-subtle);border-radius:var(--radius);padding:16px;border:1px solid var(--border);display:flex;align-items:center;gap:14px;transition:all .2s}.feature-card:hover{border-color:var(--brand);background:#eff6ff}.feature-icon{font-size:1.5rem;flex-shrink:0;width:40px;height:40px;background:var(--bg);border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center}.feature-card h3{font-size:.9rem;font-weight:600;margin-bottom:2px;text-align:left}.feature-card p{font-size:.78rem;color:var(--muted);line-height:1.4;text-align:left}.faq-section{padding:16px 0}.faq-list{max-width:720px;margin:0 auto;display:flex;flex-direction:column;gap:8px}.faq-item{border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:all .2s}.faq-item:hover{border-color:var(--brand)}.faq-item summary{font-size:.92rem;font-weight:600;padding:14px 16px;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;background:var(--bg);transition:background .2s}.faq-item summary:hover{background:var(--bg-subtle)}.faq-item summary::-webkit-details-marker{display:none}.faq-item summary::after{content:'+';font-size:1.1rem;color:var(--brand);font-weight:400;flex-shrink:0;margin-left:12px;transition:transform .2s}.faq-item[open] summary::after{content:'\2212'}.faq-item[open] summary{background:#eff6ff;border-bottom:1px solid var(--border)}.faq-item p{font-size:.88rem;color:var(--muted);line-height:1.6;padding:12px 16px 16px}footer{padding:16px 0 12px;border-top:1px solid var(--border);text-align:center;background:var(--bg)}.footer-tagline{font-size:.8rem;color:var(--muted);margin:0 auto 8px;max-width:520px;line-height:1.5}.footer-tagline strong{color:var(--text)}.footer-links{display:flex;justify-content:center;flex-wrap:wrap;gap:4px 18px;font-size:.8rem;margin-bottom:8px}.footer-links a{color:var(--muted);padding:4px 10px;border-radius:var(--radius-sm);transition:all .2s}.footer-links a:hover{color:var(--brand);background:var(--bg-subtle);text-decoration:none}.footer-divider{width:1px;height:14px;background:var(--border);display:inline-block;vertical-align:middle}.footer-copy{font-size:.78rem;color:#94a3b8}@media (max-width:768px){.features-grid{grid-template-columns:repeat(2,1fr)}.tools-grid{grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:10px}.tool-card{padding:14px}.tool-icon{width:42px;height:42px;font-size:1.3rem}.hero{padding:10px 0 16px}.hero-pill{padding:5px 10px;font-size:.75rem}}@media (max-width:480px){.tools-grid{grid-template-columns:1fr;gap:10px}.features-grid{grid-template-columns:1fr}.container{padding:0 16px}.tool-icon{width:44px;height:44px;font-size:1.4rem}.tool-card{padding:16px}.category-header{flex-direction:column;align-items:flex-start;gap:8px}.category-view-all{align-self:flex-end}}</style>
 </head>
 <body>
   <div class="brand-line">My Tool Lab &bull; Free Online Tools</div>
   <section class="hero">
     <div class="container">
-      <h1>30+ free online tools, <span class="highlight">right in your browser.</span></h1>
-      <p class="hero-sub">Text processing, calculations, image compression, QR codes, password generation and more. No signup, no data saved.</p>
+      <h1>25+ free online tools, <span class="highlight">right in your browser.</span></h1>
+      <p class="hero-sub">Text processing, calculations, image compression, QR codes, PDF tools, password generation and more. No signup, no data saved.</p>
       <div class="hero-pills">
         <span class="hero-pill">&check; Free forever</span>
         <span class="hero-pill">&check; No account needed</span>
@@ -417,7 +33,7 @@
   <section class="tools-section">
     <div class="container">
       <div class="category-row">
-        <div class="category-header"><h2><span class="emoji">&#128196;</span>PDF Tools</h2><a href="categories/pdf.html" class="category-view-all">View all &rarr;</a></div>
+        <div class="category-header"><h2><span class="emoji">&#128196;</span>PDF Tools</h2><a href="tools/index.html" class="category-view-all">View all &rarr;</a></div>
         <div class="tools-grid">
           <article class="tool-card"><div class="tool-icon">&#128230;</div><div class="tool-card-content"><h3>Compress PDF</h3><p>Reduce PDF file size.</p><a href="tools/pdf/compress-pdf.html" class="tool-link">Open tool</a></div></article>
           <article class="tool-card"><div class="tool-icon">&#128466;</div><div class="tool-card-content"><h3>Merge PDF</h3><p>Combine PDFs into one.</p><a href="tools/pdf/merge-pdf.html" class="tool-link">Open tool</a></div></article>
@@ -427,7 +43,7 @@
       </div>
 
       <div class="category-row">
-        <div class="category-header"><h2><span class="emoji">&#128221;</span>Text & Developer Tools</h2><a href="categories/text.html" class="category-view-all">View all &rarr;</a></div>
+        <div class="category-header"><h2><span class="emoji">&#128221;</span>Text &amp; Developer Tools</h2><a href="tools/index.html" class="category-view-all">View all &rarr;</a></div>
         <div class="tools-grid">
           <article class="tool-card"><div class="tool-icon">&#128221;</div><div class="tool-card-content"><h3>Word Counter</h3><p>Count words chars sentences.</p><a href="tools/text/word-counter.html" class="tool-link">Open tool</a></div></article>
           <article class="tool-card"><div class="tool-icon">&#127942;</div><div class="tool-card-content"><h3>JSON Formatter</h3><p>Format and validate JSON.</p><a href="tools/text/json-formatter.html" class="tool-link">Open tool</a></div></article>
@@ -435,46 +51,32 @@
           <article class="tool-card"><div class="tool-icon">&#128289;</div><div class="tool-card-content"><h3>Case Converter</h3><p>UPPERCASE lowercase camelCase.</p><a href="tools/text/case-converter.html" class="tool-link">Open tool</a></div></article>
           <article class="tool-card"><div class="tool-icon">&#128421;</div><div class="tool-card-content"><h3>SQL Formatter</h3><p>Beautify SQL queries.</p><a href="tools/text/sql-formatter.html" class="tool-link">Open tool</a></div></article>
           <article class="tool-card"><div class="tool-icon">&#9881;</div><div class="tool-card-content"><h3>Base64</h3><p>Encode decode Base64.</p><a href="tools/text/base64.html" class="tool-link">Open tool</a></div></article>
-          <article class="tool-card"><div class="tool-icon">&#128266;</div><div class="tool-card-content"><h3>HTML Encode/Decode</h3><p>Encode and decode HTML entities.</p><a href="tools/text/html-encoder.html" class="tool-link">Open tool</a></div></article>
-          <article class="tool-card"><div class="tool-icon">&#128203;</div><div class="tool-card-content"><h3>Text Diff Compare</h3><p>Compare two texts and find differences.</p><a href="tools/text/text-diff.html" class="tool-link">Open tool</a></div></article>
-          <article class="tool-card"><div class="tool-icon">&#128202;</div><div class="tool-card-content"><h3>CSV to JSON</h3><p>Convert CSV and JSON files.</p><a href="tools/text/csv-to-json.html" class="tool-link">Open tool</a></div></article>
-          <article class="tool-card"><div class="tool-icon">&#128220;</div><div class="tool-card-content"><h3>Markdown to HTML</h3><p>Convert Markdown to HTML with preview.</p><a href="tools/text/markdown-to-html.html" class="tool-link">Open tool</a></div></article>
-          <article class="tool-card"><div class="tool-icon">&#128279;</div><div class="tool-card-content"><h3>URL Encoder/Decoder</h3><p>Encode and decode URLs.</p><a href="tools/text/url-encoder.html" class="tool-link">Open tool</a></div></article>
+          <article class="tool-card"><div class="tool-icon">&#128279;</div><div class="tool-card-content"><h3>URL Encode/Decode</h3><p>Encode decode URL strings.</p><a href="tools/text/url-encoder.html" class="tool-link">Open tool</a></div></article>
           <article class="tool-card"><div class="tool-icon">&#128196;</div><div class="tool-card-content"><h3>Lorem Ipsum</h3><p>Generate placeholder text.</p><a href="tools/text/lorem-ipsum.html" class="tool-link">Open tool</a></div></article>
+          <article class="tool-card"><div class="tool-icon">&#9986;</div><div class="tool-card-content"><h3>Remove Duplicates</h3><p>Remove duplicate lines.</p><a href="tools/text/remove-duplicates.html" class="tool-link">Open tool</a></div></article>
         </div>
       </div>
 
       <div class="category-row">
-        <div class="category-header"><h2><span class="emoji">&#129518;</span>Calculator Tools</h2><a href="categories/calculator.html" class="category-view-all">View all &rarr;</a></div>
+        <div class="category-header"><h2><span class="emoji">&#129518;</span>Calculator Tools</h2><a href="tools/index.html" class="category-view-all">View all &rarr;</a></div>
         <div class="tools-grid">
           <article class="tool-card"><div class="tool-icon">&#127874;</div><div class="tool-card-content"><h3>Age Calculator</h3><p>Calculate your exact age.</p><a href="tools/calculator/age-calculator.html" class="tool-link">Open tool</a></div></article>
           <article class="tool-card"><div class="tool-icon">&#128202;</div><div class="tool-card-content"><h3>Percentage Calculator</h3><p>Calculate percentages easily.</p><a href="tools/calculator/percentage-calculator.html" class="tool-link">Open tool</a></div></article>
           <article class="tool-card"><div class="tool-icon">&#128421;</div><div class="tool-card-content"><h3>Basic Calculator</h3><p>Simple arithmetic calculator.</p><a href="tools/calculator/basic-calculator.html" class="tool-link">Open tool</a></div></article>
-          <article class="tool-card"><div class="tool-icon">&#129516;</div><div class="tool-card-content"><h3>Scientific Calculator</h3><p>Advanced math functions.</p><a href="tools/calculator/scientific-calculator.html" class="tool-link">Open tool</a></div></article>
-          <article class="tool-card"><div class="tool-icon">&#128207;</div><div class="tool-card-content"><h3>Unit Converter</h3><p>Convert length weight temperature.</p><a href="tools/calculator/unit-converter.html" class="tool-link">Open tool</a></div></article>
-          <article class="tool-card"><div class="tool-icon">&#128423;</div><div class="tool-card-content"><h3>Base Converter</h3><p>Binary hex decimal converter.</p><a href="tools/calculator/base-converter.html" class="tool-link">Open tool</a></div></article>
-          <article class="tool-card"><div class="tool-icon">&#127939;</div><div class="tool-card-content"><h3>BMI Calculator</h3><p>Body mass index and health.</p><a href="tools/calculator/bmi-calculator.html" class="tool-link">Open tool</a></div></article>
-          <article class="tool-card"><div class="tool-icon">&#128176;</div><div class="tool-card-content"><h3>Loan Calculator</h3><p>Mortgage payment and amortization.</p><a href="tools/calculator/loan-calculator.html" class="tool-link">Open tool</a></div></article>
         </div>
       </div>
 
       <div class="category-row">
-        <div class="category-header"><h2><span class="emoji">&#128272;</span>Password & QR Generators</h2><a href="categories/generator.html" class="category-view-all">View all &rarr;</a></div>
+        <div class="category-header"><h2><span class="emoji">&#128272;</span>Password &amp; QR Generators</h2><a href="tools/index.html" class="category-view-all">View all &rarr;</a></div>
         <div class="tools-grid">
           <article class="tool-card"><div class="tool-icon">&#128273;</div><div class="tool-card-content"><h3>Password Generator</h3><p>Create strong random passwords.</p><a href="tools/generator/password-generator.html" class="tool-link">Open tool</a></div></article>
           <article class="tool-card"><div class="tool-icon">&#128241;</div><div class="tool-card-content"><h3>QR Code Generator</h3><p>Generate QR codes instantly.</p><a href="tools/generator/qr-code-generator.html" class="tool-link">Open tool</a></div></article>
-          <article class="tool-card"><div class="tool-icon">&#128264;</div><div class="tool-card-content"><h3>QR Code Scanner</h3><p>Scan QR codes from image or camera.</p><a href="tools/generator/qr-code-scanner.html" class="tool-link">Open tool</a></div></article>
-          <article class="tool-card"><div class="tool-icon">&#128466;</div><div class="tool-card-content"><h3>UUID Generator</h3><p>Generate unique identifiers.</p><a href="tools/generator/uuid-generator.html" class="tool-link">Open tool</a></div></article>
-          <article class="tool-card"><div class="tool-icon">&#128421;</div><div class="tool-card-content"><h3>Hash Generator</h3><p>MD5 SHA-1 SHA-256 hashes.</p><a href="tools/generator/hash-generator.html" class="tool-link">Open tool</a></div></article>
-          <article class="tool-card"><div class="tool-icon">&#127922;</div><div class="tool-card-content"><h3>Random Number Generator</h3><p>Generate random numbers.</p><a href="tools/generator/random-number-generator.html" class="tool-link">Open tool</a></div></article>
-          <article class="tool-card"><div class="tool-icon">&#9203;</div><div class="tool-card-content"><h3>Pomodoro Timer</h3><p>25/5 focus sessions.</p><a href="tools/generator/pomodoro-timer.html" class="tool-link">Open tool</a></div></article>
-          <article class="tool-card"><div class="tool-icon">&#128279;</div><div class="tool-card-content"><h3>URL Shortener</h3><p>Create short shareable links.</p><a href="tools/generator/url-shortener.html" class="tool-link">Open tool</a></div></article>
-          <article class="tool-card"><div class="tool-icon">&#127760;</div><div class="tool-card-content"><h3>What Is My IP</h3><p>Find your public IP address.</p><a href="tools/generator/what-is-my-ip.html" class="tool-link">Open tool</a></div></article>
+          <article class="tool-card"><div class="tool-icon">&#128264;</div><div class="tool-card-content"><h3>QR Code Scanner</h3><p>Scan QR codes from image.</p><a href="tools/generator/qr-code-scanner.html" class="tool-link">Open tool</a></div></article>
         </div>
       </div>
 
       <div class="category-row">
-        <div class="category-header"><h2><span class="emoji">&#128444;</span>Image & Color Tools</h2><a href="categories/image.html" class="category-view-all">View all &rarr;</a></div>
+        <div class="category-header"><h2><span class="emoji">&#128444;</span>Image &amp; Color Tools</h2><a href="tools/index.html" class="category-view-all">View all &rarr;</a></div>
         <div class="tools-grid">
           <article class="tool-card"><div class="tool-icon">&#128448;</div><div class="tool-card-content"><h3>Image Compressor</h3><p>Compress JPG PNG WebP.</p><a href="tools/image/image-compressor.html" class="tool-link">Open tool</a></div></article>
           <article class="tool-card"><div class="tool-icon">&#128260;</div><div class="tool-card-content"><h3>Image Converter</h3><p>JPG PNG WebP GIF convert.</p><a href="tools/image/image-converter.html" class="tool-link">Open tool</a></div></article>
@@ -484,28 +86,16 @@
           <article class="tool-card"><div class="tool-icon">&#127752;</div><div class="tool-card-content"><h3>Color Converter</h3><p>HEX RGB HSL converter.</p><a href="tools/image/color-converter.html" class="tool-link">Open tool</a></div></article>
         </div>
       </div>
-
-      <div class="category-row">
-        <div class="category-header"><h2><span class="emoji">&#128218;</span>Blog & Guides</h2><a href="blog/index.html" class="category-view-all">View all articles &rarr;</a></div>
-        <div class="tools-grid">
-          <article class="tool-card"><div class="tool-icon">&#128230;</div><div class="tool-card-content"><h3>How to Compress PDF</h3><p>Complete guide with best methods.</p><a href="blog/how-to-compress-pdf.html" class="tool-link">Read article</a></div></article>
-          <article class="tool-card"><div class="tool-icon">&#128247;</div><div class="tool-card-content"><h3>Image Compression Guide</h3><p>JPG vs PNG vs WebP comparison.</p><a href="blog/image-compression-guide.html" class="tool-link">Read article</a></div></article>
-          <article class="tool-card"><div class="tool-icon">&#128273;</div><div class="tool-card-content"><h3>Password Security Guide</h3><p>Build strong passwords and keep safe.</p><a href="blog/password-security.html" class="tool-link">Read article</a></div></article>
-          <article class="tool-card"><div class="tool-icon">&#127912;</div><div class="tool-card-content"><h3>Color Basics for Design</h3><p>HEX, RGB and HSL explained.</p><a href="blog/color-design-basics.html" class="tool-link">Read article</a></div></article>
-          <article class="tool-card"><div class="tool-icon">&#128202;</div><div class="tool-card-content"><h3>Everyday Percentages</h3><p>Discounts, tips and tax made easy.</p><a href="blog/percent-calculator-everyday.html" class="tool-link">Read article</a></div></article>
-          <article class="tool-card"><div class="tool-icon">&#128241;</div><div class="tool-card-content"><h3>QR Code Business Uses</h3><p>10 practical uses for businesses.</p><a href="blog/qr-code-business.html" class="tool-link">Read article</a></div></article>
-        </div>
-      </div>
     </div>
   </section>
 
   <section class="features-section"><div class="container">
     <div class="section-title"><h2>Built for speed and simplicity</h2><p>Everything works right in your browser.</p></div>
     <div class="features-grid">
-      <article class="feature-card"><div class="feature-icon">&#9889;</div><h3>Lightning fast</h3><p>Tools load instantly.</p></article>
-      <article class="feature-card"><div class="feature-icon">&#128274;</div><h3>100% Private</h3><p>Data stays in your browser.</p></article>
-      <article class="feature-card"><div class="feature-icon">&#128241;</div><h3>Works everywhere</h3><p>Mobile tablet desktop.</p></article>
-      <article class="feature-card"><div class="feature-icon">&#128142;</div><h3>Always free</h3><p>No signup or cost.</p></article>
+      <article class="feature-card"><div class="feature-icon">&#9889;</div><div><h3>Lightning fast</h3><p>Tools load instantly.</p></div></article>
+      <article class="feature-card"><div class="feature-icon">&#128274;</div><div><h3>100% Private</h3><p>Data stays in your browser.</p></div></article>
+      <article class="feature-card"><div class="feature-icon">&#128241;</div><div><h3>Works everywhere</h3><p>Mobile tablet desktop.</p></div></article>
+      <article class="feature-card"><div class="feature-icon">&#128142;</div><div><h3>Always free</h3><p>No signup or cost.</p></div></article>
     </div>
   </div></section>
 
@@ -513,16 +103,17 @@
     <div class="section-title"><h2>Frequently Asked Questions</h2><p>Everything you need to know.</p></div>
     <div class="faq-list">
       <details class="faq-item"><summary>Are these tools really free?</summary><p>Yes! All tools are 100% free. We support the site through advertising.</p></details>
-      <details class="faq-item"><summary>Do you store my data?</summary><p>No. All tools run in your browser. Your data never leaves your device.</p></details>
+      <details class="faq-item"><summary>Do you store my data?</summary><p>No. All tools run entirely in your browser. Your files and text never leave your device.</p></details>
       <details class="faq-item"><summary>Do I need an account?</summary><p>No account required. Just visit and use any tool immediately.</p></details>
-      <details class="faq-item"><summary>Which browsers work?</summary><p>All modern browsers: Chrome, Firefox, Safari, Edge, Opera.</p></details>
+      <details class="faq-item"><summary>Which browsers are supported?</summary><p>All modern browsers: Chrome, Firefox, Safari, Edge, Opera.</p></details>
+      <details class="faq-item"><summary>Can I use these tools on mobile?</summary><p>Yes. Every tool is fully responsive and works on phones and tablets.</p></details>
     </div>
   </div></section>
 
   <footer><div class="container">
     <p class="footer-tagline"><strong>My Tool Lab</strong> &mdash; Free online tools for everyone.</p>
-    <div class="footer-links"><a href="about.html">About</a><span class="footer-divider"></span><a href="contact.html">Contact</a><span class="footer-divider"></span><a href="privacy.html">Privacy</a><span class="footer-divider"></span><a href="disclaimer.html">Disclaimer</a></div>
-    <p class="footer-copy">&copy; 2025 My Tool Lab.</p>
+    <div class="footer-links"><a href="tools/index.html">All Tools</a><span class="footer-divider"></span><a href="about.html">About</a><span class="footer-divider"></span><a href="privacy.html">Privacy</a><span class="footer-divider"></span><a href="disclaimer.html">Disclaimer</a></div>
+    <p class="footer-copy">&copy; 2025 My Tool Lab. All rights reserved.</p>
   </div></footer>
 </body>
 </html>

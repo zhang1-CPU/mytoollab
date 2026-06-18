@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -12,7 +12,7 @@
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
     :root{--brand:#2563eb;--brand-hover:#1d4ed8;--text:#1e293b;--muted:#64748b;--border:#e2e8f0;--bg:#f8fafc;--surface:#ffffff;--radius:12px;--max-w:720px;}
-    body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;color:var(--text);background:var(--bg);line-height:1.6;padding:16px 16px 48px;}
+    body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;color:var(--text);background:var(--bg);line-height:1.45;padding:12px;}
     a{color:var(--brand);text-decoration:none;}a:hover{text-decoration:underline;}
     .container{max-width:var(--max-w);margin:0 auto;}
     header{text-align:center;margin:24px 0 24px;}
@@ -20,7 +20,7 @@
     .breadcrumb a{color:var(--muted);}.breadcrumb a:hover{color:var(--brand);}
     header h1{font-size:clamp(1.4rem,4vw,1.9rem);font-weight:800;line-height:1.2;margin-bottom:8px;}
     header p{font-size:.95rem;color:var(--muted);max-width:520px;margin:0 auto;}
-    .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:18px;}
+    .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:12px;margin-bottom:10px;}
     .tabs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px;}
     .tab{padding:8px 14px;font-size:.85rem;background:#f1f5f9;border:1px solid var(--border);border-radius:8px;cursor:pointer;color:var(--muted);font-weight:600;}
     .tab.active{background:var(--brand);color:#fff;border-color:var(--brand);}
@@ -28,7 +28,7 @@
     .tab-panel.active{display:block;}
     label{display:block;font-size:.85rem;font-weight:600;margin-bottom:6px;color:var(--muted);}
     input[type=text],input[type=url],input[type=email],input[type=tel],input[type=number],textarea,select{width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:8px;font-size:.95rem;background:#fff;color:var(--text);margin-bottom:10px;font-family:inherit;}
-    textarea{min-height:90px;resize:vertical;}
+    textarea{min-height:auto;resize:vertical;}
     input:focus,textarea:focus,select:focus{outline:2px solid var(--brand);outline-offset:1px;border-color:var(--brand);}
     .grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
     .row2{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:center;}
@@ -47,8 +47,8 @@
     .footer-links{display:flex;justify-content:center;flex-wrap:wrap;gap:4px 18px;font-size:.82rem;margin-bottom:12px;}
     .footer-links a{color:var(--muted);}.footer-links a:hover{color:var(--brand);text-decoration:none;}
     .footer-copy{font-size:.78rem;color:#94a3b8;}
-    .ad-unit{margin:20px auto;text-align:center;}
-    .ad-unit ins{display:block;width:100%;max-width:728px;height:90px;margin:0 auto;}
+    .ad-unit{margin:8px auto;text-align:center;}
+    .ad-unit ins{display:block;width:100%;max-width:728px;height:auto;margin:0 auto;}
     @media (max-width:560px){.grid2{grid-template-columns:1fr;}.row2{grid-template-columns:1fr;}}
   </style>
 </head>
@@ -61,7 +61,7 @@
   </header>
 
   <div class="ad-unit">
-    <ins class="adsbygoogle" style="display:block;width:100%;max-width:728px;height:90px;margin:0 auto;" data-ad-client="ca-pub-5420550088713746" data-ad-slot="9999999999" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <ins class="adsbygoogle" style="display:block;width:100%;max-width:728px;height:auto;margin:0 auto;" data-ad-client="ca-pub-5420550088713746" data-ad-slot="9999999999" data-ad-format="auto" data-full-width-responsive="true"></ins>
     <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
   </div>
 
@@ -114,7 +114,7 @@
   </div>
 
   <div class="ad-unit">
-    <ins class="adsbygoogle" style="display:block;width:100%;max-width:728px;height:90px;margin:0 auto;" data-ad-client="ca-pub-5420550088713746" data-ad-slot="9999999999" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <ins class="adsbygoogle" style="display:block;width:100%;max-width:728px;height:auto;margin:0 auto;" data-ad-client="ca-pub-5420550088713746" data-ad-slot="9999999999" data-ad-format="auto" data-full-width-responsive="true"></ins>
     <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
   </div>
 

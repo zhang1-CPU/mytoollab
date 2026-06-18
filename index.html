@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -11,6 +11,13 @@
   <meta name="robots" content="index, follow" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746"
       crossorigin="anonymous"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9V6L0Z956X"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9V6L0Z956X');
+  </script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -25,75 +32,371 @@
     :root {
       --brand:        #2563eb;
       --brand-hover:  #1d4ed8;
+      --brand-light:  #eff6ff;
       --text:         #0f172a;
       --muted:        #64748b;
       --border:       #e2e8f0;
       --bg:           #ffffff;
       --bg-subtle:    #f8fafc;
-      --radius:       10px;
+      --radius:       12px;
+      --radius-sm:    8px;
+      --radius-lg:    16px;
+      --shadow:       0 1px 3px rgba(0,0,0,0.05);
+      --shadow-hover: 0 4px 12px rgba(37,99,235,0.12);
       --max-w:        1200px;
     }
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       color: var(--text);
-      background: var(--bg);
+      background: var(--bg-subtle);
       line-height: 1.5;
       font-size: 15px;
     }
     a { color: var(--brand); text-decoration: none; }
+    a:hover { text-decoration: underline; }
     .container { max-width: var(--max-w); margin: 0 auto; padding: 0 20px; width: 100%; }
-    .ad-container { margin: 0 auto; text-align: center; }
-    .ad-container ins { display: block; width: 100%; max-width: 728px; height: auto; margin: 0 auto; }
-    .brand-line { font-size: 0.7rem; font-weight: 600; letter-spacing: 1.4px; text-transform: uppercase; color: var(--brand); text-align: center; padding: 18px 0 4px; }
-    .hero { text-align: center; padding: 4px 0 18px; }
-    .hero h1 { font-size: clamp(1.5rem, 4vw, 2.2rem); font-weight: 800; line-height: 1.2; margin: 0 auto 10px; max-width: 800px; }
+    .brand-line { 
+      font-size: 0.65rem; 
+      font-weight: 600; 
+      letter-spacing: 1.6px; 
+      text-transform: uppercase; 
+      color: var(--brand); 
+      text-align: center; 
+      padding: 8px 0 4px; 
+      background: var(--bg);
+    }
+    
+    .hero { 
+      text-align: center; 
+      padding: 8px 0 12px; 
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .hero h1 { 
+      font-size: clamp(1.4rem, 4vw, 2rem); 
+      font-weight: 700; 
+      line-height: 1.15; 
+      margin: 0 auto 6px; 
+      max-width: 800px;
+      letter-spacing: -0.02em;
+    }
     .hero h1 .highlight { color: var(--brand); }
-    .hero-sub { font-size: 0.95rem; color: var(--muted); max-width: 600px; margin: 0 auto 14px; }
-    .hero-pills { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; margin-bottom: 14px; }
-    .hero-pill { font-size: 0.78rem; font-weight: 500; color: var(--muted); background: var(--bg-subtle); border: 1px solid var(--border); border-radius: 999px; padding: 5px 10px; }
-    .section-title { text-align: center; margin-bottom: 14px; }
-    .section-title h2 { font-size: 1.2rem; font-weight: 700; margin-bottom: 2px; }
-    .section-title p { font-size: 0.85rem; color: var(--muted); }
-    .tools-section { padding: 4px 0 8px; }
-    .tools-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 8px; }
-    .tool-card { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 10px 12px; transition: border-color 0.15s, background 0.15s; display: flex; align-items: center; gap: 10px; }
-    .tool-card:hover { border-color: var(--brand); background: var(--bg-subtle); }
-    .tool-icon { width: 32px; height: 32px; background: var(--bg-subtle); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
-    .tool-card:hover .tool-icon { background: #fff; }
-    .tool-card h3 { font-size: 0.9rem; font-weight: 600; color: var(--text); line-height: 1.2; margin-bottom: 1px; }
-    .tool-card-content { display: flex; flex-direction: column; flex-grow: 1; min-width: 0; }
-    .tool-card p { font-size: 0.75rem; color: var(--muted); line-height: 1.3; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-    .tool-link { display: inline-flex; align-items: center; justify-content: center; gap: 4px; font-size: 0.75rem; font-weight: 600; color: var(--brand); padding: 4px 8px; border-radius: 6px; flex-shrink: 0; }
-    .tool-link::after { content: '\2192'; }
-    .tool-link:hover { background: var(--bg-subtle); text-decoration: none; }
-    .category-row { margin-bottom: 14px; }
-    .category-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; padding-bottom: 6px; border-bottom: 1px solid var(--border); }
-    .category-header h2 { font-size: 1rem; font-weight: 700; display: flex; align-items: center; gap: 8px; }
-    .category-header h2 .emoji { font-size: 1.1rem; }
-    .category-view-all { font-size: 0.8rem; font-weight: 600; color: var(--brand); }
-    .features-section { padding: 20px 0; background: var(--bg-subtle); margin-top: 24px; }
-    .features-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; max-width: 860px; margin: 0 auto; }
-    .feature-card { background: var(--bg); border-radius: var(--radius); padding: 12px; text-align: center; border: 1px solid var(--border); display: flex; align-items: center; gap: 10px; }
-    .feature-icon { font-size: 1.2rem; flex-shrink: 0; }
-    .feature-card h3 { font-size: 0.82rem; font-weight: 600; margin-bottom: 1px; text-align: left; }
-    .feature-card p { font-size: 0.72rem; color: var(--muted); line-height: 1.3; text-align: left; }
-    .faq-section { padding: 20px 0; }
-    .faq-list { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 6px; }
-    .faq-item { border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
-    .faq-item summary { font-size: 0.88rem; font-weight: 600; padding: 10px 14px; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; background: var(--bg); }
+    .hero-sub { 
+      font-size: 0.85rem; 
+      color: var(--muted); 
+      max-width: 620px; 
+      margin: 0 auto 8px; 
+      line-height: 1.5;
+    }
+    .hero-pills { 
+      display: flex; 
+      flex-wrap: wrap; 
+      justify-content: center; 
+      gap: 6px; 
+      margin-bottom: 0; 
+    }
+    .hero-pill { 
+      font-size: 0.7rem; 
+      font-weight: 500; 
+      color: var(--text); 
+      background: var(--bg-subtle); 
+      border: 1px solid var(--border); 
+      border-radius: 999px; 
+      padding: 4px 10px; 
+      transition: all 0.2s;
+    }
+    .hero-pill:hover { 
+      background: var(--brand-light); 
+      border-color: var(--brand); 
+      color: var(--brand); 
+    }
+    
+    .tools-section { 
+      padding: 12px 0; 
+    }
+    
+    .tools-grid { 
+      display: grid; 
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
+      gap: 12px; 
+    }
+    
+    .tool-card { 
+      background: var(--bg); 
+      border: 1px solid var(--border); 
+      border-radius: var(--radius); 
+      padding: 16px; 
+      transition: all 0.25s ease; 
+      display: flex; 
+      flex-direction: column; 
+      align-items: flex-start; 
+      gap: 12px;
+      box-shadow: var(--shadow);
+    }
+    .tool-card:hover { 
+      border-color: var(--brand); 
+      background: var(--bg); 
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-2px);
+    }
+    
+    .tool-icon { 
+      width: 48px; 
+      height: 48px; 
+      background: linear-gradient(135deg, var(--brand-light) 0%, #dbeafe 100%); 
+      border-radius: var(--radius-sm); 
+      display: flex; 
+      align-items: center; 
+      justify-content: center; 
+      font-size: 1.5rem; 
+      flex-shrink: 0;
+      transition: all 0.2s;
+    }
+    .tool-card:hover .tool-icon { 
+      background: var(--brand);
+      transform: scale(1.05);
+    }
+    
+    .tool-card-content { 
+      display: flex; 
+      flex-direction: column; 
+      flex-grow: 1; 
+      min-width: 0; 
+      width: 100%;
+    }
+    
+    .tool-card h3 { 
+      font-size: 0.95rem; 
+      font-weight: 600; 
+      color: var(--text); 
+      line-height: 1.3; 
+      margin-bottom: 4px; 
+    }
+    
+    .tool-card p { 
+      font-size: 0.8rem; 
+      color: var(--muted); 
+      line-height: 1.4; 
+      overflow: hidden; 
+      text-overflow: ellipsis; 
+      white-space: nowrap; 
+    }
+    
+    .tool-link { 
+      display: inline-flex; 
+      align-items: center; 
+      justify-content: center; 
+      gap: 4px; 
+      font-size: 0.8rem; 
+      font-weight: 600; 
+      color: var(--brand); 
+      padding: 6px 12px; 
+      border-radius: var(--radius-sm); 
+      background: var(--bg-subtle);
+      margin-top: 8px;
+      align-self: flex-start;
+      transition: all 0.2s;
+    }
+    .tool-link::after { content: '\2192'; font-size: 0.7rem; }
+    .tool-link:hover { 
+      background: var(--brand); 
+      color: white; 
+      text-decoration: none;
+    }
+    
+    .category-row { margin-bottom: 8px; }
+    
+    .category-header { 
+      display: flex; 
+      align-items: center; 
+      justify-content: space-between; 
+      margin-bottom: 6px; 
+      padding-bottom: 4px; 
+      border-bottom: 1px solid var(--border);
+    }
+    .category-header h2 { 
+      font-size: 1.15rem; 
+      font-weight: 700; 
+      display: flex; 
+      align-items: center; 
+      gap: 10px; 
+    }
+    .category-header h2 .emoji { font-size: 1.3rem; }
+    .category-view-all { 
+      font-size: 0.85rem; 
+      font-weight: 600; 
+      color: var(--brand); 
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+    }
+    .category-view-all:hover { 
+      background: var(--brand-light); 
+      text-decoration: none;
+    }
+    
+    .section-title { text-align: center; margin-bottom: 10px; }
+    .section-title h2 { font-size: 1.1rem; font-weight: 700; margin-bottom: 2px; }
+    .section-title p { font-size: 0.8rem; color: var(--muted); }
+
+    .features-section { 
+      padding: 16px 0; 
+      background: var(--bg); 
+      border-top: 1px solid var(--border);
+    }
+    .features-grid { 
+      display: grid; 
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); 
+      gap: 12px; 
+      max-width: 900px; 
+      margin: 0 auto; 
+    }
+    .feature-card { 
+      background: var(--bg-subtle); 
+      border-radius: var(--radius); 
+      padding: 16px; 
+      border: 1px solid var(--border); 
+      display: flex; 
+      align-items: center; 
+      gap: 14px;
+      transition: all 0.2s;
+    }
+    .feature-card:hover {
+      border-color: var(--brand);
+      background: var(--brand-light);
+    }
+    .feature-icon { 
+      font-size: 1.5rem; 
+      flex-shrink: 0; 
+      width: 40px;
+      height: 40px;
+      background: var(--bg);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .feature-card h3 { 
+      font-size: 0.9rem; 
+      font-weight: 600; 
+      margin-bottom: 2px; 
+      text-align: left; 
+    }
+    .feature-card p { 
+      font-size: 0.78rem; 
+      color: var(--muted); 
+      line-height: 1.4; 
+      text-align: left; 
+    }
+    
+    .faq-section { padding: 16px 0; }
+    .faq-list { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 8px; }
+    .faq-item { 
+      border: 1px solid var(--border); 
+      border-radius: var(--radius); 
+      overflow: hidden;
+      transition: all 0.2s;
+    }
+    .faq-item:hover { border-color: var(--brand); }
+    .faq-item summary { 
+      font-size: 0.92rem; 
+      font-weight: 600; 
+      padding: 14px 16px; 
+      cursor: pointer; 
+      list-style: none; 
+      display: flex; 
+      justify-content: space-between; 
+      align-items: center; 
+      background: var(--bg);
+      transition: background 0.2s;
+    }
+    .faq-item summary:hover { background: var(--bg-subtle); }
     .faq-item summary::-webkit-details-marker { display: none; }
-    .faq-item summary::after { content: '+'; font-size: 1rem; color: var(--brand); flex-shrink: 0; margin-left: 12px; }
-    .faq-item[open] summary::after { content: '\2212'; }
-    .faq-item p { font-size: 0.82rem; color: var(--muted); line-height: 1.5; padding: 0 14px 10px; }
-    footer { padding: 20px 0 14px; border-top: 1px solid var(--border); text-align: center; }
-    .footer-tagline { font-size: 0.82rem; color: var(--muted); margin: 0 auto 10px; max-width: 480px; }
+    .faq-item summary::after { 
+      content: '+'; 
+      font-size: 1.1rem; 
+      color: var(--brand); 
+      font-weight: 400;
+      flex-shrink: 0; 
+      margin-left: 12px; 
+      transition: transform 0.2s;
+    }
+    .faq-item[open] summary::after { 
+      content: '\2212'; 
+    }
+    .faq-item[open] summary { 
+      background: var(--brand-light); 
+      border-bottom: 1px solid var(--border);
+    }
+    .faq-item p { 
+      font-size: 0.88rem; 
+      color: var(--muted); 
+      line-height: 1.6; 
+      padding: 12px 16px 16px; 
+    }
+    
+    footer { 
+      padding: 16px 0 12px; 
+      border-top: 1px solid var(--border); 
+      text-align: center; 
+      background: var(--bg);
+    }
+    .footer-tagline { 
+      font-size: 0.8rem; 
+      color: var(--muted); 
+      margin: 0 auto 8px; 
+      max-width: 520px; 
+      line-height: 1.5;
+    }
     .footer-tagline strong { color: var(--text); }
-    .footer-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 4px 14px; font-size: 0.8rem; margin-bottom: 10px; }
-    .footer-links a { color: var(--muted); }
-    .footer-divider { width: 1px; height: 12px; background: var(--border); display: inline-block; vertical-align: middle; }
-    .footer-copy { font-size: 0.75rem; color: #94a3b8; }
-    @media (max-width: 768px) { .features-grid { grid-template-columns: repeat(2, 1fr); } .tools-grid { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); } }
-    @media (max-width: 480px) { .tools-grid { grid-template-columns: 1fr; } .features-grid { grid-template-columns: 1fr; } }
+    .footer-links { 
+      display: flex; 
+      justify-content: center; 
+      flex-wrap: wrap; 
+      gap: 2px 12px; 
+      font-size: 0.8rem; 
+      margin-bottom: 8px; 
+    }
+    .footer-links a { 
+      color: var(--muted); 
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+      transition: all 0.2s;
+    }
+    .footer-links a:hover { 
+      color: var(--brand); 
+      background: var(--brand-light); 
+      text-decoration: none;
+    }
+    .footer-divider { 
+      width: 1px; 
+      height: 14px; 
+      background: var(--border); 
+      display: inline-block; 
+      vertical-align: middle; 
+    }
+    .footer-copy { 
+      font-size: 0.78rem; 
+      color: #94a3b8; 
+    }
+    
+    @media (max-width: 768px) { 
+      .features-grid { grid-template-columns: repeat(2, 1fr); } 
+      .tools-grid { grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 10px; }
+      .tool-card { padding: 14px; }
+      .tool-icon { width: 42px; height: 42px; font-size: 1.3rem; }
+      .hero { padding: 10px 0 16px; }
+      .hero-pill { padding: 5px 10px; font-size: 0.75rem; }
+    }
+    
+    @media (max-width: 480px) { 
+      .tools-grid { grid-template-columns: 1fr; gap: 10px; } 
+      .features-grid { grid-template-columns: 1fr; }
+      .container { padding: 0 16px; }
+      .tool-icon { width: 44px; height: 44px; font-size: 1.4rem; }
+      .tool-card { padding: 16px; }
+      .category-header { flex-direction: column; align-items: flex-start; gap: 8px; }
+      .category-view-all { align-self: flex-end; }
+    }
   </style>
 </head>
 <body>
@@ -111,79 +414,73 @@
     </div>
   </section>
 
-  <div class="container"><div class="ad-container"><ins class="adsbygoogle" style="display:block;width:100%;max-width:970px;height:auto;margin:0 auto;" data-ad-client="ca-pub-5420550088713746" data-ad-slot="1234567890" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div>
+  <section class="tools-section">
+    <div class="container">
+      <div class="category-row">
+        <div class="category-header"><h2><span class="emoji">&#128196;</span>PDF Tools</h2><a href="categories/pdf.html" class="category-view-all">View all &rarr;</a></div>
+        <div class="tools-grid">
+          <article class="tool-card"><div class="tool-icon">&#128230;</div><div class="tool-card-content"><h3>Compress PDF</h3><p>Reduce PDF file size.</p><a href="tools/pdf/compress-pdf.html" class="tool-link">Open tool</a></div></article>
+          <article class="tool-card"><div class="tool-icon">&#128466;</div><div class="tool-card-content"><h3>Merge PDF</h3><p>Combine PDFs into one.</p><a href="tools/pdf/merge-pdf.html" class="tool-link">Open tool</a></div></article>
+          <article class="tool-card"><div class="tool-icon">&#9986;</div><div class="tool-card-content"><h3>Split PDF</h3><p>Extract pages from PDF.</p><a href="tools/pdf/split-pdf.html" class="tool-link">Open tool</a></div></article>
+          <article class="tool-card"><div class="tool-icon">&#128444;</div><div class="tool-card-content"><h3>JPG to PDF</h3><p>Convert images to PDF.</p><a href="tools/pdf/jpg-to-pdf.html" class="tool-link">Open tool</a></div></article>
+        </div>
+      </div>
 
-  <section class="tools-section"><div class="container">
-    <div class="category-row"><div class="category-header"><h2><span class="emoji">&#128196;</span>PDF Tools</h2><a href="categories/pdf.html" class="category-view-all">View all &rarr;</a></div>
-    <div class="tools-grid">
-      <article class="tool-card"><div class="tool-icon">&#128230;</div><div class="tool-card-content"><h3>Compress PDF</h3><p>Reduce PDF file size.</p><a href="tools/pdf/compress-pdf.html" class="tool-link">Open tool</a></div></article>
-      <article class="tool-card"><div class="tool-icon">&#128466;</div><div class="tool-card-content"><h3>Merge PDF</h3><p>Combine PDFs into one.</p><a href="tools/pdf/merge-pdf.html" class="tool-link">Open tool</a></div></article>
-      <article class="tool-card"><div class="tool-icon">&#9986;</div><div class="tool-card-content"><h3>Split PDF</h3><p>Extract pages from PDF.</p><a href="tools/pdf/split-pdf.html" class="tool-link">Open tool</a></div></article>
-      <article class="tool-card"><div class="tool-icon">&#128444;</div><div class="tool-card-content"><h3>JPG to PDF</h3><p>Convert images to PDF.</p><a href="tools/pdf/jpg-to-pdf.html" class="tool-link">Open tool</a></div></article>
-    </div></div>
-  </div></section>
+      <div class="category-row">
+        <div class="category-header"><h2><span class="emoji">&#128221;</span>Text & Developer Tools</h2><a href="categories/text.html" class="category-view-all">View all &rarr;</a></div>
+        <div class="tools-grid">
+          <article class="tool-card"><div class="tool-icon">&#128221;</div><div class="tool-card-content"><h3>Word Counter</h3><p>Count words chars sentences.</p><a href="tools/text/word-counter.html" class="tool-link">Open tool</a></div></article>
+          <article class="tool-card"><div class="tool-icon">&#127942;</div><div class="tool-card-content"><h3>JSON Formatter</h3><p>Format and validate JSON.</p><a href="tools/text/json-formatter.html" class="tool-link">Open tool</a></div></article>
+          <article class="tool-card"><div class="tool-icon">&#128269;</div><div class="tool-card-content"><h3>HTML Formatter</h3><p>Beautify HTML indentation.</p><a href="tools/text/html-formatter.html" class="tool-link">Open tool</a></div></article>
+          <article class="tool-card"><div class="tool-icon">&#128289;</div><div class="tool-card-content"><h3>Case Converter</h3><p>UPPERCASE lowercase camelCase.</p><a href="tools/text/case-converter.html" class="tool-link">Open tool</a></div></article>
+          <article class="tool-card"><div class="tool-icon">&#128421;</div><div class="tool-card-content"><h3>SQL Formatter</h3><p>Beautify SQL queries.</p><a href="tools/text/sql-formatter.html" class="tool-link">Open tool</a></div></article>
+          <article class="tool-card"><div class="tool-icon">&#9881;</div><div class="tool-card-content"><h3>Base64</h3><p>Encode decode Base64.</p><a href="tools/text/base64.html" class="tool-link">Open tool</a></div></article>
+        </div>
+      </div>
 
-  <div class="container"><div class="ad-container"><ins class="adsbygoogle" style="display:block;width:100%;max-width:728px;height:auto;margin:0 auto;" data-ad-client="ca-pub-5420550088713746" data-ad-slot="2234567890" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div>
+      <div class="category-row">
+        <div class="category-header"><h2><span class="emoji">&#129518;</span>Calculator Tools</h2><a href="categories/calculator.html" class="category-view-all">View all &rarr;</a></div>
+        <div class="tools-grid">
+          <article class="tool-card"><div class="tool-icon">&#127874;</div><div class="tool-card-content"><h3>Age Calculator</h3><p>Calculate your exact age.</p><a href="tools/calculator/age-calculator.html" class="tool-link">Open tool</a></div></article>
+          <article class="tool-card"><div class="tool-icon">&#128202;</div><div class="tool-card-content"><h3>Percentage Calculator</h3><p>Calculate percentages easily.</p><a href="tools/calculator/percentage-calculator.html" class="tool-link">Open tool</a></div></article>
+          <article class="tool-card"><div class="tool-icon">&#128421;</div><div class="tool-card-content"><h3>Basic Calculator</h3><p>Simple arithmetic calculator.</p><a href="tools/calculator/basic-calculator.html" class="tool-link">Open tool</a></div></article>
+        </div>
+      </div>
 
-  <section class="tools-section"><div class="container">
-    <div class="category-row"><div class="category-header"><h2><span class="emoji">&#128221;</span>Text & Developer Tools</h2><a href="categories/text.html" class="category-view-all">View all &rarr;</a></div>
-    <div class="tools-grid">
-      <article class="tool-card"><div class="tool-icon">&#128221;</div><div class="tool-card-content"><h3>Word Counter</h3><p>Count words chars sentences.</p><a href="tools/text/word-counter.html" class="tool-link">Open tool</a></div></article>
-      <article class="tool-card"><div class="tool-icon">&#127942;</div><div class="tool-card-content"><h3>JSON Formatter</h3><p>Format and validate JSON.</p><a href="tools/text/json-formatter.html" class="tool-link">Open tool</a></div></article>
-      <article class="tool-card"><div class="tool-icon">&#128269;</div><div class="tool-card-content"><h3>HTML Formatter</h3><p>Beautify HTML indentation.</p><a href="tools/text/html-formatter.html" class="tool-link">Open tool</a></div></article>
-      <article class="tool-card"><div class="tool-icon">&#128289;</div><div class="tool-card-content"><h3>Case Converter</h3><p>UPPERCASE lowercase camelCase.</p><a href="tools/text/case-converter.html" class="tool-link">Open tool</a></div></article>
-      <article class="tool-card"><div class="tool-icon">&#128421;</div><div class="tool-card-content"><h3>SQL Formatter</h3><p>Beautify SQL queries.</p><a href="tools/text/sql-formatter.html" class="tool-link">Open tool</a></div></article>
-      <article class="tool-card"><div class="tool-icon">&#9881;</div><div class="tool-card-content"><h3>Base64</h3><p>Encode decode Base64.</p><a href="tools/text/base64.html" class="tool-link">Open tool</a></div></article>
-    </div></div>
-  </div></section>
+      <div class="category-row">
+        <div class="category-header"><h2><span class="emoji">&#128272;</span>Password & QR Generators</h2><a href="categories/generator.html" class="category-view-all">View all &rarr;</a></div>
+        <div class="tools-grid">
+          <article class="tool-card"><div class="tool-icon">&#128273;</div><div class="tool-card-content"><h3>Password Generator</h3><p>Create strong random passwords.</p><a href="tools/generator/password-generator.html" class="tool-link">Open tool</a></div></article>
+          <article class="tool-card"><div class="tool-icon">&#128241;</div><div class="tool-card-content"><h3>QR Code Generator</h3><p>Generate QR codes instantly.</p><a href="tools/generator/qr-code-generator.html" class="tool-link">Open tool</a></div></article>
+          <article class="tool-card"><div class="tool-icon">&#128264;</div><div class="tool-card-content"><h3>QR Code Scanner</h3><p>Scan QR codes from image or camera.</p><a href="tools/generator/qr-code-scanner.html" class="tool-link">Open tool</a></div></article>
+        </div>
+      </div>
 
-  <div class="container"><div class="ad-container"><ins class="adsbygoogle" style="display:block;width:100%;max-width:728px;height:auto;margin:0 auto;" data-ad-client="ca-pub-5420550088713746" data-ad-slot="2345678901" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div>
+      <div class="category-row">
+        <div class="category-header"><h2><span class="emoji">&#128444;</span>Image & Color Tools</h2><a href="categories/image.html" class="category-view-all">View all &rarr;</a></div>
+        <div class="tools-grid">
+          <article class="tool-card"><div class="tool-icon">&#128448;</div><div class="tool-card-content"><h3>Image Compressor</h3><p>Compress JPG PNG WebP.</p><a href="tools/image/image-compressor.html" class="tool-link">Open tool</a></div></article>
+          <article class="tool-card"><div class="tool-icon">&#128260;</div><div class="tool-card-content"><h3>Image Converter</h3><p>JPG PNG WebP GIF convert.</p><a href="tools/image/image-converter.html" class="tool-link">Open tool</a></div></article>
+          <article class="tool-card"><div class="tool-icon">&#128247;</div><div class="tool-card-content"><h3>Image Resizer</h3><p>Resize images to any size.</p><a href="tools/image/image-resizer.html" class="tool-link">Open tool</a></div></article>
+          <article class="tool-card"><div class="tool-icon">&#128444;</div><div class="tool-card-content"><h3>Background Remover</h3><p>Remove image background.</p><a href="tools/image/background-remover.html" class="tool-link">Open tool</a></div></article>
+          <article class="tool-card"><div class="tool-icon">&#127912;</div><div class="tool-card-content"><h3>Color Picker</h3><p>Pick and adjust colors.</p><a href="tools/image/color-picker.html" class="tool-link">Open tool</a></div></article>
+          <article class="tool-card"><div class="tool-icon">&#127752;</div><div class="tool-card-content"><h3>Color Converter</h3><p>HEX RGB HSL converter.</p><a href="tools/image/color-converter.html" class="tool-link">Open tool</a></div></article>
+        </div>
+      </div>
 
-  <section class="tools-section"><div class="container">
-    <div class="category-row"><div class="category-header"><h2><span class="emoji">&#129518;</span>Calculator Tools</h2><a href="categories/calculator.html" class="category-view-all">View all &rarr;</a></div>
-    <div class="tools-grid">
-      <article class="tool-card"><div class="tool-icon">&#127874;</div><div class="tool-card-content"><h3>Age Calculator</h3><p>Calculate your exact age.</p><a href="tools/calculator/age-calculator.html" class="tool-link">Open tool</a></div></article>
-      <article class="tool-card"><div class="tool-icon">&#128202;</div><div class="tool-card-content"><h3>Percentage Calculator</h3><p>Calculate percentages easily.</p><a href="tools/calculator/percentage-calculator.html" class="tool-link">Open tool</a></div></article>
-      <article class="tool-card"><div class="tool-icon">&#128421;</div><div class="tool-card-content"><h3>Basic Calculator</h3><p>Simple arithmetic calculator.</p><a href="tools/calculator/basic-calculator.html" class="tool-link">Open tool</a></div></article>
-    </div></div>
-  </div></section>
-
-  <div class="container"><div class="ad-container"><ins class="adsbygoogle" style="display:block;width:100%;max-width:728px;height:auto;margin:0 auto;" data-ad-client="ca-pub-5420550088713746" data-ad-slot="3456789012" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div>
-
-  <section class="tools-section"><div class="container">
-    <div class="category-row"><div class="category-header"><h2><span class="emoji">&#128272;</span>Password & QR Generators</h2><a href="categories/generator.html" class="category-view-all">View all &rarr;</a></div>
-    <div class="tools-grid">
-      <article class="tool-card"><div class="tool-icon">&#128273;</div><div class="tool-card-content"><h3>Password Generator</h3><p>Create strong random passwords.</p><a href="tools/generator/password-generator.html" class="tool-link">Open tool</a></div></article>
-      <article class="tool-card"><div class="tool-icon">&#128241;</div><div class="tool-card-content"><h3>QR Code Generator</h3><p>Generate QR codes instantly.</p><a href="tools/generator/qr-code-generator.html" class="tool-link">Open tool</a></div></article>
-      <article class="tool-card"><div class="tool-icon">&#128264;</div><div class="tool-card-content"><h3>QR Code Scanner</h3><p>Scan QR codes from image or camera.</p><a href="tools/generator/qr-code-scanner.html" class="tool-link">Open tool</a></div></article>
-    </div></div>
-  </div></section>
-
-  <div class="container"><div class="ad-container"><ins class="adsbygoogle" style="display:block;width:100%;max-width:728px;height:auto;margin:0 auto;" data-ad-client="ca-pub-5420550088713746" data-ad-slot="4567890123" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div>
-
-  <section class="tools-section"><div class="container">
-    <div class="category-row"><div class="category-header"><h2><span class="emoji">&#128444;</span>Image & Color Tools</h2><a href="categories/image.html" class="category-view-all">View all &rarr;</a></div>
-    <div class="tools-grid">
-      <article class="tool-card"><div class="tool-icon">&#128448;</div><div class="tool-card-content"><h3>Image Compressor</h3><p>Compress JPG PNG WebP.</p><a href="tools/image/image-compressor.html" class="tool-link">Open tool</a></div></article>
-      <article class="tool-card"><div class="tool-icon">&#128260;</div><div class="tool-card-content"><h3>Image Converter</h3><p>JPG PNG WebP GIF convert.</p><a href="tools/image/image-converter.html" class="tool-link">Open tool</a></div></article>
-      <article class="tool-card"><div class="tool-icon">&#128247;</div><div class="tool-card-content"><h3>Image Resizer</h3><p>Resize images to any size.</p><a href="tools/image/image-resizer.html" class="tool-link">Open tool</a></div></article>
-      <article class="tool-card"><div class="tool-icon">&#128444;</div><div class="tool-card-content"><h3>Background Remover</h3><p>Remove image background.</p><a href="tools/image/background-remover.html" class="tool-link">Open tool</a></div></article>
-      <article class="tool-card"><div class="tool-icon">&#127912;</div><div class="tool-card-content"><h3>Color Picker</h3><p>Pick and adjust colors.</p><a href="tools/image/color-picker.html" class="tool-link">Open tool</a></div></article>
-      <article class="tool-card"><div class="tool-icon">&#127752;</div><div class="tool-card-content"><h3>Color Converter</h3><p>HEX RGB HSL converter.</p><a href="tools/image/color-converter.html" class="tool-link">Open tool</a></div></article>
-    </div></div>
-  </div></section>
-
-  <section class="tools-section"><div class="container">
-    <div class="category-row"><div class="category-header"><h2><span class="emoji">&#128218;</span>Blog & Guides</h2><a href="blog/index.html" class="category-view-all">View all articles &rarr;</a></div>
-    <div class="tools-grid">
-      <article class="tool-card"><div class="tool-icon">&#128230;</div><div class="tool-card-content"><h3>How to Compress PDF</h3><p>Complete guide with best methods.</p><a href="blog/how-to-compress-pdf.html" class="tool-link">Read article</a></div></article>
-      <article class="tool-card"><div class="tool-icon">&#128247;</div><div class="tool-card-content"><h3>Image Compression Guide</h3><p>JPG vs PNG vs WebP comparison.</p><a href="blog/image-compression-guide.html" class="tool-link">Read article</a></div></article>
-      <article class="tool-card"><div class="tool-icon">&#128273;</div><div class="tool-card-content"><h3>Password Security Guide</h3><p>Build strong passwords and keep safe.</p><a href="blog/password-security.html" class="tool-link">Read article</a></div></article>
-      <article class="tool-card"><div class="tool-icon">&#127912;</div><div class="tool-card-content"><h3>Color Basics for Design</h3><p>HEX, RGB and HSL explained.</p><a href="blog/color-design-basics.html" class="tool-link">Read article</a></div></article>
-      <article class="tool-card"><div class="tool-icon">&#128202;</div><div class="tool-card-content"><h3>Everyday Percentages</h3><p>Discounts, tips and tax made easy.</p><a href="blog/percent-calculator-everyday.html" class="tool-link">Read article</a></div></article>
-      <article class="tool-card"><div class="tool-icon">&#128241;</div><div class="tool-card-content"><h3>QR Code Business Uses</h3><p>10 practical uses for businesses.</p><a href="blog/qr-code-business.html" class="tool-link">Read article</a></div></article>
-    </div></div>
-  </div></section>
+      <div class="category-row">
+        <div class="category-header"><h2><span class="emoji">&#128218;</span>Blog & Guides</h2><a href="blog/index.html" class="category-view-all">View all articles &rarr;</a></div>
+        <div class="tools-grid">
+          <article class="tool-card"><div class="tool-icon">&#128230;</div><div class="tool-card-content"><h3>How to Compress PDF</h3><p>Complete guide with best methods.</p><a href="blog/how-to-compress-pdf.html" class="tool-link">Read article</a></div></article>
+          <article class="tool-card"><div class="tool-icon">&#128247;</div><div class="tool-card-content"><h3>Image Compression Guide</h3><p>JPG vs PNG vs WebP comparison.</p><a href="blog/image-compression-guide.html" class="tool-link">Read article</a></div></article>
+          <article class="tool-card"><div class="tool-icon">&#128273;</div><div class="tool-card-content"><h3>Password Security Guide</h3><p>Build strong passwords and keep safe.</p><a href="blog/password-security.html" class="tool-link">Read article</a></div></article>
+          <article class="tool-card"><div class="tool-icon">&#127912;</div><div class="tool-card-content"><h3>Color Basics for Design</h3><p>HEX, RGB and HSL explained.</p><a href="blog/color-design-basics.html" class="tool-link">Read article</a></div></article>
+          <article class="tool-card"><div class="tool-icon">&#128202;</div><div class="tool-card-content"><h3>Everyday Percentages</h3><p>Discounts, tips and tax made easy.</p><a href="blog/percent-calculator-everyday.html" class="tool-link">Read article</a></div></article>
+          <article class="tool-card"><div class="tool-icon">&#128241;</div><div class="tool-card-content"><h3>QR Code Business Uses</h3><p>10 practical uses for businesses.</p><a href="blog/qr-code-business.html" class="tool-link">Read article</a></div></article>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <section class="features-section"><div class="container">
     <div class="section-title"><h2>Built for speed and simplicity</h2><p>Everything works right in your browser.</p></div>

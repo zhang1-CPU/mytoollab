@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Color Basics for Designers and Content Creators | My Tool Lab</title>
+  <meta name="description" content="Understanding HEX, RGB, and HSL color formats. Practical color theory basics for non-designers choosing colors for websites and content." />
+  <meta name="keywords" content="hex rgb hsl explained, color format guide, web design colors, color picker for web design" />
+  <link rel="canonical" href="https://www.zlbox.site/blog/color-design-basics.html" />
+  <meta name="google-site-verification" content="google4bd1e08685667667" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
+  <meta property="og:title" content="Color Basics for Designers and Content Creators" />
+  <meta property="og:description" content="Understanding HEX, RGB, and HSL color formats. Practical color theory for non-designers." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://www.zlbox.site/blog/color-design-basics.html" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Article","headline":"Color Basics for Designers and Content Creators","description":"Understanding HEX, RGB, and HSL color formats. Practical color theory for non-designers.","datePublished":"2026-05-15","author":{"@type":"Organization","name":"My Tool Lab"},"publisher":{"@type":"Organization","name":"My Tool Lab"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.zlbox.site/blog/color-design-basics.html"}}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.zlbox.site/index.html"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://www.zlbox.site/blog/index.html"},{"@type":"ListItem","position":3,"name":"Color Basics Guide"}]}
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --brand:#2563eb; --brand-hover:#1d4ed8; --text:#1e293b; --muted:#64748b; --border:#e2e8f0; --bg:#ffffff; --bg-subtle:#f8fafc; --surface:#ffffff; --radius:12px; --max-w:860px; }
+    body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; color:var(--text); background:var(--bg); line-height:1.6; }
+    a { color:var(--brand); text-decoration:none; } a:hover { color:var(--brand-hover); text-decoration:underline; }
+    .container { max-width:var(--max-w); margin:0 auto; padding:0 20px; width:100%; }
+    .site-header { padding:14px 0; border-bottom:1px solid var(--border); background:var(--surface); position:sticky; top:0; z-index:10; }
+    .site-header__inner { display:flex; align-items:center; justify-content:space-between; gap:16px; }
+    .brand { font-weight:700; color:var(--text); font-size:1.05rem; text-decoration:none; } .brand span { color:var(--brand); } .brand:hover { text-decoration:none; color:var(--text); }
+    .top-nav { display:flex; gap:18px; font-size:.9rem; flex-wrap:wrap; } .top-nav a { color:var(--muted); } .top-nav a:hover { color:var(--brand); text-decoration:none; }
+    .breadcrumb { font-size:.88rem; color:var(--muted); margin:20px 0 10px; } .breadcrumb a { color:var(--muted); } .breadcrumb a:hover { color:var(--brand); }
+    .breadcrumb .sep { margin:0 8px; color:#cbd5e1; } .breadcrumb .current { color:var(--text); }
+    .article-hero { padding:10px 0 20px; }
+    .article-hero .meta-row { display:flex; flex-wrap:wrap; gap:10px 16px; align-items:center; font-size:.85rem; color:var(--muted); margin-bottom:14px; }
+    .article-hero .cat-tag { display:inline-block; font-size:.72rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--brand); background:#eff6ff; padding:5px 10px; border-radius:999px; }
+    .article-hero h1 { font-size:clamp(1.8rem,5vw,2.4rem); font-weight:800; line-height:1.2; margin-bottom:14px; color:var(--text); }
+    .article-hero .lead { font-size:1.05rem; color:var(--muted); line-height:1.7; }
+    article { padding:14px 0 10px; }
+    article h2 { font-size:1.55rem; font-weight:700; margin:34px 0 12px; line-height:1.3; color:var(--text); }
+    article h3 { font-size:1.15rem; font-weight:700; margin:22px 0 10px; color:var(--text); }
+    article p, article li { font-size:1rem; color:#334155; line-height:1.8; margin-bottom:14px; }
+    article ul, article ol { padding-left:22px; margin-bottom:14px; }
+    article ul li { list-style:disc; } article ol li { list-style:decimal; }
+    article strong { color:var(--text); font-weight:700; }
+    .ad-block { margin:28px auto; text-align:center; padding:12px; background:var(--bg-subtle); border-radius:var(--radius); }
+    .tip-box { background:#eff6ff; border-left:4px solid var(--brand); padding:16px 18px; border-radius:var(--radius); margin:20px 0; font-size:.96rem; color:#1e3a8a; }
+    .tip-box strong { color:var(--brand); display:block; margin-bottom:4px; }
+    pre { background:#1e293b; color:#e2e8f0; padding:14px 18px; border-radius:var(--radius); font-family:"JetBrains Mono","Fira Code",Menlo,Consolas,monospace; font-size:.88rem; line-height:1.55; overflow-x:auto; margin:14px 0 18px; }
+    table { width:100%; border-collapse:collapse; margin:18px 0 24px; font-size:.95rem; border-radius:var(--radius); overflow:hidden; }
+    table th, table td { padding:12px 14px; text-align:left; border-bottom:1px solid var(--border); }
+    table thead { background:#f1f5f9; } table th { font-weight:700; color:var(--text); }
+    .section-divider { border:none; border-top:1px solid var(--border); margin:40px 0 10px; }
+    .section-title { font-size:1.35rem; font-weight:800; margin:0 0 14px; color:var(--text); }
+    .related-articles { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin:12px 0 26px; }
+    .article-card { display:flex; flex-direction:column; background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:18px; text-decoration:none; color:var(--text); transition:border-color .2s, transform .15s, box-shadow .2s; }
+    .article-card:hover { border-color:var(--brand); transform:translateY(-2px); box-shadow:0 10px 24px rgba(15,23,42,.08); text-decoration:none; }
+    .article-card__cat { font-size:.72rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--brand); margin-bottom:6px; }
+    .article-card__title { font-size:1rem; font-weight:700; line-height:1.35; margin-bottom:8px; color:var(--text); }
+    .article-card__date { font-size:.8rem; color:var(--muted); margin-bottom:8px; }
+    .article-card__excerpt { color:#475569; font-size:.88rem; line-height:1.6; flex:1; margin-bottom:8px; }
+    .article-card__read { font-size:.85rem; font-weight:600; color:var(--brand); }
+    .related-tools { display:grid; grid-template-columns:repeat(auto-fill, minmax(200px,1fr)); gap:12px; margin:14px 0 26px; }
+    .tool-card { display:flex; align-items:center; gap:12px; padding:14px 16px; background:var(--surface); border:1px solid var(--border); border-radius:10px; text-decoration:none; color:var(--text); font-size:.92rem; font-weight:500; transition:border-color .2s, box-shadow .2s; }
+    .tool-card:hover { border-color:var(--brand); text-decoration:none; box-shadow:0 2px 8px rgba(37,99,235,.1); }
+    .tool-card .ico { font-size:1.2rem; } .tool-card .txt { display:flex; flex-direction:column; line-height:1.3; } .tool-card .txt small { color:var(--muted); font-weight:400; font-size:.8rem; }
+    footer { margin-top:30px; padding:30px 0 22px; border-top:1px solid var(--border); text-align:center; background:var(--bg-subtle); }
+    .footer-tagline { font-size:.9rem; color:var(--muted); margin-bottom:12px; } .footer-tagline strong { color:var(--text); }
+    .footer-links { display:flex; justify-content:center; flex-wrap:wrap; gap:4px 18px; font-size:.88rem; margin-bottom:10px; } .footer-links a { color:var(--muted); }
+    .footer-tool-links { display:flex; flex-wrap:wrap; justify-content:center; gap:4px 18px; font-size:.82rem; margin:6px 0 14px; } .footer-tool-links a { color:var(--muted); }
+    .footer-copy { font-size:.78rem; color:#94a3b8; margin-top:8px; } .footer-divider { width:1px; height:10px; background:var(--border); display:inline-block; vertical-align:middle; margin:0 4px; }
+    @media (max-width:780px){ .related-articles { grid-template-columns:1fr; } .site-header__inner { flex-direction:column; align-items:flex-start; } }
+    @media (max-width:520px){ .article-hero h1 { font-size:1.65rem; } article h2 { font-size:1.25rem; } }
+  </style>
+</head>
+<body>
+  <header class="site-header"><div class="container site-header__inner"><a href="../index.html" class="brand">My<span>Tool</span>Lab</a><nav class="top-nav"><a href="../categories/pdf.html">PDF</a><a href="../categories/image.html">Image</a><a href="../categories/text.html">Text</a><a href="../categories/generator.html">Generators</a><a href="index.html">Blog</a></nav></div></header>
+
+  <div class="container"><nav class="breadcrumb"><a href="../index.html">Home</a><span class="sep">/</span><a href="index.html">Blog</a><span class="sep">/</span><span class="current">Color Basics for Designers</span></nav></div>
+
+  <section class="article-hero"><div class="container">
+    <div class="meta-row"><span class="cat-tag">Design</span><span>May 15, 2026</span><span>&middot;</span><span>6 min read</span></div>
+    <h1>Color Basics for Designers and Content Creators</h1>
+    <p class="lead">Every website, presentation, and app depends on color — but how does it actually work in code? Here is a practical tour of HEX, RGB, and HSL: what each one means, when to use each, and how to pick colors that look good together.</p>
+  </div></section>
+
+  <div class="container"><div class="ad-block"><ins class="adsbygoogle" style="display:block;width:100%;max-width:728px;height:90px;margin:0 auto;" data-ad-client="ca-pub-5420550088713746" data-ad-slot="8899001122" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div>
+
+  <div class="container">
+  <article>
+    <h2>How Computers Think About Color</h2>
+    <p>Human eyes perceive light in three bands — roughly red, green, and blue. Digital displays mirror that: every pixel on a screen is three tiny sub-pixels, one red, one green, one blue. Everything else is a mix.</p>
+    <p>That simple fact is why every color format you encounter on the web is ultimately a way to describe those three channels plus an optional fourth: transparency (the alpha channel).</p>
+
+    <h2>HEX: The Six-Character Shorthand</h2>
+    <p>HEX is the most common color format in HTML and CSS. It uses the hexadecimal number system (base 16, digits 0–9 and letters a–f) to describe red, green, and blue channels in exactly six characters.</p>
+    <pre>#2563eb  &#8594;  red: 0x25 = 37, green: 0x63 = 99, blue: 0xeb = 235</pre>
+    <p>Eight-character HEX includes alpha (transparency): the last two characters describe opacity from 00 (fully transparent) to ff (fully opaque).</p>
+    <ul>
+      <li><strong>Best for:</strong> Brand colors, CSS variables, copy-pasting from design tools, any color that does not need mental math.</li>
+      <li><strong>Common patterns:</strong> Black is <code>#000000</code>, white is <code>#ffffff</code>, and grays sit along the diagonal where all three channels are equal (e.g. <code>#64748b</code>).</li>
+      <li><strong>Shorthand:</strong> <code>#226</code> is a shorter way to write <code>#222266</code>. Valid only when each pair of digits is repeated.</li>
+    </ul>
+
+    <h2>RGB and RGBA: The "Talk in Numbers" Format</h2>
+    <p>RGB accepts three values from 0 to 255, one per channel. RGBA adds a fourth value — alpha — between 0.0 and 1.0 for transparency.</p>
+    <pre>color: rgb(37, 99, 235);    /* opaque blue */
+color: rgba(37, 99, 235, 0.5); /* same blue, 50% see-through */</pre>
+    <ul>
+      <li><strong>Best for:</strong> Values pulled from design tools; dynamic colors generated in JavaScript; transparency on hover states and overlays.</li>
+      <li><strong>Modern CSS shortcut:</strong> You can now write <code>rgb(37 99 235 / 0.5)</code> without commas or the "a" — this is increasingly common in new code.</li>
+    </ul>
+
+    <h2>HSL: The Format That Actually Feels Human</h2>
+    <p>HSL stands for Hue, Saturation, Lightness. It is the only common format where the numbers map to how humans think about color:</p>
+    <ul>
+      <li><strong>Hue (0–360):</strong> The angle on a color wheel. 0 and 360 are both red; 120 is green; 240 is blue.</li>
+      <li><strong>Saturation (0%–100%):</strong> How vivid or "colorful" it is. 0% is gray; 100% is the maximum intensity for that hue.</li>
+      <li><strong>Lightness (0%–100%):</strong> 0% is black, 100% is white, 50% is the "true" color.</li>
+    </ul>
+    <pre>color: hsl(220, 80%, 53%); /* a pleasing, vivid blue */
+color: hsl(220, 15%, 45%); /* a muted, corporate slate-gray */
+color: hsla(220, 80%, 53%, 0.5); /* same blue, 50% transparent */</pre>
+    <p>For designers and content creators who are not color experts, HSL is magic: once you find a hue you like, you just adjust the other two numbers for variants — lighter backgrounds, darker accents, muted secondary text, and hover states all derive naturally.</p>
+
+    <div class="tip-box"><strong>Rule of thumb for choosing a format.</strong> Use HEX for static brand colors. Use HSL when you are building variants of a color (same hue, different lightness/saturation). Use RGB(A) when you need programmatic control (JavaScript color math, dynamic transparency).</div>
+
+    <div class="ad-block"><ins class="adsbygoogle" style="display:block;width:100%;max-width:728px;height:90px;margin:0 auto;" data-ad-client="ca-pub-5420550088713746" data-ad-slot="9900112233" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+
+    <h2>Practical Color Theory for Non-Designers</h2>
+    <p>You do not need a design degree to pick colors that look good together. Start with these proven patterns and you will be ahead of most websites.</p>
+
+    <h3>1. Pick a single accent hue; derive the rest.</h3>
+    <p>Choose one brand hue (e.g. 220 degrees for blue, 10 degrees for red-orange, 150 degrees for green). Every other color on the site is a variant of that same hue at different lightness and saturation. This guarantees cohesion.</p>
+
+    <h3>2. Use neutral palettes based on near-gray, not pure gray.</h3>
+    <p>Take your brand hue, drop saturation to 15–20%, and sweep lightness from 90% down to 15%. That produces warm, pleasant grays that look coordinated with the rest of your design. Pure-grayscale grays (<code>#888888</code>, <code>#aaaaaa</code>) read as lifeless.</p>
+
+    <h3>3. One brightly-saturated color per page — two at most.</h3>
+    <p>High saturation draws the eye. A page saturated everywhere has no focus. Save saturation for buttons, primary calls to action, and key headlines.</p>
+
+    <h3>4. Keep contrast ratios accessible.</h3>
+    <p>WCAG guidelines require at least 4.5:1 contrast between text and its background for normal-size body text. Tools exist to check this automatically, but as a rough rule, keep your body text above 50% lightness difference from its background in HSL terms.</p>
+
+    <h3>5. Warm vs. cool temperature affects mood.</h3>
+    <p>Red, orange, and yellow (0–60 degrees) feel warm, energetic, urgent. Green, blue, and purple (120–300 degrees) feel calm, trustworthy, technical. Most design systems anchor on a cool hue (their "resting" color for the interface) and reach for a warm hue for their primary call to action.</p>
+
+    <h2>Common Color Mistakes and How to Fix Them</h2>
+    <ul>
+      <li><strong>Using pure black (#000000) for body text.</strong> Pure black on pure white produces the highest possible contrast, which can feel harsh and cause halation on bright displays. A near-black like <code>#1e293b</code> is almost as readable and much friendlier.</li>
+      <li><strong>Using pure white (#ffffff) on dark backgrounds.</strong> Same problem in reverse — off-whites like <code>#f8fafc</code> feel premium.</li>
+      <li><strong>Too many hues on one page.</strong> Every additional hue competes for attention. Three to four hues total is a strong upper bound for most content pages.</li>
+      <li><strong>Ignoring color blindness.</strong> Approximately 8% of men have red-green color deficiency. Do not rely on color alone to communicate status — pair colors with icons, labels, and shapes. Test with a color-blindness simulator.</li>
+      <li><strong>Hard-coding brand colors inline instead of using CSS variables.</strong> Naming your brand color once (<code>--brand: #2563eb</code>) and reusing the variable everywhere means a one-line change when branding updates.</li>
+    </ul>
+
+    <h2>A Quick Decision Reference</h2>
+    <table>
+      <thead><tr><th>Task</th><th>Recommended format</th><th>Example</th></tr></thead>
+      <tbody>
+        <tr><td>Brand color (CSS variable)</td><td>HEX</td><td><code>#2563eb</code></td></tr>
+        <tr><td>Brand variant, darker/lighter</td><td>HSL</td><td><code>hsl(220, 80%, 40%)</code></td></tr>
+        <tr><td>Transparent overlay</td><td>RGBA or HSLA</td><td><code>rgba(0,0,0,0.5)</code></td></tr>
+        <tr><td>Hover state with same hue</td><td>HSL, adjust lightness</td><td><code>hsl(220, 80%, 60%)</code></td></tr>
+        <tr><td>Dynamic color in JavaScript</td><td>RGB / HSL</td><td>Easy math on components</td></tr>
+      </tbody>
+    </table>
+  </article>
+  </div>
+
+  <div class="container"><div class="ad-block"><ins class="adsbygoogle" style="display:block;width:100%;max-width:728px;height:90px;margin:0 auto;" data-ad-client="ca-pub-5420550088713746" data-ad-slot="7711223344" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div>
+
+  <div class="container"><hr class="section-divider"><h2 class="section-title">Related Articles</h2>
+    <div class="related-articles">
+      <a class="article-card" href="image-compression-guide.html"><span class="article-card__cat">Images</span><h3 class="article-card__title">Image Compression Guide: JPG vs PNG vs WebP Explained</h3><div class="article-card__date">June 3, 2026 &middot; 9 min read</div><p class="article-card__excerpt">Understand JPG, PNG, WebP differences. Learn when to use each format, how much to compress, and best practices for web.</p><span class="article-card__read">Read article &rarr;</span></a>
+      <a class="article-card" href="batch-image-processing.html"><span class="article-card__cat">Images</span><h3 class="article-card__title">Batch Image Processing: Save Hours with These Tips</h3><div class="article-card__date">May 22, 2026 &middot; 6 min read</div><p class="article-card__excerpt">How to process dozens or hundreds of images efficiently. Tips for batch compressing, converting, and resizing images.</p><span class="article-card__read">Read article &rarr;</span></a>
+      <a class="article-card" href="website-speed-images.html"><span class="article-card__cat">Images</span><h3 class="article-card__title">How Image Optimization Dramatically Improves Website Speed</h3><div class="article-card__date">May 12, 2026 &middot; 7 min read</div><p class="article-card__excerpt">Image formats, compression levels, and CDN strategies for faster page loads. Impact on SEO and tips.</p><span class="article-card__read">Read article &rarr;</span></a>
+      <a class="article-card" href="pdf-tools-guide.html"><span class="article-card__cat">PDF</span><h3 class="article-card__title">Complete Guide to PDF Tools Every Professional Needs</h3><div class="article-card__date">June 7, 2026 &middot; 7 min read</div><p class="article-card__excerpt">Essential PDF tools every professional should know: compression, merging, splitting, and conversion.</p><span class="article-card__read">Read article &rarr;</span></a>
+    </div>
+  </div>
+
+  <div class="container"><h2 class="section-title">Tools Mentioned in This Article</h2>
+    <div class="related-tools">
+      <a class="tool-card" href="../tools/image/color-picker.html"><span class="ico">&#127912;</span><span class="txt">Color Picker<small>HEX / RGB / HSL</small></span></a>
+      <a class="tool-card" href="../tools/image/image-compressor.html"><span class="ico">&#128444;</span><span class="txt">Image Compressor<small>Shrink images</small></span></a>
+      <a class="tool-card" href="../tools/image/image-resizer.html"><span class="ico">&#128260;</span><span class="txt">Image Resizer<small>Resize images</small></span></a>
+      <a class="tool-card" href="../tools/image/background-remover.html"><span class="ico">&#128445;</span><span class="txt">Background Remover<small>Transparent images</small></span></a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p class="footer-tagline"><strong>My Tool Lab</strong> &mdash; Free online tools for everyone.</p>
+      <div class="footer-links"><a href="../about.html">About</a><span class="footer-divider"></span><a href="../contact.html">Contact</a><span class="footer-divider"></span><a href="../privacy.html">Privacy</a><span class="footer-divider"></span><a href="../disclaimer.html">Disclaimer</a></div>
+      <div class="footer-tool-links"><a href="../categories/pdf.html">PDF Tools</a><span class="footer-divider"></span><a href="../categories/image.html">Image Tools</a><span class="footer-divider"></span><a href="../categories/text.html">Text Tools</a><span class="footer-divider"></span><a href="../categories/generator.html">Generators</a></div>
+      <p class="footer-copy">&copy; 2026 My Tool Lab. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

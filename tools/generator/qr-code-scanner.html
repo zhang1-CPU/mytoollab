@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QR Code Scanner – Scan QR Codes Online Free | My Tool Lab</title>
+  <meta name="description" content="Free online QR code scanner. Scan QR codes from uploaded images or camera. Instant reading of text, URLs, WiFi, and contact information." />
+  <meta name="keywords" content="qr code scanner, scan qr code, qr reader, qr scanner online, read qr code, qr code camera, online qr scanner free" />
+  <link rel="canonical" href="https://www.zlbox.site/tools/generator/qr-code-scanner.html" />
+  <meta name="google-site-verification" content="google4bd1e08685667667" />
+  <meta name="robots" content="index, follow" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.js" crossorigin="anonymous"></script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"QR Code Scanner – Free Online QR Reader","applicationCategory":"UtilityApplication","operatingSystem":"Any (Web-based)","description":"Free online QR code scanner. Scan QR codes from images or live camera.","url":"https://www.zlbox.site/tools/generator/qr-code-scanner.html","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is the QR scanner really free?","acceptedAnswer":{"@type":"Answer","text":"Yes. Scan as many QR codes as you like for free."}},{"@type":"Question","name":"Do you store the scanned data?","acceptedAnswer":{"@type":"Answer","text":"No. QR decoding runs locally in your browser using jsQR."}},{"@type":"Question","name":"Which camera does it use?","acceptedAnswer":{"@type":"Answer","text":"It uses your device's rear or front camera via the browser's getUserMedia API."}},{"@type":"Question","name":"Can I scan from an image file?","acceptedAnswer":{"@type":"Answer","text":"Yes. You can also upload a QR code image and decode it."}},{"@type":"Question","name":"What about my privacy?","acceptedAnswer":{"@type":"Answer","text":"Images and camera frames are processed locally — nothing is uploaded to a server."}}]}
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --brand:#2563eb; --brand-hover:#1d4ed8; --text:#1e293b; --muted:#64748b; --border:#e2e8f0; --bg:#ffffff; --bg-subtle:#f8fafc; --surface:#ffffff; --radius:12px; --max-w:1120px; }
+    body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; color:var(--text); background:var(--bg); line-height:1.6; }
+    a { color:var(--brand); text-decoration:none; }
+    a:hover { color:var(--brand-hover); text-decoration:underline; }
+    .container { max-width:var(--max-w); margin:0 auto; padding:0 24px; width:100%; }
+    .site-header { padding:14px 0; border-bottom:1px solid var(--border); background:var(--surface); }
+    .site-header__inner { display:flex; align-items:center; justify-content:space-between; gap:16px; }
+    .brand { font-weight:700; color:var(--text); font-size:1.05rem; }
+    .brand span { color:var(--brand); }
+    .top-nav { display:flex; gap:18px; font-size:.9rem; flex-wrap:wrap; }
+    .top-nav a { color:var(--muted); }
+    .top-nav a:hover { color:var(--brand); text-decoration:none; }
+    .breadcrumb { font-size:.85rem; color:var(--muted); margin:20px 0 8px; }
+    .breadcrumb a { color:var(--muted); } .breadcrumb a:hover { color:var(--brand); }
+    .breadcrumb .sep { margin:0 6px; color:#cbd5e1; }
+    .breadcrumb .current { color:var(--text); }
+    h1 { font-size:clamp(1.8rem,4vw,2.4rem); font-weight:800; line-height:1.2; margin-bottom:10px; }
+    h2 { font-size:1.6rem; font-weight:700; margin:32px 0 12px; }
+    p { color:#334155; }
+    .section-subtitle { color:var(--muted); font-size:1.02rem; margin-bottom:16px; }
+    .ad-block { margin:20px auto; text-align:center; }
+    .tool-wrapper { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:28px; box-shadow:0 6px 18px rgba(15,23,42,.05); margin:24px 0; }
+
+    .tabs { display:flex; gap:8px; border-bottom:1px solid var(--border); margin-bottom:20px; flex-wrap:wrap; }
+    .tab-btn { background:transparent; border:none; padding:10px 18px; font-size:.95rem; font-weight:600; color:var(--muted); cursor:pointer; border-bottom:3px solid transparent; font-family:inherit; }
+    .tab-btn.is-active { color:var(--brand); border-bottom-color:var(--brand); }
+    .tab-panel { display:none; }
+    .tab-panel.is-active { display:block; }
+
+    .upload-zone { border:2px dashed #cbd5e1; border-radius:var(--radius); padding:36px 20px; text-align:center; background:var(--bg-subtle); cursor:pointer; transition:border-color .2s, background .2s; }
+    .upload-zone.drag-over { border-color:var(--brand); background:#eff6ff; }
+    .upload-zone__icon { font-size:2.2rem; margin-bottom:8px; }
+    .upload-zone__title { font-weight:600; margin-bottom:4px; }
+    .upload-zone__hint { font-size:.85rem; color:var(--muted); margin-bottom:14px; }
+    .upload-zone__file { display:none; }
+    .result-area { margin-top:20px; }
+    .preview-box { background:#000; border-radius:var(--radius); overflow:hidden; display:flex; align-items:center; justify-content:center; min-height:260px; position:relative; }
+    .preview-box img, .preview-box canvas, .preview-box video { max-width:100%; max-height:420px; display:block; }
+    .preview-box .placeholder { color:var(--muted); padding:20px; font-size:.9rem; }
+    .output { font-family:'Courier New', monospace; background:#0f172a; color:#e2e8f0; border-radius:var(--radius); padding:16px; margin-top:12px; font-size:.92rem; white-space:pre-wrap; word-break:break-all; min-height:60px; }
+    .output a { color:#93c5fd; }
+    .btn { display:inline-flex; align-items:center; justify-content:center; gap:8px; padding:10px 20px; border-radius:10px; font-size:.92rem; font-weight:600; cursor:pointer; border:1.5px solid transparent; transition:background .2s,transform .1s; white-space:nowrap; font-family:inherit; }
+    .btn--primary { background:var(--brand); color:#fff; border-color:var(--brand); }
+    .btn--primary:hover { background:var(--brand-hover); border-color:var(--brand-hover); transform:translateY(-1px); text-decoration:none; }
+    .btn--secondary { background:var(--surface); color:var(--text); border-color:var(--border); }
+    .btn--secondary:hover { background:var(--bg-subtle); }
+    .btn:disabled { opacity:.5; cursor:not-allowed; }
+    .actions-row { display:flex; gap:10px; flex-wrap:wrap; margin-top:16px; justify-content:flex-end; }
+    .status { margin-top:14px; font-size:.9rem; color:var(--muted); text-align:center; }
+    .status--success { color:#047857; }
+    .status--error { color:#b91c1c; }
+
+    .features-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
+    .feature-card { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:20px; box-shadow:0 2px 6px rgba(15,23,42,.04); }
+    .feature-card__icon { font-size:1.6rem; margin-bottom:8px; }
+    .feature-card__title { font-weight:700; margin-bottom:4px; font-size:1rem; }
+    .feature-card__desc { font-size:.88rem; color:var(--muted); line-height:1.55; }
+    .how-to ol { padding-left:22px; display:flex; flex-direction:column; gap:10px; color:#334155; font-size:.95rem; }
+    .how-to ol strong { color:var(--text); }
+    .faq-list { display:flex; flex-direction:column; gap:10px; max-width:860px; }
+    .faq-item { border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; background:var(--surface); }
+    .faq-item summary { font-size:.95rem; font-weight:600; padding:14px 18px; cursor:pointer; list-style:none; display:flex; justify-content:space-between; align-items:center; }
+    .faq-item summary::-webkit-details-marker { display:none; }
+    .faq-item summary::after { content:'+'; color:var(--brand); font-size:1.2rem; margin-left:12px; }
+    .faq-item[open] summary::after { content:'\2212'; }
+    .faq-item p { padding:0 18px 14px; font-size:.9rem; color:var(--muted); line-height:1.65; }
+    .related-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
+    .related-card { display:flex; flex-direction:column; padding:18px; border:1px solid var(--border); border-radius:var(--radius); color:var(--text); background:var(--surface); text-decoration:none; transition:border-color .2s,transform .15s; }
+    .related-card:hover { border-color:var(--brand); transform:translateY(-2px); text-decoration:none; color:var(--text); }
+    .related-card__icon { font-size:1.25rem; margin-bottom:10px; }
+    .related-card__title { font-weight:700; margin-bottom:4px; font-size:.95rem; }
+    .related-card__desc { font-size:.85rem; color:var(--muted); }
+
+    footer { margin-top:48px; padding:32px 0 24px; border-top:1px solid var(--border); text-align:center; background:var(--bg-subtle); }
+    .footer-tagline { font-size:.9rem; color:var(--muted); margin-bottom:14px; }
+    .footer-tagline strong { color:var(--text); }
+    .footer-links { display:flex; justify-content:center; flex-wrap:wrap; gap:4px 18px; font-size:.85rem; margin-bottom:12px; }
+    .footer-links a { color:var(--muted); }
+    .footer-tool-links { display:flex; flex-wrap:wrap; justify-content:center; gap:4px 18px; font-size:.82rem; margin:8px 0 16px; }
+    .footer-tool-links a { color:var(--muted); }
+    .footer-copy { font-size:.8rem; color:#94a3b8; margin-top:10px; }
+    .footer-divider { width:1px; height:10px; background:var(--border); display:inline-block; vertical-align:middle; margin:0 4px; }
+    @media (max-width:560px){ .site-header__inner { flex-direction:column; align-items:flex-start; } .tool-wrapper { padding:20px; } h1 { font-size:1.6rem; } h2 { font-size:1.3rem; } .features-grid { grid-template-columns:1fr 1fr; } .related-grid { grid-template-columns:1fr 1fr; } .actions-row .btn { flex:1; } }
+  </style>
+</head>
+<body>
+  <header class="site-header"><div class="container site-header__inner">
+    <a href="../../index.html" class="brand">My<span>Tool</span>Lab</a>
+    <nav class="top-nav">
+      <a href="../../categories/pdf.html">PDF</a>
+      <a href="../../categories/image.html">Image</a>
+      <a href="../../categories/text.html">Text</a>
+    </nav>
+  </div></header>
+
+  <div class="container">
+    <nav class="breadcrumb">
+      <a href="../../index.html">Home</a><span class="sep">/</span>
+      <a href="../../categories/generator.html">Generators</a><span class="sep">/</span>
+      <span class="current">QR Code Scanner</span>
+    </nav>
+    <h1>QR Code Scanner</h1>
+    <p class="section-subtitle">Scan QR codes from images or directly from your camera. Text, URLs, WiFi, and contact info — all decoded locally in your browser.</p>
+  </div>
+
+  <div class="container"><div class="ad-block"><ins class="adsbygoogle" style="display:block;width:100%;max-width:728px;height:90px;margin:0 auto;" data-ad-client="ca-pub-5420550088713746" data-ad-slot="3344556677" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div>
+
+  <div class="container">
+    <div class="tool-wrapper">
+      <div class="tabs">
+        <button class="tab-btn is-active" data-tab="upload">From Image</button>
+        <button class="tab-btn" data-tab="camera">From Camera</button>
+      </div>
+
+      <div class="tab-panel is-active" id="tab-upload">
+        <div class="upload-zone" id="uploadZone">
+          <div class="upload-zone__icon">&#128444;</div>
+          <div class="upload-zone__title">Drop a QR code image, or click to browse</div>
+          <div class="upload-zone__hint">JPG, PNG, WebP all supported.</div>
+          <label class="btn btn--primary" for="imageInput">Choose Image</label>
+          <input type="file" id="imageInput" class="upload-zone__file" accept="image/*" />
+        </div>
+        <div class="result-area">
+          <div class="preview-box" id="previewBox"><span class="placeholder">Preview area</span></div>
+          <div id="imageOutput" class="output" style="display:none;"></div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="tab-camera">
+        <div class="preview-box" id="cameraBox"><span class="placeholder">Camera not started</span></div>
+        <div class="actions-row">
+          <button class="btn btn--secondary" id="cameraStopBtn" disabled>Stop</button>
+          <button class="btn btn--primary" id="cameraStartBtn">Start Camera</button>
+        </div>
+        <div id="cameraOutput" class="output" style="display:none;"></div>
+        <div class="status" id="cameraStatus"></div>
+      </div>
+
+      <div class="status" id="status"></div>
+    </div>
+  </div>
+
+  <div class="container"><div class="ad-block"><ins class="adsbygoogle" style="display:block;width:100%;max-width:728px;height:90px;margin:0 auto;" data-ad-client="ca-pub-5420550088713746" data-ad-slot="4455667788" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div>
+
+  <div class="container">
+    <section class="how-to">
+      <h2>How to Scan QR Codes</h2>
+      <ol>
+        <li><strong>Choose method:</strong> Decide whether to upload an image (From Image tab) or use your camera (From Camera tab).</li>
+        <li><strong>Upload or enable:</strong> Drop an image or click "Start Camera" and allow permissions.</li>
+        <li><strong>Scan:</strong> If using camera, point it at a QR code and it will auto-decode.</li>
+        <li><strong>Copy &amp; use:</strong> The decoded text or URL will appear below. Click to copy.</li>
+      </ol>
+    </section>
+  </div>
+
+  <div class="container">
+    <section>
+      <h2>Why Use This QR Scanner</h2>
+      <div class="features-grid">
+        <div class="feature-card"><div class="feature-card__icon">&#128274;</div><div class="feature-card__title">Private</div><div class="feature-card__desc">Everything runs in your browser. No uploads, no servers.</div></div>
+        <div class="feature-card"><div class="feature-card__icon">&#9889;</div><div class="feature-card__title">Instant</div><div class="feature-card__desc">Real-time scanning powered by jsQR.</div></div>
+        <div class="feature-card"><div class="feature-card__icon">&#128241;</div><div class="feature-card__title">Any Device</div><div class="feature-card__desc">Works on phones, tablets, and desktops.</div></div>
+        <div class="feature-card"><div class="feature-card__icon">&#128176;</div><div class="feature-card__title">Free</div><div class="feature-card__desc">No signup, no watermarks, no cost.</div></div>
+      </div>
+    </section>
+  </div>
+
+  <div class="container"><div class="ad-block"><ins class="adsbygoogle" style="display:block;width:100%;max-width:728px;height:90px;margin:0 auto;" data-ad-client="ca-pub-5420550088713746" data-ad-slot="5566778899" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div>
+
+  <div class="container">
+    <section>
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-list">
+        <details class="faq-item"><summary>Is the QR scanner really free?</summary><p>Yes. Scan as many QR codes as you like for free.</p></details>
+        <details class="faq-item"><summary>Do you store the scanned data?</summary><p>No. QR decoding runs locally in your browser using jsQR.</p></details>
+        <details class="faq-item"><summary>Which camera does it use?</summary><p>It uses your device's rear or front camera via the browser's getUserMedia API.</p></details>
+        <details class="faq-item"><summary>Can I scan from an image file?</summary><p>Yes. You can also upload a QR code image and decode it.</p></details>
+        <details class="faq-item"><summary>What about my privacy?</summary><p>Images and camera frames are processed locally — nothing is uploaded.</p></details>
+      </div>
+    </section>
+  </div>
+
+  <div class="container">
+    <section>
+      <h2>Related Tools</h2>
+      <div class="related-grid">
+        <a class="related-card" href="qr-code-generator.html"><div class="related-card__icon">&#128241;</div><div class="related-card__title">QR Code Generator</div><div class="related-card__desc">Create your own QR codes.</div></a>
+        <a class="related-card" href="../text/base64.html"><div class="related-card__icon">&#128290;</div><div class="related-card__title">Base64</div><div class="related-card__desc">Encode/decode Base64 strings.</div></a>
+        <a class="related-card" href="../image/image-resizer.html"><div class="related-card__icon">&#128247;</div><div class="related-card__title">Image Resizer</div><div class="related-card__desc">Resize images online.</div></a>
+        <a class="related-card" href="../generator/password-generator.html"><div class="related-card__icon">&#128273;</div><div class="related-card__title">Password Generator</div><div class="related-card__desc">Create strong passwords.</div></a>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p class="footer-tagline"><strong>My Tool Lab</strong> &mdash; Free online tools for everyone.</p>
+      <div class="footer-links"><a href="../../about.html">About</a><span class="footer-divider"></span><a href="../../contact.html">Contact</a><span class="footer-divider"></span><a href="../../privacy.html">Privacy</a><span class="footer-divider"></span><a href="../../disclaimer.html">Disclaimer</a></div>
+      <div class="footer-tool-links">
+        <a href="qr-code-scanner.html">QR Scanner</a><span class="footer-divider"></span>
+        <a href="qr-code-generator.html">QR Generator</a><span class="footer-divider"></span>
+        <a href="../pdf/merge-pdf.html">Merge PDF</a><span class="footer-divider"></span>
+        <a href="../image/image-resizer.html">Image Resizer</a>
+      </div>
+      <p class="footer-copy">&copy; 2025 My Tool Lab. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+  (function(){
+    const tabs = document.querySelectorAll('.tab-btn');
+    const panels = document.querySelectorAll('.tab-panel');
+    tabs.forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        tabs.forEach(t=>t.classList.remove('is-active'));
+        panels.forEach(p=>p.classList.remove('is-active'));
+        btn.classList.add('is-active');
+        const id = btn.dataset.tab;
+        document.getElementById('tab-'+id).classList.add('is-active');
+        if(id==='camera'){
+          // focus: keep going if already started; when leaving, stop camera to save resources
+        } else {
+          stopCamera();
+        }
+      });
+    });
+
+    const uploadZone = document.getElementById('uploadZone');
+    const imageInput = document.getElementById('imageInput');
+    const previewBox = document.getElementById('previewBox');
+    const imageOutput = document.getElementById('imageOutput');
+    const statusEl = document.getElementById('status');
+    const cameraBox = document.getElementById('cameraBox');
+    const cameraOutput = document.getElementById('cameraOutput');
+    const cameraStatus = document.getElementById('cameraStatus');
+    const cameraStartBtn = document.getElementById('cameraStartBtn');
+    const cameraStopBtn = document.getElementById('cameraStopBtn');
+
+    let lastDecoded = '';
+    let cameraStream = null;
+    let cameraVideo = null;
+    let rafId = null;
+    let cameraCanvas = null;
+    let cameraCtx = null;
+
+    function formatQRResult(text){
+      if(/^https?:\/\//i.test(text)){
+        return '<a href="'+escapeAttr(text)+'" target="_blank" rel="noopener">'+escapeHtml(text)+'</a>';
+      }
+      return escapeHtml(text);
+    }
+    function escapeHtml(s){ return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+    function escapeAttr(s){ return escapeHtml(s); }
+
+    function showImageDecode(dataUrl){
+      const img = new Image();
+      img.onload = function(){
+        previewBox.innerHTML = '';
+        previewBox.appendChild(img);
+        const canvas = document.createElement('canvas');
+        canvas.width = img.naturalWidth;
+        canvas.height = img.naturalHeight;
+        const ctx = canvas.getContext('2d', { willReadFrequently:true });
+        ctx.drawImage(img, 0, 0);
+        const imgData = ctx.getImageData(0,0,canvas.width,canvas.height);
+        const code = (typeof jsQR !== 'undefined') ? jsQR(imgData.data, imgData.width, imgData.height, { inversionAttempts: 'attemptBoth' }) : null;
+        if(code && code.data){
+          imageOutput.style.display = 'block';
+          imageOutput.innerHTML = formatQRResult(code.data);
+          statusEl.className = 'status status--success';
+          statusEl.textContent = 'QR code decoded successfully.';
+        } else {
+          imageOutput.style.display = 'block';
+          imageOutput.textContent = 'No QR code found in this image.';
+          statusEl.className = 'status status--error';
+        }
+      };
+      img.onerror = function(){
+        previewBox.innerHTML = '<span class="placeholder">Failed to load image.</span>';
+        statusEl.className = 'status status--error';
+        statusEl.textContent = 'Could not load image.';
+      };
+      img.src = dataUrl;
+    }
+
+    function handleFile(file){
+      if(!file || !/^image\//.test(file.type)){ return; }
+      const reader = new FileReader();
+      reader.onload = function(ev){ showImageDecode(ev.target.result); };
+      reader.readAsDataURL(file);
+    }
+
+    imageInput.addEventListener('change', function(){ if(this.files && this.files[0]) handleFile(this.files[0]); this.value=''; });
+    ['dragenter','dragover'].forEach(ev => uploadZone.addEventListener(ev, function(e){ e.preventDefault(); uploadZone.classList.add('drag-over'); }));
+    ['dragleave','drop'].forEach(ev => uploadZone.addEventListener(ev, function(e){ e.preventDefault(); uploadZone.classList.remove('drag-over'); }));
+    uploadZone.addEventListener('drop', function(e){ if(e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0]) handleFile(e.dataTransfer.files[0]); });
+
+    function stopCamera(){
+      if(rafId){ cancelAnimationFrame(rafId); rafId = null; }
+      if(cameraStream){ cameraStream.getTracks().forEach(t=>t.stop()); cameraStream = null; }
+      if(cameraVideo){ cameraVideo.pause(); cameraVideo.srcObject = null; cameraVideo = null; }
+      cameraBox.innerHTML = '<span class="placeholder">Camera not started</span>';
+      cameraStartBtn.disabled = false;
+      cameraStopBtn.disabled = true;
+    }
+
+    async function startCamera(){
+      cameraStartBtn.disabled = true;
+      cameraStatus.textContent = 'Requesting camera access...';
+      try {
+        cameraStream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' }, audio: false });
+        cameraVideo = document.createElement('video');
+        cameraVideo.setAttribute('playsinline','');
+        cameraVideo.playsInline = true;
+        cameraVideo.autoplay = true;
+        cameraVideo.muted = true;
+        cameraVideo.srcObject = cameraStream;
+        cameraBox.innerHTML = '';
+        cameraBox.appendChild(cameraVideo);
+        await cameraVideo.play();
+        cameraCanvas = document.createElement('canvas');
+        cameraCtx = cameraCanvas.getContext('2d', { willReadFrequently:true });
+        cameraStopBtn.disabled = false;
+        cameraStatus.textContent = 'Scanning...';
+        function tick(){
+          if(!cameraVideo) return;
+          if(cameraVideo.readyState === cameraVideo.HAVE_ENOUGH_DATA){
+            cameraCanvas.width = cameraVideo.videoWidth;
+            cameraCanvas.height = cameraVideo.videoHeight;
+            if(cameraCanvas.width > 0 && cameraCanvas.height > 0){
+              cameraCtx.drawImage(cameraVideo, 0, 0);
+              const imgData = cameraCtx.getImageData(0, 0, cameraCanvas.width, cameraCanvas.height);
+              const code = (typeof jsQR !== 'undefined') ? jsQR(imgData.data, imgData.width, imgData.height, { inversionAttempts: 'attemptBoth' }) : null;
+              if(code && code.data && code.data !== lastDecoded){
+                lastDecoded = code.data;
+                cameraOutput.style.display = 'block';
+                cameraOutput.innerHTML = formatQRResult(code.data);
+                cameraStatus.className = 'status status--success';
+                cameraStatus.textContent = 'QR code detected.';
+              }
+            }
+          }
+          rafId = requestAnimationFrame(tick);
+        }
+        rafId = requestAnimationFrame(tick);
+      } catch(err){
+        cameraStartBtn.disabled = false;
+        cameraStatus.className = 'status status--error';
+        cameraStatus.textContent = 'Could not access camera: ' + (err.message || 'Permission denied.');
+      }
+    }
+
+    cameraStartBtn.addEventListener('click', startCamera);
+    cameraStopBtn.addEventListener('click', stopCamera);
+  })();
+  </script>
+</body>
+</html>

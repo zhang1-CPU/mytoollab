@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HTML Formatter – Format HTML Code Online Free | My Tool Lab</title>
+  <meta name="description" content="Free online HTML formatter. Beautify, indent, and format your HTML code with proper structure. Useful for developers, editors, and students." />
+  <meta name="keywords" content="html formatter, html beautifier, format html, html indent, html tidy, pretty html, online html formatter" />
+  <link rel="canonical" href="https://www.zlbox.site/tools/text/html-formatter.html" />
+  <meta name="google-site-verification" content="google4bd1e08685667667" />
+  <meta name="robots" content="index, follow" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"HTML Formatter","applicationCategory":"DeveloperApplication","operatingSystem":"Any (Web-based)","description":"Free online HTML formatter to beautify and indent HTML code.","url":"https://www.zlbox.site/tools/text/html-formatter.html","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is this HTML formatter free?","acceptedAnswer":{"@type":"Answer","text":"Yes. Paste or type your HTML and beautify it for free."}},{"@type":"Question","name":"How does the formatter work?","acceptedAnswer":{"@type":"Answer","text":"It tokenizes tags and text, then adds proper indentation and line breaks."}},{"@type":"Question","name":"Does it support self-closing tags?","acceptedAnswer":{"@type":"Answer","text":"Yes. Self-closing tags like <br>, <img>, <input>, <hr>, <meta>, <link> are handled properly."}},{"@type":"Question","name":"Can I copy the result?","acceptedAnswer":{"@type":"Answer","text":"Yes. Click the 'Copy' button to copy the formatted HTML to your clipboard."}},{"@type":"Question","name":"Do you store the HTML I enter?","acceptedAnswer":{"@type":"Answer","text":"No. Formatting happens in your browser and the data never leaves your device."}}]}
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --brand:#2563eb; --brand-hover:#1d4ed8; --text:#1e293b; --muted:#64748b; --border:#e2e8f0; --bg:#ffffff; --bg-subtle:#f8fafc; --surface:#ffffff; --radius:12px; --max-w:1120px; }
+    body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; color:var(--text); background:var(--bg); line-height:1.6; }
+    a { color:var(--brand); text-decoration:none; } a:hover { color:var(--brand-hover); text-decoration:underline; }
+    .container { max-width:var(--max-w); margin:0 auto; padding:0 24px; width:100%; }
+    .site-header { padding:14px 0; border-bottom:1px solid var(--border); background:var(--surface); }
+    .site-header__inner { display:flex; align-items:center; justify-content:space-between; gap:16px; }
+    .brand { font-weight:700; color:var(--text); font-size:1.05rem; } .brand span { color:var(--brand); }
+    .top-nav { display:flex; gap:18px; font-size:.9rem; flex-wrap:wrap; } .top-nav a { color:var(--muted); } .top-nav a:hover { color:var(--brand); text-decoration:none; }
+    .breadcrumb { font-size:.85rem; color:var(--muted); margin:20px 0 8px; }
+    .breadcrumb a { color:var(--muted); } .breadcrumb a:hover { color:var(--brand); }
+    .breadcrumb .sep { margin:0 6px; color:#cbd5e1; } .breadcrumb .current { color:var(--text); }
+    h1 { font-size:clamp(1.8rem,4vw,2.4rem); font-weight:800; line-height:1.2; margin-bottom:10px; }
+    h2 { font-size:1.6rem; font-weight:700; margin:32px 0 12px; }
+    p { color:#334155; }
+    .section-subtitle { color:var(--muted); font-size:1.02rem; margin-bottom:16px; }
+    .ad-block { margin:20px auto; text-align:center; }
+    .tool-wrapper { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:28px; box-shadow:0 6px 18px rgba(15,23,42,.05); margin:24px 0; }
+    .field-label { display:block; font-size:.88rem; font-weight:600; margin-bottom:8px; }
+    .tool-textarea { width:100%; padding:14px; font-family:'Courier New', monospace; font-size:.88rem; border:1.5px solid var(--border); border-radius:10px; background:#f8fafc; color:var(--text); outline:none; resize:vertical; min-height:220px; transition:border-color .2s, box-shadow .2s; }
+    .tool-textarea:focus { border-color:var(--brand); box-shadow:0 0 0 3px rgba(37,99,235,.15); background:#fff; }
+    .two-col { display:grid; grid-template-columns:1fr 1fr; gap:20px; align-items:start; }
+    .btn { display:inline-flex; align-items:center; justify-content:center; gap:8px; padding:11px 22px; border-radius:10px; font-size:.92rem; font-weight:600; cursor:pointer; border:1.5px solid transparent; transition:background .2s,transform .1s; white-space:nowrap; font-family:inherit; }
+    .btn--primary { background:var(--brand); color:#fff; border-color:var(--brand); } .btn--primary:hover { background:var(--brand-hover); border-color:var(--brand-hover); transform:translateY(-1px); text-decoration:none; }
+    .btn--secondary { background:var(--surface); color:var(--text); border-color:var(--border); } .btn--secondary:hover { background:var(--bg-subtle); }
+    .btn:disabled { opacity:.5; cursor:not-allowed; }
+    .actions-row { display:flex; gap:10px; flex-wrap:wrap; margin-top:20px; justify-content:flex-end; }
+    .status { margin-top:14px; font-size:.9rem; color:var(--muted); text-align:center; } .status--success { color:#047857; } .status--error { color:#b91c1c; }
+    .features-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
+    .feature-card { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:20px; box-shadow:0 2px 6px rgba(15,23,42,.04); }
+    .feature-card__icon { font-size:1.6rem; margin-bottom:8px; }
+    .feature-card__title { font-weight:700; margin-bottom:4px; font-size:1rem; }
+    .feature-card__desc { font-size:.88rem; color:var(--muted); line-height:1.55; }
+    .how-to ol { padding-left:22px; display:flex; flex-direction:column; gap:10px; color:#334155; font-size:.95rem; } .how-to ol strong { color:var(--text); }
+    .faq-list { display:flex; flex-direction:column; gap:10px; max-width:860px; }
+    .faq-item { border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; background:var(--surface); }
+    .faq-item summary { font-size:.95rem; font-weight:600; padding:14px 18px; cursor:pointer; list-style:none; display:flex; justify-content:space-between; align-items:center; }
+    .faq-item summary::-webkit-details-marker { display:none; }
+    .faq-item summary::after { content:'+'; color:var(--brand); font-size:1.2rem; margin-left:12px; }
+    .faq-item[open] summary::after { content:'\2212'; }
+    .faq-item p { padding:0 18px 14px; font-size:.9rem; color:var(--muted); line-height:1.65; }
+    .related-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
+    .related-card { display:flex; flex-direction:column; padding:18px; border:1px solid var(--border); border-radius:var(--radius); color:var(--text); background:var(--surface); text-decoration:none; transition:border-color .2s,transform .15s; }
+    .related-card:hover { border-color:var(--brand); transform:translateY(-2px); text-decoration:none; color:var(--text); }
+    .related-card__icon { font-size:1.25rem; margin-bottom:10px; }
+    .related-card__title { font-weight:700; margin-bottom:4px; font-size:.95rem; }
+    .related-card__desc { font-size:.85rem; color:var(--muted); }
+    footer { margin-top:48px; padding:32px 0 24px; border-top:1px solid var(--border); text-align:center; background:var(--bg-subtle); }
+    .footer-tagline { font-size:.9rem; color:var(--muted); margin-bottom:14px; } .footer-tagline strong { color:var(--text); }
+    .footer-links { display:flex; justify-content:center; flex-wrap:wrap; gap:4px 18px; font-size:.85rem; margin-bottom:12px; } .footer-links a { color:var(--muted); }
+    .footer-tool-links { display:flex; flex-wrap:wrap; justify-content:center; gap:4px 18px; font-size:.82rem; margin:8px 0 16px; } .footer-tool-links a { color:var(--muted); }
+    .footer-copy { font-size:.8rem; color:#94a3b8; margin-top:10px; }
+    .footer-divider { width:1px; height:10px; background:var(--border); display:inline-block; vertical-align:middle; margin:0 4px; }
+    @media (max-width:560px){ .site-header__inner { flex-direction:column; align-items:flex-start; } .tool-wrapper { padding:20px; } .two-col { grid-template-columns:1fr; } h1 { font-size:1.6rem; } h2 { font-size:1.3rem; } .features-grid { grid-template-columns:1fr 1fr; } .related-grid { grid-template-columns:1fr 1fr; } .actions-row .btn { flex:1; } }
+  </style>
+</head>
+<body>
+  <header class="site-header"><div class="container site-header__inner"><a href="../../index.html" class="brand">My<span>Tool</span>Lab</a><nav class="top-nav"><a href="../../categories/pdf.html">PDF</a><a href="../../categories/image.html">Image</a><a href="../../categories/text.html">Text</a></nav></div></header>
+  <div class="container">
+    <nav class="breadcrumb"><a href="../../index.html">Home</a><span class="sep">/</span><a href="../../categories/text.html">Text Tools</a><span class="sep">/</span><span class="current">HTML Formatter</span></nav>
+    <h1>HTML Formatter</h1>
+    <p class="section-subtitle">Paste your HTML and get clean, indented output instantly — right in your browser.</p>
+  </div>
+
+  <div class="container"><div class="ad-block"><ins class="adsbygoogle" style="display:block;width:100%;max-width:728px;height:90px;margin:0 auto;" data-ad-client="ca-pub-5420550088713746" data-ad-slot="3344556677" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div>
+
+  <div class="container">
+    <div class="tool-wrapper">
+      <div class="two-col">
+        <div>
+          <label class="field-label" for="inputHtml">Input HTML</label>
+          <textarea id="inputHtml" class="tool-textarea" placeholder="<div><p>Hello world</p><br></div>"></textarea>
+        </div>
+        <div>
+          <label class="field-label" for="outputHtml">Formatted HTML</label>
+          <textarea id="outputHtml" class="tool-textarea" placeholder="Formatted HTML will appear here..." readonly></textarea>
+        </div>
+      </div>
+      <div class="actions-row">
+        <button class="btn btn--secondary" id="sampleBtn">Load Sample</button>
+        <button class="btn btn--secondary" id="clearBtn">Clear</button>
+        <button class="btn btn--secondary" id="copyBtn">Copy</button>
+        <button class="btn btn--primary" id="formatBtn">Format HTML</button>
+      </div>
+      <div class="status" id="status"></div>
+    </div>
+  </div>
+
+  <div class="container"><div class="ad-block"><ins class="adsbygoogle" style="display:block;width:100%;max-width:728px;height:90px;margin:0 auto;" data-ad-client="ca-pub-5420550088713746" data-ad-slot="4455667788" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div>
+
+  <div class="container">
+    <section class="how-to">
+      <h2>How to Format HTML</h2>
+      <ol>
+        <li><strong>Paste HTML:</strong> Copy your HTML markup into the "Input HTML" box.</li>
+        <li><strong>Format:</strong> Click "Format HTML" — the tool will indent, line-break, and restructure your code.</li>
+        <li><strong>Copy:</strong> Click "Copy" to place the formatted code on your clipboard.</li>
+        <li><strong>Paste anywhere:</strong> Use the beautified code in your editor or document.</li>
+      </ol>
+    </section>
+  </div>
+
+  <div class="container">
+    <section>
+      <h2>Features</h2>
+      <div class="features-grid">
+        <div class="feature-card"><div class="feature-card__icon">&#128274;</div><div class="feature-card__title">Private</div><div class="feature-card__desc">Everything runs locally in your browser. No uploads.</div></div>
+        <div class="feature-card"><div class="feature-card__icon">&#9889;</div><div class="feature-card__title">Instant</div><div class="feature-card__desc">Beautify your HTML in a single click.</div></div>
+        <div class="feature-card"><div class="feature-card__icon">&#127912;</div><div class="feature-card__title">Smart indent</div><div class="feature-card__desc">Handles nested tags and self-closing elements.</div></div>
+        <div class="feature-card"><div class="feature-card__icon">&#128176;</div><div class="feature-card__title">Free</div><div class="feature-card__desc">No signup, no watermarks, no fees.</div></div>
+      </div>
+    </section>
+  </div>
+
+  <div class="container"><div class="ad-block"><ins class="adsbygoogle" style="display:block;width:100%;max-width:728px;height:90px;margin:0 auto;" data-ad-client="ca-pub-5420550088713746" data-ad-slot="5566778899" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div>
+
+  <div class="container">
+    <section>
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-list">
+        <details class="faq-item"><summary>Is this HTML formatter free?</summary><p>Yes. Paste or type your HTML and beautify it for free.</p></details>
+        <details class="faq-item"><summary>How does the formatter work?</summary><p>It tokenizes tags and text, then adds proper indentation and line breaks.</p></details>
+        <details class="faq-item"><summary>Does it support self-closing tags?</summary><p>Yes. Self-closing tags like &lt;br&gt;, &lt;img&gt;, &lt;input&gt;, &lt;hr&gt;, &lt;meta&gt;, &lt;link&gt; are handled properly.</p></details>
+        <details class="faq-item"><summary>Can I copy the result?</summary><p>Yes. Click the "Copy" button to copy the formatted HTML to your clipboard.</p></details>
+        <details class="faq-item"><summary>Do you store the HTML I enter?</summary><p>No. Formatting happens in your browser and the data never leaves your device.</p></details>
+      </div>
+    </section>
+  </div>
+
+  <div class="container">
+    <section>
+      <h2>Related Tools</h2>
+      <div class="related-grid">
+        <a class="related-card" href="sql-formatter.html"><div class="related-card__icon">&#128421;</div><div class="related-card__title">SQL Formatter</div><div class="related-card__desc">Beautify SQL queries.</div></a>
+        <a class="related-card" href="json-formatter.html"><div class="related-card__icon">&#127942;</div><div class="related-card__title">JSON Formatter</div><div class="related-card__desc">Format and validate JSON.</div></a>
+        <a class="related-card" href="case-converter.html"><div class="related-card__icon">&#128289;</div><div class="related-card__title">Case Converter</div><div class="related-card__desc">UPPER/lower/Title case.</div></a>
+        <a class="related-card" href="word-counter.html"><div class="related-card__icon">&#128221;</div><div class="related-card__title">Word Counter</div><div class="related-card__desc">Count words, chars, lines.</div></a>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p class="footer-tagline"><strong>My Tool Lab</strong> &mdash; Free online tools for everyone.</p>
+      <div class="footer-links"><a href="../../about.html">About</a><span class="footer-divider"></span><a href="../../contact.html">Contact</a><span class="footer-divider"></span><a href="../../privacy.html">Privacy</a><span class="footer-divider"></span><a href="../../disclaimer.html">Disclaimer</a></div>
+      <div class="footer-tool-links"><a href="html-formatter.html">HTML Formatter</a><span class="footer-divider"></span><a href="sql-formatter.html">SQL Formatter</a><span class="footer-divider"></span><a href="json-formatter.html">JSON Formatter</a><span class="footer-divider"></span><a href="base64.html">Base64</a></div>
+      <p class="footer-copy">&copy; 2025 My Tool Lab. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+  (function(){
+    const inputHtml = document.getElementById('inputHtml');
+    const outputHtml = document.getElementById('outputHtml');
+    const formatBtn = document.getElementById('formatBtn');
+    const clearBtn = document.getElementById('clearBtn');
+    const sampleBtn = document.getElementById('sampleBtn');
+    const copyBtn = document.getElementById('copyBtn');
+    const statusEl = document.getElementById('status');
+
+    const VOID = new Set(['br','hr','img','input','meta','link','source','track','wbr','area','base','col','embed','param']);
+
+    function format(html){
+      if(!html) return '';
+      // Tokenize by tags
+      const tokens = html.match(/<!--[\s\S]*?-->|<\/?[^>]+>|[^<]+/g) || [];
+      const indent = '  ';
+      let level = 0;
+      let out = [];
+      for(let t of tokens){
+        const trimmed = t.trim();
+        if(!trimmed) continue;
+        if(/^<!--/.test(trimmed)){ out.push(indent.repeat(level) + trimmed); }
+        else if(/^<\//.test(trimmed)){
+          level = Math.max(0, level-1);
+          out.push(indent.repeat(level) + trimmed);
+        } else if(/^<[^!\/?]/.test(trimmed)){
+          const m = trimmed.match(/^<\s*([\w:-]+)/);
+          const tag = m ? m[1].toLowerCase() : '';
+          if(VOID.has(tag)){ out.push(indent.repeat(level) + trimmed); }
+          else {
+            // If tag is followed immediately by its own closing tag on the same line, keep together (simple heuristic)
+            out.push(indent.repeat(level) + trimmed);
+            level++;
+          }
+        } else {
+          out.push(indent.repeat(level) + trimmed);
+        }
+      }
+      return out.join('\n');
+    }
+
+    formatBtn.addEventListener('click', function(){
+      const result = format(inputHtml.value);
+      outputHtml.value = result;
+      statusEl.className = 'status status--success';
+      statusEl.textContent = 'HTML formatted successfully.';
+    });
+
+    clearBtn.addEventListener('click', function(){ inputHtml.value=''; outputHtml.value=''; statusEl.textContent=''; statusEl.className='status'; });
+
+    sampleBtn.addEventListener('click', function(){
+      inputHtml.value = '<!DOCTYPE html><html><head><title>Sample page</title><meta charset="UTF-8"><link rel="stylesheet" href="style.css"></head><body><div class="container"><h1>Hello World</h1><p>This is a <strong>sample</strong> HTML document used by the formatter.</p><br><p>Try it out by clicking the <em>Format HTML</em> button.</p></div></body></html>';
+      outputHtml.value = '';
+    });
+
+    copyBtn.addEventListener('click', async function(){
+      if(!outputHtml.value){ statusEl.className='status status--error'; statusEl.textContent='Nothing to copy.'; return; }
+      try{
+        await navigator.clipboard.writeText(outputHtml.value);
+        statusEl.className='status status--success'; statusEl.textContent='Copied to clipboard.';
+      }catch(e){
+        outputHtml.select(); document.execCommand('copy');
+        statusEl.className='status status--success'; statusEl.textContent='Copied to clipboard.';
+      }
+    });
+  })();
+  </script>
+</body>
+</html>

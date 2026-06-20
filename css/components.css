@@ -220,7 +220,7 @@ textarea.monospace {
    ============================================================= */
 .row {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   gap: 12px;
   padding: 8px 0;
@@ -243,6 +243,7 @@ textarea.monospace {
   height: 16px;
   cursor: pointer;
   accent-color: var(--brand);
+  flex-shrink: 0;
 }
 .row input[type="range"] {
   width: 100%;
@@ -254,6 +255,7 @@ textarea.monospace {
 }
 @media (max-width: 480px) {
   .row-grid { grid-template-columns: 1fr; }
+  .row { flex-direction: column; align-items: stretch; gap: 6px; }
 }
 
 /* =============================================================
@@ -261,7 +263,7 @@ textarea.monospace {
    ============================================================= */
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   gap: 8px;
   margin-bottom: 10px;
 }
@@ -269,21 +271,27 @@ textarea.monospace {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
-  padding: 12px 8px;
+  padding: 14px 10px;
   text-align: center;
   box-shadow: var(--shadow-sm);
   transition: border-color 0.2s, background 0.2s;
+  word-break: break-word;
+  overflow-wrap: anywhere;
 }
 .stat--accent {
   border-color: var(--brand);
   background: var(--brand-light);
 }
 .stat__value {
-  font-size: clamp(1.6rem, 5vw, 2.1rem);
+  font-size: clamp(1.2rem, 4.5vw, 1.85rem);
   font-weight: 700;
   color: var(--brand);
-  line-height: 1.1;
-  letter-spacing: -0.02em;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  word-break: break-all;
+  overflow-wrap: anywhere;
+  margin-bottom: 4px;
+  display: block;
 }
 .stat__label {
   font-size: 0.72rem;
@@ -292,6 +300,14 @@ textarea.monospace {
   text-transform: uppercase;
   letter-spacing: 0.05em;
   font-weight: 600;
+  display: block;
+}
+.stat .btn {
+  min-width: 0;
+  padding: 6px 10px;
+  font-size: 0.8rem;
+  width: 100%;
+  margin-top: 8px;
 }
 
 /* =============================================================
@@ -762,8 +778,9 @@ hr.divider {
 @media (max-width: 480px) {
   body { padding: 10px; font-size: 14px; }
   .card { padding: 12px; }
-  .stats-grid { gap: 6px; }
-  .stat { padding: 10px 4px; }
+  .stats-grid { grid-template-columns: 1fr; gap: 6px; }
+  .stat { padding: 12px 8px; }
+  .stat__value { font-size: clamp(1.1rem, 5vw, 1.5rem); }
   .keys { gap: 5px; }
   .key { padding: 11px 0; font-size: 0.95rem; }
 }

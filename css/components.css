@@ -402,18 +402,20 @@ textarea.monospace {
 /* =============================================================
    FAQ (details)
    ============================================================= */
-.faq {
+.faq, .faq-section {
   display: flex;
   flex-direction: column;
   gap: 6px;
+  margin-bottom: 6px;
 }
-.faq details {
+.faq details, .faq-section details,
+.faq .faq-item, .faq-section .faq-item {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   overflow: hidden;
 }
-.faq summary {
+.faq summary, .faq-section summary {
   padding: 10px 14px;
   font-weight: 600;
   font-size: 0.9rem;
@@ -425,20 +427,179 @@ textarea.monospace {
   user-select: none;
   color: var(--text-strong);
 }
-.faq summary::-webkit-details-marker { display: none; }
-.faq summary::after {
+.faq summary::-webkit-details-marker,
+.faq-section summary::-webkit-details-marker { display: none; }
+.faq summary::after, .faq-section summary::after {
   content: "+";
   font-size: 1.1rem;
   color: var(--brand);
   font-weight: 400;
   transition: transform 0.2s;
 }
-.faq details[open] summary::after { content: "−"; }
-.faq details p {
+.faq details[open] summary::after,
+.faq-section details[open] summary::after { content: "−"; }
+.faq details p, .faq-section details p {
   padding: 0 14px 12px;
   color: var(--muted);
   font-size: 0.88rem;
   line-height: 1.6;
+}
+
+/* =============================================================
+   TOOL INFO SECTION (what is / how to use / use cases)
+   ============================================================= */
+.tool-info {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  margin-bottom: 10px;
+  box-shadow: var(--shadow-sm);
+}
+.tool-info h2 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-strong);
+  margin: 0 0 8px 0;
+}
+.tool-info h2:not(:first-child) { margin-top: 14px; }
+.tool-info p {
+  font-size: 0.9rem;
+  color: var(--text);
+  line-height: 1.65;
+  margin-bottom: 6px;
+}
+
+/* =============================================================
+   STEPS-LIST & USECASE-LIST (inside tool-info sections)
+   ============================================================= */
+.steps-list {
+  font-size: 0.9rem;
+  padding-left: 20px;
+  color: var(--text);
+  line-height: 1.65;
+  margin-bottom: 6px;
+}
+.steps-list li { margin-bottom: 4px; }
+
+.usecase-list {
+  font-size: 0.9rem;
+  padding-left: 20px;
+  color: var(--text);
+  line-height: 1.65;
+  margin-bottom: 6px;
+}
+.usecase-list li { margin-bottom: 4px; }
+
+/* =============================================================
+   STATUS BOX (PDF / image tools)
+   ============================================================= */
+.status {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  font-size: 0.9rem;
+  color: var(--text);
+}
+.status.error {
+  background: #fef2f2;
+  border-color: #fecaca;
+  color: #991b1b;
+}
+
+/* =============================================================
+   UPLOAD / DROP ZONE (image + PDF tools)
+   ============================================================= */
+.upload-zone, .drop, .drop-zone {
+  background: var(--surface);
+  border: 2px dashed var(--border);
+  border-radius: var(--radius);
+  padding: 24px 16px;
+  text-align: center;
+  cursor: pointer;
+  margin-bottom: 10px;
+  transition: border-color 0.15s, background 0.15s;
+}
+.upload-zone:hover, .drop:hover, .drop-zone:hover {
+  border-color: var(--brand);
+  background: #fafbff;
+}
+.preview-area {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 10px;
+  margin-bottom: 10px;
+}
+.preview-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 12px;
+  margin-bottom: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* =============================================================
+   FIELD GRID / CONTROL ROWS
+   ============================================================= */
+.field-grid, .controls-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.icon-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  font-size: 0.82rem;
+  cursor: pointer;
+  color: var(--text);
+  font-family: inherit;
+}
+.icon-btn:hover { background: #f1f5f9; }
+
+.level-picker {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin: 8px 0;
+}
+.level-picker .btn {
+  min-width: 80px;
+  padding: 6px 12px;
+  font-size: 0.82rem;
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+.level-picker .btn.is-active {
+  background: var(--brand);
+  color: #fff;
+  border-color: var(--brand);
+}
+
+.file-list, .image-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+.file-list .file-item, .image-list .file-item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 0.88rem;
 }
 
 /* =============================================================

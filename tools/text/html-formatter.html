@@ -264,10 +264,7 @@
  </ol>
  </div>
 
- <div class="section">
- <h2>Related tools</h2>
- 
-<section class="tool-info" aria-label="Tool information">
+ <section class="tool-info" aria-label="Tool information">
   <h2>What is HTML Formatter?</h2>
   <p>An HTML formatter (beautifier) cleans up and indents messy HTML code. It adds consistent indentation, removes unnecessary whitespace, and formats nested tags for maximum readability. Essential for debugging and reviewing HTML.</p>
 
@@ -288,7 +285,7 @@
   </ul>
 
   <h2>Frequently Asked Questions</h2>
-  <div class="faq-section">
+  <div class="faq">
 <details class="faq-item">
   <summary>Does formatting change my HTML?</summary>
   <p>It only changes whitespace and indentation. All tags, attributes, and content remain exactly the same.</p>
@@ -303,8 +300,9 @@
 <script type="application/ld+json">
 {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Does formatting change my HTML?", "acceptedAnswer": {"@type": "Answer", "text": "It only changes whitespace and indentation. All tags, attributes, and content remain exactly the same."}}, {"@type": "Question", "name": "Can I format inline CSS and JavaScript too?", "acceptedAnswer": {"@type": "Answer", "text": "The HTML formatter focuses on HTML structure. For CSS/JS formatting, use a dedicated code formatter for best results."}}]}
 </script>
-
-<div class="related-grid">
+ <div class="section">
+ <h2>Related tools</h2>
+ <div class="related-grid">
  <a href="json-formatter.html">JSON Formatter</a>
  <a href="sql-formatter.html">SQL Formatter</a>
  <a href="case-converter.html">Case Converter</a>
@@ -384,8 +382,7 @@
  });
 
  sampleBtn.addEventListener('click', function() {
- inputEl.value = '<!DOCTYPE html><html><head><title>Sample page</title><meta charset="UTF-8"><link rel="stylesheet" href="style.css">
-  <script type="application/ld+json">{
+ inputEl.value = '<!DOCTYPE html><html><head><title>Sample page</title><meta charset="UTF-8"><script type="application/ld+json">{
   "@context": "https://schema.org",
   "@type": "HowTo",
   "name": "How to Use HTML Formatter",

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -8,95 +8,70 @@
   <link rel="canonical" href="https://www.zlbox.site/tools/image/color-picker.html" />
   <meta name="google-site-verification" content="google4bd1e08685667667" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9V6L0Z956X"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-9V6L0Z956X');
-  </script>
+  <link rel="stylesheet" href="../../_css/components.css" />
   <style>
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-    :root{--brand:#2563eb;--brand-hover:#1d4ed8;--text:#1e293b;--muted:#64748b;--border:#e2e8f0;--bg:#f8fafc;--surface:#ffffff;--radius:12px;--max-w:720px;}
-    body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;color:var(--text);background:var(--bg);line-height:1.45;padding:12px;}
-    a{color:var(--brand);text-decoration:none;}a:hover{text-decoration:underline;}
-    .container{max-width:var(--max-w);margin:0 auto;}
-    header{text-align:center;margin:24px 0 24px;}
-    .breadcrumb{font-size:.82rem;color:var(--muted);margin-bottom:10px;}
-    .breadcrumb a{color:var(--muted);}.breadcrumb a:hover{color:var(--brand);}
-    header h1{font-size:clamp(1.4rem,4vw,1.9rem);font-weight:800;line-height:1.2;margin-bottom:8px;}
-    header p{font-size:.95rem;color:var(--muted);max-width:520px;margin:0 auto;}
-    .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:12px;margin-bottom:10px;}
-    .picker{display:flex;flex-direction:column;align-items:center;gap:14px;}
-    .swatch{width:100%;height:140px;border-radius:12px;background:#2563eb;border:1px solid var(--border);transition:background-color .15s;}
-    input[type=color]{width:100%;height:54px;border:1px solid var(--border);border-radius:10px;cursor:pointer;padding:4px;background:#fff;}
-    .hex-input{display:flex;gap:8px;width:100%;}
-    .hex-input input{flex:1;padding:11px 12px;border:1px solid var(--border);border-radius:8px;font-family:ui-monospace,Consolas,monospace;font-size:1rem;text-transform:uppercase;}
-    .hex-input input:focus{outline:2px solid var(--brand);outline-offset:1px;border-color:var(--brand);}
-    .copy{background:var(--brand);color:#fff;border:none;padding:8px 18px;border-radius:8px;font-weight:600;cursor:pointer;flex-shrink:0;font-size:.85rem;transition:background .15s;}
-    .copy:hover{background:var(--brand-hover);}
-    .fmt-row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 14px;background:var(--bg);border:1px solid var(--border);border-radius:10px;margin-bottom:10px;}
-    .fmt-label{font-size:.9rem;font-weight:700;color:var(--muted);}
-    .fmt-value{font-family:ui-monospace,Consolas,monospace;font-size:.92rem;color:var(--text);flex:1;overflow-x:auto;white-space:nowrap;margin:0 10px;}
-    .faq-item{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin-bottom:10px;}
-    .faq-item h3{font-size:.95rem;font-weight:700;margin-bottom:6px;}
-    .faq-item p{font-size:.85rem;color:var(--muted);margin:0;}
-    footer{padding-top:24px;border-top:1px solid var(--border);text-align:center;margin-top:24px;}
-    .footer-links{display:flex;justify-content:center;flex-wrap:wrap;gap:4px 18px;font-size:.82rem;margin-bottom:12px;}
-    .footer-links a{color:var(--muted);}.footer-links a:hover{color:var(--brand);text-decoration:none;}
-    .footer-copy{font-size:.78rem;color:#94a3b8;}
-    .ad-unit{margin:8px auto;text-align:center;}
-    .ad-unit ins{display:block;width:100%;max-width:728px;height:auto;margin:0 auto;}
+    .swatch{width:100%;height:140px;border-radius:10px;background:#2563eb;border:1px solid var(--border);transition:background-color .15s;}
+    input[type=color]{width:100%;height:48px;border:1px solid var(--border);border-radius:8px;cursor:pointer;padding:4px;background:#fff;}
+    .hex-row{display:flex;gap:8px;align-items:center;}
+    .hex-row input{flex:1;padding:10px 12px;border:1px solid var(--border);border-radius:8px;font-family:ui-monospace,Consolas,monospace;font-size:1rem;text-transform:uppercase;background:#fff;color:var(--text);outline:none;}
+    .hex-row input:focus{border-color:var(--brand);}
+    .fmt-row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 12px;background:var(--bg);border:1px solid var(--border);border-radius:8px;margin-bottom:8px;}
+    .fmt-label{font-size:.85rem;font-weight:700;color:var(--muted);min-width:60px;}
+    .fmt-value{font-family:ui-monospace,Consolas,monospace;font-size:.9rem;color:var(--text);flex:1;overflow-x:auto;white-space:nowrap;margin:0 10px;}
     .copied{background:#16a34a !important;}
   </style>
 </head>
 <body>
-<div class="container">
-  <header>
+<div class="container-md">
+  <div class="hero">
     <div class="breadcrumb"><a href="../../index.html">Home</a> &rsaquo; <a href="../../categories/image.html">Image Tools</a> &rsaquo; Color Picker</div>
     <h1>Color Picker</h1>
-    <p>Pick a color and instantly convert between HEX, RGB, and HSL. Every value is one-click copyable.</p>
-  </header>
-
-  <div class="ad-unit">
-    <ins class="adsbygoogle" style="display:block;width:100%;max-width:728px;height:auto;margin:0 auto;" data-ad-client="ca-pub-5420550088713746" data-ad-slot="9999999999" data-ad-format="auto" data-full-width-responsive="true"></ins>
-    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+    <p>Pick a color or paste a HEX value — instantly convert between HEX, RGB, and HSL. Every value is one-click copyable.</p>
   </div>
 
   <div class="card">
-    <div class="picker">
-      <div class="swatch" id="swatch"></div>
+    <div class="swatch" id="swatch"></div>
+    <div class="row" style="margin-top:10px;">
       <input type="color" id="color" value="#2563eb" />
-      <div class="hex-input"><input type="text" id="hexIn" value="#2563EB" /><button class="copy" data-copy="hex">Copy</button></div>
     </div>
-    <div style="margin-top:18px;">
-      <div class="fmt-row"><span class="fmt-label">HEX</span><span class="fmt-value" id="vHex">#2563EB</span><button class="copy" data-copy="hex">Copy</button></div>
-      <div class="fmt-row"><span class="fmt-label">RGB</span><span class="fmt-value" id="vRgb">rgb(37, 99, 235)</span><button class="copy" data-copy="rgb">Copy</button></div>
-      <div class="fmt-row"><span class="fmt-label">RGBA</span><span class="fmt-value" id="vRgba">rgba(37, 99, 235, 1)</span><button class="copy" data-copy="rgba">Copy</button></div>
-      <div class="fmt-row"><span class="fmt-label">HSL</span><span class="fmt-value" id="vHsl">hsl(221, 83%, 53%)</span><button class="copy" data-copy="hsl">Copy</button></div>
-      <div class="fmt-row"><span class="fmt-label">HSLA</span><span class="fmt-value" id="vHsla">hsla(221, 83%, 53%, 1)</span><button class="copy" data-copy="hsla">Copy</button></div>
+    <div class="hex-row" style="margin-top:10px;">
+      <input type="text" id="hexIn" value="#2563EB" />
+      <button class="btn" data-copy="hex" style="white-space:nowrap;">Copy</button>
+    </div>
+    <div style="margin-top:14px;">
+      <div class="fmt-row"><span class="fmt-label">HEX</span><span class="fmt-value" id="vHex">#2563EB</span><button class="btn btn--sm btn--ghost" data-copy="hex">Copy</button></div>
+      <div class="fmt-row"><span class="fmt-label">RGB</span><span class="fmt-value" id="vRgb">rgb(37, 99, 235)</span><button class="btn btn--sm btn--ghost" data-copy="rgb">Copy</button></div>
+      <div class="fmt-row"><span class="fmt-label">RGBA</span><span class="fmt-value" id="vRgba">rgba(37, 99, 235, 1)</span><button class="btn btn--sm btn--ghost" data-copy="rgba">Copy</button></div>
+      <div class="fmt-row"><span class="fmt-label">HSL</span><span class="fmt-value" id="vHsl">hsl(221, 83%, 53%)</span><button class="btn btn--sm btn--ghost" data-copy="hsl">Copy</button></div>
+      <div class="fmt-row"><span class="fmt-label">HSLA</span><span class="fmt-value" id="vHsla">hsla(221, 83%, 53%, 1)</span><button class="btn btn--sm btn--ghost" data-copy="hsla">Copy</button></div>
     </div>
   </div>
 
-  <div class="ad-unit">
-    <ins class="adsbygoogle" style="display:block;width:100%;max-width:728px;height:auto;margin:0 auto;" data-ad-client="ca-pub-5420550088713746" data-ad-slot="9999999999" data-ad-format="auto" data-full-width-responsive="true"></ins>
-    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  <div class="section">
+    <h2>How it works</h2>
+    <ol class="steps">
+      <li>Click the color picker above or type a HEX value into the input.</li>
+      <li>All conversions (RGB, RGBA, HSL, HSLA) update automatically.</li>
+      <li>Click "Copy" next to any format to copy to clipboard.</li>
+    </ol>
   </div>
 
-  <div class="card">
-    <h2 style="font-size:1.05rem;margin-bottom:12px;">FAQ</h2>
-    <div class="faq-item"><h3>What does HEX mean?</h3><p>HEX is a hexadecimal notation for RGB colors (#RRGGBB). Each pair represents red, green, and blue values from 00 to FF.</p></div>
-    <div class="faq-item"><h3>What is the difference between RGB and RGBA?</h3><p>RGBA is RGB plus an alpha (opacity) channel. An alpha of 1 means fully opaque; 0 means fully transparent.</p></div>
-    <div class="faq-item"><h3>What are HSL and HSLA?</h3><p>HSL describes a color by Hue (0-360°), Saturation (0-100%), and Lightness (0-100%). HSLA adds an alpha channel.</p></div>
-  </div>
-
-  <footer>
-    <div class="footer-links">
+  <div class="section">
+    <h2>Related tools</h2>
+    <div class="related-grid">
+      <a href="color-converter.html">Color Converter</a>
       <a href="image-compressor.html">Image Compressor</a>
-      <a href="image-converter.html">Image Converter</a>
-      <span style="color:var(--border);margin:0 4px;">|</span>
+      <a href="image-resizer.html">Image Resizer</a>
+      <a href="background-remover.html">Background Remover</a>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="color-converter.html">Color Converter</a>
+      <a href="image-compressor.html">Image Compressor</a>
+      <span style="color:var(--border);margin:0 6px;">|</span>
       <a href="../../about.html">About</a>
-      <a href="../../contact.html">Contact</a>
       <a href="../../privacy.html">Privacy</a>
       <a href="../../disclaimer.html">Disclaimer</a>
     </div>
@@ -121,7 +96,7 @@
   hexIn.addEventListener('input',function(){if(hexToRgb(hexIn.value))update(hexIn.value);});
   hexIn.addEventListener('blur',function(){if(!hexToRgb(hexIn.value))hexIn.value=color.value;});
   function getVal(key){if(key==='hex')return vHex.textContent;if(key==='rgb')return vRgb.textContent;if(key==='rgba')return vRgba.textContent;if(key==='hsl')return vHsl.textContent;if(key==='hsla')return vHsla.textContent;return'';}
-  document.querySelectorAll('.copy').forEach(function(btn){btn.addEventListener('click',function(){var k=btn.getAttribute('data-copy');var t=getVal(k);var done=function(){var old=btn.textContent;btn.textContent='Copied!';btn.classList.add('copied');setTimeout(function(){btn.textContent=old;btn.classList.remove('copied');},1000);};if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done).catch(done);}else{var ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');}catch(e){}document.body.removeChild(ta);done();}});});
+  document.querySelectorAll('[data-copy]').forEach(function(btn){btn.addEventListener('click',function(){var k=btn.getAttribute('data-copy');var t=getVal(k);var done=function(){var old=btn.textContent;btn.textContent='Copied!';btn.classList.add('copied');setTimeout(function(){btn.textContent=old;btn.classList.remove('copied');},1000);};if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done).catch(done);}else{var ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');}catch(e){}document.body.removeChild(ta);done();}});});
 })();
 </script>
 </body>

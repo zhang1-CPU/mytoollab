@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scientific Calculator – Advanced Math with Sin, Cos, Log & Exponents | My Tool Lab</title>
+  <meta name="description" content="Free online scientific calculator for trigonometry (sin, cos, tan), logarithms (log, ln), exponents, square roots, factorials, percentages, and parentheses expression evaluation." />
+  <link rel="stylesheet" href="../../_css/components.css" />
+  <link rel="canonical" href="https://www.zlbox.site/tools/calculator/scientific-calculator.html" />
+  <meta name="google-site-verification" content="google4bd1e08685667667" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="container-md">
+  <div class="hero">
+    <div class="breadcrumb"><a href="../../index.html">Home</a> &rsaquo; <a href="../../index.html">Calculator Tools</a> &rsaquo; Scientific Calculator</div>
+    <h1>Scientific Calculator</h1>
+    <p>Solve advanced math problems — trigonometry, logarithms, exponents, factorials, and percentage calculations — all in one compact calculator.</p>
+  </div>
+
+  <div class="card">
+    <div class="calc-display">
+      <div class="expr" id="expr">&nbsp;</div>
+      <div class="cur" id="cur">0</div>
+    </div>
+    <div class="keys keys--5">
+      <button class="key" data-k="sin(">sin</button>
+      <button class="key" data-k="cos(">cos</button>
+      <button class="key" data-k="tan(">tan</button>
+      <button class="key" data-k="log(">log</button>
+      <button class="key" data-k="ln(">ln</button>
+      <button class="key" data-k="sqrt(">&radic;</button>
+      <button class="key" data-k="sqr">x&sup2;</button>
+      <button class="key" data-k="pow">x<sup>y</sup></button>
+      <button class="key" data-k="pi">&pi;</button>
+      <button class="key" data-k="e">e</button>
+      <button class="key" data-k="fact">n!</button>
+      <button class="key" data-k="(">(</button>
+      <button class="key" data-k=")">)</button>
+      <button class="key key--op" data-k="%">%</button>
+      <button class="key key--clear" data-k="C">C</button>
+      <button class="key" data-k="7">7</button>
+      <button class="key" data-k="8">8</button>
+      <button class="key" data-k="9">9</button>
+      <button class="key key--op" data-k="/">÷</button>
+      <button class="key key--clear" data-k="DEL">⌫</button>
+      <button class="key" data-k="4">4</button>
+      <button class="key" data-k="5">5</button>
+      <button class="key" data-k="6">6</button>
+      <button class="key key--op" data-k="*">×</button>
+      <button class="key" data-k=".">.</button>
+      <button class="key" data-k="1">1</button>
+      <button class="key" data-k="2">2</button>
+      <button class="key" data-k="3">3</button>
+      <button class="key key--op" data-k="-">−</button>
+      <button class="key key--op" data-k="+">+</button>
+      <button class="key" data-k="0" style="grid-column:span 2;">0</button>
+      <button class="key" data-k="00">00</button>
+      <button class="key key--eq" data-k="=" style="grid-column:span 2;">=</button>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>How it works</h2>
+    <ol class="steps">
+      <li>Click or tap keys to build your expression; trig functions expect degrees (e.g., sin(30) = 0.5).</li>
+      <li>Use parentheses ( ) to control the order of evaluation and compose nested math.</li>
+      <li>Press <strong>=</strong> or hit <strong>Enter</strong> to compute. Use <strong>C</strong> to clear or <strong>⌫</strong> to delete the last character.</li>
+    </ol>
+  </div>
+
+  <div class="section">
+    <h2>Related tools</h2>
+    <div class="related-grid">
+      <a href="basic-calculator.html">Basic Calculator</a>
+      <a href="percentage-calculator.html">Percentage Calculator</a>
+      <a href="age-calculator.html">Age Calculator</a>
+      <a href="unit-converter.html">Unit Converter</a>
+      <a href="bmi-calculator.html">BMI Calculator</a>
+      <a href="loan-calculator.html">Loan Calculator</a>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="basic-calculator.html">Basic Calculator</a>
+      <a href="percentage-calculator.html">Percentage Calculator</a>
+      <a href="age-calculator.html">Age Calculator</a>
+      <span style="color:var(--border);margin:0 6px">|</span>
+      <a href="../../about.html">About</a>
+      <a href="../../privacy.html">Privacy</a>
+      <a href="../../disclaimer.html">Disclaimer</a>
+    </div>
+    <p class="footer-copy">&copy; 2026 My Tool Lab. All rights reserved.</p>
+  </footer>
+</div>
+
+<script>
+(function(){
+  var cur='0', expr='';
+  var curEl=document.getElementById('cur');
+  var exprEl=document.getElementById('expr');
+  var justEvaluated=false;
+
+  function displayExpr(s){
+    return s.replace(/\*/g,'×').replace(/\//g,'÷').replace(/-/g,'−');
+  }
+  function render(){
+    curEl.textContent=cur;
+    exprEl.innerHTML=expr?displayExpr(expr):'&nbsp;';
+  }
+  function isOp(c){return c==='+'||c==='-'||c==='*'||c==='/';}
+  function isLastCharDigitOrClose(){
+    var t=(expr+cur).replace(/\s/g,'');
+    return t.length===0 || /[0-9.)!]$/.test(t);
+  }
+
+  function factorial(n){
+    if(n<0||isNaN(n)||n%1!==0) return NaN;
+    if(n>170) return Infinity;
+    var r=1; for(var i=2;i<=n;i++) r*=i; return r;
+  }
+
+  function preprocess(s){
+    s=s.replace(/\s+/g,'');
+    if(!s) return '';
+    // factorial: convert n! -> fact(n)  (scan from right)
+    while(s.indexOf('!')>=0){
+      var idx=s.indexOf('!');
+      // find start of number/grouping before !
+      var j=idx-1;
+      if(j>=0 && s.charAt(j)===')'){
+        // match paren
+        var depth=1; j--;
+        while(j>=0 && depth>0){
+          if(s.charAt(j)===')') depth++;
+          else if(s.charAt(j)==='(') depth--;
+          if(depth===0) break;
+          j--;
+        }
+        if(depth!==0) return null;
+        var inside=s.substring(j, idx); // includes outer parens
+        s=s.substring(0,j)+'fact('+inside.substring(1,inside.length-1)+')'+s.substring(idx+1);
+      } else {
+        while(j>=0 && /[0-9.]/.test(s.charAt(j))) j--;
+        var num=s.substring(j+1,idx);
+        s=s.substring(0,j+1)+'fact('+num+')'+s.substring(idx+1);
+      }
+    }
+    // constants
+    s=s.replace(/\bpi\b/g,'('+Math.PI+')').replace(/(^|[^a-z])e(?![a-z0-9])/gi,function(m,c){return c+'('+Math.E+')';});
+    // square
+    s=s.replace(/\bsqr\(/g,'sqr(');
+    return s;
+  }
+
+  function safeEval(raw){
+    try{
+      var full=preprocess(raw);
+      if(full===null||!full) return 'Error';
+      // check 0^0
+      if(/\b0\s*\^\s*0\b/.test(full)) return 'Error';
+      // use ** for exponentiation
+      full=full.replace(/\^/g,'**');
+      var fnBody='"use strict"; var sin=function(x){var r=Math.sin(x*Math.PI/180);return Math.abs(r)<1e-12?0:r;}; var cos=function(x){var r=Math.cos(x*Math.PI/180);return Math.abs(r)<1e-12?0:r;}; var tan=function(x){var rad=x*Math.PI/180;if(Math.abs((x%180)-90)<1e-9)return NaN;return Math.tan(rad);}; var log=function(x){if(x<=0)return NaN;return Math.log10(x);}; var ln=function(x){if(x<=0)return NaN;return Math.log(x);}; var sqrt=function(x){if(x<0)return NaN;return Math.sqrt(x);}; var sqr=function(x){return x*x;}; var fact=function(x){var n=Math.floor(x);if(n<0||isNaN(n))return NaN;if(n>170)return Infinity;var r=1;for(var i=2;i<=n;i++)r*=i;return r;}; return('+full+')';
+      var r=Function(fnBody)();
+      if(!isFinite(r)||isNaN(r)) return 'Error';
+      // round to avoid floating error
+      var rounded=Math.round(r*1e12)/1e12;
+      return String(rounded);
+    }catch(e){ return 'Error'; }
+  }
+
+  function appendToCurOrExpr(s){
+    if(justEvaluated){ justEvaluated=false; expr=''; cur='0'; }
+    // decide whether to append to cur or to expr
+    // strategy: treat expr as "committed part", cur as currently editing token
+    cur=(cur==='0'&&/[0-9(]/.test(s.charAt(0))&&!(cur==='0'&&s==='('&&false))?s:cur+s;
+  }
+
+  function press(k){
+    if(k==='C'){ cur='0'; expr=''; justEvaluated=false; render(); return; }
+    if(k==='DEL'){
+      if(justEvaluated){ cur='0'; expr=''; justEvaluated=false; }
+      else if(cur.length>1) cur=cur.slice(0,-1);
+      else cur='0';
+      render(); return;
+    }
+    if(k==='='){
+      var full=expr+cur;
+      var out=safeEval(full);
+      expr=displayExpr(expr+cur)+' =';
+      cur=out;
+      justEvaluated=true;
+      render(); return;
+    }
+    if(k==='%'){
+      // treat % as dividing by 100 the last number typed
+      var m=cur.match(/(\d+(?:\.\d+)?)$/);
+      if(m){
+        var val=parseFloat(m[1])/100;
+        cur=cur.substring(0,cur.length-m[1].length)+String(val);
+      } else {
+        var em=expr.match(/(\d+(?:\.\d+)?)(\s*[+\-*/]\s*)?$/);
+        if(em){
+          var n=parseFloat(em[1])/100;
+          expr=expr.substring(0,expr.length-em[1].length-(em[2]?em[2].length:0))+String(n)+(em[2]?em[2]:'');
+        }
+      }
+      render(); return;
+    }
+    if(justEvaluated && /[0-9.]/.test(k)){
+      expr=''; cur='0'; justEvaluated=false;
+    } else if(justEvaluated){
+      justEvaluated=false;
+      if(cur!=='Error'){ expr=cur+' '; cur='0'; }
+      else { expr=''; cur='0'; }
+    }
+
+    if(/^[0-9]+$/.test(k)){
+      cur=(cur==='0')?k:cur+k;
+    } else if(k==='.'){
+      if(cur.indexOf('.')===-1) cur+='.';
+    } else if(isOp(k)){
+      // commit cur to expr, then operator
+      var full=expr+cur;
+      if(/[+\-*/]\s*$/.test(expr)&&cur==='0'){
+        expr=expr.replace(/[+\-*/]\s*$/, k+' ');
+      } else {
+        var left=safeEval(full);
+        if(left==='Error'){ cur='Error'; expr=''; render(); return; }
+        expr=left+' '+k+' '; cur='0';
+      }
+    } else if(k==='('){
+      // open a new group; if current is non-zero number, treat as implicit *
+      if(cur!=='0'){
+        expr=expr+cur+'*';
+        cur='(';
+      } else {
+        cur=(cur==='0')?'(':cur+'(';
+      }
+    } else if(k===')'){
+      cur=cur+')';
+    } else if(k==='pi'){
+      cur=(cur==='0')?'pi':cur+'pi';
+    } else if(k==='e'){
+      cur=(cur==='0')?'e':cur+'e';
+    } else if(k==='sqr'){
+      // square current number
+      if(cur==='0'){ cur='sqr('; }
+      else { cur='sqr('+cur+')'; }
+    } else if(k==='pow'){
+      // x^y: convert current number into exponent form, user continues editing exponent
+      expr=expr+cur+'^('; cur='0';
+    } else if(k==='fact'){
+      cur=cur+'!';
+    } else if(/^(sin|cos|tan|log|ln|sqrt)\($/.test(k)){
+      if(cur==='0') cur=k;
+      else cur=cur+k;
+    }
+    render();
+  }
+
+  document.querySelectorAll('.key').forEach(function(b){
+    b.addEventListener('click',function(){ press(b.getAttribute('data-k')); });
+  });
+  document.addEventListener('keydown',function(e){
+    var k=e.key;
+    if(/^[0-9]$/.test(k)) press(k);
+    else if(k==='.'||k==='+'||k==='-'||k==='*'||k==='/') press(k);
+    else if(k==='('||k===')') press(k);
+    else if(k==='Enter'||k==='='){ e.preventDefault(); press('='); }
+    else if(k==='Backspace') press('DEL');
+    else if(k==='Escape') press('C');
+    else if(k==='%') press('%');
+    else if(k==='^') press('pow');
+  });
+  render();
+})();
+</script>
+</body>
+</html>

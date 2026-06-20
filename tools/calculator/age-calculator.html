@@ -1,10 +1,11 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Age Calculator – Calculate Exact Age in Years, Months, Days | My Tool Lab</title>
   <meta name="description" content="Free online age calculator. Enter your birthday to calculate your exact age in years, months, weeks, days, hours, minutes, and seconds. Instant results." />
+  <link rel="stylesheet" href="../../_css/components.css" />
   <link rel="canonical" href="https://www.zlbox.site/tools/calculator/age-calculator.html" />
   <meta name="google-site-verification" content="google4bd1e08685667667" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
@@ -15,98 +16,62 @@
     gtag('js', new Date());
     gtag('config', 'G-9V6L0Z956X');
   </script>
-  <style>
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-    :root{--brand:#2563eb;--brand-hover:#1d4ed8;--text:#1e293b;--muted:#64748b;--border:#e2e8f0;--bg:#f8fafc;--surface:#ffffff;--radius:12px;--max-w:720px;}
-    body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;color:var(--text);background:var(--bg);line-height:1.45;padding:12px;}
-    a{color:var(--brand);text-decoration:none;}a:hover{text-decoration:underline;}
-    .container{max-width:var(--max-w);margin:0 auto;}
-    header{text-align:center;margin:24px 0 28px;}
-    .breadcrumb{font-size:.82rem;color:var(--muted);margin-bottom:10px;}
-    .breadcrumb a{color:var(--muted);}.breadcrumb a:hover{color:var(--brand);}
-    header h1{font-size:clamp(1.4rem,4vw,1.9rem);font-weight:800;line-height:1.2;margin-bottom:8px;}
-    header p{font-size:.95rem;color:var(--muted);max-width:520px;margin:0 auto;}
-    .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:20px;}
-    label{display:block;font-size:.85rem;font-weight:600;color:var(--text);margin-bottom:8px;}
-    input[type=date]{width:100%;padding:12px 14px;border:1px solid var(--border);border-radius:8px;font-size:1rem;background:#fff;color:var(--text);}
-    input[type=date]:focus{outline:2px solid var(--brand);outline-offset:1px;border-color:var(--brand);}
-    .btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;font-size:1rem;font-weight:600;color:#fff;background:var(--brand);padding:12px 24px;border:none;border-radius:8px;cursor:pointer;transition:background .15s,transform .1s;width:100%;margin-top:16px;}
-    .btn:hover{background:var(--brand-hover);transform:translateY(-1px);}
-    .results{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:12px;margin-top:20px;}
-    .result-cell{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:16px;text-align:center;}
-    .result-num{font-size:1.6rem;font-weight:800;color:var(--brand);line-height:1.2;}
-    .result-label{font-size:.8rem;color:var(--muted);margin-top:4px;text-transform:uppercase;letter-spacing:.5px;}
-    .error{color:#dc2626;font-size:.85rem;margin-top:10px;}
-    .info-section h2{font-size:1.1rem;font-weight:700;margin-bottom:12px;}
-    .info-section p{font-size:.9rem;color:var(--muted);line-height:1.7;margin-bottom:10px;}
-    .faq-item{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin-bottom:10px;}
-    .faq-item h3{font-size:.95rem;font-weight:700;margin-bottom:6px;}
-    .faq-item p{font-size:.85rem;color:var(--muted);margin:0;}
-    footer{padding-top:24px;border-top:1px solid var(--border);text-align:center;margin-top:24px;}
-    .footer-links{display:flex;justify-content:center;flex-wrap:wrap;gap:4px 18px;font-size:.82rem;margin-bottom:12px;}
-    .footer-links a{color:var(--muted);}.footer-links a:hover{color:var(--brand);text-decoration:none;}
-    .footer-copy{font-size:.78rem;color:#94a3b8;}
-    .ad-unit{margin:8px auto;text-align:center;}
-    .ad-unit ins{display:block;width:100%;max-width:728px;height:auto;margin:0 auto;}
-    @media (max-width:600px){.card{padding:18px;}}
-  </style>
 </head>
 <body>
-<div class="container">
-  <header>
+<div class="container-md">
+  <div class="hero">
     <div class="breadcrumb"><a href="../../index.html">Home</a> &rsaquo; <a href="../../categories/calculator.html">Calculator Tools</a> &rsaquo; Age Calculator</div>
     <h1>Age Calculator</h1>
     <p>Enter your birthday to calculate your exact age in years, months, weeks, days, hours, minutes, and seconds.</p>
-  </header>
+  </div>
 
-  <div class="ad-unit">
+  <div class="ad-slot">
     <ins class="adsbygoogle" style="display:block;width:100%;max-width:728px;height:auto;margin:0 auto;" data-ad-client="ca-pub-5420550088713746" data-ad-slot="9999999999" data-ad-format="auto" data-full-width-responsive="true"></ins>
     <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
   </div>
 
   <div class="card">
-    <label for="birthdate">Your Birthday</label>
-    <input type="date" id="birthdate" />
-    <button class="btn" id="calcBtn">Calculate My Age</button>
-    <div class="error" id="err" style="display:none;"></div>
+    <div class="field"><label>Your Birthday</label><input type="date" id="birthdate" /></div>
+    <button class="btn btn--block" id="calcBtn">Calculate My Age</button>
+    <div class="note note--warn" id="err" style="display:none;"></div>
 
-    <div class="results" id="results" style="display:none;">
-      <div class="result-cell"><div class="result-num" id="years">0</div><div class="result-label">Years</div></div>
-      <div class="result-cell"><div class="result-num" id="months">0</div><div class="result-label">Months</div></div>
-      <div class="result-cell"><div class="result-num" id="weeks">0</div><div class="result-label">Weeks</div></div>
-      <div class="result-cell"><div class="result-num" id="days">0</div><div class="result-label">Days</div></div>
-      <div class="result-cell"><div class="result-num" id="hours">0</div><div class="result-label">Hours</div></div>
-      <div class="result-cell"><div class="result-num" id="minutes">0</div><div class="result-label">Minutes</div></div>
-      <div class="result-cell"><div class="result-num" id="seconds">0</div><div class="result-label">Seconds</div></div>
+    <div class="stats-grid" id="results" style="display:none;">
+      <div class="stat"><div class="stat__value" id="years">0</div><div class="stat__label">Years</div></div>
+      <div class="stat"><div class="stat__value" id="months">0</div><div class="stat__label">Months</div></div>
+      <div class="stat"><div class="stat__value" id="weeks">0</div><div class="stat__label">Weeks</div></div>
+      <div class="stat"><div class="stat__value" id="days">0</div><div class="stat__label">Days</div></div>
+      <div class="stat"><div class="stat__value" id="hours">0</div><div class="stat__label">Hours</div></div>
+      <div class="stat"><div class="stat__value" id="minutes">0</div><div class="stat__label">Minutes</div></div>
+      <div class="stat"><div class="stat__value" id="seconds">0</div><div class="stat__label">Seconds</div></div>
     </div>
   </div>
 
-  <div class="card info-section">
+  <div class="section">
     <h2>How it works</h2>
     <p>Simply enter your birth date in the input above. The tool compares it with the current date on your device and computes the difference in years, months, days — plus the totals in weeks, hours, minutes, and seconds — using the local time zone on your computer.</p>
     <p>All calculations happen in your browser. Your birth date is never sent to a server.</p>
   </div>
 
-  <div class="ad-unit">
+  <div class="ad-slot">
     <ins class="adsbygoogle" style="display:block;width:100%;max-width:728px;height:auto;margin:0 auto;" data-ad-client="ca-pub-5420550088713746" data-ad-slot="9999999999" data-ad-format="auto" data-full-width-responsive="true"></ins>
     <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
   </div>
 
-  <div class="card info-section">
+  <div class="section">
     <h2>Frequently Asked Questions</h2>
-    <div class="faq-item"><h3>How accurate is this age calculator?</h3><p>The calculator uses your device clock and the Gregorian calendar. It accounts for leap years and is accurate to the second.</p></div>
-    <div class="faq-item"><h3>Does it account for leap years?</h3><p>Yes. Leap years and months with different day counts are handled automatically by the JavaScript Date engine.</p></div>
-    <div class="faq-item"><h3>What time zone is used?</h3><p>The tool uses your device's local time zone for the "today" reference point.</p></div>
-    <div class="faq-item"><h3>Is my data stored anywhere?</h3><p>No. All computations are done locally in your browser. Nothing is transmitted or stored.</p></div>
+    <div class="faq">
+      <details><summary>How accurate is this age calculator?</summary><p>The calculator uses your device clock and the Gregorian calendar. It accounts for leap years and is accurate to the second.</p></details>
+      <details><summary>Does it account for leap years?</summary><p>Yes. Leap years and months with different day counts are handled automatically by the JavaScript Date engine.</p></details>
+      <details><summary>What time zone is used?</summary><p>The tool uses your device's local time zone for the "today" reference point.</p></details>
+      <details><summary>Is my data stored anywhere?</summary><p>No. All computations are done locally in your browser. Nothing is transmitted or stored.</p></details>
+    </div>
   </div>
 
-  <footer>
+  <footer class="footer">
     <div class="footer-links">
       <a href="percentage-calculator.html">Percentage Calculator</a>
       <a href="basic-calculator.html">Basic Calculator</a>
-      <span style="color:var(--border);margin:0 4px;">|</span>
       <a href="../../about.html">About</a>
-      <a href="../../contact.html">Contact</a>
       <a href="../../privacy.html">Privacy</a>
       <a href="../../disclaimer.html">Disclaimer</a>
     </div>
@@ -120,7 +85,6 @@
   var inp=document.getElementById('birthdate');
   var err=document.getElementById('err');
   var res=document.getElementById('results');
-  var fields={years:'years',months:'months',weeks:'weeks',days:'days',hours:'hours',minutes:'minutes',seconds:'seconds'};
   function fmt(n){return n.toLocaleString();}
   function calc(){
     err.style.display='none';

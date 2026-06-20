@@ -1,10 +1,11 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Basic Calculator – Simple Online Arithmetic Calculator | My Tool Lab</title>
   <meta name="description" content="Free basic online calculator for addition, subtraction, multiplication, and division. Simple, fast, works on any device without signup." />
+  <link rel="stylesheet" href="../../_css/components.css" />
   <link rel="canonical" href="https://www.zlbox.site/tools/calculator/basic-calculator.html" />
   <meta name="google-site-verification" content="google4bd1e08685667667" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
@@ -15,100 +16,66 @@
     gtag('js', new Date());
     gtag('config', 'G-9V6L0Z956X');
   </script>
-  <style>
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-    :root{--brand:#2563eb;--brand-hover:#1d4ed8;--text:#1e293b;--muted:#64748b;--border:#e2e8f0;--bg:#f8fafc;--surface:#ffffff;--radius:12px;--max-w:420px;}
-    body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;color:var(--text);background:var(--bg);line-height:1.45;padding:12px;}
-    a{color:var(--brand);text-decoration:none;}a:hover{text-decoration:underline;}
-    .container{max-width:var(--max-w);margin:0 auto;}
-    header{text-align:center;margin:24px 0 24px;}
-    .breadcrumb{font-size:.82rem;color:var(--muted);margin-bottom:10px;}
-    .breadcrumb a{color:var(--muted);}.breadcrumb a:hover{color:var(--brand);}
-    header h1{font-size:clamp(1.4rem,4vw,1.9rem);font-weight:800;line-height:1.2;margin-bottom:8px;}
-    header p{font-size:.95rem;color:var(--muted);max-width:520px;margin:0 auto;}
-    .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:18px;margin-bottom:20px;}
-    .display{background:#0f172a;color:#fff;border-radius:10px;padding:18px 16px;text-align:right;margin-bottom:14px;min-height:68px;}
-    .display .expr{font-size:.85rem;color:#94a3b8;min-height:18px;word-break:break-all;}
-    .display .cur{font-size:1.8rem;font-weight:700;word-break:break-all;}
-    .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;}
-    .key{padding:14px 0;font-size:1.1rem;font-weight:600;background:#f1f5f9;border:1px solid var(--border);border-radius:8px;cursor:pointer;color:var(--text);transition:background .12s,transform .05s;}
-    .key:hover{background:#e2e8f0;}
-    .key:active{transform:translateY(1px);}
-    .key.op{background:#dbeafe;color:var(--brand-hover);}
-    .key.eq{background:var(--brand);color:#fff;}
-    .key.eq:hover{background:var(--brand-hover);}
-    .key.clear{background:#fee2e2;color:#b91c1c;}
-    .info-section h2{font-size:1.05rem;font-weight:700;margin-bottom:12px;}
-    .info-section p{font-size:.9rem;color:var(--muted);line-height:1.7;margin-bottom:10px;}
-    footer{padding-top:24px;border-top:1px solid var(--border);text-align:center;margin-top:24px;}
-    .footer-links{display:flex;justify-content:center;flex-wrap:wrap;gap:4px 18px;font-size:.82rem;margin-bottom:12px;}
-    .footer-links a{color:var(--muted);}.footer-links a:hover{color:var(--brand);text-decoration:none;}
-    .footer-copy{font-size:.78rem;color:#94a3b8;}
-    .ad-unit{margin:8px auto;text-align:center;}
-    .ad-unit ins{display:block;width:100%;max-width:728px;height:auto;margin:0 auto;}
-  </style>
 </head>
 <body>
-<div class="container">
-  <header>
+<div class="container-md">
+  <div class="hero">
     <div class="breadcrumb"><a href="../../index.html">Home</a> &rsaquo; <a href="../../categories/calculator.html">Calculator Tools</a> &rsaquo; Basic Calculator</div>
     <h1>Basic Calculator</h1>
     <p>A simple arithmetic calculator for addition, subtraction, multiplication, and division.</p>
-  </header>
+  </div>
 
-  <div class="ad-unit">
+  <div class="ad-slot">
     <ins class="adsbygoogle" style="display:block;width:100%;max-width:728px;height:auto;margin:0 auto;" data-ad-client="ca-pub-5420550088713746" data-ad-slot="9999999999" data-ad-format="auto" data-full-width-responsive="true"></ins>
     <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
   </div>
 
   <div class="card">
-    <div class="display">
+    <div class="calc-display">
       <div class="expr" id="expr">&nbsp;</div>
       <div class="cur" id="cur">0</div>
     </div>
-    <div class="grid">
-      <button class="key clear" data-k="C">C</button>
-      <button class="key clear" data-k="DEL">⌫</button>
-      <button class="key op" data-k="%">%</button>
-      <button class="key op" data-k="/">÷</button>
+    <div class="keys">
+      <button class="key key--clear" data-k="C">C</button>
+      <button class="key key--clear" data-k="DEL">⌫</button>
+      <button class="key key--op" data-k="%">%</button>
+      <button class="key key--op" data-k="/">÷</button>
       <button class="key" data-k="7">7</button>
       <button class="key" data-k="8">8</button>
       <button class="key" data-k="9">9</button>
-      <button class="key op" data-k="*">×</button>
+      <button class="key key--op" data-k="*">×</button>
       <button class="key" data-k="4">4</button>
       <button class="key" data-k="5">5</button>
       <button class="key" data-k="6">6</button>
-      <button class="key op" data-k="-">−</button>
+      <button class="key key--op" data-k="-">−</button>
       <button class="key" data-k="1">1</button>
       <button class="key" data-k="2">2</button>
       <button class="key" data-k="3">3</button>
-      <button class="key op" data-k="+">+</button>
+      <button class="key key--op" data-k="+">+</button>
       <button class="key" data-k="0" style="grid-column:span 2;">0</button>
       <button class="key" data-k=".">.</button>
-      <button class="key eq" data-k="=">=</button>
+      <button class="key key--eq" data-k="=">=</button>
     </div>
   </div>
 
-  <div class="ad-unit">
+  <div class="ad-slot">
     <ins class="adsbygoogle" style="display:block;width:100%;max-width:728px;height:auto;margin:0 auto;" data-ad-client="ca-pub-5420550088713746" data-ad-slot="9999999999" data-ad-format="auto" data-full-width-responsive="true"></ins>
     <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
   </div>
 
-  <div class="card info-section">
+  <div class="section">
     <h2>Features</h2>
-    <p>🧮 Four basic operations — add, subtract, multiply, divide.</p>
-    <p>🔢 Decimal support — type a decimal point at any time.</p>
-    <p>⚡ Keyboard friendly — you can also use your keyboard (0-9, +, -, *, /, ., Enter, Backspace, Esc).</p>
-    <p>📱 Mobile optimized — large buttons designed for touch.</p>
+    <p>Four basic operations — add, subtract, multiply, divide.</p>
+    <p>Decimal support — type a decimal point at any time.</p>
+    <p>Keyboard friendly — you can also use your keyboard (0-9, +, -, *, /, ., Enter, Backspace, Esc).</p>
+    <p>Mobile optimized — large buttons designed for touch.</p>
   </div>
 
-  <footer>
+  <footer class="footer">
     <div class="footer-links">
       <a href="age-calculator.html">Age Calculator</a>
       <a href="percentage-calculator.html">Percentage Calculator</a>
-      <span style="color:var(--border);margin:0 4px;">|</span>
       <a href="../../about.html">About</a>
-      <a href="../../contact.html">Contact</a>
       <a href="../../privacy.html">Privacy</a>
       <a href="../../disclaimer.html">Disclaimer</a>
     </div>

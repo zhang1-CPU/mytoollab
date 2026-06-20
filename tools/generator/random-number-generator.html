@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Random Number Generator – Integers & Decimals | My Tool Lab</title>
+  <meta name="description" content="Free online random number generator: pick integers or decimal numbers within a range, generate multiple values, and choose whether duplicates are allowed." />
+  <link rel="stylesheet" href="../../_css/components.css" />
+  <link rel="canonical" href="https://www.zlbox.site/tools/generator/random-number-generator.html" />
+  <meta name="google-site-verification" content="google4bd1e08685667667" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="container-md">
+  <div class="hero">
+    <div class="breadcrumb"><a href="../../index.html">Home</a> &rsaquo; <a href="../../index.html">Generator Tools</a> &rsaquo; Random Number Generator</div>
+    <h1>Random Number Generator</h1>
+    <p>Generate random integers or decimal numbers in a given range, with support for multiple picks and optional uniqueness — great for lottery picks, raffles, and dice rolls.</p>
+  </div>
+
+  <div class="card">
+    <div class="field-row">
+      <div class="field">
+        <label>Minimum</label>
+        <input type="number" id="min" step="1" value="1" />
+      </div>
+      <div class="field">
+        <label>Maximum</label>
+        <input type="number" id="max" step="1" value="100" />
+      </div>
+    </div>
+    <div class="field-row">
+      <div class="field">
+        <label>How many numbers</label>
+        <input type="number" id="count" min="1" max="10000" step="1" value="5" />
+      </div>
+      <div class="field">
+        <label>Type</label>
+        <select id="type">
+          <option value="int" selected>Integers</option>
+          <option value="dec">Decimals</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <label><input type="checkbox" id="unique" checked /> Unique numbers (no duplicates)</label>
+    </div>
+    <div class="row">
+      <label><input type="checkbox" id="sort" /> Sort results</label>
+    </div>
+    <button class="btn" id="gen" style="margin-top:8px;width:100%;">Generate</button>
+
+    <div class="stats-grid" style="margin-top:14px;">
+      <div class="stat stat--accent" style="grid-column:1/-1;">
+        <div class="stat__value" id="out" style="font-size:1.3rem;line-height:1.6;word-break:break-word;">—</div>
+        <div class="stat__label">Results</div>
+      </div>
+    </div>
+    <p style="text-align:center;font-size:0.82rem;color:var(--muted);margin-top:8px;" id="note"></p>
+  </div>
+
+  <div class="section">
+    <h2>How it works</h2>
+    <ol class="steps">
+      <li>Set the minimum and maximum bounds, then choose how many numbers to generate.</li>
+      <li>Pick <strong>Integers</strong> for whole numbers or <strong>Decimals</strong> for floating-point results (6 decimals).</li>
+      <li>Check <strong>Unique numbers</strong> to prevent duplicates — available only when the range has enough values.</li>
+    </ol>
+  </div>
+
+  <div class="section">
+    <h2>Related tools</h2>
+    <div class="related-grid">
+      <a href="uuid-generator.html">UUID Generator</a>
+      <a href="hash-generator.html">Hash Generator</a>
+      <a href="what-is-my-ip.html">What Is My IP</a>
+      <a href="../text/number-base-converter.html">Number Base Converter</a>
+      <a href="../calculator/basic-calculator.html">Basic Calculator</a>
+      <a href="../calculator/scientific-calculator.html">Scientific Calculator</a>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="uuid-generator.html">UUID Generator</a>
+      <a href="hash-generator.html">Hash Generator</a>
+      <a href="what-is-my-ip.html">What Is My IP</a>
+      <span style="color:var(--border);margin:0 6px">|</span>
+      <a href="../../about.html">About</a>
+      <a href="../../privacy.html">Privacy</a>
+      <a href="../../disclaimer.html">Disclaimer</a>
+    </div>
+    <p class="footer-copy">&copy; 2026 My Tool Lab. All rights reserved.</p>
+  </footer>
+</div>
+
+<script>
+(function(){
+  function rnd(){
+    var a=new Uint32Array(1);
+    crypto.getRandomValues(a);
+    return a[0]/(0xffffffff+1);
+  }
+  function genInt(min,max){ return Math.floor(rnd()*(max-min+1))+min; }
+  function genDec(min,max){ return rnd()*(max-min)+min; }
+
+  var minEl=document.getElementById('min');
+  var maxEl=document.getElementById('max');
+  var countEl=document.getElementById('count');
+  var typeEl=document.getElementById('type');
+  var uniqueEl=document.getElementById('unique');
+  var sortEl=document.getElementById('sort');
+  var outEl=document.getElementById('out');
+  var noteEl=document.getElementById('note');
+
+  function fmtInt(n){ return String(n); }
+  function fmtDec(n){ return n.toFixed(6).replace(/\.?0+$/,''); }
+
+  function run(){
+    var min=parseFloat(minEl.value), max=parseFloat(maxEl.value);
+    var cnt=parseInt(countEl.value,10);
+    var isInt=typeEl.value==='int';
+    var unique=uniqueEl.checked;
+    var sort=sortEl.checked;
+
+    noteEl.textContent='';
+    if(isNaN(min)||isNaN(max)||isNaN(cnt)||cnt<1){
+      outEl.textContent='Please enter valid numbers.'; return;
+    }
+    if(min>max){ var t=min; min=max; max=t; }
+    if(isInt){
+      min=Math.ceil(min); max=Math.floor(max);
+      if(min>max){ outEl.textContent='Invalid integer range.'; return; }
+      var rangeSize=max-min+1;
+      if(unique && cnt>rangeSize){
+        noteEl.textContent='Range has only '+rangeSize+' unique integers; duplicates enabled automatically.';
+        unique=false;
+      }
+      if(cnt>10000){ cnt=10000; countEl.value=10000; }
+      var results=[];
+      if(unique && rangeSize<=cnt*50){
+        // build array and shuffle (Fisher-Yates sample)
+        var pool=[];
+        for(var i=min;i<=max;i++) pool.push(i);
+        for(var i=0;i<cnt;i++){
+          var j=i+Math.floor(rnd()*(pool.length-i));
+          var tmp=pool[i]; pool[i]=pool[j]; pool[j]=tmp;
+          results.push(pool[i]);
+        }
+      } else if(unique){
+        var set=new Set();
+        while(set.size<cnt) set.add(genInt(min,max));
+        results=Array.from(set);
+      } else {
+        for(var i=0;i<cnt;i++) results.push(genInt(min,max));
+      }
+      if(sort) results.sort(function(a,b){return a-b;});
+      outEl.textContent=results.map(fmtInt).join(', ');
+    } else {
+      if(cnt>10000){ cnt=10000; countEl.value=10000; }
+      var results=[];
+      if(unique){
+        var set=new Set();
+        var guard=0;
+        while(set.size<cnt && guard<cnt*200){
+          set.add(parseFloat(fmtDec(genDec(min,max))));
+          guard++;
+        }
+        results=Array.from(set);
+        while(results.length<cnt) results.push(genDec(min,max));
+      } else {
+        for(var i=0;i<cnt;i++) results.push(genDec(min,max));
+      }
+      if(sort) results.sort(function(a,b){return a-b;});
+      outEl.textContent=results.map(fmtDec).join(', ');
+    }
+  }
+
+  document.getElementById('gen').addEventListener('click',run);
+  run();
+})();
+</script>
+</body>
+</html>

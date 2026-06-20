@@ -3,224 +3,29 @@
 <head>
  <meta charset="UTF-8" />
  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
- <title>Image Converter – Convert JPG, PNG, WebP, GIF Online Free | zlbox</title>
- <meta name="description" content="Free online image converter. Convert images between JPG, PNG, WebP, and GIF formats instantly. Upload, convert, download locally in your browser." />
+ <title>Image Converter – JPG, PNG, WebP, GIF, BMP | zlbox</title>
+ <meta name="description" content="Convert images to JPG, PNG, WebP, GIF, or BMP. Batch convert multiple files at once and download as a ZIP. Adjust quality (JPG/WebP) and scale — 100% private, runs in your browser." />
+ <link rel="stylesheet" href="../../css/components.css" />
  <link rel="canonical" href="https://www.zlbox.site/tools/image/image-converter.html" />
  <meta name="google-site-verification" content="google4bd1e08685667667" />
- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
-<script>
-/* Navigation toggle for mobile */
-(function() {
-  var toggle = document.querySelector('.nav-toggle');
-  var navLinks = document.querySelector('.nav-links');
-  if (!toggle || !navLinks) return;
-  toggle.addEventListener('click', function() {
-    var isOpen = navLinks.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', isOpen);
-  });
-  // Highlight active link
-  var path = location.pathname;
-  document.querySelectorAll('.nav-link').forEach(function(link) {
-    var href = link.getAttribute('href');
-    if (href && (path === href || path.indexOf(href.replace('/index.html','')) > -1)) {
-      link.classList.add('active');
-    }
-  });
-})();
-</script>
- <link rel="stylesheet" href="../../css/components.css" />
- <style>
- .drop{border:2px dashed var(--border);border-radius:var(--radius);padding:20px 12px;text-align:center;cursor:pointer;transition:border-color .15s,background .15s;}
- .drop.drag{border-color:var(--brand);background:#eff6ff;}
- .drop-icon{font-size:2.4rem;margin-bottom:8px;}
- .preview-wrap{text-align:center;margin-top:10px;}
- .preview-wrap img{max-width:100%;max-height:260px;border-radius:8px;border:1px solid var(--border);}
- 
-/* ── Site Navigation ── */
-.site-nav {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: rgba(255,255,255,.97);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--border);
-  box-shadow: 0 1px 4px rgba(0,0,0,.05);
-}
-.nav-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  height: 52px;
-}
-.nav-logo {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-weight: 700;
-  font-size: 1rem;
-  color: var(--brand);
-  text-decoration: none;
-  flex-shrink: 0;
-  margin-right: 12px;
-}
-.nav-logo:hover { text-decoration: none; }
-.nav-logo-icon {
-  width: 36px;
-  height: 36px;
-  background: var(--brand);
-  color: #fff;
-  border-radius: 6px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 900;
-  font-size: .9rem;
-  flex-shrink: 0;
-}
-.nav-logo-text { font-size: .95rem; }
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 2px;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-  flex: 1;
-}
-.nav-links::-webkit-scrollbar { display: none; }
-.nav-link {
-  display: inline-flex;
-  align-items: center;
-  padding: 5px 10px;
-  font-size: .82rem;
-  font-weight: 500;
-  color: var(--text);
-  border-radius: 6px;
-  white-space: nowrap;
-  transition: all .15s;
-  flex-shrink: 0;
-}
-.nav-link:hover {
-  background: var(--brand);
-  color: #fff;
-  text-decoration: none;
-}
-.nav-link.active {
-  background: #eff6ff;
-  color: var(--brand);
-}
-.nav-toggle {
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  gap: 4px;
-  width: 32px;
-  height: 32px;
-  padding: 4px;
-  background: none;
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  cursor: pointer;
-  flex-shrink: 0;
-  margin-left: auto;
-}
-.nav-toggle span {
-  display: block;
-  width: 100%;
-  height: 2px;
-  background: var(--text);
-  border-radius: 1px;
-}
-@media (max-width: 768px) {
-  .nav-logo-text { display: none; }
-  .nav-inner { gap: 6px; }
-  .nav-toggle { display: flex; }
-  .nav-links {
-    display: none;
-    position: absolute;
-    top: 52px;
-    left: 0;
-    right: 0;
-    background: #fff;
-    border-bottom: 1px solid var(--border);
-    box-shadow: 0 4px 12px rgba(0,0,0,.1);
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 8px 0;
-    z-index: 99;
-    overflow: visible;
-  }
-  .nav-links.open { display: flex; }
-  .nav-link {
-    width: 100%;
-    padding: 10px 20px;
-    font-size: .9rem;
-    border-radius: 0;
-  }
-}
-  </style>
-
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <meta property="og:title" content="Image Converter – Convert JPG, PNG, WebP, GIF Online Free | zlbox" />
-  <meta property="og:description" content="Free online image converter. Convert images between JPG, PNG, WebP, and GIF formats instantly. Upload, convert, download locally in your browser." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.zlbox.site/tools/image/image-converter.html" />
-  <meta property="og:site_name" content="zlbox" />
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Image Converter – Convert JPG, PNG, WebP, GIF Online Free", "description": "Free online image converter. Convert images between JPG, PNG, WebP, and GIF formats instantly. Upload, convert, download locally in your browser.", "url": "https://www.zlbox.site/tools/image/image-converter.html", "applicationCategory": "Image Tool", "operatingSystem": "Any (browser-based)", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "browserRequirements": "Requires a modern web browser with JavaScript enabled."}</script>
-
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.zlbox.site/"}, {"@type": "ListItem", "position": 2, "name": "Image Tools", "item": null}]}</script>
-  <meta property="og:image" content="https://www.zlbox.site/og-image.png" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Image Converter – Convert JPG, PNG, WebP, GIF Online Free" />
-  <meta name="twitter:description" content="Free online image converter. Convert images between JPG, PNG, WebP, and GIF formats instantly. Upload, convert, download locally in your browser." />
-  <meta name="twitter:image" content="https://www.zlbox.site/og-image.png" />
-
-
-  <meta name="robots" content="index, follow" />
-  <script type="application/ld+json">{
-  "@context": "https://schema.org",
-  "@type": "HowTo",
-  "name": "How to Convert Images",
-  "description": "Step by step guide: How to Convert Images",
-  "step": [
-    {
-      "@type": "HowToStep",
-      "name": "Upload image",
-      "text": "Select an image file to convert.",
-      "position": 1
-    },
-    {
-      "@type": "HowToStep",
-      "name": "Choose format",
-      "text": "Select the output format: JPG, PNG, WebP, or GIF.",
-      "position": 2
-    },
-    {
-      "@type": "HowToStep",
-      "name": "Download converted",
-      "text": "Click 'Download' to save the converted image.",
-      "position": 3
-    }
-  ]
-}</script>
+ <meta property="og:title" content="Image Converter – JPG, PNG, WebP, GIF, BMP" />
+ <meta property="og:description" content="Convert images to JPG, PNG, WebP, GIF, or BMP. Batch convert multiple files and download as a ZIP." />
+ <meta property="og:type" content="website" />
+ <meta property="og:url" content="https://www.zlbox.site/tools/image/image-converter.html" />
+ <meta property="og:image" content="https://www.zlbox.site/og-image.png" />
+ <meta name="twitter:card" content="summary_large_image" />
+ <meta name="twitter:title" content="Image Converter – JPG, PNG, WebP, GIF, BMP" />
+ <meta name="twitter:description" content="Convert images to JPG, PNG, WebP, GIF, or BMP. Batch convert multiple files and download as a ZIP." />
+ <meta name="robots" content="index, follow" />
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Image Converter","description":"Convert images to JPG, PNG, WebP, GIF, or BMP. Batch convert multiple files and download as a ZIP. Adjust quality (JPG/WebP) and scale. 100% private and browser-based.","url":"https://www.zlbox.site/tools/image/image-converter.html","applicationCategory":"Image Tool","operatingSystem":"Any (browser-based)","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"browserRequirements":"Requires a modern web browser with JavaScript enabled."}</script>
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.zlbox.site/"},{"@type":"ListItem","position":2,"name":"Image Tools","item":"https://www.zlbox.site/categories/image.html"}]}</script>
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Convert an Image","step":[{"@type":"HowToStep","name":"Select images","text":"Upload one or more images (JPG, PNG, WebP, GIF, BMP) or drop them into the drop zone.","position":1},{"@type":"HowToStep","name":"Choose output format","text":"Select the target format (JPG, PNG, WebP, GIF, BMP), quality, and optional scale.","position":2},{"@type":"HowToStep","name":"Download","text":"Download individual converted files or download all files together as a ZIP.","position":3}]}</script>
 </head>
 <body>
-
   <nav class="site-nav" aria-label="Main navigation">
     <div class="nav-inner">
-      <a href="/" class="nav-logo" aria-label="zlbox Home">
-        <span class="nav-logo-icon">zl</span>
-        <span class="nav-logo-text">zlbox</span>
-      </a>
-      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
+      <a href="/" class="nav-logo" aria-label="zlbox Home"><span class="nav-logo-icon">zl</span><span class="nav-logo-text">zlbox</span></a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
       <div class="nav-links" role="list">
         <a href="/tools/index.html" class="nav-link" role="listitem">All Tools</a>
         <a href="/categories/text.html" class="nav-link" role="listitem">Text</a>
@@ -228,138 +33,411 @@
         <a href="/categories/generator.html" class="nav-link" role="listitem">Generator</a>
         <a href="/categories/image.html" class="nav-link" role="listitem">Image</a>
         <a href="/categories/pdf.html" class="nav-link" role="listitem">PDF</a>
-        <a href="/blog/index.html" class="nav-link" role="listitem">Blog</a>
       </div>
     </div>
   </nav>
 
-<div class="container-md">
- <div class="hero">
- <div class="breadcrumb"><a href="../../index.html">Home</a> &rsaquo; <a href="../../categories/image.html">Image Tools</a> &rsaquo; Image Converter</div>
- <h1>Image Converter</h1>
- <p>Convert between JPG, PNG, WebP, and GIF formats locally in your browser. No uploads, no signup required.</p>
- </div>
+  <div class="container-md">
+    <div class="hero">
+      <div class="breadcrumb"><a href="../../index.html">Home</a> &rsaquo; <a href="../../categories/image.html">Image Tools</a> &rsaquo; Image Converter</div>
+      <h1>Image Converter</h1>
+      <p>Convert images to JPG, PNG, WebP, GIF, or BMP. Upload one or many files, adjust quality and scale, and download each result or get everything in a single ZIP. Everything runs in your browser — nothing is uploaded to a server.</p>
+    </div>
 
- <div class="card">
- <div class="drop" id="drop">
- <div class="drop-icon">&#128260;</div>
- <h3>Drop image here</h3>
- <p>or click to browse</p>
- <input type="file" id="file" accept="image/*" style="display:none" />
- <div id="fileInfo"></div>
- </div>
+    <div class="card">
+      <div id="drop" class="drop-zone" tabindex="0" role="button" aria-label="Upload image">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:6px;">
+          <div style="font-size:26px;">🖼️</div>
+          <div><strong>Drop images here</strong> or click to choose files</div>
+          <div style="color:var(--muted); font-size:.85rem;">Supported: JPG, PNG, WebP, GIF, BMP, SVG, HEIC (browser-dependent). Multiple files allowed.</div>
+        </div>
+        <input id="file" type="file" multiple accept="image/*" style="display:none;" />
+      </div>
 
- <div class="row">
- <label for="fmt">Output format</label>
- <select id="fmt" style="max-width:180px">
- <option value="image/jpeg">JPG</option>
- <option value="image/png">PNG</option>
- <option value="image/webp">WebP</option>
- </select>
- </div>
+      <div class="row-grid" style="margin-top:16px;">
+        <label class="row" style="gap:8px; align-items:center;">
+          Output format
+          <select id="format" style="max-width:180px;">
+            <option value="image/jpeg" selected>JPG</option>
+            <option value="image/png">PNG</option>
+            <option value="image/webp">WebP</option>
+            <option value="image/gif">GIF</option>
+            <option value="image/bmp">BMP</option>
+          </select>
+        </label>
+        <label class="row" style="gap:8px; align-items:center; flex-basis:220px; flex-grow:1;">
+          Quality (JPG/WebP): <span id="qualityLabel">85%</span>
+          <input id="quality" type="range" min="1" max="100" step="1" value="85" />
+        </label>
+        <label class="row" style="gap:8px; align-items:center;">
+          Scale
+          <select id="scale" style="max-width:160px;">
+            <option value="1" selected>Original (100%)</option>
+            <option value="0.5">Small (50%)</option>
+            <option value="0.25">Thumbnail (25%)</option>
+            <option value="2">Large (200%)</option>
+          </select>
+        </label>
+        <label class="row" style="gap:8px; align-items:center;"><input type="checkbox" id="pngFill" /> Fill transparent background white (JPG/GIF/BMP)</label>
+        <div class="row" style="gap:8px; justify-content:flex-end; flex-wrap:wrap;">
+          <button class="btn btn--sm btn--ghost" id="refreshBtn">Reconvert all</button>
+          <button class="btn btn--sm btn--ghost" id="clearBtn">Clear</button>
+          <button class="btn btn--sm" id="zipBtn" disabled>Download ZIP</button>
+        </div>
+      </div>
 
- <div class="row" id="qRow">
- <label for="q">Quality (JPG/WebP)</label>
- <input type="range" id="q" min="10" max="100" value="92" style="max-width:220px" />
- <span id="qVal">92%</span>
- </div>
+      <div id="results" style="margin-top:16px;"></div>
+      <div id="summary" style="color:var(--muted); font-size:.85rem; margin-top:8px;"></div>
+    </div>
 
- <button class="btn btn--block" id="convertBtn" disabled>Convert Image</button>
+    <div class="section">
+      <h2>How it works</h2>
+      <ol class="steps">
+        <li>Drop images onto the drop zone or click to select files from your device.</li>
+        <li>Choose an output format, adjust quality (JPG/WebP), and optionally scale or fill transparency.</li>
+        <li>Download each result individually, or click <strong>Download ZIP</strong> to collect everything in one file.</li>
+      </ol>
+    </div>
 
- <div id="result" style="display:none">
- <div class="preview-wrap" id="previewWrap"></div>
- <div id="outInfo"></div>
- <button class="btn btn--block" id="dlBtn">Download</button>
- </div>
- </div>
+    <section class="tool-info">
+      <h2>What is it?</h2>
+      <p>A browser-side image converter that uses the HTML5 Canvas and native image decoders. No uploads, no tracking, no account required.</p>
+      <h2>Use cases</h2>
+      <ul class="usecase-list">
+        <li>Converting photos to WebP or JPG for smaller file sizes on websites.</li>
+        <li>Preparing PNG screenshots with transparent backgrounds.</li>
+        <li>Rescaling or downsizing many images in a single batch.</li>
+        <li>Converting GIFs/BMPs to JPG or PNG for compatibility.</li>
+      </ul>
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq">
+        <details class="faq-item"><summary>Which formats are supported?</summary><p>Output: JPG, PNG, WebP, GIF, BMP. Input: any format natively decodable by your browser (usually JPG, PNG, WebP, GIF, BMP, SVG; HEIC on modern Safari).</p></details>
+        <details class="faq-item"><summary>Will my files be uploaded?</summary><p>No. Decoding and encoding happen entirely in your browser using the Canvas API. Nothing leaves your device.</p></details>
+        <details class="faq-item"><summary>What does the quality slider do?</summary><p>It controls the compression quality for JPG and WebP (1–100). PNG is lossless and ignores this slider; GIF and BMP are written as-is.</p></details>
+      </div>
+    </section>
 
- <div class="section">
- <h2>How it works</h2>
- <ol class="steps">
- <li>Upload an image by drag-and-drop or click to browse.</li>
- <li>Choose your target format (JPG, PNG, WebP) and quality if applicable.</li>
- <li>Click Convert and download the result — everything happens in your browser.</li>
- </ol>
- </div>
+    <div class="section">
+      <h2>Related tools</h2>
+      <div class="related-grid">
+        <a href="image-resizer.html">Image Resizer</a>
+        <a href="image-compressor.html">Image Compressor</a>
+        <a href="pdf-to-image.html">PDF to Image</a>
+        <a href="../pdf/compress-pdf.html">Compress PDF</a>
+      </div>
+    </div>
 
- <section class="tool-info" aria-label="Tool information">
-  <h2>What is Image Converter?</h2>
-  <p>An image converter transforms images between JPG, PNG, WebP, and GIF formats. Different formats serve different purposes — JPEG for photos, PNG for graphics, WebP for web optimization, GIF for animations.</p>
-
-  <h2>How to use</h2>
-  <ol class="steps-list">
-<li>Step 1: Upload one or more images by dragging or clicking.</li>
-<li>Step 2: Select the target output format (JPG, PNG, WebP, GIF).</li>
-<li>Step 3: Adjust quality and settings for the target format.</li>
-<li>Step 4: Download converted images individually or as a ZIP.</li>
-  </ol>
-
-  <h2>Use cases</h2>
-  <ul class="usecase-list">
-<li>Converting camera RAW/JPEG to WebP for faster websites.</li>
-<li>Creating PNG versions of graphics for transparency support.</li>
-<li>Converting images to JPEG for smaller file sizes.</li>
-<li>Creating GIF animations from image sequences.</li>
-  </ul>
-
-  <h2>Frequently Asked Questions</h2>
-  <div class="faq">
-<details class="faq-item">
-  <summary>What's the best format for web?</summary>
-  <p>WebP offers the best compression and quality. JPEG is universally supported. PNG is best for graphics with transparency. Use JPG for photos and PNG/WebP for UI elements.</p>
-</details>
-<details class="faq-item">
-  <summary>Does conversion reduce quality?</summary>
-  <p>Repeatedly converting between formats can degrade quality. Convert directly from the original format when possible.</p>
-</details>
+    <footer class="footer">
+      <div class="footer-links">
+        <a href="image-resizer.html">Image Resizer</a>
+        <a href="image-compressor.html">Image Compressor</a>
+        <span style="color:var(--border);margin:0 6px">|</span>
+        <a href="../../about.html">About</a>
+        <a href="../../privacy.html">Privacy</a>
+        <a href="../../disclaimer.html">Disclaimer</a>
+      </div>
+      <p class="footer-copy">&copy; 2026 zlbox. All rights reserved.</p>
+    </footer>
   </div>
-</section>
 
-<script type="application/ld+json">
-{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What's the best format for web?", "acceptedAnswer": {"@type": "Answer", "text": "WebP offers the best compression and quality. JPEG is universally supported. PNG is best for graphics with transparency. Use JPG for photos and PNG/WebP for UI elements."}}, {"@type": "Question", "name": "Does conversion reduce quality?", "acceptedAnswer": {"@type": "Answer", "text": "Repeatedly converting between formats can degrade quality. Convert directly from the original format when possible."}}]}
-</script>
- <div class="section">
- <h2>Related tools</h2>
- <div class="related-grid">
- <a href="image-compressor.html">Image Compressor</a>
- <a href="image-resizer.html">Image Resizer</a>
- <a href="background-remover.html">Background Remover</a>
- <a href="color-converter.html">Color Converter</a>
- </div>
- </div>
-
- <footer class="footer">
- <div class="footer-links">
- <a href="image-compressor.html">Image Compressor</a>
- <a href="image-resizer.html">Image Resizer</a>
- <a href="color-picker.html">Color Picker</a>
- <span style="color:var(--border);margin:0 6px;">|</span>
- <a href="../../about.html">About</a>
- <a href="../../privacy.html">Privacy</a>
- <a href="../../disclaimer.html">Disclaimer</a>
- </div>
- <p class="footer-copy">&copy; 2026 zlbox. All rights reserved.</p>
- </footer>
-</div>
-
+<script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
 <script>
 (function(){
- var drop=document.getElementById('drop'),file=document.getElementById('file'),fileInfo=document.getElementById('fileInfo'),
- fmt=document.getElementById('fmt'),q=document.getElementById('q'),qVal=document.getElementById('qVal'),
- convertBtn=document.getElementById('convertBtn'),result=document.getElementById('result'),
- previewWrap=document.getElementById('previewWrap'),outInfo=document.getElementById('outInfo'),dlBtn=document.getElementById('dlBtn');
- var currentFile=null,lastBlob=null,lastName='converted.jpg';
- q.addEventListener('input',function(){qVal.textContent=q.value+'%';});
- fmt.addEventListener('change',function(){qRow.style.display=(fmt.value==='image/png')?'none':'flex';});
- drop.addEventListener('click',function(){file.click();});
- ['dragover','dragenter'].forEach(function(ev){drop.addEventListener(ev,function(e){e.preventDefault();drop.classList.add('drag');});});
- ['dragleave','drop'].forEach(function(ev){drop.addEventListener(ev,function(e){e.preventDefault();drop.classList.remove('drag');});});
- drop.addEventListener('drop',function(e){if(e.dataTransfer.files&&e.dataTransfer.files[0])handle(e.dataTransfer.files[0]);});
- file.addEventListener('change',function(){if(file.files&&file.files[0])handle(file.files[0]);});
- function fmtBytes(n){if(n<1024)return n+' B';if(n<1048576)return(n/1024).toFixed(1)+' KB';return(n/1048576).toFixed(2)+' MB';}
- function handle(f){if(!/image\//.test(f.type)){fileInfo.textContent='Please select an image file.';return;}currentFile=f;fileInfo.textContent=f.name+' ('+fmtBytes(f.size)+')';convertBtn.disabled=false;result.style.display='none';}
- convertBtn.addEventListener('click',function(){if(!currentFile)return;var reader=new FileReader();reader.onload=function(e){var img=new Image();img.onload=function(){var canvas=document.createElement('canvas');canvas.width=img.width;canvas.height=img.height;var ctx=canvas.getContext('2d');if(fmt.value!=='image/png'){ctx.fillStyle='#ffffff';ctx.fillRect(0,0,canvas.width,canvas.height);}ctx.drawImage(img,0,0);var outType=fmt.value;canvas.toBlob(function(blob){if(!blob){fileInfo.textContent='Conversion failed.';return;}lastBlob=blob;var ext=outType==='image/png'?'.png':outType==='image/webp'?'.webp':'.jpg';lastName=currentFile.name.replace(/\.[^.]+$/,'')+ext;var url=URL.createObjectURL(blob);previewWrap.innerHTML='<img src="'+url+'" alt="converted preview" />';outInfo.textContent=fmtBytes(blob.size);result.style.display='block';},outType,parseInt(q.value,10)/100);};img.src=e.target.result;};reader.readAsDataURL(currentFile);});
- dlBtn.addEventListener('click',function(){if(!lastBlob)return;var url=URL.createObjectURL(lastBlob);var a=document.createElement('a');a.href=url;a.download=lastName;document.body.appendChild(a);a.click();setTimeout(function(){a.remove();URL.revokeObjectURL(url);},400);});
+  var drop = document.getElementById('drop');
+  var fileInput = document.getElementById('file');
+  var fmt = document.getElementById('format');
+  var q = document.getElementById('quality');
+  var ql = document.getElementById('qualityLabel');
+  var scale = document.getElementById('scale');
+  var pngFill = document.getElementById('pngFill');
+  var results = document.getElementById('results');
+  var summary = document.getElementById('summary');
+  var zipBtn = document.getElementById('zipBtn');
+  var refreshBtn = document.getElementById('refreshBtn');
+  var clearBtn = document.getElementById('clearBtn');
+
+  var items = []; // {id, name, originalSize, w, h, blob, url, error}
+  var uid = 0;
+
+  q.addEventListener('input', function(){ ql.textContent = q.value + '%'; });
+  fmt.addEventListener('change', function(){ reconvert(); });
+  q.addEventListener('change', reconvert);
+  scale.addEventListener('change', reconvert);
+  pngFill.addEventListener('change', reconvert);
+  refreshBtn.addEventListener('click', reconvert);
+  clearBtn.addEventListener('click', function(){
+    items.forEach(function(it){ if(it.url) URL.revokeObjectURL(it.url); });
+    items = [];
+    render();
+  });
+  drop.addEventListener('click', function(){ fileInput.click(); });
+  drop.addEventListener('keydown', function(e){ if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); fileInput.click(); } });
+  drop.addEventListener('dragover', function(e){ e.preventDefault(); drop.classList.add('dragover'); });
+  drop.addEventListener('dragleave', function(e){ drop.classList.remove('dragover'); });
+  drop.addEventListener('drop', function(e){
+    e.preventDefault();
+    drop.classList.remove('dragover');
+    var files = [];
+    if(e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files.length) files = Array.prototype.slice.call(e.dataTransfer.files);
+    else if(e.dataTransfer && e.dataTransfer.items){
+      for(var i = 0; i < e.dataTransfer.items.length; i++){
+        var it = e.dataTransfer.items[i];
+        if(it.kind === 'file'){ var f = it.getAsFile(); if(f) files.push(f); }
+      }
+    }
+    if(files.length) handleFiles(files);
+  });
+  fileInput.addEventListener('change', function(){
+    if(fileInput.files && fileInput.files.length){
+      handleFiles(Array.prototype.slice.call(fileInput.files));
+      fileInput.value = '';
+    }
+  });
+
+  function handleFiles(files){
+    for(var i = 0; i < files.length; i++){
+      var f = files[i];
+      if(!/^image\//i.test(f.type) && !/\.(jpe?g|png|webp|gif|bmp|svg)$/i.test(f.name)){
+        items.push({id: ++uid, name: f.name, originalSize: f.size, error: 'Unsupported or non-image file.'});
+        continue;
+      }
+      items.push({id: ++uid, name: f.name, originalSize: f.size, file: f, pending: true});
+    }
+    render();
+    // Immediately decode and convert
+    for(var j = 0; j < items.length; j++){
+      var it = items[j];
+      if(it.pending) convertOne(it);
+    }
+  }
+
+  function formatBytes(n){
+    if(!n && n !== 0) return '-';
+    if(n < 1024) return n.toLocaleString() + ' B';
+    if(n < 1024 * 1024) return (n / 1024).toFixed(2) + ' KB';
+    return (n / 1024 / 1024).toFixed(2) + ' MB';
+  }
+
+  function extFor(fmt){
+    if(fmt === 'image/jpeg') return 'jpg';
+    if(fmt === 'image/png') return 'png';
+    if(fmt === 'image/webp') return 'webp';
+    if(fmt === 'image/gif') return 'gif';
+    if(fmt === 'image/bmp') return 'bmp';
+    return 'bin';
+  }
+
+  function makeBMP(imgData){
+    var pad = (4 - ((imgData.width * 3) % 4)) % 4;
+    var total = 54 + (imgData.width * 3 + pad) * imgData.height;
+    var data = new Uint8Array(total);
+    var view = new DataView(data.buffer);
+    data[0] = 66; data[1] = 77;
+    view.setUint32(2, total, true);
+    view.setUint32(6, 0, true);
+    view.setUint32(10, 54, true);
+    view.setUint32(14, 40, true);
+    view.setInt32(18, imgData.width, true);
+    view.setInt32(22, imgData.height, true);
+    view.setUint16(26, 1, true);
+    view.setUint16(28, 24, true);
+    view.setUint32(30, 0, true);
+    view.setUint32(34, total - 54, true);
+    view.setInt32(38, 2835, true);
+    view.setInt32(42, 2835, true);
+    view.setUint32(46, 0, true);
+    view.setUint32(50, 0, true);
+    var pos = 54;
+    for(var y = imgData.height - 1; y >= 0; y--){
+      for(var x = 0; x < imgData.width; x++){
+        var off = (y * imgData.width + x) * 4;
+        data[pos++] = imgData.data[off + 2];
+        data[pos++] = imgData.data[off + 1];
+        data[pos++] = imgData.data[off + 0];
+      }
+      for(var p = 0; p < pad; p++) data[pos++] = 0;
+    }
+    return data;
+  }
+
+  function convertWithImage(it, img){
+    var scaleVal = parseFloat(document.getElementById('scale').value);
+    var targetW = Math.max(1, Math.round(img.width * scaleVal));
+    var targetH = Math.max(1, Math.round(img.height * scaleVal));
+    var canvas = document.createElement('canvas');
+    canvas.width = targetW; canvas.height = targetH;
+    var ctx = canvas.getContext('2d');
+    var mime = fmt.value;
+    var qualityVal = parseInt(q.value, 10) / 100;
+    var fillWhite = (pngFill.checked && (mime === 'image/jpeg' || mime === 'image/bmp' || mime === 'image/gif'));
+    if(fillWhite){
+      ctx.fillStyle = '#FFFFFF';
+      ctx.fillRect(0, 0, targetW, targetH);
+    }
+    ctx.drawImage(img, 0, 0, targetW, targetH);
+
+    if(mime === 'image/bmp'){
+      var imgData = ctx.getImageData(0, 0, targetW, targetH);
+      it.blob = new Blob([makeBMP(imgData)], {type: 'image/bmp'});
+      it.format = 'bmp';
+      finalize(it, targetW, targetH);
+      return;
+    }
+    var outMime = mime;
+    var outExt = extFor(mime);
+    var outQuality = undefined;
+    if(mime === 'image/jpeg' || mime === 'image/webp') outQuality = qualityVal;
+    canvas.toBlob(function(blob){
+      if(blob){
+        it.blob = blob;
+        it.format = outExt;
+      } else {
+        // Fallback: try PNG
+        canvas.toBlob(function(pngBlob){
+          it.blob = pngBlob;
+          it.format = 'png';
+          finalize(it, targetW, targetH);
+        }, 'image/png');
+        return;
+      }
+      finalize(it, targetW, targetH);
+    }, outMime, outQuality);
+  }
+
+  function convertOne(it){
+    it.pending = true;
+    render();
+    var reader = new FileReader();
+    reader.onload = function(e){
+      var dataUrl = e.target.result;
+      var img = new Image();
+      img.onload = function(){ try { convertWithImage(it, img); } catch(err){ it.error = err.message || 'Conversion failed'; render(); } };
+      img.onerror = function(){
+        it.error = 'Could not decode image file.';
+        render();
+      };
+      img.src = dataUrl;
+    };
+    reader.onerror = function(){ it.error = 'Could not read file.'; render(); };
+    try { reader.readAsDataURL(it.file); }
+    catch(e){ it.error = e.message || 'Failed'; render(); }
+  }
+
+  function finalize(it, w, h){
+    it.width = w;
+    it.height = h;
+    if(it.url) URL.revokeObjectURL(it.url);
+    if(it.blob) it.url = URL.createObjectURL(it.blob);
+    it.pending = false;
+    render();
+  }
+
+  function reconvert(){
+    var pending = [];
+    for(var i = 0; i < items.length; i++){
+      var it = items[i];
+      if(it.error) continue;
+      if(it.file){
+        it.pending = true;
+        convertOne(it);
+      }
+    }
+    render();
+  }
+
+  function render(){
+    var html = '';
+    for(var i = 0; i < items.length; i++){
+      var it = items[i];
+      html += '<div style="border:1px solid var(--border); border-radius:10px; padding:12px; margin-bottom:10px; display:flex; gap:12px; align-items:center; flex-wrap:wrap;">';
+      html += '<div style="width:72px; height:72px; background:var(--surface); display:flex; align-items:center; justify-content:center; border-radius:8px; overflow:hidden; flex-shrink:0;">';
+      if(it.url) html += '<img src="' + it.url + '" style="max-width:100%; max-height:100%; object-fit:contain;" />';
+      else html += '<span style="color:var(--muted); font-size:.75rem;">preview</span>';
+      html += '</div>';
+      html += '<div style="flex:1; min-width:220px;">';
+      html += '<div style="font-weight:600;">' + escapeHtml(it.name) + '</div>';
+      html += '<div style="color:var(--muted); font-size:.85rem;">' + (it.width ? (it.width + '×' + it.height + ' &middot; ') : '') + (it.blob ? formatBytes(it.blob.size) : (it.pending ? 'Converting…' : (it.error ? it.error : ''))) + '</div>';
+      html += '</div>';
+      html += '<div style="display:flex; gap:8px; flex-wrap:wrap;">';
+      if(it.url) html += '<button class="btn btn--sm" data-id="' + it.id + '" data-act="download">Download</button>';
+      html += '<button class="btn btn--sm btn--ghost" data-id="' + it.id + '" data-act="remove">Remove</button>';
+      html += '</div>';
+      html += '</div>';
+    }
+    results.innerHTML = html;
+    var buttons = results.querySelectorAll('button[data-act]');
+    for(var b = 0; b < buttons.length; b++){
+      (function(btn){
+        btn.addEventListener('click', function(){
+          var id = parseInt(btn.getAttribute('data-id'), 10);
+          var act = btn.getAttribute('data-act');
+          for(var i = 0; i < items.length; i++){
+            if(items[i].id === id){
+              if(act === 'download'){
+                var a = document.createElement('a');
+                a.href = items[i].url;
+                a.download = replaceExt(items[i].name, items[i].format);
+                document.body.appendChild(a); a.click();
+                setTimeout(function(){ a.remove(); }, 200);
+              } else if(act === 'remove'){
+                if(items[i].url) URL.revokeObjectURL(items[i].url);
+                items.splice(i, 1);
+                render();
+              }
+              break;
+            }
+          }
+        });
+      })(buttons[b]);
+    }
+    zipBtn.disabled = !(items.length > 0 && items.some(function(x){ return x.url; }));
+    var totalOrig = 0, totalNew = 0, done = 0, failed = 0;
+    for(var i = 0; i < items.length; i++){
+      totalOrig += (items[i].originalSize || 0);
+      if(items[i].blob){ totalNew += items[i].blob.size; done++; }
+      else if(items[i].error) failed++;
+    }
+    var sum = items.length.toLocaleString() + ' file(s). Original ' + formatBytes(totalOrig) + (done ? ' &rarr; output ' + formatBytes(totalNew) + ' (' + (totalOrig && totalNew ? Math.round(100 - 100 * totalNew / totalOrig) : 0) + '% savings)' : '') + '.';
+    if(failed) sum += ' ' + failed.toLocaleString() + ' skipped.';
+    summary.textContent = sum;
+  }
+
+  function escapeHtml(s){ return String(s).replace(/[&<>"']/g, function(m){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]; }); }
+  function replaceExt(name, ext){
+    var idx = name.lastIndexOf('.');
+    return (idx > 0 ? name.slice(0, idx) : name) + '.' + ext;
+  }
+
+  zipBtn.addEventListener('click', function(){
+    // Build ZIP via JSZip (loaded via CDN)
+    if(!window.JSZip){
+      alert('ZIP library unavailable. Please check your internet connection.');
+      return;
+    }
+    var zip = new JSZip();
+    for(var i = 0; i < items.length; i++){
+      var it = items[i];
+      if(!it.blob) continue;
+      zip.file(replaceExt(it.name, it.format), it.blob);
+    }
+    zip.generateAsync({type:'blob'}).then(function(blob){
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement('a');
+      a.href = url; a.download = 'converted-images.zip';
+      document.body.appendChild(a); a.click();
+      setTimeout(function(){ a.remove(); URL.revokeObjectURL(url); }, 200);
+    });
+  });
+
+  var toggle = document.querySelector('.nav-toggle');
+  if(toggle){
+    toggle.addEventListener('click', function(){
+      var links = document.querySelector('.nav-links');
+      var open = links.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open);
+    });
+  }
+  render();
 })();
 </script>
 </body>

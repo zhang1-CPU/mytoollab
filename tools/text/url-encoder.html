@@ -3,13 +3,12 @@
 <head>
  <meta charset="UTF-8" />
  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
- <title>URL Encode/Decode – Free Online Percent Encoder | zlbox</title>
- <meta name="description" content="Free online URL encoder/decoder. Convert text to percent-encoded format or decode URL-encoded strings back to readable text." />
+ <title>URL Encode/Decode – Percent Encoder | zlbox</title>
+ <meta name="description" content="Free online URL encoder and decoder. Convert text to percent-encoded format or decode URL-encoded strings back to readable text — side by side, in real time." />
  <link rel="canonical" href="https://www.zlbox.site/tools/text/url-encoder.html" />
  <meta name="google-site-verification" content="google4bd1e08685667667" />
  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
 <script>
-/* Navigation toggle for mobile */
 (function() {
   var toggle = document.querySelector('.nav-toggle');
   var navLinks = document.querySelector('.nav-links');
@@ -18,7 +17,6 @@
     var isOpen = navLinks.classList.toggle('open');
     toggle.setAttribute('aria-expanded', isOpen);
   });
-  // Highlight active link
   var path = location.pathname;
   document.querySelectorAll('.nav-link').forEach(function(link) {
     var href = link.getAttribute('href');
@@ -31,179 +29,54 @@
  <link rel="stylesheet" href="../../css/components.css" />
 
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <meta property="og:title" content="URL Encode/Decode – Free Online Percent Encoder | zlbox" />
+  <meta property="og:title" content="URL Encode/Decode – Percent Encoder | zlbox" />
   <meta property="og:description" content="Free online URL encoder/decoder. Convert text to percent-encoded format or decode URL-encoded strings back to readable text." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.zlbox.site/tools/text/url-encoder.html" />
   <meta property="og:site_name" content="zlbox" />
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "URL Encode/Decode – Free Online Percent Encoder", "description": "Free online URL encoder/decoder. Convert text to percent-encoded format or decode URL-encoded strings back to readable text.", "url": "https://www.zlbox.site/tools/text/url-encoder.html", "applicationCategory": "Text Tool", "operatingSystem": "Any (browser-based)", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "browserRequirements": "Requires a modern web browser with JavaScript enabled."}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"URL Encode/Decode","description":"Free online URL encoder and decoder. Convert text to percent-encoded format or decode URL-encoded strings back to readable text.","url":"https://www.zlbox.site/tools/text/url-encoder.html","applicationCategory":"Text Tool","operatingSystem":"Any (browser-based)","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"browserRequirements":"Requires a modern web browser with JavaScript enabled."}</script>
 
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.zlbox.site/"}, {"@type": "ListItem", "position": 2, "name": "Text Tools", "item": null}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.zlbox.site/"},{"@type":"ListItem","position":2,"name":"Text Tools","item":null}]}</script>
 
   <style>
-/* ── Site Navigation ── */
-.site-nav {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: rgba(255,255,255,.97);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--border);
-  box-shadow: 0 1px 4px rgba(0,0,0,.05);
-}
-.nav-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  height: 52px;
-}
-.nav-logo {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-weight: 700;
-  font-size: 1rem;
-  color: var(--brand);
-  text-decoration: none;
-  flex-shrink: 0;
-  margin-right: 12px;
-}
+.site-nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,.97); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); box-shadow: 0 1px 4px rgba(0,0,0,.05); }
+.nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; align-items: center; gap: 8px; height: 52px; }
+.nav-logo { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 1rem; color: var(--brand); text-decoration: none; flex-shrink: 0; margin-right: 12px; }
 .nav-logo:hover { text-decoration: none; }
-.nav-logo-icon {
-  width: 36px;
-  height: 36px;
-  background: var(--brand);
-  color: #fff;
-  border-radius: 6px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 900;
-  font-size: .9rem;
-  flex-shrink: 0;
-}
+.nav-logo-icon { width: 36px; height: 36px; background: var(--brand); color: #fff; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: .9rem; flex-shrink: 0; }
 .nav-logo-text { font-size: .95rem; }
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 2px;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-  flex: 1;
-}
+.nav-links { display: flex; align-items: center; gap: 2px; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none; flex: 1; }
 .nav-links::-webkit-scrollbar { display: none; }
-.nav-link {
-  display: inline-flex;
-  align-items: center;
-  padding: 5px 10px;
-  font-size: .82rem;
-  font-weight: 500;
-  color: var(--text);
-  border-radius: 6px;
-  white-space: nowrap;
-  transition: all .15s;
-  flex-shrink: 0;
-}
-.nav-link:hover {
-  background: var(--brand);
-  color: #fff;
-  text-decoration: none;
-}
-.nav-link.active {
-  background: #eff6ff;
-  color: var(--brand);
-}
-.nav-toggle {
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  gap: 4px;
-  width: 32px;
-  height: 32px;
-  padding: 4px;
-  background: none;
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  cursor: pointer;
-  flex-shrink: 0;
-  margin-left: auto;
-}
-.nav-toggle span {
-  display: block;
-  width: 100%;
-  height: 2px;
-  background: var(--text);
-  border-radius: 1px;
-}
+.nav-link { display: inline-flex; align-items: center; padding: 5px 10px; font-size: .82rem; font-weight: 500; color: var(--text); border-radius: 6px; white-space: nowrap; transition: all .15s; flex-shrink: 0; }
+.nav-link:hover { background: var(--brand); color: #fff; text-decoration: none; }
+.nav-link.active { background: #eff6ff; color: var(--brand); }
+.nav-toggle { display: none; flex-direction: column; justify-content: center; gap: 4px; width: 32px; height: 32px; padding: 4px; background: none; border: 1px solid var(--border); border-radius: 6px; cursor: pointer; flex-shrink: 0; margin-left: auto; }
+.nav-toggle span { display: block; width: 100%; height: 2px; background: var(--text); border-radius: 1px; }
 @media (max-width: 768px) {
   .nav-logo-text { display: none; }
   .nav-inner { gap: 6px; }
   .nav-toggle { display: flex; }
-  .nav-links {
-    display: none;
-    position: absolute;
-    top: 52px;
-    left: 0;
-    right: 0;
-    background: #fff;
-    border-bottom: 1px solid var(--border);
-    box-shadow: 0 4px 12px rgba(0,0,0,.1);
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 8px 0;
-    z-index: 99;
-    overflow: visible;
-  }
+  .nav-links { display: none; position: absolute; top: 52px; left: 0; right: 0; background: #fff; border-bottom: 1px solid var(--border); box-shadow: 0 4px 12px rgba(0,0,0,.1); flex-direction: column; align-items: flex-start; padding: 8px 0; z-index: 99; overflow: visible; }
   .nav-links.open { display: flex; }
-  .nav-link {
-    width: 100%;
-    padding: 10px 20px;
-    font-size: .9rem;
-    border-radius: 0;
-  }
+  .nav-link { width: 100%; padding: 10px 20px; font-size: .9rem; border-radius: 0; }
 }
+.panel-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 900px) { .panel-grid { grid-template-columns: 1fr; } }
+.panel { background: #fff; border: 1px solid var(--border); border-radius: 10px; padding: 14px; display: flex; flex-direction: column; }
+.panel h3 { margin: 0 0 10px; font-size: 14px; color: var(--text); }
+.panel .tag { display: inline-block; padding: 2px 8px; background: #fef3c7; color: #92400e; font-size: 11px; border-radius: 999px; font-weight: 600; margin-left: 6px; letter-spacing: 0.5px; }
+.error-box { background: #fef2f2; border: 1px solid #fecaca; color: #991b1b; padding: 10px 12px; border-radius: 8px; font-size: 13px; margin-top: 8px; }
   </style>
   <meta property="og:image" content="https://www.zlbox.site/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="URL Encode/Decode – Free Online Percent Encoder" />
+  <meta name="twitter:title" content="URL Encode/Decode – Percent Encoder" />
   <meta name="twitter:description" content="Free online URL encoder/decoder. Convert text to percent-encoded format or decode URL-encoded strings back to readable text." />
   <meta name="twitter:image" content="https://www.zlbox.site/og-image.png" />
 
-
   <meta name="robots" content="index, follow" />
-  <script type="application/ld+json">{
-  "@context": "https://schema.org",
-  "@type": "HowTo",
-  "name": "How to Use URL Encoder/Decoder",
-  "description": "Step by step guide: How to Use URL Encoder/Decoder",
-  "step": [
-    {
-      "@type": "HowToStep",
-      "name": "Enter URL or text",
-      "text": "Enter the URL or text string you want to encode or decode.",
-      "position": 1
-    },
-    {
-      "@type": "HowToStep",
-      "name": "Choose action",
-      "text": "Click 'Encode' for URL encoding or 'Decode' to reverse it.",
-      "position": 2
-    },
-    {
-      "@type": "HowToStep",
-      "name": "Copy result",
-      "text": "Click 'Copy' to copy the result to your clipboard.",
-      "position": 3
-    }
-  ]
-}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use URL Encode/Decode","description":"Step by step guide: How to Use URL Encode/Decode","step":[{"@type":"HowToStep","name":"Enter text","text":"Enter or paste the text you want to encode or the URL-encoded string you want to decode.","position":1},{"@type":"HowToStep","name":"Convert","text":"The output appears automatically as you type.","position":2},{"@type":"HowToStep","name":"Copy or download","text":"Copy the result to clipboard or download as a text file.","position":3}]}</script>
 </head>
 <body>
 
@@ -231,84 +104,89 @@
 <div class="container-md">
  <div class="hero">
  <div class="breadcrumb"><a href="../../index.html">Home</a> &rsaquo; <a href="../../categories/text.html">Text Tools</a> &rsaquo; URL Encode/Decode</div>
- <h1>URL Encode / Decode</h1>
- <p>Convert plain text to percent-encoded URL-safe format, or decode URL-encoded strings back to readable text.</p>
+ <h1>URL Encode &amp; Decode</h1>
+ <p>Convert plain text to percent-encoded URLs or decode URL-encoded strings back to readable text — side by side, in real time, entirely in your browser.</p>
  </div>
 
  <div class="card">
- <div class="tabs" style="display:flex;gap:8px;flex-wrap:wrap">
- <button class="btn btn--sm" id="tabEncode" style="background:var(--brand)">Encode</button>
- <button class="btn btn--sm btn--ghost" id="tabDecode">Decode</button>
- </div>
- <div class="editor">
- <textarea id="inputText" placeholder="Enter text to URL-encode…" spellcheck="false"></textarea>
- <div class="editor__toolbar">
- <button class="btn btn--sm btn--ghost" id="clearBtn">Clear</button>
- <div style="margin-left:auto"></div>
- <button class="btn btn--sm" id="runBtn">Process</button>
- </div>
- </div>
- <div class="editor">
- <textarea id="outputText" readonly placeholder="Result appears here…" spellcheck="false"></textarea>
- <div class="editor__toolbar">
- <span id="statusLabel">Ready</span>
- <div style="margin-left:auto"></div>
- <button class="btn btn--sm btn--ghost" id="copyBtn">Copy</button>
- </div>
- </div>
+  <div class="panel-grid">
+    <div class="panel">
+      <h3>Plain text &rarr; URL-encoded <span class="tag">encode</span></h3>
+      <textarea id="encInput" placeholder="Paste or type text to URL-encode…" spellcheck="false" style="min-height:220px;font-family:ui-monospace,Consolas,Menlo,monospace;font-size:13px;line-height:1.6;padding:12px;border:1px solid var(--border);border-radius:8px;resize:vertical"></textarea>
+      <div class="field" style="margin-top:10px;flex-direction:row;align-items:center;gap:10px">
+        <label style="font-size:12px;color:var(--muted)">Encoding mode:</label>
+        <select id="encMode" style="flex:1;padding:6px 10px;border:1px solid var(--border);border-radius:6px;font-size:13px;font-family:inherit;outline:none">
+          <option value="component">encodeURIComponent (for query parameters)</option>
+          <option value="uri">encodeURI (for full URLs)</option>
+        </select>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:10px">
+        <button class="btn btn--sm btn--ghost" id="encClearBtn">Clear</button>
+        <span style="margin-left:auto;font-size:12px;color:var(--muted)" id="encStats">0 chars</span>
+        <button class="btn btn--sm btn--ghost" id="encDownloadBtn">Download</button>
+        <button class="btn btn--sm" id="encCopyBtn">Copy</button>
+      </div>
+      <div id="encError"></div>
+    </div>
+
+    <div class="panel">
+      <h3>URL-encoded &rarr; Plain text <span class="tag">decode</span></h3>
+      <textarea id="decInput" placeholder="Paste a URL-encoded string to decode…" spellcheck="false" style="min-height:220px;font-family:ui-monospace,Consolas,Menlo,monospace;font-size:13px;line-height:1.6;padding:12px;border:1px solid var(--border);border-radius:8px;resize:vertical"></textarea>
+      <div class="field" style="margin-top:10px;flex-direction:row;align-items:center;gap:10px">
+        <label style="font-size:12px;color:var(--muted)">Decoding mode:</label>
+        <select id="decMode" style="flex:1;padding:6px 10px;border:1px solid var(--border);border-radius:6px;font-size:13px;font-family:inherit;outline:none">
+          <option value="component">decodeURIComponent</option>
+          <option value="uri">decodeURI</option>
+        </select>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:10px">
+        <button class="btn btn--sm btn--ghost" id="decClearBtn">Clear</button>
+        <span style="margin-left:auto;font-size:12px;color:var(--muted)" id="decStats">0 chars</span>
+        <button class="btn btn--sm btn--ghost" id="decDownloadBtn">Download</button>
+        <button class="btn btn--sm" id="decCopyBtn">Copy</button>
+      </div>
+      <div id="decError"></div>
+    </div>
+  </div>
  </div>
 
  <div class="section">
  <h2>How it works</h2>
  <ol class="steps">
- <li>Toggle between Encode and Decode modes.</li>
- <li>Paste your text or URL-encoded string into the input box.</li>
- <li>Click Process and copy the result.</li>
+ <li>Left panel: paste or type text to encode. The output updates in real time as a percent-encoded string, using encodeURIComponent by default (safe for query parameters). Select encodeURI for full URLs (keeps : / ? &amp; intact).</li>
+ <li>Right panel: paste a percent-encoded URL (or fragment) and it decodes instantly. Unusual byte sequences trigger a friendly error message.</li>
+ <li>Copy or download either output — everything runs locally in your browser.</li>
  </ol>
  </div>
 
  <section class="tool-info" aria-label="Tool information">
-  <h2>What is URL Encode / Decode?</h2>
-  <p>A URL encoder converts special characters into their percent-encoded equivalents for safe inclusion in URLs. For example, spaces become %20 and & becomes %26. All URLs must be properly encoded to work correctly.</p>
-
-  <h2>How to use</h2>
-  <ol class="steps-list">
-<li>Step 1: Paste or type a URL or text into the input.</li>
-<li>Step 2: Click 'Encode' to convert special characters to percent encoding.</li>
-<li>Step 3: Click 'Decode' to reverse the process.</li>
-<li>Step 4: Copy the encoded or decoded result.</li>
-  </ol>
+  <h2>What is URL encoding?</h2>
+  <p>URL encoding (also called percent-encoding) converts special characters outside the safe ASCII set into sequences like <code>%20</code> (space) and <code>%26</code> (ampersand). URLs can only contain letters, digits, and a small set of punctuation — everything else must be percent-encoded to be transmitted safely.</p>
 
   <h2>Use cases</h2>
   <ul class="usecase-list">
-<li>Encoding URL query parameters with special characters.</li>
-<li>Preparing search queries for URLs and API endpoints.</li>
-<li>Decoding URLs from browser address bars or server logs.</li>
-<li>Ensuring special characters display correctly in shared links.</li>
+<li>Encoding URL query parameters with spaces, Unicode, and punctuation.</li>
+<li>Decoding URLs from browser address bars and server logs.</li>
+<li>Debugging JWT tokens and OAuth parameters embedded in URLs.</li>
+<li>Preparing search queries or form data for API endpoints.</li>
   </ul>
 
   <h2>Frequently Asked Questions</h2>
   <div class="faq">
-<details class="faq-item">
-  <summary>Why do URLs need encoding?</summary>
-  <p>URLs can only contain a limited set of characters (A-Z, a-z, 0-9, -, _, ., ~). All other characters must be percent-encoded to avoid ambiguity and errors.</p>
-</details>
-<details class="faq-item">
-  <summary>What's the difference between encodeURI and encodeURIComponent?</summary>
-  <p>encodeURI encodes fewer characters (keeps :///?), while encodeURIComponent encodes everything non-alphanumeric. Use encodeURIComponent for query parameter values.</p>
-</details>
+<details class="faq-item"><summary>What's the difference between encodeURI and encodeURIComponent?</summary><p><code>encodeURIComponent</code> encodes everything that isn't a letter, digit, or <code>- _ . ~ ! ' ( ) *</code> — ideal for parameter values. <code>encodeURI</code> keeps URL-safe characters like <code>: / ? &amp; = #</code> intact and is used for full addresses.</p></details>
+<details class="faq-item"><summary>Why do spaces become + in some places?</summary><p>Inside <code>application/x-www-form-urlencoded</code> bodies (like HTML forms), spaces are traditionally encoded as <code>+</code> for historical reasons. The browser standard, however, encodes spaces as <code>%20</code> in URLs.</p></details>
+<details class="faq-item"><summary>Is my data sent to a server?</summary><p>No. All encoding and decoding happens in your browser using native JavaScript functions.</p></details>
   </div>
 </section>
 
-<script type="application/ld+json">
-{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Why do URLs need encoding?", "acceptedAnswer": {"@type": "Answer", "text": "URLs can only contain a limited set of characters (A-Z, a-z, 0-9, -, _, ., ~). All other characters must be percent-encoded to avoid ambiguity and errors."}}, {"@type": "Question", "name": "What's the difference between encodeURI and encodeURIComponent?", "acceptedAnswer": {"@type": "Answer", "text": "encodeURI encodes fewer characters (keeps :///?), while encodeURIComponent encodes everything non-alphanumeric. Use encodeURIComponent for query parameter values."}}]}
-</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What's the difference between encodeURI and encodeURIComponent?","acceptedAnswer":{"@type":"Answer","text":"encodeURIComponent encodes for parameter values; encodeURI keeps URL-safe characters for full addresses."}},{"@type":"Question","name":"Is my data sent to a server?","acceptedAnswer":{"@type":"Answer","text":"No. All encoding and decoding happens in your browser."}}]}</script>
  <div class="section">
  <h2>Related tools</h2>
  <div class="related-grid">
  <a href="base64.html">Base64 Encode/Decode</a>
  <a href="json-formatter.html">JSON Formatter</a>
  <a href="case-converter.html">Case Converter</a>
+ <a href="csv-to-json.html">CSV &harr; JSON</a>
  <a href="word-counter.html">Word Counter</a>
  </div>
  </div>
@@ -329,75 +207,110 @@
 
 <script>
 (function() {
- var mode = 'encode';
- var tabEncode = document.getElementById('tabEncode');
- var tabDecode = document.getElementById('tabDecode');
- var inputEl = document.getElementById('inputText');
- var outputEl = document.getElementById('outputText');
- var runBtn = document.getElementById('runBtn');
- var clearBtn = document.getElementById('clearBtn');
- var copyBtn = document.getElementById('copyBtn');
- var statusEl = document.getElementById('statusLabel');
+  'use strict';
 
- function setMode(m) {
- mode = m;
- if (m === 'encode') {
- tabEncode.style.background = 'var(--brand)';
- tabEncode.style.color = '#fff';
- tabDecode.style.background = '';
- tabDecode.style.color = '';
- inputEl.placeholder = 'Enter text to URL-encode…';
- } else {
- tabDecode.style.background = 'var(--brand)';
- tabDecode.style.color = '#fff';
- tabEncode.style.background = '';
- tabEncode.style.color = '';
- inputEl.placeholder = 'Enter URL-encoded text to decode…';
- }
- }
+  function $(id) { return document.getElementById(id); }
 
- function setStatus(msg, ok) {
- statusEl.textContent = msg;
- statusEl.style.color = ok ? '#047857' : (ok === false ? '#b91c1c' : 'var(--muted)');
- }
+  function showError(el, msg) {
+    if (!msg) { el.innerHTML = ''; return; }
+    el.innerHTML = '<div class="error-box">' + msg + '</div>';
+  }
 
- tabEncode.addEventListener('click', function() { setMode('encode'); });
- tabDecode.addEventListener('click', function() { setMode('decode'); });
+  // --- ENCODE ---
+  var encInput = $('encInput');
+  var encMode = $('encMode');
+  var encStats = $('encStats');
+  var encError = $('encError');
+  var lastEnc = '';
 
- function run() {
- var v = inputEl.value;
- if (!v) { outputEl.value = ''; setStatus('Ready'); return; }
- try {
- if (mode === 'encode') {
- outputEl.value = encodeURIComponent(v).replace(/!/g, '%21').replace(/'/g, '%27').replace(/\(/g, '%28').replace(/\)/g, '%29').replace(/\*/g, '%2A');
- setStatus('Encoded successfully', true);
- } else {
- outputEl.value = decodeURIComponent(v);
- setStatus('Decoded successfully', true);
- }
- } catch (e) {
- outputEl.value = '';
- setStatus('Error: invalid percent-encoding', false);
- }
- }
+  function updateEncode() {
+    var txt = encInput.value;
+    showError(encError, null);
+    try {
+      var encoded;
+      if (encMode.value === 'uri') encoded = encodeURI(txt);
+      else encoded = encodeURIComponent(txt);
+      lastEnc = encoded;
+      encStats.textContent = 'Input: ' + txt.length + ' chars &rarr; ' + encoded.length + ' chars';
+    } catch (e) {
+      lastEnc = '';
+      showError(encError, 'Encoding failed: ' + e.message);
+      encStats.textContent = '0 chars';
+    }
+  }
+  encInput.addEventListener('input', updateEncode);
+  encMode.addEventListener('change', updateEncode);
+  $('encClearBtn').addEventListener('click', function() {
+    encInput.value = ''; updateEncode();
+  });
+  $('encCopyBtn').addEventListener('click', function() {
+    if (!lastEnc) return;
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(lastEnc).then(function() { encStats.textContent = 'Copied'; });
+    } else {
+      var ta = document.createElement('textarea'); ta.value = lastEnc; document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy'); encStats.textContent = 'Copied'; } catch(e) {}
+      document.body.removeChild(ta);
+    }
+  });
+  $('encDownloadBtn').addEventListener('click', function() {
+    if (!lastEnc) return;
+    var blob = new Blob([lastEnc], { type: 'text/plain;charset=utf-8' });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a'); a.href = url; a.download = 'url-encoded.txt';
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    setTimeout(function() { URL.revokeObjectURL(url); }, 1000);
+  });
 
- runBtn.addEventListener('click', run);
- clearBtn.addEventListener('click', function() {
- inputEl.value = ''; outputEl.value = ''; setStatus('Ready'); inputEl.focus();
- });
- copyBtn.addEventListener('click', function() {
- if (!outputEl.value) return;
- if (navigator.clipboard) {
- navigator.clipboard.writeText(outputEl.value).then(function() {
- copyBtn.textContent = 'Copied!';
- setTimeout(function() { copyBtn.textContent = 'Copy'; }, 1200);
- });
- } else {
- outputEl.select(); document.execCommand('copy');
- copyBtn.textContent = 'Copied!';
- setTimeout(function() { copyBtn.textContent = 'Copy'; }, 1200);
- }
- });
+  // --- DECODE ---
+  var decInput = $('decInput');
+  var decMode = $('decMode');
+  var decStats = $('decStats');
+  var decError = $('decError');
+  var lastDec = '';
+
+  function updateDecode() {
+    var txt = decInput.value;
+    showError(decError, null);
+    if (!txt.trim()) { lastDec = ''; decStats.textContent = '0 chars'; return; }
+    try {
+      var decoded;
+      if (decMode.value === 'uri') decoded = decodeURI(txt);
+      else decoded = decodeURIComponent(txt);
+      lastDec = decoded;
+      decStats.textContent = 'Input: ' + txt.length + ' chars &rarr; ' + decoded.length + ' chars';
+    } catch (e) {
+      lastDec = '';
+      showError(decError, 'Invalid percent-encoding. Check for stray % characters without valid hex escapes.');
+      decStats.textContent = '0 chars';
+    }
+  }
+  decInput.addEventListener('input', updateDecode);
+  decMode.addEventListener('change', updateDecode);
+  $('decClearBtn').addEventListener('click', function() {
+    decInput.value = ''; updateDecode();
+  });
+  $('decCopyBtn').addEventListener('click', function() {
+    if (!lastDec) return;
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(lastDec).then(function() { decStats.textContent = 'Copied'; });
+    } else {
+      var ta = document.createElement('textarea'); ta.value = lastDec; document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy'); decStats.textContent = 'Copied'; } catch(e) {}
+      document.body.removeChild(ta);
+    }
+  });
+  $('decDownloadBtn').addEventListener('click', function() {
+    if (!lastDec) return;
+    var blob = new Blob([lastDec], { type: 'text/plain;charset=utf-8' });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a'); a.href = url; a.download = 'url-decoded.txt';
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    setTimeout(function() { URL.revokeObjectURL(url); }, 1000);
+  });
+
+  updateEncode();
+  updateDecode();
 })();
 </script>
 </body>

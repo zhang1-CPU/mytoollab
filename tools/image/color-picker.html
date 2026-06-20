@@ -1,218 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <meta charset="UTF-8" />
- <meta name="viewport" content="width=device-width, initial-scale=1.0" />
- <title>Color Picker – HEX to RGB to HSL Color Converter | zlbox</title>
- <meta name="description" content="Free online color picker and converter. Select colors visually and convert between HEX, RGB, RGBA, HSL, HSLA color formats. Copy codes instantly." />
- <link rel="canonical" href="https://www.zlbox.site/tools/image/color-picker.html" />
- <meta name="google-site-verification" content="google4bd1e08685667667" />
- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
-<script>
-/* Navigation toggle for mobile */
-(function() {
-  var toggle = document.querySelector('.nav-toggle');
-  var navLinks = document.querySelector('.nav-links');
-  if (!toggle || !navLinks) return;
-  toggle.addEventListener('click', function() {
-    var isOpen = navLinks.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', isOpen);
-  });
-  // Highlight active link
-  var path = location.pathname;
-  document.querySelectorAll('.nav-link').forEach(function(link) {
-    var href = link.getAttribute('href');
-    if (href && (path === href || path.indexOf(href.replace('/index.html','')) > -1)) {
-      link.classList.add('active');
-    }
-  });
-})();
-</script>
- <link rel="stylesheet" href="../../css/components.css" />
- <style>
- .swatch{width:100%;height:140px;border-radius:10px;background:#2563eb;border:1px solid var(--border);transition:background-color .15s;}
- input[type=color]{width:100%;height:48px;border:1px solid var(--border);border-radius:8px;cursor:pointer;padding:4px;background:#fff;}
- .hex-row{display:flex;gap:8px;align-items:center;}
- .hex-row input{flex:1;padding:10px 12px;border:1px solid var(--border);border-radius:8px;font-family:ui-monospace,Consolas,monospace;font-size:1rem;text-transform:uppercase;background:#fff;color:var(--text);outline:none;}
- .hex-row input:focus{border-color:var(--brand);}
- .fmt-row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 12px;background:var(--bg);border:1px solid var(--border);border-radius:8px;margin-bottom:8px;}
- .fmt-label{font-size:.85rem;font-weight:700;color:var(--muted);min-width:60px;}
- .fmt-value{font-family:ui-monospace,Consolas,monospace;font-size:.9rem;color:var(--text);flex:1;overflow-x:auto;white-space:nowrap;margin:0 10px;}
- .copied{background:#16a34a !important;}
- 
-/* ── Site Navigation ── */
-.site-nav {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: rgba(255,255,255,.97);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--border);
-  box-shadow: 0 1px 4px rgba(0,0,0,.05);
-}
-.nav-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  height: 52px;
-}
-.nav-logo {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-weight: 700;
-  font-size: 1rem;
-  color: var(--brand);
-  text-decoration: none;
-  flex-shrink: 0;
-  margin-right: 12px;
-}
-.nav-logo:hover { text-decoration: none; }
-.nav-logo-icon {
-  width: 36px;
-  height: 36px;
-  background: var(--brand);
-  color: #fff;
-  border-radius: 6px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 900;
-  font-size: .9rem;
-  flex-shrink: 0;
-}
-.nav-logo-text { font-size: .95rem; }
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 2px;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-  flex: 1;
-}
-.nav-links::-webkit-scrollbar { display: none; }
-.nav-link {
-  display: inline-flex;
-  align-items: center;
-  padding: 5px 10px;
-  font-size: .82rem;
-  font-weight: 500;
-  color: var(--text);
-  border-radius: 6px;
-  white-space: nowrap;
-  transition: all .15s;
-  flex-shrink: 0;
-}
-.nav-link:hover {
-  background: var(--brand);
-  color: #fff;
-  text-decoration: none;
-}
-.nav-link.active {
-  background: #eff6ff;
-  color: var(--brand);
-}
-.nav-toggle {
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  gap: 4px;
-  width: 32px;
-  height: 32px;
-  padding: 4px;
-  background: none;
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  cursor: pointer;
-  flex-shrink: 0;
-  margin-left: auto;
-}
-.nav-toggle span {
-  display: block;
-  width: 100%;
-  height: 2px;
-  background: var(--text);
-  border-radius: 1px;
-}
-@media (max-width: 768px) {
-  .nav-logo-text { display: none; }
-  .nav-inner { gap: 6px; }
-  .nav-toggle { display: flex; }
-  .nav-links {
-    display: none;
-    position: absolute;
-    top: 52px;
-    left: 0;
-    right: 0;
-    background: #fff;
-    border-bottom: 1px solid var(--border);
-    box-shadow: 0 4px 12px rgba(0,0,0,.1);
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 8px 0;
-    z-index: 99;
-    overflow: visible;
-  }
-  .nav-links.open { display: flex; }
-  .nav-link {
-    width: 100%;
-    padding: 10px 20px;
-    font-size: .9rem;
-    border-radius: 0;
-  }
-}
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Color Picker – Extract Colors From Images (HEX, RGB, HSL) | zlbox</title>
+  <meta name="description" content="Free online color picker. Pick colors from any image with an eyedropper, browse a palette of common web colors, and copy HEX / RGB / HSL instantly." />
+  <link rel="stylesheet" href="../../css/components.css" />
+  <link rel="canonical" href="https://www.zlbox.site/tools/image/color-picker.html" />
+  <meta name="google-site-verification" content="google4bd1e0868567667667667667" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
 
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <meta property="og:title" content="Color Picker – HEX to RGB to HSL Color Converter | zlbox" />
-  <meta property="og:description" content="Free online color picker and converter. Select colors visually and convert between HEX, RGB, RGBA, HSL, HSLA color formats. Copy codes instantly." />
+  <meta property="og:title" content="Color Picker – Extract Colors From Images (HEX, RGB, HSL)" />
+  <meta property="og:description" content="Free color picker with image eyedropper, web-safe palette, and HEX/RGB/HSL with one-click copy." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.zlbox.site/tools/image/color-picker.html" />
   <meta property="og:site_name" content="zlbox" />
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Color Picker – HEX to RGB to HSL Color Converter", "description": "Free online color picker and converter. Select colors visually and convert between HEX, RGB, RGBA, HSL, HSLA color formats. Copy codes instantly.", "url": "https://www.zlbox.site/tools/image/color-picker.html", "applicationCategory": "Image Tool", "operatingSystem": "Any (browser-based)", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "browserRequirements": "Requires a modern web browser with JavaScript enabled."}</script>
-
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.zlbox.site/"}, {"@type": "ListItem", "position": 2, "name": "Image Tools", "item": null}]}</script>
   <meta property="og:image" content="https://www.zlbox.site/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Color Picker – HEX to RGB to HSL Color Converter" />
-  <meta name="twitter:description" content="Free online color picker and converter. Select colors visually and convert between HEX, RGB, RGBA, HSL, HSLA color formats. Copy codes instantly." />
+  <meta name="twitter:title" content="Color Picker – Extract Colors From Images (HEX, RGB, HSL)" />
+  <meta name="twitter:description" content="Free color picker with image eyedropper, web-safe palette, and HEX/RGB/HSL with one-click copy." />
   <meta name="twitter:image" content="https://www.zlbox.site/og-image.png" />
 
-
   <meta name="robots" content="index, follow" />
-  <script type="application/ld+json">{
-  "@context": "https://schema.org",
-  "@type": "HowTo",
-  "name": "How to Use Color Picker",
-  "description": "Step by step guide: How to Use Color Picker",
-  "step": [
-    {
-      "@type": "HowToStep",
-      "name": "Pick a color",
-      "text": "Click anywhere on the color wheel or enter color values.",
-      "position": 1
-    },
-    {
-      "@type": "HowToStep",
-      "name": "View color codes",
-      "text": "See HEX, RGB, HSL, and other color format values.",
-      "position": 2
-    },
-    {
-      "@type": "HowToStep",
-      "name": "Copy color code",
-      "text": "Click any color code to copy it to your clipboard.",
-      "position": 3
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Color Picker – Extract Colors From Images",
+    "description": "Free online color picker with image eyedropper, web-safe palette, and one-click copy of HEX / RGB / HSL values.",
+    "url": "https://www.zlbox.site/tools/image/color-picker.html",
+    "applicationCategory": "Image Tool",
+    "operatingSystem": "Any (browser-based)",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to Pick Colors from Images",
+    "step": [
+      { "@type": "HowToStep", "name": "Upload image", "text": "Drop or upload an image onto the canvas.", "position": 1 },
+      { "@type": "HowToStep", "name": "Pick color", "text": "Click anywhere on the image or hover + select to grab a pixel color.", "position": 2 },
+      { "@type": "HowToStep", "name": "Copy format", "text": "Copy the resulting color as HEX, RGB, or HSL.", "position": 3 }
+    ]
+  }
+  </script>
+
+  <style>
+    .site-nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,.97); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); box-shadow: 0 1px 4px rgba(0,0,0,.05); }
+    .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; align-items: center; gap: 8px; height: 52px; }
+    .nav-logo { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 1rem; color: var(--brand); text-decoration: none; flex-shrink: 0; margin-right: 12px; }
+    .nav-logo:hover { text-decoration: none; }
+    .nav-logo-icon { width: 36px; height: 36px; background: var(--brand); color: #fff; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: .9rem; flex-shrink: 0; }
+    .nav-logo-text { font-size: .95rem; }
+    .nav-links { display: flex; align-items: center; gap: 2px; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none; flex: 1; }
+    .nav-links::-webkit-scrollbar { display: none; }
+    .nav-link { display: inline-flex; align-items: center; padding: 5px 10px; font-size: .82rem; font-weight: 500; color: var(--text); border-radius: 6px; white-space: nowrap; transition: all .15s; flex-shrink: 0; text-decoration: none; }
+    .nav-link:hover { background: var(--brand); color: #fff; text-decoration: none; }
+    .nav-link.active { background: var(--brand-light); color: var(--brand); }
+    .nav-toggle { display: none; flex-direction: column; justify-content: center; gap: 4px; width: 32px; height: 32px; padding: 4px; background: none; border: 1px solid var(--border); border-radius: 6px; cursor: pointer; flex-shrink: 0; margin-left: auto; }
+    .nav-toggle span { display: block; width: 100%; height: 2px; background: var(--text); border-radius: 1px; }
+    @media (max-width: 768px) { .nav-logo-text { display: none; } .nav-inner { gap: 6px; } .nav-toggle { display: flex; } .nav-links { display: none; position: absolute; top: 52px; left: 0; right: 0; background: #fff; border-bottom: 1px solid var(--border); box-shadow: 0 4px 12px rgba(0,0,0,.1); flex-direction: column; align-items: flex-start; padding: 8px 0; z-index: 99; overflow: visible; } .nav-links.open { display: flex; } .nav-link { width: 100%; padding: 10px 20px; font-size: .9rem; border-radius: 0; } }
+
+    .drop-zone { border: 2px dashed var(--border); border-radius: 10px; padding: 22px 14px; text-align: center; cursor: pointer; background: var(--bg); transition: border-color .15s, background .15s; margin-bottom: 10px; }
+    .drop-zone.drag-over { border-color: var(--brand); background: var(--brand-light); }
+
+    .canvas-wrap {
+      background: repeating-conic-gradient(#f1f5f9 0 25%, #fff 0 50%) 50%/20px 20px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px;
+      text-align: center;
+      margin-top: 10px;
+      display: none;
     }
-  ]
-}</script>
+    .canvas-wrap.is-visible { display: block; }
+    #canvas { max-width: 100%; max-height: 520px; display: inline-block; cursor: crosshair; border-radius: 6px; background: #fff; }
+
+    .color-block {
+      width: 100%;
+      aspect-ratio: 5/1;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      margin-bottom: 10px;
+      box-shadow: var(--shadow-sm);
+      transition: background-color .15s;
+    }
+
+    .value-row { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 8px 10px; border: 1px solid var(--border); border-radius: 8px; background: var(--surface); }
+    .value-row .label { font-family: ui-monospace, Consolas, monospace; font-size: .9rem; flex: 1; word-break: break-all; color: var(--text); }
+    .format-tag { display: inline-block; font-size: .72rem; font-weight: 700; letter-spacing: .06em; color: var(--brand); margin-right: 8px; text-transform: uppercase; }
+
+    .palette-section { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 8px; margin-top: 10px; }
+    .palette-item {
+      cursor: pointer;
+      padding: 10px 10px 12px;
+      border-radius: 10px;
+      text-align: center;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      transition: transform .12s, border-color .12s, box-shadow .12s;
+    }
+    .palette-item:hover { transform: translateY(-1px); border-color: var(--brand); box-shadow: var(--shadow-sm); }
+    .palette-swatch { height: 48px; border-radius: 6px; margin-bottom: 8px; border: 1px solid rgba(0,0,0,.05); }
+    .palette-item small { font-family: ui-monospace, Consolas, monospace; font-size: .82rem; color: var(--text); display: block; }
+    .palette-item small.palette-name { color: var(--muted); font-size: .74rem; margin-top: 2px; font-family: inherit; }
+
+    .saved-list { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; min-height: 30px; }
+    .saved-chip { display: inline-flex; align-items: center; gap: 6px; padding: 6px 8px 6px 6px; border-radius: 999px; background: var(--surface); border: 1px solid var(--border); font-family: ui-monospace, Consolas, monospace; font-size: .82rem; cursor: pointer; transition: border-color .12s; }
+    .saved-chip:hover { border-color: var(--brand); }
+    .saved-swatch { width: 22px; height: 22px; border-radius: 999px; border: 1px solid rgba(0,0,0,.08); }
+    .saved-del { background: none; border: none; color: var(--muted); font-size: .9rem; cursor: pointer; padding: 0 2px; line-height: 1; }
+    .saved-del:hover { color: var(--danger); }
+
+    .status-line { color: var(--muted); font-size: .88rem; margin-top: 6px; }
+    .actions-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+  </style>
 </head>
 <body>
 
@@ -230,124 +139,459 @@
         <a href="/categories/text.html" class="nav-link" role="listitem">Text</a>
         <a href="/categories/calculator.html" class="nav-link" role="listitem">Calculator</a>
         <a href="/categories/generator.html" class="nav-link" role="listitem">Generator</a>
-        <a href="/categories/image.html" class="nav-link" role="listitem">Image</a>
+        <a href="/categories/image.html" class="nav-link active" role="listitem">Image</a>
         <a href="/categories/pdf.html" class="nav-link" role="listitem">PDF</a>
         <a href="/blog/index.html" class="nav-link" role="listitem">Blog</a>
       </div>
     </div>
   </nav>
 
-<div class="container-md">
- <div class="hero">
- <div class="breadcrumb"><a href="../../index.html">Home</a> &rsaquo; <a href="../../categories/image.html">Image Tools</a> &rsaquo; Color Picker</div>
- <h1>Color Picker</h1>
- <p>Pick a color or paste a HEX value — instantly convert between HEX, RGB, and HSL. Every value is one-click copyable.</p>
- </div>
+  <div class="container-md">
+    <div class="hero">
+      <div class="breadcrumb"><a href="../../index.html">Home</a> &rsaquo; <a href="../../categories/image.html">Image Tools</a> &rsaquo; Color Picker</div>
+      <h1>Color Picker</h1>
+      <p>Pick colors from any image with an eyedropper, browse a ready palette of web colors, and get instant HEX, RGB, and HSL values with one-click copy. Press Esc to clear your selection.</p>
+    </div>
 
- <div class="card">
- <div class="swatch" id="swatch"></div>
- <div class="row">
- <input type="color" id="color" value="#2563eb" />
- </div>
- <div class="hex-row">
- <input type="text" id="hexIn" value="#2563EB" />
- <button class="btn" data-copy="hex" style="white-space:nowrap">Copy</button>
- </div>
- <div>
- <div class="fmt-row"><span class="fmt-label">HEX</span><span class="fmt-value" id="vHex">#2563EB</span><button class="btn btn--sm btn--ghost" data-copy="hex">Copy</button></div>
- <div class="fmt-row"><span class="fmt-label">RGB</span><span class="fmt-value" id="vRgb">rgb(37, 99, 235)</span><button class="btn btn--sm btn--ghost" data-copy="rgb">Copy</button></div>
- <div class="fmt-row"><span class="fmt-label">RGBA</span><span class="fmt-value" id="vRgba">rgba(37, 99, 235, 1)</span><button class="btn btn--sm btn--ghost" data-copy="rgba">Copy</button></div>
- <div class="fmt-row"><span class="fmt-label">HSL</span><span class="fmt-value" id="vHsl">hsl(221, 83%, 53%)</span><button class="btn btn--sm btn--ghost" data-copy="hsl">Copy</button></div>
- <div class="fmt-row"><span class="fmt-label">HSLA</span><span class="fmt-value" id="vHsla">hsla(221, 83%, 53%, 1)</span><button class="btn btn--sm btn--ghost" data-copy="hsla">Copy</button></div>
- </div>
- </div>
+    <div class="card">
+      <div class="drop-zone" id="drop-zone" data-dropzone="#file-input">
+        <div style="font-size:1.8rem;margin-bottom:4px">&#127912;</div>
+        <div><strong>Drop image here, or click to browse</strong></div>
+        <div style="font-size:.88rem;color:var(--muted);margin-top:4px">PNG, JPG, WebP — single file. Your image is processed locally.</div>
+        <div style="margin-top:10px"><label class="btn" for="file-input">Choose Image</label></div>
+        <input type="file" id="file-input" accept="image/*" style="display:none" />
+      </div>
 
- <div class="section">
- <h2>How it works</h2>
- <ol class="steps">
- <li>Click the color picker above or type a HEX value into the input.</li>
- <li>All conversions (RGB, RGBA, HSL, HSLA) update automatically.</li>
- <li>Click "Copy" next to any format to copy to clipboard.</li>
- </ol>
- </div>
+      <div class="canvas-wrap" id="canvas-wrap">
+        <canvas id="canvas"></canvas>
+        <div class="status-line" id="canvas-status">Click on the image to pick a pixel color.</div>
+      </div>
 
- <section class="tool-info" aria-label="Tool information">
-  <h2>What is Color Picker?</h2>
-  <p>A color picker lets you select any color visually from a spectrum or by entering values. It provides HEX, RGB, HSL, and other formats instantly, making it a designer's essential everyday tool.</p>
+      <div class="field-grid" style="margin-top:12px">
+        <div class="field">
+          <label>Selected color</label>
+          <div class="color-block" id="color-block" style="background:#2563eb"></div>
+          <div class="status-line" id="hex-preview" style="text-align:center;font-family:ui-monospace,Consolas,monospace;font-size:.85rem">#2563EB</div>
+        </div>
+        <div class="field">
+          <label for="manual">Quick color input</label>
+          <input type="color" id="manual" value="#2563eb" style="width:100%;height:52px;padding:4px;border:1px solid var(--border);border-radius:8px;cursor:pointer;background:#fff" />
+          <div class="status-line" style="font-size:.78rem">Choose any color directly, or paste a HEX in the Converter.</div>
+        </div>
+      </div>
 
-  <h2>How to use</h2>
-  <ol class="steps-list">
-<li>Step 1: Click or drag anywhere on the color spectrum to pick a hue.</li>
-<li>Step 2: Adjust saturation and lightness/brightness using the sliders.</li>
-<li>Step 3: Copy any color format with one click.</li>
-<li>Step 4: Use the eyedropper tool to pick a color from anywhere on screen (if supported).</li>
-  </ol>
+      <div class="field-grid">
+        <div class="field">
+          <label>HEX</label>
+          <div class="value-row">
+            <span class="label" id="hex-val"><span class="format-tag">HEX</span>#2563EB</span>
+            <button class="btn btn--sm" data-copy="hex">Copy</button>
+          </div>
+        </div>
+        <div class="field">
+          <label>RGB</label>
+          <div class="value-row">
+            <span class="label" id="rgb-val"><span class="format-tag">RGB</span>rgb(37, 99, 235)</span>
+            <button class="btn btn--sm" data-copy="rgb">Copy</button>
+          </div>
+        </div>
+        <div class="field">
+          <label>HSL</label>
+          <div class="value-row">
+            <span class="label" id="hsl-val"><span class="format-tag">HSL</span>hsl(217, 91%, 60%)</span>
+            <button class="btn btn--sm" data-copy="hsl">Copy</button>
+          </div>
+        </div>
+        <div class="field">
+          <label>Saved colors</label>
+          <div class="value-row" style="flex-direction:column;align-items:stretch;padding:8px">
+            <div class="saved-list" id="saved-list"><span style="color:var(--muted);font-size:.82rem;font-family:ui-monospace,Consolas,monospace">Pick a pixel from the image or palette to save a color here.</span></div>
+            <div class="actions-row">
+              <button class="btn btn--sm" id="save-current">Save current</button>
+              <button class="btn btn--sm btn--ghost" id="clear-saved">Clear saved</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-  <h2>Use cases</h2>
-  <ul class="usecase-list">
-<li>Selecting colors for web design and CSS development.</li>
-<li>Matching existing brand or design colors.</li>
-<li>Creating color palettes for UI/UX projects.</li>
-<li>Testing color accessibility and contrast ratios.</li>
-  </ul>
+    <div class="card">
+      <h3 style="margin-top:0">Palette — common web colors</h3>
+      <div class="status-line" style="font-size:.82rem">Click a swatch to select the color. Click a second time on its saved chip to remove it.</div>
+      <div id="palette" class="palette-section"></div>
+    </div>
 
-  <h2>Frequently Asked Questions</h2>
-  <div class="faq">
-<details class="faq-item">
-  <summary>Does the eyedropper work on any website?</summary>
-  <p>The built-in eyedropper uses the browser's native API and may not be supported in all browsers. Try Chrome for the best compatibility.</p>
-</details>
-<details class="faq-item">
-  <summary>How do I get complementary or analogous colors?</summary>
-  <p>Use the HSL sliders. Complementary colors are 180° apart in hue. Analogous colors are within 30° of each other.</p>
-</details>
+    <div class="section">
+      <h2>How it works</h2>
+      <ol class="steps">
+        <li>Upload an image (JPG, PNG, or WebP). Your image is processed locally in your browser — nothing is uploaded.</li>
+        <li>Move the cursor over the canvas to preview the pixel color under the eyedropper.</li>
+        <li>Click anywhere on the image to lock that color as the selected color. Or pick from the web palette below.</li>
+        <li>Copy the HEX, RGB, or HSL value with a single click. Press Esc to clear the current selection.</li>
+      </ol>
+    </div>
+
+    <section class="tool-info" aria-label="Tool information">
+      <h2>What is a Color Picker?</h2>
+      <p>A color picker lets you sample a pixel from any image to extract its color, then produce ready-to-use values in HEX, RGB, and HSL — formats used in CSS, design tools, and image editors.</p>
+
+      <h2>Use cases</h2>
+      <ul class="usecase-list">
+        <li>Matching brand colors from logos and screenshots.</li>
+        <li>Selecting accent colors for websites and UI design.</li>
+        <li>Building palettes for illustrations and presentations.</li>
+        <li>Writing CSS with ready-to-paste HEX, RGB, or HSL values.</li>
+      </ul>
+
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq">
+        <details class="faq-item">
+          <summary>Is my image uploaded somewhere?</summary>
+          <p>No. The image is drawn onto a local canvas in your browser and never leaves your device.</p>
+        </details>
+        <details class="faq-item">
+          <summary>What color formats are supported?</summary>
+          <p>HEX (hexadecimal), RGB (red-green-blue), and HSL (hue-saturation-lightness). The companion Color Converter also supports CMYK.</p>
+        </details>
+        <details class="faq-item">
+          <summary>How do I clear the current selection?</summary>
+          <p>Press the Escape key (Esc) anywhere on the page to clear the currently selected color and revert to the default.</p>
+        </details>
+      </div>
+    </section>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "Is my image uploaded somewhere?", "acceptedAnswer": { "@type": "Answer", "text": "No. The image is drawn onto a local canvas in your browser." } },
+        { "@type": "Question", "name": "What color formats are supported?", "acceptedAnswer": { "@type": "Answer", "text": "HEX, RGB, and HSL." } }
+      ]
+    }
+    </script>
+
+    <div class="section">
+      <h2>Related tools</h2>
+      <div class="related-grid">
+        <a href="color-converter.html">Color Converter</a>
+        <a href="image-resizer.html">Image Resizer</a>
+        <a href="image-compressor.html">Image Compressor</a>
+        <a href="../calculator/percentage-calculator.html">Percentage Calculator</a>
+        <a href="../pdf/jpg-to-pdf.html">JPG to PDF</a>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="footer-links">
+        <a href="color-converter.html">Color Converter</a>
+        <a href="image-resizer.html">Image Resizer</a>
+        <span style="color:var(--border);margin:0 6px">|</span>
+        <a href="../../about.html">About</a>
+        <a href="../../privacy.html">Privacy</a>
+        <a href="../../disclaimer.html">Disclaimer</a>
+      </div>
+      <p class="footer-copy">&copy; 2026 zlbox. All rights reserved.</p>
+    </footer>
   </div>
-</section>
-
-<script type="application/ld+json">
-{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Does the eyedropper work on any website?", "acceptedAnswer": {"@type": "Answer", "text": "The built-in eyedropper uses the browser's native API and may not be supported in all browsers. Try Chrome for the best compatibility."}}, {"@type": "Question", "name": "How do I get complementary or analogous colors?", "acceptedAnswer": {"@type": "Answer", "text": "Use the HSL sliders. Complementary colors are 180° apart in hue. Analogous colors are within 30° of each other."}}]}
-</script>
- <div class="section">
- <h2>Related tools</h2>
- <div class="related-grid">
- <a href="color-converter.html">Color Converter</a>
- <a href="image-compressor.html">Image Compressor</a>
- <a href="image-resizer.html">Image Resizer</a>
- <a href="background-remover.html">Background Remover</a>
- </div>
- </div>
-
- <footer class="footer">
- <div class="footer-links">
- <a href="color-converter.html">Color Converter</a>
- <a href="image-compressor.html">Image Compressor</a>
- <span style="color:var(--border);margin:0 6px;">|</span>
- <a href="../../about.html">About</a>
- <a href="../../privacy.html">Privacy</a>
- <a href="../../disclaimer.html">Disclaimer</a>
- </div>
- <p class="footer-copy">&copy; 2026 zlbox. All rights reserved.</p>
- </footer>
-</div>
 
 <script>
-(function(){
- var color=document.getElementById('color');
- var hexIn=document.getElementById('hexIn');
- var swatch=document.getElementById('swatch');
- var vHex=document.getElementById('vHex');
- var vRgb=document.getElementById('vRgb');
- var vRgba=document.getElementById('vRgba');
- var vHsl=document.getElementById('vHsl');
- var vHsla=document.getElementById('vHsla');
- function hexToRgb(hex){hex=hex.replace('#','').trim();if(hex.length===3)hex=hex.split('').map(function(c){return c+c;}).join('');if(!/^[0-9a-fA-F]{6}$/.test(hex))return null;return{r:parseInt(hex.substring(0,2),16),g:parseInt(hex.substring(2,4),16),b:parseInt(hex.substring(4,6),16)};}
- function rgbToHsl(r,g,b){r/=255;g/=255;b/=255;var max=Math.max(r,g,b),min=Math.min(r,g,b);var h,s,l=(max+min)/2;if(max===min){h=s=0;}else{var d=max-min;s=l>0.5?d/(2-max-min):d/(max+min);switch(max){case r:h=(g-b)/d+(g<b?6:0);break;case g:h=(b-r)/d+2;break;case b:h=(r-g)/d+4;break;}h/=6;}return{h:Math.round(h*360),s:Math.round(s*100),l:Math.round(l*100)};}
- function update(hex){hex=hex.toUpperCase().replace(/[^0-9A-F#]/g,'');if(hex.charAt(0)!=='#')hex='#'+hex;if(hex.length>7)hex=hex.substring(0,7);var rgb=hexToRgb(hex);if(!rgb)return;var hsl=rgbToHsl(rgb.r,rgb.g,rgb.b);swatch.style.background='rgb('+rgb.r+', '+rgb.g+', '+rgb.b+')';color.value=hex;hexIn.value=hex;vHex.textContent=hex;vRgb.textContent='rgb('+rgb.r+', '+rgb.g+', '+rgb.b+')';vRgba.textContent='rgba('+rgb.r+', '+rgb.g+', '+rgb.b+', 1)';vHsl.textContent='hsl('+hsl.h+', '+hsl.s+'%, '+hsl.l+'%)';vHsla.textContent='hsla('+hsl.h+', '+hsl.s+'%, '+hsl.l+'%, 1)';}
- color.addEventListener('input',function(){update(color.value);});
- hexIn.addEventListener('input',function(){if(hexToRgb(hexIn.value))update(hexIn.value);});
- hexIn.addEventListener('blur',function(){if(!hexToRgb(hexIn.value))hexIn.value=color.value;});
- function getVal(key){if(key==='hex')return vHex.textContent;if(key==='rgb')return vRgb.textContent;if(key==='rgba')return vRgba.textContent;if(key==='hsl')return vHsl.textContent;if(key==='hsla')return vHsla.textContent;return'';}
- document.querySelectorAll('[data-copy]').forEach(function(btn){btn.addEventListener('click',function(){var k=btn.getAttribute('data-copy');var t=getVal(k);var done=function(){var old=btn.textContent;btn.textContent='Copied!';btn.classList.add('copied');setTimeout(function(){btn.textContent=old;btn.classList.remove('copied');},1000);};if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done).catch(done);}else{var ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');}catch(e){}document.body.removeChild(ta);done();}});});
+(function () {
+  var dropZone = document.getElementById('drop-zone');
+  var fileInput = document.getElementById('file-input');
+  var canvasWrap = document.getElementById('canvas-wrap');
+  var canvas = document.getElementById('canvas');
+  var ctx = canvas.getContext('2d', { willReadFrequently: true });
+  var canvasStatus = document.getElementById('canvas-status');
+  var colorBlock = document.getElementById('color-block');
+  var hexPreview = document.getElementById('hex-preview');
+  var manualEl = document.getElementById('manual');
+  var hexVal = document.getElementById('hex-val');
+  var rgbVal = document.getElementById('rgb-val');
+  var hslVal = document.getElementById('hsl-val');
+  var paletteEl = document.getElementById('palette');
+  var savedList = document.getElementById('saved-list');
+  var saveCurrentBtn = document.getElementById('save-current');
+  var clearSavedBtn = document.getElementById('clear-saved');
+
+  var current = { r: 37, g: 99, b: 235 };
+  var savedColors = []; // [{ r,g,b }]
+
+  function pad2(n) { n = Math.max(0, Math.min(255, n | 0)).toString(16); return n.length < 2 ? '0' + n : n; }
+  function rgbToHex(r, g, b) { return '#' + pad2(r) + pad2(g) + pad2(b); }
+  function rgbToHsl(r, g, b) {
+    r /= 255; g /= 255; b /= 255;
+    var max = Math.max(r, g, b), min = Math.min(r, g, b);
+    var h = 0, s = 0, l = (max + min) / 2;
+    if (max !== min) {
+      var d = max - min;
+      s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+      switch (max) {
+        case r: h = (g - b) / d + (g < b ? 6 : 0); break;
+        case g: h = (b - r) / d + 2; break;
+        case b: h = (r - g) / d + 4; break;
+      }
+      h /= 6;
+    }
+    return { h: Math.round(h * 360), s: Math.round(s * 100), l: Math.round(l * 100) };
+  }
+
+  function showColor(r, g, b, source) {
+    current = { r: r, g: g, b: b };
+    var hex = rgbToHex(r, g, b);
+    var hsl = rgbToHsl(r, g, b);
+    colorBlock.style.background = hex;
+    manualEl.value = hex.toLowerCase();
+    hexVal.innerHTML = '<span class="format-tag">HEX</span>' + hex.toUpperCase();
+    rgbVal.innerHTML = '<span class="format-tag">RGB</span>rgb(' + r + ', ' + g + ', ' + b + ')';
+    hslVal.innerHTML = '<span class="format-tag">HSL</span>hsl(' + hsl.h + ', ' + hsl.s + '%, ' + hsl.l + '%)';
+    hexPreview.textContent = hex.toUpperCase();
+  }
+
+  // --- Palette ---
+  var palette = [
+    { name: 'Brand Blue', hex: '#2563eb' },
+    { name: 'Sky', hex: '#38bdf8' },
+    { name: 'Cyan', hex: '#06b6d4' },
+    { name: 'Teal', hex: '#0d9488' },
+    { name: 'Emerald', hex: '#10b981' },
+    { name: 'Green', hex: '#22c55e' },
+    { name: 'Lime', hex: '#84cc16' },
+    { name: 'Yellow', hex: '#eab308' },
+    { name: 'Amber', hex: '#f59e0b' },
+    { name: 'Orange', hex: '#f97316' },
+    { name: 'Red', hex: '#ef4444' },
+    { name: 'Rose', hex: '#f43f5e' },
+    { name: 'Pink', hex: '#ec4899' },
+    { name: 'Fuchsia', hex: '#d946ef' },
+    { name: 'Purple', hex: '#a855f7' },
+    { name: 'Violet', hex: '#8b5cf6' },
+    { name: 'Indigo', hex: '#6366f1' },
+    { name: 'Slate', hex: '#64748b' },
+    { name: 'Gray', hex: '#6b7280' },
+    { name: 'Stone', hex: '#a8a29e' },
+    { name: 'Warm White', hex: '#fafaf9' },
+    { name: 'White', hex: '#ffffff' },
+    { name: 'Black', hex: '#0f172a' }
+  ];
+
+  function buildPalette() {
+    paletteEl.innerHTML = '';
+    for (var i = 0; i < palette.length; i++) {
+      (function (color) {
+        var item = document.createElement('div');
+        item.className = 'palette-item';
+        item.setAttribute('data-hex', color.hex);
+        item.innerHTML =
+          '<div class="palette-swatch" style="background:' + color.hex + '"></div>' +
+          '<small>' + color.hex.toUpperCase() + '</small>' +
+          '<small class="palette-name">' + color.name + '</small>';
+        item.addEventListener('click', function () {
+          applyHex(color.hex);
+        });
+        paletteEl.appendChild(item);
+      })(palette[i]);
+    }
+  }
+  buildPalette();
+
+  function applyHex(hex) {
+    var m = /^#?([0-9a-f]{6})$/i.exec((hex || '').trim());
+    if (!m) return;
+    var r = parseInt(m[1].substr(0, 2), 16);
+    var g = parseInt(m[1].substr(2, 2), 16);
+    var b = parseInt(m[1].substr(4, 2), 16);
+    showColor(r, g, b, 'palette');
+  }
+
+  // --- Saved colors list ---
+  function renderSaved() {
+    if (!savedColors.length) {
+      savedList.innerHTML = '<span style="color:var(--muted);font-size:.82rem;font-family:ui-monospace,Consolas,monospace">Pick a pixel from the image or palette to save a color here.</span>';
+      return;
+    }
+    savedList.innerHTML = '';
+    for (var i = 0; i < savedColors.length; i++) {
+      (function (idx, c) {
+        var hex = rgbToHex(c.r, c.g, c.b);
+        var chip = document.createElement('span');
+        chip.className = 'saved-chip';
+        chip.title = 'Click to re-select · × to remove';
+        chip.innerHTML =
+          '<span class="saved-swatch" style="background:' + hex + '"></span>' +
+          '<span>' + hex.toUpperCase() + '</span>' +
+          '<button class="saved-del" aria-label="Remove saved color">×</button>';
+        chip.addEventListener('click', function (ev) {
+          if (ev.target && ev.target.classList.contains('saved-del')) {
+            savedColors.splice(idx, 1);
+            renderSaved();
+          } else {
+            applyHex(hex);
+          }
+        });
+        savedList.appendChild(chip);
+      })(i, savedColors[i]);
+    }
+  }
+
+  function saveCurrent() {
+    var c = current;
+    // De-dupe by HEX
+    for (var i = 0; i < savedColors.length; i++) {
+      if (savedColors[i].r === c.r && savedColors[i].g === c.g && savedColors[i].b === c.b) return;
+    }
+    savedColors.push({ r: c.r, g: c.g, b: c.b });
+    if (savedColors.length > 24) savedColors.shift();
+    renderSaved();
+  }
+
+  saveCurrentBtn.addEventListener('click', saveCurrent);
+  clearSavedBtn.addEventListener('click', function () {
+    savedColors = [];
+    renderSaved();
+  });
+
+  // --- Canvas eyedropper ---
+  function drawImage(img) {
+    var maxW = 1200, maxH = 720;
+    var w = img.naturalWidth, h = img.naturalHeight;
+    var ratio = Math.min(maxW / w, maxH / h, 1);
+    canvas.width = Math.round(w * ratio);
+    canvas.height = Math.round(h * ratio);
+    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+    canvasWrap.classList.add('is-visible');
+    canvasStatus.textContent = 'Loaded ' + img.naturalWidth.toLocaleString() + ' × ' + img.naturalHeight.toLocaleString() + ' px. Click any pixel to save a color.';
+  }
+
+  function pickAt(x, y, commit) {
+    try {
+      var d = ctx.getImageData(x, y, 1, 1).data;
+      if (commit) {
+        showColor(d[0], d[1], d[2], 'canvas');
+      } else {
+        // Hover preview: update block + hex-preview text only
+        var hex = rgbToHex(d[0], d[1], d[2]);
+        colorBlock.style.background = hex;
+        hexPreview.textContent = hex.toUpperCase() + ' (hover)';
+      }
+    } catch (e) {
+      canvasStatus.textContent = 'Could not read pixel.';
+    }
+  }
+
+  function pointerToCanvas(ev) {
+    var rect = canvas.getBoundingClientRect();
+    var sx = canvas.width / rect.width;
+    var sy = canvas.height / rect.height;
+    var x = Math.floor((ev.clientX - rect.left) * sx);
+    var y = Math.floor((ev.clientY - rect.top) * sy);
+    if (x < 0) x = 0; if (y < 0) y = 0;
+    if (x >= canvas.width) x = canvas.width - 1;
+    if (y >= canvas.height) y = canvas.height - 1;
+    return { x: x, y: y };
+  }
+
+  canvas.addEventListener('click', function (e) {
+    var p = pointerToCanvas(e);
+    pickAt(p.x, p.y, true);
+  });
+  canvas.addEventListener('mousemove', function (e) {
+    var p = pointerToCanvas(e);
+    pickAt(p.x, p.y, false);
+  });
+  canvas.addEventListener('mouseleave', function () {
+    // Restore the committed selection display.
+    hexPreview.textContent = rgbToHex(current.r, current.g, current.b).toUpperCase();
+    colorBlock.style.background = rgbToHex(current.r, current.g, current.b);
+  });
+
+  // --- File loading ---
+  function loadFile(file) {
+    if (!file || !file.type || file.type.indexOf('image/') !== 0) {
+      canvasStatus.textContent = 'Please choose an image file.';
+      return;
+    }
+    var reader = new FileReader();
+    reader.onload = function (ev) {
+      var img = new Image();
+      img.onload = function () { drawImage(img); };
+      img.onerror = function () { canvasStatus.textContent = 'Could not load image.'; };
+      img.src = ev.target.result;
+    };
+    reader.readAsDataURL(file);
+  }
+
+  fileInput.addEventListener('change', function () {
+    if (fileInput.files && fileInput.files[0]) loadFile(fileInput.files[0]);
+    fileInput.value = '';
+  });
+
+  // --- Manual color picker ---
+  manualEl.addEventListener('input', function () {
+    applyHex(manualEl.value || '#000000');
+  });
+
+  // --- Keyboard Esc ---
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      showColor(37, 99, 235, 'reset');
+      if (canvasWrap.classList.contains('is-visible')) {
+        canvasStatus.textContent = 'Selection cleared. Click any pixel to pick a color again.';
+      }
+    }
+  });
+
+  // --- Copy buttons ---
+  function fallbackCopy(text, cb) {
+    try {
+      var ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.cssText = 'position:fixed;top:-9999px;left:-9999px;opacity:0';
+      document.body.appendChild(ta);
+      ta.focus();
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+      if (cb) cb();
+    } catch (e) { /* noop */ }
+  }
+
+  function copyText(text, btn) {
+    function done() {
+      if (btn) {
+        var original = btn.textContent;
+        btn.textContent = 'Copied!';
+        setTimeout(function () { btn.textContent = original; }, 1200);
+      }
+    }
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(text).then(done).catch(function () { fallbackCopy(text, done); });
+    } else {
+      fallbackCopy(text, done);
+    }
+  }
+
+  document.querySelectorAll('[data-copy]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var id = btn.getAttribute('data-copy');
+      if (id === 'hex') copyText(rgbToHex(current.r, current.g, current.b).toUpperCase(), btn);
+      else if (id === 'rgb') copyText('rgb(' + current.r + ', ' + current.g + ', ' + current.b + ')', btn);
+      else if (id === 'hsl') {
+        var hsl = rgbToHsl(current.r, current.g, current.b);
+        copyText('hsl(' + hsl.h + ', ' + hsl.s + '%, ' + hsl.l + '%)', btn);
+      }
+    });
+  });
+
+  // --- Nav toggle ---
+  var toggle = document.querySelector('.nav-toggle');
+  var navLinks = document.querySelector('.nav-links');
+  if (toggle && navLinks) {
+    toggle.addEventListener('click', function () {
+      var open = navLinks.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open);
+    });
+  }
 })();
 </script>
 </body>

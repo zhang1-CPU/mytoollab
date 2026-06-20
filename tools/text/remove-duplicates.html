@@ -3,219 +3,29 @@
 <head>
  <meta charset="UTF-8" />
  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
- <title>Remove Duplicate Lines – Free Online Text Deduplicator | zlbox</title>
- <meta name="description" content="Free online tool to remove duplicate lines from text. Options to ignore case, trim whitespace, and remove blank lines." />
+ <title>Remove Duplicate Lines – Free Online Deduplicator | zlbox</title>
+ <meta name="description" content="Free online tool to remove duplicate lines from text. Options: ignore case, trim whitespace, sort ascending, remove blank lines — with live counts and copy/download." />
+ <link rel="stylesheet" href="../../css/components.css" />
  <link rel="canonical" href="https://www.zlbox.site/tools/text/remove-duplicates.html" />
  <meta name="google-site-verification" content="google4bd1e08685667667" />
- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
-<script>
-/* Navigation toggle for mobile */
-(function() {
-  var toggle = document.querySelector('.nav-toggle');
-  var navLinks = document.querySelector('.nav-links');
-  if (!toggle || !navLinks) return;
-  toggle.addEventListener('click', function() {
-    var isOpen = navLinks.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', isOpen);
-  });
-  // Highlight active link
-  var path = location.pathname;
-  document.querySelectorAll('.nav-link').forEach(function(link) {
-    var href = link.getAttribute('href');
-    if (href && (path === href || path.indexOf(href.replace('/index.html','')) > -1)) {
-      link.classList.add('active');
-    }
-  });
-})();
-</script>
- <link rel="stylesheet" href="../../css/components.css" />
-
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <meta property="og:title" content="Remove Duplicate Lines – Free Online Text Deduplicator | zlbox" />
-  <meta property="og:description" content="Free online tool to remove duplicate lines from text. Options to ignore case, trim whitespace, and remove blank lines." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.zlbox.site/tools/text/remove-duplicates.html" />
-  <meta property="og:site_name" content="zlbox" />
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Remove Duplicate Lines – Free Online Text Deduplicator", "description": "Free online tool to remove duplicate lines from text. Options to ignore case, trim whitespace, and remove blank lines.", "url": "https://www.zlbox.site/tools/text/remove-duplicates.html", "applicationCategory": "Text Tool", "operatingSystem": "Any (browser-based)", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "browserRequirements": "Requires a modern web browser with JavaScript enabled."}</script>
-
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.zlbox.site/"}, {"@type": "ListItem", "position": 2, "name": "Text Tools", "item": null}]}</script>
-
-  <style>
-/* ── Site Navigation ── */
-.site-nav {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: rgba(255,255,255,.97);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--border);
-  box-shadow: 0 1px 4px rgba(0,0,0,.05);
-}
-.nav-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  height: 52px;
-}
-.nav-logo {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-weight: 700;
-  font-size: 1rem;
-  color: var(--brand);
-  text-decoration: none;
-  flex-shrink: 0;
-  margin-right: 12px;
-}
-.nav-logo:hover { text-decoration: none; }
-.nav-logo-icon {
-  width: 36px;
-  height: 36px;
-  background: var(--brand);
-  color: #fff;
-  border-radius: 6px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 900;
-  font-size: .9rem;
-  flex-shrink: 0;
-}
-.nav-logo-text { font-size: .95rem; }
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 2px;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-  flex: 1;
-}
-.nav-links::-webkit-scrollbar { display: none; }
-.nav-link {
-  display: inline-flex;
-  align-items: center;
-  padding: 5px 10px;
-  font-size: .82rem;
-  font-weight: 500;
-  color: var(--text);
-  border-radius: 6px;
-  white-space: nowrap;
-  transition: all .15s;
-  flex-shrink: 0;
-}
-.nav-link:hover {
-  background: var(--brand);
-  color: #fff;
-  text-decoration: none;
-}
-.nav-link.active {
-  background: #eff6ff;
-  color: var(--brand);
-}
-.nav-toggle {
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  gap: 4px;
-  width: 32px;
-  height: 32px;
-  padding: 4px;
-  background: none;
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  cursor: pointer;
-  flex-shrink: 0;
-  margin-left: auto;
-}
-.nav-toggle span {
-  display: block;
-  width: 100%;
-  height: 2px;
-  background: var(--text);
-  border-radius: 1px;
-}
-@media (max-width: 768px) {
-  .nav-logo-text { display: none; }
-  .nav-inner { gap: 6px; }
-  .nav-toggle { display: flex; }
-  .nav-links {
-    display: none;
-    position: absolute;
-    top: 52px;
-    left: 0;
-    right: 0;
-    background: #fff;
-    border-bottom: 1px solid var(--border);
-    box-shadow: 0 4px 12px rgba(0,0,0,.1);
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 8px 0;
-    z-index: 99;
-    overflow: visible;
-  }
-  .nav-links.open { display: flex; }
-  .nav-link {
-    width: 100%;
-    padding: 10px 20px;
-    font-size: .9rem;
-    border-radius: 0;
-  }
-}
-  </style>
-  <meta property="og:image" content="https://www.zlbox.site/og-image.png" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Remove Duplicate Lines – Free Online Text Deduplicator" />
-  <meta name="twitter:description" content="Free online tool to remove duplicate lines from text. Options to ignore case, trim whitespace, and remove blank lines." />
-  <meta name="twitter:image" content="https://www.zlbox.site/og-image.png" />
-
-
-  <meta name="robots" content="index, follow" />
-  <script type="application/ld+json">{
-  "@context": "https://schema.org",
-  "@type": "HowTo",
-  "name": "How to Remove Duplicate Lines",
-  "description": "Step by step guide: How to Remove Duplicate Lines",
-  "step": [
-    {
-      "@type": "HowToStep",
-      "name": "Paste your text",
-      "text": "Paste your text containing duplicate lines into the input box.",
-      "position": 1
-    },
-    {
-      "@type": "HowToStep",
-      "name": "Remove duplicates",
-      "text": "Click 'Remove Duplicates' to automatically remove duplicate lines.",
-      "position": 2
-    },
-    {
-      "@type": "HowToStep",
-      "name": "Copy result",
-      "text": "Click 'Copy' to copy the deduplicated text.",
-      "position": 3
-    }
-  ]
-}</script>
+ <meta property="og:title" content="Remove Duplicate Lines – Free Online Deduplicator" />
+ <meta property="og:description" content="Free online tool to remove duplicate lines from text. Options: ignore case, trim whitespace, sort ascending, remove blank lines — with live counts and copy/download." />
+ <meta property="og:type" content="website" />
+ <meta property="og:url" content="https://www.zlbox.site/tools/text/remove-duplicates.html" />
+ <meta property="og:image" content="https://www.zlbox.site/og-image.png" />
+ <meta name="twitter:card" content="summary_large_image" />
+ <meta name="twitter:title" content="Remove Duplicate Lines" />
+ <meta name="twitter:description" content="Remove duplicate lines with ignore-case, trim, sort, and blank-line options. Copy or download the cleaned output." />
+ <meta name="robots" content="index, follow" />
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Remove Duplicate Lines","description":"Remove duplicate lines with ignore-case, trim, sort, and blank-line options. Copy or download the cleaned output.","url":"https://www.zlbox.site/tools/text/remove-duplicates.html","applicationCategory":"Text Tool","operatingSystem":"Any (browser-based)","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"browserRequirements":"Requires a modern web browser with JavaScript enabled."}</script>
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.zlbox.site/"},{"@type":"ListItem","position":2,"name":"Text Tools","item":"https://www.zlbox.site/categories/text.html"}]}</script>
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Remove Duplicate Lines","step":[{"@type":"HowToStep","name":"Paste text","text":"Paste text into the input box — one item per line.","position":1},{"@type":"HowToStep","name":"Adjust options","text":"Toggle ignore-case, trim whitespace, blank-line removal, and sort order.","position":2},{"@type":"HowToStep","name":"Copy or download","text":"Copy the cleaned output to clipboard or download as a .txt file.","position":3}]}</script>
 </head>
 <body>
-
   <nav class="site-nav" aria-label="Main navigation">
     <div class="nav-inner">
-      <a href="/" class="nav-logo" aria-label="zlbox Home">
-        <span class="nav-logo-icon">zl</span>
-        <span class="nav-logo-text">zlbox</span>
-      </a>
-      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
+      <a href="/" class="nav-logo" aria-label="zlbox Home"><span class="nav-logo-icon">zl</span><span class="nav-logo-text">zlbox</span></a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
       <div class="nav-links" role="list">
         <a href="/tools/index.html" class="nav-link" role="listitem">All Tools</a>
         <a href="/categories/text.html" class="nav-link" role="listitem">Text</a>
@@ -223,173 +33,186 @@
         <a href="/categories/generator.html" class="nav-link" role="listitem">Generator</a>
         <a href="/categories/image.html" class="nav-link" role="listitem">Image</a>
         <a href="/categories/pdf.html" class="nav-link" role="listitem">PDF</a>
-        <a href="/blog/index.html" class="nav-link" role="listitem">Blog</a>
       </div>
     </div>
   </nav>
 
-<div class="container-md">
- <div class="hero">
- <div class="breadcrumb"><a href="../../index.html">Home</a> &rsaquo; <a href="../../categories/text.html">Text Tools</a> &rsaquo; Remove Duplicates</div>
- <h1>Remove Duplicate Lines</h1>
- <p>Paste a list and instantly clean up duplicate lines. Options for case sensitivity, blank lines, and whitespace trimming.</p>
- </div>
+  <div class="container-md">
+    <div class="hero">
+      <div class="breadcrumb"><a href="../../index.html">Home</a> &rsaquo; <a href="../../categories/text.html">Text Tools</a> &rsaquo; Remove Duplicates</div>
+      <h1>Remove Duplicate Lines</h1>
+      <p>Paste text and instantly remove duplicate lines. Toggle ignore case, trim whitespace, blank-line removal, and sort order — live counts and copy/download included.</p>
+    </div>
 
- <div class="card">
- <div class="editor">
- <textarea id="inputText" placeholder="Paste your lines here…" spellcheck="false"></textarea>
- <div class="editor__toolbar">
- <button class="btn btn--sm btn--ghost" id="clearBtn">Clear</button>
- <div style="margin-left:auto"></div>
- <button class="btn btn--sm" id="procBtn">Remove Duplicates</button>
- </div>
- </div>
- <div class="row-grid">
- <label class="row" style="gap:8px"><input type="checkbox" id="optCase" /> Ignore case</label>
- <label class="row" style="gap:8px"><input type="checkbox" id="optBlank" checked /> Remove blank lines</label>
- <label class="row" style="gap:8px"><input type="checkbox" id="optTrim" checked /> Trim spaces</label>
- <label class="row" style="gap:8px">
- Keep
- <select id="optKeep" style="max-width:140px">
- <option value="first">First occurrence</option>
- <option value="last">Last occurrence</option>
- </select>
- </label>
- </div>
- <div class="editor">
- <textarea id="outputText" readonly placeholder="Unique lines appear here…" spellcheck="false"></textarea>
- <div class="editor__toolbar">
- <span id="stats"></span>
- <div style="margin-left:auto"></div>
- <button class="btn btn--sm btn--ghost" id="copyBtn">Copy</button>
- </div>
- </div>
- </div>
+    <div class="card">
+      <div class="field">
+        <label>Input — one item per line</label>
+        <textarea id="input" rows="10" spellcheck="false" placeholder="apple&#10;banana&#10;Apple&#10;cherry&#10;banana&#10;…"></textarea>
+      </div>
 
- <div class="section">
- <h2>How it works</h2>
- <ol class="steps">
- <li>Paste lines into the input box — one entry per line.</li>
- <li>Toggle case sensitivity, blank-line removal, and trimming as needed.</li>
- <li>Click Remove Duplicates and copy the cleaned output.</li>
- </ol>
- </div>
+      <div class="row-grid" id="options">
+        <label class="row" style="gap:8px; align-items:center;"><input type="checkbox" id="optCase" /> Ignore case</label>
+        <label class="row" style="gap:8px; align-items:center;"><input type="checkbox" id="optTrim" checked /> Trim whitespace</label>
+        <label class="row" style="gap:8px; align-items:center;"><input type="checkbox" id="optBlank" checked /> Remove blank lines</label>
+        <label class="row" style="gap:8px; align-items:center;">
+          Sort
+          <select id="optSort" style="max-width:160px;">
+            <option value="none">Do not sort</option>
+            <option value="asc">Ascending (A–Z)</option>
+            <option value="desc">Descending (Z–A)</option>
+            <option value="ascNum">Numeric ascending</option>
+          </select>
+        </label>
+        <label class="row" style="gap:8px; align-items:center;">
+          Keep
+          <select id="optKeep" style="max-width:160px;">
+            <option value="first" selected>First occurrence</option>
+            <option value="last">Last occurrence</option>
+          </select>
+        </label>
+      </div>
 
- <section class="tool-info" aria-label="Tool information">
-  <h2>What is Remove Duplicate Lines?</h2>
-  <p>A remove duplicates tool eliminates duplicate lines, words, or numbers from text. It instantly cleans lists, removes repeated entries, and sorts results — saving hours of manual editing.</p>
+      <div class="field" style="margin-top:10px;">
+        <label>Output</label>
+        <textarea id="output" rows="10" readonly spellcheck="false"></textarea>
+        <div id="stats" style="font-size:.85rem; color:var(--muted); margin-top:6px;">Ready.</div>
+        <div style="display:flex; gap:8px; flex-wrap:wrap; margin-top:8px;">
+          <button class="btn btn--sm" id="copyBtn">Copy</button>
+          <button class="btn btn--sm btn--ghost" id="downBtn">Download .txt</button>
+          <button class="btn btn--sm btn--ghost" id="clearBtn">Clear</button>
+        </div>
+      </div>
+    </div>
 
-  <h2>How to use</h2>
-  <ol class="steps-list">
-<li>Step 1: Paste or type text with duplicates.</li>
-<li>Step 2: Choose whether to remove duplicate lines, words, or numbers.</li>
-<li>Step 3: Click 'Remove Duplicates' to process.</li>
-<li>Step 4: Copy the clean, unique results.</li>
-  </ol>
+    <div class="section">
+      <h2>How it works</h2>
+      <ol class="steps">
+        <li>Paste text into the input area, one item per line. Changes update the output instantly.</li>
+        <li>Toggle <em>ignore case</em>, <em>trim whitespace</em>, <em>remove blank lines</em>, and pick a sort order.</li>
+        <li>Click <strong>Copy</strong> or <strong>Download</strong> to take the cleaned list elsewhere.</li>
+      </ol>
+    </div>
 
-  <h2>Use cases</h2>
-  <ul class="usecase-list">
-<li>Cleaning email lists and contact databases.</li>
-<li>Removing duplicate entries from CSV exports and spreadsheets.</li>
-<li>Deduplicating keyword lists for SEO campaigns.</li>
-<li>Cleaning scraped data for analysis and reporting.</li>
-  </ul>
+    <section class="tool-info">
+      <h2>What is it?</h2>
+      <p>A line-level dedupe tool: given a list with repeats, it produces a clean, unique list according to your preferences.</p>
+      <h2>Use cases</h2>
+      <ul class="usecase-list">
+        <li>Cleaning keyword lists, email lists, and product SKUs.</li>
+        <li>Preparing CSV/TSV files by removing duplicate rows.</li>
+        <li>Deduplicating scraped data before analysis.</li>
+        <li>Normalizing user-entered tags and categories.</li>
+      </ul>
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq">
+        <details class="faq-item"><summary>Is the original order preserved?</summary><p>Yes, unless you select sorting. The first (or last) occurrence is kept in its original position.</p></details>
+        <details class="faq-item"><summary>How does ignore-case work?</summary><p>"Apple" and "apple" are treated as duplicates. The first (or last) occurrence in the source is kept, preserving the original character case.</p></details>
+      </div>
+    </section>
 
-  <h2>Frequently Asked Questions</h2>
-  <div class="faq">
-<details class="faq-item">
-  <summary>Does it preserve the original order?</summary>
-  <p>Yes. The first occurrence of each item is kept in its original position. Duplicate subsequent occurrences are removed.</p>
-</details>
-<details class="faq-item">
-  <summary>Is the comparison case-sensitive?</summary>
-  <p>Yes, by default. You can choose to ignore case when comparing items.</p>
-</details>
+    <div class="section">
+      <h2>Related tools</h2>
+      <div class="related-grid">
+        <a href="word-counter.html">Word Counter</a>
+        <a href="case-converter.html">Case Converter</a>
+        <a href="json-formatter.html">JSON Formatter</a>
+        <a href="base64.html">Base64 Encode/Decode</a>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="footer-links">
+        <a href="word-counter.html">Word Counter</a>
+        <a href="case-converter.html">Case Converter</a>
+        <a href="json-formatter.html">JSON Formatter</a>
+        <span style="color:var(--border);margin:0 6px">|</span>
+        <a href="../../about.html">About</a>
+        <a href="../../privacy.html">Privacy</a>
+        <a href="../../disclaimer.html">Disclaimer</a>
+      </div>
+      <p class="footer-copy">&copy; 2026 zlbox. All rights reserved.</p>
+    </footer>
   </div>
-</section>
-
-<script type="application/ld+json">
-{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Does it preserve the original order?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The first occurrence of each item is kept in its original position. Duplicate subsequent occurrences are removed."}}, {"@type": "Question", "name": "Is the comparison case-sensitive?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, by default. You can choose to ignore case when comparing items."}}]}
-</script>
- <div class="section">
- <h2>Related tools</h2>
- <div class="related-grid">
- <a href="word-counter.html">Word Counter</a>
- <a href="case-converter.html">Case Converter</a>
- <a href="json-formatter.html">JSON Formatter</a>
- <a href="base64.html">Base64 Encode/Decode</a>
- </div>
- </div>
-
- <footer class="footer">
- <div class="footer-links">
- <a href="word-counter.html">Word Counter</a>
- <a href="case-converter.html">Case Converter</a>
- <a href="json-formatter.html">JSON Formatter</a>
- <span style="color:var(--border);margin:0 6px">|</span>
- <a href="../../about.html">About</a>
- <a href="../../privacy.html">Privacy</a>
- <a href="../../disclaimer.html">Disclaimer</a>
- </div>
- <p class="footer-copy">&copy; 2026 zlbox. All rights reserved.</p>
- </footer>
-</div>
 
 <script>
-(function() {
- var inputEl = document.getElementById('inputText');
- var outputEl = document.getElementById('outputText');
- var procBtn = document.getElementById('procBtn');
- var clearBtn = document.getElementById('clearBtn');
- var copyBtn = document.getElementById('copyBtn');
- var optCase = document.getElementById('optCase');
- var optBlank = document.getElementById('optBlank');
- var optTrim = document.getElementById('optTrim');
- var optKeep = document.getElementById('optKeep');
- var statsEl = document.getElementById('stats');
+(function(){
+  var input = document.getElementById('input');
+  var output = document.getElementById('output');
+  var stats = document.getElementById('stats');
+  var optCase = document.getElementById('optCase');
+  var optTrim = document.getElementById('optTrim');
+  var optBlank = document.getElementById('optBlank');
+  var optSort = document.getElementById('optSort');
+  var optKeep = document.getElementById('optKeep');
 
- function process() {
- var lines = inputEl.value.split(/\r?\n/);
- var keepMode = optKeep.value;
- var seen = new Set();
- var out = [];
- if (keepMode === 'last') {
- for (var i = lines.length - 1; i>= 0; i--) {
- var line = optTrim.checked ? lines[i].replace(/^\s+|\s+$/g, '') : lines[i];
- if (optBlank.checked && line === '') continue;
- var key = optCase.checked ? line.toLowerCase() : line;
- if (!seen.has(key)) { seen.add(key); out.push(line); }
- }
- out.reverse();
- } else {
- for (var j = 0; j < lines.length; j++) {
- var line2 = optTrim.checked ? lines[j].replace(/^\s+|\s+$/g, '') : lines[j];
- if (optBlank.checked && line2 === '') continue;
- var key2 = optCase.checked ? line2.toLowerCase() : line2;
- if (!seen.has(key2)) { seen.add(key2); out.push(line2); }
- }
- }
- outputEl.value = out.join('\n');
- statsEl.textContent = 'Input: ' + lines.length + ' lines → Output: ' + out.length + ' lines (removed ' + (lines.length - out.length) + ')';
- }
+  function dedupe(){
+    var text = input.value;
+    var lines = text.split(/\r?\n/);
+    var processed = lines.slice();
+    if(optTrim.checked) processed = processed.map(function(l){ return l.replace(/^\s+|\s+$/g, ''); });
+    if(optBlank.checked) processed = processed.filter(function(l){ return l.length > 0; });
+    var seen = new Set();
+    var out = [];
+    var keys = optCase.checked ? processed.map(function(l){ return l.toLowerCase(); }) : processed;
+    if(optKeep.value === 'last'){
+      for(var i = processed.length - 1; i >= 0; i--){
+        if(!seen.has(keys[i])){ seen.add(keys[i]); out.unshift(processed[i]); }
+      }
+    } else {
+      for(var j = 0; j < processed.length; j++){
+        if(!seen.has(keys[j])){ seen.add(keys[j]); out.push(processed[j]); }
+      }
+    }
+    var sortMode = optSort.value;
+    if(sortMode === 'asc') out.sort(function(a,b){ return a < b ? -1 : (a > b ? 1 : 0); });
+    else if(sortMode === 'desc') out.sort(function(a,b){ return a < b ? 1 : (a > b ? -1 : 0); });
+    else if(sortMode === 'ascNum') out.sort(function(a,b){
+      var na = parseFloat(a), nb = parseFloat(b);
+      if(!isNaN(na) && !isNaN(nb)) return na - nb;
+      if(isNaN(na) && isNaN(nb)) return a < b ? -1 : (a > b ? 1 : 0);
+      return isNaN(na) ? 1 : -1;
+    });
+    output.value = out.join('\n');
+    stats.textContent = 'Input: ' + lines.length.toLocaleString() + ' line(s) &rarr; Output: ' + out.length.toLocaleString() + ' unique line(s) &middot; removed ' + Math.max(0, (optBlank.checked ? processed.length : lines.length) - out.length).toLocaleString() + '.';
+  }
 
- procBtn.addEventListener('click', process);
- clearBtn.addEventListener('click', function() {
- inputEl.value = ''; outputEl.value = ''; statsEl.textContent = ''; inputEl.focus();
- });
- copyBtn.addEventListener('click', function() {
- if (!outputEl.value) return;
- if (navigator.clipboard) {
- navigator.clipboard.writeText(outputEl.value).then(function() {
- copyBtn.textContent = 'Copied!';
- setTimeout(function() { copyBtn.textContent = 'Copy'; }, 1200);
- });
- } else {
- outputEl.select(); document.execCommand('copy');
- copyBtn.textContent = 'Copied!';
- setTimeout(function() { copyBtn.textContent = 'Copy'; }, 1200);
- }
- });
+  function copyText(){
+    var t = output.value;
+    if(!t) return;
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(t).then(function(){ stats.textContent = 'Copied ' + output.value.split(/\r?\n/).length.toLocaleString() + ' line(s) to clipboard.'; });
+    } else {
+      output.select();
+      try { document.execCommand('copy'); stats.textContent = 'Copied.'; }
+      catch(e){ stats.textContent = 'Copy failed.'; }
+    }
+  }
+  function downloadText(){
+    var t = output.value;
+    if(!t) return;
+    var blob = new Blob([t], {type:'text/plain;charset=utf-8'});
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url; a.download = 'unique-lines.txt';
+    document.body.appendChild(a); a.click();
+    setTimeout(function(){ a.remove(); URL.revokeObjectURL(url); }, 200);
+  }
+
+  input.addEventListener('input', dedupe);
+  [optCase, optTrim, optBlank, optSort, optKeep].forEach(function(el){ el.addEventListener('change', dedupe); });
+  document.getElementById('copyBtn').addEventListener('click', copyText);
+  document.getElementById('downBtn').addEventListener('click', downloadText);
+  document.getElementById('clearBtn').addEventListener('click', function(){ input.value=''; output.value=''; stats.textContent='Ready.'; });
+
+  var toggle = document.querySelector('.nav-toggle');
+  if(toggle){
+    toggle.addEventListener('click', function(){
+      var links = document.querySelector('.nav-links');
+      var open = links.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open);
+    });
+  }
+  dedupe();
 })();
 </script>
 </body>

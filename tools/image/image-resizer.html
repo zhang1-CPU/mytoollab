@@ -1,224 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <meta charset="UTF-8" />
- <meta name="viewport" content="width=device-width, initial-scale=1.0" />
- <title>Image Resizer – Resize JPG PNG Images Online Free | zlbox</title>
- <meta name="description" content="Free online image resizer. Resize JPG and PNG images to any dimension. Set custom width and height in pixels or percentage. Keep aspect ratio option." />
- <meta name="keywords" content="image resizer, resize image, resize jpg, resize png, image size changer, reduce image size, resize image online free" />
- <link rel="canonical" href="https://www.zlbox.site/tools/image/image-resizer.html" />
- <meta name="google-site-verification" content="google4bd1e08685667667" />
- <meta name="robots" content="index, follow" />
- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
-<script>
-/* Navigation toggle for mobile */
-(function() {
-  var toggle = document.querySelector('.nav-toggle');
-  var navLinks = document.querySelector('.nav-links');
-  if (!toggle || !navLinks) return;
-  toggle.addEventListener('click', function() {
-    var isOpen = navLinks.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', isOpen);
-  });
-  // Highlight active link
-  var path = location.pathname;
-  document.querySelectorAll('.nav-link').forEach(function(link) {
-    var href = link.getAttribute('href');
-    if (href && (path === href || path.indexOf(href.replace('/index.html','')) > -1)) {
-      link.classList.add('active');
-    }
-  });
-})();
-</script>
- <script type="application/ld+json">
- {"@context":"https://schema.org","@type":"WebApplication","name":"Image Resizer – Resize Images Online","applicationCategory":"UtilityApplication","operatingSystem":"Any (Web-based)","description":"Free online image resizer for JPG and PNG images.","url":"https://www.zlbox.site/tools/image/image-resizer.html","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
- </script>
- <link rel="stylesheet" href="../../css/components.css" />
- <style>
- .upload-zone{border:2px dashed var(--border);border-radius:var(--radius);padding:24px 12px;text-align:center;cursor:pointer;transition:border-color .15s,background .15s;background:var(--bg);}
- .upload-zone.drag-over{border-color:var(--brand);background:#eff6ff;}
- .upload-zone__icon{font-size:2.2rem;margin-bottom:6px;}
- .preview-area{margin-top:16px;display:grid;grid-template-columns:1fr 1fr;gap:14px;}
- .preview-card{border:1px solid var(--border);border-radius:var(--radius);padding:14px;background:var(--bg);text-align:center;}
- .preview-card h4{font-size:.85rem;color:var(--muted);margin-bottom:8px;font-weight:600;}
- .preview-card img{max-width:100%;max-height:260px;border-radius:8px;background:#fff;}
- .preview-card__meta{font-size:.82rem;color:var(--muted);margin-top:10px;font-family:'Courier New', monospace;}
- .field-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px;}
- .checkbox-row{display:flex;align-items:center;gap:8px;margin-top:10px;}
- .checkbox-row input{width:18px;height:18px;accent-color:var(--brand);}
- @media (max-width:560px){.preview-area{grid-template-columns:1fr;}.field-grid{grid-template-columns:1fr;}}
- 
-/* ── Site Navigation ── */
-.site-nav {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: rgba(255,255,255,.97);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--border);
-  box-shadow: 0 1px 4px rgba(0,0,0,.05);
-}
-.nav-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  height: 52px;
-}
-.nav-logo {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-weight: 700;
-  font-size: 1rem;
-  color: var(--brand);
-  text-decoration: none;
-  flex-shrink: 0;
-  margin-right: 12px;
-}
-.nav-logo:hover { text-decoration: none; }
-.nav-logo-icon {
-  width: 36px;
-  height: 36px;
-  background: var(--brand);
-  color: #fff;
-  border-radius: 6px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 900;
-  font-size: .9rem;
-  flex-shrink: 0;
-}
-.nav-logo-text { font-size: .95rem; }
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 2px;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-  flex: 1;
-}
-.nav-links::-webkit-scrollbar { display: none; }
-.nav-link {
-  display: inline-flex;
-  align-items: center;
-  padding: 5px 10px;
-  font-size: .82rem;
-  font-weight: 500;
-  color: var(--text);
-  border-radius: 6px;
-  white-space: nowrap;
-  transition: all .15s;
-  flex-shrink: 0;
-}
-.nav-link:hover {
-  background: var(--brand);
-  color: #fff;
-  text-decoration: none;
-}
-.nav-link.active {
-  background: #eff6ff;
-  color: var(--brand);
-}
-.nav-toggle {
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  gap: 4px;
-  width: 32px;
-  height: 32px;
-  padding: 4px;
-  background: none;
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  cursor: pointer;
-  flex-shrink: 0;
-  margin-left: auto;
-}
-.nav-toggle span {
-  display: block;
-  width: 100%;
-  height: 2px;
-  background: var(--text);
-  border-radius: 1px;
-}
-@media (max-width: 768px) {
-  .nav-logo-text { display: none; }
-  .nav-inner { gap: 6px; }
-  .nav-toggle { display: flex; }
-  .nav-links {
-    display: none;
-    position: absolute;
-    top: 52px;
-    left: 0;
-    right: 0;
-    background: #fff;
-    border-bottom: 1px solid var(--border);
-    box-shadow: 0 4px 12px rgba(0,0,0,.1);
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 8px 0;
-    z-index: 99;
-    overflow: visible;
-  }
-  .nav-links.open { display: flex; }
-  .nav-link {
-    width: 100%;
-    padding: 10px 20px;
-    font-size: .9rem;
-    border-radius: 0;
-  }
-}
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Image Resizer – Resize, Compress & Convert JPG PNG WebP | zlbox</title>
+  <meta name="description" content="Free online image resizer. Resize JPG, PNG, and WebP to any width and height, lock aspect ratio, compress with quality control, and download in batch (ZIP)." />
+  <link rel="stylesheet" href="../../css/components.css" />
+  <link rel="canonical" href="https://www.zlbox.site/tools/image/image-resizer.html" />
+  <meta name="google-site-verification" content="google4bd1e0868567667667667667" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
 
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <meta property="og:title" content="Image Resizer – Resize JPG PNG Images Online Free | zlbox" />
-  <meta property="og:description" content="Free online image resizer. Resize JPG and PNG images to any dimension. Set custom width and height in pixels or percentage. Keep aspect ratio option." />
+  <meta property="og:title" content="Image Resizer – Resize, Compress & Convert JPG PNG WebP" />
+  <meta property="og:description" content="Free online image resizer with aspect ratio lock, quality compression, and batch ZIP download." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.zlbox.site/tools/image/image-resizer.html" />
   <meta property="og:site_name" content="zlbox" />
-
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.zlbox.site/"}, {"@type": "ListItem", "position": 2, "name": "Image Tools", "item": null}]}</script>
   <meta property="og:image" content="https://www.zlbox.site/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Image Resizer – Resize JPG PNG Images Online Free" />
-  <meta name="twitter:description" content="Free online image resizer. Resize JPG and PNG images to any dimension. Set custom width and height in pixels or percentage. Keep aspect ratio option." />
+  <meta name="twitter:title" content="Image Resizer – Resize, Compress & Convert JPG PNG WebP" />
+  <meta name="twitter:description" content="Free online image resizer with aspect ratio lock, quality compression, and batch ZIP download." />
   <meta name="twitter:image" content="https://www.zlbox.site/og-image.png" />
 
+  <meta name="robots" content="index, follow" />
 
-  <script type="application/ld+json">{
-  "@context": "https://schema.org",
-  "@type": "HowTo",
-  "name": "How to Resize Images",
-  "description": "Step by step guide: How to Resize Images",
-  "step": [
-    {
-      "@type": "HowToStep",
-      "name": "Upload image",
-      "text": "Select an image file to resize.",
-      "position": 1
-    },
-    {
-      "@type": "HowToStep",
-      "name": "Set dimensions",
-      "text": "Enter new width and height, or choose a preset.",
-      "position": 2
-    },
-    {
-      "@type": "HowToStep",
-      "name": "Download resized",
-      "text": "Click 'Download' to save the resized image.",
-      "position": 3
-    }
-  ]
-}</script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Image Resizer – Resize, Compress & Convert",
+    "description": "Free online image resizer with aspect ratio lock, quality compression, and batch ZIP download.",
+    "url": "https://www.zlbox.site/tools/image/image-resizer.html",
+    "applicationCategory": "Image Tool",
+    "operatingSystem": "Any (browser-based)",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to Resize Images",
+    "step": [
+      { "@type": "HowToStep", "name": "Upload", "text": "Drop images into the upload zone.", "position": 1 },
+      { "@type": "HowToStep", "name": "Resize", "text": "Set width/height, output format, and quality.", "position": 2 },
+      { "@type": "HowToStep", "name": "Download", "text": "Click Download per image, or Download All to get a ZIP.", "position": 3 }
+    ]
+  }
+  </script>
+
+  <style>
+    .site-nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,.97); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); box-shadow: 0 1px 4px rgba(0,0,0,.05); }
+    .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; align-items: center; gap: 8px; height: 52px; }
+    .nav-logo { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 1rem; color: var(--brand); text-decoration: none; flex-shrink: 0; margin-right: 12px; }
+    .nav-logo:hover { text-decoration: none; }
+    .nav-logo-icon { width: 36px; height: 36px; background: var(--brand); color: #fff; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: .9rem; flex-shrink: 0; }
+    .nav-logo-text { font-size: .95rem; }
+    .nav-links { display: flex; align-items: center; gap: 2px; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none; flex: 1; }
+    .nav-links::-webkit-scrollbar { display: none; }
+    .nav-link { display: inline-flex; align-items: center; padding: 5px 10px; font-size: .82rem; font-weight: 500; color: var(--text); border-radius: 6px; white-space: nowrap; transition: all .15s; flex-shrink: 0; text-decoration: none; }
+    .nav-link:hover { background: var(--brand); color: #fff; text-decoration: none; }
+    .nav-link.active { background: var(--brand-light); color: var(--brand); }
+    .nav-toggle { display: none; flex-direction: column; justify-content: center; gap: 4px; width: 32px; height: 32px; padding: 4px; background: none; border: 1px solid var(--border); border-radius: 6px; cursor: pointer; flex-shrink: 0; margin-left: auto; }
+    .nav-toggle span { display: block; width: 100%; height: 2px; background: var(--text); border-radius: 1px; }
+    @media (max-width: 768px) { .nav-logo-text { display: none; } .nav-inner { gap: 6px; } .nav-toggle { display: flex; } .nav-links { display: none; position: absolute; top: 52px; left: 0; right: 0; background: #fff; border-bottom: 1px solid var(--border); box-shadow: 0 4px 12px rgba(0,0,0,.1); flex-direction: column; align-items: flex-start; padding: 8px 0; z-index: 99; overflow: visible; } .nav-links.open { display: flex; } .nav-link { width: 100%; padding: 10px 20px; font-size: .9rem; border-radius: 0; } }
+
+    .drop-zone { border: 2px dashed var(--border); border-radius: 10px; padding: 22px 14px; text-align: center; cursor: pointer; background: var(--bg); transition: border-color .15s, background .15s; margin-bottom: 10px; }
+    .drop-zone.drag-over { border-color: var(--brand); background: var(--brand-light); }
+
+    .quality-row { display: flex; align-items: center; gap: 10px; }
+    .quality-row input[type=range] { flex: 1; }
+    .status-line { color: var(--muted); font-size: .9rem; margin-top: 4px; }
+
+    .result-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 10px; margin-top: 10px; }
+
+    .preview-card { border: 1px solid var(--border); border-radius: 10px; padding: 10px; background: var(--surface); }
+    .preview-card img { width: 100%; max-height: 180px; object-fit: contain; border-radius: 6px; background: repeating-conic-gradient(#f1f5f9 0 25%, #fff 0 50%) 50% / 16px 16px; display: block; }
+    .preview-card__name { font-size: .82rem; margin-top: 6px; color: var(--text-strong); font-weight: 600; word-break: break-all; }
+    .preview-card__meta { font-size: .78rem; color: var(--muted); font-family: ui-monospace, Consolas, monospace; margin-top: 2px; line-height: 1.4; }
+    .preview-card__actions { display: flex; gap: 6px; margin-top: 8px; }
+
+    .size-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 10px; margin-top: 6px; font-size: .78rem; font-family: ui-monospace, Consolas, monospace; color: var(--muted); }
+    .size-grid b { color: var(--text); font-weight: 600; }
+
+    .format-group { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 6px; }
+    .format-chip { display: inline-flex; align-items: center; gap: 4px; padding: 6px 10px; border: 1px solid var(--border); border-radius: 6px; font-size: .82rem; cursor: pointer; background: var(--surface); color: var(--text); transition: border-color .15s, background .15s, color .15s; user-select: none; }
+    .format-chip:hover { border-color: var(--brand); color: var(--brand); }
+    .format-chip.is-active { background: var(--brand); color: #fff; border-color: var(--brand); }
+    .format-chip input { margin: 0; accent-color: #fff; }
+
+    .actions-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+
+    .progress-bar { height: 6px; background: var(--border); border-radius: 999px; overflow: hidden; margin-top: 8px; }
+    .progress-bar__fill { height: 100%; width: 0%; background: var(--brand); transition: width .2s; }
+  </style>
 </head>
 <body>
 
@@ -236,240 +115,529 @@
         <a href="/categories/text.html" class="nav-link" role="listitem">Text</a>
         <a href="/categories/calculator.html" class="nav-link" role="listitem">Calculator</a>
         <a href="/categories/generator.html" class="nav-link" role="listitem">Generator</a>
-        <a href="/categories/image.html" class="nav-link" role="listitem">Image</a>
+        <a href="/categories/image.html" class="nav-link active" role="listitem">Image</a>
         <a href="/categories/pdf.html" class="nav-link" role="listitem">PDF</a>
         <a href="/blog/index.html" class="nav-link" role="listitem">Blog</a>
       </div>
     </div>
   </nav>
 
-<div class="container-md">
- <div class="hero">
- <div class="breadcrumb"><a href="../../index.html">Home</a> &rsaquo; <a href="../../categories/image.html">Image Tools</a> &rsaquo; Image Resizer</div>
- <h1>Image Resizer</h1>
- <p>Resize JPG, PNG, and WebP images to any width and height. Optionally lock aspect ratio or scale by percentage. All processing runs locally in your browser.</p>
- </div>
+  <div class="container-md">
+    <div class="hero">
+      <div class="breadcrumb"><a href="../../index.html">Home</a> &rsaquo; <a href="../../categories/image.html">Image Tools</a> &rsaquo; Image Resizer</div>
+      <h1>Image Resizer</h1>
+      <p>Upload images, set width/height (with aspect-ratio lock), choose output format (JPG / PNG / WebP) and quality, then download as individual files or a single ZIP. Everything runs locally in your browser — your images are never uploaded.</p>
+    </div>
 
- <div class="card">
- <div class="upload-zone" id="uploadZone">
- <div class="upload-zone__icon">&#128247;</div>
- <div><strong>Drop an image, or click to browse</strong></div>
- <div>JPG, PNG, WebP supported.</div>
- <div><label class="btn" for="imageInput">Choose Image</label></div>
- <input type="file" id="imageInput" accept="image/*" style="display:none" />
- </div>
+    <div class="card">
+      <div class="drop-zone" id="drop-zone" data-dropzone="#file-input">
+        <div style="font-size:1.8rem;margin-bottom:4px">&#128444;</div>
+        <div><strong>Drop images here, or click to browse</strong></div>
+        <div style="font-size:.88rem;color:var(--muted);margin-top:4px">JPG, PNG, WebP supported. Multi-file uploads welcome.</div>
+        <div style="margin-top:10px"><label class="btn" for="file-input">Choose Images</label></div>
+        <input type="file" id="file-input" accept="image/*" multiple style="display:none" />
+      </div>
 
- <div class="field-grid">
- <div><label class="field-label" for="widthPx">Width (px)</label><input type="number" id="widthPx" placeholder="Width" min="1" class="input" /></div>
- <div><label class="field-label" for="heightPx">Height (px)</label><input type="number" id="heightPx" placeholder="Height" min="1" class="input" /></div>
- <div><label class="field-label" for="scalePct">Scale (%)</label><input type="number" id="scalePct" placeholder="e.g. 50" min="1" max="1000" class="input" /></div>
- <div><label class="field-label" for="outputFormat">Output format</label>
- <select id="outputFormat" class="input"><option value="image/jpeg">JPG</option><option value="image/png">PNG</option><option value="image/webp">WebP</option></select>
- </div>
- </div>
+      <div class="field-grid" style="margin-top:10px">
+        <div class="field">
+          <label for="width-px">Width (px)</label>
+          <input type="number" id="width-px" min="1" placeholder="Enter width" />
+        </div>
+        <div class="field">
+          <label for="height-px">Height (px)</label>
+          <input type="number" id="height-px" min="1" placeholder="Enter height" />
+        </div>
+      </div>
 
- <div class="checkbox-row"><input type="checkbox" id="lockRatio" checked /><label for="lockRatio">Lock aspect ratio (auto-adjust the other dimension)</label></div>
- <div class="checkbox-row"><input type="checkbox" id="keepTransparent" /><label for="keepTransparent">Preserve transparency (PNG/WebP only)</label></div>
+      <div class="row-grid" style="margin-top:0">
+        <div class="field">
+          <label><input type="checkbox" id="lock-ratio" checked /> Lock aspect ratio</label>
+        </div>
+        <div class="field">
+          <label><input type="checkbox" id="keep-transparent" checked /> Preserve transparency (PNG/WebP)</label>
+        </div>
+      </div>
 
- <div class="preview-area" id="previewArea" style="display:none">
- <div class="preview-card"><h4>Original</h4><img id="originalImg" alt="Original" /><div class="preview-card__meta" id="originalMeta"></div></div>
- <div class="preview-card"><h4>Resized</h4><img id="resizedImg" alt="Resized" /><div class="preview-card__meta" id="resizedMeta"></div></div>
- </div>
+      <div class="field-grid">
+        <div class="field">
+          <label>Output format</label>
+          <div class="format-group" id="format-group">
+            <label class="format-chip is-active" data-format="image/jpeg"><input type="radio" name="format" value="image/jpeg" checked /> JPG</label>
+            <label class="format-chip" data-format="image/png"><input type="radio" name="format" value="image/png" /> PNG</label>
+            <label class="format-chip" data-format="image/webp"><input type="radio" name="format" value="image/webp" /> WebP</label>
+          </div>
+        </div>
+        <div class="field">
+          <label for="quality">Quality: <span id="quality-val">0.85</span> <span style="color:var(--muted);font-weight:400;text-transform:none;font-size:.78rem">(JPG/WebP only)</span></label>
+          <div class="quality-row">
+            <input type="range" id="quality" min="0.1" max="1" step="0.05" value="0.85" />
+          </div>
+        </div>
+      </div>
 
- <div class="row row--end">
- <button class="btn btn--ghost" id="resetBtn" disabled>Reset</button>
- <button class="btn" id="downloadBtn" disabled>Download Resized Image</button>
- </div>
- <div class="status" id="status"></div>
- </div>
+      <div class="actions-row">
+        <button class="btn btn--ghost" id="clear-btn">Clear</button>
+        <button class="btn" id="download-all" style="margin-left:auto">Download All (ZIP)</button>
+      </div>
 
- <div class="section">
- <h2>How it works</h2>
- <ol class="steps">
- <li><strong>Upload:</strong> Drop an image or click "Choose Image" to upload.</li>
- <li><strong>Set dimensions:</strong> Enter width or height in pixels, or use scale percentage.</li>
- <li><strong>Preview:</strong> Live preview updates in your browser.</li>
- <li><strong>Download:</strong> Click "Download" to save the resized image.</li>
- </ol>
- </div>
+      <div class="status-line" id="status"></div>
+      <div class="progress-bar" id="progress-bar" style="display:none"><div class="progress-bar__fill" id="progress-fill"></div></div>
 
- <section class="tool-info" aria-label="Tool information">
-  <h2>What is Image Resizer?</h2>
-  <p>An image resizer changes the pixel dimensions of images — scaling them up or down while maintaining aspect ratio. Resizing is essential for preparing images for specific display sizes.</p>
+      <div id="result-grid" class="result-grid"></div>
+    </div>
 
-  <h2>How to use</h2>
-  <ol class="steps-list">
-<li>Step 1: Upload an image by dragging or clicking.</li>
-<li>Step 2: Enter the target width or height (aspect ratio is maintained).</li>
-<li>Step 3: Preview the new dimensions.</li>
-<li>Step 4: Download the resized image.</li>
-  </ol>
+    <div class="section">
+      <h2>How it works</h2>
+      <ol class="steps">
+        <li>Drop images into the zone, or click "Choose Images" to pick files. Multi-file uploads supported.</li>
+        <li>Enter a target width or height — when "Lock aspect ratio" is on, the other dimension updates automatically based on the original image ratio.</li>
+        <li>Choose an output format (JPG, PNG, WebP) and quality level. Quality only affects JPG and WebP.</li>
+        <li>Click "Download" on individual images, or click "Download All" to bundle everything into a single ZIP.</li>
+      </ol>
+    </div>
 
-  <h2>Use cases</h2>
-  <ul class="usecase-list">
-<li>Preparing images for specific social media dimensions.</li>
-<li>Creating thumbnails for website galleries.</li>
-<li>Scaling down large photos for email attachments.</li>
-<li>Resizing for presentations and documents.</li>
-  </ul>
+    <section class="tool-info" aria-label="Tool information">
+      <h2>What is Image Resizer?</h2>
+      <p>Image Resizer is a browser-based tool for resizing and converting photos. It's handy for compressing images before uploading, adapting them for email attachments, or creating consistent-size thumbnails.</p>
 
-  <h2>Frequently Asked Questions</h2>
-  <div class="faq">
-<details class="faq-item">
-  <summary>Does resizing affect quality?</summary>
-  <p>Upscaling (making an image larger) can result in blurriness. Downscaling is generally safe and maintains quality well.</p>
-</details>
-<details class="faq-item">
-  <summary>How do I change both width and height independently?</summary>
-  <p>Uncheck 'Maintain aspect ratio' to set both dimensions freely. This may stretch or distort the image.</p>
-</details>
+      <h2>Use cases</h2>
+      <ul class="usecase-list">
+        <li>Preparing social media and blog post images at specific dimensions.</li>
+        <li>Compressing photos before emailing or uploading to a CMS.</li>
+        <li>Converting PNG screenshots to JPG or WebP for smaller file sizes.</li>
+        <li>Resizing batches of product photos to consistent width/height.</li>
+      </ul>
+
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq">
+        <details class="faq-item">
+          <summary>Are my images uploaded somewhere?</summary>
+          <p>No. All image processing happens locally in your browser using the Canvas API. Files are never sent to a server.</p>
+        </details>
+        <details class="faq-item">
+          <summary>What does the quality slider do?</summary>
+          <p>It controls JPG and WebP compression quality (0.10 – 1.00). Lower values produce smaller files but with visible quality loss. PNG is always lossless.</p>
+        </details>
+        <details class="faq-item">
+          <summary>What does "Preserve transparency" do?</summary>
+          <p>When converting to PNG or WebP, transparent pixels are preserved. For JPG, transparency is replaced with white — the JPG format has no alpha channel.</p>
+        </details>
+        <details class="faq-item">
+          <summary>How many images can I resize at once?</summary>
+          <p>There's no hard limit. The tool is limited by the memory available in your browser — very large batches may work better in smaller groups.</p>
+        </details>
+      </div>
+    </section>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "Are my images uploaded somewhere?", "acceptedAnswer": { "@type": "Answer", "text": "No. All image processing happens locally in your browser." } },
+        { "@type": "Question", "name": "What does the quality slider do?", "acceptedAnswer": { "@type": "Answer", "text": "It controls JPG / WebP compression quality." } },
+        { "@type": "Question", "name": "What does \"Preserve transparency\" do?", "acceptedAnswer": { "@type": "Answer", "text": "When converting to PNG or WebP, transparent pixels are preserved." } }
+      ]
+    }
+    </script>
+
+    <div class="section">
+      <h2>Related tools</h2>
+      <div class="related-grid">
+        <a href="color-picker.html">Color Picker</a>
+        <a href="color-converter.html">Color Converter</a>
+        <a href="image-compressor.html">Image Compressor</a>
+        <a href="../pdf/jpg-to-pdf.html">JPG to PDF</a>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="footer-links">
+        <a href="color-picker.html">Color Picker</a>
+        <a href="image-compressor.html">Image Compressor</a>
+        <a href="color-converter.html">Color Converter</a>
+        <span style="color:var(--border);margin:0 6px">|</span>
+        <a href="../../about.html">About</a>
+        <a href="../../privacy.html">Privacy</a>
+        <a href="../../disclaimer.html">Disclaimer</a>
+      </div>
+      <p class="footer-copy">&copy; 2026 zlbox. All rights reserved.</p>
+    </footer>
   </div>
-</section>
-
-<script type="application/ld+json">
-{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Does resizing affect quality?", "acceptedAnswer": {"@type": "Answer", "text": "Upscaling (making an image larger) can result in blurriness. Downscaling is generally safe and maintains quality well."}}, {"@type": "Question", "name": "How do I change both width and height independently?", "acceptedAnswer": {"@type": "Answer", "text": "Uncheck 'Maintain aspect ratio' to set both dimensions freely. This may stretch or distort the image."}}]}
-</script>
- <div class="section">
- <h2>Related tools</h2>
- <div class="related-grid">
- <a href="image-compressor.html">Image Compressor</a>
- <a href="background-remover.html">Background Remover</a>
- <a href="color-converter.html">Color Converter</a>
- <a href="../pdf/jpg-to-pdf.html">JPG to PDF</a>
- </div>
- </div>
-
- <footer class="footer">
- <div class="footer-links">
- <a href="image-compressor.html">Image Compressor</a>
- <a href="color-picker.html">Color Picker</a>
- <span style="color:var(--border);margin:0 6px;">|</span>
- <a href="../../about.html">About</a>
- <a href="../../privacy.html">Privacy</a>
- <a href="../../disclaimer.html">Disclaimer</a>
- </div>
- <p class="footer-copy">&copy; 2026 zlbox. All rights reserved.</p>
- </footer>
-</div>
 
 <script>
-(function(){
- const uploadZone = document.getElementById('uploadZone');
- const imageInput = document.getElementById('imageInput');
- const widthPx = document.getElementById('widthPx');
- const heightPx = document.getElementById('heightPx');
- const scalePct = document.getElementById('scalePct');
- const lockRatio = document.getElementById('lockRatio');
- const keepTransparent = document.getElementById('keepTransparent');
- const outputFormat = document.getElementById('outputFormat');
- const previewArea = document.getElementById('previewArea');
- const originalImg = document.getElementById('originalImg');
- const resizedImg = document.getElementById('resizedImg');
- const originalMeta = document.getElementById('originalMeta');
- const resizedMeta = document.getElementById('resizedMeta');
- const downloadBtn = document.getElementById('downloadBtn');
- const resetBtn = document.getElementById('resetBtn');
- const statusEl = document.getElementById('status');
+(function () {
+  var dropZone = document.getElementById('drop-zone');
+  var fileInput = document.getElementById('file-input');
+  var widthEl = document.getElementById('width-px');
+  var heightEl = document.getElementById('height-px');
+  var lockEl = document.getElementById('lock-ratio');
+  var keepTransEl = document.getElementById('keep-transparent');
+  var formatGroup = document.getElementById('format-group');
+  var qualityEl = document.getElementById('quality');
+  var qualityValEl = document.getElementById('quality-val');
+  var clearBtn = document.getElementById('clear-btn');
+  var downloadAllBtn = document.getElementById('download-all');
+  var resultGrid = document.getElementById('result-grid');
+  var statusEl = document.getElementById('status');
+  var progressBar = document.getElementById('progress-bar');
+  var progressFill = document.getElementById('progress-fill');
 
- let srcImage = null;
- let srcName = 'image';
- let srcBytes = 0;
- let lastDataUrl = '';
+  var images = []; // { img, name, origBytes, origW, origH }
 
- function formatBytes(bytes){ if(!bytes) return ''; if(bytes<1024) return bytes+' B'; if(bytes<1048576) return (bytes/1024).toFixed(1)+' KB'; return (bytes/1048576).toFixed(2)+' MB'; }
+  var currentFormat = 'image/jpeg';
+  var isUpdatingFromInput = false;
 
- function resize(){
- if(!srcImage) return;
- let w = parseInt(widthPx.value,10);
- let h = parseInt(heightPx.value,10);
- if(lockRatio.checked){
- const ratio = srcImage.width / srcImage.height;
- if(w && !h){ h = Math.round(w/ratio); heightPx.value = h; }
- else if(h && !w){ w = Math.round(h*ratio); widthPx.value = w; }
- else if(w && h){ h = Math.round(w/ratio); heightPx.value = h; }
- }
- if(!w && !h){
- const scale = parseFloat(scalePct.value);
- if(scale && scale>0){
- w = Math.round(srcImage.width * scale/100);
- h = Math.round(srcImage.height * scale/100);
- }
- }
- if(!w || !h || w<=0 || h<=0){ return; }
- const canvas = document.createElement('canvas');
- canvas.width = w; canvas.height = h;
- const ctx = canvas.getContext('2d');
- const mime = outputFormat.value;
- if(mime === 'image/jpeg' && !keepTransparent.checked){
- ctx.fillStyle = '#ffffff';
- ctx.fillRect(0,0,w,h);
- }
- ctx.drawImage(srcImage, 0, 0, w, h);
- const quality = (mime === 'image/jpeg') ? 0.9 : undefined;
- const outUrl = canvas.toDataURL(mime, quality);
- resizedImg.src = outUrl;
- lastDataUrl = outUrl;
- const approx = Math.round((outUrl.length - 'data:image/png;base64,'.length) * 3/4);
- resizedMeta.textContent = w+' x '+h+' px &middot; '+formatBytes(approx);
- downloadBtn.disabled = false;
- }
+  function formatBytes(bytes) {
+    if (!bytes) return '—';
+    if (bytes < 1024) return bytes.toLocaleString() + ' B';
+    if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1).toLocaleString() + ' KB';
+    return (bytes / (1024 * 1024)).toFixed(2).toLocaleString() + ' MB';
+  }
 
- function loadImage(file){
- if(!file || !/^image\//.test(file.type)){ return; }
- srcBytes = file.size;
- srcName = file.name.replace(/\.[^.]+$/,'') || 'image';
- const reader = new FileReader();
- reader.onload = function(ev){
- const img = new Image();
- img.onload = function(){
- srcImage = img;
- originalImg.src = img.src;
- originalMeta.textContent = img.naturalWidth+' x '+img.naturalHeight+' px &middot; '+formatBytes(srcBytes);
- previewArea.style.display = 'grid';
- widthPx.value = img.naturalWidth;
- heightPx.value = img.naturalHeight;
- scalePct.value = '';
- resetBtn.disabled = false;
- resize();
- statusEl.textContent = 'Image loaded. Adjust dimensions below.';
- };
- img.src = ev.target.result;
- };
- reader.readAsDataURL(file);
- }
+  // --- Format chips ---
+  function setActiveFormat(format) {
+    currentFormat = format;
+    document.querySelectorAll('.format-chip').forEach(function (chip) {
+      chip.classList.toggle('is-active', chip.dataset.format === format);
+    });
+    qualityEl.disabled = format === 'image/png';
+    if (images.length) renderPreviews();
+  }
 
- imageInput.addEventListener('change', function(){ if(this.files && this.files[0]) loadImage(this.files[0]); this.value=''; });
- ['dragenter','dragover'].forEach(ev => uploadZone.addEventListener(ev, function(e){ e.preventDefault(); uploadZone.classList.add('drag-over'); }));
- ['dragleave','drop'].forEach(ev => uploadZone.addEventListener(ev, function(e){ e.preventDefault(); uploadZone.classList.remove('drag-over'); }));
- uploadZone.addEventListener('drop', function(e){ if(e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0]) loadImage(e.dataTransfer.files[0]); });
+  formatGroup.addEventListener('change', function (e) {
+    if (e.target && e.target.name === 'format') {
+      setActiveFormat(e.target.value);
+    }
+  });
+  formatGroup.addEventListener('click', function (e) {
+    var chip = e.target.closest('.format-chip');
+    if (!chip) return;
+    var radio = chip.querySelector('input[type=radio]');
+    if (radio && radio.value !== currentFormat) {
+      radio.checked = true;
+      setActiveFormat(radio.value);
+    }
+  });
 
- function onDimChange(){ if(srcImage) resize(); }
- widthPx.addEventListener('input', onDimChange);
- heightPx.addEventListener('input', onDimChange);
- scalePct.addEventListener('input', function(){
- const scale = parseFloat(scalePct.value);
- if(srcImage && scale && scale>0){
- widthPx.value = Math.round(srcImage.width * scale/100);
- heightPx.value = Math.round(srcImage.height * scale/100);
- resize();
- }
- });
- lockRatio.addEventListener('change', onDimChange);
- outputFormat.addEventListener('change', onDimChange);
+  // --- Quality slider ---
+  function updateQualityLabel() {
+    qualityValEl.textContent = Number(qualityEl.value).toFixed(2);
+  }
+  qualityEl.addEventListener('input', function () {
+    updateQualityLabel();
+    if (images.length) renderPreviews();
+  });
+  updateQualityLabel();
 
- resetBtn.addEventListener('click', function(){
- srcImage=null; widthPx.value=''; heightPx.value=''; scalePct.value='';
- previewArea.style.display='none'; downloadBtn.disabled=true; resetBtn.disabled=true; statusEl.textContent='';
- });
+  // --- Dimension sync with aspect-ratio lock ---
+  function getRatioFor(index) {
+    if (!images.length) return null;
+    var i = Math.max(0, Math.min(index || 0, images.length - 1));
+    var img = images[i].img;
+    if (!img.naturalWidth || !img.naturalHeight) return null;
+    return img.naturalWidth / img.naturalHeight;
+  }
 
- downloadBtn.addEventListener('click', function(){
- if(!lastDataUrl) return;
- const ext = outputFormat.value === 'image/png' ? 'png' : outputFormat.value === 'image/webp' ? 'webp' : 'jpg';
- const a = document.createElement('a');
- a.href = lastDataUrl; a.download = srcName+'-resized.'+ext;
- document.body.appendChild(a); a.click(); setTimeout(function(){a.remove();},100);
- statusEl.textContent = 'Download started.';
- });
+  function recalcFromWidth() {
+    if (isUpdatingFromInput) return;
+    if (!lockEl.checked) return;
+    var ratio = getRatioFor(0);
+    if (!ratio) return;
+    var w = parseInt(widthEl.value, 10);
+    if (!w || w < 1) return;
+    isUpdatingFromInput = true;
+    heightEl.value = Math.round(w / ratio);
+    isUpdatingFromInput = false;
+    if (images.length) renderPreviews();
+  }
+
+  function recalcFromHeight() {
+    if (isUpdatingFromInput) return;
+    if (!lockEl.checked) return;
+    var ratio = getRatioFor(0);
+    if (!ratio) return;
+    var h = parseInt(heightEl.value, 10);
+    if (!h || h < 1) return;
+    isUpdatingFromInput = true;
+    widthEl.value = Math.round(h * ratio);
+    isUpdatingFromInput = false;
+    if (images.length) renderPreviews();
+  }
+
+  widthEl.addEventListener('input', recalcFromWidth);
+  heightEl.addEventListener('input', recalcFromHeight);
+  lockEl.addEventListener('change', function () {
+    if (lockEl.checked && images.length) {
+      // Preserve width, recompute height.
+      recalcFromWidth();
+    }
+  });
+  keepTransEl.addEventListener('change', function () {
+    if (images.length) renderPreviews();
+  });
+
+  // --- Core processing ---
+  function computeTargetSize(src) {
+    var w = parseInt(widthEl.value, 10);
+    var h = parseInt(heightEl.value, 10);
+    var ratio = src.img.naturalWidth / src.img.naturalHeight;
+    if ((!w || w < 1) && (!h || h < 1)) {
+      w = src.img.naturalWidth;
+      h = src.img.naturalHeight;
+    } else if (!w || w < 1) {
+      w = Math.round(h * ratio);
+    } else if (!h || h < 1) {
+      h = Math.round(w / ratio);
+    }
+    return { w: Math.max(1, w | 0), h: Math.max(1, h | 0) };
+  }
+
+  function processOne(src) {
+    var size = computeTargetSize(src);
+    var mime = currentFormat;
+    var q = parseFloat(qualityEl.value);
+    if (isNaN(q) || q < 0.1) q = 0.85;
+    if (q > 1) q = 1;
+
+    var canvas = document.createElement('canvas');
+    canvas.width = size.w;
+    canvas.height = size.h;
+    var ctx = canvas.getContext('2d');
+
+    if (mime === 'image/jpeg' || !keepTransEl.checked) {
+      ctx.fillStyle = '#ffffff';
+      ctx.fillRect(0, 0, size.w, size.h);
+    }
+    ctx.drawImage(src.img, 0, 0, size.w, size.h);
+
+    var qVal = mime === 'image/png' ? undefined : q;
+    var dataUrl = canvas.toDataURL(mime, qVal);
+    var approx = Math.round(((dataUrl.length - dataUrl.indexOf(',') - 1) * 3) / 4);
+    return { dataUrl: dataUrl, bytes: approx, width: size.w, height: size.h };
+  }
+
+  function extFor(mime) {
+    if (mime === 'image/png') return 'png';
+    if (mime === 'image/webp') return 'webp';
+    return 'jpg';
+  }
+
+  function renderPreviews() {
+    resultGrid.innerHTML = '';
+    if (!images.length) return;
+    for (var i = 0; i < images.length; i++) {
+      var src = images[i];
+      var res = processOne(src);
+      var base = src.name.replace(/\.[^.]+$/, '') || 'image';
+      var filename = base + '.' + extFor(currentFormat);
+
+      var card = document.createElement('div');
+      card.className = 'preview-card';
+
+      var img = document.createElement('img');
+      img.src = res.dataUrl;
+      img.alt = 'Resized preview';
+      card.appendChild(img);
+
+      var nameDiv = document.createElement('div');
+      nameDiv.className = 'preview-card__name';
+      nameDiv.textContent = filename;
+      card.appendChild(nameDiv);
+
+      var meta = document.createElement('div');
+      meta.className = 'preview-card__meta';
+      meta.innerHTML =
+        'Original: <b>' + src.img.naturalWidth.toLocaleString() + ' × ' + src.img.naturalHeight.toLocaleString() + '</b> · ' + formatBytes(src.origBytes) +
+        '<br/>Resized: <b>' + res.width.toLocaleString() + ' × ' + res.height.toLocaleString() + '</b> · ' + formatBytes(res.bytes);
+      card.appendChild(meta);
+
+      var actions = document.createElement('div');
+      actions.className = 'preview-card__actions';
+      var btn = document.createElement('button');
+      btn.className = 'btn btn--sm';
+      btn.textContent = 'Download';
+      btn.addEventListener('click', function (idx, name, url) {
+        return function () { downloadFile(url, name); };
+      }(i, filename, res.dataUrl));
+      actions.appendChild(btn);
+      card.appendChild(actions);
+
+      resultGrid.appendChild(card);
+    }
+    statusEl.textContent = 'Resized ' + images.length.toLocaleString() + ' image' + (images.length === 1 ? '' : 's') + '.';
+  }
+
+  function downloadFile(dataUrl, filename) {
+    var a = document.createElement('a');
+    a.href = dataUrl;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(function () { document.body.removeChild(a); }, 50);
+  }
+
+  // --- Batch ZIP download ---
+  function showProgress(show) {
+    progressBar.style.display = show ? 'block' : 'none';
+    progressFill.style.width = show ? '0%' : '0%';
+  }
+
+  function downloadAllZIP() {
+    if (!images.length) {
+      statusEl.textContent = 'Upload images first.';
+      return;
+    }
+    if (typeof JSZip === 'undefined') {
+      statusEl.textContent = 'ZIP library unavailable. Falling back to sequential downloads...';
+      sequentialDownload();
+      return;
+    }
+
+    showProgress(true);
+    statusEl.textContent = 'Preparing ZIP archive...';
+    downloadAllBtn.disabled = true;
+
+    var zip = new JSZip();
+    var pending = images.length;
+    var done = 0;
+
+    try {
+      for (var i = 0; i < images.length; i++) {
+        var src = images[i];
+        var res = processOne(src);
+        var base = (src.name || 'image').replace(/\.[^.]+$/, '');
+        var name = base + '.' + extFor(currentFormat);
+        if (images.length > 1) name = (i + 1).toString().padStart(3, '0') + '-' + name;
+        var base64 = res.dataUrl.split(',')[1] || '';
+        zip.file(name, base64, { base64: true });
+        done++;
+        progressFill.style.width = Math.round((done / pending) * 90) + '%';
+      }
+
+      zip.generateAsync({ type: 'blob', compression: 'STORE' }, function update(meta) {
+        progressFill.style.width = (90 + meta.percent * 0.1).toFixed(0) + '%';
+      }).then(function (blob) {
+        progressFill.style.width = '100%';
+        var url = URL.createObjectURL(blob);
+        var a = document.createElement('a');
+        a.href = url;
+        a.download = 'resized-images.zip';
+        document.body.appendChild(a);
+        a.click();
+        setTimeout(function () {
+          document.body.removeChild(a);
+          URL.revokeObjectURL(url);
+        }, 50);
+        statusEl.textContent = 'Downloaded ZIP — ' + images.length.toLocaleString() + ' image' + (images.length === 1 ? '' : 's') + '.';
+        setTimeout(function () { showProgress(false); }, 800);
+      }).catch(function (err) {
+        statusEl.textContent = 'ZIP failed: ' + (err && err.message ? err.message : 'unknown error');
+        showProgress(false);
+      });
+    } catch (e) {
+      statusEl.textContent = 'Error building ZIP. Try fewer or smaller images.';
+      showProgress(false);
+    } finally {
+      downloadAllBtn.disabled = false;
+    }
+  }
+
+  function sequentialDownload() {
+    for (var i = 0; i < images.length; i++) {
+      (function (i) {
+        setTimeout(function () {
+          var src = images[i];
+          var res = processOne(src);
+          var base = (src.name || 'image').replace(/\.[^.]+$/, '');
+          var name = base + '.' + extFor(currentFormat);
+          downloadFile(res.dataUrl, name);
+        }, i * 400);
+      })(i);
+    }
+    statusEl.textContent = 'Started sequential download of ' + images.length.toLocaleString() + ' file' + (images.length === 1 ? '' : 's') + '.';
+  }
+
+  downloadAllBtn.addEventListener('click', downloadAllZIP);
+
+  clearBtn.addEventListener('click', function () {
+    images = [];
+    resultGrid.innerHTML = '';
+    widthEl.value = '';
+    heightEl.value = '';
+    fileInput.value = '';
+    statusEl.textContent = 'Cleared.';
+    showProgress(false);
+  });
+
+  // --- File loading ---
+  function loadFiles(fileList) {
+    if (!fileList || !fileList.length) return;
+    var pending = fileList.length;
+    var loaded = 0;
+    statusEl.textContent = 'Loading ' + pending.toLocaleString() + ' image' + (pending === 1 ? '' : 's') + '...';
+
+    var firstNaturalWidth = null;
+    var firstNaturalHeight = null;
+
+    function oneLoaded(img, file) {
+      images.push({ img: img, name: file.name, origBytes: file.size, origW: img.naturalWidth, origH: img.naturalHeight });
+      loaded++;
+      if (!firstNaturalWidth) {
+        firstNaturalWidth = img.naturalWidth;
+        firstNaturalHeight = img.naturalHeight;
+        if (!widthEl.value && !heightEl.value) {
+          widthEl.value = img.naturalWidth;
+          heightEl.value = img.naturalHeight;
+        } else if (lockEl.checked) {
+          if (widthEl.value && !heightEl.value) recalcFromWidth();
+          else if (heightEl.value && !widthEl.value) recalcFromHeight();
+        }
+      }
+      if (loaded >= pending) {
+        statusEl.textContent = 'Loaded ' + images.length.toLocaleString() + ' image' + (images.length === 1 ? '' : 's') + '. Adjust size, format, or quality.';
+        renderPreviews();
+      }
+    }
+
+    for (var i = 0; i < fileList.length; i++) {
+      var file = fileList[i];
+      if (!file.type || file.type.indexOf('image/') !== 0) { pending--; continue; }
+      var reader = new FileReader();
+      reader.onload = (function (f) {
+        return function (ev) {
+          var img = new Image();
+          img.onload = function () { oneLoaded(img, f); };
+          img.onerror = function () { pending--; };
+          img.src = ev.target.result;
+        };
+      })(file);
+      reader.readAsDataURL(file);
+    }
+    if (pending === 0) statusEl.textContent = 'No valid images were found in the selection.';
+  }
+
+  fileInput.addEventListener('change', function () {
+    if (fileInput.files && fileInput.files.length) loadFiles(fileInput.files);
+    fileInput.value = '';
+  });
+
+  // Manual keyboard Enter support on width/height inputs (already handled via input event, but force rerender)
+  [widthEl, heightEl].forEach(function (el) {
+    el.addEventListener('change', function () {
+      if (images.length) renderPreviews();
+    });
+  });
+
+  // --- Nav toggle ---
+  var toggle = document.querySelector('.nav-toggle');
+  var navLinks = document.querySelector('.nav-links');
+  if (toggle && navLinks) {
+    toggle.addEventListener('click', function () {
+      var open = navLinks.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open);
+    });
+  }
 })();
 </script>
 </body>

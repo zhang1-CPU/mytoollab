@@ -7,7 +7,7 @@
  <meta name="description" content="Free basic online calculator for addition, subtraction, multiplication, and division. Simple, fast, works on any device without signup." />
  <link rel="stylesheet" href="../../css/components.css" />
  <link rel="canonical" href="https://www.zlbox.site/tools/calculator/basic-calculator.html" />
- <meta name="google-site-verification" content="google4bd1e08685667667" />
+ <meta name="google-site-verification" content="google4bd1e8685667667" />
  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
 <script>
 /* Navigation toggle for mobile */
@@ -174,6 +174,67 @@
     border-radius: 0;
   }
 }
+
+/* ── 计算器核心样式 ── */
+.calc-display {
+  background: #1f2937;
+  color: #fff;
+  border-radius: 10px;
+  padding: 16px 18px;
+  text-align: right;
+  margin-bottom: 14px;
+  min-height: 96px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 8px;
+}
+.calc-display .expr {
+  font-size: .95rem;
+  color: #9ca3af;
+  min-height: 1.2em;
+  word-break: break-all;
+  line-height: 1.3;
+}
+.calc-display .cur {
+  font-size: 2.2rem;
+  font-weight: 700;
+  line-height: 1.2;
+  word-break: break-all;
+}
+.calc-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+.calc-btn {
+  appearance: none;
+  border: 1px solid var(--border);
+  background: #fff;
+  color: var(--text);
+  border-radius: 8px;
+  padding: 16px 6px;
+  font-size: 1.15rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all .12s ease;
+  user-select: none;
+  font-family: inherit;
+}
+.calc-btn:hover { background: #f3f4f6; border-color: #d1d5db; }
+.calc-btn:active { transform: translateY(1px); background: #e5e7eb; }
+.calc-btn--op { background: #fef3c7; color: #92400e; border-color: #fde68a; }
+.calc-btn--op:hover { background: #fde68a; }
+.calc-btn--eq { background: var(--brand); color: #fff; border-color: var(--brand); grid-column: span 2; }
+.calc-btn--eq:hover { opacity: .92; }
+.calc-btn--clear { background: #fee2e2; color: #991b1b; border-color: #fecaca; }
+.calc-btn--clear:hover { background: #fecaca; }
+.calc-btn--zero { grid-column: span 2; }
+.calc-btn--wide { grid-column: span 2; }
+@media (max-width: 480px) {
+  .calc-btn { padding: 14px 4px; font-size: 1.05rem; }
+  .calc-display .cur { font-size: 1.8rem; }
+}
   </style>
   <meta property="og:image" content="https://www.zlbox.site/og-image.png" />
   <meta property="og:image:width" content="1200" />
@@ -248,31 +309,30 @@
  </div>
 
  <div class="card">
- <div class="calc-display">
- <div class="expr" id="expr">&nbsp;</div>
- <div class="cur" id="cur">0</div>
- </div>
- <div class="keys">
- <button class="key key--clear" data-k="C">C</button>
- <button class="key key--clear" data-k="DEL">⌫</button>
- <button class="key key--op" data-k="%">%</button>
- <button class="key key--op" data-k="/">÷</button>
- <button class="key" data-k="7">7</button>
- <button class="key" data-k="8">8</button>
- <button class="key" data-k="9">9</button>
- <button class="key key--op" data-k="*">×</button>
- <button class="key" data-k="4">4</button>
- <button class="key" data-k="5">5</button>
- <button class="key" data-k="6">6</button>
- <button class="key key--op" data-k="-">−</button>
- <button class="key" data-k="1">1</button>
- <button class="key" data-k="2">2</button>
- <button class="key" data-k="3">3</button>
- <button class="key key--op" data-k="+">+</button>
- <button class="key" data-k="0">0</button>
- <button class="key" data-k=".">.</button>
- <button class="key key--eq" data-k="=">=</button>
- </div>
+  <div class="calc-display">
+    <div class="expr" id="expr">&nbsp;</div>
+    <div class="cur" id="cur">0</div>
+  </div>
+  <div class="calc-grid">
+    <button class="calc-btn calc-btn--clear" data-k="C">Clear</button>
+    <button class="calc-btn calc-btn--clear" data-k="DEL">Backspace</button>
+    <button class="calc-btn calc-btn--op" data-k="÷">÷</button>
+    <button class="calc-btn calc-btn--op" data-k="×">×</button>
+    <button class="calc-btn" data-k="7">7</button>
+    <button class="calc-btn" data-k="8">8</button>
+    <button class="calc-btn" data-k="9">9</button>
+    <button class="calc-btn calc-btn--op" data-k="+">+</button>
+    <button class="calc-btn" data-k="4">4</button>
+    <button class="calc-btn" data-k="5">5</button>
+    <button class="calc-btn" data-k="6">6</button>
+    <button class="calc-btn calc-btn--op" data-k="−">−</button>
+    <button class="calc-btn" data-k="1">1</button>
+    <button class="calc-btn" data-k="2">2</button>
+    <button class="calc-btn" data-k="3">3</button>
+    <button class="calc-btn calc-btn--eq" data-k="=">=</button>
+    <button class="calc-btn calc-btn--zero" data-k="0">0</button>
+    <button class="calc-btn" data-k=".">.</button>
+  </div>
  </div>
 
  <div class="ad-slot">
@@ -288,7 +348,6 @@
  <p>Mobile optimized — large buttons designed for touch.</p>
  </div>
 
- 
 <section class="tool-info" aria-label="Tool information">
   <h2>What is Basic Calculator?</h2>
   <p>A basic online calculator performs fundamental arithmetic operations — addition, subtraction, multiplication, and division — directly in your browser. No app download or internet connection required after the page loads.</p>
@@ -298,7 +357,7 @@
 <li>Step 1: Click the number buttons or use your keyboard to enter a value.</li>
 <li>Step 2: Click an operation (+, -, ×, ÷) to set the calculation.</li>
 <li>Step 3: Click '=' or press Enter to see the result.</li>
-<li>Step 4: Use 'C' to clear and 'CE' to backspace.</li>
+<li>Step 4: Use 'Clear' to clear and 'Backspace' to delete the last character.</li>
   </ol>
 
   <h2>Use cases</h2>
@@ -344,60 +403,255 @@
 
 <script>
 (function(){
- var cur='0',expr='';
- var curEl=document.getElementById('cur');
- var exprEl=document.getElementById('expr');
- function render(){curEl.textContent=cur;exprEl.innerHTML=expr?expr.replace(/\*/g,'×').replace(/\//g,'÷').replace(/-/g,'−'):'&nbsp;';}
- function isOp(c){return c==='+'||c==='-'||c==='*'||c==='/';}
- function safeEval(s){try{if(!s)return'0';s=s.replace(/--/g,'+');var r=Function('"use strict";return('+s+')')();if(r===Infinity||r===-Infinity||isNaN(r))return'Error';return String(parseFloat(r.toFixed(10)));}catch(e){return'Error';}}
- function pressPercent(){
- var curText=curEl.textContent;
- var exprText=exprEl.textContent.replace(/×/g,'*').replace(/÷/g,'/').replace(/−/g,'-').replace(/&nbsp;/g,'');
- var m=exprText.match(/([+\-*/]?)\s*(\d+(?:\.\d+)?)\s*$/);
- var lastNum=m?parseFloat(m[2]):null;
- if(!isNaN(curText)&&curText!=='Error'){
- cur=String(parseFloat(curText)/100);
- } else if(lastNum){
- var idx=exprText.lastIndexOf(String(lastNum));
- if(idx>=0){
- var newPart=String(lastNum/100);
- expr=exprText.substring(0,idx)+newPart;
- cur='0';
- }
- }
- render();
- }
- function press(k){
- if(k==='C'){cur='0';expr='';}
- else if(k==='DEL'){cur=cur.length>1?cur.slice(0,-1):'0';}
- else if(k==='='){
- var full=expr+cur;
- var out=safeEval(full);
- expr='';cur=out;
- }else if(k==='%'){pressPercent();return;
- }else if(isOp(k)){
- var full=expr+cur;
- if(expr&&cur==='0'&&!full.match(/[0-9.]$/))return;
- var left=safeEval(full);
- if(left==='Error'){cur='Error';expr='';return;}
- expr=left+' '+k+' ';cur='0';
- }else if(k==='.'){
- if(cur.indexOf('.')===-1)cur+='.';
- }else if(/[0-9]/.test(k)){
- cur=(cur==='0')?k:cur+k;
- }
- render();
- }
- document.querySelectorAll('.key').forEach(function(b){b.addEventListener('click',function(){press(b.getAttribute('data-k'));});});
- document.addEventListener('keydown',function(e){
- var k=e.key;
- if(/[0-9]/.test(k))press(k);
- else if(k==='.'||k==='+'||k==='-'||k==='*'||k==='/')press(k);
- else if(k==='Enter'||k==='='){e.preventDefault();press('=');}
- else if(k==='Backspace')press('DEL');
- else if(k==='Escape')press('C');
- });
- render();
+  'use strict';
+
+  var exprEl = document.getElementById('expr');
+  var curEl  = document.getElementById('cur');
+
+  // ── tokens 存的是「原始表达式文本」，避免 toLocaleString 再 parseFloat 误差 ──
+  // tokens 存 number token. 每个 number token 保留原始数字字符串（不含千分位）
+  // 显示时用 toLocaleString 美化；运算时用 parseFloat(rawText)
+  var tokens = []; // [{t:'n', raw:'123.5'}, {t:'o', v:'+'}, ...]
+  var currentRaw = ''; // 当前正在编辑数字的原始字符串（例如 "123."）
+  var justEvaluated = false;
+  var resultValue = null;
+
+  function fmtRaw(raw){
+    var n = parseFloat(raw);
+    if (!isFinite(n)) return 'Error';
+    var rounded = Math.round(n * 1e12) / 1e12;
+    return rounded.toLocaleString(undefined, { maximumFractionDigits: 10 });
+  }
+  function fmtNumber(n){
+    if (!isFinite(n)) return 'Error';
+    var rounded = Math.round(n * 1e12) / 1e12;
+    return rounded.toLocaleString(undefined, { maximumFractionDigits: 10 });
+  }
+
+  function render(){
+    var disp = '';
+    for (var i=0;i<tokens.length;i++){
+      var tk = tokens[i];
+      if (tk.t === 'n') {
+        disp += fmtRaw(tk.raw);
+      } else {
+        var c = tk.v;
+        if (c === '*') c = '×';
+        else if (c === '/') c = '÷';
+        else if (c === '-') c = '−';
+        disp += ' ' + c + ' ';
+      }
+    }
+    exprEl.innerHTML = disp ? disp : '&nbsp;';
+    if (justEvaluated){
+      curEl.textContent = curEl.dataset.result || '0';
+    } else {
+      curEl.textContent = currentRaw ? fmtRaw(currentRaw) : '0';
+    }
+  }
+
+  function lastIsNumber(){
+    return tokens.length > 0 && tokens[tokens.length - 1].t === 'n';
+  }
+  function lastIsOperator(){
+    return tokens.length > 0 && tokens[tokens.length - 1].t === 'o';
+  }
+
+  function evaluate(){
+    if (tokens.length === 0) return NaN;
+    // 先处理 * /
+    var s1 = [];
+    for (var i=0;i<tokens.length;i++){
+      var tk = tokens[i];
+      if (tk.t === 'n'){ s1.push({t:'n', v:parseFloat(tk.raw)}); }
+      else if (tk.t === 'o'){
+        if (tk.v === '*' || tk.v === '/'){
+          var left = s1.pop();
+          var right = tokens[i+1];
+          if (!left || !right || right.t !== 'n') return NaN;
+          var r;
+          if (tk.v === '*') r = left.v * parseFloat(right.raw);
+          else {
+            if (parseFloat(right.raw) === 0) return NaN;
+            r = left.v / parseFloat(right.raw);
+          }
+          s1.push({t:'n', v:r});
+          i++; // 跳过右侧数字
+        } else {
+          s1.push(tk);
+        }
+      }
+    }
+    if (s1.length === 0) return NaN;
+    var result = s1[0].v;
+    if (!isFinite(result)) return NaN;
+    for (var j=1;j<s1.length;j+=2){
+      var op = s1[j];
+      var num = s1[j+1];
+      if (!op || !num || num.t !== 'n') return NaN;
+      if (op.v === '+') result += num.v;
+      else if (op.v === '-') result -= num.v;
+      else return NaN;
+    }
+    return result;
+  }
+
+  function commitCurrentAsNumber(){
+    if (currentRaw === '') return;
+    tokens.push({t:'n', raw:currentRaw});
+    currentRaw = '';
+  }
+
+  function pressDigitOrDot(k){
+    if (justEvaluated){
+      tokens = [];
+      currentRaw = '';
+      justEvaluated = false;
+    }
+    if (currentRaw === '' && lastIsNumber()){
+      // 不应该出现，但兜底
+    }
+    if (k === '.'){
+      if (currentRaw === ''){
+        currentRaw = '0.';
+      } else if (currentRaw.indexOf('.') === -1){
+        currentRaw = currentRaw + '.';
+      }
+      return;
+    }
+    if (currentRaw === '0'){
+      currentRaw = k; // 避免 "07" → "7"
+    } else {
+      currentRaw = currentRaw + k;
+    }
+  }
+
+  function pressOp(op){
+    if (justEvaluated){
+      if (resultValue === null || !isFinite(resultValue)){ clearAll(); return; }
+      tokens = [{t:'n', raw: String(resultValue)}];
+      currentRaw = '';
+      justEvaluated = false;
+    }
+    // 如果当前正在编辑数字 → 先提交
+    if (currentRaw !== ''){
+      commitCurrentAsNumber();
+    }
+    if (tokens.length === 0){
+      if (op === '-'){
+        tokens.push({t:'n', raw:'0'});
+        tokens.push({t:'o', v:'-'});
+      }
+      return;
+    }
+    if (lastIsOperator()){
+      tokens[tokens.length - 1].v = op;
+      return;
+    }
+    tokens.push({t:'o', v:op});
+  }
+
+  function clearAll(){
+    tokens = [];
+    currentRaw = '';
+    justEvaluated = false;
+    resultValue = null;
+    curEl.dataset.result = '';
+  }
+
+  function backspace(){
+    if (justEvaluated){ clearAll(); return; }
+    if (currentRaw !== ''){
+      if (currentRaw.length <= 1){
+        currentRaw = '';
+      } else {
+        currentRaw = currentRaw.substring(0, currentRaw.length - 1);
+      }
+      return;
+    }
+    // 否则 tokens 最后一个是运算符 → 删掉
+    if (tokens.length > 0){
+      var last = tokens[tokens.length - 1];
+      if (last.t === 'o'){
+        tokens.pop();
+        // 恢复最后一个数字用于编辑
+        if (tokens.length > 0 && tokens[tokens.length - 1].t === 'n'){
+          currentRaw = tokens[tokens.length - 1].raw;
+          tokens.pop();
+        }
+      } else {
+        tokens.pop();
+      }
+    }
+  }
+
+  function tokensToStringForExpr(){
+    var disp = '';
+    for (var i=0;i<tokens.length;i++){
+      var tk = tokens[i];
+      if (tk.t === 'n') { disp += fmtRaw(tk.raw); }
+      else {
+        var c = tk.v;
+        if (c === '*') c = '×';
+        else if (c === '/') c = '÷';
+        else if (c === '-') c = '−';
+        disp += ' ' + c + ' ';
+      }
+    }
+    return disp;
+  }
+
+  function pressEqual(){
+    if (currentRaw !== '') commitCurrentAsNumber();
+    if (tokens.length === 0 || lastIsOperator()) return;
+    var r = evaluate();
+    if (!isFinite(r) || isNaN(r)){
+      curEl.dataset.result = 'Error';
+      curEl.textContent = 'Error';
+      exprEl.innerHTML = tokensToStringForExpr() + ' =';
+      justEvaluated = true;
+      resultValue = null;
+      return;
+    }
+    var formatted = fmtNumber(r);
+    exprEl.innerHTML = tokensToStringForExpr() + ' =';
+    curEl.dataset.result = formatted;
+    curEl.textContent = formatted;
+    resultValue = r;
+    tokens = [{t:'n', raw: String(r)}];
+    currentRaw = '';
+    justEvaluated = true;
+  }
+
+  function press(k){
+    if (k === 'C'){ clearAll(); render(); return; }
+    if (k === 'DEL'){ backspace(); render(); return; }
+    if (k === '='){ pressEqual(); render(); return; }
+    if (k === '+'){ pressOp('+'); render(); return; }
+    if (k === '−' || k === '-'){ pressOp('-'); render(); return; }
+    if (k === '×' || k === '*'){ pressOp('*'); render(); return; }
+    if (k === '÷' || k === '/'){ pressOp('/'); render(); return; }
+    if (/^[0-9]$/.test(k)){ pressDigitOrDot(k); render(); return; }
+    if (k === '.'){ pressDigitOrDot('.'); render(); return; }
+  }
+
+  document.querySelectorAll('.calc-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){ press(btn.getAttribute('data-k')); });
+  });
+  document.addEventListener('keydown', function(e){
+    var k = e.key;
+    if (/^[0-9]$/.test(k)) { e.preventDefault(); press(k); }
+    else if (k === '.') { e.preventDefault(); press(k); }
+    else if (k === '+') { e.preventDefault(); press('+'); }
+    else if (k === '-') { e.preventDefault(); press('-'); }
+    else if (k === '*') { e.preventDefault(); press('×'); }
+    else if (k === '/') { e.preventDefault(); press('÷'); }
+    else if (k === 'Enter' || k === '=') { e.preventDefault(); press('='); }
+    else if (k === 'Backspace') { e.preventDefault(); press('DEL'); }
+    else if (k === 'Escape') { e.preventDefault(); press('C'); }
+  });
+
+  render();
 })();
 </script>
 </body>

@@ -3,14 +3,13 @@
 <head>
  <meta charset="UTF-8" />
  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
- <title>UUID Generator – Random UUID v4 with Copy | zlbox</title>
- <meta name="description" content="Free online UUID v4 generator. Create 1 to 100 unique identifiers with hyphens or in uppercase, and copy them in one click." />
+ <title>UUID Generator – Random UUID v1 / v4 with Copy | zlbox</title>
+ <meta name="description" content="Free online UUID generator. Create 1 to 100 UUIDs (v1 or v4) with hyphens or uppercase, copy all or download as text in one click." />
  <link rel="stylesheet" href="../../css/components.css" />
  <link rel="canonical" href="https://www.zlbox.site/tools/generator/uuid-generator.html" />
  <meta name="google-site-verification" content="google4bd1e08685667667" />
  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
 <script>
-/* Navigation toggle for mobile */
 (function() {
   var toggle = document.querySelector('.nav-toggle');
   var navLinks = document.querySelector('.nav-links');
@@ -19,7 +18,6 @@
     var isOpen = navLinks.classList.toggle('open');
     toggle.setAttribute('aria-expanded', isOpen);
   });
-  // Highlight active link
   var path = location.pathname;
   document.querySelectorAll('.nav-link').forEach(function(link) {
     var href = link.getAttribute('href');
@@ -31,179 +29,55 @@
 </script>
 
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <meta property="og:title" content="UUID Generator – Random UUID v4 with Copy | zlbox" />
-  <meta property="og:description" content="Free online UUID v4 generator. Create 1 to 100 unique identifiers with hyphens or in uppercase, and copy them in one click." />
+  <meta property="og:title" content="UUID Generator – Random UUID v1 / v4 with Copy | zlbox" />
+  <meta property="og:description" content="Free online UUID generator. Create 1 to 100 UUIDs (v1 or v4) with hyphens or uppercase, copy all or download as text in one click." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.zlbox.site/tools/generator/uuid-generator.html" />
   <meta property="og:site_name" content="zlbox" />
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "UUID Generator – Random UUID v4 with Copy", "description": "Free online UUID v4 generator. Create 1 to 100 unique identifiers with hyphens or in uppercase, and copy them in one click.", "url": "https://www.zlbox.site/tools/generator/uuid-generator.html", "applicationCategory": "Generator Tool", "operatingSystem": "Any (browser-based)", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "browserRequirements": "Requires a modern web browser with JavaScript enabled."}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "UUID Generator – Random UUID v1 / v4 with Copy", "description": "Free online UUID generator. Create 1 to 100 UUIDs (v1 or v4) with hyphens or uppercase, copy all or download as text in one click.", "url": "https://www.zlbox.site/tools/generator/uuid-generator.html", "applicationCategory": "Generator Tool", "operatingSystem": "Any (browser-based)", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "browserRequirements": "Requires a modern web browser with JavaScript enabled."}</script>
 
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.zlbox.site/"}, {"@type": "ListItem", "position": 2, "name": "Generator Tools", "item": null}]}</script>
 
   <style>
-/* ── Site Navigation ── */
-.site-nav {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: rgba(255,255,255,.97);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--border);
-  box-shadow: 0 1px 4px rgba(0,0,0,.05);
-}
-.nav-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  height: 52px;
-}
-.nav-logo {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-weight: 700;
-  font-size: 1rem;
-  color: var(--brand);
-  text-decoration: none;
-  flex-shrink: 0;
-  margin-right: 12px;
-}
+.site-nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,.97); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); box-shadow: 0 1px 4px rgba(0,0,0,.05); }
+.nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; align-items: center; gap: 8px; height: 52px; }
+.nav-logo { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 1rem; color: var(--brand); text-decoration: none; flex-shrink: 0; margin-right: 12px; }
 .nav-logo:hover { text-decoration: none; }
-.nav-logo-icon {
-  width: 36px;
-  height: 36px;
-  background: var(--brand);
-  color: #fff;
-  border-radius: 6px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 900;
-  font-size: .9rem;
-  flex-shrink: 0;
-}
+.nav-logo-icon { width: 36px; height: 36px; background: var(--brand); color: #fff; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: .9rem; flex-shrink: 0; }
 .nav-logo-text { font-size: .95rem; }
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 2px;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-  flex: 1;
-}
+.nav-links { display: flex; align-items: center; gap: 2px; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none; flex: 1; }
 .nav-links::-webkit-scrollbar { display: none; }
-.nav-link {
-  display: inline-flex;
-  align-items: center;
-  padding: 5px 10px;
-  font-size: .82rem;
-  font-weight: 500;
-  color: var(--text);
-  border-radius: 6px;
-  white-space: nowrap;
-  transition: all .15s;
-  flex-shrink: 0;
-}
-.nav-link:hover {
-  background: var(--brand);
-  color: #fff;
-  text-decoration: none;
-}
-.nav-link.active {
-  background: #eff6ff;
-  color: var(--brand);
-}
-.nav-toggle {
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  gap: 4px;
-  width: 32px;
-  height: 32px;
-  padding: 4px;
-  background: none;
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  cursor: pointer;
-  flex-shrink: 0;
-  margin-left: auto;
-}
-.nav-toggle span {
-  display: block;
-  width: 100%;
-  height: 2px;
-  background: var(--text);
-  border-radius: 1px;
-}
-@media (max-width: 768px) {
-  .nav-logo-text { display: none; }
-  .nav-inner { gap: 6px; }
-  .nav-toggle { display: flex; }
-  .nav-links {
-    display: none;
-    position: absolute;
-    top: 52px;
-    left: 0;
-    right: 0;
-    background: #fff;
-    border-bottom: 1px solid var(--border);
-    box-shadow: 0 4px 12px rgba(0,0,0,.1);
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 8px 0;
-    z-index: 99;
-    overflow: visible;
-  }
-  .nav-links.open { display: flex; }
-  .nav-link {
-    width: 100%;
-    padding: 10px 20px;
-    font-size: .9rem;
-    border-radius: 0;
-  }
-}
+.nav-link { display: inline-flex; align-items: center; padding: 5px 10px; font-size: .82rem; font-weight: 500; color: var(--text); border-radius: 6px; white-space: nowrap; transition: all .15s; flex-shrink: 0; }
+.nav-link:hover { background: var(--brand); color: #fff; text-decoration: none; }
+.nav-link.active { background: #eff6ff; color: var(--brand); }
+.nav-toggle { display: none; flex-direction: column; justify-content: center; gap: 4px; width: 32px; height: 32px; padding: 4px; background: none; border: 1px solid var(--border); border-radius: 6px; cursor: pointer; flex-shrink: 0; margin-left: auto; }
+.nav-toggle span { display: block; width: 100%; height: 2px; background: var(--text); border-radius: 1px; }
+@media (max-width: 768px) { .nav-logo-text { display: none; } .nav-inner { gap: 6px; } .nav-toggle { display: flex; } .nav-links { display: none; position: absolute; top: 52px; left: 0; right: 0; background: #fff; border-bottom: 1px solid var(--border); box-shadow: 0 4px 12px rgba(0,0,0,.1); flex-direction: column; align-items: flex-start; padding: 8px 0; z-index: 99; overflow: visible; } .nav-links.open { display: flex; } .nav-link { width: 100%; padding: 10px 20px; font-size: .9rem; border-radius: 0; } }
+.field-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.row-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px; }
+@media (max-width: 560px) { .field-grid, .row-grid { grid-template-columns: 1fr; } }
+.mono-box__text { font-family: ui-monospace, Consolas, monospace; font-size: .92rem; word-break: break-all; }
   </style>
   <meta property="og:image" content="https://www.zlbox.site/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="UUID Generator – Random UUID v4 with Copy" />
-  <meta name="twitter:description" content="Free online UUID v4 generator. Create 1 to 100 unique identifiers with hyphens or in uppercase, and copy them in one click." />
+  <meta name="twitter:title" content="UUID Generator – Random UUID v1 / v4 with Copy" />
+  <meta name="twitter:description" content="Free online UUID generator. Create 1 to 100 UUIDs (v1 or v4) with hyphens or uppercase, copy all or download as text in one click." />
   <meta name="twitter:image" content="https://www.zlbox.site/og-image.png" />
-
 
   <meta name="robots" content="index, follow" />
   <script type="application/ld+json">{
-  "@context": "https://schema.org",
-  "@type": "HowTo",
-  "name": "How to Generate UUIDs",
-  "description": "Step by step guide: How to Generate UUIDs",
-  "step": [
-    {
-      "@type": "HowToStep",
-      "name": "Set quantity",
-      "text": "Choose how many UUIDs you want to generate (1-100).",
-      "position": 1
-    },
-    {
-      "@type": "HowToStep",
-      "name": "Select version",
-      "text": "Choose UUID version (v4 recommended for random UUIDs).",
-      "position": 2
-    },
-    {
-      "@type": "HowToStep",
-      "name": "Generate and copy",
-      "text": "Click 'Generate' and copy the UUIDs.",
-      "position": 3
-    }
-  ]
-}</script>
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to Generate UUIDs",
+    "description": "Step by step guide: How to Generate UUIDs",
+    "step": [
+      { "@type": "HowToStep", "name": "Choose version", "text": "Pick UUID version: v1 (time-based) or v4 (random).", "position": 1 },
+      { "@type": "HowToStep", "name": "Set quantity", "text": "Choose how many UUIDs you want to generate (1-100).", "position": 2 },
+      { "@type": "HowToStep", "name": "Generate and copy", "text": "Click Generate and copy one, all, or download as a text file.", "position": 3 }
+    ]
+  }</script>
 </head>
 <body>
 
@@ -231,68 +105,78 @@
 <div class="container-md">
  <div class="hero">
  <div class="breadcrumb"><a href="../../index.html">Home</a> &rsaquo; <a href="../../categories/generator.html">Generator Tools</a> &rsaquo; UUID Generator</div>
- <h1>UUID Generator (v4)</h1>
- <p>Generate cryptographically secure random UUID v4 identifiers in bulk. Toggle hyphens and case, then copy one or all with a single click.</p>
+ <h1>UUID Generator</h1>
+ <p>Generate cryptographically secure UUIDs (v1 or v4) in bulk. Toggle hyphens and case, then copy one, all, or download as a .txt file in one click.</p>
  </div>
 
  <div class="card">
- <div class="field-row">
+ <div class="field-grid">
  <div class="field">
- <label>Quantity (1–100)</label>
- <input type="number" id="count" min="1" max="100" step="1" value="5" />
+ <label for="version">Version</label>
+ <select id="version">
+  <option value="v4" selected>UUID v4 (Random)</option>
+  <option value="v1">UUID v1 (Time-based)</option>
+ </select>
  </div>
  <div class="field">
- <label>Options</label>
- <div style="display:flex;gap:16px;flex-wrap:wrap">
- <label><input type="checkbox" id="hyphens" checked /> Hyphens</label>
+ <label for="count">Quantity (1–100)</label>
+ <input type="number" id="count" min="1" max="100" step="1" value="10" />
+ </div>
+ </div>
+
+ <div class="row-grid">
+ <div class="field">
+ <label><input type="checkbox" id="hyphens" checked /> Include hyphens</label>
+ </div>
+ <div class="field">
  <label><input type="checkbox" id="upper" /> Uppercase</label>
  </div>
  </div>
- </div>
 
- <div style="display:flex;gap:8px;flex-wrap:wrap">
- <button class="btn" id="gen" style="flex:1;min-width:160px">Generate</button>
+ <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px">
+ <button class="btn" id="gen" style="flex:1;min-width:140px">Generate</button>
  <button class="btn btn--ghost" id="copy-all">Copy All</button>
+ <button class="btn btn--ghost" id="download-all">Download .txt</button>
  </div>
 
- <div id="list" style="display:flex;flex-direction:column;gap:8px"></div>
- <p id="note"></p>
+ <div id="list" style="display:flex;flex-direction:column;gap:8px;margin-top:16px"></div>
+ <p id="note" class="note"></p>
  </div>
 
  <div class="section">
  <h2>How it works</h2>
  <ol class="steps">
- <li>Choose how many UUIDs you want (1–100) and whether to include hyphens or use uppercase.</li>
- <li>Each UUID v4 is generated using the browser's crypto module, producing 122 bits of randomness.</li>
- <li>Click the copy button on any UUID, or use <strong>Copy All</strong> to grab the full list to your clipboard.</li>
+ <li>Choose a version (v1 time-based or v4 random), how many UUIDs to generate, and the format you prefer.</li>
+ <li>Each UUID is generated inside your browser using crypto APIs — nothing is sent to a server.</li>
+ <li>Click the copy button on any UUID, use <strong>Copy All</strong> for the full batch, or <strong>Download .txt</strong> to save it as a file.</li>
  </ol>
  </div>
 
  <section class="tool-info" aria-label="Tool information">
-  <h2>What is UUID Generator (v4)?</h2>
-  <p>A UUID (Universally Unique Identifier) generator creates 128-bit identifiers that are statistically guaranteed to be unique across all devices and time. UUIDs v4 are randomly generated and look like: 93b6f2e8-18f2-49c2-9eef-9dd1c6cafa83.</p>
+  <h2>What is a UUID?</h2>
+  <p>A UUID (Universally Unique Identifier) is a 128-bit number designed to be statistically unique across space and time. Version 4 UUIDs are purely random and are the most common choice for general-purpose identifiers.</p>
 
   <h2>How to use</h2>
   <ol class="steps-list">
-<li>Step 1: Set the number of UUIDs to generate (1-100).</li>
-<li>Step 2: Click 'Generate' to create UUIDs.</li>
-<li>Step 3: Click any UUID to copy it to your clipboard.</li>
-<li>Step 4: Click 'Regenerate' for a fresh set.</li>
+<li>Step 1: Pick a version and how many UUIDs to generate (1-100).</li>
+<li>Step 2: Toggle hyphens and uppercase as needed.</li>
+<li>Step 3: Click 'Generate' to create the batch.</li>
+<li>Step 4: Copy a single UUID, copy all, or download the entire batch as a text file.</li>
   </ol>
 
   <h2>Use cases</h2>
   <ul class="usecase-list">
 <li>Assigning unique IDs to database records and entities.</li>
 <li>Generating session tokens and API keys.</li>
-<li>Creating unique filenames for uploaded files.</li>
+<li>Creating unique filenames for uploads.</li>
 <li>Generating transaction IDs and invoice references.</li>
   </ul>
 
   <h2>Frequently Asked Questions</h2>
   <div class="faq">
 <details class="faq-item">
-  <summary>What UUID version is generated?</summary>
-  <p>UUID v4 (random). Version 4 UUIDs are generated using 122 random bits and are the most common type for general-purpose unique identifiers.</p>
+  <summary>What is the difference between UUID v1 and v4?</summary>
+  <p>UUID v1 is time-based and includes a timestamp and MAC address. UUID v4 is purely random. For most applications, v4 is preferred because it hides no machine/identity information.</p>
 </details>
 <details class="faq-item">
   <summary>Can UUIDs collide (be the same)?</summary>
@@ -300,13 +184,13 @@
 </details>
 <details class="faq-item">
   <summary>What format are the UUIDs in?</summary>
-  <p>Standard 8-4-4-4-12 hexadecimal format (e.g., 550e8400-e29b-41d4-a716-446655440000).</p>
+  <p>Standard 8-4-4-4-12 hexadecimal format (e.g., 550e8400-e29b-41d4-a716-446655440000). You can toggle hyphens and uppercase as needed.</p>
 </details>
   </div>
 </section>
 
 <script type="application/ld+json">
-{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What UUID version is generated?", "acceptedAnswer": {"@type": "Answer", "text": "UUID v4 (random). Version 4 UUIDs are generated using 122 random bits and are the most common type for general-purpose unique identifiers."}}, {"@type": "Question", "name": "Can UUIDs collide (be the same)?", "acceptedAnswer": {"@type": "Answer", "text": "Theoretically possible but statistically negligible. The probability of generating a duplicate UUID v4 is approximately 1 in 5.3×10³⁶."}}, {"@type": "Question", "name": "What format are the UUIDs in?", "acceptedAnswer": {"@type": "Answer", "text": "Standard 8-4-4-4-12 hexadecimal format (e.g., 550e8400-e29b-41d4-a716-446655440000)."}}]}
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is the difference between UUID v1 and v4?", "acceptedAnswer": {"@type": "Answer", "text": "UUID v1 is time-based and includes a timestamp and MAC address. UUID v4 is purely random. For most applications, v4 is preferred because it hides no machine/identity information."}}, {"@type": "Question", "name": "Can UUIDs collide (be the same)?", "acceptedAnswer": {"@type": "Answer", "text": "Theoretically possible but statistically negligible. The probability of generating a duplicate UUID v4 is approximately 1 in 5.3×10³⁶."}}, {"@type": "Question", "name": "What format are the UUIDs in?", "acceptedAnswer": {"@type": "Answer", "text": "Standard 8-4-4-4-12 hexadecimal format (e.g., 550e8400-e29b-41d4-a716-446655440000). You can toggle hyphens and uppercase as needed."}}]}
 </script>
  <div class="section">
  <h2>Related tools</h2>
@@ -336,63 +220,127 @@
 
 <script>
 (function(){
- function genUUID(){
- if(crypto.randomUUID) return crypto.randomUUID();
- // fallback RFC4122 v4
- var rnd=crypto.getRandomValues.bind(crypto);
- var r=new Uint8Array(16); rnd(r);
- r[6]=(r[6]&0x0f)|0x40; r[8]=(r[8]&0x3f)|0x80;
- var hex=Array.from(r).map(function(b){return (b<16?'0':'')+b.toString(16);}).join('');
- return [hex.slice(0,8),hex.slice(8,12),hex.slice(12,16),hex.slice(16,20),hex.slice(20,32)].join('-');
- }
- function fmt(u){
- var s=u;
- if(!document.getElementById('hyphens').checked) s=s.replace(/-/g,'');
- if(document.getElementById('upper').checked) s=s.toUpperCase();
- return s;
- }
- function render(){
- var cnt=Math.max(1,Math.min(100,parseInt(document.getElementById('count').value,10)||5));
- document.getElementById('count').value=cnt;
- var list=document.getElementById('list');
- list.innerHTML='';
- for(var i=0;i<cnt;i++){
- var u=genUUID();
- var display=fmt(u);
- var row=document.createElement('div');
- row.className='mono-box';
- row.style.padding='10px 12px';
- row.innerHTML='<span class="mono-box__text">'+display+'</span><button class="btn">Copy</button>';
- row.querySelector('button').addEventListener('click',(function(val){return function(){copyText(val);};})(display));
- list.appendChild(row);
- }
- document.getElementById('note').textContent=cnt+' UUID'+(cnt===1?'':'s')+' generated.';
- }
+  // --- UUID v4 (random) ---
+  function genUUIDv4(){
+    if (crypto.randomUUID) return crypto.randomUUID();
+    var r = new Uint8Array(16);
+    crypto.getRandomValues(r);
+    r[6] = (r[6] & 0x0f) | 0x40;
+    r[8] = (r[8] & 0x3f) | 0x80;
+    var hex = Array.from(r).map(function(b){ return (b<16?'0':'')+b.toString(16); }).join('');
+    return [hex.slice(0,8),hex.slice(8,12),hex.slice(12,16),hex.slice(16,20),hex.slice(20,32)].join('-');
+  }
 
- function copyText(txt){
- if(navigator.clipboard && navigator.clipboard.writeText){
- navigator.clipboard.writeText(txt).then(function(){
- document.getElementById('note').textContent='Copied '+txt.length+' character'+(txt.length===1?'':'s')+' to clipboard.';
- },function(){ fallbackCopy(txt); });
- } else { fallbackCopy(txt); }
- }
- function fallbackCopy(txt){
- var ta=document.createElement('textarea');
- ta.value=txt; document.body.appendChild(ta); ta.select();
- try{ document.execCommand('copy'); document.getElementById('note').textContent='Copied to clipboard.'; }
- catch(e){ document.getElementById('note').textContent='Copy failed.'; }
- document.body.removeChild(ta);
- }
+  // --- UUID v1 (time-based, browser pseudo-implementation) ---
+  // 100-ns intervals since 1582-10-15
+  var _uuidv1Node = null;
+  var _uuidv1ClockSeq = null;
+  function initV1State(){
+    var rnd = new Uint8Array(8);
+    crypto.getRandomValues(rnd);
+    // 48-bit node (random) — set multicast bit per RFC4122
+    var node = [rnd[0]|0x01, rnd[1], rnd[2], rnd[3], rnd[4], rnd[5]];
+    _uuidv1Node = node;
+    _uuidv1ClockSeq = ((rnd[6] << 8) | rnd[7]) & 0x3fff;
+  }
+  function genUUIDv1(){
+    if (!_uuidv1Node) initV1State();
+    // Timestamp in 100ns intervals since 1582-10-15 UTC
+    var nsSince1970 = Date.now() * 10000;
+    var nsOffset = 122192928000000000; // 1582-10-15 to 1970-01-01 in 100ns
+    var total = nsSince1970 + nsOffset;
+    // 60-bit timestamp
+    var tLow = total & 0xffffffff;
+    var tMid = (total / 0x100000000) & 0xffff;
+    var tHi = (total / 0x1000000000000) & 0x0fff;
+    tHi = tHi | 0x1000; // version 1
+    var cs = _uuidv1ClockSeq | 0x8000;
+    var csHi = (cs >> 8) & 0xff;
+    var csLo = cs & 0xff;
+    function h16(n){ n = n|0; return (n<0x10?'0':'') + n.toString(16); }
+    function h32(n){ n = n>>>0; var s=n.toString(16); while(s.length<8) s='0'+s; return s; }
+    var hex =
+      h32(tLow) +
+      h16(tMid) +
+      h16(tHi) +
+      h16(csHi) + h16(csLo) +
+      _uuidv1Node.map(h16).join('');
+    return [hex.slice(0,8), hex.slice(8,12), hex.slice(12,16), hex.slice(16,20), hex.slice(20,32)].join('-');
+  }
 
- document.getElementById('gen').addEventListener('click',render);
- document.getElementById('hyphens').addEventListener('change',render);
- document.getElementById('upper').addEventListener('change',render);
- document.getElementById('count').addEventListener('change',render);
- document.getElementById('copy-all').addEventListener('click',function(){
- var txts=Array.from(document.querySelectorAll('#list .mono-box__text')).map(function(el){return el.textContent.trim();});
- copyText(txts.join('\n'));
- });
- render();
+  function fmt(u){
+    var s = u;
+    if (!document.getElementById('hyphens').checked) s = s.replace(/-/g,'');
+    if (document.getElementById('upper').checked) s = s.toUpperCase();
+    return s;
+  }
+
+  function getText(name){
+    var txts = Array.from(document.querySelectorAll('#list .mono-box__text')).map(function(el){ return el.textContent.trim(); });
+    return { texts: txts, joined: txts.join('\n') };
+  }
+
+  function render(){
+    var cnt = Math.max(1, Math.min(100, parseInt(document.getElementById('count').value,10) || 1));
+    document.getElementById('count').value = cnt;
+    var version = document.getElementById('version').value;
+    var gen = version === 'v1' ? genUUIDv1 : genUUIDv4;
+    var list = document.getElementById('list');
+    list.innerHTML = '';
+    for (var i=0;i<cnt;i++){
+      var u = gen();
+      var display = fmt(u);
+      var row = document.createElement('div');
+      row.className = 'mono-box';
+      row.style.padding = '10px 12px';
+      row.innerHTML = '<span class="mono-box__text">'+display+'</span><button class="btn">Copy</button>';
+      (function(val){ row.querySelector('button').addEventListener('click', function(){ copyText(val); }); })(display);
+      list.appendChild(row);
+    }
+    document.getElementById('note').textContent = cnt + ' UUID' + (cnt===1?'':'s') + ' generated ('+version.toUpperCase()+').';
+  }
+
+  function copyText(txt){
+    if (navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(function(){
+        document.getElementById('note').textContent = 'Copied '+txt.length.toLocaleString()+' characters to clipboard.';
+      }, function(){ fallbackCopy(txt); });
+    } else { fallbackCopy(txt); }
+  }
+  function fallbackCopy(txt){
+    var ta = document.createElement('textarea');
+    ta.value = txt; document.body.appendChild(ta); ta.select();
+    try { document.execCommand('copy'); document.getElementById('note').textContent = 'Copied to clipboard.'; }
+    catch(e){ document.getElementById('note').textContent = 'Copy failed.'; }
+    document.body.removeChild(ta);
+  }
+
+  function downloadText(){
+    var data = getText();
+    if (!data.texts.length){ document.getElementById('note').textContent='Nothing to download.'; return; }
+    var blob = new Blob([data.joined], { type:'text/plain;charset=utf-8' });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = 'uuids-'+data.texts.length+'.txt';
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(function(){ document.body.removeChild(a); URL.revokeObjectURL(url); }, 50);
+    document.getElementById('note').textContent = 'Downloaded '+data.texts.length.toLocaleString()+' UUIDs.';
+  }
+
+  document.getElementById('gen').addEventListener('click', render);
+  document.getElementById('hyphens').addEventListener('change', render);
+  document.getElementById('upper').addEventListener('change', render);
+  document.getElementById('version').addEventListener('change', render);
+  document.getElementById('count').addEventListener('change', render);
+  document.getElementById('copy-all').addEventListener('click', function(){
+    var data = getText();
+    if (!data.texts.length){ document.getElementById('note').textContent='Nothing to copy.'; return; }
+    copyText(data.joined);
+  });
+  document.getElementById('download-all').addEventListener('click', downloadText);
+  render();
 })();
 </script>
 </body>

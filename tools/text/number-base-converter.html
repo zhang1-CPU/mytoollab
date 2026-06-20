@@ -3,219 +3,29 @@
 <head>
  <meta charset="UTF-8" />
  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
- <title>Number Base Converter – Binary, Octal, Decimal, Hex, Base32, Base36 | zlbox</title>
- <meta name="description" content="Convert numbers between binary, octal, decimal, hexadecimal, Base32, and Base36. Supports arbitrarily large integers using BigInt." />
+ <title>Number Base Converter – Binary, Octal, Decimal, Hex &amp; Custom Base | zlbox</title>
+ <meta name="description" content="Convert integers between binary, octal, decimal, hexadecimal, and any base 2–36. Supports arbitrarily large integers (BigInt) and negative numbers — with live copy-to-clipboard for every result." />
  <link rel="stylesheet" href="../../css/components.css" />
  <link rel="canonical" href="https://www.zlbox.site/tools/text/number-base-converter.html" />
  <meta name="google-site-verification" content="google4bd1e08685667667" />
- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
-<script>
-/* Navigation toggle for mobile */
-(function() {
-  var toggle = document.querySelector('.nav-toggle');
-  var navLinks = document.querySelector('.nav-links');
-  if (!toggle || !navLinks) return;
-  toggle.addEventListener('click', function() {
-    var isOpen = navLinks.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', isOpen);
-  });
-  // Highlight active link
-  var path = location.pathname;
-  document.querySelectorAll('.nav-link').forEach(function(link) {
-    var href = link.getAttribute('href');
-    if (href && (path === href || path.indexOf(href.replace('/index.html','')) > -1)) {
-      link.classList.add('active');
-    }
-  });
-})();
-</script>
-
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <meta property="og:title" content="Number Base Converter – Binary, Octal, Decimal, Hex, Base32, Base36 | zlbox" />
-  <meta property="og:description" content="Convert numbers between binary, octal, decimal, hexadecimal, Base32, and Base36. Supports arbitrarily large integers using BigInt." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.zlbox.site/tools/text/number-base-converter.html" />
-  <meta property="og:site_name" content="zlbox" />
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Number Base Converter – Binary, Octal, Decimal, Hex, Base32, Base36", "description": "Convert numbers between binary, octal, decimal, hexadecimal, Base32, and Base36. Supports arbitrarily large integers using BigInt.", "url": "https://www.zlbox.site/tools/text/number-base-converter.html", "applicationCategory": "Text Tool", "operatingSystem": "Any (browser-based)", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "browserRequirements": "Requires a modern web browser with JavaScript enabled."}</script>
-
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.zlbox.site/"}, {"@type": "ListItem", "position": 2, "name": "Text Tools", "item": null}]}</script>
-
-  <style>
-/* ── Site Navigation ── */
-.site-nav {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: rgba(255,255,255,.97);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--border);
-  box-shadow: 0 1px 4px rgba(0,0,0,.05);
-}
-.nav-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  height: 52px;
-}
-.nav-logo {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-weight: 700;
-  font-size: 1rem;
-  color: var(--brand);
-  text-decoration: none;
-  flex-shrink: 0;
-  margin-right: 12px;
-}
-.nav-logo:hover { text-decoration: none; }
-.nav-logo-icon {
-  width: 36px;
-  height: 36px;
-  background: var(--brand);
-  color: #fff;
-  border-radius: 6px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 900;
-  font-size: .9rem;
-  flex-shrink: 0;
-}
-.nav-logo-text { font-size: .95rem; }
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 2px;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-  flex: 1;
-}
-.nav-links::-webkit-scrollbar { display: none; }
-.nav-link {
-  display: inline-flex;
-  align-items: center;
-  padding: 5px 10px;
-  font-size: .82rem;
-  font-weight: 500;
-  color: var(--text);
-  border-radius: 6px;
-  white-space: nowrap;
-  transition: all .15s;
-  flex-shrink: 0;
-}
-.nav-link:hover {
-  background: var(--brand);
-  color: #fff;
-  text-decoration: none;
-}
-.nav-link.active {
-  background: #eff6ff;
-  color: var(--brand);
-}
-.nav-toggle {
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  gap: 4px;
-  width: 32px;
-  height: 32px;
-  padding: 4px;
-  background: none;
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  cursor: pointer;
-  flex-shrink: 0;
-  margin-left: auto;
-}
-.nav-toggle span {
-  display: block;
-  width: 100%;
-  height: 2px;
-  background: var(--text);
-  border-radius: 1px;
-}
-@media (max-width: 768px) {
-  .nav-logo-text { display: none; }
-  .nav-inner { gap: 6px; }
-  .nav-toggle { display: flex; }
-  .nav-links {
-    display: none;
-    position: absolute;
-    top: 52px;
-    left: 0;
-    right: 0;
-    background: #fff;
-    border-bottom: 1px solid var(--border);
-    box-shadow: 0 4px 12px rgba(0,0,0,.1);
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 8px 0;
-    z-index: 99;
-    overflow: visible;
-  }
-  .nav-links.open { display: flex; }
-  .nav-link {
-    width: 100%;
-    padding: 10px 20px;
-    font-size: .9rem;
-    border-radius: 0;
-  }
-}
-  </style>
-  <meta property="og:image" content="https://www.zlbox.site/og-image.png" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Number Base Converter – Binary, Octal, Decimal, Hex, Base32, Base36" />
-  <meta name="twitter:description" content="Convert numbers between binary, octal, decimal, hexadecimal, Base32, and Base36. Supports arbitrarily large integers using BigInt." />
-  <meta name="twitter:image" content="https://www.zlbox.site/og-image.png" />
-
-
-  <meta name="robots" content="index, follow" />
-  <script type="application/ld+json">{
-  "@context": "https://schema.org",
-  "@type": "HowTo",
-  "name": "How to Use Number Base Converter",
-  "description": "Step by step guide: How to Use Number Base Converter",
-  "step": [
-    {
-      "@type": "HowToStep",
-      "name": "Enter number",
-      "text": "Enter the number you want to convert.",
-      "position": 1
-    },
-    {
-      "@type": "HowToStep",
-      "name": "Select base",
-      "text": "Choose the source base (Binary, Decimal, Hex, Octal).",
-      "position": 2
-    },
-    {
-      "@type": "HowToStep",
-      "name": "View conversions",
-      "text": "Instantly see the number converted to all bases.",
-      "position": 3
-    }
-  ]
-}</script>
+ <meta property="og:title" content="Number Base Converter – Binary, Octal, Decimal, Hex &amp; Custom Base" />
+ <meta property="og:description" content="Convert integers between binary, octal, decimal, hexadecimal, and any base 2–36. Supports BigInt and negative numbers with live copy-to-clipboard." />
+ <meta property="og:type" content="website" />
+ <meta property="og:url" content="https://www.zlbox.site/tools/text/number-base-converter.html" />
+ <meta property="og:image" content="https://www.zlbox.site/og-image.png" />
+ <meta name="twitter:card" content="summary_large_image" />
+ <meta name="twitter:title" content="Number Base Converter" />
+ <meta name="twitter:description" content="Convert integers between binary, octal, decimal, hexadecimal, and any base 2–36. Supports BigInt and negative numbers with live copy-to-clipboard." />
+ <meta name="robots" content="index, follow" />
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Number Base Converter","description":"Convert integers between binary, octal, decimal, hexadecimal, and any base 2–36. Supports arbitrarily large integers and negative numbers with live copy-to-clipboard.","url":"https://www.zlbox.site/tools/text/number-base-converter.html","applicationCategory":"Text Tool","operatingSystem":"Any (browser-based)","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"browserRequirements":"Requires a modern web browser with JavaScript enabled."}</script>
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.zlbox.site/"},{"@type":"ListItem","position":2,"name":"Text Tools","item":"https://www.zlbox.site/categories/text.html"}]}</script>
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Number Base Converter","step":[{"@type":"HowToStep","name":"Enter number","text":"Enter any integer in the input box and choose its source base.","position":1},{"@type":"HowToStep","name":"View conversions","text":"Binary, octal, decimal, hex, and a custom base are computed instantly.","position":2},{"@type":"HowToStep","name":"Copy","text":"Click a value to copy it to your clipboard.","position":3}]}</script>
 </head>
 <body>
-
   <nav class="site-nav" aria-label="Main navigation">
     <div class="nav-inner">
-      <a href="/" class="nav-logo" aria-label="zlbox Home">
-        <span class="nav-logo-icon">zl</span>
-        <span class="nav-logo-text">zlbox</span>
-      </a>
-      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
+      <a href="/" class="nav-logo" aria-label="zlbox Home"><span class="nav-logo-icon">zl</span><span class="nav-logo-text">zlbox</span></a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
       <div class="nav-links" role="list">
         <a href="/tools/index.html" class="nav-link" role="listitem">All Tools</a>
         <a href="/categories/text.html" class="nav-link" role="listitem">Text</a>
@@ -223,205 +33,214 @@
         <a href="/categories/generator.html" class="nav-link" role="listitem">Generator</a>
         <a href="/categories/image.html" class="nav-link" role="listitem">Image</a>
         <a href="/categories/pdf.html" class="nav-link" role="listitem">PDF</a>
-        <a href="/blog/index.html" class="nav-link" role="listitem">Blog</a>
       </div>
     </div>
   </nav>
 
-<div class="container-md">
- <div class="hero">
- <div class="breadcrumb"><a href="../../index.html">Home</a> &rsaquo; <a href="../../categories/text.html">Text Tools</a> &rsaquo; Number Base Converter</div>
- <h1>Number Base Converter</h1>
- <p>Convert integers between any two bases (2–36). Shows binary, octal, decimal, hex, Base32, and Base36 at a glance — and supports arbitrarily large numbers.</p>
- </div>
+  <div class="container-md">
+    <div class="hero">
+      <div class="breadcrumb"><a href="../../index.html">Home</a> &rsaquo; <a href="../../categories/text.html">Text Tools</a> &rsaquo; Number Base Converter</div>
+      <h1>Number Base Converter</h1>
+      <p>Convert integers between binary, octal, decimal, hex, and any base 2–36. Supports BigInt (no overflow), negative numbers, and one-click copy for every result.</p>
+    </div>
 
- <div class="card">
- <div class="field-row">
- <div class="field" style="flex:1">
- <label>Input number</label>
- <input type="text" id="num" value="255" style="font-family:ui-monospace,Consolas,Menlo,monospace" />
- </div>
- <div class="field">
- <label>Input base (2–36)</label>
- <select id="base">
- <option value="2">2 — Binary</option>
- <option value="8">8 — Octal</option>
- <option value="10" selected>10 — Decimal</option>
- <option value="16">16 — Hexadecimal</option>
- <option value="32">32 — Base32</option>
- <option value="36">36 — Base36</option>
- </select>
- </div>
- </div>
+    <div class="card">
+      <div class="field-row">
+        <div class="field" style="flex:2;">
+          <label>Input number</label>
+          <input type="text" id="num" value="255" spellcheck="false" style="font-family:ui-monospace,Consolas,Menlo,monospace;" placeholder="e.g. 255 or -FF or 0b101010" />
+        </div>
+        <div class="field">
+          <label>Input base</label>
+          <select id="base">
+            <option value="2">2 — Binary</option>
+            <option value="8">8 — Octal</option>
+            <option value="10" selected>10 — Decimal</option>
+            <option value="16">16 — Hexadecimal</option>
+            <option value="32">32 — Base32</option>
+            <option value="36">36 — Base36</option>
+            <option value="custom">Custom (2–36)</option>
+          </select>
+        </div>
+        <div class="field" id="customRow" style="display:none;">
+          <label>Custom base</label>
+          <input type="number" id="customBase" min="2" max="36" value="20" />
+        </div>
+      </div>
 
- <button class="btn" id="go">Convert</button>
+      <div class="stats-grid" id="resultsGrid" aria-live="polite"></div>
+      <div id="note" style="font-size:.85rem; color:var(--muted); margin-top:6px;">Ready.</div>
+    </div>
 
- <div class="stats-grid">
- <div class="stat">
- <div class="stat__value" id="out-bin">—</div>
- <div class="stat__label">Binary (base 2)</div>
- </div>
- <div class="stat">
- <div class="stat__value" id="out-oct">—</div>
- <div class="stat__label">Octal (base 8)</div>
- </div>
- <div class="stat stat--accent">
- <div class="stat__value" id="out-dec">—</div>
- <div class="stat__label">Decimal (base 10)</div>
- </div>
- <div class="stat">
- <div class="stat__value" id="out-hex">—</div>
- <div class="stat__label">Hexadecimal (base 16)</div>
- </div>
- <div class="stat">
- <div class="stat__value" id="out-b32">—</div>
- <div class="stat__label">Base32</div>
- </div>
- <div class="stat">
- <div class="stat__value" id="out-b36">—</div>
- <div class="stat__label">Base36</div>
- </div>
- </div>
- <p id="note">Enter an integer in the input base above, then press Convert.</p>
- </div>
+    <div class="section">
+      <h2>How it works</h2>
+      <ol class="steps">
+        <li>Enter an integer and choose its source base. Leading <code>0x</code>, <code>0b</code>, and <code>0o</code> are stripped automatically, and negative signs are preserved.</li>
+        <li>All calculations use <strong>BigInt</strong>, so arbitrarily large integers convert exactly — no overflow, no precision loss.</li>
+        <li>Click any result to copy it to your clipboard. Digits above 9 use the alphabet a–z (case-insensitive on input).</li>
+      </ol>
+    </div>
 
- <div class="section">
- <h2>How it works</h2>
- <ol class="steps">
- <li>Type a number and choose its current base (2 to 36). Digits use 0–9 followed by a–z for bases over 10.</li>
- <li>The input is parsed using <strong>BigInt</strong>, so integers can be arbitrarily large with no overflow.</li>
- <li>The value is simultaneously converted to binary, octal, decimal, hex, Base32, and Base36 for easy comparison.</li>
- </ol>
- </div>
+    <section class="tool-info">
+      <h2>What is a Number Base Converter?</h2>
+      <p>A base converter translates integers between positional numeral systems — binary (base 2), octal (base 8), decimal (base 10), hexadecimal (base 16), or any base up to 36. Programmers, students, and engineers use it daily.</p>
+      <h2>Use cases</h2>
+      <ul class="usecase-list">
+        <li>Debugging memory addresses and bit flags in hex or binary.</li>
+        <li>Converting color codes between decimal, hex, and RGB.</li>
+        <li>Studying number theory and discrete mathematics.</li>
+        <li>Converting IDs and serial numbers in software engineering.</li>
+      </ul>
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq">
+        <details class="faq-item"><summary>Does it support very large numbers?</summary><p>Yes. Conversion uses BigInt so integers can be thousands of digits long with no rounding.</p></details>
+        <details class="faq-item"><summary>Are negative numbers supported?</summary><p>Yes. Prefix your input with a minus sign (e.g. <code>-128</code>). Negative values are preserved in every output base.</p></details>
+      </div>
+    </section>
 
- <section class="tool-info" aria-label="Tool information">
-  <h2>What is Number Base Converter?</h2>
-  <p>A number base converter translates numbers between binary (base 2), octal (base 8), decimal (base 10), hexadecimal (base 16), and other number systems. Essential for programmers, engineers, and computer science students.</p>
+    <div class="section">
+      <h2>Related tools</h2>
+      <div class="related-grid">
+        <a href="../generator/hash-generator.html">Hash Generator</a>
+        <a href="base64.html">Base64 Encoder</a>
+        <a href="html-encoder.html">HTML Encoder</a>
+        <a href="../calculator/basic-calculator.html">Basic Calculator</a>
+      </div>
+    </div>
 
-  <h2>How to use</h2>
-  <ol class="steps-list">
-<li>Step 1: Enter a number in any base (BIN, OCT, DEC, HEX).</li>
-<li>Step 2: All other bases update instantly.</li>
-<li>Step 3: Click any value to copy it to your clipboard.</li>
-  </ol>
-
-  <h2>Use cases</h2>
-  <ul class="usecase-list">
-<li>Converting between decimal and hexadecimal for color codes.</li>
-<li>Understanding binary and hexadecimal in computer systems.</li>
-<li>Debugging memory addresses and network subnet calculations.</li>
-<li>Computer science education and programming tasks.</li>
-  </ul>
-
-  <h2>Frequently Asked Questions</h2>
-  <div class="faq">
-<details class="faq-item">
-  <summary>What bases are supported?</summary>
-  <p>Binary (2), Octal (8), Decimal (10), Hexadecimal (16), and Base32 are commonly supported.</p>
-</details>
-<details class="faq-item">
-  <summary>Why use hexadecimal instead of decimal?</summary>
-  <p>Hex maps perfectly to binary (each hex digit = 4 binary digits), making it compact and easy to read for computer professionals.</p>
-</details>
+    <footer class="footer">
+      <div class="footer-links">
+        <a href="base64.html">Base64 Encoder</a>
+        <a href="html-encoder.html">HTML Encoder</a>
+        <span style="color:var(--border);margin:0 6px">|</span>
+        <a href="../../about.html">About</a>
+        <a href="../../privacy.html">Privacy</a>
+        <a href="../../disclaimer.html">Disclaimer</a>
+      </div>
+      <p class="footer-copy">&copy; 2026 zlbox. All rights reserved.</p>
+    </footer>
   </div>
-</section>
-
-<script type="application/ld+json">
-{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What bases are supported?", "acceptedAnswer": {"@type": "Answer", "text": "Binary (2), Octal (8), Decimal (10), Hexadecimal (16), and Base32 are commonly supported."}}, {"@type": "Question", "name": "Why use hexadecimal instead of decimal?", "acceptedAnswer": {"@type": "Answer", "text": "Hex maps perfectly to binary (each hex digit = 4 binary digits), making it compact and easy to read for computer professionals."}}]}
-</script>
- <div class="section">
- <h2>Related tools</h2>
- <div class="related-grid">
- <a href="../generator/hash-generator.html">Hash Generator</a>
- <a href="base64.html">Base64 Encoder</a>
- <a href="html-encoder.html">HTML Encoder</a>
- <a href="csv-to-json.html">CSV to JSON Converter</a>
- <a href="case-converter.html">Case Converter</a>
- <a href="../calculator/scientific-calculator.html">Scientific Calculator</a>
- </div>
- </div>
-
- <footer class="footer">
- <div class="footer-links">
- <a href="../generator/hash-generator.html">Hash Generator</a>
- <a href="base64.html">Base64 Encoder</a>
- <a href="html-encoder.html">HTML Encoder</a>
- <span style="color:var(--border);margin:0 6px">|</span>
- <a href="../../about.html">About</a>
- <a href="../../privacy.html">Privacy</a>
- <a href="../../disclaimer.html">Disclaimer</a>
- </div>
- <p class="footer-copy">&copy; 2026 zlbox. All rights reserved.</p>
- </footer>
-</div>
 
 <script>
 (function(){
- var ALPHABET='0123456789abcdefghijklmnopqrstuvwxyz';
- function parseBigInt(str, base){
- if(!str) return null;
- str=str.trim().toLowerCase();
- var negative=false;
- if(str[0]==='-'){ negative=true; str=str.slice(1); }
- else if(str[0]==='+'){ str=str.slice(1); }
- if(!str) return null;
- var b=BigInt(base);
- var result=0n;
- for(var i=0;i<str.length;i++){
- var d=str.charCodeAt(i);
- var digit;
- if(d>=48&&d<=57) digit=d-48;
- else if(d>=97&&d<=122) digit=d-97+10;
- else return null;
- if(digit>=base) return null;
- result=result*b+BigInt(digit);
- }
- return negative?-result:result;
- }
- function toBaseBigInt(value, base){
- if(value===0n) return '0';
- var negative=value<0n;
- var v=negative?-value:value;
- var b=BigInt(base);
- var chars=[];
- while(v>0n){
- chars.push(ALPHABET[Number(v%b)]);
- v=v/b;
- }
- if(negative) chars.push('-');
- return chars.reverse().join('');
- }
+  var ALPHABET = '0123456789abcdefghijklmnopqrstuvwxyz';
+  var ALPHA_SET = {};
+  for(var i=0;i<ALPHABET.length;i++) ALPHA_SET[ALPHABET.charAt(i)] = i;
 
- function set(id, text){ document.getElementById(id).textContent=text; }
- function run(){
- var raw=document.getElementById('num').value.trim();
- var base=parseInt(document.getElementById('base').value,10);
- var note=document.getElementById('note');
- if(!raw){
- note.textContent='Please enter a number.';
- ['out-bin','out-oct','out-dec','out-hex','out-b32','out-b36'].forEach(function(id){set(id,'—');});
- return;
- }
- try{
- var n=parseBigInt(raw, base);
- if(n===null){ throw new Error('Invalid digits for base '+base); }
- set('out-bin', toBaseBigInt(n,2));
- set('out-oct', toBaseBigInt(n,8));
- set('out-dec', toBaseBigInt(n,10));
- set('out-hex', toBaseBigInt(n,16).toUpperCase());
- set('out-b32', toBaseBigInt(n,32).toUpperCase());
- set('out-b36', toBaseBigInt(n,36).toUpperCase());
- note.textContent='Converted successfully. Input has '+((n.toString()).length)+' decimal digits.';
- } catch(e){
- note.textContent='Error: '+e.message;
- ['out-bin','out-oct','out-dec','out-hex','out-b32','out-b36'].forEach(function(id){set(id,'Error');});
- }
- }
+  function parseBigInt(str, base){
+    if(!str) return null;
+    var s = String(str).trim();
+    if(!s) return null;
+    var negative = false;
+    if(s.charAt(0) === '-'){ negative = true; s = s.slice(1); }
+    else if(s.charAt(0) === '+'){ s = s.slice(1); }
+    // strip common prefixes
+    if(base === 16 && s.substr(0,2).toLowerCase() === '0x') s = s.slice(2);
+    if(base === 2 && s.substr(0,2).toLowerCase() === '0b') s = s.slice(2);
+    if(base === 8 && s.substr(0,2).toLowerCase() === '0o') s = s.slice(2);
+    if(!s) return null;
+    var b = BigInt(base);
+    var result = 0n;
+    for(var i=0;i<s.length;i++){
+      var ch = s.charAt(i).toLowerCase();
+      if(ch === ',') continue;
+      var digit = ALPHA_SET[ch];
+      if(digit === undefined || digit >= base) return null;
+      result = result * b + BigInt(digit);
+    }
+    return negative ? -result : result;
+  }
 
- document.getElementById('go').addEventListener('click',run);
- document.getElementById('num').addEventListener('keydown',function(e){if(e.key==='Enter') run();});
- document.getElementById('base').addEventListener('change',run);
- run();
+  function toBaseBigInt(value, base){
+    var zero = 0n;
+    var negative = value < zero;
+    var v = negative ? -value : value;
+    var b = BigInt(base);
+    if(v === zero) return '0';
+    var chars = [];
+    while(v > zero){
+      chars.push(ALPHABET[Number(v % b)]);
+      v = v / b;
+    }
+    if(negative) chars.push('-');
+    return chars.reverse().join('');
+  }
+
+  function fmtSize(s){ return s.length.toLocaleString() + ' digit' + (s.length === 1 ? '' : 's'); }
+
+  function copyText(t, label){
+    if(!t) return;
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(t).then(function(){
+        document.getElementById('note').textContent = 'Copied ' + (label || '') + ': ' + (t.length > 64 ? t.substr(0, 48) + '…' : t);
+      });
+    } else {
+      var ta = document.createElement('textarea'); ta.value = t; document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy'); document.getElementById('note').textContent = 'Copied.'; }
+      catch(e){ document.getElementById('note').textContent = 'Copy failed.'; }
+      document.body.removeChild(ta);
+    }
+  }
+
+  var OUTPUTS = [
+    { id: 'bin', label: 'Binary', base: 2, upper: false },
+    { id: 'oct', label: 'Octal',  base: 8, upper: false },
+    { id: 'dec', label: 'Decimal', base: 10, upper: false, accent: true },
+    { id: 'hex', label: 'Hexadecimal', base: 16, upper: true },
+    { id: 'cust', label: 'Custom (base %N)', base: -1, upper: true }
+  ];
+
+  function renderGrid(n){
+    var grid = document.getElementById('resultsGrid');
+    grid.innerHTML = '';
+    var valid = (n !== null);
+    OUTPUTS.forEach(function(o){
+      var base = (o.base < 0) ? getCustomBase() : o.base;
+      var label = o.base < 0 ? 'Custom (base ' + base + ')' : o.label;
+      var val = valid ? toBaseBigInt(n, base) : '—';
+      if(o.upper && valid) val = val.toUpperCase();
+      var cell = document.createElement('div');
+      cell.className = 'stat' + (o.accent ? ' stat--accent' : '');
+      cell.innerHTML = '<div class="stat__value" id="out-'+o.id+'" style="word-break:break-all; overflow-wrap:anywhere; cursor:pointer;" title="Click to copy">' + val + '</div><div class="stat__label">' + label + '</div><button class="btn btn--sm btn--ghost" style="width:100%;margin-top:8px;">Copy</button>';
+      cell.addEventListener('click', function(){ copyText(val, label); });
+      grid.appendChild(cell);
+    });
+  }
+
+  function getCustomBase(){
+    var b = parseInt(document.getElementById('customBase').value, 10);
+    if(isNaN(b) || b < 2) b = 2;
+    if(b > 36) b = 36;
+    return b;
+  }
+
+  function run(){
+    var raw = document.getElementById('num').value.trim();
+    var bSel = document.getElementById('base').value;
+    var customRow = document.getElementById('customRow');
+    var base;
+    if(bSel === 'custom'){ customRow.style.display = ''; base = getCustomBase(); }
+    else { customRow.style.display = 'none'; base = parseInt(bSel, 10); }
+    var n = raw ? parseBigInt(raw, base) : null;
+    renderGrid(n);
+    if(!raw){ document.getElementById('note').textContent = 'Enter a number to see conversions in every base.'; return; }
+    if(n === null){ document.getElementById('note').textContent = 'Input contains digits invalid for the selected base (' + base + ').'; return; }
+    document.getElementById('note').textContent = 'Decimal value has ' + n.toString().length.toLocaleString() + ' digit(s). Click any result to copy it.';
+  }
+
+  document.getElementById('num').addEventListener('input', run);
+  document.getElementById('base').addEventListener('change', run);
+  document.getElementById('customBase').addEventListener('input', run);
+
+  var toggle = document.querySelector('.nav-toggle');
+  if(toggle){
+    toggle.addEventListener('click', function(){
+      var links = document.querySelector('.nav-links');
+      var open = links.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open);
+    });
+  }
+  run();
 })();
 </script>
 </body>

@@ -248,19 +248,46 @@
  </div>
 
  <div class="card">
+ <div class="tabs" id="mode-tabs">
+ <button class="tabs__btn is-active" data-mode="today">Age Today</button>
+ <button class="tabs__btn" data-mode="specific">Age on a Specific Date</button>
+ </div>
+
+ <div class="row-grid">
  <div class="field"><label>Your Birthday</label><input type="date" id="birthdate" /></div>
- <button class="btn btn--block" id="calcBtn">Calculate My Age</button>
+ <div class="field" id="target-field" style="display:none"><label>Target Date</label><input type="date" id="targetdate" /></div>
+ </div>
+
  <div class="note note--warn" id="err" style="display:none"></div>
 
- <div class="stats-grid" id="results" style="display:none">
- <div class="stat"><div class="stat__value" id="years">0</div><div class="stat__label">Years</div></div>
- <div class="stat"><div class="stat__value" id="months">0</div><div class="stat__label">Months</div></div>
- <div class="stat"><div class="stat__value" id="weeks">0</div><div class="stat__label">Weeks</div></div>
- <div class="stat"><div class="stat__value" id="days">0</div><div class="stat__label">Days</div></div>
- <div class="stat"><div class="stat__value" id="hours">0</div><div class="stat__label">Hours</div></div>
- <div class="stat"><div class="stat__value" id="minutes">0</div><div class="stat__label">Minutes</div></div>
- <div class="stat"><div class="stat__value" id="seconds">0</div><div class="stat__label">Seconds</div></div>
+ <div class="stats-grid" id="age-main" style="display:none">
+ <div class="stat stat--accent">
+  <div class="stat__value" id="years">0</div>
+  <div class="stat__label">Years</div>
  </div>
+ <div class="stat">
+  <div class="stat__value" id="months">0</div>
+  <div class="stat__label">Months</div>
+ </div>
+ <div class="stat">
+  <div class="stat__value" id="days">0</div>
+  <div class="stat__label">Days</div>
+ </div>
+ </div>
+
+ <div class="note note--success" id="age-summary" style="display:none"></div>
+
+ <h3>Total</h3>
+ <div class="stats-grid" id="totals" style="display:none">
+ <div class="stat"><div class="stat__value" id="total-months">0</div><div class="stat__label">Total Months</div></div>
+ <div class="stat"><div class="stat__value" id="total-weeks">0</div><div class="stat__label">Total Weeks</div></div>
+ <div class="stat"><div class="stat__value" id="total-days">0</div><div class="stat__label">Total Days</div></div>
+ <div class="stat"><div class="stat__value" id="total-hours">0</div><div class="stat__label">Total Hours</div></div>
+ <div class="stat"><div class="stat__value" id="total-minutes">0</div><div class="stat__label">Total Minutes</div></div>
+ </div>
+
+ <div class="note note--info" id="birthday-info" style="display:none"></div>
+ <div class="note" id="next-birthday" style="display:none"></div>
  </div>
 
  <div class="section">
@@ -339,41 +366,114 @@
 
 <script>
 (function(){
- var btn=document.getElementById('calcBtn');
- var inp=document.getElementById('birthdate');
+ var mode='today';
+ var tabs=document.querySelectorAll('#mode-tabs .tabs__btn');
+ var targetField=document.getElementById('target-field');
+ var birthEl=document.getElementById('birthdate');
+ var targetEl=document.getElementById('targetdate');
  var err=document.getElementById('err');
- var res=document.getElementById('results');
- function fmt(n){return n.toLocaleString();}
+ var mainEl=document.getElementById('age-main');
+ var summaryEl=document.getElementById('age-summary');
+ var totalsEl=document.getElementById('totals');
+ var birthdayInfoEl=document.getElementById('birthday-info');
+ var nextBdEl=document.getElementById('next-birthday');
+
+ function diffYMD(from,to){
+ var y=to.getFullYear()-from.getFullYear();
+ var m=to.getMonth()-from.getMonth();
+ var d=to.getDate()-from.getDate();
+ if(d<0){m--;d+=new Date(to.getFullYear(),to.getMonth(),0).getDate();}
+ if(m<0){y--;m+=12;}
+ return {y:y,m:m,d:d};
+ }
+ function zodiac(month,day){
+ var z=[{n:'Capricorn',m:1,d:20},{n:'Aquarius',m:2,d:19},{n:'Pisces',m:3,d:20},{n:'Aries',m:4,d:19},{n:'Taurus',m:5,d:20},{n:'Gemini',m:6,d:20},{n:'Cancer',m:7,d:22},{n:'Leo',m:8,d:22},{n:'Virgo',m:9,d:22},{n:'Libra',m:10,d:22},{n:'Scorpio',m:11,d:21},{n:'Sagittarius',m:12,d:21},{n:'Capricorn',m:13,d:0}];
+ for(var i=0;i<12;i++){
+ var cur=z[i], next=z[i+1];
+ if((month===cur.m && day>=cur.d) || (month===next.m && day<=next.d)) return next.n;
+ }
+ return 'Capricorn';
+ }
+ var chinese=['Rat','Ox','Tiger','Rabbit','Dragon','Snake','Horse','Goat','Monkey','Rooster','Dog','Pig'];
+ function fmtInt(n){return n.toLocaleString();}
+ function msPerDay(){return 24*60*60*1000;}
+
  function calc(){
  err.style.display='none';
- if(!inp.value){err.textContent='Please select a valid date.';err.style.display='block';res.style.display='none';return;}
- var birth=new Date(inp.value);
- var now=new Date();
- if(birth>now){err.textContent='Birth date cannot be in the future.';err.style.display='block';res.style.display='none';return;}
- if(isNaN(birth.getTime())){err.textContent='Invalid date.';err.style.display='block';res.style.display='none';return;}
- var y=now.getFullYear()-birth.getFullYear();
- var m=now.getMonth()-birth.getMonth();
- var d=now.getDate()-birth.getDate();
- if(d<0){m--;d+=new Date(now.getFullYear(),now.getMonth(),0).getDate();}
- if(m<0){y--;m+=12;}
- var totalMs=now-birth;
- var totalSec=Math.floor(totalMs/1000);
- var totalMin=Math.floor(totalSec/60);
- var totalHr=Math.floor(totalMin/60);
- var totalDay=Math.floor(totalHr/24);
- var totalWk=Math.floor(totalDay/7);
- var totalMon=y*12+m;
- document.getElementById('years').textContent=fmt(y);
- document.getElementById('months').textContent=fmt(totalMon);
- document.getElementById('weeks').textContent=fmt(totalWk);
- document.getElementById('days').textContent=fmt(totalDay);
- document.getElementById('hours').textContent=fmt(totalHr);
- document.getElementById('minutes').textContent=fmt(totalMin);
- document.getElementById('seconds').textContent=fmt(totalSec);
- res.style.display='grid';
+ mainEl.style.display='none';
+ summaryEl.style.display='none';
+ totalsEl.style.display='none';
+ birthdayInfoEl.style.display='none';
+ nextBdEl.style.display='none';
+ if(!birthEl.value){err.textContent='Please enter your birth date.';err.style.display='block';return;}
+ var birth=new Date(birthEl.value);
+ if(isNaN(birth.getTime())){err.textContent='Invalid birth date.';err.style.display='block';return;}
+ var now;
+ if(mode==='today'){
+ now=new Date();
+ } else {
+ if(!targetEl.value){err.textContent='Please select a target date.';err.style.display='block';return;}
+ now=new Date(targetEl.value);
+ if(isNaN(now.getTime())){err.textContent='Invalid target date.';err.style.display='block';return;}
  }
- btn.addEventListener('click',calc);
- inp.addEventListener('change',calc);
+ if(birth>now){err.textContent='Birth date must be on or before the reference date.';err.style.display='block';return;}
+
+ var ymd=diffYMD(birth,now);
+ var totalMs=now-birth;
+ var totalDay=Math.floor(totalMs/msPerDay());
+ var totalWk=Math.floor(totalDay/7);
+ var totalMon=ymd.y*12+ymd.m;
+ var totalHr=Math.floor(totalMs/(60*60*1000));
+ var totalMin=Math.floor(totalMs/(60*1000));
+
+ document.getElementById('years').textContent=fmtInt(ymd.y);
+ document.getElementById('months').textContent=fmtInt(ymd.m);
+ document.getElementById('days').textContent=fmtInt(ymd.d);
+ mainEl.style.display='grid';
+
+ var labelRef=(mode==='today')?'today':('on '+now.toLocaleDateString());
+ summaryEl.textContent='You are '+ymd.y+' years, '+ymd.m+' months, and '+ymd.d+' days old '+labelRef+'.';
+ summaryEl.style.display='block';
+
+ document.getElementById('total-months').textContent=fmtInt(totalMon);
+ document.getElementById('total-weeks').textContent=fmtInt(totalWk);
+ document.getElementById('total-days').textContent=fmtInt(totalDay);
+ document.getElementById('total-hours').textContent=fmtInt(totalHr);
+ document.getElementById('total-minutes').textContent=fmtInt(totalMin);
+ totalsEl.style.display='grid';
+
+ var bm=birth.getMonth()+1, bd=birth.getDate();
+ var chineseIdx=((birth.getFullYear()-4)%12+12)%12;
+ birthdayInfoEl.innerHTML='<strong>Born on:</strong> '+birth.toLocaleDateString(undefined,{weekday:'long',year:'numeric',month:'long',day:'numeric'})+' &middot; <strong>Western Zodiac:</strong> '+zodiac(bm,bd)+' &middot; <strong>Chinese Zodiac:</strong> '+chinese[chineseIdx];
+ birthdayInfoEl.style.display='block';
+
+ if(mode==='today'){
+ var nextBd=new Date(now.getFullYear(),birth.getMonth(),birth.getDate());
+ if(nextBd<now) nextBd=new Date(now.getFullYear()+1,birth.getMonth(),birth.getDate());
+ var daysLeft=Math.ceil((nextBd-now)/msPerDay());
+ if(daysLeft===0){
+ nextBdEl.textContent='🎉 Today is your birthday!';
+ } else {
+ nextBdEl.textContent='🎂 Your next birthday is in '+fmtInt(daysLeft)+' day'+(daysLeft===1?'':'s')+' ('+nextBd.toLocaleDateString()+').';
+ }
+ nextBdEl.style.display='block';
+ }
+ }
+
+ tabs.forEach(function(b){
+ b.addEventListener('click',function(){
+ tabs.forEach(function(x){x.classList.remove('is-active');});
+ b.classList.add('is-active');
+ mode=b.getAttribute('data-mode');
+ targetField.style.display=(mode==='specific')?'block':'none';
+ calc();
+ });
+ });
+ [birthEl,targetEl].forEach(function(el){
+ el.addEventListener('input',calc);
+ el.addEventListener('change',calc);
+ });
+ calc();
 })();
 </script>
 </body>

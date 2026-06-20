@@ -253,8 +253,7 @@
  <div class="field"><label>X (%)</label><input type="number" id="p1" placeholder="25" /></div>
  <div class="field"><label>Y</label><input type="number" id="v1" placeholder="200" /></div>
  </div>
- <button class="btn btn--block" data-id="1">Calculate</button>
- <div class="note note--success" id="r1" style="display:none"></div>
+ <div class="note note--success" id="r1"></div>
  </div>
 
  <div class="card">
@@ -263,8 +262,7 @@
  <div class="field"><label>X</label><input type="number" id="p2a" placeholder="50" /></div>
  <div class="field"><label>Y</label><input type="number" id="p2b" placeholder="200" /></div>
  </div>
- <button class="btn btn--block" data-id="2">Calculate</button>
- <div class="note note--success" id="r2" style="display:none"></div>
+ <div class="note note--success" id="r2"></div>
  </div>
 
  <div class="card">
@@ -273,8 +271,26 @@
  <div class="field"><label>X (original)</label><input type="number" id="p3a" placeholder="100" /></div>
  <div class="field"><label>Y (new)</label><input type="number" id="p3b" placeholder="120" /></div>
  </div>
- <button class="btn btn--block" data-id="3">Calculate</button>
- <div class="note note--success" id="r3" style="display:none"></div>
+ <div class="note note--success" id="r3"></div>
+ </div>
+
+ <div class="card">
+ <div class="section"><h2>4. X plus/minus Y%</h2></div>
+ <div class="row-grid">
+ <div class="field"><label>X (value)</label><input type="number" id="p4a" placeholder="100" /></div>
+ <div class="field"><label>Y (%)</label><input type="number" id="p4b" placeholder="20" /></div>
+ </div>
+ <div class="note note--success" id="r4"></div>
+ </div>
+
+ <div class="card">
+ <div class="section"><h2>5. Reverse: find original</h2></div>
+ <div class="row-grid">
+ <div class="field"><label>Result value</label><input type="number" id="p5a" placeholder="120" /></div>
+ <div class="field"><label>Percentage (%)</label><input type="number" id="p5b" placeholder="20" /></div>
+ </div>
+ <p class="muted" style="font-size:.85rem;margin:6px 0 0;color:#666;">Original = Result / (1 + Percentage/100). Use a negative percentage if the result is after a decrease.</p>
+ <div class="note note--success" id="r5"></div>
  </div>
 
  <div class="ad-slot">
@@ -346,30 +362,118 @@
 
 <script>
 (function(){
- function show(el,text){el.textContent=text;el.style.display='block';}
- function num(id){return parseFloat(document.getElementById(id).value);}
- function has(id){var v=document.getElementById(id).value.trim();return v!==''&&!isNaN(parseFloat(v));}
- document.querySelectorAll('button[data-id]').forEach(function(b){
- b.addEventListener('click',function(){
- var id=b.getAttribute('data-id');
- if(id==='1'){
- if(!has('p1')||!has('v1')){show(document.getElementById('r1'),'Please enter both values.');return;}
- var r=(num('p1')*num('v1'))/100;
- show(document.getElementById('r1'),num('p1')+'% of '+num('v1')+' = '+r.toLocaleString(undefined,{maximumFractionDigits:6}));
- }else if(id==='2'){
- if(!has('p2a')||!has('p2b')){show(document.getElementById('r2'),'Please enter both values.');return;}
- if(num('p2b')===0){show(document.getElementById('r2'),'Y cannot be zero.');return;}
- var r2=(num('p2a')/num('p2b'))*100;
- show(document.getElementById('r2'),num('p2a')+' is '+r2.toFixed(2)+'% of '+num('p2b'));
- }else if(id==='3'){
- if(!has('p3a')||!has('p3b')){show(document.getElementById('r3'),'Please enter both values.');return;}
- if(num('p3a')===0){show(document.getElementById('r3'),'Original value cannot be zero.');return;}
- var r3=((num('p3b')-num('p3a'))/Math.abs(num('p3a')))*100;
- var dir=r3>=0?'increase':'decrease';
- show(document.getElementById('r3'),Math.abs(r3).toFixed(2)+'% '+dir+' (from '+num('p3a')+' to '+num('p3b')+')');
- }
- });
- });
+  var fmt = { maximumFractionDigits: 6 };
+  function num(id){ return parseFloat(document.getElementById(id).value); }
+  function has(id){ var v=document.getElementById(id).value.trim(); return v!=='' && !isNaN(parseFloat(v)); }
+  function setNote(el, isErr, text){
+    el.className = 'note ' + (isErr ? 'note--error' : 'note--success');
+    el.innerHTML = text;
+  }
+  function resultLine(label, value){
+    var raw = Number(value).toLocaleString(undefined, fmt);
+    return '<div class="res-row" style="display:flex;align-items:center;gap:8px;margin:4px 0;"><span style="flex:1;">' + label + ' <strong>' + raw + '</strong></span><button class="btn btn--sm btn--ghost copy-btn" type="button" data-copy="' + raw.replace(/,/g,'') + '" aria-label="Copy">Copy</button></div>';
+  }
+  function copyText(text, btn){
+    var done = function(){
+      var old = btn.textContent;
+      btn.textContent = 'Copied!';
+      setTimeout(function(){ btn.textContent = old; }, 1200);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done).catch(function(){ fallback(text, done); });
+    } else {
+      fallback(text, done);
+    }
+  }
+  function fallback(text, done){
+    try {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position='fixed'; ta.style.left='-9999px';
+      document.body.appendChild(ta); ta.select();
+      document.execCommand('copy'); document.body.removeChild(ta);
+      done();
+    } catch(e){}
+  }
+
+  // ── Mode 1: X% of Y ──
+  function calc1(){
+    var el = document.getElementById('r1');
+    if (!has('p1') || !has('v1')) { setNote(el, false, '<span class="muted">Enter X and Y to see the result.</span>'); return; }
+    var r = (num('p1') * num('v1')) / 100;
+    setNote(el, false, num('p1') + '% of ' + num('v1') + ' =' + resultLine('', r));
+  }
+
+  // ── Mode 2: X is what % of Y ──
+  function calc2(){
+    var el = document.getElementById('r2');
+    if (!has('p2a') || !has('p2b')) { setNote(el, false, '<span class="muted">Enter X and Y to see the result.</span>'); return; }
+    if (num('p2b') === 0) { setNote(el, true, '⚠ Y cannot be zero (division by zero).'); return; }
+    var r2 = (num('p2a') / num('p2b')) * 100;
+    setNote(el, false, num('p2a') + ' is' + resultLine('', r2.toFixed(2) + '%') + ' of ' + num('p2b'));
+  }
+
+  // ── Mode 3: % change from X to Y ──
+  function calc3(){
+    var el = document.getElementById('r3');
+    if (!has('p3a') || !has('p3b')) { setNote(el, false, '<span class="muted">Enter original (X) and new (Y) values.</span>'); return; }
+    if (num('p3a') === 0) { setNote(el, true, '⚠ Original value cannot be zero.'); return; }
+    var r3 = ((num('p3b') - num('p3a')) / Math.abs(num('p3a'))) * 100;
+    var dir = r3 >= 0 ? 'increase' : 'decrease';
+    setNote(el, false, resultLine(Math.abs(r3).toFixed(2) + '% ' + dir + ' (from ' + num('p3a') + ' to ' + num('p3b') + ')', Math.abs(r3).toFixed(2)));
+  }
+
+  // ── Mode 4: X plus/minus Y% ──
+  function calc4(){
+    var el = document.getElementById('r4');
+    if (!has('p4a') || !has('p4b')) { setNote(el, false, '<span class="muted">Enter a value (X) and a percentage (Y).</span>'); return; }
+    var x = num('p4a'), y = num('p4b');
+    var plus = x * (1 + y / 100);
+    var minus = x * (1 - y / 100);
+    setNote(el, false,
+      resultLine(x + ' + ' + y + '% =', plus) +
+      resultLine(x + ' − ' + y + '% =', minus)
+    );
+  }
+
+  // ── Mode 5: Reverse - find original ──
+  function calc5(){
+    var el = document.getElementById('r5');
+    if (!has('p5a') || !has('p5b')) { setNote(el, false, '<span class="muted">Enter the result value and the percentage applied.</span>'); return; }
+    var denom = 1 + num('p5b') / 100;
+    if (denom === 0) { setNote(el, true, '⚠ Invalid: 1 + Y%/100 = 0 (Y = -100). Division by zero.'); return; }
+    var original = num('p5a') / denom;
+    setNote(el, false,
+      'Original = ' + num('p5a') + ' / (1 + ' + num('p5b') + '/100)' +
+      resultLine(' =', original)
+    );
+  }
+
+  // ── Bind input events ──
+  var binds = [
+    [['p1','v1'], calc1],
+    [['p2a','p2b'], calc2],
+    [['p3a','p3b'], calc3],
+    [['p4a','p4b'], calc4],
+    [['p5a','p5b'], calc5]
+  ];
+  binds.forEach(function(b){
+    b[0].forEach(function(id){
+      var el = document.getElementById(id);
+      el.addEventListener('input', b[1]);
+      el.addEventListener('change', b[1]);
+    });
+  });
+
+  // ── Initial blank messages ──
+  [calc1, calc2, calc3, calc4, calc5].forEach(function(c){ c(); });
+
+  // ── Delegate copy button clicks ──
+  document.addEventListener('click', function(e){
+    var t = e.target;
+    if (t && t.classList && t.classList.contains('copy-btn')) {
+      copyText(t.getAttribute('data-copy') || '', t);
+    }
+  });
 })();
 </script>
 </body>

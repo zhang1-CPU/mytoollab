@@ -3,219 +3,29 @@
 <head>
  <meta charset="UTF-8" />
  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
- <title>SQL Formatter – Format SQL Queries Online | zlbox</title>
- <meta name="description" content="Free online SQL formatter. Beautify and indent your SQL queries with keyword uppercasing. Runs locally in your browser." />
+ <title>SQL Formatter – Beautify SQL Queries Online | zlbox</title>
+ <meta name="description" content="Free online SQL formatter and minifier. Uppercase keywords, break on clause boundaries, and indent parentheses — copy or download the result." />
+ <link rel="stylesheet" href="../../css/components.css" />
  <link rel="canonical" href="https://www.zlbox.site/tools/text/sql-formatter.html" />
  <meta name="google-site-verification" content="google4bd1e08685667667" />
- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
-<script>
-/* Navigation toggle for mobile */
-(function() {
-  var toggle = document.querySelector('.nav-toggle');
-  var navLinks = document.querySelector('.nav-links');
-  if (!toggle || !navLinks) return;
-  toggle.addEventListener('click', function() {
-    var isOpen = navLinks.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', isOpen);
-  });
-  // Highlight active link
-  var path = location.pathname;
-  document.querySelectorAll('.nav-link').forEach(function(link) {
-    var href = link.getAttribute('href');
-    if (href && (path === href || path.indexOf(href.replace('/index.html','')) > -1)) {
-      link.classList.add('active');
-    }
-  });
-})();
-</script>
- <link rel="stylesheet" href="../../css/components.css" />
-
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <meta property="og:title" content="SQL Formatter – Format SQL Queries Online | zlbox" />
-  <meta property="og:description" content="Free online SQL formatter. Beautify and indent your SQL queries with keyword uppercasing. Runs locally in your browser." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.zlbox.site/tools/text/sql-formatter.html" />
-  <meta property="og:site_name" content="zlbox" />
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "SQL Formatter – Format SQL Queries Online", "description": "Free online SQL formatter. Beautify and indent your SQL queries with keyword uppercasing. Runs locally in your browser.", "url": "https://www.zlbox.site/tools/text/sql-formatter.html", "applicationCategory": "Text Tool", "operatingSystem": "Any (browser-based)", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "browserRequirements": "Requires a modern web browser with JavaScript enabled."}</script>
-
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.zlbox.site/"}, {"@type": "ListItem", "position": 2, "name": "Text Tools", "item": null}]}</script>
-
-  <style>
-/* ── Site Navigation ── */
-.site-nav {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: rgba(255,255,255,.97);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--border);
-  box-shadow: 0 1px 4px rgba(0,0,0,.05);
-}
-.nav-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  height: 52px;
-}
-.nav-logo {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-weight: 700;
-  font-size: 1rem;
-  color: var(--brand);
-  text-decoration: none;
-  flex-shrink: 0;
-  margin-right: 12px;
-}
-.nav-logo:hover { text-decoration: none; }
-.nav-logo-icon {
-  width: 36px;
-  height: 36px;
-  background: var(--brand);
-  color: #fff;
-  border-radius: 6px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 900;
-  font-size: .9rem;
-  flex-shrink: 0;
-}
-.nav-logo-text { font-size: .95rem; }
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 2px;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-  flex: 1;
-}
-.nav-links::-webkit-scrollbar { display: none; }
-.nav-link {
-  display: inline-flex;
-  align-items: center;
-  padding: 5px 10px;
-  font-size: .82rem;
-  font-weight: 500;
-  color: var(--text);
-  border-radius: 6px;
-  white-space: nowrap;
-  transition: all .15s;
-  flex-shrink: 0;
-}
-.nav-link:hover {
-  background: var(--brand);
-  color: #fff;
-  text-decoration: none;
-}
-.nav-link.active {
-  background: #eff6ff;
-  color: var(--brand);
-}
-.nav-toggle {
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  gap: 4px;
-  width: 32px;
-  height: 32px;
-  padding: 4px;
-  background: none;
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  cursor: pointer;
-  flex-shrink: 0;
-  margin-left: auto;
-}
-.nav-toggle span {
-  display: block;
-  width: 100%;
-  height: 2px;
-  background: var(--text);
-  border-radius: 1px;
-}
-@media (max-width: 768px) {
-  .nav-logo-text { display: none; }
-  .nav-inner { gap: 6px; }
-  .nav-toggle { display: flex; }
-  .nav-links {
-    display: none;
-    position: absolute;
-    top: 52px;
-    left: 0;
-    right: 0;
-    background: #fff;
-    border-bottom: 1px solid var(--border);
-    box-shadow: 0 4px 12px rgba(0,0,0,.1);
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 8px 0;
-    z-index: 99;
-    overflow: visible;
-  }
-  .nav-links.open { display: flex; }
-  .nav-link {
-    width: 100%;
-    padding: 10px 20px;
-    font-size: .9rem;
-    border-radius: 0;
-  }
-}
-  </style>
-  <meta property="og:image" content="https://www.zlbox.site/og-image.png" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="SQL Formatter – Format SQL Queries Online" />
-  <meta name="twitter:description" content="Free online SQL formatter. Beautify and indent your SQL queries with keyword uppercasing. Runs locally in your browser." />
-  <meta name="twitter:image" content="https://www.zlbox.site/og-image.png" />
-
-
-  <meta name="robots" content="index, follow" />
-  <script type="application/ld+json">{
-  "@context": "https://schema.org",
-  "@type": "HowTo",
-  "name": "How to Use SQL Formatter",
-  "description": "Step by step guide: How to Use SQL Formatter",
-  "step": [
-    {
-      "@type": "HowToStep",
-      "name": "Paste SQL query",
-      "text": "Paste your SQL query into the input box.",
-      "position": 1
-    },
-    {
-      "@type": "HowToStep",
-      "name": "Format your SQL",
-      "text": "Click 'Format' to beautify your SQL with proper indentation.",
-      "position": 2
-    },
-    {
-      "@type": "HowToStep",
-      "name": "Copy the result",
-      "text": "Click 'Copy' to copy the formatted SQL query.",
-      "position": 3
-    }
-  ]
-}</script>
+ <meta property="og:title" content="SQL Formatter – Beautify SQL Queries Online" />
+ <meta property="og:description" content="Free online SQL formatter and minifier. Uppercase keywords, break on clause boundaries, and indent parentheses." />
+ <meta property="og:type" content="website" />
+ <meta property="og:url" content="https://www.zlbox.site/tools/text/sql-formatter.html" />
+ <meta property="og:image" content="https://www.zlbox.site/og-image.png" />
+ <meta name="twitter:card" content="summary_large_image" />
+ <meta name="twitter:title" content="SQL Formatter – Beautify SQL Queries Online" />
+ <meta name="twitter:description" content="Free online SQL formatter and minifier. Uppercase keywords, break on clause boundaries, and indent parentheses." />
+ <meta name="robots" content="index, follow" />
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"SQL Formatter","description":"Free online SQL formatter and minifier. Uppercase keywords, break on clause boundaries, indent parentheses, and copy or download the result.","url":"https://www.zlbox.site/tools/text/sql-formatter.html","applicationCategory":"Text Tool","operatingSystem":"Any (browser-based)","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"browserRequirements":"Requires a modern web browser with JavaScript enabled."}</script>
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.zlbox.site/"},{"@type":"ListItem","position":2,"name":"Text Tools","item":"https://www.zlbox.site/categories/text.html"}]}</script>
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Format SQL","step":[{"@type":"HowToStep","name":"Paste SQL","text":"Paste a SQL query into the input area.","position":1},{"@type":"HowToStep","name":"Choose options","text":"Toggle keyword uppercasing, indent size, and indent style.","position":2},{"@type":"HowToStep","name":"Copy or download","text":"Copy the formatted SQL to your clipboard or download as a .sql file.","position":3}]}</script>
 </head>
 <body>
-
   <nav class="site-nav" aria-label="Main navigation">
     <div class="nav-inner">
-      <a href="/" class="nav-logo" aria-label="zlbox Home">
-        <span class="nav-logo-icon">zl</span>
-        <span class="nav-logo-text">zlbox</span>
-      </a>
-      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
+      <a href="/" class="nav-logo" aria-label="zlbox Home"><span class="nav-logo-icon">zl</span><span class="nav-logo-text">zlbox</span></a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
       <div class="nav-links" role="list">
         <a href="/tools/index.html" class="nav-link" role="listitem">All Tools</a>
         <a href="/categories/text.html" class="nav-link" role="listitem">Text</a>
@@ -223,198 +33,305 @@
         <a href="/categories/generator.html" class="nav-link" role="listitem">Generator</a>
         <a href="/categories/image.html" class="nav-link" role="listitem">Image</a>
         <a href="/categories/pdf.html" class="nav-link" role="listitem">PDF</a>
-        <a href="/blog/index.html" class="nav-link" role="listitem">Blog</a>
       </div>
     </div>
   </nav>
 
-<div class="container-md">
- <div class="hero">
- <div class="breadcrumb"><a href="../../index.html">Home</a> &rsaquo; <a href="../../categories/text.html">Text Tools</a> &rsaquo; SQL Formatter</div>
- <h1>SQL Formatter</h1>
- <p>Paste a SQL query and get clean, indented output with consistent keyword casing.</p>
- </div>
+  <div class="container-md">
+    <div class="hero">
+      <div class="breadcrumb"><a href="../../index.html">Home</a> &rsaquo; <a href="../../categories/text.html">Text Tools</a> &rsaquo; SQL Formatter</div>
+      <h1>SQL Formatter &amp; Minifier</h1>
+      <p>Paste your SQL and instantly see a clean, indented version with uppercase keywords. Minify, copy, or download as .sql — everything runs in your browser.</p>
+    </div>
 
- <div class="card">
- <div class="editor">
- <textarea id="inputText" placeholder="SELECT id, name FROM users WHERE active=1 ORDER BY created_at DESC" spellcheck="false"></textarea>
- <div class="editor__toolbar">
- <button class="btn btn--sm btn--ghost" id="sampleBtn">Sample</button>
- <button class="btn btn--sm btn--ghost" id="clearBtn">Clear</button>
- <div style="margin-left:auto"></div>
- <button class="btn btn--sm" id="formatBtn">Format</button>
- <button class="btn btn--sm btn--ghost" id="copyBtn">Copy</button>
- </div>
- </div>
- <div class="row-grid">
- <label class="row" style="gap:8px">
- Indent
- <select id="indentSize" style="max-width:120px">
- <option value="2">2 spaces</option>
- <option value="4" selected>4 spaces</option>
- <option value="tab">Tab</option>
- </select>
- </label>
- <label class="row" style="gap:8px"><input type="checkbox" id="uppercase" checked /> UPPERCASE keywords</label>
- </div>
- <div class="editor">
- <textarea id="outputText" readonly placeholder="Formatted SQL appears here…" spellcheck="false"></textarea>
- <div class="editor__toolbar">
- <span id="statusLabel">Ready</span>
- <div style="margin-left:auto"></div>
- </div>
- </div>
- </div>
+    <div class="card">
+      <div class="field">
+        <label>Input SQL</label>
+        <textarea id="input" rows="10" spellcheck="false" placeholder="SELECT id, name FROM users WHERE active = 1 ORDER BY created_at DESC"></textarea>
+      </div>
+      <div class="row-grid">
+        <label class="row" style="gap:8px; align-items:center;">
+          Indent
+          <select id="indentSize" style="max-width:160px;">
+            <option value="2">2 spaces</option>
+            <option value="4" selected>4 spaces</option>
+            <option value="tab">Tab</option>
+          </select>
+        </label>
+        <label class="row" style="gap:8px; align-items:center;"><input type="checkbox" id="uppercase" checked /> UPPERCASE keywords</label>
+        <label class="row" style="gap:8px; align-items:center;"><input type="checkbox" id="alignCommas" /> Line-break before top-level commas</label>
+        <div class="row" style="gap:8px; justify-content:flex-end; flex-wrap:wrap;">
+          <button class="btn btn--sm btn--ghost" id="sampleBtn">Sample</button>
+          <button class="btn btn--sm btn--ghost" id="clearBtn">Clear</button>
+          <button class="btn btn--sm btn--ghost" id="minBtn">Minify</button>
+          <button class="btn btn--sm" id="fmtBtn">Format</button>
+        </div>
+      </div>
+      <div class="field" style="margin-top:10px;">
+        <label>Output</label>
+        <textarea id="output" rows="12" readonly spellcheck="false"></textarea>
+        <div style="display:flex; gap:8px; flex-wrap:wrap; margin-top:8px;">
+          <button class="btn btn--sm" id="copyBtn">Copy</button>
+          <button class="btn btn--sm btn--ghost" id="downBtn">Download .sql</button>
+          <span id="stats" style="color:var(--muted); font-size:.85rem; align-self:center;">Ready.</span>
+        </div>
+      </div>
+    </div>
 
- <div class="section">
- <h2>How it works</h2>
- <ol class="steps">
- <li>Paste your SQL query into the input box.</li>
- <li>Choose indent style and toggle keyword uppercasing.</li>
- <li>Click Format to restructure the query, then Copy the result.</li>
- </ol>
- </div>
+    <div class="section">
+      <h2>How it works</h2>
+      <ol class="steps">
+        <li>Paste a SQL query into the input box. Live formatting updates the output as you type.</li>
+        <li>Toggle uppercase keywords, indent size, and comma handling to taste.</li>
+        <li>Click <strong>Format</strong> to pretty-print, <strong>Minify</strong> to collapse whitespace, then copy or download as a .sql file.</li>
+      </ol>
+    </div>
 
- <section class="tool-info" aria-label="Tool information">
-  <h2>What is SQL Formatter?</h2>
-  <p>A SQL formatter beautifies and indents SQL queries for readability. It handles complex multi-table JOINs, subqueries, and nested conditions, making it essential for database developers and analysts.</p>
+    <section class="tool-info">
+      <h2>What is it?</h2>
+      <p>A browser-side SQL formatter/minifier. It uppercases common SQL keywords, breaks lines on major clauses, and indents nested parentheses — producing a readable layout without external services.</p>
+      <h2>Use cases</h2>
+      <ul class="usecase-list">
+        <li>Beautifying legacy SQL dumps and one-liner queries.</li>
+        <li>Preparing queries for code reviews and documentation.</li>
+        <li>Minifying queries before embedding them into scripts or config files.</li>
+      </ul>
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq">
+        <details class="faq-item"><summary>Which SQL dialects are supported?</summary><p>Any dialect using standard clauses (SELECT, FROM, WHERE, JOIN, GROUP BY, HAVING, ORDER BY, LIMIT, INSERT, UPDATE, DELETE, WITH, CASE, UNION, INTERSECT, EXCEPT).</p></details>
+        <details class="faq-item"><summary>Is the SQL validated?</summary><p>This tool focuses on formatting and whitespace. Syntax validity is not checked — please run your query in a real database engine for validation.</p></details>
+      </div>
+    </section>
 
-  <h2>How to use</h2>
-  <ol class="steps-list">
-<li>Step 1: Paste a SQL query into the editor.</li>
-<li>Step 2: Click 'Format SQL' to beautify.</li>
-<li>Step 3: Review the properly indented and structured query.</li>
-<li>Step 4: Copy or download the formatted SQL.</li>
-  </ol>
+    <div class="section">
+      <h2>Related tools</h2>
+      <div class="related-grid">
+        <a href="html-formatter.html">HTML Formatter</a>
+        <a href="json-formatter.html">JSON Formatter</a>
+        <a href="case-converter.html">Case Converter</a>
+        <a href="word-counter.html">Word Counter</a>
+      </div>
+    </div>
 
-  <h2>Use cases</h2>
-  <ul class="usecase-list">
-<li>Debugging complex SQL queries from legacy systems.</li>
-<li>Formatting SQL for code reviews and documentation.</li>
-<li>Understanding poorly formatted SQL from database tools.</li>
-<li>Preparing SQL for presentations and teaching.</li>
-  </ul>
-
-  <h2>Frequently Asked Questions</h2>
-  <div class="faq">
-<details class="faq-item">
-  <summary>What SQL dialects are supported?</summary>
-  <p>The formatter handles standard ANSI SQL syntax, including SELECT, INSERT, UPDATE, DELETE, JOIN, GROUP BY, HAVING, subqueries, and CTEs.</p>
-</details>
-<details class="faq-item">
-  <summary>Does it validate SQL syntax?</summary>
-  <p>The formatter focuses on beautification. For full syntax validation, use a database-specific linter or run the query in your database engine.</p>
-</details>
+    <footer class="footer">
+      <div class="footer-links">
+        <a href="json-formatter.html">JSON Formatter</a>
+        <a href="html-formatter.html">HTML Formatter</a>
+        <span style="color:var(--border);margin:0 6px">|</span>
+        <a href="../../about.html">About</a>
+        <a href="../../privacy.html">Privacy</a>
+        <a href="../../disclaimer.html">Disclaimer</a>
+      </div>
+      <p class="footer-copy">&copy; 2026 zlbox. All rights reserved.</p>
+    </footer>
   </div>
-</section>
-
-<script type="application/ld+json">
-{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What SQL dialects are supported?", "acceptedAnswer": {"@type": "Answer", "text": "The formatter handles standard ANSI SQL syntax, including SELECT, INSERT, UPDATE, DELETE, JOIN, GROUP BY, HAVING, subqueries, and CTEs."}}, {"@type": "Question", "name": "Does it validate SQL syntax?", "acceptedAnswer": {"@type": "Answer", "text": "The formatter focuses on beautification. For full syntax validation, use a database-specific linter or run the query in your database engine."}}]}
-</script>
- <div class="section">
- <h2>Related tools</h2>
- <div class="related-grid">
- <a href="html-formatter.html">HTML Formatter</a>
- <a href="json-formatter.html">JSON Formatter</a>
- <a href="case-converter.html">Case Converter</a>
- <a href="word-counter.html">Word Counter</a>
- </div>
- </div>
-
- <footer class="footer">
- <div class="footer-links">
- <a href="word-counter.html">Word Counter</a>
- <a href="case-converter.html">Case Converter</a>
- <a href="json-formatter.html">JSON Formatter</a>
- <span style="color:var(--border);margin:0 6px">|</span>
- <a href="../../about.html">About</a>
- <a href="../../privacy.html">Privacy</a>
- <a href="../../disclaimer.html">Disclaimer</a>
- </div>
- <p class="footer-copy">&copy; 2026 zlbox. All rights reserved.</p>
- </footer>
-</div>
 
 <script>
-(function() {
- var KEYWORDS = [
- 'SELECT','FROM','WHERE','AND','OR','NOT','IN','IS','NULL','LIKE','BETWEEN','ORDER BY','GROUP BY','HAVING','LIMIT','OFFSET',
- 'JOIN','INNER JOIN','LEFT JOIN','RIGHT JOIN','FULL JOIN','OUTER JOIN','CROSS JOIN','ON','USING',
- 'INSERT INTO','VALUES','UPDATE','SET','DELETE','CREATE TABLE','DROP TABLE','ALTER TABLE','TRUNCATE',
- 'UNION','UNION ALL','INTERSECT','EXCEPT','DISTINCT','AS','CASE','WHEN','THEN','ELSE','END','WITH','EXISTS'
- ];
- var BREAK_BEFORE = /\b(SELECT|FROM|WHERE|AND|OR|GROUP\s+BY|HAVING|ORDER\s+BY|LIMIT|OFFSET|JOIN|INNER\s+JOIN|LEFT\s+JOIN|RIGHT\s+JOIN|FULL\s+JOIN|OUTER\s+JOIN|ON|USING|INSERT\s+INTO|VALUES|UPDATE|SET|DELETE|UNION|UNION\s+ALL|INTERSECT|EXCEPT|WITH|CASE|WHEN|ELSE|END)\b/gi;
+(function(){
+  var KEYWORDS = [
+    'SELECT','FROM','WHERE','AND','OR','NOT','IN','IS','NULL','LIKE','BETWEEN','ORDER BY','GROUP BY','HAVING','LIMIT','OFFSET','TOP','DISTINCT','AS',
+    'JOIN','INNER JOIN','LEFT JOIN','RIGHT JOIN','FULL JOIN','OUTER JOIN','CROSS JOIN','ON','USING',
+    'INSERT INTO','INSERT','VALUES','UPDATE','SET','DELETE','CREATE TABLE','DROP TABLE','ALTER TABLE','TRUNCATE',
+    'UNION','UNION ALL','INTERSECT','EXCEPT','WITH','CASE','WHEN','THEN','ELSE','END','EXISTS','INTO',
+    'CAST','CONVERT','COUNT','SUM','AVG','MIN','MAX','ROUND','ABS','UPPER','LOWER','COALESCE','NULLIF',
+    'FROM_UNIXTIME','NOW','CURRENT_TIMESTAMP','CURRENT_DATE','CURRENT_TIME',
+    'BOOLEAN','BOOL','INT','INTEGER','BIGINT','SMALLINT','TINYINT','FLOAT','DOUBLE','REAL','DECIMAL','NUMERIC','MONEY',
+    'CHAR','VARCHAR','TEXT','LONGTEXT','MEDIUMTEXT','NVARCHAR','NCHAR','CLOB','BLOB','BINARY','VARBINARY',
+    'DATE','DATETIME','TIME','TIMESTAMP','TIMESTAMPTZ','YEAR','INTERVAL','JSON','JSONB','UUID',
+    'PRIMARY KEY','FOREIGN KEY','REFERENCES','DEFAULT','AUTO_INCREMENT','SERIAL','IDENTITY','COMMENT','ENGINE',
+    'CONSTRAINT','UNIQUE','CHECK','INDEX','KEY','ON DELETE','ON UPDATE','CASCADE','RESTRICT','SET NULL','SET DEFAULT',
+    'PARTITION BY','ROW_NUMBER','RANK','DENSE_RANK','OVER','WINDOW','FILTER','GROUPING','ROLLUP','CUBE',
+    'BEGIN','COMMIT','ROLLBACK','TRANSACTION','SAVEPOINT','START TRANSACTION','GRANT','REVOKE',
+    'USE','FROM','ASC','DESC','ALL','ANY','SOME','RETURNING','VALUES','WHERE','GROUP BY','ORDER BY','HAVING','LIMIT','OFFSET'
+  ];
+  var KEYWORD_SET = {};
+  for(var i = 0; i < KEYWORDS.length; i++) KEYWORD_SET[KEYWORDS[i].toUpperCase()] = true;
 
- var inputEl = document.getElementById('inputText');
- var outputEl = document.getElementById('outputText');
- var formatBtn = document.getElementById('formatBtn');
- var clearBtn = document.getElementById('clearBtn');
- var sampleBtn = document.getElementById('sampleBtn');
- var copyBtn = document.getElementById('copyBtn');
- var indentSize = document.getElementById('indentSize');
- var uppercase = document.getElementById('uppercase');
- var statusEl = document.getElementById('statusLabel');
+  var BREAK_BEFORE_EXACT = [
+    'SELECT','FROM','WHERE','GROUP BY','HAVING','ORDER BY','LIMIT','OFFSET',
+    'INNER JOIN','LEFT JOIN','RIGHT JOIN','FULL JOIN','OUTER JOIN','CROSS JOIN','JOIN',
+    'UNION','UNION ALL','INTERSECT','EXCEPT','WITH','INSERT INTO','INSERT','VALUES','UPDATE','DELETE',
+    'CASE','WHEN','THEN','ELSE','END','ON','USING','RETURNING'
+  ];
 
- function setStatus(msg, ok) {
- statusEl.textContent = msg;
- statusEl.style.color = ok ? '#047857' : (ok === false ? '#b91c1c' : 'var(--muted)');
- }
+  var input = document.getElementById('input');
+  var output = document.getElementById('output');
+  var uppercase = document.getElementById('uppercase');
+  var indentSize = document.getElementById('indentSize');
+  var stats = document.getElementById('stats');
 
- function format(sql) {
- if (!sql) return '';
- var text = sql.replace(/\s+/g, ' ').trim();
- text = text.replace(BREAK_BEFORE, '\n$&');
- if (uppercase.checked) {
- for (var i = 0; i < KEYWORDS.length; i++) {
- var kw = KEYWORDS[i];
- var re = new RegExp('\\b' + kw.replace(/ /g, '\\s+') + '\\b', 'gi');
- text = text.replace(re, kw.toUpperCase());
- }
- }
- var indentUnit = indentSize.value === 'tab' ? '\t' : ' '.repeat(parseInt(indentSize.value, 10));
- var depth = 0;
- var lines = text.split('\n').map(function(l) { return l.trim(); }).filter(function(l) { return l.length> 0; });
- var out = [];
- for (var j = 0; j < lines.length; j++) {
- var line = lines[j];
- if (/^[)\]]/.test(line)) depth = Math.max(0, depth - 1);
- out.push(indentUnit.repeat(depth) + line);
- var opens = (line.match(/[\[\(]/g) || []).length;
- var closes = (line.match(/[\]\)]/g) || []).length;
- depth += Math.max(0, opens - closes);
- if (depth < 0) depth = 0;
- }
- return out.join('\n');
- }
+  function getIndentUnit(){
+    var v = indentSize.value;
+    if(v === 'tab') return '\t';
+    return ' '.repeat(parseInt(v, 10) || 4);
+  }
 
- formatBtn.addEventListener('click', function() {
- outputEl.value = format(inputEl.value);
- setStatus(outputEl.value ? 'SQL formatted' : 'Ready', outputEl.value ? true : null);
- });
+  // Replace keywords inside SQL, being careful with strings
+  function replaceKeywords(text){
+    if(!uppercase.checked) return text;
+    // Build a regex that matches SQL single-quoted strings, double-quoted identifiers, backticks (MySQL), line comments, block comments, or a keyword token.
+    return text.replace(/('[^']*(?:''[^']*)*'|"[^"]*(?:""[^"]*)*"|`[^`]*`|--[^\n]*|\/\*[\s\S]*?\*\/)|(\b[a-zA-Z_][a-zA-Z0-9_]*(?:\s+[a-zA-Z_][a-zA-Z0-9_]*)*\b)/g, function(m, lit, kw){
+      if(lit) return lit;
+      if(!kw) return m;
+      var key = kw.replace(/\s+/g, ' ').trim().toUpperCase();
+      if(KEYWORD_SET[key]) return key;
+      return kw;
+    });
+  }
 
- clearBtn.addEventListener('click', function() {
- inputEl.value = ''; outputEl.value = ''; setStatus('Ready'); inputEl.focus();
- });
+  function format(sql){
+    if(!sql) return '';
+    // Normalize: collapse horizontal whitespace, keep newlines
+    var text = sql.replace(/\r\n|\r/g, '\n').replace(/[\t\f\v]+/g, ' ').replace(/[ \u00a0]+/g, ' ');
+    // Split text into literal chunks and non-literal chunks so we only operate outside strings
+    var chunks = [];
+    var idx = 0;
+    // tokenize strings/comments as-is, plus anything else as text
+    var re = /('[^']*(?:''[^']*)*'|"[^"]*(?:""[^"]*)*"|`[^`]*`|--[^\n]*\n?|\/\*[\s\S]*?\*\/|\/\/[^\n]*\n?)/g;
+    var match;
+    var lastEnd = 0;
+    while((match = re.exec(text)) !== null){
+      if(match.index > lastEnd) chunks.push({type:'code', text: text.slice(lastEnd, match.index)});
+      var t = match[1];
+      // Preserve block/line comments as-is, treat as whitespace tokens for breaks
+      if(/^\/\*/.test(t) || /^--|^\/\//.test(t)) chunks.push({type:'comment', text:t});
+      else chunks.push({type:'literal', text:t});
+      lastEnd = re.lastIndex;
+    }
+    if(lastEnd < text.length) chunks.push({type:'code', text: text.slice(lastEnd)});
 
- sampleBtn.addEventListener('click', function() {
- inputEl.value = "select u.id, u.name, count(o.id) as order_count from users u left join orders o on o.user_id = u.id where u.active=1 and u.created_at> '2025-01-01' group by u.id, u.name having count(o.id)> 3 order by order_count desc limit 20";
- outputEl.value = '';
- setStatus('Sample loaded');
- });
+    // Process each code chunk:
+    // 1) Uppercase keywords inside code (leaving literals/comments untouched)
+    // 2) Insert line breaks before major keywords (inside code only)
+    // 3) Indent based on open/closing parentheses
+    var unit = getIndentUnit();
+    var depth = 0;
+    var out = [];
+    for(var c = 0; c < chunks.length; c++){
+      var chunk = chunks[c];
+      if(chunk.type === 'literal' || chunk.type === 'comment'){ out.push(chunk.text); continue; }
+      var t = chunk.text;
+      // Uppercase keywords
+      t = replaceKeywords(t);
+      // Insert newline before each break-before keyword (case-insensitive match on whole words). Build list sorted by length for multi-word keywords.
+      var sorted = BREAK_BEFORE_EXACT.slice().sort(function(a,b){ return b.length - a.length; });
+      var pats = sorted.map(function(k){ return k.split(/\s+/).map(function(w){ return '\\b' + escapeReg(w) + '\\b'; }).join('\\s+'); });
+      var combined = new RegExp('(\\s*)(' + pats.join('|') + ')\\s*', 'gi');
+      // Capture groups: (ws_before)(keyword). We replace with newline + the keyword + single space.
+      t = t.replace(combined, function(whole, ws, kw){
+        return '\n' + (kw || '').trim().toUpperCase() + ' ';
+      });
+      // Walk characters to indent lines based on parentheses
+      var lines = t.split('\n');
+      for(var li = 0; li < lines.length; li++){
+        var line = lines[li].replace(/^[ \t]+|[ \t]+$/g, '');
+        if(!line){
+          if(li === 0 && out.length === 0) continue; // skip leading blank
+          out.push('\n');
+          continue;
+        }
+        // Determine indentation before opening/closing parentheses of the current line
+        // Count closing parens at start to dedent this line
+        var leadingCloses = 0;
+        var k = 0;
+        while(k < line.length && (line.charAt(k) === ')' || line.charAt(k) === ']')){ leadingCloses++; k++; }
+        var localDepth = Math.max(0, depth - leadingCloses);
+        var indent = unit.repeat(localDepth);
+        out.push(indent + line);
+        // update depth for subsequent lines based on this line
+        for(var cc = 0; cc < line.length; cc++){
+          var ch = line.charAt(cc);
+          if(ch === '(' || ch === '[') depth++;
+          else if(ch === ')' || ch === ']') depth = Math.max(0, depth - 1);
+        }
+        if(li < lines.length - 1) out.push('\n');
+      }
+    }
+    var result = out.join('').replace(/\n{3,}/g, '\n\n').replace(/[ \t]+\n/g, '\n').replace(/\n{2,}$/g, '\n').replace(/^\n+/, '');
+    return result;
+  }
 
- copyBtn.addEventListener('click', function() {
- if (!outputEl.value) return;
- if (navigator.clipboard) {
- navigator.clipboard.writeText(outputEl.value).then(function() {
- copyBtn.textContent = 'Copied!';
- setTimeout(function() { copyBtn.textContent = 'Copy'; }, 1200);
- });
- } else {
- outputEl.select(); document.execCommand('copy');
- copyBtn.textContent = 'Copied!';
- setTimeout(function() { copyBtn.textContent = 'Copy'; }, 1200);
- }
- });
+  function escapeReg(s){ return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+
+  function minify(sql){
+    if(!sql) return '';
+    // Tokenize to keep strings and comments safe, then collapse whitespace elsewhere
+    var chunks = [];
+    var re = /('[^']*(?:''[^']*)*'|"[^"]*(?:""[^"]*)*"|`[^`]*`|--[^\n]*\n?|\/\*[\s\S]*?\*\/|\/\/[^\n]*\n?)/g;
+    var match; var lastEnd = 0;
+    while((match = re.exec(sql)) !== null){
+      if(match.index > lastEnd) chunks.push({type:'code', text: sql.slice(lastEnd, match.index)});
+      // Drop comments
+      if(/^\/\*/.test(match[1]) || /^--|^\/\//.test(match[1])){ /* drop */ }
+      else chunks.push({type:'literal', text: match[1]});
+      lastEnd = re.lastIndex;
+    }
+    if(lastEnd < sql.length) chunks.push({type:'code', text: sql.slice(lastEnd)});
+    var out = [];
+    for(var c = 0; c < chunks.length; c++){
+      var ch = chunks[c];
+      if(ch.type === 'literal'){ out.push(ch.text); continue; }
+      var t = replaceKeywords(ch.text).replace(/\s+/g, ' ');
+      // Remove spaces around operators and punctuation
+      t = t.replace(/\s*([,;=<>!+\-*/%])\s*/g, '$1');
+      t = t.replace(/([(])\s+/g, '$1').replace(/\s+([)])/g, '$1');
+      t = t.trim();
+      out.push(t);
+    }
+    return out.join('').trim();
+  }
+
+  function run(mode){
+    var sql = input.value;
+    var result = mode === 'minify' ? minify(sql) : format(sql);
+    output.value = result;
+    var nlines = result ? result.split(/\n/).length : 0;
+    stats.textContent = (mode === 'minify' ? 'Minified to ' : 'Formatted with ') + nlines.toLocaleString() + ' line(s) and ' + result.length.toLocaleString() + ' character(s).';
+  }
+
+  function copyText(){
+    var t = output.value;
+    if(!t) return;
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(t).then(function(){ stats.textContent = 'Copied to clipboard.'; });
+    } else {
+      output.select();
+      try { document.execCommand('copy'); stats.textContent = 'Copied.'; }
+      catch(e){ stats.textContent = 'Copy failed.'; }
+    }
+  }
+  function downloadText(){
+    var t = output.value;
+    if(!t) return;
+    var blob = new Blob([t], {type:'application/sql;charset=utf-8'});
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a'); a.href = url; a.download = 'query.sql';
+    document.body.appendChild(a); a.click();
+    setTimeout(function(){ a.remove(); URL.revokeObjectURL(url); }, 200);
+  }
+
+  document.getElementById('fmtBtn').addEventListener('click', function(){ run('format'); });
+  document.getElementById('minBtn').addEventListener('click', function(){ run('minify'); });
+  document.getElementById('clearBtn').addEventListener('click', function(){ input.value=''; output.value=''; stats.textContent='Ready.'; });
+  document.getElementById('sampleBtn').addEventListener('click', function(){
+    input.value = "select u.id, u.name, count(o.id) as order_count from users u left join orders o on o.user_id = u.id where u.active=1 and u.created_at > '2025-01-01' group by u.id, u.name having count(o.id) > 3 order by order_count desc limit 20;";
+    run('format');
+  });
+  document.getElementById('copyBtn').addEventListener('click', copyText);
+  document.getElementById('downBtn').addEventListener('click', downloadText);
+  input.addEventListener('input', function(){ run('format'); });
+  uppercase.addEventListener('change', function(){ run('format'); });
+  indentSize.addEventListener('change', function(){ run('format'); });
+
+  var toggle = document.querySelector('.nav-toggle');
+  if(toggle){
+    toggle.addEventListener('click', function(){
+      var links = document.querySelector('.nav-links');
+      var open = links.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open);
+    });
+  }
+  run('format');
 })();
 </script>
 </body>

@@ -1,0 +1,199 @@
+# Write the JS script via a separate file to avoid Python string escaping issues
+
+import re
+
+with open('tools/text/json-formatter.html', 'r', encoding='utf-8', errors='replace') as fp:
+    c = fp.read()
+
+positions = [(m.start(), m.end()) for m in re.finditer(r'<script\b[^>]*>', c)]
+last_start = positions[-1][1]
+last_end = c.rfind('</script>')
+before = c[:last_start]
+after = c[last_end+9:]
+
+# Now write the JavaScript file separately and read it back
+js_content = r"""(function() {
+  'use strict';
+
+  var inputEl = document.getElementById('inputText');
+  var parseModeEl = document.getElementById('parseMode');
+  var indentEl = document.getElementById('indentSize');
+  var sortKeysEl = document.getElementById('sortKeys');
+  var jsonpathInput = document.getElementById('jsonpathInput');
+  var outputArea = document.getElementById('outputArea');
+  var statusEl = document.getElementById('statusLabel');
+  var treeRoot = documentgetElementById('treeViewRoot');
+  var lastData = null;
+  var lastResult = null;
+
+  function setStatus(msg, ok) {
+    statusEl.textContent = msg;
+    statusEl.style.color = (ok === true) ? '#047857' : (ok === false) ? '#b91c1c' : '#64748b';
+  }
+
+  function escapeHtml(s) {
+    return String(s).replace(/[&<>]/g, function(c) {
+      return c === '&' ? '&amp;' : c === '<' ? '&lt;' : '&gt;';
+    });
+  }
+
+  // JSON5 tolerant parser
+  function parseLoose(text) {
+    var i = 0, len = text.length;
+
+    function peek() {
+      while (i < len) {
+        var ch = text.charAt(i);
+        if (ch === ' ' || ch === '\t' || ch === '\n' || ch === '\r') { i++; continue; }
+        if (ch === '/' && text.charAt(i+1) === '/') { while (i < len && text.charAt(i) !== '\n') i++; continue; }
+        if (ch === '/' && text.charAt(i+1) === '*') {
+          i += 2;
+          while (i < len && !(text.charAt(i) === '*' && text.charAt(i+1) === '/')) i++;
+          i += 2;
+          continue;
+        }
+        break;
+      }
+      return i < len ? text.charAt(i) : '';
+    }
+
+    function parseValue() {
+      peek();
+      if (i >= len) throw new Error('Unexpected end of input');
+      var c = text.charAt(i);
+      if (c === '{') return parseObject();
+      if (c === '[') return parseArray();
+      if (c === '"' || c === "'") return parseString();
+      if (c === '-' || (c >= '0' && c <= '9')) return parseNumber();
+      if (c === 't' || c === 'f') return parseBoolean();
+      if (c === 'n') return parseNull();
+      if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || c === '_' || c === '$') return parseIdent();
+      throw new Error('Unexpected character at position ' + i + ': ' + c);
+    }
+
+    function parseObject() {
+      i++;
+      var obj = {};
+      if (peek() === '}') { i++; return obj; }
+      while (true) {
+        peek();
+        var key, c = text.charAt(i);
+        if (c === '"' || c === "'") key = parseString();
+        else if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || c === '_' || c === '$' || (c >= '0' && c <= '9')) key = parseIdent();
+        else throw new Error('Expected object key at position ' + i);
+        peek();
+        if (text.charAt(i) !== ':') throw new Error('Expected : at position ' + i);
+        i++;
+        obj[key] = parseValue();
+        peek();
+        c = text.charAt(i);
+        if (c === ',') { i++; peek(); if (text.charAt(i) === '}') { i++; return obj; } continue; }
+        if (c === '}') { i++; return obj; }
+        throw new Error('Expected comma or closing brace at position ' + i);
+      }
+    }
+
+    function parseArray() {
+      i++;
+      var arr = [];
+      if (peek() === ']') { i++; return arr; }
+      while (true) {
+        arr.push(parseValue());
+        peek();
+        var c = text.charAt(i);
+        if (c === ',') { i++; peek(); if (text.charAt(i) === ']') { i++; return arr; } continue; }
+        if (c === ']') { i++; return arr; }
+        throw new Error('Expected comma or closing bracket at position ' + i);
+      }
+    }
+
+    function parseString() {
+      var quote = text.charAt(i);
+      i++;
+      var out = '';
+      while (i < len && text.charAt(i) !== quote) {
+        if (text.charAt(i) === '\\') {
+          i++;
+          var n = text.charAt(i);
+          if (n === 'n') out += '\n';
+          else if (n === 't') out += '\t';
+          else if (n === 'r') out += '\r';
+          else if (n === '\\') out += '\\';
+          else if (n === '"') out += '"';
+          else if (n === "'") out += "'";
+          else if (n === '/') out += '/';
+          else if (n === 'b') out += '\b';
+          else if (n === 'f') out += '\f';
+          else if (n === 'u') {
+            out += String.fromCharCode(parseInt(text.substr(i+1, 4), 16));
+            i += 4;
+          }
+          else out += n;
+          i++;
+        } else {
+          out += text.charAt(i);
+          i++;
+        }
+      }
+      if (i >= len) throw new Error('Unterminated string');
+      i++;
+      return out;
+    }
+
+    function parseNumber() {
+      var start = i;
+      if (text.charAt(i) === '-') i++;
+      while (i < len) {
+        var ch = text.charAt(i);
+        if ((ch >= '0' && ch <= '9') || ch === '.' || ch === 'e' || ch === 'E' || ch === '+' || ch === '-') i++;
+        else break;
+      }
+      var num = text.substring(start, i);
+      if (num === '-' || num === '' || /e[-+]*$/i.test(num) || /\..*\./.test(num)) throw new Error('Invalid number: ' + num);
+      if (/^-?(Infinity|NaN)$/.test(num)) return num.charAt(0) === '-' ? -Infinity : (num === 'NaN' ? NaN : Infinity);
+      return parseFloat(num);
+    }
+
+    function parseBoolean() {
+      if (text.substr(i, 4) === 'true') { i += 4; return true; }
+      if (text.substr(i, 5) === 'false') { i += 5; return false; }
+      throw new Error('Invalid boolean at position ' + i);
+    }
+
+    function parseNull() {
+      if (text.substr(i, 4) === 'null') { i += 4; return null; }
+      throw new Error('Invalid value at position ' + i);
+    }
+
+    return parseValue();
+  }
+
+})();
+
+/* This is the actual parsing we want - simplified to avoid nested issues */
+return arguments.callee;
+});
+
+// The real functions for this page
+var inputEl = document.getElementById('inputText');
+var parseModeEl = document.getElementById('parseMode');
+var indentEl = document.getElementById('indentSize');
+var sortKeysEl = document.getElementById('sortKeys');
+var outputArea = document.getElementById('outputArea');
+var jsonpathInput = document.getElementById('jsonpathInput');
+var statusEl = document.getElementById('statusLabel');
+var treeRoot = document.getElementById('treeViewRoot');
+var lastData = null;
+
+function setStatus(msg, ok) {
+  statusEl.textContent = msg;
+  statusEl.style.color = (ok === true) ? '#047857' : (ok === false) ? '#b91c1c' : '#64748b';
+}
+
+function parseLoose(text) {
+  var i = 0, len = text.length;
+  return parseValue();
+}
+
+return this;
+})();

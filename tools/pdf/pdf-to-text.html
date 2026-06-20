@@ -1,0 +1,1372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <title>PDF to Text – Extract Text from PDF | zlbox</title>
+ <meta name="description" content="Free online PDF to text converter. Upload a PDF and extract readable text locally in your browser — no server upload required." />
+ <link rel="stylesheet" href="../../css/components.css" />
+ <link rel="canonical" href="https://www.zlbox.site/tools/pdf/pdf-to-text.html" />
+ <meta name="google-site-verification" content="google4bd1e08685667667" />
+ <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
+<script>
+(function() {
+  var toggle = document.querySelector('.nav-toggle');
+  var navLinks = document.querySelector('.nav-links');
+  if (!toggle || !navLinks) return;
+  toggle.addEventListener('click', function() {
+    var isOpen = navLinks.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', isOpen);
+  });
+  var path = location.pathname;
+  document.querySelectorAll('.nav-link').forEach(function(link) {
+    var href = link.getAttribute('href');
+    if (href && (path === href || path.indexOf(href.replace('/index.html','')) > -1)) {
+      link.classList.add('active');
+    }
+  });
+})();
+</script>
+
+ <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+ <meta property="og:title" content="PDF to Text – Extract Text from PDF | zlbox" />
+ <meta property="og:description" content="Free online PDF to text converter. Upload a PDF and extract readable text locally in your browser — no server upload required." />
+ <meta property="og:type" content="website" />
+ <meta property="og:url" content="https://www.zlbox.site/tools/pdf/pdf-to-text.html" />
+ <meta property="og:site_name" content="zlbox" />
+ <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "PDF to Text", "description": "Free online PDF to text converter. Upload a PDF and extract readable text locally in your browser — no server upload required.", "url": "https://www.zlbox.site/tools/pdf/pdf-to-text.html", "applicationCategory": "PDF Tool", "operatingSystem": "Any (browser-based)", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "browserRequirements": "Requires a modern web browser with JavaScript enabled."}</script>
+
+ <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.zlbox.site/"}, {"@type": "ListItem", "position": 2, "name": "PDF Tools", "item": "https://www.zlbox.site/categories/pdf.html"}]}</script>
+
+ <style>
+.site-nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,.97); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); box-shadow: 0 1px 4px rgba(0,0,0,.05); }
+.nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; align-items: center; gap: 8px; height: 52px; }
+.nav-logo { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 1rem; color: var(--brand); text-decoration: none; flex-shrink: 0; margin-right: 12px; }
+.nav-logo:hover { text-decoration: none; }
+.nav-logo-icon { width: 36px; height: 36px; background: var(--brand); color: #fff; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: .9rem; flex-shrink: 0; }
+.nav-logo-text { font-size: .95rem; }
+.nav-links { display: flex; align-items: center; gap: 2px; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none; flex: 1; }
+.nav-links::-webkit-scrollbar { display: none; }
+.nav-link { display: inline-flex; align-items: center; padding: 5px 10px; font-size: .82rem; font-weight: 500; color: var(--text); border-radius: 6px; white-space: nowrap; transition: all .15s; flex-shrink: 0; }
+.nav-link:hover { background: var(--brand-50); color: var(--brand); text-decoration: none; }
+.nav-link.active { background: var(--brand-50); color: var(--brand); }
+.nav-toggle { display: none; margin-left: auto; background: transparent; border: 1px solid var(--border); color: var(--text); padding: 4px 8px; border-radius: 6px; font-size: .8rem; cursor: pointer; }
+@media (max-width: 820px) {
+  .nav-toggle { display: inline-flex; }
+  .nav-links { display: none; position: absolute; top: 52px; left: 0; right: 0; background: #fff; flex-direction: column; align-items: stretch; padding: 8px; border-bottom: 1px solid var(--border); box-shadow: 0 4px 12px rgba(0,0,0,.06); }
+  .nav-links.open { display: flex; }
+  .nav-link { border-radius: 6px; padding: 8px 12px; }
+}
+.text-out {
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: .92rem;
+  line-height: 1.55;
+  background: #fafafa;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px;
+  max-height: 520px;
+  overflow-y: auto;
+}
+</style>
+</head>
+<body>
+<nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="../../index.html" class="nav-logo"><span class="nav-logo-icon">Z</span><span class="nav-logo-text">zlbox</span></a>
+      <div class="nav-links" role="list">
+        <a href="../../index.html" class="nav-link" role="listitem">Home</a>
+        <a href="../../categories/generator.html" class="nav-link" role="listitem">Generator</a>
+        <a href="../../categories/calculator.html" class="nav-link" role="listitem">Calculator</a>
+        <a href="../../categories/text.html" class="nav-link" role="listitem">Text</a>
+        <a href="../../categories/image.html" class="nav-link" role="listitem">Image</a>
+        <a href="../../categories/pdf.html" class="nav-link" role="listitem">PDF</a>
+        <a href="../../tools/index.html" class="nav-link" role="listitem">All Tools</a>
+        <a href="../../about.html" class="nav-link" role="listitem">About</a>
+        <a href="/blog/index.html" class="nav-link" role="listitem">Blog</a>
+      </div>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">Menu</button>
+    </div>
+  </nav>
+
+<div class="container-md">
+ <div class="hero">
+ <div class="breadcrumb"><a href="../../index.html">Home</a> &rsaquo; <a href="../../categories/pdf.html">PDF Tools</a> &rsaquo; PDF to Text</div>
+ <h1>PDF to Text</h1>
+ <p>Upload a PDF and extract its text content locally in your browser. Supports text objects, standard fonts, and compressed streams. Nothing is sent to a server.</p>
+ </div>
+
+ <div class="card">
+ <div class="field-grid">
+ <div class="field">
+ <label for="file">PDF File</label>
+ <input type="file" id="file" accept="application/pdf,.pdf" />
+ <p class="note" id="status">No file selected. Note: only text embedded as actual PDF text objects can be extracted — scanned documents with only image content cannot be converted without OCR.</p>
+ </div>
+ </div>
+
+ <div id="resultWrap" style="display:none;margin-top:16px">
+ <div id="summary" style="margin-bottom:12px;font-size:.9rem;color:var(--muted)"></div>
+ <div id="textOut" class="text-out" aria-label="Extracted text"></div>
+ </div>
+
+ <div id="actions" style="display:none;margin-top:12px;gap:8px;flex-wrap:wrap">
+ <button class="btn btn--ghost" id="copy">Copy Text</button>
+ <button class="btn btn--ghost" id="download">Download .txt</button>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>How it works</h2>
+ <ol class="steps">
+ <li>Select a PDF from your device.</li>
+ <li>Page and text objects are parsed locally in your browser using pure JavaScript.</li>
+ <li>The extracted text appears in the output area; copy it or download as a .txt file.</li>
+ </ol>
+ </div>
+
+ <section class="tool-info" aria-label="Tool information">
+  <h2>What this tool extracts</h2>
+  <p>This tool reads PDF text-showing operators (Tj, TJ and related) and returns them as plain text. It handles indirect objects, streams with standard Flate compression, simple font encodings, and common ToUnicode / WinAnsi / StandardEncoding mappings. Complex layout, ligature substitution, CJK fonts using embedded CID maps, and image-only (scanned) documents may not extract cleanly — for those, an OCR tool is needed.</p>
+
+  <h2>How to use</h2>
+  <ol class="steps-list">
+<li>Step 1: Click 'PDF File' and choose a .pdf file from your device.</li>
+<li>Step 2: Wait for the document to be parsed locally.</li>
+<li>Step 3: Review the extracted text in the output area.</li>
+<li>Step 4: Copy to clipboard or save as a .txt file.</li>
+  </ol>
+
+  <h2>Use cases</h2>
+  <ul class="usecase-list">
+<li>Extracting article text from PDFs for quotation or summarization.</li>
+<li>Searching through PDF content without needing a PDF reader.</li>
+<li>Converting PDF reports into plain text for further processing.</li>
+<li>Pulling citations and references from PDFs.</li>
+  </ul>
+
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq">
+<details class="faq-item">
+  <summary>Is my PDF uploaded to a server?</summary>
+  <p>No. The entire PDF is parsed inside your browser. It is never sent to any server.</p>
+</details>
+<details class="faq-item">
+  <summary>Why is some text missing or garbled?</summary>
+  <p>PDFs without a reliable encoding map (no /ToUnicode / /Encoding) or with specialized CJK/CID fonts cannot always be converted to readable text. Scanned documents contain only pixel data — they require OCR to extract text.</p>
+</details>
+<details class="faq-item">
+  <summary>Does it preserve page breaks?</summary>
+  <p>Yes. Text from different pages is separated by a page marker ("--- Page N ---") so you can retain structural boundaries in the output.</p>
+</details>
+  </div>
+</section>
+
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is my PDF uploaded to a server?", "acceptedAnswer": {"@type": "Answer", "text": "No. The entire PDF is parsed inside your browser. It is never sent to any server."}}, {"@type": "Question", "name": "Why is some text missing or garbled?", "acceptedAnswer": {"@type": "Answer", "text": "PDFs without a reliable encoding map (no /ToUnicode / /Encoding) or with specialized CJK/CID fonts cannot always be converted to readable text. Scanned documents contain only pixel data — they require OCR to extract text."}}, {"@type": "Question", "name": "Does it preserve page breaks?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Text from different pages is separated by a page marker so you can retain structural boundaries in the output."}}]}
+</script>
+ <div class="section">
+ <h2>Related tools</h2>
+ <div class="related-grid">
+ <a href="pdf-info.html">PDF Info</a>
+ <a href="merge-pdf.html">Merge PDF</a>
+ <a href="split-pdf.html">Split PDF</a>
+ <a href="compress-pdf.html">Compress PDF</a>
+ <a href="jpg-to-pdf.html">JPG to PDF</a>
+ <a href="../text/word-counter.html">Word Counter</a>
+ </div>
+ </div>
+
+ <footer class="footer">
+ <div class="footer-links">
+ <a href="pdf-info.html">PDF Info</a>
+ <a href="merge-pdf.html">Merge PDF</a>
+ <a href="split-pdf.html">Split PDF</a>
+ <span style="color:var(--border);margin:0 6px">|</span>
+ <a href="../../about.html">About</a>
+ <a href="../../privacy.html">Privacy</a>
+ <a href="../../disclaimer.html">Disclaimer</a>
+ </div>
+ <p class="footer-copy">&copy; 2026 zlbox. All rights reserved.</p>
+ </footer>
+</div>
+
+<script>
+(function(){
+  var fileEl = document.getElementById('file');
+  var statusEl = document.getElementById('status');
+  var resultWrap = document.getElementById('resultWrap');
+  var textOut = document.getElementById('textOut');
+  var summaryEl = document.getElementById('summary');
+  var actionsEl = document.getElementById('actions');
+  var lastText = '';
+  var lastFilename = '';
+
+  function formatBytes(b){
+    if (b === 0 || b == null) return '0 B';
+    var units = ['B','KB','MB','GB','TB'];
+    var i = Math.floor(Math.log(b)/Math.log(1024));
+    return (b / Math.pow(1024, i)).toFixed(i===0?0:2) + ' ' + units[i];
+  }
+
+  // ======= Minimal PDF parser =======
+
+  // Parse a PDF object from a string starting at pos. Returns {value, end}.
+  function parsePdfObject(str, pos){
+    pos = skipWs(str, pos);
+    if (pos >= str.length) return {value: null, end: pos};
+    var c = str.charAt(pos);
+    if (c === '%'){
+      var nl = str.indexOf('\n', pos);
+      if (nl < 0) return {value: null, end: str.length};
+      return parsePdfObject(str, nl + 1);
+    }
+    if (c === '(') return parseLiteralString(str, pos);
+    if (c === '<'){
+      if (str.charAt(pos+1) === '<') return parseDict(str, pos);
+      return parseHexString(str, pos);
+    }
+    if (c === '[') return parseArray(str, pos);
+    if (c === 't' && str.substr(pos, 4) === 'true') return {value: true, end: pos+4};
+    if (c === 'f' && str.substr(pos, 5) === 'false') return {value: false, end: pos+5};
+    if (c === 'n' && str.substr(pos, 4) === 'null') return {value: null, end: pos+4};
+    // number (possibly with trailing R meaning reference)
+    var numMatch = str.substring(pos, pos+32).match(/^([+\-]?(?:\d+\.\d+|\.\d+|\d+\.?))/);
+    if (numMatch){
+      var numStr = numMatch[1];
+      // Check if this is an integer followed by " int R" reference
+      if (/^-?\d+$/.test(numStr)){
+        var afterNum = pos + numStr.length;
+        var nextTok = str.substring(afterNum, afterNum + 32);
+        var refMatch = nextTok.match(/^\s+(\d+)\s+R/);
+        if (refMatch){
+          var gen = parseInt(refMatch[1], 10);
+          var refEnd = afterNum + refMatch[0].length;
+          return {value: {ref: {num: parseInt(numStr,10), gen: gen}}, end: refEnd};
+        }
+        // Otherwise integer
+        return {value: parseInt(numStr, 10), end: pos + numStr.length};
+      }
+      return {value: parseFloat(numStr), end: pos + numStr.length};
+    }
+    // name /Name
+    if (c === '/'){
+      var end = pos + 1;
+      while (end < str.length && !/\s/.test(str.charAt(end)) && !/[<>[\]()\/%]/.test(str.charAt(end))) end++;
+      return {value: {name: str.substring(pos+1, end)}, end: end};
+    }
+    return {value: null, end: pos + 1};
+  }
+
+  function skipWs(str, pos){
+    while (pos < str.length && /[\x00\t\n\f\r ]/.test(str.charAt(pos))) pos++;
+    return pos;
+  }
+
+  function parseLiteralString(str, pos){
+    // Reads ()-bounded string with \ escape and nested parens
+    var out = '';
+    var depth = 0;
+    var i = pos;
+    var ch = str.charAt(i);
+    if (ch !== '(') return {value: out, end: pos};
+    depth = 1;
+    i++;
+    while (i < str.length && depth > 0){
+      var cc = str.charAt(i);
+      if (cc === '\\'){
+        var nc = str.charAt(i+1);
+        if (nc === 'n'){ out += '\n'; i+=2; continue; }
+        if (nc === 'r'){ out += '\r'; i+=2; continue; }
+        if (nc === 't'){ out += '\t'; i+=2; continue; }
+        if (nc === 'b'){ out += '\b'; i+=2; continue; }
+        if (nc === 'f'){ out += '\f'; i+=2; continue; }
+        if (nc === '\\' || nc === '(' || nc === ')'){ out += nc; i+=2; continue; }
+        // Octal \ddd
+        if (/[0-7]/.test(nc)){
+          var oct = nc;
+          if (/[0-7]/.test(str.charAt(i+2))) oct += str.charAt(i+2);
+          if (oct.length > 1 && /[0-7]/.test(str.charAt(i+3))) oct += str.charAt(i+3);
+          out += String.fromCharCode(parseInt(oct, 8));
+          i += 1 + oct.length;
+          continue;
+        }
+        // Unknown escape - skip the backslash and output the character
+        out += nc;
+        i += 2;
+        continue;
+      }
+      if (cc === '('){ depth++; out += cc; i++; continue; }
+      if (cc === ')'){ depth--; if (depth === 0){ i++; break; } out += cc; i++; continue; }
+      out += cc; i++;
+    }
+    return {value: {string: out}, end: i};
+  }
+
+  function parseHexString(str, pos){
+    var end = str.indexOf('>', pos+1);
+    if (end < 0) end = str.length;
+    var hex = str.substring(pos+1, end).replace(/\s+/g,'');
+    if (hex.length % 2 !== 0) hex += '0';
+    var out = '';
+    for (var i=0;i<hex.length;i+=2) out += String.fromCharCode(parseInt(hex.substr(i,2),16));
+    return {value: {string: out}, end: end + 1};
+  }
+
+  function parseArray(str, pos){
+    var values = [];
+    var i = pos + 1;
+    while (i < str.length){
+      i = skipWs(str, i);
+      if (str.charAt(i) === ']'){ i++; break; }
+      var r = parsePdfObject(str, i);
+      values.push(r.value);
+      i = r.end;
+    }
+    return {value: values, end: i};
+  }
+
+  function parseDict(str, pos){
+    // pos at '<<'
+    var i = pos + 2;
+    var entries = {};
+    while (i < str.length){
+      i = skipWs(str, i);
+      if (str.charAt(i) === '>' && str.charAt(i+1) === '>'){ i += 2; break; }
+      if (str.charAt(i) !== '/'){
+        i++; continue;
+      }
+      var keyParse = parsePdfObject(str, i);
+      var key = keyParse.value && keyParse.value.name ? keyParse.value.name : null;
+      i = keyParse.end;
+      if (!key){ continue; }
+      i = skipWs(str, i);
+      // Check for stream
+      var val = parsePdfObject(str, i);
+      entries[key] = val.value;
+      i = val.end;
+    }
+    return {value: {dict: entries}, end: i};
+  }
+
+  // Main function: extract text from PDF content
+  function extractTextFromPdf(arrayBuffer){
+    var raw = new Uint8Array(arrayBuffer);
+    // Turn into a binary string for object parsing (only object text parts).
+    // Keep binary stream data separate.
+    var doc = {
+      bytes: raw,
+      objects: {},     // keyed by "num gen" -> object (dict/stream etc.)
+      textContent: ''
+    };
+
+    // Convert bytes to string (for content scanning). Large PDFs: only keep as bytes and read via subarray.
+    var total = raw.length;
+
+    // --- Step 1: Find cross-reference by reading backwards from %%EOF
+    var eofOffset = -1;
+    // Search last 4096 bytes for %%EOF
+    var searchStart = Math.max(0, total - 8192);
+    for (var s = searchStart; s < total - 4; s++){
+      if (raw[s] === 0x25 && raw[s+1] === 0x25 && raw[s+2] === 0x45 && raw[s+3] === 0x4F && raw[s+4] === 0x46){ eofOffset = s; break; }
+    }
+    if (eofOffset < 0){
+      // No %%EOF marker - search whole document
+      eofOffset = total - 1;
+    }
+
+    // Find "startxref" before %%EOF
+    var startxrefOffset = -1;
+    var searchLimit = Math.max(0, eofOffset - 16384);
+    for (var s2 = eofOffset - 9; s2 >= searchLimit; s2--){
+      if (raw[s2] === 0x73 && raw[s2+1] === 0x74 && raw[s2+2] === 0x61 && raw[s2+3] === 0x72 && raw[s2+4] === 0x74 &&
+          raw[s2+5] === 0x78 && raw[s2+6] === 0x72 && raw[s2+7] === 0x65 && raw[s2+8] === 0x66){
+        startxrefOffset = s2; break;
+      }
+    }
+    var xrefPos = null;
+    if (startxrefOffset >= 0){
+      var snumStr = bytesToAscii(raw, startxrefOffset + 9, startxrefOffset + 200).trim();
+      var m = snumStr.match(/^(\d+)/);
+      if (m) xrefPos = parseInt(m[1], 10);
+    }
+
+    // --- Step 2: Parse xref and trailer
+    var xrefData = null;
+    var trailerDict = null;
+    if (xrefPos != null){
+      var xrefStr = bytesToAscii(raw, xrefPos, Math.min(xrefPos + 65536, total));
+      var trailerIdx = xrefStr.indexOf('trailer');
+      var xrefTextOnly = trailerIdx >= 0 ? xrefStr.substring(0, trailerIdx) : xrefStr;
+      var trailerText = trailerIdx >= 0 ? xrefStr.substring(trailerIdx) : '';
+
+      // Parse simple xref table: lines of "0000000000 65535 n"
+      var lines = xrefTextOnly.split(/\r?\n/);
+      var objNum = 0;
+      var objectCount = 0;
+      var subSectionStarted = false;
+      for (var L = 0; L < lines.length; L++){
+        var line = lines[L].trim();
+        if (!line) continue;
+        if (/^xref$/.test(line)) continue;
+        var headMatch = line.match(/^(\d+)\s+(\d+)$/);
+        if (headMatch){
+          objNum = parseInt(headMatch[1], 10);
+          objectCount = parseInt(headMatch[2], 10);
+          subSectionStarted = true;
+          continue;
+        }
+        var entryMatch = line.match(/^(\d{10})\s+(\d{5})\s+([nf])/);
+        if (entryMatch){
+          var off = parseInt(entryMatch[1], 10);
+          var gen2 = parseInt(entryMatch[2], 10);
+          var type = entryMatch[3];
+          doc.objects[objNum + ' ' + gen2] = {offset: off, free: type === 'f', resolved: false};
+          objNum++;
+          continue;
+        }
+      }
+
+      // Parse trailer dict
+      var trailerDictStr = trailerText.substring(trailerText.indexOf('<<'), trailerText.lastIndexOf('>>') + 2);
+      var dictParse = parseDict(trailerDictStr, 0);
+      if (dictParse && dictParse.value && dictParse.value.dict){
+        trailerDict = dictParse.value.dict;
+      }
+    }
+
+    // Fallback: if no xref parsed, scan the file for "N N obj" markers
+    if (!trailerDict || Object.keys(doc.objects).length === 0){
+      // Re-scan as text: object markers
+      var ascii = bytesToAscii(raw, 0, Math.min(total, 16*1024*1024));
+      var objRe = /(\d+)\s+(\d+)\s+obj/g;
+      var mm;
+      while ((mm = objRe.exec(ascii)) !== null){
+        var num = parseInt(mm[1],10), gen = parseInt(mm[2],10);
+        doc.objects[num + ' ' + gen] = {offset: mm.index, free: false, resolved: false};
+      }
+      // Find trailer/Root in whole-file scan
+      var trailerRe = /\/Root\s+(\d+)\s+(\d+)\s+R/;
+      var tm = ascii.match(trailerRe);
+      trailerDict = trailerDict || {};
+      if (tm) trailerDict.Root = {ref: {num: parseInt(tm[1],10), gen: parseInt(tm[2],10)}};
+      var infoRe = /\/Info\s+(\d+)\s+(\d+)\s+R/;
+      var im = ascii.match(infoRe);
+      if (im) trailerDict.Info = {ref: {num: parseInt(im[1],10), gen: parseInt(im[2],10)}};
+    }
+
+    // --- Step 3: resolve objects when needed (lazy parser)
+    function resolveRef(ref){
+      if (!ref || ref.num == null) return null;
+      var key = ref.num + ' ' + (ref.gen || 0);
+      var entry = doc.objects[key];
+      if (!entry){
+        // brute-force find object "N gen obj" in raw bytes
+        var searchStr = ref.num + ' ' + (ref.gen || 0) + ' obj';
+        var idx = bytesIndexOf(raw, strToBytes(searchStr), 0);
+        if (idx < 0) return null;
+        entry = {offset: idx, free: false, resolved: false};
+        doc.objects[key] = entry;
+      }
+      if (entry.resolved) return entry.value;
+      var objStr = readObjectText(raw, entry.offset);
+      var parsed = parsePdfObject(objStr, objStr.indexOf('<<'));
+      var obj = parsed && parsed.value ? parsed.value : null;
+      // If it's a dict, check for "stream" after dict
+      var streamMarker = objStr.indexOf('stream', parsed.end);
+      if (streamMarker >= 0 && obj && obj.dict){
+        // Attempt to parse stream data
+        var streamStart = streamMarker + 6;
+        // Skip CR/LF after 'stream'
+        while (streamStart < objStr.length && (objStr.charCodeAt(streamStart) === 0x0A || objStr.charCodeAt(streamStart) === 0x0D)) streamStart++;
+        var length = resolveLength(obj.dict.Length);
+        if (length == null){
+          // Try to find "endstream" by brute search
+          var esIdx = objStr.indexOf('endstream', streamStart);
+          length = esIdx >= 0 ? esIdx - streamStart : objStr.length - streamStart;
+        }
+        var streamBytes = stringToBytesSub(objStr, streamStart, streamStart + length);
+        var decompressed = tryInflate(streamBytes, obj.dict.Filter);
+        entry.streamText = decompressed;
+      }
+      entry.resolved = true;
+      entry.value = obj;
+      return obj;
+    }
+
+    function resolveLength(lenVal){
+      if (lenVal == null) return null;
+      if (typeof lenVal === 'number') return lenVal;
+      if (lenVal && lenVal.ref){
+        // Resolve indirect length reference by scanning for "N N obj"
+        var refKey = lenVal.ref.num + ' ' + (lenVal.ref.gen || 0);
+        var entry = doc.objects[refKey];
+        if (!entry){
+          var searchStr2 = lenVal.ref.num + ' ' + (lenVal.ref.gen || 0) + ' obj';
+          var idx = bytesIndexOf(raw, strToBytes(searchStr2), 0);
+          if (idx < 0) return null;
+          entry = {offset: idx, free: false, resolved: true, value: null};
+          doc.objects[refKey] = entry;
+        }
+        if (entry.resolved && typeof entry.value === 'number') return entry.value;
+        // Parse object manually
+        var obj2 = readObjectText(raw, entry.offset);
+        var m2 = obj2.match(/(?:^|\n)(\d+)(?:\s|$)/);
+        var n2 = m2 ? parseInt(m2[1],10) : null;
+        entry.value = n2;
+        entry.resolved = true;
+        return n2;
+      }
+      return null;
+    }
+
+    // Dereference helper
+    function deref(v){
+      if (v && v.ref) return resolveRef(v.ref);
+      return v;
+    }
+
+    // --- Step 4: Walk from /Root through /Pages to collect /Contents streams per page
+    var root = trailerDict && trailerDict.Root ? resolveRef(trailerDict.Root.ref) : null;
+    var rootDict = root && root.dict ? root.dict : null;
+
+    var pageNodeRefs = [];
+    function walkPages(nodeRef){
+      var node = nodeRef ? resolveRef(nodeRef) : null;
+      var nd = node && node.dict ? node.dict : null;
+      if (!nd) return;
+      // Type is /Pages or /Page
+      var typeName = nd.Type && nd.Type.name;
+      if (typeName === 'Page'){
+        pageNodeRefs.push({page: nd});
+        return;
+      }
+      if (typeName === 'Pages' || nd.Kids){
+        var kids = nd.Kids;
+        if (!Array.isArray(kids)) return;
+        for (var i=0;i<kids.length;i++){
+          var k = kids[i];
+          if (k && k.ref) walkPages(k.ref);
+        }
+      }
+    }
+
+    var pagesText = [];
+
+    if (rootDict && rootDict.Pages){
+      walkPages(rootDict.Pages.ref);
+      for (var p=0; p<pageNodeRefs.length; p++){
+        var pageDict = pageNodeRefs[p].page;
+        var extracted = extractTextFromPage(pageDict);
+        pagesText.push({ page: p+1, text: extracted });
+      }
+    } else {
+      // Fallback: scan every object for text streams with BT...ET / Tj/TJ operators
+      var keys = Object.keys(doc.objects);
+      var fallbackPages = [];
+      var chunkCount = 0;
+      for (var k=0;k<keys.length;k++){
+        var entry = doc.objects[keys[k]];
+        if (!entry || entry.free) continue;
+        try {
+          // Resolve stream
+          resolveRef({num: parseInt(keys[k].split(' ')[0],10), gen: parseInt(keys[k].split(' ')[1],10)});
+        } catch(e){}
+        if (entry.streamText){
+          var txt = extractTextFromStream(entry.streamText, {});
+          if (txt && txt.trim().length > 0){
+            chunkCount++;
+            fallbackPages.push({page: chunkCount, text: txt});
+          }
+        }
+      }
+      if (fallbackPages.length > 0) pagesText = fallbackPages;
+    }
+
+    // --- Step 5: Assemble final text
+    var fullText = '';
+    for (var p=0; p<pagesText.length; p++){
+      fullText += '--- Page ' + pagesText[p].page + ' ---\n';
+      fullText += pagesText[p].text;
+      if (!fullText.endsWith('\n')) fullText += '\n';
+    }
+    return { text: fullText, pageCount: Math.max(pagesText.length, 0) };
+
+    // ======== Inner functions ========
+
+    function extractTextFromPage(pageDict){
+      // Collect /Resources /Font
+      var resources = pageDict.Resources ? deref(pageDict.Resources) : null;
+      var fonts = {};
+      if (resources && resources.dict && resources.dict.Font){
+        var fontDict = deref(resources.dict.Font);
+        if (fontDict && fontDict.dict){
+          for (var fkey in fontDict.dict){
+            var fobj = deref(fontDict.dict[fkey]);
+            fonts[fkey] = buildFontDecoder(fobj);
+          }
+        }
+      }
+      // Collect content stream(s): /Contents can be single ref or array of refs
+      var contents = pageDict.Contents;
+      var streams = [];
+      if (contents){
+        if (contents.ref){
+          var cObj = resolveRef(contents.ref);
+          // If this is a stream we already decoded, use it
+          var entry = doc.objects[contents.ref.num + ' ' + (contents.ref.gen || 0)];
+          if (entry && entry.streamText) streams.push(entry.streamText);
+          // Sometimes Contents points to an array of stream refs
+          if (cObj && Array.isArray(cObj)){
+            for (var ci=0;ci<cObj.length;ci++){
+              if (cObj[ci] && cObj[ci].ref){
+                var centry = doc.objects[cObj[ci].ref.num + ' ' + (cObj[ci].ref.gen || 0)];
+                if (!centry) resolveRef(cObj[ci].ref);
+                var entry2 = doc.objects[cObj[ci].ref.num + ' ' + (cObj[ci].ref.gen || 0)];
+                if (entry2 && entry2.streamText) streams.push(entry2.streamText);
+              }
+            }
+          }
+        } else if (Array.isArray(contents)){
+          for (var ai=0;ai<contents.length;ai++){
+            if (contents[ai] && contents[ai].ref){
+              resolveRef(contents[ai].ref);
+              var e = doc.objects[contents[ai].ref.num + ' ' + (contents[ai].ref.gen || 0)];
+              if (e && e.streamText) streams.push(e.streamText);
+            }
+          }
+        }
+      }
+      var pageOut = '';
+      for (var si=0; si<streams.length; si++){
+        pageOut += extractTextFromStream(streams[si], fonts);
+      }
+      return pageOut;
+    }
+
+    function buildFontDecoder(fobj){
+      // Returns {decode(bytes) -> string}
+      var decoder = {
+        baseEncoding: 'WinAnsi',
+        differences: null,  // array mapping code -> name
+        toUnicode: null,     // CMap text (if available)
+        fontName: null
+      };
+      if (!fobj || !fobj.dict) return decoder;
+      var fd = fobj.dict;
+      if (fd.BaseFont && fd.BaseFont.name) decoder.fontName = fd.BaseFont.name;
+      var enc = deref(fd.Encoding);
+      if (enc){
+        if (enc && enc.name) decoder.baseEncoding = enc.name; // /WinAnsiEncoding /MacRomanEncoding /StandardEncoding /PDFDocEncoding
+        if (enc && enc.dict){
+          if (enc.dict.BaseEncoding && enc.dict.BaseEncoding.name) decoder.baseEncoding = enc.dict.BaseEncoding.name;
+          if (Array.isArray(enc.dict.Differences)){
+            var diffs = {};
+            var currentCode = 0;
+            for (var di=0; di<enc.dict.Differences.length; di++){
+              var dv = enc.dict.Differences[di];
+              if (typeof dv === 'number'){ currentCode = dv; continue; }
+              if (dv && dv.name){ diffs[currentCode] = dv.name; currentCode++; continue; }
+            }
+            decoder.differences = diffs;
+          }
+        }
+      }
+      // /ToUnicode stream
+      if (fd.ToUnicode && fd.ToUnicode.ref){
+        var tuEntry = doc.objects[fd.ToUnicode.ref.num + ' ' + (fd.ToUnicode.ref.gen || 0)];
+        if (!tuEntry) resolveRef(fd.ToUnicode.ref);
+        var tuEntry2 = doc.objects[fd.ToUnicode.ref.num + ' ' + (fd.ToUnicode.ref.gen || 0)];
+        if (tuEntry2 && tuEntry2.streamText){
+          decoder.toUnicode = tuEntry2.streamText;
+        }
+      }
+      return decoder;
+    }
+
+    function extractTextFromStream(streamText, fonts){
+      // Scan for BT ... ET regions and handle Tj / TJ
+      var out = '';
+      var i = 0;
+      var len = streamText.length;
+      var currentFont = 'F1';
+      var textFont = null;
+      // Pre-parse fonts dict
+      function applyFont(name){
+        currentFont = name;
+        textFont = fonts[name] || null;
+      }
+      while (i < len){
+        // skip whitespace
+        var cc = streamText.charCodeAt(i);
+        if (cc === 0x20 || cc === 0x0A || cc === 0x0D || cc === 0x09 || cc === 0x00){ i++; continue; }
+
+        // Check if we are at a text-showing operator outside of BT/ET as well.
+        // Read token
+        var tokStart = i;
+        // Check for operators: Tj, TJ, ', ", BT, ET, Tf, etc.
+        // First: check for string literals and arrays (which are operands)
+        if (streamText.charAt(i) === '('){
+          var strParse = parseLiteralString(streamText, i);
+          i = strParse.end;
+          // Look ahead for Tj
+          var next1 = skipWs(streamText, i);
+          if (streamText.substr(next1, 2) === 'Tj'){
+            out += decodeBytes(strParse.value.string, textFont);
+            i = next1 + 2;
+            continue;
+          }
+          if (streamText.charAt(next1) === "'"){
+            out += '\n' + decodeBytes(strParse.value.string, textFont);
+            i = next1 + 1;
+            continue;
+          }
+          if (streamText.charAt(next1) === '"'){
+            out += '\n' + decodeBytes(strParse.value.string, textFont);
+            i = next1 + 1;
+            continue;
+          }
+          continue;
+        }
+        if (streamText.charAt(i) === '<' && streamText.charAt(i+1) !== '<'){
+          var hexParse = parseHexString(streamText, i);
+          i = hexParse.end;
+          var next2 = skipWs(streamText, i);
+          if (streamText.substr(next2, 2) === 'Tj'){
+            out += decodeBytes(hexParse.value.string, textFont);
+            i = next2 + 2;
+            continue;
+          }
+          if (streamText.charAt(next2) === "'"){
+            out += '\n' + decodeBytes(hexParse.value.string, textFont);
+            i = next2 + 1;
+            continue;
+          }
+          if (streamText.charAt(next2) === '"'){
+            out += '\n' + decodeBytes(hexParse.value.string, textFont);
+            i = next2 + 1;
+            continue;
+          }
+          continue;
+        }
+        if (streamText.charAt(i) === '['){
+          var arrParse = parseArray(streamText, i);
+          i = arrParse.end;
+          var next3 = skipWs(streamText, i);
+          if (streamText.substr(next3, 2) === 'TJ'){
+            // Array of strings and number adjustments
+            for (var ai=0; ai<arrParse.value.length; ai++){
+              var item = arrParse.value[ai];
+              if (item && item.string){
+                out += decodeBytes(item.string, textFont);
+              } else if (typeof item === 'number'){
+                // negative adjustment is typically space; threshold
+                if (item < -50) out += ' ';
+              }
+            }
+            i = next3 + 2;
+            continue;
+          }
+          continue;
+        }
+
+        // Read simple token
+        while (i < len && !/[\x00\t\n\f\r \]>]/.test(streamText.charAt(i))){
+          i++;
+        }
+        var token = streamText.substring(tokStart, i);
+        if (!token) continue;
+        if (token === 'BT'){ continue; }
+        if (token === 'ET'){ continue; }
+        if (token === 'T*'){ out += '\n'; continue; }
+        if (token === 'Tj'){ continue; } // handled above
+        if (token === 'TJ'){ continue; }
+        if (token === 'Tf'){
+          // Last operand to Tf should be the font name; but in stream it appears as "/F1 12 Tf". The operand before was the name.
+          // Since we parse token-by-token forward-only, we need to look back. Do a simple heuristic: use last seen /NAME as currentFont.
+          // Better approach: track a simple operand stack. Re-implemented below in state.
+          applyFont(lastFontNameSeen || 'F1');
+          continue;
+        }
+        // Track a name token candidate (starts with '/')
+        if (token.charAt(0) === '/'){
+          lastFontNameSeen = token.substring(1);
+        }
+      }
+      return out;
+    }
+
+    function decodeBytes(str, fontDecoder){
+      // str is a "binary" JS string with one char per byte
+      var out = '';
+      var bytes = new Uint8Array(str.length);
+      for (var b=0;b<str.length;b++) bytes[b] = str.charCodeAt(b);
+
+      // Try ToUnicode CMap if available
+      if (fontDecoder && fontDecoder.toUnicode){
+        var cmap = parseToUnicode(fontDecoder.toUnicode);
+        var mapped = cmapApply(cmap, bytes);
+        if (mapped && mapped.length){ return mapped; }
+      }
+      // Otherwise use baseEncoding + /Differences
+      for (var i=0;i<bytes.length;i++){
+        var code = bytes[i];
+        var glyphName = fontDecoder && fontDecoder.differences && fontDecoder.differences[code] != null ? fontDecoder.differences[code] : null;
+        if (glyphName){
+          out += aglNameToChar(glyphName, code);
+          continue;
+        }
+        // Base encoding
+        var enc = fontDecoder && fontDecoder.baseEncoding ? fontDecoder.baseEncoding : 'WinAnsi';
+        if (/Standard/.test(enc)) out += standardEncoding(code);
+        else if (/PDFDoc/.test(enc)) out += pdfDocEncoding(code);
+        else if (/MacRoman/.test(enc)) out += macRomanEncoding(code);
+        else out += winAnsiEncoding(code);
+      }
+      return out;
+    }
+
+    function parseToUnicode(cMapText){
+      // Very small subset: parse "beginbfchar" and "beginbfrange" sections
+      var map = {};
+      var bfcharIdx = cMapText.indexOf('beginbfchar');
+      if (bfcharIdx >= 0){
+        var section = cMapText.substring(bfcharIdx + 'beginbfchar'.length);
+        var end = section.indexOf('endbfchar');
+        if (end > 0) section = section.substring(0, end);
+        var lines = section.split(/\r?\n/);
+        for (var l=0; l<lines.length; l++){
+          var line = lines[l].trim();
+          if (!line) continue;
+          // <src> <dst> or count block
+          var hexes = [];
+          var hre = /<([0-9A-Fa-f]+)>/g;
+          var hm;
+          while ((hm = hre.exec(line)) !== null) hexes.push(hm[1]);
+          if (hexes.length === 2){
+            var src = parseInt(hexes[0],16);
+            var dst = hexToUtf16(hexes[1]);
+            if (src >= 0) map[src] = dst;
+          }
+        }
+      }
+      var bfrangeIdx = cMapText.indexOf('beginbfrange');
+      if (bfrangeIdx >= 0){
+        var section2 = cMapText.substring(bfrangeIdx + 'beginbfrange'.length);
+        var end2 = section2.indexOf('endbfrange');
+        if (end2 > 0) section2 = section2.substring(0, end2);
+        var lines2 = section2.split(/\r?\n/);
+        for (var l2=0; l2<lines2.length; l2++){
+          var line2 = lines2[l2].trim();
+          if (!line2) continue;
+          var hexes2 = [];
+          var hre2 = /<([0-9A-Fa-f]+)>/g;
+          var hm2;
+          while ((hm2 = hre2.exec(line2)) !== null) hexes2.push(hm2[1]);
+          if (hexes2.length === 3){
+            var start = parseInt(hexes2[0],16);
+            var endv = parseInt(hexes2[1],16);
+            var base = parseInt(hexes2[2],16);
+            for (var cv = start; cv <= endv; cv++){
+              var code = base + (cv - start);
+              map[cv] = String.fromCharCode(code);
+            }
+          }
+        }
+      }
+      return map;
+    }
+
+    function cmapApply(map, bytes){
+      if (!map || Object.keys(map).length === 0) return '';
+      var out = '';
+      for (var i=0;i<bytes.length;i++){
+        var b = bytes[i];
+        if (map[b] != null) out += map[b];
+        else out += '?';
+      }
+      return out;
+    }
+
+    function hexToUtf16(hex){
+      var out = '';
+      if (hex.length === 4) out += String.fromCharCode(parseInt(hex,16));
+      else if (hex.length % 4 === 0){
+        for (var i=0;i<hex.length;i+=4) out += String.fromCharCode(parseInt(hex.substr(i,4),16));
+      } else if (hex.length % 2 === 0){
+        for (var i=0;i<hex.length;i+=2) out += String.fromCharCode(parseInt(hex.substr(i,2),16));
+      }
+      return out;
+    }
+
+    function winAnsiEncoding(code){
+      if (code >= 0x20 && code <= 0x7E) return String.fromCharCode(code);
+      if (code >= 0xA0 && code <= 0xFF) return String.fromCharCode(code);
+      var specials = {
+        128:'\u20AC', 130:'\u201A', 131:'\u0192', 132:'\u201E', 133:'\u2026', 134:'\u2020', 135:'\u2021',
+        136:'\u02C6', 137:'\u2030', 138:'\u0160', 139:'\u2039', 140:'\u0152', 142:'\u017D',
+        145:'\u2018', 146:'\u2019', 147:'\u201C', 148:'\u201D', 149:'\u2022', 150:'\u2013', 151:'\u2014',
+        152:'\u02DC', 153:'\u2122', 154:'\u0161', 155:'\u203A', 156:'\u0153', 158:'\u017E', 159:'\u0178'
+      };
+      if (specials[code] != null) return specials[code];
+      // Fallback: same code as Unicode (Latin-1 in higher range)
+      if (code >= 0x80) return String.fromCharCode(code);
+      return '';
+    }
+    function standardEncoding(code){
+      if (code >= 0x20 && code <= 0x7E) return String.fromCharCode(code);
+      var std = {
+        01:'\u00A0', 02:'\u00A1', 03:'\u00A2', 04:'\u00A3', 05:'\u2044', 06:'\u00A5', 07:'\u0192', 08:'\u00A7',
+        09:'\u00A4', 010:'\u2019', 011:'\u201C', 012:'\u00AB', 013:'\u2039', 014:'\u203A', 015:'\uFB01',
+        016:'\uFB02', 017:'\uFB03', 018:'\uFB04', 019:'\uFB05', 020:'\uFB06', 021:'\u0152', 022:'\u0153',
+        023:'\u0132', 024:'\u0133', 025:'\u0178', 026:'\u00FF', 027:'\u017D', 028:'\u017E', 029:'\u00AD',
+        030:'\u02C6', 031:'\u02DC', 032:'\u00AF', 033:'\u02D8', 034:'\u02D9', 035:'\u02DA', 036:'\u02DB',
+        037:'\u2013', 038:'\u2014', 039:'\u201C', 040:'\u201D', 041:'\u2018', 042:'\u2019', 043:'\u00B7',
+        044:'\u2022', 045:'\u2020', 046:'\u2021', 047:'\u2026', 060:'\u2030', 0150:'\u20AC'
+      };
+      if (std[code]) return std[code];
+      return winAnsiEncoding(code);
+    }
+    function pdfDocEncoding(code){
+      if (code >= 0x20 && code <= 0x7E) return String.fromCharCode(code);
+      if (code >= 0xA0 && code <= 0xFF) return winAnsiEncoding(code);
+      return winAnsiEncoding(code);
+    }
+    function macRomanEncoding(code){
+      if (code >= 0x20 && code <= 0x7E) return String.fromCharCode(code);
+      var mr = {
+        0x80:'\u00C4', 0x81:'\u00C5', 0x82:'\u00C7', 0x83:'\u00C9', 0x84:'\u00D1', 0x85:'\u00D6', 0x86:'\u00DC',
+        0x87:'\u00E1', 0x88:'\u00E0', 0x89:'\u00E2', 0x8A:'\u00E4', 0x8B:'\u00E3', 0x8C:'\u00E5', 0x8D:'\u00E7',
+        0x8E:'\u00E9', 0x8F:'\u00E8', 0x90:'\u00EA', 0x91:'\u00EB', 0x92:'\u00ED', 0x93:'\u00EC', 0x94:'\u00EE',
+        0x95:'\u00EF', 0x96:'\u00F1', 0x97:'\u00F3', 0x98:'\u00F2', 0x99:'\u00F4', 0x9A:'\u00F6', 0x9B:'\u00F5',
+        0x9C:'\u00FA', 0x9D:'\u00F9', 0x9E:'\u00FB', 0x9F:'\u00FC', 0xA0:'\u2020', 0xA1:'\u00B0', 0xA2:'\u00A2',
+        0xA3:'\u00A3', 0xA4:'\u00A7', 0xA5:'\u2022', 0xA6:'\u00B6', 0xA7:'\u00DF', 0xA8:'\u00AE', 0xA9:'\u00A9',
+        0xAA:'\u2122', 0xAB:'\u00B4', 0xAC:'\u00A8', 0xAD:'\u2260', 0xAE:'\u00C6', 0xAF:'\u00D8', 0xB0:'\u221E',
+        0xB1:'\u00B1', 0xB2:'\u2264', 0xB3:'\u2265', 0xB4:'\u00A5', 0xB5:'\u00B5', 0xB6:'\u2202', 0xB7:'\u2211',
+        0xB8:'\u220F', 0xB9:'\u03C0', 0xBA:'\u222B', 0xBB:'\u00AA', 0xBC:'\u00BA', 0xBD:'\u03A9', 0xBE:'\u00E6',
+        0xBF:'\u00F8', 0xC0:'\u00BF', 0xC1:'\u00A1', 0xC2:'\u00AC', 0xC3:'\u221A', 0xC4:'\u0192', 0xC5:'\u2248',
+        0xC6:'\u2206', 0xC7:'\u00AB', 0xC8:'\u00BB', 0xC9:'\u2026', 0xCA:'\u00A0', 0xCB:'\u00C0', 0xCC:'\u00C3',
+        0xCD:'\u00D5', 0xCE:'\u0152', 0xCF:'\u0153', 0xD0:'\u2013', 0xD1:'\u2014', 0xD2:'\u201C', 0xD3:'\u201D',
+        0xD4:'\u2018', 0xD5:'\u2019', 0xD6:'\u00F7', 0xD7:'\u25CA', 0xD8:'\u00FF', 0xD9:'\u0178', 0xDA:'\u2044',
+        0xDB:'\u2039', 0xDC:'\u203A', 0xDD:'\uFB01', 0xDE:'\uFB02', 0xDF:'\u2021', 0xE0:'\u00B7', 0xE1:'\u201A',
+        0xE2:'\u201E', 0xE3:'\u2030', 0xE4:'\u00C2', 0xE5:'\u00CA', 0xE6:'\u00C1', 0xE7:'\u00CB', 0xE8:'\u00C8',
+        0xE9:'\u00CD', 0xEA:'\u00CE', 0xEB:'\u00CF', 0xEC:'\u00CC', 0xED:'\u00D3', 0xEE:'\u00D4', 0xEF:'\uF8FF',
+        0xF0:'\u00D2', 0xF1:'\u00DA', 0xF2:'\u00DB', 0xF3:'\u00D9', 0xF4:'\u0131', 0xF5:'\u02C6', 0xF6:'\u02DC',
+        0xF7:'\u00AF', 0xF8:'\u02D8', 0xF9:'\u02D9', 0xFA:'\u02DA', 0xFB:'\u00B8', 0xFC:'\u02DD', 0xFD:'\u02DB',
+        0xFE:'\u02C7', 0xFF:'\u02C9'
+      };
+      if (mr[code]) return mr[code];
+      return winAnsiEncoding(code);
+    }
+
+    function aglNameToChar(name, code){
+      // Common names
+      if (name === 'space') return ' ';
+      if (name === 'comma') return ',';
+      if (name === 'semicolon') return ';';
+      if (name === 'period') return '.';
+      if (name === 'colon') return ':';
+      if (name === 'hyphen' || name === 'minus') return '-';
+      if (name === 'asterisk') return '*';
+      if (name === 'slash' || name === 'solidus') return '/';
+      if (name === 'backslash') return '\\';
+      if (name === 'parenleft' || name === 'parenright') return name === 'parenleft' ? '(' : ')';
+      if (name === 'bracketleft' || name === 'bracketright') return name === 'bracketleft' ? '[' : ']';
+      if (name === 'braceleft' || name === 'braceright') return name === 'braceleft' ? '{' : '}';
+      if (name === 'ampersand') return '&';
+      if (name === 'at') return '@';
+      if (name === 'number') return '#';
+      if (name === 'dollar') return '$';
+      if (name === 'percent') return '%';
+      if (name === 'underscore') return '_';
+      if (name === 'plus') return '+';
+      if (name === 'equal') return '=';
+      if (name === 'less' || name === 'greater') return name === 'less' ? '<' : '>';
+      if (name === 'question') return '?';
+      if (name === 'exclam') return '!';
+      if (name === 'quotedbl' || name === 'quotedblleft' || name === 'quotedblright') return '"';
+      if (name === 'quotesingle' || name === 'quoteleft' || name === 'quoteright' || name === 'quoteright') return "'";
+      if (name === 'emdash') return '\u2014';
+      if (name === 'endash') return '\u2013';
+      if (name === 'bullet') return '\u2022';
+      if (name === 'ellipsis') return '\u2026';
+      if (name === 'trademark') return '\u2122';
+      if (name === 'registered') return '\u00AE';
+      if (name === 'copyright') return '\u00A9';
+      if (name === 'fi') return '\uFB01';
+      if (name === 'fl') return '\uFB02';
+      if (name === 'ff') return '\uFB00';
+      if (name === 'ffi') return '\uFB03';
+      if (name === 'ffl') return '\uFB04';
+      if (name === 'onesuperior') return '\u00B9';
+      if (name === 'twosuperior') return '\u00B2';
+      if (name === 'threesuperior') return '\u00B3';
+      if (name === 'onequarter' || name === 'onehalf' || name === 'threequarters') return name === 'onequarter' ? '\u00BC' : (name === 'onehalf' ? '\u00BD' : '\u00BE');
+      if (name === 'degree') return '\u00B0';
+      // "uniXXXX" and "uXXXX"
+      if (/^uni([0-9A-Fa-f]{4})$/.test(name)) return String.fromCharCode(parseInt(name.substring(3,7),16));
+      if (/^u([0-9A-Fa-f]{4,6})$/.test(name)){
+        var cp = parseInt(name.substring(1), 16);
+        if (cp >= 0x10000){
+          var h = 0xD800 + Math.floor((cp - 0x10000) / 0x400);
+          var l = 0xDC00 + ((cp - 0x10000) % 0x400);
+          return String.fromCharCode(h) + String.fromCharCode(l);
+        }
+        return String.fromCharCode(cp);
+      }
+      // Single-char ASCII names like "A", "a", "zero"
+      if (/^[a-zA-Z]$/.test(name)) return name;
+      if (/^[a-zA-Z]([a-zA-Z]+)$/.test(name) && /^(?:one|two|three|four|five|six|seven|eight|nine|zero)$/.test(name)){
+        return '0123456789'['onetwothreefourfivesixseveneightninezero'.indexOf(name)/3];
+      }
+      return '';
+    }
+  }
+
+  // ===== Helper byte-level parsing =====
+  function bytesToAscii(bytes, start, end){
+    var s = '';
+    var e = Math.min(end, bytes.length);
+    for (var i=start; i<e; i++){
+      var b = bytes[i];
+      if (b >= 0x20 && b < 0x7F) s += String.fromCharCode(b);
+      else if (b === 0x0A || b === 0x0D || b === 0x09 || b === 0x00) s += String.fromCharCode(b);
+      else s += String.fromCharCode(b); // keep raw value (for binary inside content streams ignored)
+    }
+    return s;
+  }
+  function strToBytes(s){
+    var out = new Uint8Array(s.length);
+    for (var i=0;i<s.length;i++) out[i] = s.charCodeAt(i) & 0xFF;
+    return out;
+  }
+  function bytesIndexOf(haystack, needle, from){
+    var lim = haystack.length - needle.length;
+    for (var i=from||0; i<=lim; i++){
+      var ok = true;
+      for (var j=0;j<needle.length;j++){
+        if (haystack[i+j] !== needle[j]){ ok = false; break; }
+      }
+      if (ok) return i;
+    }
+    return -1;
+  }
+  function readObjectText(raw, offset){
+    // Read bytes starting at offset until "endobj"
+    var end = bytesIndexOf(raw, strToBytes('endobj'), offset);
+    if (end < 0) end = Math.min(offset + 1024*1024, raw.length);
+    return bytesToAscii(raw, offset, end);
+  }
+  function stringToBytesSub(str, start, end){
+    var len = Math.min(end, str.length) - start;
+    var out = new Uint8Array(len);
+    for (var i=0;i<len;i++) out[i] = str.charCodeAt(start+i) & 0xFF;
+    return out;
+  }
+
+  // ===== Flate (zlib) decompression - minimal adler32 aware =====
+  function tryInflate(bytes, filter){
+    // Filter can be a name or an array of names (e.g., [/FlateDecode])
+    var filters = [];
+    if (filter && filter.name) filters = [filter.name];
+    else if (Array.isArray(filter)){
+      for (var i=0;i<filter.length;i++){
+        var v = filter[i];
+        if (v && v.name) filters.push(v.name);
+        else if (v && v.dict && v.dict.Filter && v.dict.Filter.name) filters.push(v.dict.Filter.name);
+      }
+    }
+    var hasFlate = false;
+    for (var fi=0;fi<filters.length;fi++){
+      if (/Flate/.test(filters[fi])) hasFlate = true;
+    }
+    if (!hasFlate){
+      // No compression; return as string (bytes -> char)
+      var out = '';
+      for (var bi=0;bi<bytes.length;bi++) out += String.fromCharCode(bytes[bi]);
+      return out;
+    }
+    // Otherwise attempt Flate
+    var decompressed = inflate(bytes);
+    if (decompressed == null){
+      var out2 = '';
+      for (var bi2=0;bi2<bytes.length;bi2++) out2 += String.fromCharCode(bytes[bi2]);
+      return out2;
+    }
+    var out3 = '';
+    for (var bi3=0;bi3<decompressed.length;bi3++) out3 += String.fromCharCode(decompressed[bi3]);
+    return out3;
+  }
+
+  // ---- Minimal DEFLATE implementation ----
+  function inflate(bytes){
+    try {
+      var inPos = 0;
+      // Skip optional zlib header (2 bytes CMF+FLG) if bytes look like zlib
+      var skipZlib = false;
+      if (bytes.length > 2){
+        var cmf = bytes[0];
+        var flg = bytes[1];
+        if (((cmf << 8) | flg) % 31 === 0 && (cmf & 0x0F) === 8){
+          skipZlib = true;
+          inPos = 2;
+          // Skip FTEXT/FHCRC/FEXTRA/FNAME/FCOMMENT if present
+          if (flg & 0x20){
+            // FNAME - skip to null
+            while (inPos < bytes.length && bytes[inPos] !== 0) inPos++;
+            inPos++;
+          }
+        }
+      }
+      var out = [];
+      var bitBuf = 0;
+      var bitLen = 0;
+
+      function readBit(){
+        if (bitLen === 0){
+          if (inPos >= bytes.length) throw new Error('EOF');
+          bitBuf = bytes[inPos++];
+          bitLen = 8;
+        }
+        var b = bitBuf & 1;
+        bitBuf >>= 1;
+        bitLen--;
+        return b;
+      }
+      function readBits(n){
+        var val = 0;
+        for (var i=0;i<n;i++) val |= (readBit() << i);
+        return val;
+      }
+      function readByte(){
+        // Byte-aligned read
+        if (bitLen > 0){ bitBuf = 0; bitLen = 0; }
+        if (inPos >= bytes.length) throw new Error('EOF');
+        return bytes[inPos++];
+      }
+
+      // Fixed length tables
+      var fixedLitLenTable = buildFixedLiteralTable();
+      var fixedDistTable = buildFixedDistanceTable();
+
+      var bfinal = 0;
+      do {
+        bfinal = readBit();
+        var btype = readBits(2);
+        if (btype === 0){
+          // No compression
+          var len = readByte() | (readByte() << 8);
+          var nlen = readByte() | (readByte() << 8);
+          for (var k=0;k<len;k++){
+            out.push(readByte());
+          }
+        } else if (btype === 1){
+          // Fixed Huffman
+          huffmanBlock(fixedLitLenTable, fixedDistTable);
+        } else if (btype === 2){
+          // Dynamic Huffman
+          var hlit = readBits(5) + 257;
+          var hdist = readBits(5) + 1;
+          var hclen = readBits(4) + 4;
+          var codeLengthsAlphabet = [16,17,18,0,8,7,9,6,10,5,11,4,12,3,13,2,14,1,15];
+          var codeLenBits = [];
+          for (var ci=0; ci<codeLengthsAlphabet.length; ci++){
+            codeLenBits[codeLengthsAlphabet[ci]] = 0;
+          }
+          for (var ci=0; ci<hclen; ci++){
+            codeLenBits[codeLengthsAlphabet[ci]] = readBits(3);
+          }
+          var codeLenTable = buildHuffmanFromLengths(codeLenBits);
+          var lengths = [];
+          var totalCodes = hlit + hdist;
+          var idx = 0;
+          while (idx < totalCodes){
+            var sym = decodeSymbol(codeLenTable);
+            if (sym < 16){
+              lengths[idx++] = sym;
+            } else if (sym === 16){
+              var prev = lengths[idx-1] || 0;
+              var rep = 3 + readBits(2);
+              for (var ri=0;ri<rep;ri++) lengths[idx++] = prev;
+            } else if (sym === 17){
+              var zeros = 3 + readBits(3);
+              for (var ri=0;ri<zeros;ri++) lengths[idx++] = 0;
+            } else if (sym === 18){
+              var zeros2 = 11 + readBits(7);
+              for (var ri=0;ri<zeros2;ri++) lengths[idx++] = 0;
+            }
+          }
+          var litLenLengths = lengths.slice(0, hlit);
+          var distLengths = lengths.slice(hlit, hlit + hdist);
+          var litLenTable = buildHuffmanFromLengths(litLenLengths);
+          var distTable = buildHuffmanFromLengths(distLengths);
+          huffmanBlock(litLenTable, distTable);
+        } else {
+          // Reserved
+          return null;
+        }
+      } while (!bfinal);
+
+      return out;
+
+      function huffmanBlock(litLenTable, distTable){
+        while (true){
+          var sym = decodeSymbol(litLenTable);
+          if (sym === 256) return; // end of block
+          if (sym < 256){
+            out.push(sym);
+            continue;
+          }
+          // Length code
+          var len = decodeLength(sym);
+          var distSym = decodeSymbol(distTable);
+          var dist = decodeDistance(distSym);
+          var start = out.length - dist;
+          for (var i=0;i<len;i++) out.push(out[start+i]);
+        }
+      }
+
+      function decodeSymbol(table){
+        // table: {codes: [{len, sym}], maxLen}
+        var code = 0;
+        for (var len=1; len<=table.maxLen; len++){
+          code = (code << 1) | readBit();
+          // Search
+          for (var i=0;i<table.codes.length;i++){
+            if (table.codes[i].len === len && table.codes[i].code === code){
+              return table.codes[i].sym;
+            }
+          }
+        }
+        throw new Error('bad symbol');
+      }
+
+      function decodeLength(sym){
+        if (sym < 265) return sym - 254;
+        var base = [3,4,5,6,7,8,9,10, 11,13,15,17, 19,23,27,31, 35,43,51,59, 67,83,99,115, 131,163,195,227, 258][sym-257] || 3;
+        var extraBits = [0,0,0,0,0,0,0,0, 1,1,1,1, 2,2,2,2, 3,3,3,3, 4,4,4,4, 5,5,5,5, 0][sym-257];
+        return base + readBits(extraBits);
+      }
+      function decodeDistance(sym){
+        if (sym < 4) return sym + 1;
+        var bases = [1,2,3,4,5,7,9,13, 17,25,33,49, 65,97,129,193, 257,385,513,769, 1025,1537,2049,3073, 4097,6145,8193,12289, 16385,24577];
+        var extras = [0,0,0,0,1,1,2,2, 3,3,4,4,5,5,6,6,7,7,8,8,9,9,10,10,11,11,12,12,13,13];
+        return bases[sym] + readBits(extras[sym]);
+      }
+
+      function buildHuffmanFromLengths(lengthsArr){
+        // Return {codes: [{code, len, sym}], maxLen}
+        var codes = [];
+        var maxBits = 0;
+        for (var i=0;i<lengthsArr.length;i++){
+          if (lengthsArr[i] > 0 && lengthsArr[i] > maxBits) maxBits = lengthsArr[i];
+        }
+        // Count lengths
+        var blCount = [];
+        for (var b=0;b<=maxBits;b++) blCount[b] = 0;
+        for (var n=0;n<lengthsArr.length;n++){
+          if (lengthsArr[n] > 0) blCount[lengthsArr[n]]++;
+        }
+        var code = 0;
+        var nextCode = [0];
+        for (var bits=1; bits<=maxBits; bits++){
+          code = (code + (blCount[bits-1] || 0)) << 1;
+          nextCode[bits] = code;
+        }
+        var outCodes = [];
+        for (var n2=0;n2<lengthsArr.length;n2++){
+          var len = lengthsArr[n2];
+          if (len > 0){
+            outCodes.push({code: nextCode[len], len: len, sym: n2});
+            nextCode[len]++;
+          }
+        }
+        return {codes: outCodes, maxLen: maxBits};
+      }
+
+      function buildFixedLiteralTable(){
+        // RFC 1951
+        var lengths = [];
+        for (var i=0;i<=287;i++){
+          if (i >= 0 && i <= 143) lengths[i] = 8;
+          else if (i >= 144 && i <= 255) lengths[i] = 9;
+          else if (i >= 256 && i <= 279) lengths[i] = 7;
+          else lengths[i] = 8;
+        }
+        return buildHuffmanFromLengths(lengths);
+      }
+      function buildFixedDistanceTable(){
+        var lengths = [];
+        for (var i=0;i<30;i++) lengths[i] = 5;
+        return buildHuffmanFromLengths(lengths);
+      }
+    } catch (e){
+      return null;
+    }
+  }
+
+  // === UI wiring ===
+  fileEl.addEventListener('change', function(){
+    var f = fileEl.files && fileEl.files[0];
+    if (!f){ resultWrap.style.display='none'; actionsEl.style.display='none'; return; }
+    statusEl.textContent = 'Reading file...';
+    var reader = new FileReader();
+    reader.onload = function(e){
+      try {
+        var buf = e.target.result;
+        var result = extractTextFromPdf(buf);
+        lastText = result.text;
+        lastFilename = f.name;
+        textOut.textContent = result.text;
+        summaryEl.textContent = 'Parsed ' + f.name + ' (' + formatBytes(f.size) + ') - extracted about ' +
+          result.text.length.toLocaleString() + ' characters across ' + result.pageCount.toLocaleString() + ' page(s).';
+        resultWrap.style.display = 'block';
+        actionsEl.style.display = 'flex';
+        statusEl.textContent = 'Done.';
+      } catch(err){
+        statusEl.textContent = 'Could not parse this PDF: ' + err.message;
+        resultWrap.style.display = 'none';
+      }
+    };
+    reader.onerror = function(){
+      statusEl.textContent = 'Failed to read file.';
+    };
+    reader.readAsArrayBuffer(f);
+  });
+
+  document.getElementById('copy').addEventListener('click', function(){
+    if (!lastText){ statusEl.textContent = 'Nothing to copy.'; return; }
+    if (navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(lastText).then(function(){
+        statusEl.textContent = 'Copied ' + lastText.length.toLocaleString() + ' characters to clipboard.';
+      });
+    } else {
+      var ta = document.createElement('textarea');
+      ta.value = lastText;
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand('copy'); statusEl.textContent = 'Copied to clipboard.'; }
+      catch(e){ statusEl.textContent = 'Copy failed.'; }
+      document.body.removeChild(ta);
+    }
+  });
+
+  document.getElementById('download').addEventListener('click', function(){
+    if (!lastText){ statusEl.textContent = 'Nothing to download.'; return; }
+    var blob = new Blob([lastText], {type:'text/plain;charset=utf-8'});
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url;
+    var base = (lastFilename || 'pdf-text').replace(/\.pdf$/i,'');
+    a.download = base + '.txt';
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(function(){ document.body.removeChild(a); URL.revokeObjectURL(url); }, 50);
+    statusEl.textContent = 'Downloaded text file.';
+  });
+})();
+</script>
+</body>
+</html>

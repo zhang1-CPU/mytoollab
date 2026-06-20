@@ -4,13 +4,12 @@
  <meta charset="UTF-8" />
  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
  <title>Hash Generator – MD5, SHA-1, SHA-256, SHA-384, SHA-512 | zlbox</title>
- <meta name="description" content="Free online hash generator: compute MD5, SHA-1, SHA-256, SHA-384, and SHA-512 hashes for text or uploaded files. Results in both hex and Base64." />
+ <meta name="description" content="Free online hash generator. Compute MD5, SHA-1, SHA-256, SHA-384, and SHA-512 instantly for text or uploaded files with live hashing." />
  <link rel="stylesheet" href="../../css/components.css" />
  <link rel="canonical" href="https://www.zlbox.site/tools/generator/hash-generator.html" />
  <meta name="google-site-verification" content="google4bd1e08685667667" />
  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
 <script>
-/* Navigation toggle for mobile */
 (function() {
   var toggle = document.querySelector('.nav-toggle');
   var navLinks = document.querySelector('.nav-links');
@@ -19,7 +18,6 @@
     var isOpen = navLinks.classList.toggle('open');
     toggle.setAttribute('aria-expanded', isOpen);
   });
-  // Highlight active link
   var path = location.pathname;
   document.querySelectorAll('.nav-link').forEach(function(link) {
     var href = link.getAttribute('href');
@@ -32,178 +30,57 @@
 
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <meta property="og:title" content="Hash Generator – MD5, SHA-1, SHA-256, SHA-384, SHA-512 | zlbox" />
-  <meta property="og:description" content="Free online hash generator: compute MD5, SHA-1, SHA-256, SHA-384, and SHA-512 hashes for text or uploaded files. Results in both hex and Base64." />
+  <meta property="og:description" content="Free online hash generator. Compute MD5, SHA-1, SHA-256, SHA-384, and SHA-512 instantly for text or uploaded files with live hashing." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.zlbox.site/tools/generator/hash-generator.html" />
   <meta property="og:site_name" content="zlbox" />
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Hash Generator – MD5, SHA-1, SHA-256, SHA-384, SHA-512", "description": "Free online hash generator: compute MD5, SHA-1, SHA-256, SHA-384, and SHA-512 hashes for text or uploaded files. Results in both hex and Base64.", "url": "https://www.zlbox.site/tools/generator/hash-generator.html", "applicationCategory": "Generator Tool", "operatingSystem": "Any (browser-based)", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "browserRequirements": "Requires a modern web browser with JavaScript enabled."}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Hash Generator – MD5, SHA-1, SHA-256, SHA-384, SHA-512", "description": "Free online hash generator. Compute MD5, SHA-1, SHA-256, SHA-384, and SHA-512 instantly for text or uploaded files with live hashing.", "url": "https://www.zlbox.site/tools/generator/hash-generator.html", "applicationCategory": "Generator Tool", "operatingSystem": "Any (browser-based)", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "browserRequirements": "Requires a modern web browser with JavaScript enabled."}</script>
 
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.zlbox.site/"}, {"@type": "ListItem", "position": 2, "name": "Generator Tools", "item": null}]}</script>
 
   <style>
-/* ── Site Navigation ── */
-.site-nav {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: rgba(255,255,255,.97);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--border);
-  box-shadow: 0 1px 4px rgba(0,0,0,.05);
-}
-.nav-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  height: 52px;
-}
-.nav-logo {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-weight: 700;
-  font-size: 1rem;
-  color: var(--brand);
-  text-decoration: none;
-  flex-shrink: 0;
-  margin-right: 12px;
-}
+.site-nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,.97); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); box-shadow: 0 1px 4px rgba(0,0,0,.05); }
+.nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; align-items: center; gap: 8px; height: 52px; }
+.nav-logo { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 1rem; color: var(--brand); text-decoration: none; flex-shrink: 0; margin-right: 12px; }
 .nav-logo:hover { text-decoration: none; }
-.nav-logo-icon {
-  width: 36px;
-  height: 36px;
-  background: var(--brand);
-  color: #fff;
-  border-radius: 6px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 900;
-  font-size: .9rem;
-  flex-shrink: 0;
-}
+.nav-logo-icon { width: 36px; height: 36px; background: var(--brand); color: #fff; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: .9rem; flex-shrink: 0; }
 .nav-logo-text { font-size: .95rem; }
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 2px;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-  flex: 1;
-}
+.nav-links { display: flex; align-items: center; gap: 2px; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none; flex: 1; }
 .nav-links::-webkit-scrollbar { display: none; }
-.nav-link {
-  display: inline-flex;
-  align-items: center;
-  padding: 5px 10px;
-  font-size: .82rem;
-  font-weight: 500;
-  color: var(--text);
-  border-radius: 6px;
-  white-space: nowrap;
-  transition: all .15s;
-  flex-shrink: 0;
-}
-.nav-link:hover {
-  background: var(--brand);
-  color: #fff;
-  text-decoration: none;
-}
-.nav-link.active {
-  background: #eff6ff;
-  color: var(--brand);
-}
-.nav-toggle {
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  gap: 4px;
-  width: 32px;
-  height: 32px;
-  padding: 4px;
-  background: none;
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  cursor: pointer;
-  flex-shrink: 0;
-  margin-left: auto;
-}
-.nav-toggle span {
-  display: block;
-  width: 100%;
-  height: 2px;
-  background: var(--text);
-  border-radius: 1px;
-}
-@media (max-width: 768px) {
-  .nav-logo-text { display: none; }
-  .nav-inner { gap: 6px; }
-  .nav-toggle { display: flex; }
-  .nav-links {
-    display: none;
-    position: absolute;
-    top: 52px;
-    left: 0;
-    right: 0;
-    background: #fff;
-    border-bottom: 1px solid var(--border);
-    box-shadow: 0 4px 12px rgba(0,0,0,.1);
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 8px 0;
-    z-index: 99;
-    overflow: visible;
-  }
-  .nav-links.open { display: flex; }
-  .nav-link {
-    width: 100%;
-    padding: 10px 20px;
-    font-size: .9rem;
-    border-radius: 0;
-  }
-}
+.nav-link { display: inline-flex; align-items: center; padding: 5px 10px; font-size: .82rem; font-weight: 500; color: var(--text); border-radius: 6px; white-space: nowrap; transition: all .15s; flex-shrink: 0; }
+.nav-link:hover { background: var(--brand); color: #fff; text-decoration: none; }
+.nav-link.active { background: #eff6ff; color: var(--brand); }
+.nav-toggle { display: none; flex-direction: column; justify-content: center; gap: 4px; width: 32px; height: 32px; padding: 4px; background: none; border: 1px solid var(--border); border-radius: 6px; cursor: pointer; flex-shrink: 0; margin-left: auto; }
+.nav-toggle span { display: block; width: 100%; height: 2px; background: var(--text); border-radius: 1px; }
+@media (max-width: 768px) { .nav-logo-text { display: none; } .nav-inner { gap: 6px; } .nav-toggle { display: flex; } .nav-links { display: none; position: absolute; top: 52px; left: 0; right: 0; background: #fff; border-bottom: 1px solid var(--border); box-shadow: 0 4px 12px rgba(0,0,0,.1); flex-direction: column; align-items: flex-start; padding: 8px 0; z-index: 99; overflow: visible; } .nav-links.open { display: flex; } .nav-link { width: 100%; padding: 10px 20px; font-size: .9rem; border-radius: 0; } }
+.field-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px; }
+.hash-row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding: 10px 12px; background: var(--bg); border: 1px solid var(--border); border-radius: 8px; }
+.hash-row .label { min-width: 90px; font-weight: 700; font-size: .9rem; color: var(--text); flex-shrink: 0; }
+.hash-row .value { flex: 1; font-family: ui-monospace, Consolas, monospace; font-size: .88rem; color: var(--text); word-break: break-all; min-width: 180px; }
+.hash-row .btn { white-space: nowrap; }
+.note { margin-top: 12px; color: var(--muted); font-size: .9rem; }
+.file-info { padding: 10px 12px; background: var(--bg); border: 1px dashed var(--border); border-radius: 8px; font-size: .9rem; margin-top: 8px; }
   </style>
   <meta property="og:image" content="https://www.zlbox.site/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Hash Generator – MD5, SHA-1, SHA-256, SHA-384, SHA-512" />
-  <meta name="twitter:description" content="Free online hash generator: compute MD5, SHA-1, SHA-256, SHA-384, and SHA-512 hashes for text or uploaded files. Results in both hex and Base64." />
+  <meta name="twitter:description" content="Free online hash generator. Compute MD5, SHA-1, SHA-256, SHA-384, and SHA-512 instantly for text or uploaded files with live hashing." />
   <meta name="twitter:image" content="https://www.zlbox.site/og-image.png" />
-
 
   <meta name="robots" content="index, follow" />
   <script type="application/ld+json">{
-  "@context": "https://schema.org",
-  "@type": "HowTo",
-  "name": "How to Generate Hashes",
-  "description": "Step by step guide: How to Generate Hashes",
-  "step": [
-    {
-      "@type": "HowToStep",
-      "name": "Enter text",
-      "text": "Enter the text you want to hash.",
-      "position": 1
-    },
-    {
-      "@type": "HowToStep",
-      "name": "Select algorithm",
-      "text": "Choose hash algorithm: MD5, SHA-1, SHA-256, SHA-512.",
-      "position": 2
-    },
-    {
-      "@type": "HowToStep",
-      "name": "View hash",
-      "text": "See the generated hash value.",
-      "position": 3
-    }
-  ]
-}</script>
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to Generate Hashes",
+    "description": "Step by step guide: How to Generate Hashes",
+    "step": [
+      { "@type": "HowToStep", "name": "Enter text or choose a file", "text": "Paste text into the editor or upload a file to be hashed.", "position": 1 },
+      { "@type": "HowToStep", "name": "View all hashes", "text": "MD5, SHA-1, SHA-256, SHA-384, SHA-512 update automatically.", "position": 2 },
+      { "@type": "HowToStep", "name": "Copy or download", "text": "Copy any hash with one click, or download all of them.", "position": 3 }
+    ]
+  }</script>
 </head>
 <body>
 
@@ -232,102 +109,77 @@
  <div class="hero">
  <div class="breadcrumb"><a href="../../index.html">Home</a> &rsaquo; <a href="../../categories/generator.html">Generator Tools</a> &rsaquo; Hash Generator</div>
  <h1>Hash Generator</h1>
- <p>Compute MD5, SHA-1, SHA-256, SHA-384, and SHA-512 hashes instantly for any text or file. Results shown in hex and Base64.</p>
+ <p>Compute MD5, SHA-1, SHA-256, SHA-384, and SHA-512 hashes instantly for any text or uploaded file. Live hashing updates as you type.</p>
  </div>
 
  <div class="card">
  <div class="editor">
- <textarea id="input" placeholder="Paste your text here, or choose a file below.">Hello, world!</textarea>
- <div class="editor__toolbar">
- <input type="file" id="file" style="flex:1;min-width:180px" />
+ <textarea id="input" placeholder="Paste text here to hash. Or choose a file below.">Hello, world!</textarea>
+ <div class="editor__toolbar" style="flex-wrap:wrap">
+ <label class="btn btn--ghost" for="file" style="flex:1;min-width:160px;text-align:center;cursor:pointer">Choose File</label>
+ <input type="file" id="file" style="display:none" />
  <button class="btn btn--ghost" id="clear">Clear</button>
- <button class="btn" id="compute">Compute Hashes</button>
  </div>
+ <div id="fileInfo" class="file-info" style="display:none"></div>
  </div>
- <p id="status">Enter text or choose a file, then press Compute Hashes.</p>
+ <p id="status" class="note"></p>
 
- <div class="stats-grid">
- <div class="stat">
- <div class="stat__value" id="md5">—</div>
- <div class="stat__label">MD5</div>
- <button class="btn btn--ghost" data-copy="md5-hex">Copy hex</button>
- <button class="btn btn--ghost" data-copy="md5-b64">Copy base64</button>
- </div>
- <div class="stat">
- <div class="stat__value" id="sha1">—</div>
- <div class="stat__label">SHA-1</div>
- <button class="btn btn--ghost" data-copy="sha1-hex">Copy hex</button>
- <button class="btn btn--ghost" data-copy="sha1-b64">Copy base64</button>
- </div>
- <div class="stat stat--accent">
- <div class="stat__value" id="sha256">—</div>
- <div class="stat__label">SHA-256</div>
- <button class="btn btn--ghost" data-copy="sha256-hex">Copy hex</button>
- <button class="btn btn--ghost" data-copy="sha256-b64">Copy base64</button>
- </div>
- <div class="stat">
- <div class="stat__value" id="sha384">—</div>
- <div class="stat__label">SHA-384</div>
- <button class="btn btn--ghost" data-copy="sha384-hex">Copy hex</button>
- <button class="btn btn--ghost" data-copy="sha384-b64">Copy base64</button>
- </div>
- <div class="stat">
- <div class="stat__value" id="sha512">—</div>
- <div class="stat__label">SHA-512</div>
- <button class="btn btn--ghost" data-copy="sha512-hex">Copy hex</button>
- <button class="btn btn--ghost" data-copy="sha512-b64">Copy base64</button>
- </div>
+ <div id="hash-list" style="display:flex;flex-direction:column;gap:8px;margin-top:12px"></div>
+
+ <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px">
+ <button class="btn btn--ghost" id="copy-all">Copy All (hex)</button>
+ <button class="btn btn--ghost" id="download-all">Download All (.txt)</button>
  </div>
  </div>
 
  <div class="section">
  <h2>How it works</h2>
  <ol class="steps">
- <li>Paste text into the editor, or click <strong>Choose file</strong> to hash any file (files larger than 50 MB are not recommended in the browser).</li>
- <li>Click <strong>Compute Hashes</strong>. MD5 runs in pure JavaScript; SHA variants use the browser's Web Crypto API.</li>
- <li>Each hash is shown in hexadecimal and Base64. Click <strong>Copy</strong> on any result to copy it to the clipboard.</li>
+ <li>Paste text into the editor — hashes update automatically as you type. Or upload a file to hash it.</li>
+ <li>All five hashes are computed at once: MD5 runs in pure JavaScript; SHA variants use the Web Crypto API.</li>
+ <li>Click any hash to copy it, or copy / download the full set in one click.</li>
  </ol>
  </div>
 
  <section class="tool-info" aria-label="Tool information">
-  <h2>What is Hash Generator?</h2>
-  <p>A hash generator computes a fixed-length string (hash) from any input text or file using cryptographic algorithms like MD5, SHA-1, SHA-256, SHA-384, and SHA-512. Hashes are one-way functions — you can't reverse a hash to get the original input.</p>
+  <h2>What is a Hash Generator?</h2>
+  <p>A hash generator computes a fixed-length string (hash) from any input using a cryptographic algorithm. Hashes are one-way functions — you can't reverse a hash to recover the original input. They are essential for verifying file integrity, storing credentials, and digital signatures.</p>
 
   <h2>How to use</h2>
   <ol class="steps-list">
-<li>Step 1: Type or paste text into the input field, or click 'Choose File' to hash a file.</li>
-<li>Step 2: Click 'Compute Hashes' to generate all hash values.</li>
-<li>Step 3: Copy any hash (hex or Base64) with one click.</li>
-<li>Step 4: Hashes are computed entirely in your browser — no data is uploaded.</li>
+<li>Step 1: Type or paste text into the input, or choose a file to hash.</li>
+<li>Step 2: MD5, SHA-1, SHA-256, SHA-384, and SHA-512 values update automatically.</li>
+<li>Step 3: Click any hash to copy it to your clipboard.</li>
+<li>Step 4: Use 'Copy All' or 'Download All' to save the full set of hashes.</li>
   </ol>
 
   <h2>Use cases</h2>
   <ul class="usecase-list">
 <li>Verifying file integrity after downloads or transfers.</li>
-<li>Storing password representations in databases.</li>
-<li>Generating checksums for digital forensics and IT audits.</li>
-<li>Creating unique identifiers for documents and records.</li>
+<li>Creating checksums for version and data integrity audits.</li>
+<li>Generating unique identifiers for documents and records.</li>
+<li>Validating data hasn't been altered (non-repudiation).</li>
   </ul>
 
   <h2>Frequently Asked Questions</h2>
   <div class="faq">
 <details class="faq-item">
   <summary>Is MD5 still secure for passwords?</summary>
-  <p>No. MD5 is considered cryptographically broken for security purposes. It's too fast and vulnerable to collision attacks. Use SHA-256 or stronger for security-sensitive applications.</p>
+  <p>No — MD5 is cryptographically broken and should not be used for passwords or security-sensitive applications. Use SHA-256 or stronger.</p>
 </details>
 <details class="faq-item">
-  <summary>Can I reverse a hash?</summary>
-  <p>No. Hashing is a one-way function. There's no way to recover the original input from a hash. This is by design for security.</p>
+  <summary>Is my data uploaded to a server?</summary>
+  <p>No. All hashing is computed in your browser — nothing leaves your device.</p>
 </details>
 <details class="faq-item">
-  <summary>What is the difference between hex and Base64?</summary>
-  <p>Hex uses 0-9 and a-f (base 16), producing longer strings. Base64 uses 64 ASCII characters, producing shorter but less human-readable output.</p>
+  <summary>What's the difference between hex and Base64?</summary>
+  <p>Hex (base 16) uses characters 0-9 and a-f; Base64 uses 64 ASCII characters and produces shorter strings.</p>
 </details>
   </div>
 </section>
 
 <script type="application/ld+json">
-{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is MD5 still secure for passwords?", "acceptedAnswer": {"@type": "Answer", "text": "No. MD5 is considered cryptographically broken for security purposes. It's too fast and vulnerable to collision attacks. Use SHA-256 or stronger for security-sensitive applications."}}, {"@type": "Question", "name": "Can I reverse a hash?", "acceptedAnswer": {"@type": "Answer", "text": "No. Hashing is a one-way function. There's no way to recover the original input from a hash. This is by design for security."}}, {"@type": "Question", "name": "What is the difference between hex and Base64?", "acceptedAnswer": {"@type": "Answer", "text": "Hex uses 0-9 and a-f (base 16), producing longer strings. Base64 uses 64 ASCII characters, producing shorter but less human-readable output."}}]}
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is MD5 still secure for passwords?", "acceptedAnswer": {"@type": "Answer", "text": "No — MD5 is cryptographically broken and should not be used for passwords or security-sensitive applications. Use SHA-256 or stronger."}}, {"@type": "Question", "name": "Is my data uploaded to a server?", "acceptedAnswer": {"@type": "Answer", "text": "No. All hashing is computed in your browser — nothing leaves your device."}}, {"@type": "Question", "name": "What's the difference between hex and Base64?", "acceptedAnswer": {"@type": "Answer", "text": "Hex (base 16) uses characters 0-9 and a-f; Base64 uses 64 ASCII characters and produces shorter strings."}}]}
 </script>
  <div class="section">
  <h2>Related tools</h2>
@@ -357,169 +209,235 @@
 
 <script>
 (function(){
- // ============ MD5 (RFC 1321) ============
- function md5Bytes(bytes){
- function add32(a,b){return (a+b)>>>0;}
- function rotl(n,s){return ((n<<s)|(n>>>(32-s)))>>>0;}
- function cmn(q,a,b,x,s,t){return add32(rotl(add32(add32(a,q),add32(x,t)),s),b);}
- function ff(a,b,c,d,x,s,t){return cmn((b&c)|((~b)&d),a,b,x,s,t);}
- function gg(a,b,c,d,x,s,t){return cmn((b&d)|(c&(~d)),a,b,x,s,t);}
- function hh(a,b,c,d,x,s,t){return cmn(b^c^d,a,b,x,s,t);}
- function ii(a,b,c,d,x,s,t){return cmn(c^(b|(~d)),a,b,x,s,t);}
+  // ============ MD5 (RFC 1321) ============
+  function md5Bytes(bytes){
+    function add32(a,b){ return (a+b)>>>0; }
+    function rotl(n,s){ return ((n<<s)|(n>>>(32-s)))>>>0; }
+    function cmn(q,a,b,x,s,t){ return add32(rotl(add32(add32(a,q),add32(x,t)),s),b); }
+    function ff(a,b,c,d,x,s,t){ return cmn((b&c)|((~b)&d),a,b,x,s,t); }
+    function gg(a,b,c,d,x,s,t){ return cmn((b&d)|(c&(~d)),a,b,x,s,t); }
+    function hh(a,b,c,d,x,s,t){ return cmn(b^c^d,a,b,x,s,t); }
+    function ii(a,b,c,d,x,s,t){ return cmn(c^(b|(~d)),a,b,x,s,t); }
+    var len = bytes.length;
+    var nBlocks = Math.ceil((len+9)/64);
+    var x = new Uint32Array(nBlocks*16);
+    for (var i=0;i<len;i++) x[i>>2] |= bytes[i]<<((i%4)*8);
+    x[len>>2] |= 0x80 << ((len%4)*8);
+    x[nBlocks*16-2] = (len*8)>>>0;
+    x[nBlocks*16-1] = Math.floor((len*8)/0x100000000)>>>0;
+    var a=0x67452301,b=0xefcdab89,c=0x98badcfe,d=0x10325476;
+    for (var k=0;k<x.length;k+=16){
+      var aa=a,bb=b,cc=c,dd=d;
+      a=ff(a,b,c,d,x[k+0],7,0xd76aa478);d=ff(d,a,b,c,x[k+1],12,0xe8c7b756);c=ff(c,d,a,b,x[k+2],17,0x242070db);b=ff(b,c,d,a,x[k+3],22,0xc1bdceee);
+      a=ff(a,b,c,d,x[k+4],7,0xf57c0faf);d=ff(d,a,b,c,x[k+5],12,0x4787c62a);c=ff(c,d,a,b,x[k+6],17,0xa8304613);b=ff(b,c,d,a,x[k+7],22,0xfd469501);
+      a=ff(a,b,c,d,x[k+8],7,0x698098d8);d=ff(d,a,b,c,x[k+9],12,0x8b44f7af);c=ff(c,d,a,b,x[k+10],17,0xffff5bb1);b=ff(b,c,d,a,x[k+11],22,0x895cd7be);
+      a=ff(a,b,c,d,x[k+12],7,0x6b901122);d=ff(d,a,b,c,x[k+13],12,0xfd987193);c=ff(c,d,a,b,x[k+14],17,0xa679438e);b=ff(b,c,d,a,x[k+15],22,0x49b40821);
+      a=gg(a,b,c,d,x[k+1],5,0xf61e2562);d=gg(d,a,b,c,x[k+6],9,0xc040b340);c=gg(c,d,a,b,x[k+11],14,0x265e5a51);b=gg(b,c,d,a,x[k+0],20,0xe9b6c7aa);
+      a=gg(a,b,c,d,x[k+5],5,0xd62f105d);d=gg(d,a,b,c,x[k+10],9,0x02441453);c=gg(c,d,a,b,x[k+15],14,0xd8a1e681);b=gg(b,c,d,a,x[k+4],20,0xe7d3fbc8);
+      a=gg(a,b,c,d,x[k+9],5,0x21e1cde6);d=gg(d,a,b,c,x[k+14],9,0xc33707d6);c=gg(c,d,a,b,x[k+3],14,0xf4d50d87);b=gg(b,c,d,a,x[k+8],20,0x455a14ed);
+      a=gg(a,b,c,d,x[k+13],5,0xa9e3e905);d=gg(d,a,b,c,x[k+2],9,0xfcefa3f8);c=gg(c,d,a,b,x[k+7],14,0x676f02d9);b=gg(b,c,d,a,x[k+12],20,0x8d2a4c8a);
+      a=hh(a,b,c,d,x[k+5],4,0xfffa3942);d=hh(d,a,b,c,x[k+8],11,0x8771f681);c=hh(c,d,a,b,x[k+11],16,0x6d9d6122);b=hh(b,c,d,a,x[k+14],23,0xfde5380c);
+      a=hh(a,b,c,d,x[k+1],4,0xa4beea44);d=hh(d,a,b,c,x[k+4],11,0x4bdecfa9);c=hh(c,d,a,b,x[k+7],16,0xf6bb4b60);b=hh(b,c,d,a,x[k+10],23,0xbebfbc70);
+      a=hh(a,b,c,d,x[k+13],4,0x289b7ec6);d=hh(d,a,b,c,x[k+0],11,0xeaa127fa);c=hh(c,d,a,b,x[k+3],16,0xd4ef3085);b=hh(b,c,d,a,x[k+6],23,0x04881d05);
+      a=hh(a,b,c,d,x[k+9],4,0xd9d4d039);d=hh(d,a,b,c,x[k+12],11,0xe6db99e5);c=hh(c,d,a,b,x[k+15],16,0x1fa27cf8);b=hh(b,c,d,a,x[k+2],23,0xc4ac5665);
+      a=ii(a,b,c,d,x[k+0],6,0xf4292244);d=ii(d,a,b,c,x[k+7],10,0x432aff97);c=ii(c,d,a,b,x[k+14],15,0xab9423a7);b=ii(b,c,d,a,x[k+5],21,0xfc93a039);
+      a=ii(a,b,c,d,x[k+12],6,0x655b59c3);d=ii(d,a,b,c,x[k+3],10,0x8f0ccc92);c=ii(c,d,a,b,x[k+10],15,0xffeff47d);b=ii(b,c,d,a,x[k+1],21,0x85845dd1);
+      a=ii(a,b,c,d,x[k+8],6,0x6fa87e4f);d=ii(d,a,b,c,x[k+15],10,0xfe2ce6e0);c=ii(c,d,a,b,x[k+6],15,0xa3014314);b=ii(b,c,d,a,x[k+13],21,0x4e0811a1);
+      a=ii(a,b,c,d,x[k+4],6,0xf7537e82);d=ii(d,a,b,c,x[k+11],10,0xbd3af235);c=ii(c,d,a,b,x[k+2],15,0x2ad7d2bb);b=ii(b,c,d,a,x[k+9],21,0xeb86d391);
+      a=add32(a,aa);b=add32(b,bb);c=add32(c,cc);d=add32(d,dd);
+    }
+    var out = new Uint8Array(16);
+    var words = [a,b,c,d];
+    for (var i2=0;i2<4;i2++){
+      for (var j2=0;j2<4;j2++){
+        out[i2*4+j2] = (words[i2]>>>(j2*8))&0xff;
+      }
+    }
+    return out;
+  }
 
- var len=bytes.length;
- var bitLen=len*8;
- var nBlocks=Math.ceil((len+9)/64);
- var x=new Uint32Array(nBlocks*16);
- for(var i=0;i<len;i++) x[i>>2]|=bytes[i]<<((i%4)*8);
- x[len>>2]|=0x80<<((len%4)*8);
- x[nBlocks*16-2]=bitLen>>>0;
- x[nBlocks*16-1]=Math.floor(bitLen/0x100000000)>>>0;
+  function toHex(bytes){
+    var s = '';
+    for (var i=0;i<bytes.length;i++){
+      var h = bytes[i].toString(16);
+      s += (h.length===1?'0':'')+h;
+    }
+    return s;
+  }
+  function toBase64(bytes){
+    var s = '';
+    for (var i=0;i<bytes.length;i++) s += String.fromCharCode(bytes[i]);
+    try { return btoa(s); } catch(e){ return ''; }
+  }
+  function textToBytes(txt){ return new TextEncoder().encode(txt); }
 
- var a=0x67452301,b=0xefcdab89,c=0x98badcfe,d=0x10325476;
- for(var k=0;k<x.length;k+=16){
- var aa=a,bb=b,cc=c,dd=d;
- a=ff(a,b,c,d,x[k+0],7,0xd76aa478);d=ff(d,a,b,c,x[k+1],12,0xe8c7b756);c=ff(c,d,a,b,x[k+2],17,0x242070db);b=ff(b,c,d,a,x[k+3],22,0xc1bdceee);
- a=ff(a,b,c,d,x[k+4],7,0xf57c0faf);d=ff(d,a,b,c,x[k+5],12,0x4787c62a);c=ff(c,d,a,b,x[k+6],17,0xa8304613);b=ff(b,c,d,a,x[k+7],22,0xfd469501);
- a=ff(a,b,c,d,x[k+8],7,0x698098d8);d=ff(d,a,b,c,x[k+9],12,0x8b44f7af);c=ff(c,d,a,b,x[k+10],17,0xffff5bb1);b=ff(b,c,d,a,x[k+11],22,0x895cd7be);
- a=ff(a,b,c,d,x[k+12],7,0x6b901122);d=ff(d,a,b,c,x[k+13],12,0xfd987193);c=ff(c,d,a,b,x[k+14],17,0xa679438e);b=ff(b,c,d,a,x[k+15],22,0x49b40821);
- a=gg(a,b,c,d,x[k+1],5,0xf61e2562);d=gg(d,a,b,c,x[k+6],9,0xc040b340);c=gg(c,d,a,b,x[k+11],14,0x265e5a51);b=gg(b,c,d,a,x[k+0],20,0xe9b6c7aa);
- a=gg(a,b,c,d,x[k+5],5,0xd62f105d);d=gg(d,a,b,c,x[k+10],9,0x02441453);c=gg(c,d,a,b,x[k+15],14,0xd8a1e681);b=gg(b,c,d,a,x[k+4],20,0xe7d3fbc8);
- a=gg(a,b,c,d,x[k+9],5,0x21e1cde6);d=gg(d,a,b,c,x[k+14],9,0xc33707d6);c=gg(c,d,a,b,x[k+3],14,0xf4d50d87);b=gg(b,c,d,a,x[k+8],20,0x455a14ed);
- a=gg(a,b,c,d,x[k+13],5,0xa9e3e905);d=gg(d,a,b,c,x[k+2],9,0xfcefa3f8);c=gg(c,d,a,b,x[k+7],14,0x676f02d9);b=gg(b,c,d,a,x[k+12],20,0x8d2a4c8a);
- a=hh(a,b,c,d,x[k+5],4,0xfffa3942);d=hh(d,a,b,c,x[k+8],11,0x8771f681);c=hh(c,d,a,b,x[k+11],16,0x6d9d6122);b=hh(b,c,d,a,x[k+14],23,0xfde5380c);
- a=hh(a,b,c,d,x[k+1],4,0xa4beea44);d=hh(d,a,b,c,x[k+4],11,0x4bdecfa9);c=hh(c,d,a,b,x[k+7],16,0xf6bb4b60);b=hh(b,c,d,a,x[k+10],23,0xbebfbc70);
- a=hh(a,b,c,d,x[k+13],4,0x289b7ec6);d=hh(d,a,b,c,x[k+0],11,0xeaa127fa);c=hh(c,d,a,b,x[k+3],16,0xd4ef3085);b=hh(b,c,d,a,x[k+6],23,0x04881d05);
- a=hh(a,b,c,d,x[k+9],4,0xd9d4d039);d=hh(d,a,b,c,x[k+12],11,0xe6db99e5);c=hh(c,d,a,b,x[k+15],16,0x1fa27cf8);b=hh(b,c,d,a,x[k+2],23,0xc4ac5665);
- a=ii(a,b,c,d,x[k+0],6,0xf4292244);d=ii(d,a,b,c,x[k+7],10,0x432aff97);c=ii(c,d,a,b,x[k+14],15,0xab9423a7);b=ii(b,c,d,a,x[k+5],21,0xfc93a039);
- a=ii(a,b,c,d,x[k+12],6,0x655b59c3);d=ii(d,a,b,c,x[k+3],10,0x8f0ccc92);c=ii(c,d,a,b,x[k+10],15,0xffeff47d);b=ii(b,c,d,a,x[k+1],21,0x85845dd1);
- a=ii(a,b,c,d,x[k+8],6,0x6fa87e4f);d=ii(d,a,b,c,x[k+15],10,0xfe2ce6e0);c=ii(c,d,a,b,x[k+6],15,0xa3014314);b=ii(b,c,d,a,x[k+13],21,0x4e0811a1);
- a=ii(a,b,c,d,x[k+4],6,0xf7537e82);d=ii(d,a,b,c,x[k+11],10,0xbd3af235);c=ii(c,d,a,b,x[k+2],15,0x2ad7d2bb);b=ii(b,c,d,a,x[k+9],21,0xeb86d391);
- a=add32(a,aa);b=add32(b,bb);c=add32(c,cc);d=add32(d,dd);
- }
- var out=new Uint8Array(16);
- var words=[a,b,c,d];
- for(var i=0;i<4;i++){
- for(var j=0;j<4;j++){
- out[i*4+j]=(words[i]>>>(j*8))&0xff;
- }
- }
- return out;
- }
+  var ALGOS = [
+    { id: 'md5',    label: 'MD5',     name: null },
+    { id: 'sha1',   label: 'SHA-1',   name: 'SHA-1' },
+    { id: 'sha256', label: 'SHA-256', name: 'SHA-256' },
+    { id: 'sha384', label: 'SHA-384', name: 'SHA-384' },
+    { id: 'sha512', label: 'SHA-512', name: 'SHA-512' }
+  ];
 
- function toHex(bytes){
- var s='';
- for(var i=0;i<bytes.length;i++){
- var h=bytes[i].toString(16);
- s+=(h.length===1?'0':'')+h;
- }
- return s;
- }
- function toBase64(bytes){
- var s='';
- for(var i=0;i<bytes.length;i++) s+=String.fromCharCode(bytes[i]);
- try{ return btoa(s); } catch(e){ return ''; }
- }
- function textToBytes(txt){
- return new TextEncoder().encode(txt);
- }
+  var store = {};
+  ALGOS.forEach(function(a){ store[a.id] = { hex: '', base64: '' }; });
 
- var store={}; // id -> {hex, base64}
- function setResult(id, hex, b64){
- store[id]={hex:hex,b64:b64};
- var el=document.getElementById(id);
- if(el) el.textContent=hex;
- }
- function status(s){ document.getElementById('status').textContent=s; }
+  var inputEl = document.getElementById('input');
+  var fileEl = document.getElementById('file');
+  var fileInfoEl = document.getElementById('fileInfo');
+  var statusEl = document.getElementById('status');
+  var listEl = document.getElementById('hash-list');
 
- function computeForBytes(bytes){
- // MD5
- var md5=md5Bytes(bytes);
- setResult('md5',toHex(md5),toBase64(md5));
+  // Build rows
+  function buildRows(){
+    listEl.innerHTML = '';
+    ALGOS.forEach(function(a){
+      var row = document.createElement('div');
+      row.className = 'hash-row';
+      row.innerHTML =
+        '<span class="label">'+a.label+'</span>' +
+        '<span class="value" id="v-'+a.id+'">—</span>' +
+        '<button class="btn btn--ghost" data-copy="'+a.id+'">Copy</button>';
+      listEl.appendChild(row);
+    });
+  }
+  buildRows();
 
- var algoNames={sha1:'SHA-1',sha256:'SHA-256',sha384:'SHA-384',sha512:'SHA-512'};
- var ids=['sha1','sha256','sha384','sha512'];
- status('Computing SHA hashes...');
- var pending=ids.length;
- ids.forEach(function(id){
- crypto.subtle.digest(algoNames[id],bytes).then(function(buf){
- var b=new Uint8Array(buf);
- setResult(id,toHex(b),toBase64(b));
- pending--;
- if(pending===0) status('All hashes computed. Input size: '+bytes.length+' bytes.');
- }).catch(function(err){
- setResult(id,'Error','Error');
- pending--;
- if(pending===0) status('Some hashes failed: '+err.message);
- });
- });
- }
+  function setResult(id, bytes){
+    var hex = toHex(bytes);
+    var b64 = toBase64(bytes);
+    store[id] = { hex: hex, base64: b64 };
+    var el = document.getElementById('v-'+id);
+    if (el) el.textContent = hex;
+  }
 
- function computeText(){
- var txt=document.getElementById('input').value;
- computeForBytes(textToBytes(txt));
- }
+  function renderPending(){
+    ALGOS.forEach(function(a){
+      var el = document.getElementById('v-'+a.id);
+      if (el && !store[a.id].hex) el.textContent = '…';
+    });
+  }
 
- function computeFile(file){
- var sizeMB=(file.size/1024/1024).toFixed(2);
- if(file.size>50*1024*1024){
- status('File too large ('+sizeMB+' MB). Please use a smaller file for browser-based hashing.');
- return;
- }
- status('Reading file ('+sizeMB+' MB)...');
- var reader=new FileReader();
- reader.onload=function(ev){
- var bytes=new Uint8Array(ev.target.result);
- computeForBytes(bytes);
- };
- reader.onerror=function(){ status('File read failed.'); };
- reader.readAsArrayBuffer(file);
- }
+  function computeForBytes(bytes, withStatus){
+    // MD5 sync
+    try { setResult('md5', md5Bytes(bytes)); }
+    catch(e){}
 
- document.getElementById('compute').addEventListener('click',function(){
- var f=document.getElementById('file').files[0];
- if(f) computeFile(f); else computeText();
- });
- document.getElementById('clear').addEventListener('click',function(){
- document.getElementById('input').value='';
- document.getElementById('file').value='';
- status('Enter text or choose a file, then press Compute Hashes.');
- });
- document.getElementById('file').addEventListener('change',function(e){
- var f=e.target.files[0];
- if(f){
- status('File selected: '+f.name+' ('+(f.size/1024).toFixed(1)+' KB). Press Compute Hashes.');
- }
- });
+    // SHA async
+    var remaining = ['sha1','sha256','sha384','sha512'];
+    var doneCount = 0;
+    if (!window.crypto || !crypto.subtle){
+      remaining.forEach(function(id){
+        var el = document.getElementById('v-'+id);
+        if (el) el.textContent = '(unsupported)';
+      });
+      if (withStatus) statusEl.textContent = 'Web Crypto unavailable; only MD5 computed.';
+      return;
+    }
+    remaining.forEach(function(id){
+      var algo = ALGOS.find(function(a){ return a.id === id; }).name;
+      crypto.subtle.digest(algo, bytes).then(function(buf){
+        setResult(id, new Uint8Array(buf));
+        doneCount++;
+        if (doneCount === remaining.length && withStatus){
+          statusEl.textContent = 'All hashes computed. Input size: '+bytes.length.toLocaleString()+' bytes.';
+        }
+      }).catch(function(){
+        var el = document.getElementById('v-'+id);
+        if (el) el.textContent = '(error)';
+        doneCount++;
+      });
+    });
+  }
 
- function copyText(txt){
- if(navigator.clipboard && navigator.clipboard.writeText){
- navigator.clipboard.writeText(txt).then(function(){
- status('Copied '+txt.length+' character'+(txt.length===1?'':'s')+'.');
- },function(){ fallback(txt); });
- } else { fallback(txt); }
- }
- function fallback(txt){
- var ta=document.createElement('textarea');
- ta.value=txt; document.body.appendChild(ta); ta.select();
- try{ document.execCommand('copy'); status('Copied.'); }
- catch(e){ status('Copy failed.'); }
- document.body.removeChild(ta);
- }
+  function computeTextLive(){
+    var txt = inputEl.value;
+    renderPending();
+    computeForBytes(textToBytes(txt), true);
+  }
 
- document.querySelectorAll('[data-copy]').forEach(function(btn){
- btn.addEventListener('click',function(){
- var v=btn.getAttribute('data-copy');
- var parts=v.split('-');
- var id=parts.slice(0,-1).join('-');
- var kind=parts[parts.length-1];
- var data=store[id];
- if(!data){ status('Compute hashes first.'); return; }
- copyText(kind==='hex'?data.hex:data.b64);
- });
- });
+  var liveTimer = null;
+  inputEl.addEventListener('input', function(){
+    if (fileEl.files && fileEl.files.length){
+      // If user typed, clear file mode
+      fileEl.value = '';
+      fileInfoEl.style.display = 'none';
+    }
+    if (liveTimer) clearTimeout(liveTimer);
+    liveTimer = setTimeout(computeTextLive, 150);
+  });
 
- computeText();
+  document.getElementById('clear').addEventListener('click', function(){
+    inputEl.value = '';
+    fileEl.value = '';
+    fileInfoEl.style.display = 'none';
+    computeTextLive();
+  });
+
+  fileEl.addEventListener('change', function(e){
+    var f = e.target.files && e.target.files[0];
+    if (!f){ fileInfoEl.style.display = 'none'; return; }
+    fileInfoEl.style.display = 'block';
+    fileInfoEl.textContent = 'File: '+f.name+' — '+(f.size/1024).toFixed(2).toLocaleString()+' KB';
+    var reader = new FileReader();
+    statusEl.textContent = 'Reading file…';
+    renderPending();
+    reader.onload = function(ev){
+      computeForBytes(new Uint8Array(ev.target.result), true);
+    };
+    reader.onerror = function(){ statusEl.textContent = 'File read failed.'; };
+    reader.readAsArrayBuffer(f);
+  });
+
+  // Copy helpers
+  function copyText(txt){
+    var done = function(){ statusEl.textContent = 'Copied to clipboard.'; };
+    if (navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(done, function(){ fallback(txt); });
+    } else { fallback(txt); }
+    function fallback(t2){
+      var ta = document.createElement('textarea');
+      ta.value = t2; document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy'); done(); }
+      catch(e){ statusEl.textContent = 'Copy failed.'; }
+      document.body.removeChild(ta);
+    }
+  }
+
+  listEl.addEventListener('click', function(e){
+    var btn = e.target.closest('button[data-copy]');
+    if (!btn) return;
+    var id = btn.getAttribute('data-copy');
+    var data = store[id];
+    if (data && data.hex) copyText(data.hex);
+    else statusEl.textContent = 'No hash yet.';
+  });
+
+  document.getElementById('copy-all').addEventListener('click', function(){
+    var lines = [];
+    ALGOS.forEach(function(a){
+      if (store[a.id] && store[a.id].hex) lines.push(a.label+': '+store[a.id].hex);
+    });
+    if (!lines.length){ statusEl.textContent = 'Nothing to copy.'; return; }
+    copyText(lines.join('\n'));
+  });
+
+  document.getElementById('download-all').addEventListener('click', function(){
+    var lines = [];
+    ALGOS.forEach(function(a){
+      if (store[a.id] && store[a.id].hex) lines.push(a.label+': '+store[a.id].hex);
+    });
+    if (!lines.length){ statusEl.textContent = 'Nothing to download.'; return; }
+    var blob = new Blob([lines.join('\n')], { type:'text/plain;charset=utf-8' });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url; a.download = 'hashes.txt';
+    document.body.appendChild(a); a.click();
+    setTimeout(function(){ document.body.removeChild(a); URL.revokeObjectURL(url); }, 50);
+    statusEl.textContent = 'Downloaded.';
+  });
+
+  computeTextLive();
 })();
 </script>
 </body>

@@ -4,13 +4,12 @@
  <meta charset="UTF-8" />
  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
  <title>Random Number Generator – Integers & Decimals | zlbox</title>
- <meta name="description" content="Free online random number generator: pick integers or decimal numbers within a range, generate multiple values, and choose whether duplicates are allowed." />
+ <meta name="description" content="Free online random number generator. Pick integers or decimals in a range, generate multiple values, toggle uniqueness and sorting, then copy or download." />
  <link rel="stylesheet" href="../../css/components.css" />
  <link rel="canonical" href="https://www.zlbox.site/tools/generator/random-number-generator.html" />
  <meta name="google-site-verification" content="google4bd1e08685667667" />
  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
 <script>
-/* Navigation toggle for mobile */
 (function() {
   var toggle = document.querySelector('.nav-toggle');
   var navLinks = document.querySelector('.nav-links');
@@ -19,7 +18,6 @@
     var isOpen = navLinks.classList.toggle('open');
     toggle.setAttribute('aria-expanded', isOpen);
   });
-  // Highlight active link
   var path = location.pathname;
   document.querySelectorAll('.nav-link').forEach(function(link) {
     var href = link.getAttribute('href');
@@ -32,178 +30,55 @@
 
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <meta property="og:title" content="Random Number Generator – Integers & Decimals | zlbox" />
-  <meta property="og:description" content="Free online random number generator: pick integers or decimal numbers within a range, generate multiple values, and choose whether duplicates are allowed." />
+  <meta property="og:description" content="Free online random number generator. Pick integers or decimals in a range, generate multiple values, toggle uniqueness and sorting, then copy or download." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.zlbox.site/tools/generator/random-number-generator.html" />
   <meta property="og:site_name" content="zlbox" />
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Random Number Generator – Integers & Decimals", "description": "Free online random number generator: pick integers or decimal numbers within a range, generate multiple values, and choose whether duplicates are allowed.", "url": "https://www.zlbox.site/tools/generator/random-number-generator.html", "applicationCategory": "Generator Tool", "operatingSystem": "Any (browser-based)", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "browserRequirements": "Requires a modern web browser with JavaScript enabled."}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Random Number Generator – Integers & Decimals", "description": "Free online random number generator. Pick integers or decimals in a range, generate multiple values, toggle uniqueness and sorting, then copy or download.", "url": "https://www.zlbox.site/tools/generator/random-number-generator.html", "applicationCategory": "Generator Tool", "operatingSystem": "Any (browser-based)", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "browserRequirements": "Requires a modern web browser with JavaScript enabled."}</script>
 
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.zlbox.site/"}, {"@type": "ListItem", "position": 2, "name": "Generator Tools", "item": null}]}</script>
 
   <style>
-/* ── Site Navigation ── */
-.site-nav {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: rgba(255,255,255,.97);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--border);
-  box-shadow: 0 1px 4px rgba(0,0,0,.05);
-}
-.nav-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  height: 52px;
-}
-.nav-logo {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-weight: 700;
-  font-size: 1rem;
-  color: var(--brand);
-  text-decoration: none;
-  flex-shrink: 0;
-  margin-right: 12px;
-}
+.site-nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,.97); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); box-shadow: 0 1px 4px rgba(0,0,0,.05); }
+.nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; align-items: center; gap: 8px; height: 52px; }
+.nav-logo { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 1rem; color: var(--brand); text-decoration: none; flex-shrink: 0; margin-right: 12px; }
 .nav-logo:hover { text-decoration: none; }
-.nav-logo-icon {
-  width: 36px;
-  height: 36px;
-  background: var(--brand);
-  color: #fff;
-  border-radius: 6px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 900;
-  font-size: .9rem;
-  flex-shrink: 0;
-}
+.nav-logo-icon { width: 36px; height: 36px; background: var(--brand); color: #fff; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: .9rem; flex-shrink: 0; }
 .nav-logo-text { font-size: .95rem; }
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 2px;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-  flex: 1;
-}
+.nav-links { display: flex; align-items: center; gap: 2px; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none; flex: 1; }
 .nav-links::-webkit-scrollbar { display: none; }
-.nav-link {
-  display: inline-flex;
-  align-items: center;
-  padding: 5px 10px;
-  font-size: .82rem;
-  font-weight: 500;
-  color: var(--text);
-  border-radius: 6px;
-  white-space: nowrap;
-  transition: all .15s;
-  flex-shrink: 0;
-}
-.nav-link:hover {
-  background: var(--brand);
-  color: #fff;
-  text-decoration: none;
-}
-.nav-link.active {
-  background: #eff6ff;
-  color: var(--brand);
-}
-.nav-toggle {
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  gap: 4px;
-  width: 32px;
-  height: 32px;
-  padding: 4px;
-  background: none;
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  cursor: pointer;
-  flex-shrink: 0;
-  margin-left: auto;
-}
-.nav-toggle span {
-  display: block;
-  width: 100%;
-  height: 2px;
-  background: var(--text);
-  border-radius: 1px;
-}
-@media (max-width: 768px) {
-  .nav-logo-text { display: none; }
-  .nav-inner { gap: 6px; }
-  .nav-toggle { display: flex; }
-  .nav-links {
-    display: none;
-    position: absolute;
-    top: 52px;
-    left: 0;
-    right: 0;
-    background: #fff;
-    border-bottom: 1px solid var(--border);
-    box-shadow: 0 4px 12px rgba(0,0,0,.1);
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 8px 0;
-    z-index: 99;
-    overflow: visible;
-  }
-  .nav-links.open { display: flex; }
-  .nav-link {
-    width: 100%;
-    padding: 10px 20px;
-    font-size: .9rem;
-    border-radius: 0;
-  }
-}
+.nav-link { display: inline-flex; align-items: center; padding: 5px 10px; font-size: .82rem; font-weight: 500; color: var(--text); border-radius: 6px; white-space: nowrap; transition: all .15s; flex-shrink: 0; }
+.nav-link:hover { background: var(--brand); color: #fff; text-decoration: none; }
+.nav-link.active { background: #eff6ff; color: var(--brand); }
+.nav-toggle { display: none; flex-direction: column; justify-content: center; gap: 4px; width: 32px; height: 32px; padding: 4px; background: none; border: 1px solid var(--border); border-radius: 6px; cursor: pointer; flex-shrink: 0; margin-left: auto; }
+.nav-toggle span { display: block; width: 100%; height: 2px; background: var(--text); border-radius: 1px; }
+@media (max-width: 768px) { .nav-logo-text { display: none; } .nav-inner { gap: 6px; } .nav-toggle { display: flex; } .nav-links { display: none; position: absolute; top: 52px; left: 0; right: 0; background: #fff; border-bottom: 1px solid var(--border); box-shadow: 0 4px 12px rgba(0,0,0,.1); flex-direction: column; align-items: flex-start; padding: 8px 0; z-index: 99; overflow: visible; } .nav-links.open { display: flex; } .nav-link { width: 100%; padding: 10px 20px; font-size: .9rem; border-radius: 0; } }
+.field-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.row-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px; }
+.result-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 8px; margin-top: 12px; }
+@media (max-width: 560px) { .field-grid, .row-grid { grid-template-columns: 1fr; } }
+.mono-box__text { font-family: ui-monospace, Consolas, monospace; font-size: .92rem; word-break: break-all; }
   </style>
   <meta property="og:image" content="https://www.zlbox.site/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Random Number Generator – Integers & Decimals" />
-  <meta name="twitter:description" content="Free online random number generator: pick integers or decimal numbers within a range, generate multiple values, and choose whether duplicates are allowed." />
+  <meta name="twitter:description" content="Free online random number generator. Pick integers or decimals in a range, generate multiple values, toggle uniqueness and sorting, then copy or download." />
   <meta name="twitter:image" content="https://www.zlbox.site/og-image.png" />
-
 
   <meta name="robots" content="index, follow" />
   <script type="application/ld+json">{
-  "@context": "https://schema.org",
-  "@type": "HowTo",
-  "name": "How to Generate Random Numbers",
-  "description": "Step by step guide: How to Generate Random Numbers",
-  "step": [
-    {
-      "@type": "HowToStep",
-      "name": "Set range",
-      "text": "Define the minimum and maximum values for your random number.",
-      "position": 1
-    },
-    {
-      "@type": "HowToStep",
-      "name": "Set quantity",
-      "text": "Choose how many random numbers to generate.",
-      "position": 2
-    },
-    {
-      "@type": "HowToStep",
-      "name": "Generate",
-      "text": "Click 'Generate' to get your random numbers.",
-      "position": 3
-    }
-  ]
-}</script>
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to Generate Random Numbers",
+    "description": "Step by step guide: How to Generate Random Numbers",
+    "step": [
+      { "@type": "HowToStep", "name": "Set range", "text": "Define minimum and maximum values.", "position": 1 },
+      { "@type": "HowToStep", "name": "Pick type & quantity", "text": "Choose integers or decimals and how many numbers to generate (1-50).", "position": 2 },
+      { "@type": "HowToStep", "name": "Generate", "text": "Toggle uniqueness/sorting then click Generate. Copy or download the results.", "position": 3 }
+    ]
+  }</script>
 </head>
 <body>
 
@@ -232,70 +107,73 @@
  <div class="hero">
  <div class="breadcrumb"><a href="../../index.html">Home</a> &rsaquo; <a href="../../categories/generator.html">Generator Tools</a> &rsaquo; Random Number Generator</div>
  <h1>Random Number Generator</h1>
- <p>Generate random integers or decimal numbers in a given range, with support for multiple picks and optional uniqueness — great for lottery picks, raffles, and dice rolls.</p>
+ <p>Generate random integers or decimal numbers in a range. Toggle uniqueness, sort results, then copy to clipboard or download as a text file.</p>
  </div>
 
  <div class="card">
- <div class="field-row">
+ <div class="field-grid">
  <div class="field">
- <label>Minimum</label>
- <input type="number" id="min" step="1" value="1" />
+ <label for="min">Minimum</label>
+ <input type="number" id="min" step="any" value="1" />
  </div>
  <div class="field">
- <label>Maximum</label>
- <input type="number" id="max" step="1" value="100" />
+ <label for="max">Maximum</label>
+ <input type="number" id="max" step="any" value="100" />
  </div>
  </div>
- <div class="field-row">
+
+ <div class="field-grid" style="margin-top:12px">
  <div class="field">
- <label>How many numbers</label>
- <input type="number" id="count" min="1" max="10000" step="1" value="5" />
+ <label for="count">Quantity (1–50)</label>
+ <input type="number" id="count" min="1" max="50" step="1" value="10" />
  </div>
  <div class="field">
- <label>Type</label>
+ <label for="type">Type</label>
  <select id="type">
- <option value="int" selected>Integers</option>
- <option value="dec">Decimals</option>
+  <option value="int" selected>Integers</option>
+  <option value="dec">Decimals</option>
  </select>
  </div>
  </div>
- <div class="row">
- <label><input type="checkbox" id="unique" checked /> Unique numbers (no duplicates)</label>
- </div>
- <div class="row">
- <label><input type="checkbox" id="sort" /> Sort results</label>
- </div>
- <button class="btn" id="gen">Generate</button>
 
- <div class="stats-grid">
- <div class="stat stat--accent">
- <div class="stat__value" id="out">—</div>
- <div class="stat__label">Results</div>
+ <div class="row-grid">
+ <div class="field">
+ <label><input type="checkbox" id="unique" checked /> Unique (no duplicates)</label>
+ </div>
+ <div class="field">
+ <label><input type="checkbox" id="sort" /> Sort (ascending)</label>
  </div>
  </div>
- <p id="note"></p>
+
+ <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px">
+ <button class="btn" id="gen" style="flex:1;min-width:140px">Generate</button>
+ <button class="btn btn--ghost" id="copy-btn">Copy All</button>
+ <button class="btn btn--ghost" id="download-btn">Download .txt</button>
+ </div>
+
+ <div id="list" class="result-grid"></div>
+ <p id="note" class="note"></p>
  </div>
 
  <div class="section">
  <h2>How it works</h2>
  <ol class="steps">
- <li>Set the minimum and maximum bounds, then choose how many numbers to generate.</li>
- <li>Pick <strong>Integers</strong> for whole numbers or <strong>Decimals</strong> for floating-point results (6 decimals).</li>
- <li>Check <strong>Unique numbers</strong> to prevent duplicates — available only when the range has enough values.</li>
+ <li>Set a range using minimum and maximum values (they can be negative or decimals).</li>
+ <li>Choose how many numbers to generate and whether you want integers or decimals.</li>
+ <li>Toggle uniqueness and sorting, then copy to clipboard or download as a text file.</li>
  </ol>
  </div>
 
  <section class="tool-info" aria-label="Tool information">
-  <h2>What is Random Number Generator?</h2>
-  <p>A random number generator (RNG) produces unpredictable numbers within a specified range. It uses cryptographic randomness to ensure each number is truly unpredictable, suitable for games, statistical sampling, and security applications.</p>
+  <h2>What is a Random Number Generator?</h2>
+  <p>A random number generator produces unpredictable numeric values within a specified range using cryptographically secure randomness — suitable for games, statistical sampling, and security applications.</p>
 
   <h2>How to use</h2>
   <ol class="steps-list">
-<li>Step 1: Enter the minimum and maximum range.</li>
-<li>Step 2: Set the quantity of numbers to generate.</li>
-<li>Step 3: Choose whether to allow or disallow duplicates.</li>
-<li>Step 4: Click 'Generate' to get your random numbers.</li>
-<li>Step 5: Copy the results or generate again.</li>
+<li>Step 1: Enter the minimum and maximum range values.</li>
+<li>Step 2: Choose a count (1-50) and the type of number (integer or decimal).</li>
+<li>Step 3: Toggle uniqueness and sort options if desired.</li>
+<li>Step 4: Click 'Generate'. Copy the results or download as a .txt file.</li>
   </ol>
 
   <h2>Use cases</h2>
@@ -314,17 +192,17 @@
 </details>
 <details class="faq-item">
   <summary>Can I generate multiple numbers at once?</summary>
-  <p>Yes. Enter the quantity you need and all numbers will be generated at once.</p>
+  <p>Yes. Enter the quantity you want (up to 50) and all numbers will be generated at once.</p>
 </details>
 <details class="faq-item">
-  <summary>Can I prevent duplicate numbers?</summary>
-  <p>Yes. Toggle the 'No duplicates' option to ensure all generated numbers are unique within the specified range.</p>
+  <summary>What happens if I choose 'unique' but my range is too small?</summary>
+  <p>If the range doesn't have enough unique integers, the tool warns and switches to allowing duplicates automatically.</p>
 </details>
   </div>
 </section>
 
 <script type="application/ld+json">
-{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How random are the numbers?", "acceptedAnswer": {"@type": "Answer", "text": "The generator uses cryptographically secure random number generation (crypto.getRandomValues), suitable for security-sensitive applications."}}, {"@type": "Question", "name": "Can I generate multiple numbers at once?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Enter the quantity you need and all numbers will be generated at once."}}, {"@type": "Question", "name": "Can I prevent duplicate numbers?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Toggle the 'No duplicates' option to ensure all generated numbers are unique within the specified range."}}]}
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How random are the numbers?", "acceptedAnswer": {"@type": "Answer", "text": "The generator uses cryptographically secure random number generation (crypto.getRandomValues), suitable for security-sensitive applications."}}, {"@type": "Question", "name": "Can I generate multiple numbers at once?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Enter the quantity you want (up to 50) and all numbers will be generated at once."}}, {"@type": "Question", "name": "What happens if I choose 'unique' but my range is too small?", "acceptedAnswer": {"@type": "Answer", "text": "If the range doesn't have enough unique integers, the tool warns and switches to allowing duplicates automatically."}}]}
 </script>
  <div class="section">
  <h2>Related tools</h2>
@@ -354,88 +232,126 @@
 
 <script>
 (function(){
- function rnd(){
- var a=new Uint32Array(1);
- crypto.getRandomValues(a);
- return a[0]/(0xffffffff+1);
- }
- function genInt(min,max){ return Math.floor(rnd()*(max-min+1))+min; }
- function genDec(min,max){ return rnd()*(max-min)+min; }
+  function rnd(){
+    var a = new Uint32Array(1);
+    crypto.getRandomValues(a);
+    return a[0]/(0xffffffff+1);
+  }
+  function genInt(min, max){ return Math.floor(rnd()*(max-min+1))+min; }
+  function genDec(min, max){ return rnd()*(max-min)+min; }
 
- var minEl=document.getElementById('min');
- var maxEl=document.getElementById('max');
- var countEl=document.getElementById('count');
- var typeEl=document.getElementById('type');
- var uniqueEl=document.getElementById('unique');
- var sortEl=document.getElementById('sort');
- var outEl=document.getElementById('out');
- var noteEl=document.getElementById('note');
+  var minEl = document.getElementById('min');
+  var maxEl = document.getElementById('max');
+  var countEl = document.getElementById('count');
+  var typeEl = document.getElementById('type');
+  var uniqueEl = document.getElementById('unique');
+  var sortEl = document.getElementById('sort');
+  var listEl = document.getElementById('list');
+  var noteEl = document.getElementById('note');
 
- function fmtInt(n){ return String(n); }
- function fmtDec(n){ return n.toFixed(6).replace(/\.?0+$/,''); }
+  function fmtNumber(n){
+    if (typeof n !== 'number') return String(n);
+    if (!isFinite(n)) return String(n);
+    if (Math.floor(n) === n) return n.toLocaleString();
+    return Number(n.toFixed(6)).toLocaleString();
+  }
 
- function run(){
- var min=parseFloat(minEl.value), max=parseFloat(maxEl.value);
- var cnt=parseInt(countEl.value,10);
- var isInt=typeEl.value==='int';
- var unique=uniqueEl.checked;
- var sort=sortEl.checked;
+  function run(){
+    var min = parseFloat(minEl.value);
+    var max = parseFloat(maxEl.value);
+    var cnt = parseInt(countEl.value, 10);
+    var isInt = typeEl.value === 'int';
+    var unique = uniqueEl.checked;
+    var sort = sortEl.checked;
 
- noteEl.textContent='';
- if(isNaN(min)||isNaN(max)||isNaN(cnt)||cnt<1){
- outEl.textContent='Please enter valid numbers.'; return;
- }
- if(min>max){ var t=min; min=max; max=t; }
- if(isInt){
- min=Math.ceil(min); max=Math.floor(max);
- if(min>max){ outEl.textContent='Invalid integer range.'; return; }
- var rangeSize=max-min+1;
- if(unique && cnt>rangeSize){
- noteEl.textContent='Range has only '+rangeSize+' unique integers; duplicates enabled automatically.';
- unique=false;
- }
- if(cnt>10000){ cnt=10000; countEl.value=10000; }
- var results=[];
- if(unique && rangeSize<=cnt*50){
- // build array and shuffle (Fisher-Yates sample)
- var pool=[];
- for(var i=min;i<=max;i++) pool.push(i);
- for(var i=0;i<cnt;i++){
- var j=i+Math.floor(rnd()*(pool.length-i));
- var tmp=pool[i]; pool[i]=pool[j]; pool[j]=tmp;
- results.push(pool[i]);
- }
- } else if(unique){
- var set=new Set();
- while(set.size<cnt) set.add(genInt(min,max));
- results=Array.from(set);
- } else {
- for(var i=0;i<cnt;i++) results.push(genInt(min,max));
- }
- if(sort) results.sort(function(a,b){return a-b;});
- outEl.textContent=results.map(fmtInt).join(', ');
- } else {
- if(cnt>10000){ cnt=10000; countEl.value=10000; }
- var results=[];
- if(unique){
- var set=new Set();
- var guard=0;
- while(set.size<cnt && guard<cnt*200){
- set.add(parseFloat(fmtDec(genDec(min,max))));
- guard++;
- }
- results=Array.from(set);
- while(results.length<cnt) results.push(genDec(min,max));
- } else {
- for(var i=0;i<cnt;i++) results.push(genDec(min,max));
- }
- if(sort) results.sort(function(a,b){return a-b;});
- outEl.textContent=results.map(fmtDec).join(', ');
- }
- }
+    noteEl.textContent = '';
+    listEl.innerHTML = '';
 
- document.getElementById('gen').addEventListener('click',run);
- run();
+    if (isNaN(min) || isNaN(max) || isNaN(cnt) || cnt < 1){
+      noteEl.textContent = 'Please enter valid range and quantity.';
+      return;
+    }
+    cnt = Math.max(1, Math.min(50, cnt));
+    countEl.value = cnt;
+    if (min > max){ var t = min; min = max; max = t; }
+
+    var results = [];
+    if (isInt){
+      min = Math.ceil(min); max = Math.floor(max);
+      if (min > max){ noteEl.textContent = 'Invalid integer range.'; return; }
+      var rangeSize = max - min + 1;
+      if (unique && cnt > rangeSize){
+        noteEl.textContent = 'Range only has '+rangeSize.toLocaleString()+' unique integers; duplicates enabled.';
+        unique = false;
+      }
+      if (unique){
+        var set = new Set();
+        while (set.size < cnt) set.add(genInt(min, max));
+        results = Array.from(set);
+      } else {
+        for (var i=0;i<cnt;i++) results.push(genInt(min, max));
+      }
+    } else {
+      if (unique){
+        var set = new Set();
+        while (set.size < cnt) set.add(genDec(min, max));
+        results = Array.from(set);
+      } else {
+        for (var i=0;i<cnt;i++) results.push(genDec(min, max));
+      }
+    }
+    if (sort) results.sort(function(a,b){ return a-b; });
+
+    for (var j=0;j<results.length;j++){
+      var row = document.createElement('div');
+      row.className = 'mono-box';
+      row.style.padding = '10px 12px';
+      row.innerHTML = '<span class="mono-box__text">'+fmtNumber(results[j])+'</span><button class="btn">Copy</button>';
+      (function(val){ row.querySelector('button').addEventListener('click', function(){ copyText(val); }); })(String(results[j]));
+      listEl.appendChild(row);
+    }
+    noteEl.textContent = 'Generated '+results.length.toLocaleString()+' number'+(results.length===1?'':'s')+' in ['+min+', '+max+'].';
+  }
+
+  function copyText(txt){
+    if (navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(function(){
+        noteEl.textContent = 'Copied to clipboard.';
+      }, function(){ fallbackCopy(txt); });
+    } else { fallbackCopy(txt); }
+  }
+  function fallbackCopy(txt){
+    var ta = document.createElement('textarea');
+    ta.value = txt; document.body.appendChild(ta); ta.select();
+    try { document.execCommand('copy'); noteEl.textContent = 'Copied to clipboard.'; }
+    catch(e){ noteEl.textContent = 'Copy failed.'; }
+    document.body.removeChild(ta);
+  }
+
+  function collectStrings(){
+    var items = Array.from(document.querySelectorAll('#list .mono-box__text')).map(function(el){ return el.textContent.trim(); });
+    return items;
+  }
+
+  document.getElementById('gen').addEventListener('click', run);
+  document.getElementById('copy-btn').addEventListener('click', function(){
+    var items = collectStrings();
+    if (!items.length){ noteEl.textContent = 'Nothing to copy.'; return; }
+    copyText(items.join('\n'));
+  });
+  document.getElementById('download-btn').addEventListener('click', function(){
+    var items = collectStrings();
+    if (!items.length){ noteEl.textContent = 'Nothing to download.'; return; }
+    var blob = new Blob([items.join('\n')], { type:'text/plain;charset=utf-8' });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = 'random-numbers-'+items.length+'.txt';
+    document.body.appendChild(a); a.click();
+    setTimeout(function(){ document.body.removeChild(a); URL.revokeObjectURL(url); }, 50);
+    noteEl.textContent = 'Downloaded '+items.length.toLocaleString()+' numbers.';
+  });
+  run();
 })();
 </script>
 </body>

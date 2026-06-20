@@ -241,8 +241,14 @@
  <button class="tabs__btn" data-unit="imperial">Imperial (lb/in)</button>
  </div>
 
- <div class="tab-panel is-active" id="panel-metric">
- <div class="field-row">
+ <div class="field-grid" id="panel-metric">
+ <div class="field">
+ <label>Gender</label>
+ <select id="sex-m">
+ <option value="male">Male</option>
+ <option value="female">Female</option>
+ </select>
+ </div>
  <div class="field">
  <label>Weight (kg)</label>
  <input type="number" id="w-kg" min="1" step="0.1" value="70" />
@@ -252,10 +258,15 @@
  <input type="number" id="h-cm" min="1" step="0.1" value="170" />
  </div>
  </div>
- </div>
 
- <div class="tab-panel" id="panel-imperial">
- <div class="field-row">
+ <div class="field-grid" id="panel-imperial" style="display:none">
+ <div class="field">
+ <label>Gender</label>
+ <select id="sex-i">
+ <option value="male">Male</option>
+ <option value="female">Female</option>
+ </select>
+ </div>
  <div class="field">
  <label>Weight (lb)</label>
  <input type="number" id="w-lb" min="1" step="0.1" value="154" />
@@ -263,7 +274,6 @@
  <div class="field">
  <label>Height (in)</label>
  <input type="number" id="h-in" min="1" step="0.1" value="67" />
- </div>
  </div>
  </div>
 
@@ -276,11 +286,39 @@
  <div class="stat__value" id="bmi-cat">—</div>
  <div class="stat__label">Category</div>
  </div>
+ <div class="stat">
+ <div class="stat__value" id="bmi-ideal">—</div>
+ <div class="stat__label">Ideal Weight (Devine)</div>
  </div>
- <p id="bmi-note">
- WHO reference ranges: Underweight &lt; 18.5 &middot; Normal 18.5–25 &middot; Overweight 25–30 &middot; Obese &gt; 30.
- </p>
  </div>
+
+ <div class="bmi-bar" id="bmi-bar" aria-label="BMI category">
+ <div class="bmi-bar__seg bmi-bar__seg--u"></div>
+ <div class="bmi-bar__seg bmi-bar__seg--n"></div>
+ <div class="bmi-bar__seg bmi-bar__seg--o"></div>
+ <div class="bmi-bar__seg bmi-bar__seg--ob"></div>
+ <div class="bmi-bar__marker" id="bmi-marker"></div>
+ </div>
+ <div class="bmi-bar__labels">
+ <span>Underweight &lt;18.5</span>
+ <span>Normal 18.5–25</span>
+ <span>Overweight 25–30</span>
+ <span>Obese &gt;30</span>
+ </div>
+
+ <div class="note note--success" id="bmi-note"></div>
+ </div>
+
+ <style>
+ .bmi-bar{display:flex;height:14px;border-radius:7px;overflow:hidden;margin:12px 0 4px;position:relative;border:1px solid var(--border);}
+ .bmi-bar__seg{flex:1;}
+ .bmi-bar__seg--u{background:#60a5fa;flex:1.85;}
+ .bmi-bar__seg--n{background:#34d399;flex:1.5;}
+ .bmi-bar__seg--o{background:#fbbf24;flex:1;}
+ .bmi-bar__seg--ob{background:#f87171;flex:1.5;}
+ .bmi-bar__marker{position:absolute;top:-4px;width:4px;height:22px;background:#111827;border-radius:2px;transition:left .2s;left:0;}
+ .bmi-bar__labels{display:flex;justify-content:space-between;font-size:.72rem;color:#6b7280;flex-wrap:wrap;gap:6px;}
+ </style>
 
  <div class="section">
  <h2>How it works</h2>
@@ -360,54 +398,85 @@
 <script>
 (function(){
  var tabs=document.querySelectorAll('#tabs .tabs__btn');
- var panels={metric:document.getElementById('panel-metric'),imperial:document.getElementById('panel-imperial')};
+ var panelM=document.getElementById('panel-metric');
+ var panelI=document.getElementById('panel-imperial');
  var current='metric';
+
+ function update(){
+ var bmi=null, w=0, h=0, ideal=null, unitL='', sex='male';
+ if(current==='metric'){
+ w=parseFloat(document.getElementById('w-kg').value);
+ h=parseFloat(document.getElementById('h-cm').value);
+ sex=document.getElementById('sex-m').value;
+ unitL='kg';
+ if(w>0 && h>0){
+ var hm=h/100;
+ bmi=w/(hm*hm);
+ ideal=(sex==='male')?(50+0.9*(h-152)):(45.5+0.9*(h-152));
+ }
+ } else {
+ w=parseFloat(document.getElementById('w-lb').value);
+ h=parseFloat(document.getElementById('h-in').value);
+ sex=document.getElementById('sex-i').value;
+ unitL='lb';
+ if(w>0 && h>0){
+ bmi=703*w/(h*h);
+ ideal=(sex==='male')?(50+0.9*(h*2.54-152)):(45.5+0.9*(h*2.54-152));
+ if(ideal) ideal=ideal*2.20462;
+ }
+ }
+ var valEl=document.getElementById('bmi-val');
+ var catEl=document.getElementById('bmi-cat');
+ var idealEl=document.getElementById('bmi-ideal');
+ var noteEl=document.getElementById('bmi-note');
+ var marker=document.getElementById('bmi-marker');
+
+ if(bmi===null||isNaN(bmi)){
+ valEl.textContent='—'; valEl.style.color='';
+ catEl.textContent='—'; catEl.style.color='';
+ idealEl.textContent='—'; idealEl.style.color='';
+ noteEl.textContent=''; noteEl.style.display='none';
+ marker.style.left='0%';
+ return;
+ }
+ valEl.textContent=bmi.toFixed(2);
+ var cat='', color='', idx=0;
+ if(bmi<18.5){ cat='Underweight'; color='#3b82f6'; idx=0; }
+ else if(bmi<25){ cat='Normal'; color='#10b981'; idx=1; }
+ else if(bmi<30){ cat='Overweight'; color='#f59e0b'; idx=2; }
+ else { cat='Obese'; color='#ef4444'; idx=3; }
+ catEl.textContent=cat; catEl.style.color=color;
+ valEl.style.color=color;
+
+ var idealTxt='—';
+ if(ideal!==null && !isNaN(ideal)){
+ idealEl.textContent=ideal.toFixed(2)+' '+unitL;
+ idealEl.style.color=color;
+ idealTxt=ideal.toFixed(2)+' '+unitL;
+ } else { idealEl.textContent='—'; }
+
+ var minV=15, maxV=40;
+ var clamped=Math.max(minV,Math.min(maxV,bmi));
+ var pct=((clamped-minV)/(maxV-minV))*100;
+ marker.style.left=pct+'%';
+
+ noteEl.innerHTML='Your BMI is <strong>'+bmi.toFixed(2)+'</strong> ('+cat+'). Ideal weight range (Devine): ~<strong>'+idealTxt+'</strong>.';
+ noteEl.style.display='block';
+ }
+
  tabs.forEach(function(b){
  b.addEventListener('click',function(){
  tabs.forEach(function(x){x.classList.remove('is-active');});
  b.classList.add('is-active');
  current=b.getAttribute('data-unit');
- Object.keys(panels).forEach(function(k){panels[k].classList.toggle('is-active',k===current);});
+ panelM.style.display=(current==='metric')?'grid':'none';
+ panelI.style.display=(current==='imperial')?'grid':'none';
  update();
  });
  });
-
- function update(){
- var bmi=null, w=0, h=0;
- if(current==='metric'){
- w=parseFloat(document.getElementById('w-kg').value);
- h=parseFloat(document.getElementById('h-cm').value);
- if(w>0 && h>0){
- var hm=h/100;
- bmi=w/(hm*hm);
- }
- } else {
- w=parseFloat(document.getElementById('w-lb').value);
- h=parseFloat(document.getElementById('h-in').value);
- if(w>0 && h>0){
- bmi=703*w/(h*h);
- }
- }
- var valEl=document.getElementById('bmi-val');
- var catEl=document.getElementById('bmi-cat');
- if(bmi===null||isNaN(bmi)){
- valEl.textContent='—'; valEl.style.color='';
- catEl.textContent='—'; catEl.style.color='';
- return;
- }
- valEl.textContent=bmi.toFixed(1);
- var cat='', color='';
- if(bmi<18.5){ cat='Underweight'; color='#3b82f6'; }
- else if(bmi<25){ cat='Normal'; color='#10b981'; }
- else if(bmi<30){ cat='Overweight'; color='#f59e0b'; }
- else { cat='Obese'; color='#ef4444'; }
- catEl.textContent=cat;
- catEl.style.color=color;
- valEl.style.color=color;
- }
-
- ['w-kg','h-cm','w-lb','h-in'].forEach(function(id){
+ ['w-kg','h-cm','w-lb','h-in','sex-m','sex-i'].forEach(function(id){
  var el=document.getElementById(id);
+ if(!el) return;
  el.addEventListener('input',update);
  el.addEventListener('change',update);
  });

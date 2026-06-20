@@ -106,9 +106,24 @@
   var c=document.getElementById('o-case'),b=document.getElementById('o-blank'),t=document.getElementById('o-trim'),k=document.getElementById('o-keep');
   var s=document.getElementById('stats');
   document.getElementById('proc').addEventListener('click',function(){
-    var lines=i.value.split(/\r?\n/);var keep=k.value==='last'?{}:[];var out=[];var seen=new Set();
-    for(var x=0;x<lines.length;x++){var line=t.checked?lines[x].replace(/^\s+|\s+$/g,''):lines[x];if(b.checked&&line==='')continue;var key=c.checked?line.toLowerCase():line;if(keep==='last'){if(!seen.has(key)){seen.add(key);out.push(line);}}else{if(!seen.has(key)){seen.add(key);out.push(line);}}}
-    if(k.value==='last'){out=[];seen=new Set();for(var x=lines.length-1;x>=0;x--){var line=t.checked?lines[x].replace(/^\s+|\s+$/g,''):lines[x];if(b.checked&&line==='')continue;var key=c.checked?line.toLowerCase():line;if(!seen.has(key)){seen.add(key);out.push(line);}}out.reverse();}
+    var lines=i.value.split(/\r?\n/);
+    var keepMode=k.value;var out=[];var seen=new Set();
+    if(keepMode==='last'){
+      for(var x=lines.length-1;x>=0;x--){
+        var line=t.checked?lines[x].replace(/^\s+|\s+$/g,''):lines[x];
+        if(b.checked&&line==='')continue;
+        var key=c.checked?line.toLowerCase():line;
+        if(!seen.has(key)){seen.add(key);out.push(line);}
+      }
+      out.reverse();
+    }else{
+      for(var x=0;x<lines.length;x++){
+        var line=t.checked?lines[x].replace(/^\s+|\s+$/g,''):lines[x];
+        if(b.checked&&line==='')continue;
+        var key=c.checked?line.toLowerCase():line;
+        if(!seen.has(key)){seen.add(key);out.push(line);}
+      }
+    }
     o.value=out.join('\n');s.textContent='Input: '+lines.length+' lines → Output: '+out.length+' lines (removed '+(lines.length-out.length)+')';
   });
   document.getElementById('clr').addEventListener('click',function(){i.value='';o.value='';s.textContent='';});

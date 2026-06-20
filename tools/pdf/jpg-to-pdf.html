@@ -266,7 +266,7 @@
         <a href="compress-pdf.html">Compress PDF</a><span class="footer-divider"></span>
         <a href="jpg-to-pdf.html">JPG to PDF</a>
       </div>
-      <p class="footer-copy">&copy; 2025 My Tool Lab. All rights reserved.</p>
+      <p class="footer-copy">&copy; 2026 My Tool Lab. All rights reserved.</p>
     </div>
   </footer>
 
@@ -338,7 +338,7 @@
 
     clearBtn.addEventListener('click', function(){ images=[]; statusEl.textContent=''; statusEl.className='status'; render(); });
 
-    convertBtn.addEventListener('click', function(){
+    convertBtn.addEventListener('click', async function(){
       if(images.length===0) return;
       statusEl.className='status'; statusEl.textContent='Converting...';
       convertBtn.disabled = true;
@@ -348,23 +348,50 @@
         const ps = pageSize.value;
         const orient = orientation.value;
         const marginMm = parseInt(margin.value,10) || 0;
-        // For "fit": create variable-sized pages matching image dims.
+
+        async function getDims(dataUrl){
+          return new Promise(function(resolve){
+            const tmp = new Image();
+            tmp.onload = function(){ resolve({ w: tmp.naturalWidth, h: tmp.naturalHeight }); };
+            tmp.onerror = function(){ resolve({ w: 800, h: 600 }); };
+            tmp.src = dataUrl;
+          });
+        }
+        function getFormat(dataUrl){
+          if(/^data:image\/png/i.test(dataUrl)) return 'PNG';
+          if(/^data:image\/webp/i.test(dataUrl)) return 'JPEG'; // jsPDF lacks WebP: re-encode via canvas
+          return 'JPEG';
+        }
+        async function ensureJpegFmt(img){
+          const fmt = getFormat(img.dataUrl);
+          if(fmt === 'JPEG') return { src: img.dataUrl, fmt: 'JPEG' };
+          // Re-encode PNG/WebP to JPEG with white background for reliability
+          const dims = await getDims(img.dataUrl);
+          return new Promise(function(resolve){
+            const im = new Image();
+            im.onload = function(){
+              const canvas = document.createElement('canvas');
+              canvas.width = dims.w || im.naturalWidth;
+              canvas.height = dims.h || im.naturalHeight;
+              const ctx = canvas.getContext('2d');
+              ctx.fillStyle = '#ffffff';
+              ctx.fillRect(0,0,canvas.width,canvas.height);
+              ctx.drawImage(im, 0, 0);
+              resolve({ src: canvas.toDataURL('image/jpeg', 0.92), fmt: 'JPEG' });
+            };
+            im.onerror = function(){ resolve({ src: img.dataUrl, fmt: 'JPEG' }); };
+            im.src = img.dataUrl;
+          });
+        }
+
         let doc = null;
-        images.forEach((img, idx)=>{
-          // Load image to get natural dimensions
-          const tmp = new Image();
-          tmp.src = img.dataUrl;
-          // Data URIs for files created via FileReader synchronously decode in most browsers when loaded
-          // but to be safe, force synchronous rendering if complete, otherwise we already have data
-          let w = tmp.naturalWidth, h = tmp.naturalHeight;
-          if(!w || !h){ // fallback
-            w = 800; h = 600;
-          }
+        for(let idx=0; idx<images.length; idx++){
+          const img = images[idx];
+          const dims = await getDims(img.dataUrl);
+          const w = dims.w, h = dims.h;
           let pageW, pageH;
           if(ps === 'fit'){
-            // Use image dimensions in pixels at ~96 dpi => convert to mm (1px ≈ 0.2646 mm)
-            pageW = w * 0.264583;
-            pageH = h * 0.264583;
+            pageW = w * 0.264583; pageH = h * 0.264583;
           } else if(ps === 'letter'){
             pageW = 215.9; pageH = 279.4;
             if(orient === 'landscape'){ const t = pageW; pageW = pageH; pageH = t; }
@@ -372,6 +399,8 @@
             pageW = 210; pageH = 297;
             if(orient === 'landscape'){ const t = pageW; pageW = pageH; pageH = t; }
           }
+          const pageTooSmall = (pageW - 2*marginMm) <= 2 || (pageH - 2*marginMm) <= 2;
+          if(pageTooSmall){ marginMm = 0; }
 
           if(idx===0){
             doc = new jsPDF({ unit:'mm', format:[pageW, pageH], orientation: orient });
@@ -381,7 +410,6 @@
 
           const drawW = pageW - 2*marginMm;
           const drawH = pageH - 2*marginMm;
-          // Fit image while preserving aspect ratio
           const imgRatio = w/h;
           const pageRatio = drawW/drawH;
           let pw, ph;
@@ -392,9 +420,11 @@
           }
           const x = marginMm + (drawW - pw)/2;
           const y = marginMm + (drawH - ph)/2;
-          doc.addImage(img.dataUrl, 'JPEG', x, y, pw, ph, undefined, 'FAST');
-        });
-        doc.save('images-to-pdf.pdf');
+
+          const imageData = await ensureJpegFmt(img);
+          doc.addImage(imageData.src, imageData.fmt, x, y, pw, ph, undefined, 'FAST');
+        }
+        if(doc) doc.save('images-to-pdf.pdf');
         statusEl.className='status status--success';
         statusEl.textContent='PDF generated with '+images.length+' image(s).';
       } catch(err){

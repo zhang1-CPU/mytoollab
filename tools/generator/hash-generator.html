@@ -9,6 +9,24 @@
  <link rel="canonical" href="https://www.zlbox.site/tools/generator/hash-generator.html" />
  <meta name="google-site-verification" content="google4bd1e08685667667" />
  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
+/* Navigation toggle for mobile */
+(function() {
+  var toggle = document.querySelector('.nav-toggle');
+  var navLinks = document.querySelector('.nav-links');
+  if (!toggle || !navLinks) return;
+  toggle.addEventListener('click', function() {
+    var isOpen = navLinks.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', isOpen);
+  });
+  // Highlight active link
+  var path = location.pathname;
+  document.querySelectorAll('.nav-link').forEach(function(link) {
+    var href = link.getAttribute('href');
+    if (href && (path === href || path.indexOf(href.replace('/index.html','')) > -1)) {
+      link.classList.add('active');
+    }
+  });
+})();
 
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <meta property="og:title" content="Hash Generator – MD5, SHA-1, SHA-256, SHA-384, SHA-512 | My Tool Lab" />
@@ -17,8 +35,170 @@
   <meta property="og:url" content="https://www.zlbox.site/tools/generator/hash-generator.html" />
   <meta property="og:site_name" content="My Tool Lab" />
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Hash Generator – MD5, SHA-1, SHA-256, SHA-384, SHA-512", "description": "Free online hash generator: compute MD5, SHA-1, SHA-256, SHA-384, and SHA-512 hashes for text or uploaded files. Results in both hex and Base64.", "url": "https://www.zlbox.site/tools/generator/hash-generator.html", "applicationCategory": "Generator Tool", "operatingSystem": "Any (browser-based)", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "browserRequirements": "Requires a modern web browser with JavaScript enabled."}</script>
-</head>
+
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.zlbox.site/"}, {"@type": "ListItem", "position": 2, "name": "Generator Tools", "item": null}]}</script>
+
+  <style>
+/* ── Site Navigation ── */
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255,255,255,.97);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 1px 4px rgba(0,0,0,.05);
+}
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 52px;
+}
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--brand);
+  text-decoration: none;
+  flex-shrink: 0;
+  margin-right: 12px;
+}
+.nav-logo:hover { text-decoration: none; }
+.nav-logo-icon {
+  width: 30px;
+  height: 30px;
+  background: var(--brand);
+  color: #fff;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: .9rem;
+  flex-shrink: 0;
+}
+.nav-logo-text { font-size: .95rem; }
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  flex: 1;
+}
+.nav-links::-webkit-scrollbar { display: none; }
+.nav-link {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 10px;
+  font-size: .82rem;
+  font-weight: 500;
+  color: var(--text);
+  border-radius: 6px;
+  white-space: nowrap;
+  transition: all .15s;
+  flex-shrink: 0;
+}
+.nav-link:hover {
+  background: var(--brand);
+  color: #fff;
+  text-decoration: none;
+}
+.nav-link.active {
+  background: #eff6ff;
+  color: var(--brand);
+}
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  width: 32px;
+  height: 32px;
+  padding: 4px;
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  cursor: pointer;
+  flex-shrink: 0;
+  margin-left: auto;
+}
+.nav-toggle span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: var(--text);
+  border-radius: 1px;
+}
+@media (max-width: 768px) {
+  .nav-logo-text { display: none; }
+  .nav-inner { gap: 6px; }
+  .nav-toggle { display: flex; }
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 52px;
+    left: 0;
+    right: 0;
+    background: #fff;
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 4px 12px rgba(0,0,0,.1);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 8px 0;
+    z-index: 99;
+    overflow: visible;
+  }
+  .nav-links.open { display: flex; }
+  .nav-link {
+    width: 100%;
+    padding: 10px 20px;
+    font-size: .9rem;
+    border-radius: 0;
+  }
+}
+  </style>
+  <meta property="og:image" content="https://www.zlbox.site/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Hash Generator – MD5, SHA-1, SHA-256, SHA-384, SHA-512" />
+  <meta name="twitter:description" content="Free online hash generator: compute MD5, SHA-1, SHA-256, SHA-384, and SHA-512 hashes for text or uploaded files. Results in both hex and Base64." />
+  <meta name="twitter:image" content="https://www.zlbox.site/og-image.png" />
+
+
+  <meta name="robots" content="index, follow" /></head>
 <body>
+
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo" aria-label="My Tool Lab Home">
+        <span class="nav-logo-icon">M</span>
+        <span class="nav-logo-text">My Tool Lab</span>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-links" role="list">
+        <a href="/tools/index.html" class="nav-link" role="listitem">All Tools</a>
+        <a href="/categories/text.html" class="nav-link" role="listitem">Text</a>
+        <a href="/categories/calculator.html" class="nav-link" role="listitem">Calculator</a>
+        <a href="/categories/generator.html" class="nav-link" role="listitem">Generator</a>
+        <a href="/categories/image.html" class="nav-link" role="listitem">Image</a>
+        <a href="/categories/pdf.html" class="nav-link" role="listitem">PDF</a>
+        <a href="/blog/index.html" class="nav-link" role="listitem">Blog</a>
+      </div>
+    </div>
+  </nav>
+
 <div class="container-md">
  <div class="hero">
  <div class="breadcrumb"><a href="../../index.html">Home</a> &rsaquo; <a href="../../categories/generator.html">Generator Tools</a> &rsaquo; Hash Generator</div>
@@ -82,7 +262,49 @@
 
  <div class="section">
  <h2>Related tools</h2>
- <div class="related-grid">
+ 
+<section class="tool-info" aria-label="Tool information">
+  <h2>What is Hash Generator?</h2>
+  <p>A hash generator computes a fixed-length string (hash) from any input text or file using cryptographic algorithms like MD5, SHA-1, SHA-256, SHA-384, and SHA-512. Hashes are one-way functions — you can't reverse a hash to get the original input.</p>
+
+  <h2>How to use</h2>
+  <ol class="steps-list">
+<li>Step 1: Type or paste text into the input field, or click 'Choose File' to hash a file.</li>
+<li>Step 2: Click 'Compute Hashes' to generate all hash values.</li>
+<li>Step 3: Copy any hash (hex or Base64) with one click.</li>
+<li>Step 4: Hashes are computed entirely in your browser — no data is uploaded.</li>
+  </ol>
+
+  <h2>Use cases</h2>
+  <ul class="usecase-list">
+<li>Verifying file integrity after downloads or transfers.</li>
+<li>Storing password representations in databases.</li>
+<li>Generating checksums for digital forensics and IT audits.</li>
+<li>Creating unique identifiers for documents and records.</li>
+  </ul>
+
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq-section">
+<details class="faq-item">
+  <summary>Is MD5 still secure for passwords?</summary>
+  <p>No. MD5 is considered cryptographically broken for security purposes. It's too fast and vulnerable to collision attacks. Use SHA-256 or stronger for security-sensitive applications.</p>
+</details>
+<details class="faq-item">
+  <summary>Can I reverse a hash?</summary>
+  <p>No. Hashing is a one-way function. There's no way to recover the original input from a hash. This is by design for security.</p>
+</details>
+<details class="faq-item">
+  <summary>What is the difference between hex and Base64?</summary>
+  <p>Hex uses 0-9 and a-f (base 16), producing longer strings. Base64 uses 64 ASCII characters, producing shorter but less human-readable output.</p>
+</details>
+  </div>
+</section>
+
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is MD5 still secure for passwords?", "acceptedAnswer": {"@type": "Answer", "text": "No. MD5 is considered cryptographically broken for security purposes. It's too fast and vulnerable to collision attacks. Use SHA-256 or stronger for security-sensitive applications."}}, {"@type": "Question", "name": "Can I reverse a hash?", "acceptedAnswer": {"@type": "Answer", "text": "No. Hashing is a one-way function. There's no way to recover the original input from a hash. This is by design for security."}}, {"@type": "Question", "name": "What is the difference between hex and Base64?", "acceptedAnswer": {"@type": "Answer", "text": "Hex uses 0-9 and a-f (base 16), producing longer strings. Base64 uses 64 ASCII characters, producing shorter but less human-readable output."}}]}
+</script>
+
+<div class="related-grid">
  <a href="uuid-generator.html">UUID Generator</a>
  <a href="random-number-generator.html">Random Number Generator</a>
  <a href="what-is-my-ip.html">What Is My IP</a>

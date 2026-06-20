@@ -10,6 +10,24 @@
  <meta name="google-site-verification" content="google4bd1e08685667667" />
  <meta name="robots" content="index, follow" />
  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
+/* Navigation toggle for mobile */
+(function() {
+  var toggle = document.querySelector('.nav-toggle');
+  var navLinks = document.querySelector('.nav-links');
+  if (!toggle || !navLinks) return;
+  toggle.addEventListener('click', function() {
+    var isOpen = navLinks.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', isOpen);
+  });
+  // Highlight active link
+  var path = location.pathname;
+  document.querySelectorAll('.nav-link').forEach(function(link) {
+    var href = link.getAttribute('href');
+    if (href && (path === href || path.indexOf(href.replace('/index.html','')) > -1)) {
+      link.classList.add('active');
+    }
+  });
+})();
  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" crossorigin="anonymous"></script>
  <link rel="stylesheet" href="../../css/components.css" />
  <style>
@@ -27,7 +45,134 @@
  .icon-btn.danger:hover{background:#fee2e2;color:#b91c1c;border-color:#fecaca;}
  .status{margin-top:10px;font-size:.9rem;text-align:center;padding:10px;border-radius:var(--radius-sm);background:#f0fdf4;border:1px solid #bbf7d0;color:#166534;}
  .status.error{background:#fef2f2;border-color:#fecaca;color:#b91c1c;}
- </style>
+ 
+/* ── Site Navigation ── */
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255,255,255,.97);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 1px 4px rgba(0,0,0,.05);
+}
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 52px;
+}
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--brand);
+  text-decoration: none;
+  flex-shrink: 0;
+  margin-right: 12px;
+}
+.nav-logo:hover { text-decoration: none; }
+.nav-logo-icon {
+  width: 30px;
+  height: 30px;
+  background: var(--brand);
+  color: #fff;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: .9rem;
+  flex-shrink: 0;
+}
+.nav-logo-text { font-size: .95rem; }
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  flex: 1;
+}
+.nav-links::-webkit-scrollbar { display: none; }
+.nav-link {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 10px;
+  font-size: .82rem;
+  font-weight: 500;
+  color: var(--text);
+  border-radius: 6px;
+  white-space: nowrap;
+  transition: all .15s;
+  flex-shrink: 0;
+}
+.nav-link:hover {
+  background: var(--brand);
+  color: #fff;
+  text-decoration: none;
+}
+.nav-link.active {
+  background: #eff6ff;
+  color: var(--brand);
+}
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  width: 32px;
+  height: 32px;
+  padding: 4px;
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  cursor: pointer;
+  flex-shrink: 0;
+  margin-left: auto;
+}
+.nav-toggle span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: var(--text);
+  border-radius: 1px;
+}
+@media (max-width: 768px) {
+  .nav-logo-text { display: none; }
+  .nav-inner { gap: 6px; }
+  .nav-toggle { display: flex; }
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 52px;
+    left: 0;
+    right: 0;
+    background: #fff;
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 4px 12px rgba(0,0,0,.1);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 8px 0;
+    z-index: 99;
+    overflow: visible;
+  }
+  .nav-links.open { display: flex; }
+  .nav-link {
+    width: 100%;
+    padding: 10px 20px;
+    font-size: .9rem;
+    border-radius: 0;
+  }
+}
+  </style>
 
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <meta property="og:title" content="JPG to PDF – Convert Images to PDF Documents Online Free | My Tool Lab" />
@@ -36,8 +181,40 @@
   <meta property="og:url" content="https://www.zlbox.site/tools/pdf/jpg-to-pdf.html" />
   <meta property="og:site_name" content="My Tool Lab" />
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "JPG to PDF – Convert Images to PDF Documents Online Free", "description": "Free online JPG to PDF converter. Convert images (JPG, PNG, WebP) into a single PDF. Upload multiple images, reorder, and choose page size — all processed in your browser.", "url": "https://www.zlbox.site/tools/pdf/jpg-to-pdf.html", "applicationCategory": "Pdf Tool", "operatingSystem": "Any (browser-based)", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "browserRequirements": "Requires a modern web browser with JavaScript enabled."}</script>
+
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.zlbox.site/"}, {"@type": "ListItem", "position": 2, "name": "PDF Tools", "item": null}]}</script>
+  <meta property="og:image" content="https://www.zlbox.site/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="JPG to PDF – Convert Images to PDF Documents Online Free" />
+  <meta name="twitter:description" content="Free online JPG to PDF converter. Convert images (JPG, PNG, WebP) into a single PDF. Upload multiple images, reorder, and choose page size — all processed in your browser." />
+  <meta name="twitter:image" content="https://www.zlbox.site/og-image.png" />
+
 </head>
 <body>
+
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo" aria-label="My Tool Lab Home">
+        <span class="nav-logo-icon">M</span>
+        <span class="nav-logo-text">My Tool Lab</span>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-links" role="list">
+        <a href="/tools/index.html" class="nav-link" role="listitem">All Tools</a>
+        <a href="/categories/text.html" class="nav-link" role="listitem">Text</a>
+        <a href="/categories/calculator.html" class="nav-link" role="listitem">Calculator</a>
+        <a href="/categories/generator.html" class="nav-link" role="listitem">Generator</a>
+        <a href="/categories/image.html" class="nav-link" role="listitem">Image</a>
+        <a href="/categories/pdf.html" class="nav-link" role="listitem">PDF</a>
+        <a href="/blog/index.html" class="nav-link" role="listitem">Blog</a>
+      </div>
+    </div>
+  </nav>
+
 <div class="container-md">
  <div class="hero">
  <div class="breadcrumb"><a href="../../index.html">Home</a> &rsaquo; <a href="../../categories/pdf.html">PDF Tools</a> &rsaquo; JPG to PDF</div>
@@ -99,7 +276,49 @@
 
  <div class="section">
  <h2>Related tools</h2>
- <div class="related-grid">
+ 
+<section class="tool-info" aria-label="Tool information">
+  <h2>What is JPG to PDF?</h2>
+  <p>A JPG to PDF converter turns one or more image files into a single PDF document. It's perfect for combining scanned pages, photos, or design files into a single shareable document.</p>
+
+  <h2>How to use</h2>
+  <ol class="steps-list">
+<li>Step 1: Upload one or more JPG/PNG images.</li>
+<li>Step 2: Arrange the order by dragging images.</li>
+<li>Step 3: Set page orientation and margins.</li>
+<li>Step 4: Click 'Create PDF' to generate and download.</li>
+  </ol>
+
+  <h2>Use cases</h2>
+  <ul class="usecase-list">
+<li>Combining scanned documents into one PDF file.</li>
+<li>Creating a PDF portfolio from design images.</li>
+<li>Converting photo albums to PDF for sharing.</li>
+<li>Preparing documents for digital signatures.</li>
+  </ul>
+
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq-section">
+<details class="faq-item">
+  <summary>Can I convert multiple images to one PDF?</summary>
+  <p>Yes. Upload all your images and they will be combined into a single multi-page PDF.</p>
+</details>
+<details class="faq-item">
+  <summary>What image formats are supported?</summary>
+  <p>JPG/JPEG, PNG, WebP, GIF, BMP, and TIFF formats are all supported.</p>
+</details>
+<details class="faq-item">
+  <summary>Is the conversion lossless?</summary>
+  <p>The PDF generation itself is lossless. JPEG images embedded in PDFs retain their compression.</p>
+</details>
+  </div>
+</section>
+
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Can I convert multiple images to one PDF?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Upload all your images and they will be combined into a single multi-page PDF."}}, {"@type": "Question", "name": "What image formats are supported?", "acceptedAnswer": {"@type": "Answer", "text": "JPG/JPEG, PNG, WebP, GIF, BMP, and TIFF formats are all supported."}}, {"@type": "Question", "name": "Is the conversion lossless?", "acceptedAnswer": {"@type": "Answer", "text": "The PDF generation itself is lossless. JPEG images embedded in PDFs retain their compression."}}]}
+</script>
+
+<div class="related-grid">
  <a href="merge-pdf.html">Merge PDF</a>
  <a href="split-pdf.html">Split PDF</a>
  <a href="compress-pdf.html">Compress PDF</a>

@@ -8,6 +8,24 @@
  <link rel="canonical" href="https://www.zlbox.site/tools/text/word-counter.html" />
  <meta name="google-site-verification" content="google4bd1e08685667667" />
  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
+/* Navigation toggle for mobile */
+(function() {
+  var toggle = document.querySelector('.nav-toggle');
+  var navLinks = document.querySelector('.nav-links');
+  if (!toggle || !navLinks) return;
+  toggle.addEventListener('click', function() {
+    var isOpen = navLinks.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', isOpen);
+  });
+  // Highlight active link
+  var path = location.pathname;
+  document.querySelectorAll('.nav-link').forEach(function(link) {
+    var href = link.getAttribute('href');
+    if (href && (path === href || path.indexOf(href.replace('/index.html','')) > -1)) {
+      link.classList.add('active');
+    }
+  });
+})();
  <link rel="stylesheet" href="../../css/components.css" />
 
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -17,8 +35,170 @@
   <meta property="og:url" content="https://www.zlbox.site/tools/text/word-counter.html" />
   <meta property="og:site_name" content="My Tool Lab" />
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Word Counter – Instant Word & Character Count Online", "description": "Free real-time word and character counter. Paste or type your text and instantly see total words, characters, and trimmed length — no button clicks needed. Perfect for writers, students, developers, and content creators.", "url": "https://www.zlbox.site/tools/text/word-counter.html", "applicationCategory": "Text Tool", "operatingSystem": "Any (browser-based)", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "browserRequirements": "Requires a modern web browser with JavaScript enabled."}</script>
-</head>
+
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.zlbox.site/"}, {"@type": "ListItem", "position": 2, "name": "Text Tools", "item": null}]}</script>
+
+  <style>
+/* ── Site Navigation ── */
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255,255,255,.97);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 1px 4px rgba(0,0,0,.05);
+}
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 52px;
+}
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--brand);
+  text-decoration: none;
+  flex-shrink: 0;
+  margin-right: 12px;
+}
+.nav-logo:hover { text-decoration: none; }
+.nav-logo-icon {
+  width: 30px;
+  height: 30px;
+  background: var(--brand);
+  color: #fff;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: .9rem;
+  flex-shrink: 0;
+}
+.nav-logo-text { font-size: .95rem; }
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  flex: 1;
+}
+.nav-links::-webkit-scrollbar { display: none; }
+.nav-link {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 10px;
+  font-size: .82rem;
+  font-weight: 500;
+  color: var(--text);
+  border-radius: 6px;
+  white-space: nowrap;
+  transition: all .15s;
+  flex-shrink: 0;
+}
+.nav-link:hover {
+  background: var(--brand);
+  color: #fff;
+  text-decoration: none;
+}
+.nav-link.active {
+  background: #eff6ff;
+  color: var(--brand);
+}
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  width: 32px;
+  height: 32px;
+  padding: 4px;
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  cursor: pointer;
+  flex-shrink: 0;
+  margin-left: auto;
+}
+.nav-toggle span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: var(--text);
+  border-radius: 1px;
+}
+@media (max-width: 768px) {
+  .nav-logo-text { display: none; }
+  .nav-inner { gap: 6px; }
+  .nav-toggle { display: flex; }
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 52px;
+    left: 0;
+    right: 0;
+    background: #fff;
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 4px 12px rgba(0,0,0,.1);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 8px 0;
+    z-index: 99;
+    overflow: visible;
+  }
+  .nav-links.open { display: flex; }
+  .nav-link {
+    width: 100%;
+    padding: 10px 20px;
+    font-size: .9rem;
+    border-radius: 0;
+  }
+}
+  </style>
+  <meta property="og:image" content="https://www.zlbox.site/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Word Counter – Instant Word & Character Count Online" />
+  <meta name="twitter:description" content="Free real-time word and character counter. Paste or type your text and instantly see total words, characters, and trimmed length — no button clicks needed. Perfect for writers, students, developers, and content creators." />
+  <meta name="twitter:image" content="https://www.zlbox.site/og-image.png" />
+
+
+  <meta name="robots" content="index, follow" /></head>
 <body>
+
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo" aria-label="My Tool Lab Home">
+        <span class="nav-logo-icon">M</span>
+        <span class="nav-logo-text">My Tool Lab</span>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-links" role="list">
+        <a href="/tools/index.html" class="nav-link" role="listitem">All Tools</a>
+        <a href="/categories/text.html" class="nav-link" role="listitem">Text</a>
+        <a href="/categories/calculator.html" class="nav-link" role="listitem">Calculator</a>
+        <a href="/categories/generator.html" class="nav-link" role="listitem">Generator</a>
+        <a href="/categories/image.html" class="nav-link" role="listitem">Image</a>
+        <a href="/categories/pdf.html" class="nav-link" role="listitem">PDF</a>
+        <a href="/blog/index.html" class="nav-link" role="listitem">Blog</a>
+      </div>
+    </div>
+  </nav>
+
 <div class="container-md">
  <div class="hero">
  <div class="breadcrumb"><a href="../../index.html">Home</a> &rsaquo; <a href="../../categories/text.html">Text Tools</a> &rsaquo; Word Counter</div>
@@ -52,7 +232,45 @@
 
  <div class="section">
  <h2>Related tools</h2>
- <div class="related-grid">
+ 
+<section class="tool-info" aria-label="Tool information">
+  <h2>What is Word Counter?</h2>
+  <p>A word counter counts words, characters (with and without spaces), sentences, and paragraphs in real-time as you type or paste text. It's a fundamental tool for writers, students, and anyone who needs to meet character or word limits.</p>
+
+  <h2>How to use</h2>
+  <ol class="steps-list">
+<li>Step 1: Type or paste your text into the text area.</li>
+<li>Step 2: Statistics update in real-time — no need to click anything.</li>
+<li>Step 3: View word count, character count, and trimmed length.</li>
+<li>Step 4: Click 'Clear' to reset and start over.</li>
+  </ol>
+
+  <h2>Use cases</h2>
+  <ul class="usecase-list">
+<li>Meeting essay, article, or blog post word count requirements.</li>
+<li>Checking character limits for social media posts and meta descriptions.</li>
+<li>Estimating reading time for articles and documents.</li>
+<li>Tracking writing progress during content creation.</li>
+  </ul>
+
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq-section">
+<details class="faq-item">
+  <summary>Does it count words in multiple languages?</summary>
+  <p>Yes. The word counter uses space and punctuation boundaries, so it works with any language that uses spaces between words.</p>
+</details>
+<details class="faq-item">
+  <summary>What's the difference between character count and trimmed length?</summary>
+  <p>Character count includes all characters. Trimmed length excludes leading and trailing whitespace.</p>
+</details>
+  </div>
+</section>
+
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Does it count words in multiple languages?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The word counter uses space and punctuation boundaries, so it works with any language that uses spaces between words."}}, {"@type": "Question", "name": "What's the difference between character count and trimmed length?", "acceptedAnswer": {"@type": "Answer", "text": "Character count includes all characters. Trimmed length excludes leading and trailing whitespace."}}]}
+</script>
+
+<div class="related-grid">
  <a href="case-converter.html">Case Converter</a>
  <a href="lorem-ipsum.html">Lorem Ipsum</a>
  <a href="base64.html">Base64 Encode/Decode</a>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e3a8a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2563eb;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)" rx="0"/>
+
+  <!-- Decorative circles -->
+  <circle cx="100" cy="530" r="200" fill="#ffffff08"/>
+  <circle cx="1100" cy="100" r="180" fill="#ffffff08"/>
+  <circle cx="950" cy="550" r="120" fill="#ffffff10"/>
+
+  <!-- Tool icons decoration - small floating elements -->
+  <g opacity="0.15" transform="translate(60, 380)">
+    <rect x="0" y="0" width="40" height="40" rx="8" fill="#fff"/>
+    <text x="20" y="28" font-family="Arial" font-size="20" text-anchor="middle" fill="#2563eb">📝</text>
+  </g>
+  <g opacity="0.15" transform="translate(1040, 150)">
+    <rect x="0" y="0" width="40" height="40" rx="8" fill="#fff"/>
+    <text x="20" y="28" font-family="Arial" font-size="20" text-anchor="middle" fill="#2563eb">🧮</text>
+  </g>
+  <g opacity="0.12" transform="translate(100, 120)">
+    <rect x="0" y="0" width="36" height="36" rx="7" fill="#fff"/>
+    <text x="18" y="25" font-family="Arial" font-size="18" text-anchor="middle" fill="#2563eb">🔐</text>
+  </g>
+  <g opacity="0.12" transform="translate(1060, 400)">
+    <rect x="0" y="0" width="36" height="36" rx="7" fill="#fff"/>
+    <text x="18" y="25" font-family="Arial" font-size="18" text-anchor="middle" fill="#2563eb">📄</text>
+  </g>
+
+  <!-- Logo mark -->
+  <g transform="translate(600, 170)" filter="url(#shadow)">
+    <rect x="-70" y="-70" width="140" height="140" rx="32" fill="#ffffff" opacity="0.15"/>
+    <rect x="-58" y="-58" width="116" height="116" rx="26" fill="#ffffff" opacity="0.15"/>
+    <rect x="-46" y="-46" width="92" height="92" rx="20" fill="#ffffff" opacity="0.15"/>
+    <text x="0" y="22" font-family="Arial Black, Arial, sans-serif" font-size="72" font-weight="900" text-anchor="middle" fill="#ffffff">M</text>
+  </g>
+
+  <!-- Brand name -->
+  <text x="600" y="340" font-family="Arial Black, Arial, sans-serif" font-size="64" font-weight="900" text-anchor="middle" fill="#ffffff" letter-spacing="-2">
+    My Tool Lab
+  </text>
+
+  <!-- Tagline -->
+  <text x="600" y="390" font-family="Arial, sans-serif" font-size="26" text-anchor="middle" fill="#bfdbfe" letter-spacing="1">
+    Free Online Tools for Everyone
+  </text>
+
+  <!-- Tool categories row -->
+  <g transform="translate(600, 460)">
+    <!-- Text -->
+    <g transform="translate(-380, 0)">
+      <rect x="-50" y="-18" width="100" height="36" rx="18" fill="#ffffff22"/>
+      <text x="0" y="7" font-family="Arial" font-size="14" font-weight="600" text-anchor="middle" fill="#ffffff">Text Tools</text>
+    </g>
+    <!-- PDF -->
+    <g transform="translate(-210, 0)">
+      <rect x="-50" y="-18" width="100" height="36" rx="18" fill="#ffffff22"/>
+      <text x="0" y="7" font-family="Arial" font-size="14" font-weight="600" text-anchor="middle" fill="#ffffff">PDF Tools</text>
+    </g>
+    <!-- Calculator -->
+    <g transform="translate(-40, 0)">
+      <rect x="-70" y="-18" width="140" height="36" rx="18" fill="#ffffff22"/>
+      <text x="0" y="7" font-family="Arial" font-size="14" font-weight="600" text-anchor="middle" fill="#ffffff">Calculators</text>
+    </g>
+    <!-- Generator -->
+    <g transform="translate(150, 0)">
+      <rect x="-75" y="-18" width="150" height="36" rx="18" fill="#ffffff22"/>
+      <text x="0" y="7" font-family="Arial" font-size="14" font-weight="600" text-anchor="middle" fill="#ffffff">Generators</text>
+    </g>
+    <!-- Image -->
+    <g transform="translate(330, 0)">
+      <rect x="-55" y="-18" width="110" height="36" rx="18" fill="#ffffff22"/>
+      <text x="0" y="7" font-family="Arial" font-size="14" font-weight="600" text-anchor="middle" fill="#ffffff">Image</text>
+    </g>
+  </g>
+
+  <!-- Bottom bar -->
+  <rect x="0" y="590" width="1200" height="40" fill="#00000033"/>
+  <text x="600" y="616" font-family="Arial" font-size="15" text-anchor="middle" fill="#93c5fd">
+    37+ FREE TOOLS · NO SIGNUP · 100% PRIVATE · zlbox.site
+  </text>
+</svg>

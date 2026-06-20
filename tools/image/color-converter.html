@@ -10,6 +10,24 @@
  <meta name="google-site-verification" content="google4bd1e08685667667" />
  <meta name="robots" content="index, follow" />
  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
+/* Navigation toggle for mobile */
+(function() {
+  var toggle = document.querySelector('.nav-toggle');
+  var navLinks = document.querySelector('.nav-links');
+  if (!toggle || !navLinks) return;
+  toggle.addEventListener('click', function() {
+    var isOpen = navLinks.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', isOpen);
+  });
+  // Highlight active link
+  var path = location.pathname;
+  document.querySelectorAll('.nav-link').forEach(function(link) {
+    var href = link.getAttribute('href');
+    if (href && (path === href || path.indexOf(href.replace('/index.html','')) > -1)) {
+      link.classList.add('active');
+    }
+  });
+})();
  <script type="application/ld+json">
  {"@context":"https://schema.org","@type":"WebApplication","name":"Color Converter","applicationCategory":"UtilityApplication","operatingSystem":"Any (Web-based)","description":"Free online color converter for HEX, RGB, RGBA, HSL, and HSLA formats.","url":"https://www.zlbox.site/tools/image/color-converter.html","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
  </script>
@@ -33,7 +51,134 @@
  .status.ok{color:#16a34a;}
  .status.err{color:#b91c1c;}
  @media (max-width:560px){.field-grid{grid-template-columns:1fr;}.swatch{width:100%;height:120px;}}
- </style>
+ 
+/* ── Site Navigation ── */
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255,255,255,.97);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 1px 4px rgba(0,0,0,.05);
+}
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 52px;
+}
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--brand);
+  text-decoration: none;
+  flex-shrink: 0;
+  margin-right: 12px;
+}
+.nav-logo:hover { text-decoration: none; }
+.nav-logo-icon {
+  width: 30px;
+  height: 30px;
+  background: var(--brand);
+  color: #fff;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: .9rem;
+  flex-shrink: 0;
+}
+.nav-logo-text { font-size: .95rem; }
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  flex: 1;
+}
+.nav-links::-webkit-scrollbar { display: none; }
+.nav-link {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 10px;
+  font-size: .82rem;
+  font-weight: 500;
+  color: var(--text);
+  border-radius: 6px;
+  white-space: nowrap;
+  transition: all .15s;
+  flex-shrink: 0;
+}
+.nav-link:hover {
+  background: var(--brand);
+  color: #fff;
+  text-decoration: none;
+}
+.nav-link.active {
+  background: #eff6ff;
+  color: var(--brand);
+}
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  width: 32px;
+  height: 32px;
+  padding: 4px;
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  cursor: pointer;
+  flex-shrink: 0;
+  margin-left: auto;
+}
+.nav-toggle span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: var(--text);
+  border-radius: 1px;
+}
+@media (max-width: 768px) {
+  .nav-logo-text { display: none; }
+  .nav-inner { gap: 6px; }
+  .nav-toggle { display: flex; }
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 52px;
+    left: 0;
+    right: 0;
+    background: #fff;
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 4px 12px rgba(0,0,0,.1);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 8px 0;
+    z-index: 99;
+    overflow: visible;
+  }
+  .nav-links.open { display: flex; }
+  .nav-link {
+    width: 100%;
+    padding: 10px 20px;
+    font-size: .9rem;
+    border-radius: 0;
+  }
+}
+  </style>
 
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <meta property="og:title" content="Color Converter – HEX to RGB to HSL Convert Online Free | My Tool Lab" />
@@ -41,8 +186,40 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.zlbox.site/tools/image/color-converter.html" />
   <meta property="og:site_name" content="My Tool Lab" />
+
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.zlbox.site/"}, {"@type": "ListItem", "position": 2, "name": "Image Tools", "item": null}]}</script>
+  <meta property="og:image" content="https://www.zlbox.site/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Color Converter – HEX to RGB to HSL Convert Online Free" />
+  <meta name="twitter:description" content="Free online color converter. Convert colors between HEX, RGB, RGBA, HSL, and HSLA formats. Pick colors or paste values. Copy ready-to-use CSS values." />
+  <meta name="twitter:image" content="https://www.zlbox.site/og-image.png" />
+
 </head>
 <body>
+
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo" aria-label="My Tool Lab Home">
+        <span class="nav-logo-icon">M</span>
+        <span class="nav-logo-text">My Tool Lab</span>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-links" role="list">
+        <a href="/tools/index.html" class="nav-link" role="listitem">All Tools</a>
+        <a href="/categories/text.html" class="nav-link" role="listitem">Text</a>
+        <a href="/categories/calculator.html" class="nav-link" role="listitem">Calculator</a>
+        <a href="/categories/generator.html" class="nav-link" role="listitem">Generator</a>
+        <a href="/categories/image.html" class="nav-link" role="listitem">Image</a>
+        <a href="/categories/pdf.html" class="nav-link" role="listitem">PDF</a>
+        <a href="/blog/index.html" class="nav-link" role="listitem">Blog</a>
+      </div>
+    </div>
+  </nav>
+
 <div class="container-md">
  <div class="hero">
  <div class="breadcrumb"><a href="../../index.html">Home</a> &rsaquo; <a href="../../categories/image.html">Image Tools</a> &rsaquo; Color Converter</div>
@@ -86,7 +263,49 @@
 
  <div class="section">
  <h2>Related tools</h2>
- <div class="related-grid">
+ 
+<section class="tool-info" aria-label="Tool information">
+  <h2>What is Color Converter?</h2>
+  <p>A color converter translates colors between HEX, RGB, HSL, HSV, CMYK, and other formats. Designers and developers use it to match colors across different design tools and codebases.</p>
+
+  <h2>How to use</h2>
+  <ol class="steps-list">
+<li>Step 1: Enter a color in any format (HEX, RGB, HSL, etc.).</li>
+<li>Step 2: All other formats update instantly.</li>
+<li>Step 3: Use the color picker to select a color visually.</li>
+<li>Step 4: Click any format to copy it to your clipboard.</li>
+  </ol>
+
+  <h2>Use cases</h2>
+  <ul class="usecase-list">
+<li>Converting design mockup colors to CSS code.</li>
+<li>Matching brand colors across different media.</li>
+<li>Preparing print-ready CMYK values from digital designs.</li>
+<li>Generating accessible color contrast combinations.</li>
+  </ul>
+
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq-section">
+<details class="faq-item">
+  <summary>What's the difference between HSL and HSV?</summary>
+  <p>HSL (Hue, Saturation, Lightness) describes colors as humans perceive them. HSV (Hue, Saturation, Value) describes colors as light mixes. Both are useful for different design workflows.</p>
+</details>
+<details class="faq-item">
+  <summary>Can I convert CMYK for print?</summary>
+  <p>Yes. CMYK values are provided for print preparation. Note that screen RGB and print CMYK color spaces differ, so exact matching requires color profiling.</p>
+</details>
+<details class="faq-item">
+  <summary>How do I use these colors in CSS?</summary>
+  <p>Copy the HEX value (#RRGGBB) or RGB/RGBA value for use in CSS background-color, color, or border-color properties.</p>
+</details>
+  </div>
+</section>
+
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What's the difference between HSL and HSV?", "acceptedAnswer": {"@type": "Answer", "text": "HSL (Hue, Saturation, Lightness) describes colors as humans perceive them. HSV (Hue, Saturation, Value) describes colors as light mixes. Both are useful for different design workflows."}}, {"@type": "Question", "name": "Can I convert CMYK for print?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. CMYK values are provided for print preparation. Note that screen RGB and print CMYK color spaces differ, so exact matching requires color profiling."}}, {"@type": "Question", "name": "How do I use these colors in CSS?", "acceptedAnswer": {"@type": "Answer", "text": "Copy the HEX value (#RRGGBB) or RGB/RGBA value for use in CSS background-color, color, or border-color properties."}}]}
+</script>
+
+<div class="related-grid">
  <a href="color-picker.html">Color Picker</a>
  <a href="image-compressor.html">Image Compressor</a>
  <a href="image-resizer.html">Image Resizer</a>

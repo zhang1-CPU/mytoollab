@@ -9,6 +9,24 @@
  <link rel="canonical" href="https://www.zlbox.site/tools/text/csv-to-json.html" />
  <meta name="google-site-verification" content="google4bd1e08685667667" />
  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
+/* Navigation toggle for mobile */
+(function() {
+  var toggle = document.querySelector('.nav-toggle');
+  var navLinks = document.querySelector('.nav-links');
+  if (!toggle || !navLinks) return;
+  toggle.addEventListener('click', function() {
+    var isOpen = navLinks.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', isOpen);
+  });
+  // Highlight active link
+  var path = location.pathname;
+  document.querySelectorAll('.nav-link').forEach(function(link) {
+    var href = link.getAttribute('href');
+    if (href && (path === href || path.indexOf(href.replace('/index.html','')) > -1)) {
+      link.classList.add('active');
+    }
+  });
+})();
 
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <meta property="og:title" content="CSV &harr; JSON Converter – Encode &amp; Decode | My Tool Lab" />
@@ -17,8 +35,170 @@
   <meta property="og:url" content="https://www.zlbox.site/tools/text/csv-to-json.html" />
   <meta property="og:site_name" content="My Tool Lab" />
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "CSV &harr; JSON Converter – Encode &amp; Decode", "description": "Convert CSV (comma-separated values) to JSON, and back. Auto-detects delimiters and supports headers, quoted fields, and pretty JSON formatting.", "url": "https://www.zlbox.site/tools/text/csv-to-json.html", "applicationCategory": "Text Tool", "operatingSystem": "Any (browser-based)", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "browserRequirements": "Requires a modern web browser with JavaScript enabled."}</script>
-</head>
+
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.zlbox.site/"}, {"@type": "ListItem", "position": 2, "name": "Text Tools", "item": null}]}</script>
+
+  <style>
+/* ── Site Navigation ── */
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255,255,255,.97);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 1px 4px rgba(0,0,0,.05);
+}
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 52px;
+}
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--brand);
+  text-decoration: none;
+  flex-shrink: 0;
+  margin-right: 12px;
+}
+.nav-logo:hover { text-decoration: none; }
+.nav-logo-icon {
+  width: 30px;
+  height: 30px;
+  background: var(--brand);
+  color: #fff;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: .9rem;
+  flex-shrink: 0;
+}
+.nav-logo-text { font-size: .95rem; }
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  flex: 1;
+}
+.nav-links::-webkit-scrollbar { display: none; }
+.nav-link {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 10px;
+  font-size: .82rem;
+  font-weight: 500;
+  color: var(--text);
+  border-radius: 6px;
+  white-space: nowrap;
+  transition: all .15s;
+  flex-shrink: 0;
+}
+.nav-link:hover {
+  background: var(--brand);
+  color: #fff;
+  text-decoration: none;
+}
+.nav-link.active {
+  background: #eff6ff;
+  color: var(--brand);
+}
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  width: 32px;
+  height: 32px;
+  padding: 4px;
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  cursor: pointer;
+  flex-shrink: 0;
+  margin-left: auto;
+}
+.nav-toggle span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: var(--text);
+  border-radius: 1px;
+}
+@media (max-width: 768px) {
+  .nav-logo-text { display: none; }
+  .nav-inner { gap: 6px; }
+  .nav-toggle { display: flex; }
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 52px;
+    left: 0;
+    right: 0;
+    background: #fff;
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 4px 12px rgba(0,0,0,.1);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 8px 0;
+    z-index: 99;
+    overflow: visible;
+  }
+  .nav-links.open { display: flex; }
+  .nav-link {
+    width: 100%;
+    padding: 10px 20px;
+    font-size: .9rem;
+    border-radius: 0;
+  }
+}
+  </style>
+  <meta property="og:image" content="https://www.zlbox.site/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="CSV &harr; JSON Converter – Encode &amp; Decode" />
+  <meta name="twitter:description" content="Convert CSV (comma-separated values) to JSON, and back. Auto-detects delimiters and supports headers, quoted fields, and pretty JSON formatting." />
+  <meta name="twitter:image" content="https://www.zlbox.site/og-image.png" />
+
+
+  <meta name="robots" content="index, follow" /></head>
 <body>
+
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo" aria-label="My Tool Lab Home">
+        <span class="nav-logo-icon">M</span>
+        <span class="nav-logo-text">My Tool Lab</span>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-links" role="list">
+        <a href="/tools/index.html" class="nav-link" role="listitem">All Tools</a>
+        <a href="/categories/text.html" class="nav-link" role="listitem">Text</a>
+        <a href="/categories/calculator.html" class="nav-link" role="listitem">Calculator</a>
+        <a href="/categories/generator.html" class="nav-link" role="listitem">Generator</a>
+        <a href="/categories/image.html" class="nav-link" role="listitem">Image</a>
+        <a href="/categories/pdf.html" class="nav-link" role="listitem">PDF</a>
+        <a href="/blog/index.html" class="nav-link" role="listitem">Blog</a>
+      </div>
+    </div>
+  </nav>
+
 <div class="container-md">
  <div class="hero">
  <div class="breadcrumb"><a href="../../index.html">Home</a> &rsaquo; <a href="../../categories/text.html">Text Tools</a> &rsaquo; CSV &harr; JSON</div>
@@ -70,7 +250,45 @@ Carol,42,Chicago
 
  <div class="section">
  <h2>Related tools</h2>
- <div class="related-grid">
+ 
+<section class="tool-info" aria-label="Tool information">
+  <h2>What is CSV &harr; JSON Converter?</h2>
+  <p>A CSV to JSON converter transforms spreadsheet data (CSV format) into JSON objects. JSON is the standard data format for APIs and web applications, making this converter essential for developers and data analysts.</p>
+
+  <h2>How to use</h2>
+  <ol class="steps-list">
+<li>Step 1: Paste or upload a CSV file with headers.</li>
+<li>Step 2: Review the parsed column headers.</li>
+<li>Step 3: Click 'Convert to JSON' to generate the output.</li>
+<li>Step 4: Copy the JSON or download it as a .json file.</li>
+  </ol>
+
+  <h2>Use cases</h2>
+  <ul class="usecase-list">
+<li>Converting Excel or Google Sheets data for API integration.</li>
+<li>Preparing datasets for web applications and JavaScript projects.</li>
+<li>Migrating data from legacy CSV systems to modern JSON APIs.</li>
+<li>Creating configuration files from spreadsheet data.</li>
+  </ul>
+
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq-section">
+<details class="faq-item">
+  <summary>Does the CSV need headers?</summary>
+  <p>Yes. The first row of the CSV must contain column headers, which become the JSON object keys.</p>
+</details>
+<details class="faq-item">
+  <summary>Can I convert nested or complex CSV?</summary>
+  <p>Simple flat CSV files work best. For nested data, consider preprocessing your CSV or using a more advanced data transformation tool.</p>
+</details>
+  </div>
+</section>
+
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Does the CSV need headers?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The first row of the CSV must contain column headers, which become the JSON object keys."}}, {"@type": "Question", "name": "Can I convert nested or complex CSV?", "acceptedAnswer": {"@type": "Answer", "text": "Simple flat CSV files work best. For nested data, consider preprocessing your CSV or using a more advanced data transformation tool."}}]}
+</script>
+
+<div class="related-grid">
  <a href="base64.html">Base64 Encoder</a>
  <a href="html-encoder.html">HTML Encoder</a>
  <a href="json-formatter.html">JSON Formatter</a>

@@ -175,7 +175,34 @@
   <meta name="twitter:image" content="https://www.zlbox.site/og-image.png" />
 
 
-  <meta name="robots" content="index, follow" /></head>
+  <meta name="robots" content="index, follow" />
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Use HTML Formatter",
+  "description": "Step by step guide: How to Use HTML Formatter",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Paste HTML code",
+      "text": "Paste your HTML code into the input box.",
+      "position": 1
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Format or minify",
+      "text": "Click 'Format' for pretty-printed code or 'Minify' for compact output.",
+      "position": 2
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copy the result",
+      "text": "Click 'Copy' to copy the formatted HTML to your clipboard.",
+      "position": 3
+    }
+  ]
+}</script>
+</head>
 <body>
 
   <nav class="site-nav" aria-label="Main navigation">
@@ -355,7 +382,34 @@
  });
 
  sampleBtn.addEventListener('click', function() {
- inputEl.value = '<!DOCTYPE html><html><head><title>Sample page</title><meta charset="UTF-8"><link rel="stylesheet" href="style.css"></head><body><div class="container"><h1>Hello World</h1><p>This is a <strong>sample</strong> HTML document used by the formatter.</p><br><p>Try it out by clicking the <em>Format</em> button.</p></div></body></html>';
+ inputEl.value = '<!DOCTYPE html><html><head><title>Sample page</title><meta charset="UTF-8"><link rel="stylesheet" href="style.css">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Use HTML Formatter",
+  "description": "Step by step guide: How to Use HTML Formatter",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Paste HTML code",
+      "text": "Paste your HTML code into the input box.",
+      "position": 1
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Format or minify",
+      "text": "Click 'Format' for pretty-printed code or 'Minify' for compact output.",
+      "position": 2
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copy the result",
+      "text": "Click 'Copy' to copy the formatted HTML to your clipboard.",
+      "position": 3
+    }
+  ]
+}</script>
+</head><body><div class="container"><h1>Hello World</h1><p>This is a <strong>sample</strong> HTML document used by the formatter.</p><br><p>Try it out by clicking the <em>Format</em> button.</p></div></body></html>';
  outputEl.value = '';
  setStatus('Sample loaded');
  });

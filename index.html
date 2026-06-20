@@ -11,7 +11,7 @@
   <meta name="google-site-verification" content="google4bd1e08685667667" />
   <meta name="robots" content="index, follow" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
-/* Navigation toggle for mobile */
+  <script>
 (function() {
   var toggle = document.querySelector('.nav-toggle');
   var navLinks = document.querySelector('.nav-links');
@@ -20,7 +20,6 @@
     var isOpen = navLinks.classList.toggle('open');
     toggle.setAttribute('aria-expanded', isOpen);
   });
-  // Highlight active link
   var path = location.pathname;
   document.querySelectorAll('.nav-link').forEach(function(link) {
     var href = link.getAttribute('href');
@@ -29,6 +28,7 @@
     }
   });
 })();
+  </script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-9V6L0Z956X"></script>
   <script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-9V6L0Z956X');</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"My Tool Lab","url":"https://www.zlbox.site/","description":"Free online tools for text processing, calculation, image compression, QR codes, and PDF handling. No signup required."}</script>

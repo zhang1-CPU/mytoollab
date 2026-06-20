@@ -14,7 +14,7 @@
   <meta property="og:url" content="https://www.zlbox.site/blog/data-privacy-tools.html">
   <meta name="twitter:card" content="summary_large_image">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
-/* Navigation toggle for mobile */
+  <script>
 (function() {
   var toggle = document.querySelector('.nav-toggle');
   var navLinks = document.querySelector('.nav-links');
@@ -23,7 +23,6 @@
     var isOpen = navLinks.classList.toggle('open');
     toggle.setAttribute('aria-expanded', isOpen);
   });
-  // Highlight active link
   var path = location.pathname;
   document.querySelectorAll('.nav-link').forEach(function(link) {
     var href = link.getAttribute('href');
@@ -32,6 +31,7 @@
     }
   });
 })();
+  </script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-9V6L0Z956X"></script>
   <script>
     window.dataLayer = window.dataLayer || [];

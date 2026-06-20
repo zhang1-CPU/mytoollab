@@ -1,189 +1,189 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pomodoro Timer – Free Online Focus Timer | My Tool Lab</title>
-  <meta name="description" content="Free, lightweight Pomodoro timer. Focus for 25 minutes, take a 5-minute break, and stay productive. Custom durations, sound alerts, and keyboard shortcuts." />
-  <link rel="canonical" href="https://www.zlbox.site/tools/generator/pomodoro-timer.html" />
-  <meta name="google-site-verification" content="google4bd1e08685667667" />
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="../../_css/components.css" />
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <title>Pomodoro Timer – Free Online Focus Timer | My Tool Lab</title>
+ <meta name="description" content="Free, lightweight Pomodoro timer. Focus for 25 minutes, take a 5-minute break, and stay productive. Custom durations, sound alerts, and keyboard shortcuts." />
+ <link rel="canonical" href="https://www.zlbox.site/tools/generator/pomodoro-timer.html" />
+ <meta name="google-site-verification" content="google4bd1e08685667667" />
+ <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
+ <link rel="stylesheet" href="../../_css/components.css" />
 </head>
 <body>
 <div class="container-md">
-  <div class="hero">
-    <div class="breadcrumb"><a href="../../index.html">Home</a> &rsaquo; <a href="password-generator.html">Generator Tools</a> &rsaquo; Pomodoro Timer</div>
-    <h1>Pomodoro Timer</h1>
-    <p>A clean, keyboard-friendly Pomodoro timer. Set your focus session, break, and long-break durations — then stay in the zone without leaving the tab.</p>
-  </div>
+ <div class="hero">
+ <div class="breadcrumb"><a href="../../index.html">Home</a> &rsaquo; <a href="password-generator.html">Generator Tools</a> &rsaquo; Pomodoro Timer</div>
+ <h1>Pomodoro Timer</h1>
+ <p>A clean, keyboard-friendly Pomodoro timer. Set your focus session, break, and long-break durations — then stay in the zone without leaving the tab.</p>
+ </div>
 
-  <div class="card">
-    <div class="clock">
-      <div class="clock__label" id="modeLabel">Focus</div>
-      <div class="clock__time" id="timeLeft">25:00</div>
-      <div class="clock__buttons">
-        <button class="btn" id="startBtn">Start</button>
-        <button class="btn btn--ghost" id="pauseBtn">Pause</button>
-        <button class="btn btn--ghost" id="resetBtn">Reset</button>
-        <button class="btn btn--ghost" id="skipBtn">Skip</button>
-      </div>
-    </div>
-  </div>
+ <div class="card">
+ <div class="clock">
+ <div class="clock__label" id="modeLabel">Focus</div>
+ <div class="clock__time" id="timeLeft">25:00</div>
+ <div class="clock__buttons">
+ <button class="btn" id="startBtn">Start</button>
+ <button class="btn btn--ghost" id="pauseBtn">Pause</button>
+ <button class="btn btn--ghost" id="resetBtn">Reset</button>
+ <button class="btn btn--ghost" id="skipBtn">Skip</button>
+ </div>
+ </div>
+ </div>
 
-  <div class="card">
-    <div class="row-grid">
-      <div class="field">
-        <label for="focusMin">Focus (minutes)</label>
-        <input type="number" id="focusMin" value="25" min="1" max="180" />
-      </div>
-      <div class="field">
-        <label for="breakMin">Short break (minutes)</label>
-        <input type="number" id="breakMin" value="5" min="1" max="60" />
-      </div>
-      <div class="field">
-        <label for="longMin">Long break (minutes)</label>
-        <input type="number" id="longMin" value="15" min="1" max="60" />
-      </div>
-      <div class="field">
-        <label for="longEvery">Long break every</label>
-        <input type="number" id="longEvery" value="4" min="1" max="20" />
-      </div>
-    </div>
-    <div class="row">
-      <label><input type="checkbox" id="soundOn" checked /> Sound alert at the end of each segment</label>
-    </div>
-    <div class="row">
-      <label><input type="checkbox" id="notifyOn" /> Browser notification (requires permission)</label>
-    </div>
-    <div class="row" style="justify-content:center; padding:12px 0 0">
-      <div class="stat__label">Completed sessions: <span id="doneCount">0</span></div>
-    </div>
-  </div>
+ <div class="card">
+ <div class="row-grid">
+ <div class="field">
+ <label for="focusMin">Focus (minutes)</label>
+ <input type="number" id="focusMin" value="25" min="1" max="180" />
+ </div>
+ <div class="field">
+ <label for="breakMin">Short break (minutes)</label>
+ <input type="number" id="breakMin" value="5" min="1" max="60" />
+ </div>
+ <div class="field">
+ <label for="longMin">Long break (minutes)</label>
+ <input type="number" id="longMin" value="15" min="1" max="60" />
+ </div>
+ <div class="field">
+ <label for="longEvery">Long break every</label>
+ <input type="number" id="longEvery" value="4" min="1" max="20" />
+ </div>
+ </div>
+ <div class="row">
+ <label><input type="checkbox" id="soundOn" checked /> Sound alert at the end of each segment</label>
+ </div>
+ <div class="row">
+ <label><input type="checkbox" id="notifyOn" /> Browser notification (requires permission)</label>
+ </div>
+ <div class="row" style="justify-content:center">
+ <div class="stat__label">Completed sessions: <span id="doneCount">0</span></div>
+ </div>
+ </div>
 
-  <div class="section">
-    <h2>Keyboard shortcuts</h2>
-    <div class="note">Press <strong>Space</strong> to start / pause and <strong>R</strong> to reset the current segment.</div>
-  </div>
+ <div class="section">
+ <h2>Keyboard shortcuts</h2>
+ <div class="note">Press <strong>Space</strong> to start / pause and <strong>R</strong> to reset the current segment.</div>
+ </div>
 
-  <div class="section">
-    <h2>Related tools</h2>
-    <div class="related-grid">
-      <a href="random-number-generator.html">Random Number Generator</a>
-      <a href="uuid-generator.html">UUID Generator</a>
-      <a href="../calculator/percentage-calculator.html">Percentage Calculator</a>
-    </div>
-  </div>
+ <div class="section">
+ <h2>Related tools</h2>
+ <div class="related-grid">
+ <a href="random-number-generator.html">Random Number Generator</a>
+ <a href="uuid-generator.html">UUID Generator</a>
+ <a href="../calculator/percentage-calculator.html">Percentage Calculator</a>
+ </div>
+ </div>
 
-  <footer class="footer">
-    <div class="footer-links">
-      <a href="password-generator.html">Password Generator</a>
-      <a href="qr-code-generator.html">QR Code Generator</a>
-      <a href="random-number-generator.html">Random Number</a>
-      <span style="color:var(--border);margin:0 6px">|</span>
-      <a href="../../about.html">About</a>
-      <a href="../../privacy.html">Privacy</a>
-      <a href="../../disclaimer.html">Disclaimer</a>
-    </div>
-    <p class="footer-copy">&copy; 2026 My Tool Lab. All rights reserved.</p>
-  </footer>
+ <footer class="footer">
+ <div class="footer-links">
+ <a href="password-generator.html">Password Generator</a>
+ <a href="qr-code-generator.html">QR Code Generator</a>
+ <a href="random-number-generator.html">Random Number</a>
+ <span style="color:var(--border);margin:0 6px">|</span>
+ <a href="../../about.html">About</a>
+ <a href="../../privacy.html">Privacy</a>
+ <a href="../../disclaimer.html">Disclaimer</a>
+ </div>
+ <p class="footer-copy">&copy; 2026 My Tool Lab. All rights reserved.</p>
+ </footer>
 </div>
 
 <script>
 (function(){
-  var focusMin = document.getElementById('focusMin');
-  var breakMin = document.getElementById('breakMin');
-  var longMin = document.getElementById('longMin');
-  var longEvery = document.getElementById('longEvery');
-  var soundOn = document.getElementById('soundOn');
-  var notifyOn = document.getElementById('notifyOn');
-  var timeEl = document.getElementById('timeLeft');
-  var modeEl = document.getElementById('modeLabel');
-  var doneEl = document.getElementById('doneCount');
-  var startBtn = document.getElementById('startBtn');
-  var pauseBtn = document.getElementById('pauseBtn');
-  var resetBtn = document.getElementById('resetBtn');
-  var skipBtn = document.getElementById('skipBtn');
+ var focusMin = document.getElementById('focusMin');
+ var breakMin = document.getElementById('breakMin');
+ var longMin = document.getElementById('longMin');
+ var longEvery = document.getElementById('longEvery');
+ var soundOn = document.getElementById('soundOn');
+ var notifyOn = document.getElementById('notifyOn');
+ var timeEl = document.getElementById('timeLeft');
+ var modeEl = document.getElementById('modeLabel');
+ var doneEl = document.getElementById('doneCount');
+ var startBtn = document.getElementById('startBtn');
+ var pauseBtn = document.getElementById('pauseBtn');
+ var resetBtn = document.getElementById('resetBtn');
+ var skipBtn = document.getElementById('skipBtn');
 
-  var mode = 'focus'; // 'focus' | 'short' | 'long'
-  var remaining = +focusMin.value * 60;
-  var totalSessions = 0;
-  var interval = null;
+ var mode = 'focus'; // 'focus' | 'short' | 'long'
+ var remaining = +focusMin.value * 60;
+ var totalSessions = 0;
+ var interval = null;
 
-  function durFor(m){
-    var v = m === 'focus' ? +focusMin.value
-            : m === 'short' ? +breakMin.value
-            : +longMin.value;
-    return Math.max(1, v | 0) * 60;
-  }
-  function fmt(s){
-    s = Math.max(0, s | 0);
-    var m = (s / 60) | 0, ss = s % 60;
-    return (m < 10 ? '0' : '') + m + ':' + (ss < 10 ? '0' : '') + ss;
-  }
-  function titleCase(s){ return s.charAt(0).toUpperCase() + s.slice(1); }
-  function render(){
-    timeEl.textContent = fmt(remaining);
-    modeEl.textContent = mode === 'focus' ? 'Focus' : mode === 'short' ? 'Short Break' : 'Long Break';
-    document.title = fmt(remaining) + ' – ' + modeEl.textContent + ' | My Tool Lab';
-  }
-  function setMode(m){
-    mode = m;
-    remaining = durFor(m);
-    render();
-  }
-  function tick(){
-    remaining -= 1;
-    if (remaining <= 0){
-      pause();
-      if (mode === 'focus'){
-        totalSessions += 1;
-        doneEl.textContent = totalSessions;
-        var nextMode = (totalSessions % (+longEvery.value || 4) === 0) ? 'long' : 'short';
-        setMode(nextMode);
-        alertEnd('Focus complete. Time for a break!');
-      } else {
-        setMode('focus');
-        alertEnd('Break over. Back to focus!');
-      }
-      return;
-    }
-    render();
-  }
-  function start(){ if (interval) return; interval = setInterval(tick, 1000); }
-  function pause(){ if (interval){ clearInterval(interval); interval = null; } }
-  function reset(){ pause(); remaining = durFor(mode); render(); }
-  function skip(){ pause(); var next = mode === 'focus' ? ((totalSessions+1) % (+longEvery.value || 4) === 0 ? 'long' : 'short') : 'focus'; if (mode !== 'focus') { next = 'focus'; } if (mode === 'focus'){ totalSessions += 1; doneEl.textContent = totalSessions; } setMode(next); }
-  function alertEnd(msg){
-    try {
-      if (soundOn.checked){
-        var ctx = (window.AudioContext || window.webkitAudioContext) ? new (window.AudioContext || window.webkitAudioContext)() : null;
-        if (ctx){
-          var o = ctx.createOscillator(), g = ctx.createGain();
-          o.connect(g); g.connect(ctx.destination);
-          o.frequency.value = 880; o.type = 'sine';
-          g.gain.setValueAtTime(0.001, ctx.currentTime);
-          g.gain.exponentialRampToValueAtTime(0.3, ctx.currentTime + 0.02);
-          g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.5);
-          o.start(); o.stop(ctx.currentTime + 0.55);
-        }
-      }
-    } catch(e){}
-    try {
-      if (notifyOn.checked && 'Notification' in window && Notification.permission === 'granted'){
-        new Notification('Pomodoro Timer', { body: msg });
-      }
-    } catch(e){}
-  }
+ function durFor(m){
+ var v = m === 'focus' ? +focusMin.value
+ : m === 'short' ? +breakMin.value
+ : +longMin.value;
+ return Math.max(1, v | 0) * 60;
+ }
+ function fmt(s){
+ s = Math.max(0, s | 0);
+ var m = (s / 60) | 0, ss = s % 60;
+ return (m < 10 ? '0' : '') + m + ':' + (ss < 10 ? '0' : '') + ss;
+ }
+ function titleCase(s){ return s.charAt(0).toUpperCase() + s.slice(1); }
+ function render(){
+ timeEl.textContent = fmt(remaining);
+ modeEl.textContent = mode === 'focus' ? 'Focus' : mode === 'short' ? 'Short Break' : 'Long Break';
+ document.title = fmt(remaining) + ' – ' + modeEl.textContent + ' | My Tool Lab';
+ }
+ function setMode(m){
+ mode = m;
+ remaining = durFor(m);
+ render();
+ }
+ function tick(){
+ remaining -= 1;
+ if (remaining <= 0){
+ pause();
+ if (mode === 'focus'){
+ totalSessions += 1;
+ doneEl.textContent = totalSessions;
+ var nextMode = (totalSessions % (+longEvery.value || 4) === 0) ? 'long' : 'short';
+ setMode(nextMode);
+ alertEnd('Focus complete. Time for a break!');
+ } else {
+ setMode('focus');
+ alertEnd('Break over. Back to focus!');
+ }
+ return;
+ }
+ render();
+ }
+ function start(){ if (interval) return; interval = setInterval(tick, 1000); }
+ function pause(){ if (interval){ clearInterval(interval); interval = null; } }
+ function reset(){ pause(); remaining = durFor(mode); render(); }
+ function skip(){ pause(); var next = mode === 'focus' ? ((totalSessions+1) % (+longEvery.value || 4) === 0 ? 'long' : 'short') : 'focus'; if (mode !== 'focus') { next = 'focus'; } if (mode === 'focus'){ totalSessions += 1; doneEl.textContent = totalSessions; } setMode(next); }
+ function alertEnd(msg){
+ try {
+ if (soundOn.checked){
+ var ctx = (window.AudioContext || window.webkitAudioContext) ? new (window.AudioContext || window.webkitAudioContext)() : null;
+ if (ctx){
+ var o = ctx.createOscillator(), g = ctx.createGain();
+ o.connect(g); g.connect(ctx.destination);
+ o.frequency.value = 880; o.type = 'sine';
+ g.gain.setValueAtTime(0.001, ctx.currentTime);
+ g.gain.exponentialRampToValueAtTime(0.3, ctx.currentTime + 0.02);
+ g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.5);
+ o.start(); o.stop(ctx.currentTime + 0.55);
+ }
+ }
+ } catch(e){}
+ try {
+ if (notifyOn.checked && 'Notification' in window && Notification.permission === 'granted'){
+ new Notification('Pomodoro Timer', { body: msg });
+ }
+ } catch(e){}
+ }
 
-  startBtn.addEventListener('click', start);
-  pauseBtn.addEventListener('click', pause);
-  resetBtn.addEventListener('click', reset);
-  skipBtn.addEventListener('click', skip);
-  [focusMin, breakMin, longMin].forEach(function(el){ el.addEventListener('change', function(){ if (!interval) remaining = durFor(mode); render(); }); });
-  notifyOn.addEventListener('change', function(){ if (notifyOn.checked && 'Notification' in window && Notification.permission === 'default') Notification.requestPermission(); });
-  document.addEventListener('keydown', function(e){ if (e.target && (e.target.tagName === 'INPUT')) return; if (e.code === 'Space'){ e.preventDefault(); interval ? pause() : start(); } else if (e.key.toLowerCase() === 'r'){ reset(); } });
-  render();
+ startBtn.addEventListener('click', start);
+ pauseBtn.addEventListener('click', pause);
+ resetBtn.addEventListener('click', reset);
+ skipBtn.addEventListener('click', skip);
+ [focusMin, breakMin, longMin].forEach(function(el){ el.addEventListener('change', function(){ if (!interval) remaining = durFor(mode); render(); }); });
+ notifyOn.addEventListener('change', function(){ if (notifyOn.checked && 'Notification' in window && Notification.permission === 'default') Notification.requestPermission(); });
+ document.addEventListener('keydown', function(e){ if (e.target && (e.target.tagName === 'INPUT')) return; if (e.code === 'Space'){ e.preventDefault(); interval ? pause() : start(); } else if (e.key.toLowerCase() === 'r'){ reset(); } });
+ render();
 })();
 </script>
 </body>

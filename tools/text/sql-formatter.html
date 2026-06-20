@@ -1,167 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SQL Formatter – Format SQL Queries Online | My Tool Lab</title>
-  <meta name="description" content="Free online SQL formatter. Beautify and indent your SQL queries with keyword uppercasing. Runs locally in your browser." />
-  <link rel="canonical" href="https://www.zlbox.site/tools/text/sql-formatter.html" />
-  <meta name="google-site-verification" content="google4bd1e08685667667" />
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="../../_css/components.css" />
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <title>SQL Formatter – Format SQL Queries Online | My Tool Lab</title>
+ <meta name="description" content="Free online SQL formatter. Beautify and indent your SQL queries with keyword uppercasing. Runs locally in your browser." />
+ <link rel="canonical" href="https://www.zlbox.site/tools/text/sql-formatter.html" />
+ <meta name="google-site-verification" content="google4bd1e08685667667" />
+ <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
+ <link rel="stylesheet" href="../../_css/components.css" />
 </head>
 <body>
 <div class="container-md">
-  <div class="hero">
-    <div class="breadcrumb"><a href="../../index.html">Home</a> &rsaquo; <a href="../../categories/text.html">Text Tools</a> &rsaquo; SQL Formatter</div>
-    <h1>SQL Formatter</h1>
-    <p>Paste a SQL query and get clean, indented output with consistent keyword casing.</p>
-  </div>
+ <div class="hero">
+ <div class="breadcrumb"><a href="../../index.html">Home</a> &rsaquo; <a href="../../categories/text.html">Text Tools</a> &rsaquo; SQL Formatter</div>
+ <h1>SQL Formatter</h1>
+ <p>Paste a SQL query and get clean, indented output with consistent keyword casing.</p>
+ </div>
 
-  <div class="card">
-    <div class="editor">
-      <textarea id="inputText" placeholder="SELECT id, name FROM users WHERE active=1 ORDER BY created_at DESC" spellcheck="false"></textarea>
-      <div class="editor__toolbar">
-        <button class="btn btn--sm btn--ghost" id="sampleBtn">Sample</button>
-        <button class="btn btn--sm btn--ghost" id="clearBtn">Clear</button>
-        <div style="margin-left:auto"></div>
-        <button class="btn btn--sm" id="formatBtn">Format</button>
-        <button class="btn btn--sm btn--ghost" id="copyBtn">Copy</button>
-      </div>
-    </div>
-    <div class="row-grid" style="margin-top:10px;">
-      <label class="row" style="gap:8px;">
-        Indent
-        <select id="indentSize" style="max-width:120px;">
-          <option value="2">2 spaces</option>
-          <option value="4" selected>4 spaces</option>
-          <option value="tab">Tab</option>
-        </select>
-      </label>
-      <label class="row" style="gap:8px;"><input type="checkbox" id="uppercase" checked /> UPPERCASE keywords</label>
-    </div>
-    <div class="editor" style="margin-top:10px;">
-      <textarea id="outputText" readonly placeholder="Formatted SQL appears here…" spellcheck="false"></textarea>
-      <div class="editor__toolbar">
-        <span id="statusLabel" style="font-size:0.82rem;color:var(--muted);">Ready</span>
-        <div style="margin-left:auto"></div>
-      </div>
-    </div>
-  </div>
+ <div class="card">
+ <div class="editor">
+ <textarea id="inputText" placeholder="SELECT id, name FROM users WHERE active=1 ORDER BY created_at DESC" spellcheck="false"></textarea>
+ <div class="editor__toolbar">
+ <button class="btn btn--sm btn--ghost" id="sampleBtn">Sample</button>
+ <button class="btn btn--sm btn--ghost" id="clearBtn">Clear</button>
+ <div style="margin-left:auto"></div>
+ <button class="btn btn--sm" id="formatBtn">Format</button>
+ <button class="btn btn--sm btn--ghost" id="copyBtn">Copy</button>
+ </div>
+ </div>
+ <div class="row-grid">
+ <label class="row" style="gap:8px">
+ Indent
+ <select id="indentSize" style="max-width:120px">
+ <option value="2">2 spaces</option>
+ <option value="4" selected>4 spaces</option>
+ <option value="tab">Tab</option>
+ </select>
+ </label>
+ <label class="row" style="gap:8px"><input type="checkbox" id="uppercase" checked /> UPPERCASE keywords</label>
+ </div>
+ <div class="editor">
+ <textarea id="outputText" readonly placeholder="Formatted SQL appears here…" spellcheck="false"></textarea>
+ <div class="editor__toolbar">
+ <span id="statusLabel">Ready</span>
+ <div style="margin-left:auto"></div>
+ </div>
+ </div>
+ </div>
 
-  <div class="section">
-    <h2>How it works</h2>
-    <ol class="steps">
-      <li>Paste your SQL query into the input box.</li>
-      <li>Choose indent style and toggle keyword uppercasing.</li>
-      <li>Click Format to restructure the query, then Copy the result.</li>
-    </ol>
-  </div>
+ <div class="section">
+ <h2>How it works</h2>
+ <ol class="steps">
+ <li>Paste your SQL query into the input box.</li>
+ <li>Choose indent style and toggle keyword uppercasing.</li>
+ <li>Click Format to restructure the query, then Copy the result.</li>
+ </ol>
+ </div>
 
-  <div class="section">
-    <h2>Related tools</h2>
-    <div class="related-grid">
-      <a href="html-formatter.html">HTML Formatter</a>
-      <a href="json-formatter.html">JSON Formatter</a>
-      <a href="case-converter.html">Case Converter</a>
-      <a href="word-counter.html">Word Counter</a>
-    </div>
-  </div>
+ <div class="section">
+ <h2>Related tools</h2>
+ <div class="related-grid">
+ <a href="html-formatter.html">HTML Formatter</a>
+ <a href="json-formatter.html">JSON Formatter</a>
+ <a href="case-converter.html">Case Converter</a>
+ <a href="word-counter.html">Word Counter</a>
+ </div>
+ </div>
 
-  <footer class="footer">
-    <div class="footer-links">
-      <a href="word-counter.html">Word Counter</a>
-      <a href="case-converter.html">Case Converter</a>
-      <a href="json-formatter.html">JSON Formatter</a>
-      <span style="color:var(--border);margin:0 6px">|</span>
-      <a href="../../about.html">About</a>
-      <a href="../../privacy.html">Privacy</a>
-      <a href="../../disclaimer.html">Disclaimer</a>
-    </div>
-    <p class="footer-copy">&copy; 2026 My Tool Lab. All rights reserved.</p>
-  </footer>
+ <footer class="footer">
+ <div class="footer-links">
+ <a href="word-counter.html">Word Counter</a>
+ <a href="case-converter.html">Case Converter</a>
+ <a href="json-formatter.html">JSON Formatter</a>
+ <span style="color:var(--border);margin:0 6px">|</span>
+ <a href="../../about.html">About</a>
+ <a href="../../privacy.html">Privacy</a>
+ <a href="../../disclaimer.html">Disclaimer</a>
+ </div>
+ <p class="footer-copy">&copy; 2026 My Tool Lab. All rights reserved.</p>
+ </footer>
 </div>
 
 <script>
 (function() {
-  var KEYWORDS = [
-    'SELECT','FROM','WHERE','AND','OR','NOT','IN','IS','NULL','LIKE','BETWEEN','ORDER BY','GROUP BY','HAVING','LIMIT','OFFSET',
-    'JOIN','INNER JOIN','LEFT JOIN','RIGHT JOIN','FULL JOIN','OUTER JOIN','CROSS JOIN','ON','USING',
-    'INSERT INTO','VALUES','UPDATE','SET','DELETE','CREATE TABLE','DROP TABLE','ALTER TABLE','TRUNCATE',
-    'UNION','UNION ALL','INTERSECT','EXCEPT','DISTINCT','AS','CASE','WHEN','THEN','ELSE','END','WITH','EXISTS'
-  ];
-  var BREAK_BEFORE = /\b(SELECT|FROM|WHERE|AND|OR|GROUP\s+BY|HAVING|ORDER\s+BY|LIMIT|OFFSET|JOIN|INNER\s+JOIN|LEFT\s+JOIN|RIGHT\s+JOIN|FULL\s+JOIN|OUTER\s+JOIN|ON|USING|INSERT\s+INTO|VALUES|UPDATE|SET|DELETE|UNION|UNION\s+ALL|INTERSECT|EXCEPT|WITH|CASE|WHEN|ELSE|END)\b/gi;
+ var KEYWORDS = [
+ 'SELECT','FROM','WHERE','AND','OR','NOT','IN','IS','NULL','LIKE','BETWEEN','ORDER BY','GROUP BY','HAVING','LIMIT','OFFSET',
+ 'JOIN','INNER JOIN','LEFT JOIN','RIGHT JOIN','FULL JOIN','OUTER JOIN','CROSS JOIN','ON','USING',
+ 'INSERT INTO','VALUES','UPDATE','SET','DELETE','CREATE TABLE','DROP TABLE','ALTER TABLE','TRUNCATE',
+ 'UNION','UNION ALL','INTERSECT','EXCEPT','DISTINCT','AS','CASE','WHEN','THEN','ELSE','END','WITH','EXISTS'
+ ];
+ var BREAK_BEFORE = /\b(SELECT|FROM|WHERE|AND|OR|GROUP\s+BY|HAVING|ORDER\s+BY|LIMIT|OFFSET|JOIN|INNER\s+JOIN|LEFT\s+JOIN|RIGHT\s+JOIN|FULL\s+JOIN|OUTER\s+JOIN|ON|USING|INSERT\s+INTO|VALUES|UPDATE|SET|DELETE|UNION|UNION\s+ALL|INTERSECT|EXCEPT|WITH|CASE|WHEN|ELSE|END)\b/gi;
 
-  var inputEl = document.getElementById('inputText');
-  var outputEl = document.getElementById('outputText');
-  var formatBtn = document.getElementById('formatBtn');
-  var clearBtn = document.getElementById('clearBtn');
-  var sampleBtn = document.getElementById('sampleBtn');
-  var copyBtn = document.getElementById('copyBtn');
-  var indentSize = document.getElementById('indentSize');
-  var uppercase = document.getElementById('uppercase');
-  var statusEl = document.getElementById('statusLabel');
+ var inputEl = document.getElementById('inputText');
+ var outputEl = document.getElementById('outputText');
+ var formatBtn = document.getElementById('formatBtn');
+ var clearBtn = document.getElementById('clearBtn');
+ var sampleBtn = document.getElementById('sampleBtn');
+ var copyBtn = document.getElementById('copyBtn');
+ var indentSize = document.getElementById('indentSize');
+ var uppercase = document.getElementById('uppercase');
+ var statusEl = document.getElementById('statusLabel');
 
-  function setStatus(msg, ok) {
-    statusEl.textContent = msg;
-    statusEl.style.color = ok ? '#047857' : (ok === false ? '#b91c1c' : 'var(--muted)');
-  }
+ function setStatus(msg, ok) {
+ statusEl.textContent = msg;
+ statusEl.style.color = ok ? '#047857' : (ok === false ? '#b91c1c' : 'var(--muted)');
+ }
 
-  function format(sql) {
-    if (!sql) return '';
-    var text = sql.replace(/\s+/g, ' ').trim();
-    text = text.replace(BREAK_BEFORE, '\n$&');
-    if (uppercase.checked) {
-      for (var i = 0; i < KEYWORDS.length; i++) {
-        var kw = KEYWORDS[i];
-        var re = new RegExp('\\b' + kw.replace(/ /g, '\\s+') + '\\b', 'gi');
-        text = text.replace(re, kw.toUpperCase());
-      }
-    }
-    var indentUnit = indentSize.value === 'tab' ? '\t' : ' '.repeat(parseInt(indentSize.value, 10));
-    var depth = 0;
-    var lines = text.split('\n').map(function(l) { return l.trim(); }).filter(function(l) { return l.length > 0; });
-    var out = [];
-    for (var j = 0; j < lines.length; j++) {
-      var line = lines[j];
-      if (/^[)\]]/.test(line)) depth = Math.max(0, depth - 1);
-      out.push(indentUnit.repeat(depth) + line);
-      var opens = (line.match(/[\[\(]/g) || []).length;
-      var closes = (line.match(/[\]\)]/g) || []).length;
-      depth += Math.max(0, opens - closes);
-      if (depth < 0) depth = 0;
-    }
-    return out.join('\n');
-  }
+ function format(sql) {
+ if (!sql) return '';
+ var text = sql.replace(/\s+/g, ' ').trim();
+ text = text.replace(BREAK_BEFORE, '\n$&');
+ if (uppercase.checked) {
+ for (var i = 0; i < KEYWORDS.length; i++) {
+ var kw = KEYWORDS[i];
+ var re = new RegExp('\\b' + kw.replace(/ /g, '\\s+') + '\\b', 'gi');
+ text = text.replace(re, kw.toUpperCase());
+ }
+ }
+ var indentUnit = indentSize.value === 'tab' ? '\t' : ' '.repeat(parseInt(indentSize.value, 10));
+ var depth = 0;
+ var lines = text.split('\n').map(function(l) { return l.trim(); }).filter(function(l) { return l.length> 0; });
+ var out = [];
+ for (var j = 0; j < lines.length; j++) {
+ var line = lines[j];
+ if (/^[)\]]/.test(line)) depth = Math.max(0, depth - 1);
+ out.push(indentUnit.repeat(depth) + line);
+ var opens = (line.match(/[\[\(]/g) || []).length;
+ var closes = (line.match(/[\]\)]/g) || []).length;
+ depth += Math.max(0, opens - closes);
+ if (depth < 0) depth = 0;
+ }
+ return out.join('\n');
+ }
 
-  formatBtn.addEventListener('click', function() {
-    outputEl.value = format(inputEl.value);
-    setStatus(outputEl.value ? 'SQL formatted' : 'Ready', outputEl.value ? true : null);
-  });
+ formatBtn.addEventListener('click', function() {
+ outputEl.value = format(inputEl.value);
+ setStatus(outputEl.value ? 'SQL formatted' : 'Ready', outputEl.value ? true : null);
+ });
 
-  clearBtn.addEventListener('click', function() {
-    inputEl.value = ''; outputEl.value = ''; setStatus('Ready'); inputEl.focus();
-  });
+ clearBtn.addEventListener('click', function() {
+ inputEl.value = ''; outputEl.value = ''; setStatus('Ready'); inputEl.focus();
+ });
 
-  sampleBtn.addEventListener('click', function() {
-    inputEl.value = "select u.id, u.name, count(o.id) as order_count from users u left join orders o on o.user_id = u.id where u.active=1 and u.created_at > '2025-01-01' group by u.id, u.name having count(o.id) > 3 order by order_count desc limit 20";
-    outputEl.value = '';
-    setStatus('Sample loaded');
-  });
+ sampleBtn.addEventListener('click', function() {
+ inputEl.value = "select u.id, u.name, count(o.id) as order_count from users u left join orders o on o.user_id = u.id where u.active=1 and u.created_at> '2025-01-01' group by u.id, u.name having count(o.id)> 3 order by order_count desc limit 20";
+ outputEl.value = '';
+ setStatus('Sample loaded');
+ });
 
-  copyBtn.addEventListener('click', function() {
-    if (!outputEl.value) return;
-    if (navigator.clipboard) {
-      navigator.clipboard.writeText(outputEl.value).then(function() {
-        copyBtn.textContent = 'Copied!';
-        setTimeout(function() { copyBtn.textContent = 'Copy'; }, 1200);
-      });
-    } else {
-      outputEl.select(); document.execCommand('copy');
-      copyBtn.textContent = 'Copied!';
-      setTimeout(function() { copyBtn.textContent = 'Copy'; }, 1200);
-    }
-  });
+ copyBtn.addEventListener('click', function() {
+ if (!outputEl.value) return;
+ if (navigator.clipboard) {
+ navigator.clipboard.writeText(outputEl.value).then(function() {
+ copyBtn.textContent = 'Copied!';
+ setTimeout(function() { copyBtn.textContent = 'Copy'; }, 1200);
+ });
+ } else {
+ outputEl.select(); document.execCommand('copy');
+ copyBtn.textContent = 'Copied!';
+ setTimeout(function() { copyBtn.textContent = 'Copy'; }, 1200);
+ }
+ });
 })();
 </script>
 </body>

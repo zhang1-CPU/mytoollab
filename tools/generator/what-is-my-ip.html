@@ -1,148 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>What Is My IP – IPv4, IPv6 &amp; Browser Info | My Tool Lab</title>
-  <meta name="description" content="Reveal your public IP address (IPv4 / IPv6) and useful browser information: user agent, platform, screen/viewport size, timezone, and language." />
-  <link rel="stylesheet" href="../../_css/components.css" />
-  <link rel="canonical" href="https://www.zlbox.site/tools/generator/what-is-my-ip.html" />
-  <meta name="google-site-verification" content="google4bd1e08685667667" />
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <title>What Is My IP – IPv4, IPv6 &amp; Browser Info | My Tool Lab</title>
+ <meta name="description" content="Reveal your public IP address (IPv4 / IPv6) and useful browser information: user agent, platform, screen/viewport size, timezone, and language." />
+ <link rel="stylesheet" href="../../_css/components.css" />
+ <link rel="canonical" href="https://www.zlbox.site/tools/generator/what-is-my-ip.html" />
+ <meta name="google-site-verification" content="google4bd1e08685667667" />
+ <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
 </head>
 <body>
 <div class="container-md">
-  <div class="hero">
-    <div class="breadcrumb"><a href="../../index.html">Home</a> &rsaquo; <a href="../../index.html">Generator Tools</a> &rsaquo; What Is My IP</div>
-    <h1>What Is My IP</h1>
-    <p>Detect your public IPv4 and IPv6 addresses, and browse a quick overview of your browser, screen, and timezone — all in one page.</p>
-  </div>
+ <div class="hero">
+ <div class="breadcrumb"><a href="../../index.html">Home</a> &rsaquo; <a href="../../categories/generator.html">Generator Tools</a> &rsaquo; What Is My IP</div>
+ <h1>What Is My IP</h1>
+ <p>Detect your public IPv4 and IPv6 addresses, and browse a quick overview of your browser, screen, and timezone — all in one page.</p>
+ </div>
 
-  <div class="card">
-    <div class="stats-grid">
-      <div class="stat stat--accent" style="grid-column:1/-1;">
-        <div class="stat__value" id="ipv4" style="font-size:1.5rem;">—</div>
-        <div class="stat__label">Your IPv4 Address</div>
-        <button class="btn btn--ghost" id="copy-v4" style="margin-top:6px;">Copy IPv4</button>
-      </div>
-      <div class="stat" style="grid-column:1/-1;">
-        <div class="stat__value" id="ipv6" style="font-size:1.1rem;word-break:break-all;">—</div>
-        <div class="stat__label">Your IPv6 Address</div>
-        <button class="btn btn--ghost" id="copy-v6" style="margin-top:6px;">Copy IPv6</button>
-      </div>
-    </div>
+ <div class="card">
+ <div class="stats-grid">
+ <div class="stat stat--accent">
+ <div class="stat__value" id="ipv4">—</div>
+ <div class="stat__label">Your IPv4 Address</div>
+ <button class="btn btn--ghost" id="copy-v4">Copy IPv4</button>
+ </div>
+ <div class="stat">
+ <div class="stat__value" id="ipv6">—</div>
+ <div class="stat__label">Your IPv6 Address</div>
+ <button class="btn btn--ghost" id="copy-v6">Copy IPv6</button>
+ </div>
+ </div>
 
-    <div style="margin-top:14px;" id="info-list">
-      <div class="row"><label>Browser / Platform</label><span id="browser" style="font-family:ui-monospace,Consolas,Menlo,monospace;">—</span></div>
-      <div class="row"><label>User Agent</label><span id="ua" style="font-family:ui-monospace,Consolas,Menlo,monospace;font-size:0.8rem;word-break:break-all;text-align:right;max-width:60%;">—</span></div>
-      <div class="row"><label>Screen Size</label><span id="screen" style="font-family:ui-monospace,Consolas,Menlo,monospace;">—</span></div>
-      <div class="row"><label>Viewport Size</label><span id="viewport" style="font-family:ui-monospace,Consolas,Menlo,monospace;">—</span></div>
-      <div class="row"><label>Timezone</label><span id="tz" style="font-family:ui-monospace,Consolas,Menlo,monospace;">—</span></div>
-      <div class="row"><label>Language</label><span id="lang" style="font-family:ui-monospace,Consolas,Menlo,monospace;">—</span></div>
-    </div>
-    <p style="text-align:center;font-size:0.82rem;color:var(--muted);margin-top:10px;" id="note">Detecting your IP address and browser information...</p>
-  </div>
+ <div id="info-list">
+ <div class="row"><label>Browser / Platform</label><span id="browser" style="font-family:ui-monospace,Consolas,Menlo,monospace">—</span></div>
+ <div class="row"><label>User Agent</label><span id="ua" style="font-family:ui-monospace,Consolas,Menlo,monospace;max-width:60%">—</span></div>
+ <div class="row"><label>Screen Size</label><span id="screen" style="font-family:ui-monospace,Consolas,Menlo,monospace">—</span></div>
+ <div class="row"><label>Viewport Size</label><span id="viewport" style="font-family:ui-monospace,Consolas,Menlo,monospace">—</span></div>
+ <div class="row"><label>Timezone</label><span id="tz" style="font-family:ui-monospace,Consolas,Menlo,monospace">—</span></div>
+ <div class="row"><label>Language</label><span id="lang" style="font-family:ui-monospace,Consolas,Menlo,monospace">—</span></div>
+ </div>
+ <p id="note">Detecting your IP address and browser information...</p>
+ </div>
 
-  <div class="section">
-    <h2>How it works</h2>
-    <ol class="steps">
-      <li>Your browser queries a public IP service (<code>ipify.org</code>) to fetch your current IPv4 and IPv6 addresses.</li>
-      <li>The remaining info is extracted directly from your browser using standard JavaScript APIs (no plugins, no server-side tracking).</li>
-      <li>Nothing leaves your browser except the two HTTPS calls needed to fetch your public IPs.</li>
-    </ol>
-  </div>
+ <div class="section">
+ <h2>How it works</h2>
+ <ol class="steps">
+ <li>Your browser queries a public IP service (<code>ipify.org</code>) to fetch your current IPv4 and IPv6 addresses.</li>
+ <li>The remaining info is extracted directly from your browser using standard JavaScript APIs (no plugins, no server-side tracking).</li>
+ <li>Nothing leaves your browser except the two HTTPS calls needed to fetch your public IPs.</li>
+ </ol>
+ </div>
 
-  <div class="section">
-    <h2>Related tools</h2>
-    <div class="related-grid">
-      <a href="random-number-generator.html">Random Number Generator</a>
-      <a href="uuid-generator.html">UUID Generator</a>
-      <a href="hash-generator.html">Hash Generator</a>
-      <a href="../text/base64.html">Base64 Encoder</a>
-      <a href="../text/number-base-converter.html">Number Base Converter</a>
-      <a href="../text/html-encoder.html">HTML Encoder</a>
-    </div>
-  </div>
+ <div class="section">
+ <h2>Related tools</h2>
+ <div class="related-grid">
+ <a href="random-number-generator.html">Random Number Generator</a>
+ <a href="uuid-generator.html">UUID Generator</a>
+ <a href="hash-generator.html">Hash Generator</a>
+ <a href="../text/base64.html">Base64 Encoder</a>
+ <a href="../text/number-base-converter.html">Number Base Converter</a>
+ <a href="../text/html-encoder.html">HTML Encoder</a>
+ </div>
+ </div>
 
-  <footer class="footer">
-    <div class="footer-links">
-      <a href="random-number-generator.html">Random Number Generator</a>
-      <a href="uuid-generator.html">UUID Generator</a>
-      <a href="hash-generator.html">Hash Generator</a>
-      <span style="color:var(--border);margin:0 6px">|</span>
-      <a href="../../about.html">About</a>
-      <a href="../../privacy.html">Privacy</a>
-      <a href="../../disclaimer.html">Disclaimer</a>
-    </div>
-    <p class="footer-copy">&copy; 2026 My Tool Lab. All rights reserved.</p>
-  </footer>
+ <footer class="footer">
+ <div class="footer-links">
+ <a href="random-number-generator.html">Random Number Generator</a>
+ <a href="uuid-generator.html">UUID Generator</a>
+ <a href="hash-generator.html">Hash Generator</a>
+ <span style="color:var(--border);margin:0 6px">|</span>
+ <a href="../../about.html">About</a>
+ <a href="../../privacy.html">Privacy</a>
+ <a href="../../disclaimer.html">Disclaimer</a>
+ </div>
+ <p class="footer-copy">&copy; 2026 My Tool Lab. All rights reserved.</p>
+ </footer>
 </div>
 
 <script>
 (function(){
-  function copyText(txt, btn){
-    if(navigator.clipboard && navigator.clipboard.writeText){
-      navigator.clipboard.writeText(txt).then(function(){
-        document.getElementById('note').textContent='Copied: '+txt;
-      });
-    } else {
-      var ta=document.createElement('textarea');
-      ta.value=txt; document.body.appendChild(ta); ta.select();
-      try{ document.execCommand('copy'); document.getElementById('note').textContent='Copied.'; }
-      catch(e){ document.getElementById('note').textContent='Copy failed.'; }
-      document.body.removeChild(ta);
-    }
-  }
+ function copyText(txt, btn){
+ if(navigator.clipboard && navigator.clipboard.writeText){
+ navigator.clipboard.writeText(txt).then(function(){
+ document.getElementById('note').textContent='Copied: '+txt;
+ });
+ } else {
+ var ta=document.createElement('textarea');
+ ta.value=txt; document.body.appendChild(ta); ta.select();
+ try{ document.execCommand('copy'); document.getElementById('note').textContent='Copied.'; }
+ catch(e){ document.getElementById('note').textContent='Copy failed.'; }
+ document.body.removeChild(ta);
+ }
+ }
 
-  function fetchIP(url, el, label){
-    return fetch(url).then(function(r){return r.json();}).then(function(j){
-      el.textContent=j.ip||'—';
-      el.dataset.ip=j.ip||'';
-      document.getElementById('note').textContent=label+' detected: '+(j.ip||'—');
-    }).catch(function(){
-      el.textContent='(unavailable — offline or blocked)';
-    });
-  }
+ function fetchIP(url, el, label){
+ return fetch(url).then(function(r){return r.json();}).then(function(j){
+ el.textContent=j.ip||'—';
+ el.dataset.ip=j.ip||'';
+ document.getElementById('note').textContent=label+' detected: '+(j.ip||'—');
+ }).catch(function(){
+ el.textContent='(unavailable — offline or blocked)';
+ });
+ }
 
-  // Detect browser
-  function detectBrowser(){
-    var ua=navigator.userAgent;
-    var b='Unknown';
-    if(/Edg\//.test(ua)) b='Edge';
-    else if(/OPR\/|Opera/.test(ua)) b='Opera';
-    else if(/Chrome\//.test(ua) && !/Chromium/.test(ua)) b='Chrome';
-    else if(/Firefox\//.test(ua)) b='Firefox';
-    else if(/Safari\//.test(ua) && !/Chrome\//.test(ua)) b='Safari';
-    else if(/MSIE |Trident\//.test(ua)) b='Internet Explorer';
-    var p='';
-    if(/Windows/.test(ua)) p='Windows';
-    else if(/Mac OS X/.test(ua)) p='macOS';
-    else if(/Android/.test(ua)) p='Android';
-    else if(/iPhone|iPad|iPod/.test(ua)) p='iOS';
-    else if(/Linux/.test(ua)) p='Linux';
-    return b+(p?' · '+p:'');
-  }
+ // Detect browser
+ function detectBrowser(){
+ var ua=navigator.userAgent;
+ var b='Unknown';
+ if(/Edg\//.test(ua)) b='Edge';
+ else if(/OPR\/|Opera/.test(ua)) b='Opera';
+ else if(/Chrome\//.test(ua) && !/Chromium/.test(ua)) b='Chrome';
+ else if(/Firefox\//.test(ua)) b='Firefox';
+ else if(/Safari\//.test(ua) && !/Chrome\//.test(ua)) b='Safari';
+ else if(/MSIE |Trident\//.test(ua)) b='Internet Explorer';
+ var p='';
+ if(/Windows/.test(ua)) p='Windows';
+ else if(/Mac OS X/.test(ua)) p='macOS';
+ else if(/Android/.test(ua)) p='Android';
+ else if(/iPhone|iPad|iPod/.test(ua)) p='iOS';
+ else if(/Linux/.test(ua)) p='Linux';
+ return b+(p?' · '+p:'');
+ }
 
-  document.getElementById('ua').textContent=navigator.userAgent||'—';
-  document.getElementById('browser').textContent=detectBrowser();
-  document.getElementById('screen').textContent=(screen.width||'?')+' × '+(screen.height||'?');
-  document.getElementById('viewport').textContent=window.innerWidth+' × '+window.innerHeight;
-  try{ document.getElementById('tz').textContent=(Intl.DateTimeFormat().resolvedOptions().timeZone||'—')+' (UTC'+((-new Date().getTimezoneOffset()/60)>=0?'+':'')+(-new Date().getTimezoneOffset()/60)+')';}catch(e){ document.getElementById('tz').textContent='—'; }
-  document.getElementById('lang').textContent=navigator.language||'—';
+ document.getElementById('ua').textContent=navigator.userAgent||'—';
+ document.getElementById('browser').textContent=detectBrowser();
+ document.getElementById('screen').textContent=(screen.width||'?')+' × '+(screen.height||'?');
+ document.getElementById('viewport').textContent=window.innerWidth+' × '+window.innerHeight;
+ try{ document.getElementById('tz').textContent=(Intl.DateTimeFormat().resolvedOptions().timeZone||'—')+' (UTC'+((-new Date().getTimezoneOffset()/60)>=0?'+':'')+(-new Date().getTimezoneOffset()/60)+')';}catch(e){ document.getElementById('tz').textContent='—'; }
+ document.getElementById('lang').textContent=navigator.language||'—';
 
-  fetchIP('https://api.ipify.org?format=json', document.getElementById('ipv4'), 'IPv4');
-  fetchIP('https://api64.ipify.org?format=json', document.getElementById('ipv6'), 'IPv6');
+ fetchIP('https://api.ipify.org?format=json', document.getElementById('ipv4'), 'IPv4');
+ fetchIP('https://api64.ipify.org?format=json', document.getElementById('ipv6'), 'IPv6');
 
-  document.getElementById('copy-v4').addEventListener('click',function(){
-    copyText(document.getElementById('ipv4').dataset.ip||document.getElementById('ipv4').textContent);
-  });
-  document.getElementById('copy-v6').addEventListener('click',function(){
-    copyText(document.getElementById('ipv6').dataset.ip||document.getElementById('ipv6').textContent);
-  });
+ document.getElementById('copy-v4').addEventListener('click',function(){
+ copyText(document.getElementById('ipv4').dataset.ip||document.getElementById('ipv4').textContent);
+ });
+ document.getElementById('copy-v6').addEventListener('click',function(){
+ copyText(document.getElementById('ipv6').dataset.ip||document.getElementById('ipv6').textContent);
+ });
 
-  window.addEventListener('resize',function(){
-    document.getElementById('viewport').textContent=window.innerWidth+' × '+window.innerHeight;
-  });
+ window.addEventListener('resize',function(){
+ document.getElementById('viewport').textContent=window.innerWidth+' × '+window.innerHeight;
+ });
 })();
 </script>
 </body>

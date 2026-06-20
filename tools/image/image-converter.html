@@ -1,113 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Image Converter – Convert JPG, PNG, WebP, GIF Online Free | My Tool Lab</title>
-  <meta name="description" content="Free online image converter. Convert images between JPG, PNG, WebP, and GIF formats instantly. Upload, convert, download locally in your browser." />
-  <link rel="canonical" href="https://www.zlbox.site/tools/image/image-converter.html" />
-  <meta name="google-site-verification" content="google4bd1e08685667667" />
-  <link rel="stylesheet" href="../../_css/components.css" />
-  <style>
-    .drop{border:2px dashed var(--border);border-radius:var(--radius);padding:20px 12px;text-align:center;cursor:pointer;transition:border-color .15s,background .15s;}
-    .drop.drag{border-color:var(--brand);background:#eff6ff;}
-    .drop-icon{font-size:2.4rem;margin-bottom:8px;}
-    .preview-wrap{text-align:center;margin-top:10px;}
-    .preview-wrap img{max-width:100%;max-height:260px;border-radius:8px;border:1px solid var(--border);}
-  </style>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <title>Image Converter – Convert JPG, PNG, WebP, GIF Online Free | My Tool Lab</title>
+ <meta name="description" content="Free online image converter. Convert images between JPG, PNG, WebP, and GIF formats instantly. Upload, convert, download locally in your browser." />
+ <link rel="canonical" href="https://www.zlbox.site/tools/image/image-converter.html" />
+ <meta name="google-site-verification" content="google4bd1e08685667667" />
+ <link rel="stylesheet" href="../../_css/components.css" />
+ <style>
+ .drop{border:2px dashed var(--border);border-radius:var(--radius);padding:20px 12px;text-align:center;cursor:pointer;transition:border-color .15s,background .15s;}
+ .drop.drag{border-color:var(--brand);background:#eff6ff;}
+ .drop-icon{font-size:2.4rem;margin-bottom:8px;}
+ .preview-wrap{text-align:center;margin-top:10px;}
+ .preview-wrap img{max-width:100%;max-height:260px;border-radius:8px;border:1px solid var(--border);}
+ </style>
 </head>
 <body>
 <div class="container-md">
-  <div class="hero">
-    <div class="breadcrumb"><a href="../../index.html">Home</a> &rsaquo; <a href="../../categories/image.html">Image Tools</a> &rsaquo; Image Converter</div>
-    <h1>Image Converter</h1>
-    <p>Convert between JPG, PNG, WebP, and GIF formats locally in your browser. No uploads, no signup required.</p>
-  </div>
+ <div class="hero">
+ <div class="breadcrumb"><a href="../../index.html">Home</a> &rsaquo; <a href="../../categories/image.html">Image Tools</a> &rsaquo; Image Converter</div>
+ <h1>Image Converter</h1>
+ <p>Convert between JPG, PNG, WebP, and GIF formats locally in your browser. No uploads, no signup required.</p>
+ </div>
 
-  <div class="card">
-    <div class="drop" id="drop">
-      <div class="drop-icon">&#128260;</div>
-      <h3>Drop image here</h3>
-      <p style="font-size:.85rem;color:var(--muted);margin-top:4px;">or click to browse</p>
-      <input type="file" id="file" accept="image/*" style="display:none;" />
-      <div id="fileInfo" style="margin-top:8px;font-size:.85rem;color:var(--muted);"></div>
-    </div>
+ <div class="card">
+ <div class="drop" id="drop">
+ <div class="drop-icon">&#128260;</div>
+ <h3>Drop image here</h3>
+ <p>or click to browse</p>
+ <input type="file" id="file" accept="image/*" style="display:none" />
+ <div id="fileInfo"></div>
+ </div>
 
-    <div class="row" style="margin-top:10px;">
-      <label for="fmt">Output format</label>
-      <select id="fmt" style="max-width:180px;">
-        <option value="image/jpeg">JPG</option>
-        <option value="image/png">PNG</option>
-        <option value="image/webp">WebP</option>
-      </select>
-    </div>
+ <div class="row">
+ <label for="fmt">Output format</label>
+ <select id="fmt" style="max-width:180px">
+ <option value="image/jpeg">JPG</option>
+ <option value="image/png">PNG</option>
+ <option value="image/webp">WebP</option>
+ </select>
+ </div>
 
-    <div class="row" id="qRow" style="margin-top:4px;">
-      <label for="q">Quality (JPG/WebP)</label>
-      <input type="range" id="q" min="10" max="100" value="92" style="max-width:220px;" />
-      <span id="qVal" style="font-size:.82rem;color:var(--muted);">92%</span>
-    </div>
+ <div class="row" id="qRow">
+ <label for="q">Quality (JPG/WebP)</label>
+ <input type="range" id="q" min="10" max="100" value="92" style="max-width:220px" />
+ <span id="qVal">92%</span>
+ </div>
 
-    <button class="btn btn--block" id="convertBtn" disabled style="margin-top:10px;">Convert Image</button>
+ <button class="btn btn--block" id="convertBtn" disabled>Convert Image</button>
 
-    <div id="result" style="display:none;margin-top:10px;">
-      <div class="preview-wrap" id="previewWrap"></div>
-      <div id="outInfo" style="margin-top:8px;font-size:.85rem;color:var(--muted);text-align:center;"></div>
-      <button class="btn btn--block" id="dlBtn" style="margin-top:10px;">Download</button>
-    </div>
-  </div>
+ <div id="result" style="display:none">
+ <div class="preview-wrap" id="previewWrap"></div>
+ <div id="outInfo"></div>
+ <button class="btn btn--block" id="dlBtn">Download</button>
+ </div>
+ </div>
 
-  <div class="section">
-    <h2>How it works</h2>
-    <ol class="steps">
-      <li>Upload an image by drag-and-drop or click to browse.</li>
-      <li>Choose your target format (JPG, PNG, WebP) and quality if applicable.</li>
-      <li>Click Convert and download the result — everything happens in your browser.</li>
-    </ol>
-  </div>
+ <div class="section">
+ <h2>How it works</h2>
+ <ol class="steps">
+ <li>Upload an image by drag-and-drop or click to browse.</li>
+ <li>Choose your target format (JPG, PNG, WebP) and quality if applicable.</li>
+ <li>Click Convert and download the result — everything happens in your browser.</li>
+ </ol>
+ </div>
 
-  <div class="section">
-    <h2>Related tools</h2>
-    <div class="related-grid">
-      <a href="image-compressor.html">Image Compressor</a>
-      <a href="image-resizer.html">Image Resizer</a>
-      <a href="background-remover.html">Background Remover</a>
-      <a href="color-converter.html">Color Converter</a>
-    </div>
-  </div>
+ <div class="section">
+ <h2>Related tools</h2>
+ <div class="related-grid">
+ <a href="image-compressor.html">Image Compressor</a>
+ <a href="image-resizer.html">Image Resizer</a>
+ <a href="background-remover.html">Background Remover</a>
+ <a href="color-converter.html">Color Converter</a>
+ </div>
+ </div>
 
-  <footer class="footer">
-    <div class="footer-links">
-      <a href="image-compressor.html">Image Compressor</a>
-      <a href="image-resizer.html">Image Resizer</a>
-      <a href="color-picker.html">Color Picker</a>
-      <span style="color:var(--border);margin:0 6px;">|</span>
-      <a href="../../about.html">About</a>
-      <a href="../../privacy.html">Privacy</a>
-      <a href="../../disclaimer.html">Disclaimer</a>
-    </div>
-    <p class="footer-copy">&copy; 2026 My Tool Lab. All rights reserved.</p>
-  </footer>
+ <footer class="footer">
+ <div class="footer-links">
+ <a href="image-compressor.html">Image Compressor</a>
+ <a href="image-resizer.html">Image Resizer</a>
+ <a href="color-picker.html">Color Picker</a>
+ <span style="color:var(--border);margin:0 6px;">|</span>
+ <a href="../../about.html">About</a>
+ <a href="../../privacy.html">Privacy</a>
+ <a href="../../disclaimer.html">Disclaimer</a>
+ </div>
+ <p class="footer-copy">&copy; 2026 My Tool Lab. All rights reserved.</p>
+ </footer>
 </div>
 
 <script>
 (function(){
-  var drop=document.getElementById('drop'),file=document.getElementById('file'),fileInfo=document.getElementById('fileInfo'),
-      fmt=document.getElementById('fmt'),q=document.getElementById('q'),qVal=document.getElementById('qVal'),
-      convertBtn=document.getElementById('convertBtn'),result=document.getElementById('result'),
-      previewWrap=document.getElementById('previewWrap'),outInfo=document.getElementById('outInfo'),dlBtn=document.getElementById('dlBtn');
-  var currentFile=null,lastBlob=null,lastName='converted.jpg';
-  q.addEventListener('input',function(){qVal.textContent=q.value+'%';});
-  fmt.addEventListener('change',function(){qRow.style.display=(fmt.value==='image/png')?'none':'flex';});
-  drop.addEventListener('click',function(){file.click();});
-  ['dragover','dragenter'].forEach(function(ev){drop.addEventListener(ev,function(e){e.preventDefault();drop.classList.add('drag');});});
-  ['dragleave','drop'].forEach(function(ev){drop.addEventListener(ev,function(e){e.preventDefault();drop.classList.remove('drag');});});
-  drop.addEventListener('drop',function(e){if(e.dataTransfer.files&&e.dataTransfer.files[0])handle(e.dataTransfer.files[0]);});
-  file.addEventListener('change',function(){if(file.files&&file.files[0])handle(file.files[0]);});
-  function fmtBytes(n){if(n<1024)return n+' B';if(n<1048576)return(n/1024).toFixed(1)+' KB';return(n/1048576).toFixed(2)+' MB';}
-  function handle(f){if(!/image\//.test(f.type)){fileInfo.textContent='Please select an image file.';return;}currentFile=f;fileInfo.textContent=f.name+' ('+fmtBytes(f.size)+')';convertBtn.disabled=false;result.style.display='none';}
-  convertBtn.addEventListener('click',function(){if(!currentFile)return;var reader=new FileReader();reader.onload=function(e){var img=new Image();img.onload=function(){var canvas=document.createElement('canvas');canvas.width=img.width;canvas.height=img.height;var ctx=canvas.getContext('2d');if(fmt.value!=='image/png'){ctx.fillStyle='#ffffff';ctx.fillRect(0,0,canvas.width,canvas.height);}ctx.drawImage(img,0,0);var outType=fmt.value;canvas.toBlob(function(blob){if(!blob){fileInfo.textContent='Conversion failed.';return;}lastBlob=blob;var ext=outType==='image/png'?'.png':outType==='image/webp'?'.webp':'.jpg';lastName=currentFile.name.replace(/\.[^.]+$/,'')+ext;var url=URL.createObjectURL(blob);previewWrap.innerHTML='<img src="'+url+'" alt="converted preview" />';outInfo.textContent=fmtBytes(blob.size);result.style.display='block';},outType,parseInt(q.value,10)/100);};img.src=e.target.result;};reader.readAsDataURL(currentFile);});
-  dlBtn.addEventListener('click',function(){if(!lastBlob)return;var url=URL.createObjectURL(lastBlob);var a=document.createElement('a');a.href=url;a.download=lastName;document.body.appendChild(a);a.click();setTimeout(function(){a.remove();URL.revokeObjectURL(url);},400);});
+ var drop=document.getElementById('drop'),file=document.getElementById('file'),fileInfo=document.getElementById('fileInfo'),
+ fmt=document.getElementById('fmt'),q=document.getElementById('q'),qVal=document.getElementById('qVal'),
+ convertBtn=document.getElementById('convertBtn'),result=document.getElementById('result'),
+ previewWrap=document.getElementById('previewWrap'),outInfo=document.getElementById('outInfo'),dlBtn=document.getElementById('dlBtn');
+ var currentFile=null,lastBlob=null,lastName='converted.jpg';
+ q.addEventListener('input',function(){qVal.textContent=q.value+'%';});
+ fmt.addEventListener('change',function(){qRow.style.display=(fmt.value==='image/png')?'none':'flex';});
+ drop.addEventListener('click',function(){file.click();});
+ ['dragover','dragenter'].forEach(function(ev){drop.addEventListener(ev,function(e){e.preventDefault();drop.classList.add('drag');});});
+ ['dragleave','drop'].forEach(function(ev){drop.addEventListener(ev,function(e){e.preventDefault();drop.classList.remove('drag');});});
+ drop.addEventListener('drop',function(e){if(e.dataTransfer.files&&e.dataTransfer.files[0])handle(e.dataTransfer.files[0]);});
+ file.addEventListener('change',function(){if(file.files&&file.files[0])handle(file.files[0]);});
+ function fmtBytes(n){if(n<1024)return n+' B';if(n<1048576)return(n/1024).toFixed(1)+' KB';return(n/1048576).toFixed(2)+' MB';}
+ function handle(f){if(!/image\//.test(f.type)){fileInfo.textContent='Please select an image file.';return;}currentFile=f;fileInfo.textContent=f.name+' ('+fmtBytes(f.size)+')';convertBtn.disabled=false;result.style.display='none';}
+ convertBtn.addEventListener('click',function(){if(!currentFile)return;var reader=new FileReader();reader.onload=function(e){var img=new Image();img.onload=function(){var canvas=document.createElement('canvas');canvas.width=img.width;canvas.height=img.height;var ctx=canvas.getContext('2d');if(fmt.value!=='image/png'){ctx.fillStyle='#ffffff';ctx.fillRect(0,0,canvas.width,canvas.height);}ctx.drawImage(img,0,0);var outType=fmt.value;canvas.toBlob(function(blob){if(!blob){fileInfo.textContent='Conversion failed.';return;}lastBlob=blob;var ext=outType==='image/png'?'.png':outType==='image/webp'?'.webp':'.jpg';lastName=currentFile.name.replace(/\.[^.]+$/,'')+ext;var url=URL.createObjectURL(blob);previewWrap.innerHTML='<img src="'+url+'" alt="converted preview" />';outInfo.textContent=fmtBytes(blob.size);result.style.display='block';},outType,parseInt(q.value,10)/100);};img.src=e.target.result;};reader.readAsDataURL(currentFile);});
+ dlBtn.addEventListener('click',function(){if(!lastBlob)return;var url=URL.createObjectURL(lastBlob);var a=document.createElement('a');a.href=url;a.download=lastName;document.body.appendChild(a);a.click();setTimeout(function(){a.remove();URL.revokeObjectURL(url);},400);});
 })();
 </script>
 </body>

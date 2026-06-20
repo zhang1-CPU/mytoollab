@@ -1,212 +1,212 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CSV &harr; JSON Converter – Encode &amp; Decode | My Tool Lab</title>
-  <meta name="description" content="Convert CSV (comma-separated values) to JSON, and back. Auto-detects delimiters and supports headers, quoted fields, and pretty JSON formatting." />
-  <link rel="stylesheet" href="../../_css/components.css" />
-  <link rel="canonical" href="https://www.zlbox.site/tools/text/csv-to-json.html" />
-  <meta name="google-site-verification" content="google4bd1e08685667667" />
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <title>CSV &harr; JSON Converter – Encode &amp; Decode | My Tool Lab</title>
+ <meta name="description" content="Convert CSV (comma-separated values) to JSON, and back. Auto-detects delimiters and supports headers, quoted fields, and pretty JSON formatting." />
+ <link rel="stylesheet" href="../../_css/components.css" />
+ <link rel="canonical" href="https://www.zlbox.site/tools/text/csv-to-json.html" />
+ <meta name="google-site-verification" content="google4bd1e08685667667" />
+ <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
 </head>
 <body>
 <div class="container-md">
-  <div class="hero">
-    <div class="breadcrumb"><a href="../../index.html">Home</a> &rsaquo; <a href="../../index.html">Text Tools</a> &rsaquo; CSV &harr; JSON</div>
-    <h1>CSV &harr; JSON Converter</h1>
-    <p>Convert between CSV and JSON instantly. Handles quoted fields with commas and newlines, auto-detects delimiters, and supports pretty-formatted output.</p>
-  </div>
+ <div class="hero">
+ <div class="breadcrumb"><a href="../../index.html">Home</a> &rsaquo; <a href="../../categories/text.html">Text Tools</a> &rsaquo; CSV &harr; JSON</div>
+ <h1>CSV &harr; JSON Converter</h1>
+ <p>Convert between CSV and JSON instantly. Handles quoted fields with commas and newlines, auto-detects delimiters, and supports pretty-formatted output.</p>
+ </div>
 
-  <div class="card">
-    <div class="editor" style="margin-bottom:10px;">
-      <label style="display:flex;align-items:center;justify-content:space-between;padding:8px 10px;">
-        <span style="font-size:0.88rem;font-weight:600;">Input (CSV or JSON)</span>
-        <div style="display:flex;gap:12px;font-size:0.82rem;color:var(--muted);">
-          <label style="display:flex;gap:4px;align-items:center;"><input type="checkbox" id="header" checked /> First row is header</label>
-          <label style="display:flex;gap:4px;align-items:center;"><input type="checkbox" id="pretty" checked /> Pretty JSON</label>
-        </div>
-      </label>
-      <textarea id="input" rows="8" style="font-family:ui-monospace,Consolas,Menlo,monospace;font-size:0.88rem;" placeholder="Paste CSV or JSON here">name,age,city
+ <div class="card">
+ <div class="editor">
+ <label style="display:flex;align-items:center;justify-content:space-between">
+ <span>Input (CSV or JSON)</span>
+ <div style="display:flex;gap:12px">
+ <label style="display:flex;gap:4px;align-items:center"><input type="checkbox" id="header" checked /> First row is header</label>
+ <label style="display:flex;gap:4px;align-items:center"><input type="checkbox" id="pretty" checked /> Pretty JSON</label>
+ </div>
+ </label>
+ <textarea id="input" rows="8" style="font-family:ui-monospace,Consolas,Menlo,monospace" placeholder="Paste CSV or JSON here">name,age,city
 Alice,30,New York
 Bob,25,"San Francisco, CA"
 Carol,42,Chicago
 "Doe, Jane",28,Boston</textarea>
-      <div class="editor__toolbar">
-        <button class="btn" id="csv2json">Convert &rarr; JSON</button>
-        <button class="btn btn--ghost" id="json2csv">Convert &rarr; CSV</button>
-        <button class="btn btn--ghost" id="swap">&harr; Swap</button>
-        <button class="btn btn--ghost" id="copy-in">Copy Input</button>
-        <button class="btn btn--ghost" id="clear">Clear</button>
-      </div>
-    </div>
+ <div class="editor__toolbar">
+ <button class="btn" id="csv2json">Convert &rarr; JSON</button>
+ <button class="btn btn--ghost" id="json2csv">Convert &rarr; CSV</button>
+ <button class="btn btn--ghost" id="swap">&harr; Swap</button>
+ <button class="btn btn--ghost" id="copy-in">Copy Input</button>
+ <button class="btn btn--ghost" id="clear">Clear</button>
+ </div>
+ </div>
 
-    <div class="field">
-      <label>Output</label>
-      <textarea id="output" rows="10" readonly style="font-family:ui-monospace,Consolas,Menlo,monospace;font-size:0.88rem;"></textarea>
-    </div>
-    <div class="row">
-      <button class="btn btn--ghost" id="copy-out" style="margin-left:auto;">Copy Output</button>
-    </div>
-    <p style="text-align:center;font-size:0.82rem;color:var(--muted);margin-top:8px;" id="note">Auto-detects delimiter (comma, tab, or semicolon). Supports quoted fields with embedded commas, quotes, and newlines.</p>
-  </div>
+ <div class="field">
+ <label>Output</label>
+ <textarea id="output" rows="10" readonly style="font-family:ui-monospace,Consolas,Menlo,monospace"></textarea>
+ </div>
+ <div class="row">
+ <button class="btn btn--ghost" id="copy-out" style="margin-left:auto">Copy Output</button>
+ </div>
+ <p id="note">Auto-detects delimiter (comma, tab, or semicolon). Supports quoted fields with embedded commas, quotes, and newlines.</p>
+ </div>
 
-  <div class="section">
-    <h2>How it works</h2>
-    <ol class="steps">
-      <li>Paste CSV or JSON into the Input area. The converter auto-detects the delimiter and type.</li>
-      <li>For CSV, check <strong>First row is header</strong> to produce an array of objects; otherwise the output is a 2D array.</li>
-      <li>Quoted fields with embedded commas, double-quotes, and newlines are supported.</li>
-    </ol>
-  </div>
+ <div class="section">
+ <h2>How it works</h2>
+ <ol class="steps">
+ <li>Paste CSV or JSON into the Input area. The converter auto-detects the delimiter and type.</li>
+ <li>For CSV, check <strong>First row is header</strong> to produce an array of objects; otherwise the output is a 2D array.</li>
+ <li>Quoted fields with embedded commas, double-quotes, and newlines are supported.</li>
+ </ol>
+ </div>
 
-  <div class="section">
-    <h2>Related tools</h2>
-    <div class="related-grid">
-      <a href="base64.html">Base64 Encoder</a>
-      <a href="html-encoder.html">HTML Encoder</a>
-      <a href="json-formatter.html">JSON Formatter</a>
-      <a href="number-base-converter.html">Number Base Converter</a>
-      <a href="csv-to-json.html">CSV &harr; JSON</a>
-      <a href="../generator/hash-generator.html">Hash Generator</a>
-    </div>
-  </div>
+ <div class="section">
+ <h2>Related tools</h2>
+ <div class="related-grid">
+ <a href="base64.html">Base64 Encoder</a>
+ <a href="html-encoder.html">HTML Encoder</a>
+ <a href="json-formatter.html">JSON Formatter</a>
+ <a href="number-base-converter.html">Number Base Converter</a>
+ <a href="csv-to-json.html">CSV &harr; JSON</a>
+ <a href="../generator/hash-generator.html">Hash Generator</a>
+ </div>
+ </div>
 
-  <footer class="footer">
-    <div class="footer-links">
-      <a href="base64.html">Base64 Encoder</a>
-      <a href="html-encoder.html">HTML Encoder</a>
-      <a href="json-formatter.html">JSON Formatter</a>
-      <span style="color:var(--border);margin:0 6px">|</span>
-      <a href="../../about.html">About</a>
-      <a href="../../privacy.html">Privacy</a>
-      <a href="../../disclaimer.html">Disclaimer</a>
-    </div>
-    <p class="footer-copy">&copy; 2026 My Tool Lab. All rights reserved.</p>
-  </footer>
+ <footer class="footer">
+ <div class="footer-links">
+ <a href="base64.html">Base64 Encoder</a>
+ <a href="html-encoder.html">HTML Encoder</a>
+ <a href="json-formatter.html">JSON Formatter</a>
+ <span style="color:var(--border);margin:0 6px">|</span>
+ <a href="../../about.html">About</a>
+ <a href="../../privacy.html">Privacy</a>
+ <a href="../../disclaimer.html">Disclaimer</a>
+ </div>
+ <p class="footer-copy">&copy; 2026 My Tool Lab. All rights reserved.</p>
+ </footer>
 </div>
 
 <script>
 (function(){
-  function detectDelimiter(text){
-    var firstLine=text.split(/\r?\n/)[0]||'';
-    var candidates=[',','\t',';'];
-    var best=',', bestCount=0;
-    for(var i=0;i<candidates.length;i++){
-      var c=candidates[i], count=0, inQ=false;
-      for(var j=0;j<firstLine.length;j++){
-        var ch=firstLine[j];
-        if(ch==='"') inQ=!inQ;
-        else if(!inQ && ch===c) count++;
-      }
-      if(count>bestCount){ bestCount=count; best=c; }
-    }
-    return best;
-  }
+ function detectDelimiter(text){
+ var firstLine=text.split(/\r?\n/)[0]||'';
+ var candidates=[',','\t',';'];
+ var best=',', bestCount=0;
+ for(var i=0;i<candidates.length;i++){
+ var c=candidates[i], count=0, inQ=false;
+ for(var j=0;j<firstLine.length;j++){
+ var ch=firstLine[j];
+ if(ch==='"') inQ=!inQ;
+ else if(!inQ && ch===c) count++;
+ }
+ if(count>bestCount){ bestCount=count; best=c; }
+ }
+ return best;
+ }
 
-  function parseCSV(text){
-    var delim=detectDelimiter(text);
-    text=text.replace(/\r\n/g,'\n').replace(/\r/g,'\n');
-    var rows=[], row=[], field='';
-    var inQuotes=false;
-    for(var i=0;i<text.length;i++){
-      var ch=text[i];
-      if(inQuotes){
-        if(ch==='"'){
-          if(text[i+1]==='"'){ field+='"'; i++; }
-          else inQuotes=false;
-        } else {
-          field+=ch;
-        }
-      } else {
-        if(ch==='"') inQuotes=true;
-        else if(ch===delim){ row.push(field); field=''; }
-        else if(ch==='\n'){ row.push(field); field=''; rows.push(row); row=[]; }
-        else field+=ch;
-      }
-    }
-    if(field!==''||row.length>0){ row.push(field); rows.push(row); }
-    if(rows.length>0 && rows[rows.length-1].length===1 && rows[rows.length-1][0]===''){ rows.pop(); }
-    return rows;
-  }
+ function parseCSV(text){
+ var delim=detectDelimiter(text);
+ text=text.replace(/\r\n/g,'\n').replace(/\r/g,'\n');
+ var rows=[], row=[], field='';
+ var inQuotes=false;
+ for(var i=0;i<text.length;i++){
+ var ch=text[i];
+ if(inQuotes){
+ if(ch==='"'){
+ if(text[i+1]==='"'){ field+='"'; i++; }
+ else inQuotes=false;
+ } else {
+ field+=ch;
+ }
+ } else {
+ if(ch==='"') inQuotes=true;
+ else if(ch===delim){ row.push(field); field=''; }
+ else if(ch==='\n'){ row.push(field); field=''; rows.push(row); row=[]; }
+ else field+=ch;
+ }
+ }
+ if(field!==''||row.length>0){ row.push(field); rows.push(row); }
+ if(rows.length>0 && rows[rows.length-1].length===1 && rows[rows.length-1][0]===''){ rows.pop(); }
+ return rows;
+ }
 
-  function csvToJSON(text){
-    var rows=parseCSV(text);
-    if(rows.length===0) return '[]';
-    var useHeader=document.getElementById('header').checked;
-    var pretty=document.getElementById('pretty').checked;
-    var out;
-    if(useHeader && rows.length>=1){
-      var h=rows[0];
-      var data=[];
-      for(var i=1;i<rows.length;i++){
-        var obj={};
-        for(var j=0;j<h.length;j++) obj[h[j]]=rows[i][j];
-        data.push(obj);
-      }
-      out=data;
-    } else {
-      out=rows;
-    }
-    return pretty ? JSON.stringify(out,null,2) : JSON.stringify(out);
-  }
+ function csvToJSON(text){
+ var rows=parseCSV(text);
+ if(rows.length===0) return '[]';
+ var useHeader=document.getElementById('header').checked;
+ var pretty=document.getElementById('pretty').checked;
+ var out;
+ if(useHeader && rows.length>=1){
+ var h=rows[0];
+ var data=[];
+ for(var i=1;i<rows.length;i++){
+ var obj={};
+ for(var j=0;j<h.length;j++) obj[h[j]]=rows[i][j];
+ data.push(obj);
+ }
+ out=data;
+ } else {
+ out=rows;
+ }
+ return pretty ? JSON.stringify(out,null,2) : JSON.stringify(out);
+ }
 
-  function escapeCSV(val){
-    var s=String(val==null?'':val);
-    if(/[",\n\r]/.test(s)) return '"'+s.replace(/"/g,'""')+'"';
-    return s;
-  }
+ function escapeCSV(val){
+ var s=String(val==null?'':val);
+ if(/[",\n\r]/.test(s)) return '"'+s.replace(/"/g,'""')+'"';
+ return s;
+ }
 
-  function jsonToCSV(text){
-    var data=JSON.parse(text);
-    if(!Array.isArray(data)) throw new Error('JSON must be an array.');
-    if(data.length===0) return '';
-    var useHeader=document.getElementById('header').checked;
-    var lines=[];
-    var first=data[0];
-    if(Array.isArray(first)){
-      for(var i=0;i<data.length;i++) lines.push(data[i].map(escapeCSV).join(','));
-    } else if(first && typeof first==='object'){
-      var keys=Object.keys(first);
-      if(useHeader) lines.push(keys.map(escapeCSV).join(','));
-      for(var i=0;i<data.length;i++) lines.push(keys.map(function(k){return escapeCSV(data[i][k]);}).join(','));
-    } else {
-      for(var i=0;i<data.length;i++) lines.push(escapeCSV(data[i]));
-    }
-    return lines.join('\n');
-  }
+ function jsonToCSV(text){
+ var data=JSON.parse(text);
+ if(!Array.isArray(data)) throw new Error('JSON must be an array.');
+ if(data.length===0) return '';
+ var useHeader=document.getElementById('header').checked;
+ var lines=[];
+ var first=data[0];
+ if(Array.isArray(first)){
+ for(var i=0;i<data.length;i++) lines.push(data[i].map(escapeCSV).join(','));
+ } else if(first && typeof first==='object'){
+ var keys=Object.keys(first);
+ if(useHeader) lines.push(keys.map(escapeCSV).join(','));
+ for(var i=0;i<data.length;i++) lines.push(keys.map(function(k){return escapeCSV(data[i][k]);}).join(','));
+ } else {
+ for(var i=0;i<data.length;i++) lines.push(escapeCSV(data[i]));
+ }
+ return lines.join('\n');
+ }
 
-  var inp=document.getElementById('input');
-  var out=document.getElementById('output');
-  var note=document.getElementById('note');
-  function copy(txt){
-    if(navigator.clipboard && navigator.clipboard.writeText){
-      navigator.clipboard.writeText(txt).then(function(){note.textContent='Copied to clipboard.';});
-    } else {
-      var ta=document.createElement('textarea');
-      ta.value=txt; document.body.appendChild(ta); ta.select();
-      try{document.execCommand('copy'); note.textContent='Copied.';}
-      catch(e){note.textContent='Copy failed.';}
-      document.body.removeChild(ta);
-    }
-  }
+ var inp=document.getElementById('input');
+ var out=document.getElementById('output');
+ var note=document.getElementById('note');
+ function copy(txt){
+ if(navigator.clipboard && navigator.clipboard.writeText){
+ navigator.clipboard.writeText(txt).then(function(){note.textContent='Copied to clipboard.';});
+ } else {
+ var ta=document.createElement('textarea');
+ ta.value=txt; document.body.appendChild(ta); ta.select();
+ try{document.execCommand('copy'); note.textContent='Copied.';}
+ catch(e){note.textContent='Copy failed.';}
+ document.body.removeChild(ta);
+ }
+ }
 
-  document.getElementById('csv2json').addEventListener('click',function(){
-    try{out.value=csvToJSON(inp.value); note.textContent='CSV converted to JSON.';}
-    catch(e){out.value=''; note.textContent='Error: '+e.message;}
-  });
-  document.getElementById('json2csv').addEventListener('click',function(){
-    try{out.value=jsonToCSV(inp.value); note.textContent='JSON converted to CSV.';}
-    catch(e){out.value=''; note.textContent='Error: '+e.message;}
-  });
-  document.getElementById('swap').addEventListener('click',function(){
-    var t=inp.value; inp.value=out.value; out.value=t;
-  });
-  document.getElementById('clear').addEventListener('click',function(){inp.value=''; out.value='';});
-  document.getElementById('copy-in').addEventListener('click',function(){copy(inp.value);});
-  document.getElementById('copy-out').addEventListener('click',function(){copy(out.value);});
+ document.getElementById('csv2json').addEventListener('click',function(){
+ try{out.value=csvToJSON(inp.value); note.textContent='CSV converted to JSON.';}
+ catch(e){out.value=''; note.textContent='Error: '+e.message;}
+ });
+ document.getElementById('json2csv').addEventListener('click',function(){
+ try{out.value=jsonToCSV(inp.value); note.textContent='JSON converted to CSV.';}
+ catch(e){out.value=''; note.textContent='Error: '+e.message;}
+ });
+ document.getElementById('swap').addEventListener('click',function(){
+ var t=inp.value; inp.value=out.value; out.value=t;
+ });
+ document.getElementById('clear').addEventListener('click',function(){inp.value=''; out.value='';});
+ document.getElementById('copy-in').addEventListener('click',function(){copy(inp.value);});
+ document.getElementById('copy-out').addEventListener('click',function(){copy(out.value);});
 
-  try{out.value=csvToJSON(inp.value);}catch(e){}
+ try{out.value=csvToJSON(inp.value);}catch(e){}
 })();
 </script>
 </body>

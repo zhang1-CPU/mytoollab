@@ -1,246 +1,246 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>QR Code Scanner – Scan QR Codes Online Free | My Tool Lab</title>
-  <meta name="description" content="Free online QR code scanner. Scan QR codes from uploaded images or camera. Instant reading of text, URLs, WiFi, and contact information." />
-  <meta name="keywords" content="qr code scanner, scan qr code, qr reader, qr scanner online, read qr code, qr code camera, online qr scanner free" />
-  <link rel="canonical" href="https://www.zlbox.site/tools/generator/qr-code-scanner.html" />
-  <meta name="google-site-verification" content="google4bd1e08685667667" />
-  <meta name="robots" content="index, follow" />
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.js" crossorigin="anonymous"></script>
-  <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"WebApplication","name":"QR Code Scanner","applicationCategory":"UtilityApplication","operatingSystem":"Any (Web-based)","description":"Free online QR code scanner.","url":"https://www.zlbox.site/tools/generator/qr-code-scanner.html","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
-  </script>
-  <link rel="stylesheet" href="../../_css/components.css" />
-  <style>
-    .tabs{display:flex;gap:8px;border-bottom:1px solid var(--border);margin-bottom:16px;flex-wrap:wrap;}
-    .tab-btn{background:transparent;border:none;padding:10px 18px;font-size:.92rem;font-weight:600;color:var(--muted);cursor:pointer;border-bottom:3px solid transparent;font-family:inherit;}
-    .tab-btn.is-active{color:var(--brand);border-bottom-color:var(--brand);}
-    .tab-panel{display:none;}
-    .tab-panel.is-active{display:block;}
-    .upload-zone{border:2px dashed var(--border);border-radius:10px;padding:24px 12px;text-align:center;cursor:pointer;transition:border-color .15s,background .15s;background:var(--bg);}
-    .upload-zone.drag-over{border-color:var(--brand);background:#eff6ff;}
-    .upload-zone__icon{font-size:2rem;margin-bottom:6px;}
-    .preview-box{background:#0f172a;border-radius:10px;overflow:hidden;display:flex;align-items:center;justify-content:center;min-height:200px;position:relative;padding:10px;}
-    .preview-box img,.preview-box canvas,.preview-box video{max-width:100%;max-height:340px;display:block;border-radius:6px;}
-    .preview-box .placeholder{color:var(--muted);padding:20px;font-size:.9rem;}
-    .output{font-family:ui-monospace,'Courier New',monospace;background:#0f172a;color:#e2e8f0;border-radius:10px;padding:14px;margin-top:12px;font-size:.92rem;white-space:pre-wrap;word-break:break-all;min-height:60px;}
-    .output a{color:#93c5fd;}
-  </style>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <title>QR Code Scanner – Scan QR Codes Online Free | My Tool Lab</title>
+ <meta name="description" content="Free online QR code scanner. Scan QR codes from uploaded images or camera. Instant reading of text, URLs, WiFi, and contact information." />
+ <meta name="keywords" content="qr code scanner, scan qr code, qr reader, qr scanner online, read qr code, qr code camera, online qr scanner free" />
+ <link rel="canonical" href="https://www.zlbox.site/tools/generator/qr-code-scanner.html" />
+ <meta name="google-site-verification" content="google4bd1e08685667667" />
+ <meta name="robots" content="index, follow" />
+ <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
+ <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.js" crossorigin="anonymous"></script>
+ <script type="application/ld+json">
+ {"@context":"https://schema.org","@type":"WebApplication","name":"QR Code Scanner","applicationCategory":"UtilityApplication","operatingSystem":"Any (Web-based)","description":"Free online QR code scanner.","url":"https://www.zlbox.site/tools/generator/qr-code-scanner.html","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+ </script>
+ <link rel="stylesheet" href="../../_css/components.css" />
+ <style>
+ .tabs{display:flex;gap:8px;border-bottom:1px solid var(--border);margin-bottom:16px;flex-wrap:wrap;}
+ .tab-btn{background:transparent;border:none;padding:10px 18px;font-size:.92rem;font-weight:600;color:var(--muted);cursor:pointer;border-bottom:3px solid transparent;font-family:inherit;}
+ .tab-btn.is-active{color:var(--brand);border-bottom-color:var(--brand);}
+ .tab-panel{display:none;}
+ .tab-panel.is-active{display:block;}
+ .upload-zone{border:2px dashed var(--border);border-radius:10px;padding:24px 12px;text-align:center;cursor:pointer;transition:border-color .15s,background .15s;background:var(--bg);}
+ .upload-zone.drag-over{border-color:var(--brand);background:#eff6ff;}
+ .upload-zone__icon{font-size:2rem;margin-bottom:6px;}
+ .preview-box{background:#0f172a;border-radius:10px;overflow:hidden;display:flex;align-items:center;justify-content:center;min-height:200px;position:relative;padding:10px;}
+ .preview-box img,.preview-box canvas,.preview-box video{max-width:100%;max-height:340px;display:block;border-radius:6px;}
+ .preview-box .placeholder{color:var(--muted);padding:20px;font-size:.9rem;}
+ .output{font-family:ui-monospace,'Courier New',monospace;background:#0f172a;color:#e2e8f0;border-radius:10px;padding:14px;margin-top:12px;font-size:.92rem;white-space:pre-wrap;word-break:break-all;min-height:60px;}
+ .output a{color:#93c5fd;}
+ </style>
 </head>
 <body>
 <div class="container-md">
-  <div class="hero">
-    <div class="breadcrumb"><a href="../../index.html">Home</a> &rsaquo; <a href="../../categories/generator.html">Generator Tools</a> &rsaquo; QR Code Scanner</div>
-    <h1>QR Code Scanner</h1>
-    <p>Scan QR codes from images or directly from your camera. Text, URLs, WiFi, and contact info — all decoded locally in your browser.</p>
-  </div>
+ <div class="hero">
+ <div class="breadcrumb"><a href="../../index.html">Home</a> &rsaquo; <a href="../../categories/generator.html">Generator Tools</a> &rsaquo; QR Code Scanner</div>
+ <h1>QR Code Scanner</h1>
+ <p>Scan QR codes from images or directly from your camera. Text, URLs, WiFi, and contact info — all decoded locally in your browser.</p>
+ </div>
 
-  <div class="card">
-    <div class="tabs" id="tabs">
-      <button class="tab-btn is-active" data-tab="upload">From Image</button>
-      <button class="tab-btn" data-tab="camera">From Camera</button>
-    </div>
+ <div class="card">
+ <div class="tabs" id="tabs">
+ <button class="tab-btn is-active" data-tab="upload">From Image</button>
+ <button class="tab-btn" data-tab="camera">From Camera</button>
+ </div>
 
-    <div class="tab-panel is-active" id="tab-upload">
-      <div class="upload-zone" id="uploadZone">
-        <div class="upload-zone__icon">&#128444;</div>
-        <div><strong>Drop a QR code image, or click to browse</strong></div>
-        <div style="font-size:.85rem;color:var(--muted);margin-top:6px;">JPG, PNG, WebP all supported.</div>
-        <div style="margin-top:10px;"><label class="btn" for="imageInput">Choose Image</label></div>
-        <input type="file" id="imageInput" accept="image/*" style="display:none;" />
-      </div>
-      <div id="imageResult" style="margin-top:14px;">
-        <div class="preview-box" id="previewBox"><span class="placeholder">Preview area</span></div>
-        <div id="imageOutput" class="output" style="display:none;"></div>
-      </div>
-    </div>
+ <div class="tab-panel is-active" id="tab-upload">
+ <div class="upload-zone" id="uploadZone">
+ <div class="upload-zone__icon">&#128444;</div>
+ <div><strong>Drop a QR code image, or click to browse</strong></div>
+ <div>JPG, PNG, WebP all supported.</div>
+ <div><label class="btn" for="imageInput">Choose Image</label></div>
+ <input type="file" id="imageInput" accept="image/*" style="display:none" />
+ </div>
+ <div id="imageResult">
+ <div class="preview-box" id="previewBox"><span class="placeholder">Preview area</span></div>
+ <div id="imageOutput" class="output" style="display:none"></div>
+ </div>
+ </div>
 
-    <div class="tab-panel" id="tab-camera">
-      <div class="preview-box" id="cameraBox"><span class="placeholder">Camera not started</span></div>
-      <div class="row row--end" style="margin-top:14px;">
-        <button class="btn btn--ghost" id="cameraStopBtn" disabled>Stop</button>
-        <button class="btn" id="cameraStartBtn">Start Camera</button>
-      </div>
-      <div id="cameraOutput" class="output" style="display:none;"></div>
-      <div class="status" id="cameraStatus"></div>
-    </div>
+ <div class="tab-panel" id="tab-camera">
+ <div class="preview-box" id="cameraBox"><span class="placeholder">Camera not started</span></div>
+ <div class="row row--end">
+ <button class="btn btn--ghost" id="cameraStopBtn" disabled>Stop</button>
+ <button class="btn" id="cameraStartBtn">Start Camera</button>
+ </div>
+ <div id="cameraOutput" class="output" style="display:none"></div>
+ <div class="status" id="cameraStatus"></div>
+ </div>
 
-    <div class="status" id="status"></div>
-  </div>
+ <div class="status" id="status"></div>
+ </div>
 
-  <div class="section">
-    <h2>How it works</h2>
-    <ol class="steps">
-      <li><strong>Choose method:</strong> Upload an image (From Image tab) or use your camera (From Camera tab).</li>
-      <li><strong>Upload or enable:</strong> Drop an image or click "Start Camera" and allow permissions.</li>
-      <li><strong>Scan:</strong> If using camera, point at a QR code and it will auto-decode.</li>
-      <li><strong>Copy &amp; use:</strong> The decoded text or URL will appear below.</li>
-    </ol>
-  </div>
+ <div class="section">
+ <h2>How it works</h2>
+ <ol class="steps">
+ <li><strong>Choose method:</strong> Upload an image (From Image tab) or use your camera (From Camera tab).</li>
+ <li><strong>Upload or enable:</strong> Drop an image or click "Start Camera" and allow permissions.</li>
+ <li><strong>Scan:</strong> If using camera, point at a QR code and it will auto-decode.</li>
+ <li><strong>Copy &amp; use:</strong> The decoded text or URL will appear below.</li>
+ </ol>
+ </div>
 
-  <div class="section">
-    <h2>Related tools</h2>
-    <div class="related-grid">
-      <a href="qr-code-generator.html">QR Code Generator</a>
-      <a href="password-generator.html">Password Generator</a>
-      <a href="../text/base64.html">Base64</a>
-      <a href="../image/image-resizer.html">Image Resizer</a>
-    </div>
-  </div>
+ <div class="section">
+ <h2>Related tools</h2>
+ <div class="related-grid">
+ <a href="qr-code-generator.html">QR Code Generator</a>
+ <a href="password-generator.html">Password Generator</a>
+ <a href="../text/base64.html">Base64</a>
+ <a href="../image/image-resizer.html">Image Resizer</a>
+ </div>
+ </div>
 
-  <footer class="footer">
-    <div class="footer-links">
-      <a href="qr-code-generator.html">QR Generator</a>
-      <a href="password-generator.html">Password Generator</a>
-      <span style="color:var(--border);margin:0 6px;">|</span>
-      <a href="../../about.html">About</a>
-      <a href="../../privacy.html">Privacy</a>
-      <a href="../../disclaimer.html">Disclaimer</a>
-    </div>
-    <p class="footer-copy">&copy; 2026 My Tool Lab. All rights reserved.</p>
-  </footer>
+ <footer class="footer">
+ <div class="footer-links">
+ <a href="qr-code-generator.html">QR Generator</a>
+ <a href="password-generator.html">Password Generator</a>
+ <span style="color:var(--border);margin:0 6px;">|</span>
+ <a href="../../about.html">About</a>
+ <a href="../../privacy.html">Privacy</a>
+ <a href="../../disclaimer.html">Disclaimer</a>
+ </div>
+ <p class="footer-copy">&copy; 2026 My Tool Lab. All rights reserved.</p>
+ </footer>
 </div>
 
 <script>
 (function(){
-  const tabs = document.querySelectorAll('.tab-btn');
-  const panels = document.querySelectorAll('.tab-panel');
-  tabs.forEach(btn=>{
-    btn.addEventListener('click', ()=>{
-      tabs.forEach(t=>t.classList.remove('is-active'));
-      panels.forEach(p=>p.classList.remove('is-active'));
-      btn.classList.add('is-active');
-      const id = btn.dataset.tab;
-      document.getElementById('tab-'+id).classList.add('is-active');
-      if(id!=='camera'){ stopCamera(); }
-    });
-  });
+ const tabs = document.querySelectorAll('.tab-btn');
+ const panels = document.querySelectorAll('.tab-panel');
+ tabs.forEach(btn=>{
+ btn.addEventListener('click', ()=>{
+ tabs.forEach(t=>t.classList.remove('is-active'));
+ panels.forEach(p=>p.classList.remove('is-active'));
+ btn.classList.add('is-active');
+ const id = btn.dataset.tab;
+ document.getElementById('tab-'+id).classList.add('is-active');
+ if(id!=='camera'){ stopCamera(); }
+ });
+ });
 
-  const uploadZone = document.getElementById('uploadZone');
-  const imageInput = document.getElementById('imageInput');
-  const previewBox = document.getElementById('previewBox');
-  const imageOutput = document.getElementById('imageOutput');
-  const statusEl = document.getElementById('status');
-  const cameraBox = document.getElementById('cameraBox');
-  const cameraOutput = document.getElementById('cameraOutput');
-  const cameraStatus = document.getElementById('cameraStatus');
-  const cameraStartBtn = document.getElementById('cameraStartBtn');
-  const cameraStopBtn = document.getElementById('cameraStopBtn');
+ const uploadZone = document.getElementById('uploadZone');
+ const imageInput = document.getElementById('imageInput');
+ const previewBox = document.getElementById('previewBox');
+ const imageOutput = document.getElementById('imageOutput');
+ const statusEl = document.getElementById('status');
+ const cameraBox = document.getElementById('cameraBox');
+ const cameraOutput = document.getElementById('cameraOutput');
+ const cameraStatus = document.getElementById('cameraStatus');
+ const cameraStartBtn = document.getElementById('cameraStartBtn');
+ const cameraStopBtn = document.getElementById('cameraStopBtn');
 
-  let lastDecoded = '';
-  let cameraStream = null;
-  let cameraVideo = null;
-  let rafId = null;
+ let lastDecoded = '';
+ let cameraStream = null;
+ let cameraVideo = null;
+ let rafId = null;
 
-  function formatQRResult(text){
-    if(/^https?:\/\//i.test(text)){
-      return '<a href="'+escapeAttr(text)+'" target="_blank" rel="noopener">'+escapeHtml(text)+'</a>';
-    }
-    return escapeHtml(text);
-  }
-  function escapeHtml(s){ return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
-  function escapeAttr(s){ return escapeHtml(s); }
+ function formatQRResult(text){
+ if(/^https?:\/\//i.test(text)){
+ return '<a href="'+escapeAttr(text)+'" target="_blank" rel="noopener">'+escapeHtml(text)+'</a>';
+ }
+ return escapeHtml(text);
+ }
+ function escapeHtml(s){ return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+ function escapeAttr(s){ return escapeHtml(s); }
 
-  function showImageDecode(dataUrl){
-    const img = new Image();
-    img.onload = function(){
-      previewBox.innerHTML = '';
-      previewBox.appendChild(img);
-      const canvas = document.createElement('canvas');
-      canvas.width = img.naturalWidth;
-      canvas.height = img.naturalHeight;
-      const ctx = canvas.getContext('2d', { willReadFrequently:true });
-      ctx.drawImage(img, 0, 0);
-      const imgData = ctx.getImageData(0,0,canvas.width,canvas.height);
-      const code = (typeof jsQR !== 'undefined') ? jsQR(imgData.data, imgData.width, imgData.height, { inversionAttempts: 'attemptBoth' }) : null;
-      if(code && code.data){
-        imageOutput.style.display = 'block';
-        imageOutput.innerHTML = formatQRResult(code.data);
-        statusEl.textContent = 'QR code decoded successfully.';
-      } else {
-        imageOutput.style.display = 'block';
-        imageOutput.textContent = 'No QR code found in this image.';
-        statusEl.textContent = '';
-      }
-    };
-    img.onerror = function(){
-      previewBox.innerHTML = '<span class="placeholder">Failed to load image.</span>';
-      statusEl.textContent = 'Could not load image.';
-    };
-    img.src = dataUrl;
-  }
+ function showImageDecode(dataUrl){
+ const img = new Image();
+ img.onload = function(){
+ previewBox.innerHTML = '';
+ previewBox.appendChild(img);
+ const canvas = document.createElement('canvas');
+ canvas.width = img.naturalWidth;
+ canvas.height = img.naturalHeight;
+ const ctx = canvas.getContext('2d', { willReadFrequently:true });
+ ctx.drawImage(img, 0, 0);
+ const imgData = ctx.getImageData(0,0,canvas.width,canvas.height);
+ const code = (typeof jsQR !== 'undefined') ? jsQR(imgData.data, imgData.width, imgData.height, { inversionAttempts: 'attemptBoth' }) : null;
+ if(code && code.data){
+ imageOutput.style.display = 'block';
+ imageOutput.innerHTML = formatQRResult(code.data);
+ statusEl.textContent = 'QR code decoded successfully.';
+ } else {
+ imageOutput.style.display = 'block';
+ imageOutput.textContent = 'No QR code found in this image.';
+ statusEl.textContent = '';
+ }
+ };
+ img.onerror = function(){
+ previewBox.innerHTML = '<span class="placeholder">Failed to load image.</span>';
+ statusEl.textContent = 'Could not load image.';
+ };
+ img.src = dataUrl;
+ }
 
-  function handleFile(file){
-    if(!file || !/^image\//.test(file.type)){ return; }
-    const reader = new FileReader();
-    reader.onload = function(ev){ showImageDecode(ev.target.result); };
-    reader.readAsDataURL(file);
-  }
+ function handleFile(file){
+ if(!file || !/^image\//.test(file.type)){ return; }
+ const reader = new FileReader();
+ reader.onload = function(ev){ showImageDecode(ev.target.result); };
+ reader.readAsDataURL(file);
+ }
 
-  imageInput.addEventListener('change', function(){ if(this.files && this.files[0]) handleFile(this.files[0]); this.value=''; });
-  ['dragenter','dragover'].forEach(ev => uploadZone.addEventListener(ev, function(e){ e.preventDefault(); uploadZone.classList.add('drag-over'); }));
-  ['dragleave','drop'].forEach(ev => uploadZone.addEventListener(ev, function(e){ e.preventDefault(); uploadZone.classList.remove('drag-over'); }));
-  uploadZone.addEventListener('drop', function(e){ if(e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0]) handleFile(e.dataTransfer.files[0]); });
+ imageInput.addEventListener('change', function(){ if(this.files && this.files[0]) handleFile(this.files[0]); this.value=''; });
+ ['dragenter','dragover'].forEach(ev => uploadZone.addEventListener(ev, function(e){ e.preventDefault(); uploadZone.classList.add('drag-over'); }));
+ ['dragleave','drop'].forEach(ev => uploadZone.addEventListener(ev, function(e){ e.preventDefault(); uploadZone.classList.remove('drag-over'); }));
+ uploadZone.addEventListener('drop', function(e){ if(e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0]) handleFile(e.dataTransfer.files[0]); });
 
-  function stopCamera(){
-    if(rafId){ cancelAnimationFrame(rafId); rafId = null; }
-    if(cameraStream){ cameraStream.getTracks().forEach(t=>t.stop()); cameraStream = null; }
-    if(cameraVideo){ cameraVideo.pause(); cameraVideo.srcObject = null; cameraVideo = null; }
-    cameraBox.innerHTML = '<span class="placeholder">Camera not started</span>';
-    cameraStartBtn.disabled = false;
-    cameraStopBtn.disabled = true;
-  }
+ function stopCamera(){
+ if(rafId){ cancelAnimationFrame(rafId); rafId = null; }
+ if(cameraStream){ cameraStream.getTracks().forEach(t=>t.stop()); cameraStream = null; }
+ if(cameraVideo){ cameraVideo.pause(); cameraVideo.srcObject = null; cameraVideo = null; }
+ cameraBox.innerHTML = '<span class="placeholder">Camera not started</span>';
+ cameraStartBtn.disabled = false;
+ cameraStopBtn.disabled = true;
+ }
 
-  async function startCamera(){
-    cameraStartBtn.disabled = true;
-    cameraStatus.textContent = 'Requesting camera access...';
-    try {
-      cameraStream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' }, audio: false });
-      cameraVideo = document.createElement('video');
-      cameraVideo.setAttribute('playsinline','');
-      cameraVideo.playsInline = true;
-      cameraVideo.autoplay = true;
-      cameraVideo.muted = true;
-      cameraVideo.srcObject = cameraStream;
-      cameraBox.innerHTML = '';
-      cameraBox.appendChild(cameraVideo);
-      await cameraVideo.play();
-      const canvas = document.createElement('canvas');
-      const ctx = canvas.getContext('2d', { willReadFrequently:true });
-      cameraStopBtn.disabled = false;
-      cameraStatus.textContent = 'Scanning...';
-      function tick(){
-        if(!cameraVideo) return;
-        if(cameraVideo.readyState === cameraVideo.HAVE_ENOUGH_DATA){
-          canvas.width = cameraVideo.videoWidth;
-          canvas.height = cameraVideo.videoHeight;
-          if(canvas.width > 0 && canvas.height > 0){
-            ctx.drawImage(cameraVideo, 0, 0);
-            const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-            const code = (typeof jsQR !== 'undefined') ? jsQR(imgData.data, imgData.width, imgData.height, { inversionAttempts: 'attemptBoth' }) : null;
-            if(code && code.data && code.data !== lastDecoded){
-              lastDecoded = code.data;
-              cameraOutput.style.display = 'block';
-              cameraOutput.innerHTML = formatQRResult(code.data);
-              cameraStatus.textContent = 'QR code detected.';
-            }
-          }
-        }
-        rafId = requestAnimationFrame(tick);
-      }
-      rafId = requestAnimationFrame(tick);
-    } catch(err){
-      cameraStartBtn.disabled = false;
-      cameraStatus.textContent = 'Could not access camera: ' + (err.message || 'Permission denied.');
-    }
-  }
+ async function startCamera(){
+ cameraStartBtn.disabled = true;
+ cameraStatus.textContent = 'Requesting camera access...';
+ try {
+ cameraStream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' }, audio: false });
+ cameraVideo = document.createElement('video');
+ cameraVideo.setAttribute('playsinline','');
+ cameraVideo.playsInline = true;
+ cameraVideo.autoplay = true;
+ cameraVideo.muted = true;
+ cameraVideo.srcObject = cameraStream;
+ cameraBox.innerHTML = '';
+ cameraBox.appendChild(cameraVideo);
+ await cameraVideo.play();
+ const canvas = document.createElement('canvas');
+ const ctx = canvas.getContext('2d', { willReadFrequently:true });
+ cameraStopBtn.disabled = false;
+ cameraStatus.textContent = 'Scanning...';
+ function tick(){
+ if(!cameraVideo) return;
+ if(cameraVideo.readyState === cameraVideo.HAVE_ENOUGH_DATA){
+ canvas.width = cameraVideo.videoWidth;
+ canvas.height = cameraVideo.videoHeight;
+ if(canvas.width> 0 && canvas.height> 0){
+ ctx.drawImage(cameraVideo, 0, 0);
+ const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+ const code = (typeof jsQR !== 'undefined') ? jsQR(imgData.data, imgData.width, imgData.height, { inversionAttempts: 'attemptBoth' }) : null;
+ if(code && code.data && code.data !== lastDecoded){
+ lastDecoded = code.data;
+ cameraOutput.style.display = 'block';
+ cameraOutput.innerHTML = formatQRResult(code.data);
+ cameraStatus.textContent = 'QR code detected.';
+ }
+ }
+ }
+ rafId = requestAnimationFrame(tick);
+ }
+ rafId = requestAnimationFrame(tick);
+ } catch(err){
+ cameraStartBtn.disabled = false;
+ cameraStatus.textContent = 'Could not access camera: ' + (err.message || 'Permission denied.');
+ }
+ }
 
-  cameraStartBtn.addEventListener('click', startCamera);
-  cameraStopBtn.addEventListener('click', stopCamera);
+ cameraStartBtn.addEventListener('click', startCamera);
+ cameraStopBtn.addEventListener('click', stopCamera);
 })();
 </script>
 </body>

@@ -1,175 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Number Base Converter – Binary, Octal, Decimal, Hex, Base32, Base36 | My Tool Lab</title>
-  <meta name="description" content="Convert numbers between binary, octal, decimal, hexadecimal, Base32, and Base36. Supports arbitrarily large integers using BigInt." />
-  <link rel="stylesheet" href="../../_css/components.css" />
-  <link rel="canonical" href="https://www.zlbox.site/tools/text/number-base-converter.html" />
-  <meta name="google-site-verification" content="google4bd1e08685667667" />
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <title>Number Base Converter – Binary, Octal, Decimal, Hex, Base32, Base36 | My Tool Lab</title>
+ <meta name="description" content="Convert numbers between binary, octal, decimal, hexadecimal, Base32, and Base36. Supports arbitrarily large integers using BigInt." />
+ <link rel="stylesheet" href="../../_css/components.css" />
+ <link rel="canonical" href="https://www.zlbox.site/tools/text/number-base-converter.html" />
+ <meta name="google-site-verification" content="google4bd1e08685667667" />
+ <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
 </head>
 <body>
 <div class="container-md">
-  <div class="hero">
-    <div class="breadcrumb"><a href="../../index.html">Home</a> &rsaquo; <a href="../../index.html">Text Tools</a> &rsaquo; Number Base Converter</div>
-    <h1>Number Base Converter</h1>
-    <p>Convert integers between any two bases (2–36). Shows binary, octal, decimal, hex, Base32, and Base36 at a glance — and supports arbitrarily large numbers.</p>
-  </div>
+ <div class="hero">
+ <div class="breadcrumb"><a href="../../index.html">Home</a> &rsaquo; <a href="../../categories/text.html">Text Tools</a> &rsaquo; Number Base Converter</div>
+ <h1>Number Base Converter</h1>
+ <p>Convert integers between any two bases (2–36). Shows binary, octal, decimal, hex, Base32, and Base36 at a glance — and supports arbitrarily large numbers.</p>
+ </div>
 
-  <div class="card">
-    <div class="field-row">
-      <div class="field" style="flex:1;">
-        <label>Input number</label>
-        <input type="text" id="num" value="255" style="font-family:ui-monospace,Consolas,Menlo,monospace;" />
-      </div>
-      <div class="field">
-        <label>Input base (2–36)</label>
-        <select id="base">
-          <option value="2">2 — Binary</option>
-          <option value="8">8 — Octal</option>
-          <option value="10" selected>10 — Decimal</option>
-          <option value="16">16 — Hexadecimal</option>
-          <option value="32">32 — Base32</option>
-          <option value="36">36 — Base36</option>
-        </select>
-      </div>
-    </div>
+ <div class="card">
+ <div class="field-row">
+ <div class="field" style="flex:1">
+ <label>Input number</label>
+ <input type="text" id="num" value="255" style="font-family:ui-monospace,Consolas,Menlo,monospace" />
+ </div>
+ <div class="field">
+ <label>Input base (2–36)</label>
+ <select id="base">
+ <option value="2">2 — Binary</option>
+ <option value="8">8 — Octal</option>
+ <option value="10" selected>10 — Decimal</option>
+ <option value="16">16 — Hexadecimal</option>
+ <option value="32">32 — Base32</option>
+ <option value="36">36 — Base36</option>
+ </select>
+ </div>
+ </div>
 
-    <button class="btn" id="go" style="width:100%;margin-top:6px;">Convert</button>
+ <button class="btn" id="go">Convert</button>
 
-    <div class="stats-grid" style="margin-top:14px;">
-      <div class="stat">
-        <div class="stat__value" id="out-bin" style="font-size:1rem;word-break:break-all;">—</div>
-        <div class="stat__label">Binary (base 2)</div>
-      </div>
-      <div class="stat">
-        <div class="stat__value" id="out-oct" style="font-size:1rem;word-break:break-all;">—</div>
-        <div class="stat__label">Octal (base 8)</div>
-      </div>
-      <div class="stat stat--accent">
-        <div class="stat__value" id="out-dec" style="font-size:1rem;word-break:break-all;">—</div>
-        <div class="stat__label">Decimal (base 10)</div>
-      </div>
-      <div class="stat">
-        <div class="stat__value" id="out-hex" style="font-size:1rem;word-break:break-all;">—</div>
-        <div class="stat__label">Hexadecimal (base 16)</div>
-      </div>
-      <div class="stat">
-        <div class="stat__value" id="out-b32" style="font-size:1rem;word-break:break-all;">—</div>
-        <div class="stat__label">Base32</div>
-      </div>
-      <div class="stat">
-        <div class="stat__value" id="out-b36" style="font-size:1rem;word-break:break-all;">—</div>
-        <div class="stat__label">Base36</div>
-      </div>
-    </div>
-    <p style="text-align:center;font-size:0.82rem;color:var(--muted);margin-top:8px;" id="note">Enter an integer in the input base above, then press Convert.</p>
-  </div>
+ <div class="stats-grid">
+ <div class="stat">
+ <div class="stat__value" id="out-bin">—</div>
+ <div class="stat__label">Binary (base 2)</div>
+ </div>
+ <div class="stat">
+ <div class="stat__value" id="out-oct">—</div>
+ <div class="stat__label">Octal (base 8)</div>
+ </div>
+ <div class="stat stat--accent">
+ <div class="stat__value" id="out-dec">—</div>
+ <div class="stat__label">Decimal (base 10)</div>
+ </div>
+ <div class="stat">
+ <div class="stat__value" id="out-hex">—</div>
+ <div class="stat__label">Hexadecimal (base 16)</div>
+ </div>
+ <div class="stat">
+ <div class="stat__value" id="out-b32">—</div>
+ <div class="stat__label">Base32</div>
+ </div>
+ <div class="stat">
+ <div class="stat__value" id="out-b36">—</div>
+ <div class="stat__label">Base36</div>
+ </div>
+ </div>
+ <p id="note">Enter an integer in the input base above, then press Convert.</p>
+ </div>
 
-  <div class="section">
-    <h2>How it works</h2>
-    <ol class="steps">
-      <li>Type a number and choose its current base (2 to 36). Digits use 0–9 followed by a–z for bases over 10.</li>
-      <li>The input is parsed using <strong>BigInt</strong>, so integers can be arbitrarily large with no overflow.</li>
-      <li>The value is simultaneously converted to binary, octal, decimal, hex, Base32, and Base36 for easy comparison.</li>
-    </ol>
-  </div>
+ <div class="section">
+ <h2>How it works</h2>
+ <ol class="steps">
+ <li>Type a number and choose its current base (2 to 36). Digits use 0–9 followed by a–z for bases over 10.</li>
+ <li>The input is parsed using <strong>BigInt</strong>, so integers can be arbitrarily large with no overflow.</li>
+ <li>The value is simultaneously converted to binary, octal, decimal, hex, Base32, and Base36 for easy comparison.</li>
+ </ol>
+ </div>
 
-  <div class="section">
-    <h2>Related tools</h2>
-    <div class="related-grid">
-      <a href="../generator/hash-generator.html">Hash Generator</a>
-      <a href="base64.html">Base64 Encoder</a>
-      <a href="html-encoder.html">HTML Encoder</a>
-      <a href="csv-to-json.html">CSV to JSON Converter</a>
-      <a href="case-converter.html">Case Converter</a>
-      <a href="../calculator/scientific-calculator.html">Scientific Calculator</a>
-    </div>
-  </div>
+ <div class="section">
+ <h2>Related tools</h2>
+ <div class="related-grid">
+ <a href="../generator/hash-generator.html">Hash Generator</a>
+ <a href="base64.html">Base64 Encoder</a>
+ <a href="html-encoder.html">HTML Encoder</a>
+ <a href="csv-to-json.html">CSV to JSON Converter</a>
+ <a href="case-converter.html">Case Converter</a>
+ <a href="../calculator/scientific-calculator.html">Scientific Calculator</a>
+ </div>
+ </div>
 
-  <footer class="footer">
-    <div class="footer-links">
-      <a href="../generator/hash-generator.html">Hash Generator</a>
-      <a href="base64.html">Base64 Encoder</a>
-      <a href="html-encoder.html">HTML Encoder</a>
-      <span style="color:var(--border);margin:0 6px">|</span>
-      <a href="../../about.html">About</a>
-      <a href="../../privacy.html">Privacy</a>
-      <a href="../../disclaimer.html">Disclaimer</a>
-    </div>
-    <p class="footer-copy">&copy; 2026 My Tool Lab. All rights reserved.</p>
-  </footer>
+ <footer class="footer">
+ <div class="footer-links">
+ <a href="../generator/hash-generator.html">Hash Generator</a>
+ <a href="base64.html">Base64 Encoder</a>
+ <a href="html-encoder.html">HTML Encoder</a>
+ <span style="color:var(--border);margin:0 6px">|</span>
+ <a href="../../about.html">About</a>
+ <a href="../../privacy.html">Privacy</a>
+ <a href="../../disclaimer.html">Disclaimer</a>
+ </div>
+ <p class="footer-copy">&copy; 2026 My Tool Lab. All rights reserved.</p>
+ </footer>
 </div>
 
 <script>
 (function(){
-  var ALPHABET='0123456789abcdefghijklmnopqrstuvwxyz';
-  function parseBigInt(str, base){
-    if(!str) return null;
-    str=str.trim().toLowerCase();
-    var negative=false;
-    if(str[0]==='-'){ negative=true; str=str.slice(1); }
-    else if(str[0]==='+'){ str=str.slice(1); }
-    if(!str) return null;
-    var b=BigInt(base);
-    var result=0n;
-    for(var i=0;i<str.length;i++){
-      var d=str.charCodeAt(i);
-      var digit;
-      if(d>=48&&d<=57) digit=d-48;
-      else if(d>=97&&d<=122) digit=d-97+10;
-      else return null;
-      if(digit>=base) return null;
-      result=result*b+BigInt(digit);
-    }
-    return negative?-result:result;
-  }
-  function toBaseBigInt(value, base){
-    if(value===0n) return '0';
-    var negative=value<0n;
-    var v=negative?-value:value;
-    var b=BigInt(base);
-    var chars=[];
-    while(v>0n){
-      chars.push(ALPHABET[Number(v%b)]);
-      v=v/b;
-    }
-    if(negative) chars.push('-');
-    return chars.reverse().join('');
-  }
+ var ALPHABET='0123456789abcdefghijklmnopqrstuvwxyz';
+ function parseBigInt(str, base){
+ if(!str) return null;
+ str=str.trim().toLowerCase();
+ var negative=false;
+ if(str[0]==='-'){ negative=true; str=str.slice(1); }
+ else if(str[0]==='+'){ str=str.slice(1); }
+ if(!str) return null;
+ var b=BigInt(base);
+ var result=0n;
+ for(var i=0;i<str.length;i++){
+ var d=str.charCodeAt(i);
+ var digit;
+ if(d>=48&&d<=57) digit=d-48;
+ else if(d>=97&&d<=122) digit=d-97+10;
+ else return null;
+ if(digit>=base) return null;
+ result=result*b+BigInt(digit);
+ }
+ return negative?-result:result;
+ }
+ function toBaseBigInt(value, base){
+ if(value===0n) return '0';
+ var negative=value<0n;
+ var v=negative?-value:value;
+ var b=BigInt(base);
+ var chars=[];
+ while(v>0n){
+ chars.push(ALPHABET[Number(v%b)]);
+ v=v/b;
+ }
+ if(negative) chars.push('-');
+ return chars.reverse().join('');
+ }
 
-  function set(id, text){ document.getElementById(id).textContent=text; }
-  function run(){
-    var raw=document.getElementById('num').value.trim();
-    var base=parseInt(document.getElementById('base').value,10);
-    var note=document.getElementById('note');
-    if(!raw){
-      note.textContent='Please enter a number.';
-      ['out-bin','out-oct','out-dec','out-hex','out-b32','out-b36'].forEach(function(id){set(id,'—');});
-      return;
-    }
-    try{
-      var n=parseBigInt(raw, base);
-      if(n===null){ throw new Error('Invalid digits for base '+base); }
-      set('out-bin', toBaseBigInt(n,2));
-      set('out-oct', toBaseBigInt(n,8));
-      set('out-dec', toBaseBigInt(n,10));
-      set('out-hex', toBaseBigInt(n,16).toUpperCase());
-      set('out-b32', toBaseBigInt(n,32).toUpperCase());
-      set('out-b36', toBaseBigInt(n,36).toUpperCase());
-      note.textContent='Converted successfully. Input has '+((n.toString()).length)+' decimal digits.';
-    } catch(e){
-      note.textContent='Error: '+e.message;
-      ['out-bin','out-oct','out-dec','out-hex','out-b32','out-b36'].forEach(function(id){set(id,'Error');});
-    }
-  }
+ function set(id, text){ document.getElementById(id).textContent=text; }
+ function run(){
+ var raw=document.getElementById('num').value.trim();
+ var base=parseInt(document.getElementById('base').value,10);
+ var note=document.getElementById('note');
+ if(!raw){
+ note.textContent='Please enter a number.';
+ ['out-bin','out-oct','out-dec','out-hex','out-b32','out-b36'].forEach(function(id){set(id,'—');});
+ return;
+ }
+ try{
+ var n=parseBigInt(raw, base);
+ if(n===null){ throw new Error('Invalid digits for base '+base); }
+ set('out-bin', toBaseBigInt(n,2));
+ set('out-oct', toBaseBigInt(n,8));
+ set('out-dec', toBaseBigInt(n,10));
+ set('out-hex', toBaseBigInt(n,16).toUpperCase());
+ set('out-b32', toBaseBigInt(n,32).toUpperCase());
+ set('out-b36', toBaseBigInt(n,36).toUpperCase());
+ note.textContent='Converted successfully. Input has '+((n.toString()).length)+' decimal digits.';
+ } catch(e){
+ note.textContent='Error: '+e.message;
+ ['out-bin','out-oct','out-dec','out-hex','out-b32','out-b36'].forEach(function(id){set(id,'Error');});
+ }
+ }
 
-  document.getElementById('go').addEventListener('click',run);
-  document.getElementById('num').addEventListener('keydown',function(e){if(e.key==='Enter') run();});
-  document.getElementById('base').addEventListener('change',run);
-  run();
+ document.getElementById('go').addEventListener('click',run);
+ document.getElementById('num').addEventListener('keydown',function(e){if(e.key==='Enter') run();});
+ document.getElementById('base').addEventListener('change',run);
+ run();
 })();
 </script>
 </body>

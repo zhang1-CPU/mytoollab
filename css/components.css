@@ -49,7 +49,7 @@
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   color: var(--text);
@@ -57,7 +57,9 @@ body {
   font-size: 15px;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   padding: 14px;
+  overflow-x: hidden;
 }
 a { color: var(--brand); text-decoration: none; }
 a:hover { text-decoration: underline; }
@@ -70,9 +72,156 @@ strong { color: var(--text-strong); font-weight: 700; }
 .container {
   max-width: var(--max-w);
   margin: 0 auto;
+  padding: 0 16px;
+  width: 100%;
 }
-.container-md { max-width: var(--max-w-md); margin: 0 auto; }
-.container-sm { max-width: var(--max-w-sm); margin: 0 auto; }
+.container-md { max-width: var(--max-w-md); margin: 0 auto; padding: 0 16px; width: 100%; }
+.container-sm { max-width: var(--max-w-sm); margin: 0 auto; padding: 0 16px; width: 100%; }
+
+/* =============================================================
+   SITE NAVIGATION (统一移动端适配)
+   ============================================================= */
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #fff;
+  background: rgba(255,255,255,.97);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 1px 4px rgba(0,0,0,.05);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 52px;
+  position: relative;
+  box-sizing: border-box;
+}
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--brand);
+  text-decoration: none;
+  flex-shrink: 0;
+  margin-right: 8px;
+}
+.nav-logo:hover { text-decoration: none; }
+.nav-logo-icon {
+  width: 32px;
+  height: 32px;
+  background: var(--brand);
+  color: #fff;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: .85rem;
+  flex-shrink: 0;
+}
+.nav-logo-text { font-size: .95rem; color: var(--text-strong); }
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  flex: 1;
+}
+.nav-links::-webkit-scrollbar { display: none; }
+.nav-link {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  font-size: .85rem;
+  font-weight: 500;
+  color: var(--text);
+  border-radius: 6px;
+  white-space: nowrap;
+  transition: all .15s;
+  flex-shrink: 0;
+  text-decoration: none;
+}
+.nav-link:hover {
+  background: var(--brand);
+  color: #fff;
+  text-decoration: none;
+}
+.nav-link.active {
+  background: #eff6ff;
+  color: var(--brand);
+}
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  width: 36px;
+  height: 36px;
+  padding: 4px;
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  cursor: pointer;
+  flex-shrink: 0;
+  margin-left: auto;
+  -webkit-tap-highlight-color: transparent;
+}
+.nav-toggle span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: var(--text);
+  border-radius: 1px;
+}
+
+/* 平板: 768px 以下显示汉堡菜单 */
+@media (max-width: 768px) {
+  .nav-logo-text { display: none; }
+  .nav-inner { gap: 6px; padding: 0 12px; }
+  .nav-toggle { display: flex; }
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 52px;
+    left: 0;
+    right: 0;
+    background: #fff;
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 4px 12px rgba(0,0,0,.08);
+    flex-direction: column;
+    align-items: stretch;
+    padding: 6px 0;
+    z-index: 99;
+    overflow: visible;
+  }
+  .nav-links.open { display: flex; }
+  .nav-link {
+    width: 100%;
+    padding: 12px 16px;
+    font-size: .92rem;
+    border-radius: 0;
+    min-height: 44px;
+  }
+}
+
+/* 手机端: 480px 以下进一步优化 */
+@media (max-width: 480px) {
+  .nav-inner { padding: 0 10px; height: 48px; }
+  .nav-toggle { width: 34px; height: 34px; }
+  .nav-links { top: 48px; }
+}
 
 /* =============================================================
    HEADER / HERO
@@ -157,10 +306,10 @@ strong { color: var(--text-strong); font-weight: 700; }
    INPUTS
    ============================================================= */
 input[type="text"], input[type="number"], input[type="search"],
-input[type="email"], select, textarea {
+input[type="email"], input[type="date"], select, textarea {
   font-family: inherit;
-  font-size: 0.95rem;
-  padding: 9px 12px;
+  font-size: 16px; /* >=16px 防止iOS自动放大 */
+  padding: 10px 12px;
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   background: #fff;
@@ -168,9 +317,14 @@ input[type="email"], select, textarea {
   width: 100%;
   outline: none;
   transition: border-color 0.15s, box-shadow 0.15s;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  box-sizing: border-box;
 }
 input[type="text"]:focus, input[type="number"]:focus,
-input[type="search"]:focus, select:focus, textarea:focus {
+input[type="search"]:focus, input[type="date"]:focus,
+select:focus, textarea:focus {
   border-color: var(--brand);
   box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
 }
@@ -936,14 +1090,186 @@ hr.divider {
 .fade-in { animation: fadeIn 0.2s ease; }
 
 /* =============================================================
-   RESPONSIVE TWEAKS
+   RESPONSIVE: 平板 (768px)
+   ============================================================= */
+@media (max-width: 768px) {
+  body { padding: 12px; font-size: 14px; }
+  .container { padding: 0 12px; }
+  .container-md { padding: 0 12px; }
+  .container-sm { padding: 0 12px; }
+
+  /* Hero */
+  .hero { margin: 8px 0 10px; }
+  .hero h1 { font-size: clamp(1.25rem, 5vw, 1.6rem); }
+  .hero p { font-size: 0.88rem; line-height: 1.5; max-width: 480px; }
+  .breadcrumb { font-size: 0.78rem; margin-bottom: 8px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+  /* Card */
+  .card { padding: 10px 12px; margin-bottom: 8px; border-radius: 10px; }
+  .card--tight { padding: 8px 10px; }
+
+  /* Buttons */
+  .btn { padding: 10px 14px; font-size: 0.9rem; min-height: 44px; }
+  .btn--sm { padding: 8px 12px; min-height: 40px; font-size: 0.85rem; }
+
+  /* Stats grid - 2 columns on tablet */
+  .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .stat { padding: 12px 8px; border-radius: 10px; }
+  .stat__value { font-size: clamp(1.1rem, 5vw, 1.5rem); }
+  .stat__label { font-size: 0.7rem; }
+
+  /* Form elements */
+  .field label { font-size: 0.85rem; margin-bottom: 4px; }
+  textarea { min-height: 100px; font-size: 0.9rem; }
+  select { background-image: none; }
+
+  /* Section spacing */
+  .section { margin-bottom: 12px; }
+  .section h2 { font-size: 1rem; margin-bottom: 6px; }
+  .section p { font-size: 0.88rem; margin-bottom: 5px; }
+
+  /* Tool info section */
+  .tool-info { padding: 12px 14px; }
+  .tool-info h2 { font-size: 1rem; margin-bottom: 6px; }
+  .tool-info p { font-size: 0.88rem; }
+  .steps-list, .usecase-list { font-size: 0.88rem; padding-left: 18px; }
+
+  /* FAQ */
+  .faq details summary, .faq-section details summary { padding: 12px 14px; font-size: 0.88rem; }
+  .faq details p, .faq-section details p { padding: 0 14px 10px; font-size: 0.86rem; line-height: 1.55; }
+
+  /* Ad slot */
+  .ad-slot { margin: 6px auto; }
+
+  /* Related tools */
+  .related-grid { gap: 8px; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
+  .related-grid a { padding: 8px 10px; font-size: 0.85rem; }
+
+  /* Tables - 横向滚动 */
+  .tbl-wrapper { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 0 -12px; padding: 0 12px; }
+  .tbl { font-size: 0.82rem; min-width: 280px; }
+  .tbl th, .tbl td { padding: 8px 10px; }
+
+  /* Calculator keys */
+  .keys { gap: 6px; }
+  .key { padding: 12px 0; font-size: 1rem; min-height: 48px; }
+
+  /* Editor / textarea */
+  .editor { font-size: 0.9rem; }
+  .editor__toolbar .btn { padding: 6px 10px; font-size: 0.78rem; }
+
+  /* Upload / drop zone */
+  .upload-zone, .drop, .drop-zone { padding: 18px 12px; font-size: 0.88rem; }
+  .preview-area { padding: 8px; }
+
+  /* Level picker */
+  .level-picker { gap: 6px; }
+  .level-picker .btn { min-width: 70px; padding: 8px 12px; font-size: 0.82rem; min-height: 42px; }
+
+  /* Monospace / code results */
+  .mono-box pre { font-size: 0.85rem; padding: 10px; max-height: 360px; }
+
+  /* Swatch */
+  .swatch { aspect-ratio: 4 / 1; }
+}
+
+/* =============================================================
+   RESPONSIVE: 手机 (480px)
    ============================================================= */
 @media (max-width: 480px) {
-  body { padding: 10px; font-size: 14px; }
-  .card { padding: 12px; }
+  body { padding: 10px 8px; font-size: 14px; }
+  .container { padding: 0 8px; }
+  .container-md { padding: 0 8px; }
+  .container-sm { padding: 0 8px; }
+
+  /* Hero - 更紧凑 */
+  .hero { margin: 6px 0 8px; }
+  .hero h1 { font-size: clamp(1.15rem, 6vw, 1.4rem); margin-bottom: 4px; letter-spacing: -0.01em; }
+  .hero p { font-size: 0.82rem; line-height: 1.5; }
+  .breadcrumb { font-size: 0.72rem; margin-bottom: 6px; }
+
+  /* Card - 手机更紧凑 */
+  .card { padding: 10px; margin-bottom: 6px; border-radius: 10px; }
+
+  /* Button - 更大的触控区域 */
+  .btn { padding: 10px 12px; font-size: 0.88rem; min-height: 44px; border-radius: 8px; }
+  .btn--sm { padding: 8px 10px; min-height: 40px; font-size: 0.82rem; }
+  .btn--block { width: 100%; }
+
+  /* Stats - 单列 */
   .stats-grid { grid-template-columns: 1fr; gap: 6px; }
-  .stat { padding: 12px 8px; }
-  .stat__value { font-size: clamp(1.1rem, 5vw, 1.5rem); }
+  .stat { padding: 10px 8px; }
+  .stat__value { font-size: clamp(1.1rem, 6vw, 1.45rem); }
+
+  /* Form fields - 纵向堆叠 */
+  .row-grid { grid-template-columns: 1fr; gap: 8px; }
+  .row { flex-direction: column; align-items: stretch; gap: 8px; }
+  .field-row { grid-template-columns: 1fr; gap: 8px; }
+  .field { margin-bottom: 8px; }
+  .field label { font-size: 0.82rem; margin-bottom: 4px; }
+  textarea { min-height: 90px; font-size: 0.88rem; line-height: 1.55; }
+
+  /* Sections */
+  .section { margin-bottom: 10px; }
+  .section h2 { font-size: 0.95rem; margin-bottom: 6px; }
+  .section h3 { font-size: 0.88rem; margin: 8px 0 4px; }
+  .section p { font-size: 0.85rem; line-height: 1.55; margin-bottom: 5px; }
+  .section ul, .section ol { font-size: 0.85rem; padding-left: 18px; }
+
+  /* Tool info */
+  .tool-info { padding: 10px 12px; margin-bottom: 8px; }
+  .tool-info h2 { font-size: 0.95rem; margin-bottom: 6px; }
+  .tool-info h2:not(:first-child) { margin-top: 10px; }
+  .tool-info p { font-size: 0.85rem; line-height: 1.55; }
+  .steps-list, .usecase-list { font-size: 0.85rem; padding-left: 18px; margin-bottom: 4px; }
+
+  /* FAQ - 触控优化 */
+  .faq, .faq-section { margin-bottom: 4px; gap: 4px; }
+  .faq details summary, .faq-section details summary { padding: 12px 12px; font-size: 0.86rem; min-height: 44px; }
+  .faq details p, .faq-section details p { padding: 0 12px 10px; font-size: 0.84rem; line-height: 1.55; }
+
+  /* Related tools - 自适应或双列 */
+  .related-grid { grid-template-columns: repeat(2, 1fr); gap: 6px; }
+  .related-grid a { padding: 8px; font-size: 0.82rem; border-radius: 8px; }
+
+  /* Tables - 强制横向滚动 */
+  .tbl-wrapper { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 0 -8px; padding: 0 8px; }
+  .tbl { font-size: 0.78rem; min-width: 320px; }
+  .tbl th, .tbl td { padding: 8px 10px; white-space: nowrap; }
+
+  /* Calculator */
   .keys { gap: 5px; }
-  .key { padding: 11px 0; font-size: 0.95rem; }
+  .key { padding: 12px 0; font-size: 1rem; min-height: 52px; border-radius: 8px; }
+
+  /* Color picker / swatch */
+  .swatch { aspect-ratio: 5 / 1; border-radius: 8px; }
+
+  /* Upload zone */
+  .upload-zone, .drop, .drop-zone { padding: 16px 10px; font-size: 0.85rem; border-radius: 10px; }
+
+  /* Level picker - 横向滚动 */
+  .level-picker { flex-wrap: wrap; gap: 6px; }
+  .level-picker .btn { min-width: 0; flex: 1 1 auto; padding: 10px 12px; font-size: 0.85rem; min-height: 44px; }
+
+  /* Editor toolbar - 横向滚动 */
+  .editor__toolbar { overflow-x: auto; -webkit-overflow-scrolling: touch; gap: 4px; padding-bottom: 4px; }
+  .editor__toolbar .btn { padding: 6px 10px; font-size: 0.78rem; min-height: 38px; flex-shrink: 0; }
+  .editor textarea { font-size: 0.88rem; line-height: 1.55; border-radius: 8px; }
+
+  /* Monospace output */
+  .mono-box pre { font-size: 0.82rem; padding: 8px 10px; max-height: 300px; border-radius: 8px; }
+
+  /* Hash/result field */
+  .field-grid, .controls-grid { grid-template-columns: 1fr; gap: 8px; margin-bottom: 8px; }
+  .icon-btn { padding: 6px 10px; font-size: 0.78rem; min-height: 40px; }
+
+  /* File list */
+  .file-list, .image-list { gap: 6px; }
+  .file-list .file-item, .image-list .file-item { padding: 8px 10px; font-size: 0.85rem; }
+
+  /* Footer */
+  footer { padding: 12px 0 10px; font-size: 0.8rem; }
+
+  /* Ad slot spacing */
+  .ad-slot { margin: 4px auto; }
 }

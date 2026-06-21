@@ -1,4 +1,4 @@
-# 🚀 My Tool Lab (zlbox.site) 一年运营计划
+# 🚀 zlbox (zlbox.site) 一年运营计划
 
 ## 📊 当前状态分析
 

@@ -55,28 +55,15 @@
     <p>Free online developer utilities: test regular expressions, compare code diffs, decode JWTs, and write Markdown.</p>
   </div>
 
-  <div class="tools-grid">
-    <a href="/tools/dev/regex-tester.html" class="tool-card">
-      <div class="tool-icon">🔍</div>
-      <h3>Regex Tester</h3>
-      <p>Test and debug regular expressions with real-time highlighting and common pattern library.</p>
-    </a>
-    <a href="/tools/dev/text-diff.html" class="tool-card">
-      <div class="tool-icon">🔄</div>
-      <h3>Text Diff</h3>
-      <p>Compare two texts or code snippets side by side. Highlight added, removed lines.</p>
-    </a>
-    <a href="/tools/dev/jwt-decoder.html" class="tool-card">
-      <div class="tool-icon">🔐</div>
-      <h3>JWT Decoder</h3>
-      <p>Decode JSON Web Tokens and inspect Header, Payload, and Signature with claim analysis.</p>
-    </a>
-    <a href="/tools/dev/markdown-editor.html" class="tool-card">
-      <div class="tool-icon">📝</div>
-      <h3>Markdown Editor</h3>
-      <p>Write Markdown with live preview, syntax highlighting, and export to HTML.</p>
-    </a>
+  <div class="search-container" style="margin:0 auto 24px;">
+    <span class="search-icon">🔍</span>
+    <input type="search" id="tool-search" class="search-input" placeholder="Search 56+ tools..." autocomplete="off" />
+    <div id="search-results" class="search-results"></div>
   </div>
+
+  <div class="tools-grid" data-category="dev"></div>
+
+  <script src="/js/category-loader.js"></script>
 
   <div class="section">
     <h2>Other Tool Categories</h2>

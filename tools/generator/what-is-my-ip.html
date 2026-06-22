@@ -215,20 +215,24 @@
 
 <script>
 (function(){
-  // Timeout wrapper for fetch
-  function fetchWithTimeout(url, timeout) {
+  // Timeout wrapper for fetch returning text
+  function fetchText(url, timeout) {
     return new Promise(function(resolve, reject) {
+      var controller = (typeof AbortController !== 'undefined') ? new AbortController() : null;
       var timer = setTimeout(function() {
+        if (controller) try { controller.abort(); } catch(e){}
         reject(new Error('Request timeout after ' + timeout + 'ms'));
       }, timeout);
-      
-      fetch(url).then(function(response) {
+      var opts = controller ? { signal: controller.signal } : {};
+      fetch(url, opts).then(function(response) {
         clearTimeout(timer);
         if (!response.ok) {
           reject(new Error('HTTP error: ' + response.status));
         } else {
-          resolve(response.json());
+          return response.text();
         }
+      }).then(function(text) {
+        if (text) resolve(text); else reject(new Error('Empty response'));
       }).catch(function(err) {
         clearTimeout(timer);
         reject(err);
@@ -236,14 +240,34 @@
     });
   }
 
-  // Copy text helper
-  function copyText(txt, btn) {
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(txt).then(function() {
-        document.getElementById('note').textContent = 'Copied: ' + txt;
-      }).catch(function() {
-        document.getElementById('note').textContent = 'Copy failed (permission denied)';
+  // Race multiple IP sources, return first successful
+  function detectIP(sources) {
+    return new Promise(function(resolve, reject) {
+      var pending = sources.length;
+      var done = false;
+      sources.forEach(function(src) {
+        fetchText(src.url, src.timeout || 4000).then(function(text) {
+          if (done) return;
+          var ip = (src.parse || function(t){ return t.trim(); })(text);
+          if (ip && /^[0-9a-fA-F:.]+$/.test(ip)) {
+            done = true;
+            resolve(ip);
+          } else {
+            pending--;
+            if (pending === 0 && !done) reject(new Error('All IP sources failed'));
+          }
+        }).catch(function() {
+          pending--;
+          if (pending === 0 && !done) reject(new Error('All IP sources failed'));
+        });
       });
+    });
+  }
+
+  function copyText(txt, btn) {
+    var showNote = function(msg) { var n = document.getElementById('note'); if (n) n.textContent = msg; };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(txt).then(function() { showNote('Copied: ' + txt); }).catch(function() { showNote('Copy failed'); });
     } else {
       var ta = document.createElement('textarea');
       ta.value = txt;
@@ -251,17 +275,11 @@
       ta.style.opacity = '0';
       document.body.appendChild(ta);
       ta.select();
-      try {
-        document.execCommand('copy');
-        document.getElementById('note').textContent = 'Copied: ' + txt;
-      } catch(e) {
-        document.getElementById('note').textContent = 'Copy failed';
-      }
+      try { document.execCommand('copy'); showNote('Copied: ' + txt); } catch(e) { showNote('Copy failed'); }
       document.body.removeChild(ta);
     }
   }
 
-  // Detect browser
   function detectBrowser() {
     var ua = navigator.userAgent;
     var b = 'Unknown';
@@ -270,7 +288,6 @@
     else if (/Chrome\//.test(ua) && !/Chromium/.test(ua)) b = 'Chrome';
     else if (/Firefox\//.test(ua)) b = 'Firefox';
     else if (/Safari\//.test(ua) && !/Chrome\//.test(ua)) b = 'Safari';
-    else if (/MSIE |Trident\//.test(ua)) b = 'Internet Explorer';
     var p = '';
     if (/Windows/.test(ua)) p = 'Windows';
     else if (/Mac OS X/.test(ua)) p = 'macOS';
@@ -280,7 +297,6 @@
     return b + (p ? ' · ' + p : '');
   }
 
-  // Set browser info immediately
   document.getElementById('ua').textContent = navigator.userAgent || '—';
   document.getElementById('browser').textContent = detectBrowser();
   document.getElementById('screen').textContent = (screen.width || '?') + ' × ' + (screen.height || '?');
@@ -292,93 +308,71 @@
   }
   document.getElementById('lang').textContent = navigator.language || '—';
 
-  // Main IP detection
   var ipv4El = document.getElementById('ipv4');
   var ipv6El = document.getElementById('ipv6');
   var locationEl = document.getElementById('location');
   var ispEl = document.getElementById('isp');
   var noteEl = document.getElementById('note');
-  
-  var ipv4Address = null;
-  var ipv6Address = null;
 
-  // Fetch IPv4
-  fetchWithTimeout('https://api.ipify.org?format=json', 5000)
-    .then(function(data) {
-      ipv4Address = data.ip;
-      ipv4El.textContent = ipv4Address;
-      ipv4El.dataset.ip = ipv4Address;
-      noteEl.textContent = 'IPv4 detected: ' + ipv4Address;
-      
-      // Fetch location info using IPv4
-      return fetchWithTimeout('https://ipapi.co/' + ipv4Address + '/json/', 5000);
-    })
-    .then(function(locData) {
-      if (locData.city && locData.country_name) {
-        locationEl.textContent = locData.city + ', ' + locData.country_name;
-      } else if (locData.country_name) {
-        locationEl.textContent = locData.country_name;
-      } else {
-        locationEl.textContent = 'Not available';
+  var ipv4Sources = [
+    { url: 'https://api.ipify.org?format=json', parse: function(t){ try{ return JSON.parse(t).ip; }catch(e){ return null; } } },
+    { url: 'https://api64.ipify.org?format=json', parse: function(t){ try{ return JSON.parse(t).ip; }catch(e){ return null; } } },
+    { url: 'https://checkip.amazonaws.com', parse: function(t){ return t.trim(); } },
+    { url: 'https://icanhazip.com', parse: function(t){ return t.trim(); } }
+  ];
+
+  // Set 4s timeout per request, parallel, take first success
+  detectIP(ipv4Sources).then(function(ip) {
+    ipv4El.textContent = ip;
+    ipv4El.dataset.ip = ip;
+    noteEl.textContent = 'IP detected: ' + ip;
+
+    // Get location/ISP with 5s timeout
+    fetchText('https://ipapi.co/' + ip + '/json/', 5000).then(function(text) {
+      try {
+        var d = JSON.parse(text);
+        if (d.city && d.country_name) locationEl.textContent = d.city + ', ' + d.country_name;
+        else if (d.country_name) locationEl.textContent = d.country_name;
+        else locationEl.textContent = 'Unavailable';
+        ispEl.textContent = d.org || 'Unavailable';
+      } catch(e) {
+        // Silent fail
       }
-      
-      if (locData.org) {
-        ispEl.textContent = locData.org;
-      } else {
-        ispEl.textContent = 'Not available';
-      }
-      
-      noteEl.textContent = 'All information detected successfully';
-    })
-    .catch(function(err) {
-      // If IPv4 failed, show error
-      if (!ipv4Address) {
-        ipv4El.textContent = 'Unable to detect';
-        noteEl.textContent = 'Unable to detect IP (ad blocker or network issue)';
-      }
-      // If location failed, show partial success
-      if (ipv4Address) {
-        locationEl.textContent = 'Not available';
-        ispEl.textContent = 'Not available';
-        noteEl.textContent = 'IP detected, but location info blocked';
-      }
+    }).catch(function() {
+      // Silent fail
     });
+  }).catch(function() {
+    // All sources failed — likely ad blocker
+    ipv4El.textContent = 'Blocked by ad blocker or network policy';
+    locationEl.textContent = 'Unavailable';
+    ispEl.textContent = 'Unavailable';
+    noteEl.innerHTML = 'Your IP cannot be detected automatically. This is usually caused by an ad blocker or private network. Try disabling your ad blocker for this page, or check your network settings.';
+  });
 
-  // Fetch IPv6 (parallel)
-  fetchWithTimeout('https://api64.ipify.org?format=json', 5000)
-    .then(function(data) {
-      ipv6Address = data.ip;
-      if (ipv6Address && ipv6Address !== ipv4El.dataset.ip) {
-        ipv6El.textContent = ipv6Address;
-        ipv6El.dataset.ip = ipv6Address;
+  // IPv6 (silent, optional)
+  fetchText('https://api64.ipify.org?format=json', 4000).then(function(t) {
+    try {
+      var d = JSON.parse(t);
+      if (d.ip && d.ip.indexOf(':') !== -1) {
+        ipv6El.textContent = d.ip;
+        ipv6El.dataset.ip = d.ip;
       } else {
         ipv6El.textContent = 'Not available (IPv4 only)';
       }
-    })
-    .catch(function(err) {
-      ipv6El.textContent = 'Not available';
-    });
+    } catch(e) { ipv6El.textContent = 'Not available'; }
+  }).catch(function() { ipv6El.textContent = 'Not available'; });
 
-  // Copy buttons
   document.getElementById('copy-v4').addEventListener('click', function() {
-    var ip = ipv4El.dataset.ip || ipv4El.textContent;
-    if (ip && ip !== 'Unable to detect' && ip !== 'Detecting...') {
-      copyText(ip);
-    } else {
-      noteEl.textContent = 'No IP to copy';
-    }
+    var ip = ipv4El.dataset.ip;
+    if (ip && ip.indexOf(':') === -1) copyText(ip);
+    else noteEl.textContent = 'No IP to copy';
   });
-
   document.getElementById('copy-v6').addEventListener('click', function() {
-    var ip = ipv6El.dataset.ip || ipv6El.textContent;
-    if (ip && ip !== 'Not available' && ip !== 'Detecting...' && ip !== 'Not available (IPv4 only)') {
-      copyText(ip);
-    } else {
-      noteEl.textContent = 'No IPv6 to copy';
-    }
+    var ip = ipv6El.dataset.ip;
+    if (ip) copyText(ip);
+    else noteEl.textContent = 'No IPv6 to copy';
   });
 
-  // Resize handler
   window.addEventListener('resize', function() {
     document.getElementById('viewport').textContent = window.innerWidth + ' × ' + window.innerHeight;
   });

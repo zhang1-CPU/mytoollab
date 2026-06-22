@@ -220,6 +220,7 @@
         document.getElementById('pdf-pages').textContent = pdf.numPages;
         document.getElementById('upload-section').style.display = 'none';
         document.getElementById('editor-section').style.display = 'block';
+        setTimeout(function() { document.getElementById('editor-section').scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 50);
         setStatus('PDF loaded successfully. Loading thumbnails...', 'success');
         loadThumbnails();
       }).catch(function(err) {

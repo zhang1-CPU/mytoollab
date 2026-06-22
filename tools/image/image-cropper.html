@@ -351,8 +351,11 @@
         document.getElementById('upload-section').style.display = 'none';
         document.getElementById('editor-section').style.display = 'block';
         document.getElementById('orig-size').textContent = img.width + ' × ' + img.height;
-        initCrop();
-        render();
+        // Defer initCrop to next tick so editor-section is fully laid out
+        setTimeout(function() {
+          initCrop();
+          render();
+        }, 0);
       };
       img.src = e.target.result;
     };
@@ -360,7 +363,7 @@
   }
 
   function initCrop() {
-    var containerWidth = canvas.parentElement.clientWidth;
+    var containerWidth = canvas.parentElement.clientWidth || 800;
     var maxW = Math.min(containerWidth, 800);
     var scale = maxW / originalImage.width;
     renderedScale = scale;

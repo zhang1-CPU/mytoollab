@@ -357,6 +357,12 @@
       var result = formatCSS(cssInput.value, sort, shorten);
       cssOutput.textContent = result;
       updateCSSSize();
+      // Scroll output into view
+      try {
+        if (cssOutput.scrollIntoView) {
+          setTimeout(function(){ cssOutput.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }, 50);
+        }
+      } catch(e) {}
     } catch (e) {
       document.getElementById('css-error').textContent = 'Error: ' + e.message;
       document.getElementById('css-error').style.display = 'block';
@@ -376,6 +382,12 @@
         document.getElementById('css-error').textContent = '⚠ Possible error: ' + opens + ' opening braces, ' + closes + ' closing braces';
         document.getElementById('css-error').style.display = 'block';
       }
+      // Scroll output into view
+      try {
+        if (cssOutput.scrollIntoView) {
+          setTimeout(function(){ cssOutput.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }, 50);
+        }
+      } catch(e) {}
     } catch (e) {
       document.getElementById('css-error').textContent = 'Error: ' + e.message;
       document.getElementById('css-error').style.display = 'block';
@@ -443,6 +455,12 @@
         document.getElementById('js-error').textContent = '⚠ Possible syntax error: ' + e.message;
         document.getElementById('js-error').style.display = 'block';
       }
+      // Scroll output into view
+      try {
+        if (jsOutput.scrollIntoView) {
+          setTimeout(function(){ jsOutput.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }, 50);
+        }
+      } catch(e) {}
     } catch (e) {
       document.getElementById('js-error').textContent = 'Error: ' + e.message;
       document.getElementById('js-error').style.display = 'block';

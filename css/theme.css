@@ -206,3 +206,46 @@
     max-width: 100%;
   }
 }
+
+/* =====================
+   Dark mode — ensure Canvas/iframe/preview backgrounds
+   ===================== */
+[data-theme="dark"] .canvas-container {
+  background: #0b1220;
+}
+[data-theme="dark"] iframe,
+[data-theme="dark"] .ad-container,
+[data-theme="dark"] ins.adsbygoogle {
+  background: var(--card) !important;
+}
+[data-theme="dark"] .drop-zone {
+  border-color: var(--dropzone-border, #334155);
+  background: var(--dropzone-bg, #1e293b);
+}
+[data-theme="dark"] .drop-zone:hover,
+[data-theme="dark"] .drop-zone.dragover {
+  background: var(--primary-light, #1e3a5f);
+}
+[data-theme="dark"] .code-input,
+[data-theme="dark"] .code-output,
+[data-theme="dark"] .preview-box,
+[data-theme="dark"] .json-output,
+[data-theme="dark"] .text-input {
+  background: var(--input-bg, #1e293b) !important;
+  color: var(--text, #f1f5f9) !important;
+}
+[data-theme="dark"] .thumbnail canvas,
+[data-theme="dark"] .thumbnail {
+  background: #f1f5f9;
+}
+[data-theme="dark"] select option {
+  background: var(--input-bg, #1e293b);
+  color: var(--text, #f1f5f9);
+}
+[data-theme="dark"] input[type="range"] {
+  accent-color: var(--primary, #3b82f6);
+}
+[data-theme="dark"] ::placeholder {
+  color: var(--text-muted, #94a3b8);
+  opacity: .7;
+}

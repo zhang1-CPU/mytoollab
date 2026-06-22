@@ -413,6 +413,13 @@ Jane,25,London'></textarea>
       csvPreview.textContent = previewLines.join('\n') + (result.rows > 10 ? '\n... (showing first 10 rows)' : '');
       csvRows.textContent = result.rows + ' rows';
       csvCols.textContent = result.cols + ' columns';
+      // Scroll the output section into view (especially useful on small screens)
+      try {
+        var section = csvPreview.closest('.converter-section');
+        if (section && section.scrollIntoView) {
+          setTimeout(function(){ section.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 50);
+        }
+      } catch(e) {}
       window.showToast && window.showToast('Converted successfully');
     } catch (e) {
       jsonError.textContent = 'Invalid JSON: ' + e.message;
@@ -464,6 +471,13 @@ Jane,25,London'></textarea>
       currentJSON = JSON.stringify(result.json, null, 2);
       jsonPreview.textContent = currentJSON;
       jsonItems.textContent = result.items + ' items';
+      // Scroll the output section into view
+      try {
+        var section2 = jsonPreview.closest('.converter-section');
+        if (section2 && section2.scrollIntoView) {
+          setTimeout(function(){ section2.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 50);
+        }
+      } catch(e) {}
       window.showToast && window.showToast('Converted successfully');
     } catch (e) {
       csvError.textContent = 'Error parsing CSV: ' + e.message;

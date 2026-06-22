@@ -55,28 +55,15 @@
     <p>Free online SEO utilities to optimize your website for search engines. Generate meta tags, preview search results, analyze keyword density, and more.</p>
   </div>
 
-  <div class="tools-grid">
-    <a href="/tools/seo/meta-tag-generator.html" class="tool-card">
-      <div class="tool-icon">🔖</div>
-      <h3>Meta Tag Generator</h3>
-      <p>Generate complete meta tags including Open Graph and Twitter Card tags.</p>
-    </a>
-    <a href="/tools/seo/serp-preview.html" class="tool-card">
-      <div class="tool-icon">🔍</div>
-      <h3>SERP Preview</h3>
-      <p>Preview how your page appears in Google search results.</p>
-    </a>
-    <a href="/tools/seo/keyword-density.html" class="tool-card">
-      <div class="tool-icon">📊</div>
-      <h3>Keyword Density Checker</h3>
-      <p>Analyze keyword usage and density in your content.</p>
-    </a>
-    <a href="/tools/seo/text-compare.html" class="tool-card">
-      <div class="tool-icon">📝</div>
-      <h3>Text Compare</h3>
-      <p>Compare two texts for similarity and plagiarism detection.</p>
-    </a>
+  <div class="search-container" style="margin:0 auto 24px;">
+    <span class="search-icon">🔍</span>
+    <input type="search" id="tool-search" class="search-input" placeholder="Search 56+ tools..." autocomplete="off" />
+    <div id="search-results" class="search-results"></div>
   </div>
+
+  <div class="tools-grid" data-category="seo"></div>
+
+  <script src="/js/category-loader.js"></script>
 
   <div class="section">
     <h2>Other Tool Categories</h2>

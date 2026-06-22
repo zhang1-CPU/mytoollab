@@ -332,65 +332,15 @@
     <p>Free tools for editing, formatting, and analyzing text. Perfect for writers, developers, bloggers, and anyone who works with copy.</p>
   </header>
 
-  <div class="tools-grid">
-
-    <article class="tool-card">
-      <div class="tool-icon" aria-hidden="true">📝</div>
-      <h2>Word Counter</h2>
-      <p>Count words, characters, sentences, and paragraphs. See reading time and writing stats instantly.</p>
-      <a href="../tools/text/word-counter.html" class="tool-link">Open tool</a>
-    </article>
-
-    <article class="tool-card">
-      <div class="tool-icon" aria-hidden="true">📋</div>
-      <h2>JSON Formatter</h2>
-      <p>Format, validate, and beautify JSON data with syntax highlighting and error detection.</p>
-      <a href="../tools/text/json-formatter.html" class="tool-link">Open tool</a>
-    </article>
-
-    <article class="tool-card">
-      <div class="tool-icon" aria-hidden="true">🔡</div>
-      <h2>Text Case Converter</h2>
-      <p>Switch between uppercase, lowercase, Title Case, camelCase, snake_case, and more.</p>
-      <a href="../tools/text/case-converter.html" class="tool-link">Open tool</a>
-    </article>
-
-    <article class="tool-card">
-      <div class="tool-icon" aria-hidden="true">📄</div>
-      <h2>Lorem Ipsum Generator</h2>
-      <p>Generate placeholder text by paragraph, sentence, or word count for wireframes and mockups.</p>
-      <a href="../tools/text/lorem-ipsum.html" class="tool-link">Open tool</a>
-    </article>
-
-    <article class="tool-card">
-      <div class="tool-icon" aria-hidden="true">⚙️</div>
-      <h2>Base64 Encode / Decode</h2>
-      <p>Encode strings to Base64 or decode Base64 back to plain text. Supports Unicode and special characters.</p>
-      <a href="../tools/text/base64.html" class="tool-link">Open tool</a>
-    </article>
-
-    <article class="tool-card">
-      <div class="tool-icon" aria-hidden="true">🔤</div>
-      <h2>HTML Encode / Decode</h2>
-      <p>Convert special characters to HTML entities or decode HTML entities back to readable text.</p>
-      <a href="../tools/text/html-encoder.html" class="tool-link">Open tool</a>
-    </article>
-
-    <article class="tool-card">
-      <div class="tool-icon" aria-hidden="true">🔢</div>
-      <h2>Binary / Hex / Decimal</h2>
-      <p>Convert numbers between binary, octal, decimal, and hexadecimal number bases instantly.</p>
-      <a href="../tools/text/number-base-converter.html" class="tool-link">Open tool</a>
-    </article>
-
-    <article class="tool-card">
-      <div class="tool-icon" aria-hidden="true">📊</div>
-      <h2>CSV to JSON</h2>
-      <p>Convert comma-separated values to structured JSON. Custom delimiters and headers supported.</p>
-      <a href="../tools/text/csv-to-json.html" class="tool-link">Open tool</a>
-    </article>
-
+  <div class="search-container" style="margin-bottom:24px;">
+    <span class="search-icon">🔍</span>
+    <input type="search" id="tool-search" class="search-input" placeholder="Search 56+ tools..." autocomplete="off" />
+    <div id="search-results" class="search-results"></div>
   </div>
+
+  <div class="tools-grid" data-category="text"></div>
+
+  <script src="../js/category-loader.js"></script>
 
   <div class="info-section">
     <h2>About These Text Tools</h2>

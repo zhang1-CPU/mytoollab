@@ -255,6 +255,7 @@ Examples:
       // Show preview
       document.getElementById('image-preview').src = currentDataUri;
       document.getElementById('preview-container').style.display = 'flex';
+      document.getElementById('preview-container').scrollIntoView({ behavior: 'smooth', block: 'start' });
       document.getElementById('image-info').textContent = file.name + ' (' + formatSize(file.size) + ')';
 
       // Size info
@@ -274,6 +275,7 @@ Examples:
 
       // Show output
       document.getElementById('base64-output-section').style.display = 'block';
+      setTimeout(function() { document.getElementById('base64-output-section').scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 100);
       document.getElementById('base64-output').textContent = base64.length > 5000 ? base64.substring(0, 5000) + '... (truncated)' : base64;
       document.getElementById('data-uri').textContent = currentDataUri.length > 5000 ? currentDataUri.substring(0, 5000) + '... (truncated)' : currentDataUri;
       document.getElementById('css-background').textContent = 'background-image: url("' + currentDataUri + '");';

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Regex Tester — Free Online Regular Expression Tool | zlbox</title>
+  <meta name="description" content="Test and debug regular expressions in real-time. Highlight matches, view match positions, and use built-in regex library for Email, URL, Phone, IP, and more." />
+  <link rel="stylesheet" href="../../css/components.css" />
+  <link rel="stylesheet" href="/css/theme.css" />
+  <link rel="canonical" href="https://www.zlbox.site/tools/dev/regex-tester.html" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:image" content="https://www.zlbox.site/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Regex Tester","description":"Test and debug regular expressions in real-time","url":"https://www.zlbox.site/tools/dev/regex-tester.html","applicationCategory":"UtilityApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9V6L0Z956X"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-9V6L0Z956X');</script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
+  <style>
+    .dev-grid { display: grid; grid-template-columns: 1fr 280px; gap: 20px; }
+    @media (max-width: 900px) { .dev-grid { grid-template-columns: 1fr; } }
+    .dev-section { background: var(--card, #fff); border: 1px solid var(--border, #e5e7eb); border-radius: 12px; padding: 20px; margin-bottom: 20px; }
+    .dev-section h3 { margin-top: 0; margin-bottom: 16px; font-size: 1rem; font-weight: 600; color: var(--text, #1f2937); }
+    .regex-input-row { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
+    .regex-input-row .regex-prefix { font-family: ui-monospace, Consolas, monospace; color: var(--text-muted, #64748b); font-size: 1.1rem; }
+    .regex-input { flex: 1; padding: 10px 12px; border: 2px solid var(--input-border, #e5e7eb); border-radius: 8px; background: var(--input-bg, #fff); color: var(--text, #1f2937); font-size: 1rem; font-family: ui-monospace, Consolas, monospace; }
+    .regex-input:focus { outline: none; border-color: var(--primary, #2563eb); box-shadow: 0 0 0 3px var(--primary-light, #dbeafe); }
+    .flags-input { width: 80px; padding: 10px 12px; border: 2px solid var(--input-border, #e5e7eb); border-radius: 8px; background: var(--input-bg, #fff); color: var(--text, #1f2937); font-family: ui-monospace, Consolas, monospace; }
+    .text-input { width: 100%; min-height: 200px; padding: 12px; border: 2px solid var(--input-border, #e5e7eb); border-radius: 8px; background: var(--input-bg, #fff); color: var(--text, #1f2937); font-size: .9rem; box-sizing: border-box; resize: vertical; font-family: ui-monospace, Consolas, monospace; line-height: 1.6; }
+    .text-input:focus { outline: none; border-color: var(--primary, #2563eb); box-shadow: 0 0 0 3px var(--primary-light, #dbeafe); }
+    .highlight-box { padding: 12px; background: var(--code-bg, #f1f5f9); border: 1px solid var(--border, #e5e7eb); border-radius: 8px; font-family: ui-monospace, Consolas, monospace; font-size: .9rem; line-height: 1.6; white-space: pre-wrap; word-break: break-word; min-height: 100px; }
+    .match { background: #fef08a; color: #713f12; padding: 0 2px; border-radius: 2px; font-weight: 600; }
+    .error-msg { color: #ef4444; font-size: .85rem; margin-top: 8px; font-weight: 500; }
+    .success-msg { color: #22c55e; font-size: .85rem; margin-top: 8px; font-weight: 500; }
+    .preset-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .preset-btn { padding: 8px 12px; border: 1px solid var(--border, #e5e7eb); background: var(--bg-subtle, #f8fafc); color: var(--text, #1f2937); border-radius: 6px; font-size: .8rem; cursor: pointer; transition: all .15s; font-weight: 500; }
+    .preset-btn:hover { border-color: var(--primary, #2563eb); background: var(--primary-light, #dbeafe); }
+    .match-list { max-height: 300px; overflow-y: auto; }
+    .match-item { padding: 8px 12px; background: var(--bg-subtle, #f8fafc); border: 1px solid var(--border, #e5e7eb); border-radius: 6px; margin-bottom: 6px; font-family: ui-monospace, Consolas, monospace; font-size: .8rem; }
+    .match-item .match-text { color: var(--text, #1f2937); font-weight: 600; word-break: break-all; }
+    .match-item .match-pos { color: var(--text-muted, #64748b); font-size: .7rem; margin-top: 4px; }
+    .stats-row { display: flex; gap: 16px; margin-bottom: 12px; flex-wrap: wrap; }
+    .stat-badge { padding: 4px 12px; background: var(--primary-light, #dbeafe); color: var(--primary, #2563eb); border-radius: 20px; font-size: .8rem; font-weight: 600; }
+    .related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-top: 16px; }
+    .related-card { background: var(--card, #fff); border: 1px solid var(--border, #e5e7eb); border-radius: 8px; padding: 16px; text-decoration: none; transition: all .2s; }
+    .related-card:hover { border-color: var(--primary, #2563eb); box-shadow: 0 2px 8px rgba(37,99,235,.1); }
+    .related-card h4 { margin: 0 0 4px; font-size: .95rem; color: var(--text, #1f2937); }
+    .related-card p { margin: 0; font-size: .8rem; color: var(--text-muted, #64748b); }
+  </style>
+</head>
+<body>
+
+<nav class="site-nav" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo" aria-label="zlbox Home">
+      <span class="nav-logo-icon">zl</span>
+      <span class="nav-logo-text">zlbox</span>
+    </a>
+    <button class="theme-toggle" aria-label="Toggle theme">🌙</button>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+    <div class="nav-links" role="list">
+      <a href="/tools/index.html" class="nav-link" role="listitem">All Tools</a>
+      <a href="/categories/text.html" class="nav-link" role="listitem">Text</a>
+      <a href="/categories/calculator.html" class="nav-link" role="listitem">Calculator</a>
+      <a href="/categories/generator.html" class="nav-link" role="listitem">Generator</a>
+      <a href="/categories/image.html" class="nav-link" role="listitem">Image</a>
+      <a href="/categories/pdf.html" class="nav-link" role="listitem">PDF</a>
+      <a href="/blog/index.html" class="nav-link" role="listitem">Blog</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container-md">
+  <div class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/categories/dev.html">Dev Tools</a> &rsaquo; Regex Tester</div>
+
+  <div class="hero">
+    <h1>Regex Tester</h1>
+    <p>Test and debug regular expressions in real-time. Highlight matches, view match positions, and use the built-in regex library.</p>
+  </div>
+
+  <div class="dev-grid">
+    <div>
+      <div class="dev-section">
+        <h3>Regular Expression</h3>
+        <div class="regex-input-row">
+          <span class="regex-prefix">/</span>
+          <input type="text" id="regex-pattern" class="regex-input" placeholder="[a-z]+" value="[A-Z]+" />
+          <span class="regex-prefix">/</span>
+          <input type="text" id="regex-flags" class="flags-input" placeholder="g" value="g" />
+        </div>
+        <div id="regex-status"></div>
+      </div>
+
+      <div class="dev-section">
+        <h3>Test Text</h3>
+        <textarea id="test-text" class="text-input" placeholder="Enter or paste text to test...">Hello WORLD This Is A Test</textarea>
+      </div>
+
+      <div class="dev-section">
+        <h3>Highlighted Result</h3>
+        <div id="highlight-box" class="highlight-box"></div>
+      </div>
+
+      <div class="dev-section">
+        <h3>Match Results <span id="match-count" class="stat-badge">0 matches</span></h3>
+        <div id="match-list" class="match-list"></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="dev-section">
+        <h3>Common Regex Patterns</h3>
+        <div class="preset-grid">
+          <button class="preset-btn" data-pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}" data-sample="Contact us at support@example.com or admin@zlbox.site">Email</button>
+          <button class="preset-btn" data-pattern="https?://[^\\s]+" data-sample="Visit https://www.zlbox.site for more info">URL</button>
+          <button class="preset-btn" data-pattern="\\+?\\d{1,3}?[\\s.-]?\\(?\\d{1,4}\\)?[\\s.-]?\\d{1,4}[\\s.-]?\\d{1,9}" data-sample="Call +1 (555) 123-4567 or 555-987-6543">Phone</button>
+          <button class="preset-btn" data-pattern="\\b(?:\\d{1,3}\\.){3}\\d{1,3}\\b" data-sample="Server IP: 192.168.1.1 and 10.0.0.1">IP Address</button>
+          <button class="preset-btn" data-pattern="\\b\\d{4}-\\d{2}-\\d{2}\\b" data-sample="Today is 2026-06-22 and tomorrow will be 2026-06-23">Date (ISO)</button>
+          <button class="preset-btn" data-pattern="#?([a-fA-F0-9]{6}|[a-fA-F0-9]{3})" data-sample="Color: #ff5733 and #333 are valid hex colors">Hex Color</button>
+        </div>
+      </div>
+
+      <div class="dev-section">
+        <h3>Flags Reference</h3>
+        <div style="font-size:.8rem;color:var(--text-muted,#64748b);line-height:1.6;">
+          <div><code>g</code> - Global (find all)</div>
+          <div><code>i</code> - Case insensitive</div>
+          <div><code>m</code> - Multiline</div>
+          <div><code>s</code> - Dot matches newline</div>
+          <div><code>u</code> - Unicode</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Related Dev Tools</h2>
+    <div class="related-grid">
+      <a href="text-diff.html" class="related-card">
+        <h4>Text Diff</h4>
+        <p>Compare two texts side by side</p>
+      </a>
+      <a href="jwt-decoder.html" class="related-card">
+        <h4>JWT Decoder</h4>
+        <p>Decode JSON Web Tokens</p>
+      </a>
+      <a href="markdown-editor.html" class="related-card">
+        <h4>Markdown Editor</h4>
+        <p>Edit and preview Markdown</p>
+      </a>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="text-diff.html">Text Diff</a>
+      <a href="jwt-decoder.html">JWT Decoder</a>
+      <a href="markdown-editor.html">Markdown Editor</a>
+      <span style="color:var(--border);margin:0 6px">|</span>
+      <a href="/about.html">About</a>
+      <a href="/privacy.html">Privacy</a>
+    </div>
+    <p class="footer-copy">&copy; 2026 zlbox. All rights reserved.</p>
+  </footer>
+</div>
+
+<div id="toast-container" class="toast-container"></div>
+<script src="/js/theme.js"></script>
+<script>
+(function() {
+  var patternInput = document.getElementById('regex-pattern');
+  var flagsInput = document.getElementById('regex-flags');
+  var textInput = document.getElementById('test-text');
+  var highlightBox = document.getElementById('highlight-box');
+  var matchList = document.getElementById('match-list');
+  var matchCount = document.getElementById('match-count');
+  var status = document.getElementById('regex-status');
+
+  function escapeHtml(str) {
+    return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  }
+
+  function testRegex() {
+    var pattern = patternInput.value;
+    var flags = flagsInput.value;
+    var text = textInput.value;
+    
+    status.innerHTML = '';
+    
+    if (!pattern) {
+      highlightBox.innerHTML = escapeHtml(text) || '<span style="color:var(--text-muted);">No text to test</span>';
+      matchList.innerHTML = '';
+      matchCount.textContent = '0 matches';
+      return;
+    }
+
+    var regex;
+    try {
+      regex = new RegExp(pattern, flags);
+    } catch (e) {
+      status.innerHTML = '<div class="error-msg">⚠ Invalid regular expression: ' + escapeHtml(e.message) + '</div>';
+      highlightBox.innerHTML = escapeHtml(text);
+      matchList.innerHTML = '';
+      matchCount.textContent = '0 matches';
+      return;
+    }
+
+    status.innerHTML = '<div class="success-msg">✓ Valid regex</div>';
+
+    // Find all matches
+    var matches = [];
+    if (flags.indexOf('g') !== -1) {
+      var match;
+      while ((match = regex.exec(text)) !== null) {
+        matches.push({
+          text: match[0],
+          index: match.index,
+          groups: match.length - 1
+        });
+        if (match.index === regex.lastIndex) regex.lastIndex++;
+      }
+    } else {
+      var m = regex.exec(text);
+      if (m) {
+        matches.push({ text: m[0], index: m.index, groups: m.length - 1 });
+      }
+    }
+
+    // Build highlighted HTML
+    var html = '';
+    var lastIndex = 0;
+    matches.forEach(function(m) {
+      html += escapeHtml(text.substring(lastIndex, m.index));
+      html += '<span class="match">' + escapeHtml(m.text) + '</span>';
+      lastIndex = m.index + m.text.length;
+    });
+    html += escapeHtml(text.substring(lastIndex));
+    highlightBox.innerHTML = html || escapeHtml(text);
+
+    // Build match list
+    matchCount.textContent = matches.length + ' match' + (matches.length !== 1 ? 'es' : '');
+    if (matches.length === 0) {
+      matchList.innerHTML = '<div style="padding:20px;text-align:center;color:var(--text-muted);">No matches found</div>';
+    } else {
+      var listHtml = matches.map(function(m, i) {
+        return '<div class="match-item">' +
+          '<div class="match-text">' + escapeHtml(m.text) + '</div>' +
+          '<div class="match-pos">Position: ' + m.index + ' | Length: ' + m.text.length + (m.groups > 0 ? ' | Groups: ' + m.groups : '') + '</div>' +
+        '</div>';
+      }).join('');
+      matchList.innerHTML = listHtml;
+    }
+  }
+
+  patternInput.addEventListener('input', testRegex);
+  flagsInput.addEventListener('input', testRegex);
+  textInput.addEventListener('input', testRegex);
+
+  // Preset buttons
+  document.querySelectorAll('.preset-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      patternInput.value = btn.getAttribute('data-pattern');
+      textInput.value = btn.getAttribute('data-sample');
+      testRegex();
+    });
+  });
+
+  // Initialize
+  testRegex();
+})();
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var toggle = document.querySelector('.nav-toggle');
+  var links = document.querySelector('.nav-links');
+  if (toggle && links) {
+    toggle.addEventListener('click', function() {
+      links.classList.toggle('active');
+      toggle.setAttribute('aria-expanded', links.classList.contains('active'));
+    });
+  }
+});
+</script>
+</body>
+</html>

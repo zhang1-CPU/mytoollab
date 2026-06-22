@@ -350,5 +350,37 @@
     "url": "/tools/seo/text-compare.html",
     "keywords": ["text", "compare", "plagiarism", "similarity", "diff", "checker"],
     "icon": "📝"
+  },
+  {
+    "name": "Regex Tester",
+    "category": "Developer",
+    "description": "Test and debug regular expressions with real-time highlighting",
+    "url": "/tools/dev/regex-tester.html",
+    "keywords": ["regex", "regular", "expression", "tester", "pattern", "match"],
+    "icon": "🔍"
+  },
+  {
+    "name": "Text Diff",
+    "category": "Developer",
+    "description": "Compare two texts or code snippets side by side",
+    "url": "/tools/dev/text-diff.html",
+    "keywords": ["diff", "compare", "code", "text", "developer", "side", "by", "side"],
+    "icon": "🔄"
+  },
+  {
+    "name": "JWT Decoder",
+    "category": "Developer",
+    "description": "Decode JSON Web Tokens and inspect claims",
+    "url": "/tools/dev/jwt-decoder.html",
+    "keywords": ["jwt", "json", "web", "token", "decode", "developer", "auth"],
+    "icon": "🔐"
+  },
+  {
+    "name": "Markdown Editor",
+    "category": "Developer",
+    "description": "Write Markdown with live preview and syntax highlighting",
+    "url": "/tools/dev/markdown-editor.html",
+    "keywords": ["markdown", "editor", "preview", "md", "developer", "write"],
+    "icon": "📝"
   }
 ]

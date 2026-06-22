@@ -182,7 +182,7 @@
     }
     .footer-links a { color: var(--muted); }
     .footer-links a:hover { color: var(--brand); text-decoration: none; }
-    .footer-copy { font-size: 0.8rem; color: #94a3b8; }
+    .footer-copy { font-size: 0.8rem; color: var(--text-muted); }
 
     /* ── Responsive ── */
     @media (max-width: 600px) {
@@ -195,7 +195,7 @@
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: #fff;
+  background: var(--bg);
   border-bottom: 1px solid #e2e8f0;
   box-shadow: 0 1px 3px rgba(0,0,0,.05);
 }
@@ -253,14 +253,14 @@
   padding: 8px 12px;
   font-size: .88rem;
   font-weight: 500;
-  color: #64748b;
+  color: var(--text-muted);
   text-decoration: none;
   border-radius: 6px;
   transition: all .2s;
 }
 .nav-link:hover {
   color: #2563eb;
-  background: #f1f5f9;
+  background: var(--bg-subtle);
 }
 @media (max-width: 768px) {
   .nav-toggle { display: block; }
@@ -295,6 +295,7 @@
   <meta name="robots" content="index, follow" />
 
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Text Tools", "description": "Online text tools", "url": "https://www.zlbox.site/categories/text.html"}</script>
+  <link rel="stylesheet" href="/css/theme.css" />
 </head>
 <body>
 
@@ -315,6 +316,7 @@
       <a href="/categories/image.html" class="nav-link" role="listitem">Image</a>
       <a href="/categories/pdf.html" class="nav-link" role="listitem">PDF</a>
       <a href="/blog/index.html" class="nav-link" role="listitem">Blog</a>
+      <button class="theme-toggle" aria-label="Toggle theme">🌙</button>
     </div>
   </div>
 </nav>
@@ -430,5 +432,8 @@ document.addEventListener('DOMContentLoaded',function(){
   }
 });
 </script>
+  <script src="/js/theme.js"></script>
+  <script src="/js/search.js"></script>
+  <div id="toast-container" class="toast-container"></div>
 </body>
 </html>

@@ -12,6 +12,7 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="../../css/components.css" />
+  <link rel="stylesheet" href="/css/theme.css" />
   <style>
     .drop{border:2px dashed var(--border);border-radius:var(--radius);padding:16px 12px;text-align:center;cursor:pointer;transition:border-color .15s,background .15s;}
     .drop.drag{border-color:var(--brand);background:#eff6ff;}
@@ -64,7 +65,7 @@
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: #fff;
+  background: var(--bg);
   border-bottom: 1px solid #e2e8f0;
   box-shadow: 0 1px 3px rgba(0,0,0,.05);
 }
@@ -122,14 +123,14 @@
   padding: 8px 12px;
   font-size: .88rem;
   font-weight: 500;
-  color: #64748b;
+  color: var(--text-muted);
   text-decoration: none;
   border-radius: 6px;
   transition: all .2s;
 }
 .nav-link:hover {
   color: #2563eb;
-  background: #f1f5f9;
+  background: var(--bg-subtle);
 }
 @media (max-width: 768px) {
   .nav-toggle { display: block; }
@@ -185,6 +186,7 @@
       <a href="/categories/image.html" class="nav-link" role="listitem">Image</a>
       <a href="/categories/pdf.html" class="nav-link" role="listitem">PDF</a>
       <a href="/blog/index.html" class="nav-link" role="listitem">Blog</a>
+      <button class="theme-toggle" aria-label="Toggle theme">🌙</button>
     </div>
   </div>
 </nav>
@@ -329,5 +331,7 @@ document.addEventListener('DOMContentLoaded',function(){
   }
 });
 </script>
+  <script src="/js/theme.js"></script>
+  <div id="toast-container" class="toast-container"></div>
 </body>
 </html>

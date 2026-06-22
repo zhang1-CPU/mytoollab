@@ -14,6 +14,7 @@
   {"@context":"https://schema.org","@type":"WebApplication","name":"Color Converter","applicationCategory":"UtilityApplication","operatingSystem":"Any (Web-based)","description":"Free online color converter for HEX, RGB, RGBA, HSL, and HSLA formats.","url":"https://www.zlbox.site/tools/image/color-converter.html","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
   </script>
   <link rel="stylesheet" href="../../css/components.css" />
+  <link rel="stylesheet" href="/css/theme.css" />
   <style>
     .swatch-preview{display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
     .swatch{width:140px;height:140px;border-radius:10px;border:1px solid var(--border);background-color:#2563eb;}
@@ -39,7 +40,7 @@
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: #fff;
+  background: var(--bg);
   border-bottom: 1px solid #e2e8f0;
   box-shadow: 0 1px 3px rgba(0,0,0,.05);
 }
@@ -97,14 +98,14 @@
   padding: 8px 12px;
   font-size: .88rem;
   font-weight: 500;
-  color: #64748b;
+  color: var(--text-muted);
   text-decoration: none;
   border-radius: 6px;
   transition: all .2s;
 }
 .nav-link:hover {
   color: #2563eb;
-  background: #f1f5f9;
+  background: var(--bg-subtle);
 }
 @media (max-width: 768px) {
   .nav-toggle { display: block; }
@@ -158,6 +159,7 @@
       <a href="/categories/image.html" class="nav-link" role="listitem">Image</a>
       <a href="/categories/pdf.html" class="nav-link" role="listitem">PDF</a>
       <a href="/blog/index.html" class="nav-link" role="listitem">Blog</a>
+      <button class="theme-toggle" aria-label="Toggle theme">🌙</button>
     </div>
   </div>
 </nav>
@@ -370,5 +372,7 @@ document.addEventListener('DOMContentLoaded',function(){
   }
 });
 </script>
+  <script src="/js/theme.js"></script>
+  <div id="toast-container" class="toast-container"></div>
 </body>
 </html>

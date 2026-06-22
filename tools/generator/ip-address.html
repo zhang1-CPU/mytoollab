@@ -6,6 +6,7 @@
  <title>IP Address Generator – Random IPv4 & IPv6 with CIDR | zlbox</title>
  <meta name="description" content="Free online IP address generator. Create random IPv4 or IPv6 addresses in bulk, generate within a CIDR range, or pick public/private networks. Copy and download results." />
  <link rel="stylesheet" href="../../css/components.css" />
+  <link rel="stylesheet" href="/css/theme.css" />
  <link rel="canonical" href="https://www.zlbox.site/tools/generator/ip-address.html" />
  <meta name="google-site-verification" content="google4bd1e08685667667" />
  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
@@ -54,7 +55,7 @@
 .nav-link.active { background: #eff6ff; color: var(--brand); }
 .nav-toggle { display: none; flex-direction: column; justify-content: center; gap: 4px; width: 32px; height: 32px; padding: 4px; background: none; border: 1px solid var(--border); border-radius: 6px; cursor: pointer; flex-shrink: 0; margin-left: auto; }
 .nav-toggle span { display: block; width: 100%; height: 2px; background: var(--text); border-radius: 1px; }
-@media (max-width: 768px) { .nav-logo-text { display: none; } .nav-inner { gap: 6px; } .nav-toggle { display: flex; } .nav-links { display: none; position: absolute; top: 52px; left: 0; right: 0; background: #fff; border-bottom: 1px solid var(--border); box-shadow: 0 4px 12px rgba(0,0,0,.1); flex-direction: column; align-items: flex-start; padding: 8px 0; z-index: 99; overflow: visible; } .nav-links.open { display: flex; } .nav-link { width: 100%; padding: 10px 20px; font-size: .9rem; border-radius: 0; } }
+@media (max-width: 768px) { .nav-logo-text { display: none; } .nav-inner { gap: 6px; } .nav-toggle { display: flex; } .nav-links { display: none; position: absolute; top: 52px; left: 0; right: 0; background: var(--bg); border-bottom: 1px solid var(--border); box-shadow: 0 4px 12px rgba(0,0,0,.1); flex-direction: column; align-items: flex-start; padding: 8px 0; z-index: 99; overflow: visible; } .nav-links.open { display: flex; } .nav-link { width: 100%; padding: 10px 20px; font-size: .9rem; border-radius: 0; } }
 
 .field-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px; }
 .row-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px; }
@@ -94,7 +95,8 @@
         <a href="/categories/image.html" class="nav-link" role="listitem">Image</a>
         <a href="/categories/pdf.html" class="nav-link" role="listitem">PDF</a>
         <a href="/blog/index.html" class="nav-link" role="listitem">Blog</a>
-      </div>
+        <button class="theme-toggle" aria-label="Toggle theme">🌙</button>
+    </div>
     </div>
   </nav>
 
@@ -487,5 +489,7 @@
   generate();
 })();
 </script>
+  <script src="/js/theme.js"></script>
+  <div id="toast-container" class="toast-container"></div>
 </body>
 </html>

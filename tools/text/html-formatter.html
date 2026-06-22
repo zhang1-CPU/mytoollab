@@ -32,7 +32,7 @@
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: #fff;
+  background: var(--bg);
   border-bottom: 1px solid #e2e8f0;
   box-shadow: 0 1px 3px rgba(0,0,0,.05);
 }
@@ -90,14 +90,14 @@
   padding: 8px 12px;
   font-size: .88rem;
   font-weight: 500;
-  color: #64748b;
+  color: var(--text-muted);
   text-decoration: none;
   border-radius: 6px;
   transition: all .2s;
 }
 .nav-link:hover {
   color: #2563eb;
-  background: #f1f5f9;
+  background: var(--bg-subtle);
 }
 @media (max-width: 768px) {
   .nav-toggle { display: block; }
@@ -137,6 +137,7 @@
       <a href="/categories/image.html" class="nav-link" role="listitem">Image</a>
       <a href="/categories/pdf.html" class="nav-link" role="listitem">PDF</a>
       <a href="/blog/index.html" class="nav-link" role="listitem">Blog</a>
+      <button class="theme-toggle" aria-label="Toggle theme">🌙</button>
     </div>
   </div>
 </nav>
@@ -259,7 +260,8 @@
   });
 
   sampleBtn.addEventListener('click', function() {
-    inputEl.value = '<!DOCTYPE html><html><head><title>Sample page</title><meta charset="UTF-8"><link rel="stylesheet" href="style.css"></head><body><div class="container"><h1>Hello World</h1><p>This is a <strong>sample</strong> HTML document used by the formatter.</p><br><p>Try it out by clicking the <em>Format</em> button.</p></div>
+    inputEl.value = '<!DOCTYPE html><html><head><title>Sample page</title><meta charset="UTF-8"><link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="/css/theme.css" /></head><body><div class="container"><h1>Hello World</h1><p>This is a <strong>sample</strong> HTML document used by the formatter.</p><br><p>Try it out by clicking the <em>Format</em> button.</p></div>
 <script>
 document.addEventListener('DOMContentLoaded',function(){
   var toggle=document.querySelector('.nav-toggle');
@@ -272,6 +274,8 @@ document.addEventListener('DOMContentLoaded',function(){
   }
 });
 </script>
+  <script src="/js/theme.js"></script>
+  <div id="toast-container" class="toast-container"></div>
 </body></html>';
     outputEl.value = '';
     setStatus('Sample loaded');

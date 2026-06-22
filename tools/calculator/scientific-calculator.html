@@ -6,6 +6,7 @@
   <title>Scientific Calculator – Advanced Math with Sin, Cos, Log & Exponents | zlbox</title>
   <meta name="description" content="Free online scientific calculator for trigonometry (sin, cos, tan), logarithms (log, ln), exponents, square roots, factorials, percentages, and parentheses expression evaluation." />
   <link rel="stylesheet" href="../../css/components.css" />
+  <link rel="stylesheet" href="/css/theme.css" />
   <link rel="canonical" href="https://www.zlbox.site/tools/calculator/scientific-calculator.html" />
   <meta name="google-site-verification" content="google4bd1e08685667667" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
@@ -32,7 +33,7 @@
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: #fff;
+  background: var(--bg);
   border-bottom: 1px solid #e2e8f0;
   box-shadow: 0 1px 3px rgba(0,0,0,.05);
 }
@@ -90,14 +91,14 @@
   padding: 8px 12px;
   font-size: .88rem;
   font-weight: 500;
-  color: #64748b;
+  color: var(--text-muted);
   text-decoration: none;
   border-radius: 6px;
   transition: all .2s;
 }
 .nav-link:hover {
   color: #2563eb;
-  background: #f1f5f9;
+  background: var(--bg-subtle);
 }
 @media (max-width: 768px) {
   .nav-toggle { display: block; }
@@ -137,6 +138,7 @@
       <a href="/categories/image.html" class="nav-link" role="listitem">Image</a>
       <a href="/categories/pdf.html" class="nav-link" role="listitem">PDF</a>
       <a href="/blog/index.html" class="nav-link" role="listitem">Blog</a>
+      <button class="theme-toggle" aria-label="Toggle theme">🌙</button>
     </div>
   </div>
 </nav>
@@ -421,5 +423,7 @@ document.addEventListener('DOMContentLoaded',function(){
   }
 });
 </script>
+  <script src="/js/theme.js"></script>
+  <div id="toast-container" class="toast-container"></div>
 </body>
 </html>

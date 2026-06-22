@@ -1,0 +1,322 @@
+[
+  {
+    "name": "Word Counter",
+    "category": "Text",
+    "description": "Count words, characters, sentences and paragraphs",
+    "url": "/tools/text/word-counter.html",
+    "keywords": ["word", "character", "count", "text", "essay", "writing"],
+    "icon": "📝"
+  },
+  {
+    "name": "JSON Formatter",
+    "category": "Text",
+    "description": "Format, validate and beautify JSON data",
+    "url": "/tools/text/json-formatter.html",
+    "keywords": ["json", "format", "validate", "beautify", "developer"],
+    "icon": "📋"
+  },
+  {
+    "name": "HTML Formatter",
+    "category": "Text",
+    "description": "Beautify and format HTML code",
+    "url": "/tools/text/html-formatter.html",
+    "keywords": ["html", "format", "beautify", "code", "developer"],
+    "icon": "🔍"
+  },
+  {
+    "name": "SQL Formatter",
+    "category": "Text",
+    "description": "Format and beautify SQL queries",
+    "url": "/tools/text/sql-formatter.html",
+    "keywords": ["sql", "format", "query", "database", "developer"],
+    "icon": "⚙️"
+  },
+  {
+    "name": "Case Converter",
+    "category": "Text",
+    "description": "Convert text to UPPERCASE, lowercase, camelCase, snake_case",
+    "url": "/tools/text/case-converter.html",
+    "keywords": ["case", "uppercase", "lowercase", "camelcase", "snake", "text"],
+    "icon": "🔤"
+  },
+  {
+    "name": "Base64 Encoder/Decoder",
+    "category": "Text",
+    "description": "Encode and decode Base64 strings",
+    "url": "/tools/text/base64.html",
+    "keywords": ["base64", "encode", "decode", "convert", "developer"],
+    "icon": "⚙️"
+  },
+  {
+    "name": "URL Encoder/Decoder",
+    "category": "Text",
+    "description": "Encode and decode URL strings",
+    "url": "/tools/text/url-encoder.html",
+    "keywords": ["url", "encode", "decode", "percent", "encoding"],
+    "icon": "🔗"
+  },
+  {
+    "name": "HTML Encoder/Decoder",
+    "category": "Text",
+    "description": "Convert HTML entities",
+    "url": "/tools/text/html-encoder.html",
+    "keywords": ["html", "entity", "encode", "decode", "convert"],
+    "icon": "🔍"
+  },
+  {
+    "name": "Lorem Ipsum Generator",
+    "category": "Text",
+    "description": "Generate placeholder text for designs",
+    "url": "/tools/text/lorem-ipsum.html",
+    "keywords": ["lorem", "ipsum", "placeholder", "text", "dummy"],
+    "icon": "📄"
+  },
+  {
+    "name": "Remove Duplicates",
+    "category": "Text",
+    "description": "Remove duplicate lines from text",
+    "url": "/tools/text/remove-duplicates.html",
+    "keywords": ["duplicate", "remove", "unique", "lines", "text"],
+    "icon": "✂️"
+  },
+  {
+    "name": "Number Base Converter",
+    "category": "Text",
+    "description": "Convert between binary, hex, decimal, octal",
+    "url": "/tools/text/number-base-converter.html",
+    "keywords": ["binary", "hex", "decimal", "octal", "convert", "base"],
+    "icon": "🔢"
+  },
+  {
+    "name": "CSV to JSON",
+    "category": "Text",
+    "description": "Convert CSV data to JSON format",
+    "url": "/tools/text/csv-to-json.html",
+    "keywords": ["csv", "json", "convert", "data", "developer"],
+    "icon": "📄"
+  },
+  {
+    "name": "Age Calculator",
+    "category": "Calculator",
+    "description": "Calculate your exact age from birth date",
+    "url": "/tools/calculator/age-calculator.html",
+    "keywords": ["age", "birthday", "calculate", "date", "years"],
+    "icon": "🎂"
+  },
+  {
+    "name": "Percentage Calculator",
+    "category": "Calculator",
+    "description": "Calculate percentages easily",
+    "url": "/tools/calculator/percentage-calculator.html",
+    "keywords": ["percentage", "percent", "calculate", "math", "ratio"],
+    "icon": "📊"
+  },
+  {
+    "name": "Basic Calculator",
+    "category": "Calculator",
+    "description": "Simple arithmetic calculator",
+    "url": "/tools/calculator/basic-calculator.html",
+    "keywords": ["calculator", "basic", "arithmetic", "math", "add", "subtract"],
+    "icon": "🖥️"
+  },
+  {
+    "name": "Scientific Calculator",
+    "category": "Calculator",
+    "description": "Advanced math with trig, log, and more",
+    "url": "/tools/calculator/scientific-calculator.html",
+    "keywords": ["scientific", "calculator", "trig", "log", "sin", "cos", "math"],
+    "icon": "🔬"
+  },
+  {
+    "name": "BMI Calculator",
+    "category": "Calculator",
+    "description": "Calculate body mass index",
+    "url": "/tools/calculator/bmi-calculator.html",
+    "keywords": ["bmi", "body", "mass", "index", "health", "weight"],
+    "icon": "⚖️"
+  },
+  {
+    "name": "Loan Calculator",
+    "category": "Calculator",
+    "description": "Calculate monthly loan payments",
+    "url": "/tools/calculator/loan-calculator.html",
+    "keywords": ["loan", "mortgage", "payment", "interest", "finance"],
+    "icon": "💰"
+  },
+  {
+    "name": "Unit Converter",
+    "category": "Calculator",
+    "description": "Convert length, weight, temperature units",
+    "url": "/tools/calculator/unit-converter.html",
+    "keywords": ["unit", "convert", "length", "weight", "temperature", "metric"],
+    "icon": "📏"
+  },
+  {
+    "name": "Password Generator",
+    "category": "Generator",
+    "description": "Create strong random passwords",
+    "url": "/tools/generator/password-generator.html",
+    "keywords": ["password", "generator", "secure", "random", "strong"],
+    "icon": "🔐"
+  },
+  {
+    "name": "QR Code Generator",
+    "category": "Generator",
+    "description": "Generate QR codes instantly",
+    "url": "/tools/generator/qr-code-generator.html",
+    "keywords": ["qr", "code", "generator", "barcode", "scan"],
+    "icon": "📱"
+  },
+  {
+    "name": "QR Code Scanner",
+    "category": "Generator",
+    "description": "Scan and decode QR codes from images",
+    "url": "/tools/generator/qr-code-scanner.html",
+    "keywords": ["qr", "scanner", "decode", "read", "barcode"],
+    "icon": "📷"
+  },
+  {
+    "name": "UUID Generator",
+    "category": "Generator",
+    "description": "Generate unique UUID v4 identifiers",
+    "url": "/tools/generator/uuid-generator.html",
+    "keywords": ["uuid", "guid", "generator", "unique", "id", "identifier"],
+    "icon": "🆔"
+  },
+  {
+    "name": "Hash Generator",
+    "category": "Generator",
+    "description": "Generate MD5, SHA-1, SHA-256 hashes",
+    "url": "/tools/generator/hash-generator.html",
+    "keywords": ["hash", "md5", "sha", "sha256", "checksum", "encrypt"],
+    "icon": "#️⃣"
+  },
+  {
+    "name": "Random Number Generator",
+    "category": "Generator",
+    "description": "Generate random integers and numbers",
+    "url": "/tools/generator/random-number-generator.html",
+    "keywords": ["random", "number", "generator", "integer", "dice"],
+    "icon": "🎲"
+  },
+  {
+    "name": "Pomodoro Timer",
+    "category": "Generator",
+    "description": "Focus timer for productivity",
+    "url": "/tools/generator/pomodoro-timer.html",
+    "keywords": ["pomodoro", "timer", "focus", "productivity", "work"],
+    "icon": "🍅"
+  },
+  {
+    "name": "What Is My IP",
+    "category": "Generator",
+    "description": "Show your public IP address and browser info",
+    "url": "/tools/generator/what-is-my-ip.html",
+    "keywords": ["ip", "address", "public", "ipv4", "ipv6", "network"],
+    "icon": "🌐"
+  },
+  {
+    "name": "IP Address Generator",
+    "category": "Generator",
+    "description": "Generate random IPv4 and IPv6 addresses",
+    "url": "/tools/generator/ip-address.html",
+    "keywords": ["ip", "generator", "ipv4", "ipv6", "random", "network"],
+    "icon": "🖥️"
+  },
+  {
+    "name": "Image Compressor",
+    "category": "Image",
+    "description": "Compress images to reduce file size",
+    "url": "/tools/image/image-compressor.html",
+    "keywords": ["image", "compress", "reduce", "optimize", "jpg", "png"],
+    "icon": "🖼️"
+  },
+  {
+    "name": "Image Converter",
+    "category": "Image",
+    "description": "Convert images between formats",
+    "url": "/tools/image/image-converter.html",
+    "keywords": ["image", "convert", "jpg", "png", "webp", "format"],
+    "icon": "🔄"
+  },
+  {
+    "name": "Image Resizer",
+    "category": "Image",
+    "description": "Resize images to custom dimensions",
+    "url": "/tools/image/image-resizer.html",
+    "keywords": ["image", "resize", "dimensions", "scale", "width", "height"],
+    "icon": "📐"
+  },
+  {
+    "name": "Background Remover",
+    "category": "Image",
+    "description": "Remove background from images",
+    "url": "/tools/image/background-remover.html",
+    "keywords": ["background", "remove", "transparent", "image", "cutout"],
+    "icon": "✂️"
+  },
+  {
+    "name": "Color Picker",
+    "category": "Image",
+    "description": "Pick and convert colors",
+    "url": "/tools/image/color-picker.html",
+    "keywords": ["color", "picker", "hex", "rgb", "hsl", "palette"],
+    "icon": "🎨"
+  },
+  {
+    "name": "Color Converter",
+    "category": "Image",
+    "description": "Convert colors between formats",
+    "url": "/tools/image/color-converter.html",
+    "keywords": ["color", "convert", "hex", "rgb", "hsl", "design"],
+    "icon": "🎨"
+  },
+  {
+    "name": "Compress PDF",
+    "category": "PDF",
+    "description": "Reduce PDF file size",
+    "url": "/tools/pdf/compress-pdf.html",
+    "keywords": ["pdf", "compress", "reduce", "optimize", "size"],
+    "icon": "📦"
+  },
+  {
+    "name": "Merge PDF",
+    "category": "PDF",
+    "description": "Combine multiple PDFs into one",
+    "url": "/tools/pdf/merge-pdf.html",
+    "keywords": ["pdf", "merge", "combine", "join", "concatenate"],
+    "icon": "📑"
+  },
+  {
+    "name": "Split PDF",
+    "category": "PDF",
+    "description": "Extract pages from PDF",
+    "url": "/tools/pdf/split-pdf.html",
+    "keywords": ["pdf", "split", "extract", "pages", "separate"],
+    "icon": "✂️"
+  },
+  {
+    "name": "JPG to PDF",
+    "category": "PDF",
+    "description": "Convert images to PDF",
+    "url": "/tools/pdf/jpg-to-pdf.html",
+    "keywords": ["jpg", "pdf", "convert", "image", "photo"],
+    "icon": "📄"
+  },
+  {
+    "name": "PDF to Text",
+    "category": "PDF",
+    "description": "Extract text from PDF files",
+    "url": "/tools/pdf/pdf-to-text.html",
+    "keywords": ["pdf", "text", "extract", "ocr", "read"],
+    "icon": "📝"
+  },
+  {
+    "name": "PDF Info",
+    "category": "PDF",
+    "description": "View PDF metadata and details",
+    "url": "/tools/pdf/pdf-info.html",
+    "keywords": ["pdf", "info", "metadata", "details", "properties"],
+    "icon": "📊"
+  }
+]

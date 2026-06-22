@@ -26,7 +26,39 @@
     .icon-btn.danger:hover{background:#fee2e2;color:#b91c1c;border-color:#fecaca;}
     .status{margin-top:10px;font-size:.9rem;text-align:center;padding:10px;border-radius:var(--radius-sm);background:#f0fdf4;border:1px solid #bbf7d0;color:#166534;}
     .status.error{background:#fef2f2;border-color:#fecaca;color:#b91c1c;}
-  </style>
+  
+    
+    .file-input-wrapper {
+      position: relative;
+      display: inline-block;
+      overflow: hidden;
+    }
+    .file-input-wrapper input[type="file"] {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      cursor: pointer;
+    }
+    .file-input-btn {
+      display: inline-flex;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: .88rem;
+      font-weight: 600;
+      background: #2563eb;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      transition: background .2s;
+    }
+    .file-input-btn:hover {
+      background: #1d4ed8;
+    }
+    
+</style>
 
   <meta property="og:image" content="https://www.zlbox.site/og-image.png" />
   <meta property="og:image:width" content="1200" />
@@ -56,7 +88,7 @@
       <div class="drop-icon">&#128193;</div>
       <h3>Drop PDFs here, or click to browse</h3>
       <p style="font-size:.85rem;color:var(--muted);margin-top:4px;">Select one or more PDF files. Files never leave your device.</p>
-      <input type="file" id="fileInput" multiple accept="application/pdf,.pdf" />
+      <div class="file-input-wrapper"><input type="file" id="fileInput" multiple accept="application/pdf,.pdf" //><button class="file-input-btn">Choose File</button></div>
     </div>
     <div class="file-list" id="fileList"></div>
     <div class="row" style="margin-top:10px;">

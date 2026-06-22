@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CSS Formatter, CSS & JS Minifier — Free Online Code Tools | zlbox</title>
+  <meta name="description" content="Free CSS formatter, CSS minifier and JS minifier. Beautify or compress code in your browser. No signup, instant results." />
+  <link rel="stylesheet" href="../../css/components.css" />
+  <link rel="stylesheet" href="/css/theme.css" />
+  <link rel="canonical" href="https://www.zlbox.site/tools/dev/code-minifier.html" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:image" content="https://www.zlbox.site/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"CSS Formatter & Minifier","description":"Format and minify CSS and JS code","url":"https://www.zlbox.site/tools/dev/code-minifier.html","applicationCategory":"UtilityApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9V6L0Z956X"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-9V6L0Z956X');</script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
+  <style>
+    .minifier-tabs { display: flex; gap: 8px; margin-bottom: 16px; }
+    .tab-btn { padding: 10px 20px; border: 1px solid var(--border, #e5e7eb); background: var(--card, #fff); color: var(--text, #1f2937); border-radius: 8px; font-size: .9rem; cursor: pointer; font-weight: 500; }
+    .tab-btn.active { background: var(--primary, #2563eb); color: #fff; border-color: var(--primary, #2563eb); }
+    .tab-btn:hover:not(.active) { background: var(--bg-subtle, #f8fafc); }
+    .editor-grid { display: grid; grid-template-columns: 1fr 60px 1fr; gap: 12px; }
+    @media (max-width: 768px) { .editor-grid { grid-template-columns: 1fr; } }
+    .editor-panel { display: flex; flex-direction: column; }
+    .panel-header { display: flex; justify-content: space-between; align-items: center; padding: 8px 12px; background: var(--bg-subtle, #f8fafc); border: 1px solid var(--border, #e5e7eb); border-radius: 8px 8px 0 0; font-size: .8rem; font-weight: 600; color: var(--text-muted, #64748b); }
+    .code-input { width: 100%; min-height: 400px; padding: 12px; border: 1px solid var(--border, #e5e7eb); border-top: none; border-radius: 0 0 8px 8px; background: var(--input-bg, #fff); color: var(--text, #1f2937); font-size: .85rem; box-sizing: border-box; resize: vertical; font-family: ui-monospace, Consolas, monospace; line-height: 1.5; }
+    .code-input:focus { outline: none; border-color: var(--primary, #2563eb); }
+    .code-output { width: 100%; min-height: 400px; padding: 12px; border: 1px solid var(--border, #e5e7eb); border-top: none; border-radius: 0 0 8px 8px; background: var(--code-bg, #f1f5f9); color: var(--text, #1f2937); font-size: .85rem; box-sizing: border-box; overflow: auto; font-family: ui-monospace, Consolas, monospace; line-height: 1.5; white-space: pre-wrap; word-break: break-word; }
+    .swap-col { display: flex; align-items: center; justify-content: center; }
+    .swap-btn { padding: 8px; background: var(--card, #fff); border: 1px solid var(--border, #e5e7eb); border-radius: 50%; cursor: pointer; font-size: 1.2rem; }
+    .swap-btn:hover { background: var(--primary-light, #dbeafe); border-color: var(--primary, #2563eb); }
+    .action-row { display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
+    .action-btn { padding: 8px 16px; border: 1px solid var(--border, #e5e7eb); background: var(--card, #fff); color: var(--text, #1f2937); border-radius: 6px; font-size: .85rem; cursor: pointer; font-weight: 500; }
+    .action-btn.primary { background: var(--primary, #2563eb); color: #fff; border: none; }
+    .action-btn:hover { opacity: .9; }
+    .control-group { margin-bottom: 12px; }
+    .control-group label { display: block; font-size: .8rem; color: var(--text-muted, #64748b); margin-bottom: 4px; font-weight: 500; }
+    .control-group input[type="number"], .control-group select { width: 100%; padding: 6px 8px; border: 1px solid var(--border, #e5e7eb); border-radius: 6px; background: var(--input-bg, #fff); color: var(--text, #1f2937); font-size: .85rem; }
+    .checkbox-row { display: flex; align-items: center; gap: 6px; font-size: .85rem; color: var(--text, #1f2937); margin-bottom: 8px; }
+    .minifier-section { background: var(--card, #fff); border: 1px solid var(--border, #e5e7eb); border-radius: 12px; padding: 20px; margin-bottom: 20px; }
+    .minifier-section h3 { margin-top: 0; margin-bottom: 16px; font-size: 1rem; font-weight: 600; color: var(--text, #1f2937); }
+    .stats-row { display: flex; gap: 12px; margin-top: 8px; flex-wrap: wrap; }
+    .stat-badge { padding: 4px 12px; background: var(--bg-subtle, #f8fafc); border: 1px solid var(--border, #e5e7eb); border-radius: 20px; font-size: .75rem; color: var(--text-muted, #64748b); }
+    .error-msg { color: #ef4444; font-size: .85rem; padding: 8px 12px; background: #fee2e2; border-radius: 6px; margin-top: 8px; }
+    .related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-top: 16px; }
+    .related-card { background: var(--card, #fff); border: 1px solid var(--border, #e5e7eb); border-radius: 8px; padding: 16px; text-decoration: none; transition: all .2s; }
+    .related-card:hover { border-color: var(--primary, #2563eb); box-shadow: 0 2px 8px rgba(37,99,235,.1); }
+    .related-card h4 { margin: 0 0 4px; font-size: .95rem; color: var(--text, #1f2937); }
+    .related-card p { margin: 0; font-size: .8rem; color: var(--text-muted, #64748b); }
+  </style>
+</head>
+<body>
+
+<nav class="site-nav" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo"><span class="nav-logo-icon">zl</span><span class="nav-logo-text">zlbox</span></a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+    <div class="nav-links">
+      <a href="/categories/text.html">Text</a>
+      <a href="/categories/generator.html">Generator</a>
+      <a href="/categories/image.html">Image</a>
+      <a href="/categories/pdf.html">PDF</a>
+      <a href="/categories/seo.html">SEO</a>
+      <a href="/categories/dev.html">Dev</a>
+      <button class="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+    </div>
+  </div>
+</nav>
+
+<main class="tool-page">
+  <div class="breadcrumb">
+    <a href="/">Home</a>
+    <span>›</span>
+    <a href="/categories/dev.html">Dev Tools</a>
+    <span>›</span>
+    <span>CSS & JS Minifier</span>
+  </div>
+
+  <header class="tool-header">
+    <h1>CSS Formatter, Minifier & JS Minifier</h1>
+    <p>Format and minify CSS and JavaScript code in your browser. All processing is client-side — your code never leaves your device.</p>
+  </header>
+
+  <div class="minifier-tabs">
+    <button class="tab-btn active" data-tab="css">CSS Formatter & Minifier</button>
+    <button class="tab-btn" data-tab="js">JS Minifier</button>
+  </div>
+
+  <!-- CSS Tab -->
+  <div id="css-panel" class="tab-panel">
+    <div class="minifier-section">
+      <h3>CSS Tools</h3>
+      <div class="action-row">
+        <button class="action-btn primary" id="css-format">Format / Beautify</button>
+        <button class="action-btn primary" id="css-minify">Minify</button>
+        <button class="action-btn" id="css-clear">Clear</button>
+        <button class="action-btn" id="css-sample">Load Sample</button>
+      </div>
+      <div class="checkbox-row" style="margin-top: 12px;">
+        <input type="checkbox" id="css-sort-props">
+        <label for="css-sort-props">Sort properties alphabetically</label>
+      </div>
+      <div class="checkbox-row">
+        <input type="checkbox" id="css-color-shorten">
+        <label for="css-color-shorten">Shorten color values (#FF0000 → #F00)</label>
+      </div>
+    </div>
+
+    <div class="editor-grid">
+      <div class="editor-panel">
+        <div class="panel-header">
+          <span>Input CSS</span>
+          <span id="css-input-size">0 chars</span>
+        </div>
+        <textarea id="css-input" class="code-input" placeholder="Paste your CSS here..."></textarea>
+      </div>
+      <div class="swap-col">
+        <button class="swap-btn" id="css-swap" title="Swap">⇄</button>
+      </div>
+      <div class="editor-panel">
+        <div class="panel-header">
+          <span>Output</span>
+          <span id="css-output-size">0 chars</span>
+        </div>
+        <div class="code-output" id="css-output">Formatted or minified CSS will appear here...</div>
+      </div>
+    </div>
+    <div class="action-row">
+      <button class="action-btn primary" id="css-copy">Copy Result</button>
+      <button class="action-btn" id="css-download">Download</button>
+    </div>
+    <div class="stats-row">
+      <span class="stat-badge" id="css-saved">Saved: 0%</span>
+    </div>
+    <div id="css-error" class="error-msg" style="display: none;"></div>
+  </div>
+
+  <!-- JS Tab -->
+  <div id="js-panel" class="tab-panel" style="display: none;">
+    <div class="minifier-section">
+      <h3>JS Minifier</h3>
+      <div class="action-row">
+        <button class="action-btn primary" id="js-minify">Minify</button>
+        <button class="action-btn" id="js-clear">Clear</button>
+        <button class="action-btn" id="js-sample">Load Sample</button>
+      </div>
+      <div class="info-item" style="font-size: .8rem; color: var(--text-muted, #64748b); padding: 8px 12px; background: var(--bg-subtle, #f8fafc); border-radius: 6px; margin-top: 12px;">
+        Removes comments and extra whitespace. Does not rename variables (preserves functionality).
+      </div>
+    </div>
+
+    <div class="editor-grid">
+      <div class="editor-panel">
+        <div class="panel-header">
+          <span>Input JavaScript</span>
+          <span id="js-input-size">0 chars</span>
+        </div>
+        <textarea id="js-input" class="code-input" placeholder="Paste your JavaScript here..."></textarea>
+      </div>
+      <div class="swap-col">
+        <button class="swap-btn" id="js-swap" title="Swap">⇄</button>
+      </div>
+      <div class="editor-panel">
+        <div class="panel-header">
+          <span>Output</span>
+          <span id="js-output-size">0 chars</span>
+        </div>
+        <div class="code-output" id="js-output">Minified JavaScript will appear here...</div>
+      </div>
+    </div>
+    <div class="action-row">
+      <button class="action-btn primary" id="js-copy">Copy Result</button>
+      <button class="action-btn" id="js-download">Download</button>
+    </div>
+    <div class="stats-row">
+      <span class="stat-badge" id="js-saved">Saved: 0%</span>
+    </div>
+    <div id="js-error" class="error-msg" style="display: none;"></div>
+  </div>
+
+  <section class="related-tools">
+    <h2>Related Tools</h2>
+    <div class="related-grid">
+      <a href="/tools/text/html-formatter.html" class="related-card"><h4>HTML Formatter</h4><p>Beautify HTML code</p></a>
+      <a href="/tools/text/sql-formatter.html" class="related-card"><h4>SQL Formatter</h4><p>Format SQL queries</p></a>
+      <a href="/tools/text/json-formatter.html" class="related-card"><h4>JSON Formatter</h4><p>Format JSON data</p></a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <p>© 2025 zlbox — Free online tools for everyone.</p>
+  </div>
+</footer>
+
+<script src="/js/theme.js"></script>
+<script>
+(function() {
+  // Tab switching
+  var tabs = document.querySelectorAll('.tab-btn');
+  var panels = {
+    'css': document.getElementById('css-panel'),
+    'js': document.getElementById('js-panel')
+  };
+  tabs.forEach(function(tab) {
+    tab.addEventListener('click', function() {
+      tabs.forEach(function(t) { t.classList.remove('active'); });
+      tab.classList.add('active');
+      Object.keys(panels).forEach(function(key) {
+        panels[key].style.display = key === tab.dataset.tab ? 'block' : 'none';
+      });
+    });
+  });
+
+  // === CSS Formatter & Minifier ===
+  function formatCSS(css, sortProps, shortenColors) {
+    if (sortProps) {
+      css = sortCSSProperties(css);
+    }
+    if (shortenColors) {
+      css = shortenColorValues(css);
+    }
+    // Remove comments
+    css = css.replace(/\/\*[\s\S]*?\*\//g, '');
+    // Remove extra whitespace
+    css = css.replace(/\s+/g, ' ');
+    // Format with proper indentation
+    var formatted = '';
+    var depth = 0;
+    var i = 0;
+    while (i < css.length) {
+      var c = css[i];
+      if (c === '{') {
+        formatted += ' {\n';
+        depth++;
+        formatted += '  '.repeat(depth);
+      } else if (c === '}') {
+        formatted = formatted.trimEnd() + '\n';
+        depth--;
+        if (depth < 0) depth = 0;
+        formatted += '  '.repeat(depth) + '}\n';
+        if (i + 1 < css.length) {
+          formatted += '  '.repeat(depth);
+        }
+      } else if (c === ';') {
+        formatted += ';\n' + '  '.repeat(depth);
+      } else if (c === ',') {
+        formatted += ',\n' + '  '.repeat(depth);
+      } else {
+        formatted += c;
+      }
+      i++;
+    }
+    // Trim trailing whitespace per line
+    return formatted.split('\n').map(function(line) { return line.trimEnd(); }).join('\n').trim();
+  }
+
+  function minifyCSS(css) {
+    if (document.getElementById('css-color-shorten').checked) {
+      css = shortenColorValues(css);
+    }
+    // Remove comments
+    css = css.replace(/\/\*[\s\S]*?\*\//g, '');
+    css = css.replace(/\/\/.*$/gm, '');
+    // Remove whitespace
+    css = css.replace(/\s+/g, ' ');
+    // Remove space around { } : ; , > + ~
+    css = css.replace(/\s*([{}:;,>])\s*/g, '$1');
+    // Remove last ;
+    css = css.replace(/;}/g, '}');
+    return css.trim();
+  }
+
+  function shortenColorValues(css) {
+    // #RRGGBB → #RGB
+    css = css.replace(/#([0-9a-fA-F])\1([0-9a-fA-F])\2([0-9a-fA-F])\3(?![0-9a-fA-F])/g, '#$1$2$3');
+    // rgb(255,0,0) → #FF0000
+    css = css.replace(/rgb\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*\)/g, function(m, r, g, b) {
+      return '#' + [r, g, b].map(function(x) {
+        var h = parseInt(x).toString(16);
+        return h.length === 1 ? '0' + h : h;
+      }).join('').toUpperCase();
+    });
+    return css;
+  }
+
+  function sortCSSProperties(css) {
+    return css.replace(/\{([^}]*)\}/g, function(match, content) {
+      var props = content.split(';').filter(function(p) { return p.trim().length > 0; });
+      props.sort();
+      return '{' + props.join(';') + '}';
+    });
+  }
+
+  // === JS Minifier ===
+  function minifyJS(js) {
+    // Remove single-line comments
+    js = js.replace(/\/\/[^\n]*/g, '');
+    // Remove multi-line comments
+    js = js.replace(/\/\*[\s\S]*?\*\//g, '');
+    // Remove leading/trailing whitespace per line
+    js = js.split('\n').map(function(l) { return l.trim(); }).join('\n');
+    // Collapse multiple blank lines
+    js = js.replace(/\n\s*\n/g, '\n');
+    // Remove spaces around operators (carefully preserving strings and regex)
+    var result = '';
+    var inString = null;
+    var inRegex = false;
+    var inComment = false;
+    var prevChar = '';
+    for (var i = 0; i < js.length; i++) {
+      var c = js[i];
+      var next = js[i + 1] || '';
+      if (inString) {
+        result += c;
+        if (c === inString && prevChar !== '\\') inString = null;
+      } else if (c === '"' || c === "'" || c === '`') {
+        inString = c;
+        result += c;
+      } else {
+        // Safe to remove space if both neighbors are alphanumeric
+        if (c === ' ' && /[a-zA-Z0-9_$]/.test(prevChar) && /[a-zA-Z0-9_$]/.test(next)) {
+          continue;
+        }
+        result += c;
+      }
+      prevChar = c;
+    }
+    return result.replace(/\n/g, '');
+  }
+
+  // === CSS UI Handlers ===
+  var cssInput = document.getElementById('css-input');
+  var cssOutput = document.getElementById('css-output');
+
+  function updateCSSSize() {
+    document.getElementById('css-input-size').textContent = cssInput.value.length + ' chars';
+    document.getElementById('css-output-size').textContent = cssOutput.textContent.length + ' chars';
+    if (cssInput.value.length > 0) {
+      var saved = ((cssInput.value.length - cssOutput.textContent.length) / cssInput.value.length * 100);
+      document.getElementById('css-saved').textContent = 'Saved: ' + (saved > 0 ? saved.toFixed(1) : 0) + '%';
+    } else {
+      document.getElementById('css-saved').textContent = 'Saved: 0%';
+    }
+  }
+
+  cssInput.addEventListener('input', updateCSSSize);
+
+  document.getElementById('css-format').addEventListener('click', function() {
+    document.getElementById('css-error').style.display = 'none';
+    try {
+      var sort = document.getElementById('css-sort-props').checked;
+      var shorten = document.getElementById('css-color-shorten').checked;
+      var result = formatCSS(cssInput.value, sort, shorten);
+      cssOutput.textContent = result;
+      updateCSSSize();
+    } catch (e) {
+      document.getElementById('css-error').textContent = 'Error: ' + e.message;
+      document.getElementById('css-error').style.display = 'block';
+    }
+  });
+
+  document.getElementById('css-minify').addEventListener('click', function() {
+    document.getElementById('css-error').style.display = 'none';
+    try {
+      var result = minifyCSS(cssInput.value);
+      cssOutput.textContent = result;
+      updateCSSSize();
+      // Detect brace mismatch
+      var opens = (result.match(/{/g) || []).length;
+      var closes = (result.match(/}/g) || []).length;
+      if (opens !== closes) {
+        document.getElementById('css-error').textContent = '⚠ Possible error: ' + opens + ' opening braces, ' + closes + ' closing braces';
+        document.getElementById('css-error').style.display = 'block';
+      }
+    } catch (e) {
+      document.getElementById('css-error').textContent = 'Error: ' + e.message;
+      document.getElementById('css-error').style.display = 'block';
+    }
+  });
+
+  document.getElementById('css-clear').addEventListener('click', function() {
+    cssInput.value = '';
+    cssOutput.textContent = 'Formatted or minified CSS will appear here...';
+    updateCSSSize();
+  });
+
+  document.getElementById('css-sample').addEventListener('click', function() {
+    cssInput.value = 'body{color:red;font-size:14px;background:#FFFFFF;margin:10px 20px 10px 20px}/* Header styles */.header{padding:20px 0 20px 0;background:linear-gradient(45deg,#FF0000,#00FF00);display:flex;align-items:center;justify-content:center}.footer{color:rgb(0,0,0);text-align:center}';
+    updateCSSSize();
+  });
+
+  document.getElementById('css-copy').addEventListener('click', function() {
+    if (cssOutput.textContent && cssOutput.textContent !== 'Formatted or minified CSS will appear here...') {
+      if (window.copyToClipboard) window.copyToClipboard(cssOutput.textContent);
+      else navigator.clipboard.writeText(cssOutput.textContent);
+      window.showToast && window.showToast('CSS copied');
+    }
+  });
+
+  document.getElementById('css-download').addEventListener('click', function() {
+    if (cssOutput.textContent) {
+      downloadFile('output.css', cssOutput.textContent, 'text/css');
+    }
+  });
+
+  document.getElementById('css-swap').addEventListener('click', function() {
+    var temp = cssInput.value;
+    cssInput.value = cssOutput.textContent;
+    cssOutput.textContent = temp;
+    updateCSSSize();
+  });
+
+  // === JS UI Handlers ===
+  var jsInput = document.getElementById('js-input');
+  var jsOutput = document.getElementById('js-output');
+
+  function updateJSSize() {
+    document.getElementById('js-input-size').textContent = jsInput.value.length + ' chars';
+    document.getElementById('js-output-size').textContent = jsOutput.textContent.length + ' chars';
+    if (jsInput.value.length > 0) {
+      var saved = ((jsInput.value.length - jsOutput.textContent.length) / jsInput.value.length * 100);
+      document.getElementById('js-saved').textContent = 'Saved: ' + (saved > 0 ? saved.toFixed(1) : 0) + '%';
+    }
+  }
+
+  jsInput.addEventListener('input', updateJSSize);
+
+  document.getElementById('js-minify').addEventListener('click', function() {
+    document.getElementById('js-error').style.display = 'none';
+    try {
+      var result = minifyJS(jsInput.value);
+      jsOutput.textContent = result;
+      updateJSSize();
+      // Try to detect syntax error via JSON-like validation
+      try {
+        // Wrap in function and test
+        new Function(result);
+      } catch (e) {
+        document.getElementById('js-error').textContent = '⚠ Possible syntax error: ' + e.message;
+        document.getElementById('js-error').style.display = 'block';
+      }
+    } catch (e) {
+      document.getElementById('js-error').textContent = 'Error: ' + e.message;
+      document.getElementById('js-error').style.display = 'block';
+    }
+  });
+
+  document.getElementById('js-clear').addEventListener('click', function() {
+    jsInput.value = '';
+    jsOutput.textContent = 'Minified JavaScript will appear here...';
+    updateJSSize();
+  });
+
+  document.getElementById('js-sample').addEventListener('click', function() {
+    jsInput.value = '// Sample function with comments\nfunction calculateTotal(items) {\n  /* Calculate total price */\n  var total = 0;\n  for (var i = 0; i < items.length; i++) {\n    total = total + items[i].price;\n  }\n  return total;\n}\n\nvar result = calculateTotal([{ price: 10 }, { price: 20 }]);\nconsole.log(result);';
+    updateJSSize();
+  });
+
+  document.getElementById('js-copy').addEventListener('click', function() {
+    if (jsOutput.textContent && jsOutput.textContent !== 'Minified JavaScript will appear here...') {
+      if (window.copyToClipboard) window.copyToClipboard(jsOutput.textContent);
+      else navigator.clipboard.writeText(jsOutput.textContent);
+      window.showToast && window.showToast('JS copied');
+    }
+  });
+
+  document.getElementById('js-download').addEventListener('click', function() {
+    if (jsOutput.textContent) {
+      downloadFile('output.min.js', jsOutput.textContent, 'application/javascript');
+    }
+  });
+
+  document.getElementById('js-swap').addEventListener('click', function() {
+    var temp = jsInput.value;
+    jsInput.value = jsOutput.textContent;
+    jsOutput.textContent = temp;
+    updateJSSize();
+  });
+
+  function downloadFile(filename, content, type) {
+    var blob = new Blob([content], { type: type });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    a.click();
+    URL.revokeObjectURL(url);
+  }
+})();
+</script>
+</body>
+</html>

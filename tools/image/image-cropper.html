@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Image Cropper, Resizer & Social Media Toolkit — Free Online | zlbox</title>
+  <meta name="description" content="Free online image cropper, resizer and compressor. Resize for Instagram, YouTube, TikTok, passport photos. Adjust pixels, DPI, file size. No upload, 100% private." />
+  <link rel="stylesheet" href="../../css/components.css" />
+  <link rel="stylesheet" href="/css/theme.css" />
+  <link rel="canonical" href="https://www.zlbox.site/tools/image/image-cropper.html" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:image" content="https://www.zlbox.site/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Image Cropper & Resizer","description":"Crop, resize, and convert images for social media","url":"https://www.zlbox.site/tools/image/image-cropper.html","applicationCategory":"UtilityApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9V6L0Z956X"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-9V6L0Z956X');</script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
+  <style>
+    * { box-sizing: border-box; }
+    .cropper-grid { display: grid; grid-template-columns: 1fr 320px; gap: 20px; margin-top: 16px; }
+    @media (max-width: 900px) { .cropper-grid { grid-template-columns: 1fr; } }
+    .cropper-section { background: var(--card, #fff); border: 1px solid var(--border, #e5e7eb); border-radius: 12px; padding: 20px; margin-bottom: 20px; }
+    .cropper-section h3 { margin-top: 0; margin-bottom: 16px; font-size: 1rem; font-weight: 600; color: var(--text, #1f2937); }
+    .drop-zone { border: 2px dashed var(--border, #e5e7eb); border-radius: 12px; padding: 40px 20px; text-align: center; background: var(--bg-subtle, #f8fafc); cursor: pointer; transition: all .2s; }
+    .drop-zone:hover, .drop-zone.dragover { border-color: var(--primary, #2563eb); background: var(--primary-light, #dbeafe); }
+    .drop-zone-text { font-size: .9rem; color: var(--text-muted, #64748b); }
+    .drop-zone-text strong { color: var(--primary, #2563eb); }
+    .file-input { display: none; }
+    .canvas-container { position: relative; width: 100%; max-width: 100%; overflow: hidden; background: #1f2937; border-radius: 8px; touch-action: none; }
+    .canvas-container canvas { display: block; max-width: 100%; height: auto; user-select: none; }
+    .crop-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; }
+    .crop-box { position: absolute; border: 2px solid #fbbf24; box-shadow: 0 0 0 9999px rgba(0, 0, 0, .55); pointer-events: auto; cursor: move; }
+    .crop-handle { position: absolute; width: 12px; height: 12px; background: #fbbf24; border: 2px solid #fff; border-radius: 2px; }
+    .crop-handle.tl { top: -6px; left: -6px; cursor: nw-resize; }
+    .crop-handle.tr { top: -6px; right: -6px; cursor: ne-resize; }
+    .crop-handle.bl { bottom: -6px; left: -6px; cursor: sw-resize; }
+    .crop-handle.br { bottom: -6px; right: -6px; cursor: se-resize; }
+    .crop-grid { position: absolute; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none; }
+    .crop-grid::before, .crop-grid::after { content: ''; position: absolute; background: rgba(255, 255, 255, .4); }
+    .crop-grid::before { top: 33.33%; left: 0; right: 0; height: 1px; }
+    .crop-grid::after { top: 66.66%; left: 0; right: 0; height: 1px; }
+    .control-group { margin-bottom: 14px; }
+    .control-group label { display: block; font-size: .8rem; color: var(--text-muted, #64748b); margin-bottom: 4px; font-weight: 500; }
+    .control-group input[type="number"], .control-group select { width: 100%; padding: 6px 8px; border: 1px solid var(--border, #e5e7eb); border-radius: 6px; background: var(--input-bg, #fff); color: var(--text, #1f2937); font-size: .85rem; }
+    .control-group input[type="range"] { width: 100%; }
+    .ratio-buttons { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+    .ratio-btn { padding: 6px 8px; border: 1px solid var(--border, #e5e7eb); background: var(--card, #fff); color: var(--text, #1f2937); border-radius: 6px; font-size: .75rem; cursor: pointer; font-weight: 500; transition: all .15s; }
+    .ratio-btn:hover { border-color: var(--primary, #2563eb); background: var(--primary-light, #dbeafe); }
+    .ratio-btn.active { background: var(--primary, #2563eb); color: #fff; border-color: var(--primary, #2563eb); }
+    .preset-section { margin-top: 16px; }
+    .preset-section h4 { font-size: .85rem; margin-bottom: 8px; color: var(--text, #1f2937); }
+    .preset-buttons { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+    .preset-btn { padding: 6px 8px; border: 1px solid var(--border, #e5e7eb); background: var(--bg-subtle, #f8fafc); color: var(--text, #1f2937); border-radius: 6px; font-size: .7rem; cursor: pointer; transition: all .15s; text-align: left; }
+    .preset-btn:hover { border-color: var(--primary, #2563eb); background: var(--primary-light, #dbeafe); }
+    .preset-btn .preset-size { color: var(--text-muted, #64748b); font-size: .65rem; display: block; }
+    .checkbox-row { display: flex; align-items: center; gap: 6px; font-size: .8rem; color: var(--text, #1f2937); }
+    .action-btn { padding: 8px 16px; border: 1px solid var(--border, #e5e7eb); background: var(--card, #fff); color: var(--text, #1f2937); border-radius: 6px; font-size: .85rem; cursor: pointer; font-weight: 500; }
+    .action-btn.primary { background: var(--primary, #2563eb); color: #fff; border: none; }
+    .action-btn:hover { opacity: .9; }
+    .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .info-item { padding: 6px 10px; background: var(--bg-subtle, #f8fafc); border-radius: 6px; font-size: .75rem; }
+    .info-label { color: var(--text-muted, #64748b); }
+    .info-value { color: var(--text, #1f2937); font-weight: 600; }
+    .related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-top: 16px; }
+    .related-card { background: var(--card, #fff); border: 1px solid var(--border, #e5e7eb); border-radius: 8px; padding: 16px; text-decoration: none; transition: all .2s; }
+    .related-card:hover { border-color: var(--primary, #2563eb); box-shadow: 0 2px 8px rgba(37,99,235,.1); }
+    .related-card h4 { margin: 0 0 4px; font-size: .95rem; color: var(--text, #1f2937); }
+    .related-card p { margin: 0; font-size: .8rem; color: var(--text-muted, #64748b); }
+    .status-msg { padding: 6px 10px; background: var(--bg-subtle, #f8fafc); border-radius: 6px; font-size: .75rem; color: var(--text-muted, #64748b); margin-top: 8px; }
+  </style>
+</head>
+<body>
+
+<nav class="site-nav" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo"><span class="nav-logo-icon">zl</span><span class="nav-logo-text">zlbox</span></a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+    <div class="nav-links">
+      <a href="/categories/text.html">Text</a>
+      <a href="/categories/generator.html">Generator</a>
+      <a href="/categories/image.html">Image</a>
+      <a href="/categories/pdf.html">PDF</a>
+      <a href="/categories/seo.html">SEO</a>
+      <a href="/categories/dev.html">Dev</a>
+      <button class="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+    </div>
+  </div>
+</nav>
+
+<main class="tool-page">
+  <div class="breadcrumb">
+    <a href="/">Home</a>
+    <span>›</span>
+    <a href="/categories/image.html">Image Tools</a>
+    <span>›</span>
+    <span>Image Cropper & Resizer</span>
+  </div>
+
+  <header class="tool-header">
+    <h1>Image Cropper, Resizer & Social Media Toolkit</h1>
+    <p>Crop, resize, and convert images for Instagram, YouTube, TikTok, passport photos, and more. All processing happens in your browser — 100% private.</p>
+  </header>
+
+  <div class="cropper-section" id="upload-section">
+    <h3>Upload Image</h3>
+    <div class="drop-zone" id="drop-zone">
+      <div class="drop-zone-text"><strong>Click to select</strong> or drag and drop an image<br><small>JPG, PNG, WebP, GIF (max 20MB)</small></div>
+      <input type="file" class="file-input" id="file-input" accept="image/*">
+    </div>
+  </div>
+
+  <div id="editor-section" style="display: none;">
+    <div class="cropper-grid">
+      <div class="cropper-section">
+        <h3>Preview</h3>
+        <div class="canvas-container" id="canvas-container">
+          <canvas id="preview-canvas"></canvas>
+          <div class="crop-overlay" id="crop-overlay">
+            <div class="crop-box" id="crop-box">
+              <div class="crop-grid"></div>
+              <div class="crop-handle tl"></div>
+              <div class="crop-handle tr"></div>
+              <div class="crop-handle bl"></div>
+              <div class="crop-handle br"></div>
+            </div>
+          </div>
+        </div>
+        <div class="status-msg" id="status-msg">Drag the yellow box to crop, or use the controls on the right.</div>
+      </div>
+
+      <div>
+        <div class="cropper-section">
+          <h3>Aspect Ratio</h3>
+          <div class="ratio-buttons" id="ratio-buttons">
+            <button class="ratio-btn active" data-ratio="free">Free</button>
+            <button class="ratio-btn" data-ratio="1:1">1:1</button>
+            <button class="ratio-btn" data-ratio="4:5">4:5</button>
+            <button class="ratio-btn" data-ratio="9:16">9:16</button>
+            <button class="ratio-btn" data-ratio="16:9">16:9</button>
+            <button class="ratio-btn" data-ratio="1.91:1">1.91:1</button>
+            <button class="ratio-btn" data-ratio="2.35:1">2.35:1</button>
+            <button class="ratio-btn" data-ratio="3:2">3:2</button>
+            <button class="ratio-btn" data-ratio="4:3">4:3</button>
+            <button class="ratio-btn" data-ratio="5:4">5:4</button>
+            <button class="ratio-btn" data-ratio="A4">A4</button>
+            <button class="ratio-btn" data-ratio="passport">Passport</button>
+          </div>
+          <div class="control-group" style="margin-top: 12px;">
+            <label>Custom Ratio (W:H)</label>
+            <div style="display: flex; gap: 6px;">
+              <input type="number" id="custom-w" placeholder="W" min="1" style="flex: 1;">
+              <input type="number" id="custom-h" placeholder="H" min="1" style="flex: 1;">
+            </div>
+          </div>
+        </div>
+
+        <div class="cropper-section">
+          <h3>Output Size (px)</h3>
+          <div style="display: flex; gap: 6px; align-items: center;">
+            <input type="number" id="target-w" placeholder="Width" min="1" style="flex: 1;">
+            <span>×</span>
+            <input type="number" id="target-h" placeholder="Height" min="1" style="flex: 1;">
+          </div>
+          <div class="checkbox-row" style="margin-top: 8px;">
+            <input type="checkbox" id="lock-ratio" checked>
+            <label for="lock-ratio">Lock aspect ratio</label>
+          </div>
+
+          <div class="preset-section">
+            <h4>Common Sizes</h4>
+            <div class="preset-buttons" id="preset-buttons"></div>
+          </div>
+
+          <div class="control-group" style="margin-top: 12px;">
+            <label>DPI</label>
+            <select id="dpi-select">
+              <option value="72">72 DPI (Web/Screen)</option>
+              <option value="150">150 DPI (Standard Print)</option>
+              <option value="300" selected>300 DPI (High Quality Print)</option>
+            </select>
+            <div class="info-item" style="margin-top: 4px;" id="print-size">Print: -</div>
+          </div>
+        </div>
+
+        <div class="cropper-section">
+          <h3>Rotation & Flip</h3>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px;">
+            <button class="action-btn" id="rotate-90">↻ 90°</button>
+            <button class="action-btn" id="rotate-180">↻ 180°</button>
+            <button class="action-btn" id="rotate-270">↻ 270°</button>
+            <button class="action-btn" id="rotate-flip">⇋ Flip H</button>
+          </div>
+          <div class="control-group" style="margin-top: 12px;">
+            <label>Free Rotation: <span id="rotation-val">0°</span></label>
+            <input type="range" id="rotation-slider" min="-45" max="45" value="0" step="1">
+          </div>
+        </div>
+
+        <div class="cropper-section">
+          <h3>Output Format</h3>
+          <div class="control-group">
+            <select id="format-select">
+              <option value="image/jpeg">JPG</option>
+              <option value="image/png">PNG</option>
+              <option value="image/webp">WebP</option>
+            </select>
+          </div>
+          <div class="control-group">
+            <label>Quality: <span id="quality-val">85%</span></label>
+            <input type="range" id="quality-slider" min="1" max="100" value="85">
+            <div class="info-item" style="margin-top: 4px;">Est. size: <span id="est-size">-</span></div>
+          </div>
+          <div class="control-group">
+            <label>Max File Size (KB, optional)</label>
+            <input type="number" id="max-size" placeholder="e.g. 100, 500" min="0">
+          </div>
+          <div class="control-group">
+            <label>Background</label>
+            <select id="bg-select">
+              <option value="transparent">Transparent (PNG/WebP)</option>
+              <option value="white">White</option>
+              <option value="black">Black</option>
+              <option value="custom">Custom Color</option>
+            </select>
+            <input type="color" id="bg-color" value="#ffffff" style="width: 100%; height: 30px; margin-top: 4px; display: none;">
+          </div>
+        </div>
+
+        <div class="cropper-section">
+          <h3>Color Adjustments</h3>
+          <div class="control-group">
+            <label>Brightness: <span id="brightness-val">0</span></label>
+            <input type="range" id="brightness-slider" min="-100" max="100" value="0">
+          </div>
+          <div class="control-group">
+            <label>Contrast: <span id="contrast-val">0</span></label>
+            <input type="range" id="contrast-slider" min="-100" max="100" value="0">
+          </div>
+          <div class="control-group">
+            <label>Saturation: <span id="saturation-val">0</span></label>
+            <input type="range" id="saturation-slider" min="-100" max="100" value="0">
+          </div>
+          <div class="control-group">
+            <label>Blur: <span id="blur-val">0</span>px</label>
+            <input type="range" id="blur-slider" min="0" max="20" value="0">
+          </div>
+        </div>
+
+        <div class="cropper-section">
+          <h3>Output Info</h3>
+          <div class="info-grid">
+            <div class="info-item"><div class="info-label">Original</div><div class="info-value" id="orig-size">-</div></div>
+            <div class="info-item"><div class="info-label">Output</div><div class="info-value" id="out-size">-</div></div>
+            <div class="info-item"><div class="info-label">Format</div><div class="info-value" id="out-format">-</div></div>
+            <div class="info-item"><div class="info-label">Compression</div><div class="info-value" id="compression">-</div></div>
+          </div>
+          <div style="margin-top: 12px; display: flex; flex-direction: column; gap: 6px;">
+            <button class="action-btn primary" id="download-btn">Download</button>
+            <button class="action-btn" id="download-multi">Download Common Sizes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="related-tools">
+    <h2>Related Tools</h2>
+    <div class="related-grid">
+      <a href="/tools/image/image-converter.html" class="related-card"><h4>Image Converter</h4><p>Convert between image formats</p></a>
+      <a href="/tools/image/image-compressor.html" class="related-card"><h4>Image Compressor</h4><p>Compress image file size</p></a>
+      <a href="/tools/image/image-resizer.html" class="related-card"><h4>Image Resizer</h4><p>Simple image resizing</p></a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <p>© 2025 zlbox — Free online tools for everyone.</p>
+  </div>
+</footer>
+
+<script src="/js/theme.js"></script>
+<script>
+(function() {
+  var PRESETS = {
+    'Instagram Post': { w: 1080, h: 1080 },
+    'Instagram Story': { w: 1080, h: 1920 },
+    'YouTube Thumbnail': { w: 1280, h: 720 },
+    'Twitter Header': { w: 1500, h: 500 },
+    'Facebook Cover': { w: 820, h: 312 },
+    'LinkedIn Banner': { w: 1584, h: 396 },
+    'TikTok': { w: 1080, h: 1920 },
+    'Website Hero': { w: 1920, h: 1080 },
+    'Email Header': { w: 600, h: 200 },
+    'Passport Photo': { w: 600, h: 750 },
+    'Avatar': { w: 400, h: 400 },
+    'Favicon 32': { w: 32, h: 32 }
+  };
+
+  var RATIOS = {
+    'free': 0, '1:1': 1, '4:5': 4/5, '9:16': 9/16, '16:9': 16/9,
+    '1.91:1': 1.91, '2.35:1': 2.35, '3:2': 1.5, '4:3': 4/3, '5:4': 1.25,
+    'A4': 210/297, 'passport': 35/45
+  };
+
+  var originalImage = null;
+  var originalFile = null;
+  var cropState = { x: 0, y: 0, w: 0, h: 0 };
+  var currentRatio = 0;
+  var rotation = 0;
+  var flipH = false;
+  var renderedScale = 1;
+  var lastBlobSize = 0;
+  var lastBlobUrl = null;
+
+  var dropZone = document.getElementById('drop-zone');
+  var fileInput = document.getElementById('file-input');
+  var canvas = document.getElementById('preview-canvas');
+  var ctx = canvas.getContext('2d');
+  var cropBox = document.getElementById('crop-box');
+  var cropOverlay = document.getElementById('crop-overlay');
+
+  dropZone.addEventListener('click', function() { fileInput.click(); });
+  dropZone.addEventListener('dragover', function(e) { e.preventDefault(); dropZone.classList.add('dragover'); });
+  dropZone.addEventListener('dragleave', function() { dropZone.classList.remove('dragover'); });
+  dropZone.addEventListener('drop', function(e) {
+    e.preventDefault();
+    dropZone.classList.remove('dragover');
+    if (e.dataTransfer.files.length > 0) handleFile(e.dataTransfer.files[0]);
+  });
+  fileInput.addEventListener('change', function(e) {
+    if (e.target.files.length > 0) handleFile(e.target.files[0]);
+  });
+
+  function handleFile(file) {
+    if (!file.type.startsWith('image/')) {
+      alert('Please select an image file');
+      return;
+    }
+    if (file.size > 20 * 1024 * 1024) {
+      alert('File size exceeds 20MB limit');
+      return;
+    }
+    originalFile = file;
+    var reader = new FileReader();
+    reader.onload = function(e) {
+      var img = new Image();
+      img.onload = function() {
+        originalImage = img;
+        document.getElementById('upload-section').style.display = 'none';
+        document.getElementById('editor-section').style.display = 'block';
+        document.getElementById('orig-size').textContent = img.width + ' × ' + img.height;
+        initCrop();
+        render();
+      };
+      img.src = e.target.result;
+    };
+    reader.readAsDataURL(file);
+  }
+
+  function initCrop() {
+    var containerWidth = canvas.parentElement.clientWidth;
+    var maxW = Math.min(containerWidth, 800);
+    var scale = maxW / originalImage.width;
+    renderedScale = scale;
+    canvas.width = maxW;
+    canvas.height = originalImage.height * scale;
+    cropState.w = canvas.width * 0.8;
+    cropState.h = canvas.height * 0.8;
+    cropState.x = (canvas.width - cropState.w) / 2;
+    cropState.y = (canvas.height - cropState.h) / 2;
+    updateCropBox();
+  }
+
+  function render() {
+    if (!originalImage) return;
+    var brightness = parseInt(document.getElementById('brightness-slider').value);
+    var contrast = parseInt(document.getElementById('contrast-slider').value);
+    var saturation = parseInt(document.getElementById('saturation-slider').value);
+    var blur = parseInt(document.getElementById('blur-slider').value);
+
+    var filterStr = 'brightness(' + (100 + brightness) + '%) contrast(' + (100 + contrast) + '%) saturate(' + (100 + saturation) + '%) blur(' + blur + 'px)';
+
+    ctx.save();
+    ctx.filter = filterStr;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.translate(canvas.width / 2, canvas.height / 2);
+    ctx.rotate((rotation * Math.PI) / 180);
+    ctx.scale(flipH ? -1 : 1, 1);
+    ctx.translate(-canvas.width / 2, -canvas.height / 2);
+    ctx.drawImage(originalImage, 0, 0, canvas.width, canvas.height);
+    ctx.restore();
+
+    updateCropBox();
+    updateOutputInfo();
+    estimateSize();
+  }
+
+  function updateCropBox() {
+    cropBox.style.left = cropState.x + 'px';
+    cropBox.style.top = cropState.y + 'px';
+    cropBox.style.width = cropState.w + 'px';
+    cropBox.style.height = cropState.h + 'px';
+  }
+
+  // Crop box interactions
+  var dragMode = null;
+  var dragStart = { x: 0, y: 0, cx: 0, cy: 0, cw: 0, ch: 0 };
+
+  function startDrag(mode, e) {
+    e.preventDefault();
+    e.stopPropagation();
+    dragMode = mode;
+    var pt = getPoint(e);
+    dragStart = { x: pt.x, y: pt.y, cx: cropState.x, cy: cropState.y, cw: cropState.w, ch: cropState.h };
+    document.addEventListener('mousemove', onDrag);
+    document.addEventListener('mouseup', endDrag);
+    document.addEventListener('touchmove', onDrag, { passive: false });
+    document.addEventListener('touchend', endDrag);
+  }
+
+  function getPoint(e) {
+    if (e.touches && e.touches.length > 0) {
+      var rect = canvas.getBoundingClientRect();
+      return { x: e.touches[0].clientX - rect.left, y: e.touches[0].clientY - rect.top };
+    }
+    return { x: e.offsetX, y: e.offsetY };
+  }
+
+  function onDrag(e) {
+    if (!dragMode) return;
+    e.preventDefault();
+    var pt = getPoint(e);
+    var dx = pt.x - dragStart.x;
+    var dy = pt.y - dragStart.y;
+
+    if (dragMode === 'move') {
+      cropState.x = Math.max(0, Math.min(canvas.width - cropState.w, dragStart.cx + dx));
+      cropState.y = Math.max(0, Math.min(canvas.height - cropState.h, dragStart.cy + dy));
+    } else {
+      var newW = dragStart.cw, newH = dragStart.ch;
+      if (dragMode.includes('r')) newW = Math.max(20, dragStart.cw + dx);
+      if (dragMode.includes('b')) newH = Math.max(20, dragStart.ch + dy);
+      if (dragMode.includes('l')) {
+        newW = Math.max(20, dragStart.cw - dx);
+        cropState.x = dragStart.cx + (dragStart.cw - newW);
+      }
+      if (dragMode.includes('t')) {
+        newH = Math.max(20, dragStart.ch - dy);
+        cropState.y = dragStart.cy + (dragStart.ch - newH);
+      }
+      cropState.w = Math.min(newW, canvas.width - cropState.x);
+      cropState.h = Math.min(newH, canvas.height - cropState.y);
+      if (currentRatio > 0) {
+        cropState.h = cropState.w / currentRatio;
+        if (cropState.h > canvas.height - cropState.y) {
+          cropState.h = canvas.height - cropState.y;
+          cropState.w = cropState.h * currentRatio;
+        }
+      }
+    }
+    updateCropBox();
+  }
+
+  function endDrag() {
+    dragMode = null;
+    document.removeEventListener('mousemove', onDrag);
+    document.removeEventListener('mouseup', endDrag);
+    document.removeEventListener('touchmove', onDrag);
+    document.removeEventListener('touchend', endDrag);
+    updateOutputInfo();
+  }
+
+  cropBox.addEventListener('mousedown', function(e) { startDrag('move', e); });
+  cropBox.addEventListener('touchstart', function(e) { startDrag('move', e); }, { passive: false });
+  cropBox.querySelectorAll('.crop-handle').forEach(function(handle) {
+    var mode = '';
+    if (handle.classList.contains('tl')) mode = 'tl';
+    else if (handle.classList.contains('tr')) mode = 'tr';
+    else if (handle.classList.contains('bl')) mode = 'bl';
+    else if (handle.classList.contains('br')) mode = 'br';
+    handle.addEventListener('mousedown', function(e) { startDrag(mode, e); });
+    handle.addEventListener('touchstart', function(e) { startDrag(mode, e); }, { passive: false });
+  });
+
+  // Aspect ratio buttons
+  document.querySelectorAll('.ratio-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.ratio-btn').forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      var ratio = btn.dataset.ratio;
+      currentRatio = RATIOS[ratio] || 0;
+      if (currentRatio > 0) {
+        cropState.h = cropState.w / currentRatio;
+        if (cropState.h > canvas.height - cropState.y) {
+          cropState.h = canvas.height - cropState.y;
+          cropState.w = cropState.h * currentRatio;
+        }
+      }
+      updateCropBox();
+      updateOutputInfo();
+    });
+  });
+
+  // Custom ratio
+  document.getElementById('custom-w').addEventListener('change', function() {
+    var w = parseFloat(this.value);
+    var h = parseFloat(document.getElementById('custom-h').value);
+    if (w > 0 && h > 0) {
+      currentRatio = w / h;
+      cropState.h = cropState.w / currentRatio;
+      if (cropState.h > canvas.height - cropState.y) {
+        cropState.h = canvas.height - cropState.y;
+        cropState.w = cropState.h * currentRatio;
+      }
+      updateCropBox();
+    }
+  });
+  document.getElementById('custom-h').addEventListener('change', function() {
+    var w = parseFloat(document.getElementById('custom-w').value);
+    var h = parseFloat(this.value);
+    if (w > 0 && h > 0) {
+      currentRatio = w / h;
+      cropState.h = cropState.w / currentRatio;
+      updateCropBox();
+    }
+  });
+
+  // Preset size buttons
+  var presetContainer = document.getElementById('preset-buttons');
+  Object.keys(PRESETS).forEach(function(name) {
+    var btn = document.createElement('button');
+    btn.className = 'preset-btn';
+    btn.innerHTML = name + '<span class="preset-size">' + PRESETS[name].w + ' × ' + PRESETS[name].h + '</span>';
+    btn.addEventListener('click', function() {
+      document.getElementById('target-w').value = PRESETS[name].w;
+      document.getElementById('target-h').value = PRESETS[name].h;
+      currentRatio = PRESETS[name].w / PRESETS[name].h;
+      cropState.h = cropState.w / currentRatio;
+      if (cropState.h > canvas.height - cropState.y) {
+        cropState.h = canvas.height - cropState.y;
+        cropState.w = cropState.h * currentRatio;
+      }
+      updateCropBox();
+      updateOutputInfo();
+      var ratioName = findClosestRatio(currentRatio);
+      if (ratioName) {
+        document.querySelectorAll('.ratio-btn').forEach(function(b) {
+          b.classList.toggle('active', b.dataset.ratio === ratioName);
+        });
+      }
+    });
+    presetContainer.appendChild(btn);
+  });
+
+  function findClosestRatio(ratio) {
+    var best = null, diff = 0.1;
+    Object.keys(RATIOS).forEach(function(name) {
+      if (RATIOS[name] > 0 && Math.abs(RATIOS[name] - ratio) < diff) {
+        diff = Math.abs(RATIOS[name] - ratio);
+        best = name;
+      }
+    });
+    return best;
+  }
+
+  // Target size inputs
+  document.getElementById('target-w').addEventListener('input', function() {
+    var w = parseInt(this.value);
+    if (document.getElementById('lock-ratio').checked && currentRatio > 0 && w > 0) {
+      var h = Math.round(w / currentRatio);
+      document.getElementById('target-h').value = h;
+    }
+    updateOutputInfo();
+  });
+  document.getElementById('target-h').addEventListener('input', function() {
+    var h = parseInt(this.value);
+    if (document.getElementById('lock-ratio').checked && currentRatio > 0 && h > 0) {
+      var w = Math.round(h * currentRatio);
+      document.getElementById('target-w').value = w;
+    }
+    updateOutputInfo();
+  });
+
+  // DPI
+  document.getElementById('dpi-select').addEventListener('change', updateOutputInfo);
+
+  // Rotation & flip
+  document.getElementById('rotate-90').addEventListener('click', function() { rotation = (rotation + 90) % 360; document.getElementById('rotation-slider').value = 0; document.getElementById('rotation-val').textContent = '0°'; render(); });
+  document.getElementById('rotate-180').addEventListener('click', function() { rotation = (rotation + 180) % 360; document.getElementById('rotation-slider').value = 0; document.getElementById('rotation-val').textContent = '0°'; render(); });
+  document.getElementById('rotate-270').addEventListener('click', function() { rotation = (rotation + 270) % 360; document.getElementById('rotation-slider').value = 0; document.getElementById('rotation-val').textContent = '0°'; render(); });
+  document.getElementById('rotate-flip').addEventListener('click', function() { flipH = !flipH; render(); });
+  document.getElementById('rotation-slider').addEventListener('input', function() {
+    document.getElementById('rotation-val').textContent = this.value + '°';
+    render();
+  });
+
+  // Quality & format
+  document.getElementById('quality-slider').addEventListener('input', function() {
+    document.getElementById('quality-val').textContent = this.value + '%';
+    estimateSize();
+  });
+  document.getElementById('format-select').addEventListener('change', estimateSize);
+  document.getElementById('max-size').addEventListener('change', estimateSize);
+  document.getElementById('bg-select').addEventListener('change', function() {
+    document.getElementById('bg-color').style.display = this.value === 'custom' ? 'block' : 'none';
+  });
+
+  // Color adjustments
+  ['brightness', 'contrast', 'saturation', 'blur'].forEach(function(name) {
+    document.getElementById(name + '-slider').addEventListener('input', function() {
+      document.getElementById(name + '-val').textContent = this.value + (name === 'blur' ? 'px' : '');
+      render();
+    });
+  });
+
+  function updateOutputInfo() {
+    var w = parseInt(document.getElementById('target-w').value) || Math.round(cropState.w / renderedScale);
+    var h = parseInt(document.getElementById('target-h').value) || Math.round(cropState.h / renderedScale);
+    document.getElementById('out-size').textContent = w + ' × ' + h;
+    var format = document.getElementById('format-select').value;
+    document.getElementById('out-format').textContent = format.split('/')[1].toUpperCase();
+    var dpi = parseInt(document.getElementById('dpi-select').value);
+    var printW = (w / dpi).toFixed(2);
+    var printH = (h / dpi).toFixed(2);
+    document.getElementById('print-size').textContent = 'Print: ' + printW + ' × ' + printH + ' inches @ ' + dpi + ' DPI';
+  }
+
+  function estimateSize() {
+    if (!originalImage || cropState.w === 0) return;
+    var targetW = parseInt(document.getElementById('target-w').value) || Math.round(cropState.w / renderedScale);
+    var targetH = parseInt(document.getElementById('target-h').value) || Math.round(cropState.h / renderedScale);
+    var format = document.getElementById('format-select').value;
+    var quality = parseInt(document.getElementById('quality-slider').value) / 100;
+
+    var tmpCanvas = document.createElement('canvas');
+    tmpCanvas.width = Math.min(targetW, 200);
+    tmpCanvas.height = Math.min(targetH, 200);
+    var tmpCtx = tmpCanvas.getContext('2d');
+    var sx = (cropState.x / renderedScale) * (originalImage.width / canvas.width);
+    var sy = (cropState.y / renderedScale) * (originalImage.height / canvas.height);
+    var sw = (cropState.w / renderedScale) * (originalImage.width / canvas.width);
+    var sh = (cropState.h / renderedScale) * (originalImage.height / canvas.height);
+    tmpCtx.drawImage(originalImage, sx, sy, sw, sh, 0, 0, tmpCanvas.width, tmpCanvas.height);
+
+    tmpCanvas.toBlob(function(blob) {
+      if (!blob) return;
+      var scaleFactor = (targetW * targetH) / (tmpCanvas.width * tmpCanvas.height);
+      var estSize = blob.size * scaleFactor * (format === 'image/jpeg' ? (0.5 + quality) : 1.1);
+      lastBlobSize = estSize;
+      document.getElementById('est-size').textContent = formatSize(estSize);
+
+      var origSize = originalFile ? originalFile.size : estSize;
+      var comp = origSize > 0 ? (100 - (estSize / origSize * 100)).toFixed(0) : 0;
+      document.getElementById('compression').textContent = comp + '%';
+
+      var maxSize = parseInt(document.getElementById('max-size').value);
+      if (maxSize > 0 && estSize > maxSize * 1024) {
+        if (format === 'image/png') {
+          document.getElementById('status-msg').textContent = '⚠ PNG is lossless. Try JPG or WebP format to reach ' + maxSize + 'KB.';
+        }
+      }
+    }, format, quality);
+  }
+
+  function formatSize(bytes) {
+    if (bytes < 1024) return Math.round(bytes) + ' B';
+    if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + ' KB';
+    return (bytes / (1024 * 1024)).toFixed(1) + ' MB';
+  }
+
+  function processImage(targetW, targetH, maxSizeKb) {
+    return new Promise(function(resolve) {
+      var brightness = parseInt(document.getElementById('brightness-slider').value);
+      var contrast = parseInt(document.getElementById('contrast-slider').value);
+      var saturation = parseInt(document.getElementById('saturation-slider').value);
+      var blur = parseInt(document.getElementById('blur-slider').value);
+      var filterStr = 'brightness(' + (100 + brightness) + '%) contrast(' + (100 + contrast) + '%) saturate(' + (100 + saturation) + '%) blur(' + blur + 'px)';
+
+      var outCanvas = document.createElement('canvas');
+      outCanvas.width = targetW;
+      outCanvas.height = targetH;
+      var outCtx = outCanvas.getContext('2d');
+
+      // Apply background
+      var bg = document.getElementById('bg-select').value;
+      if (bg !== 'transparent') {
+        var bgColor = bg === 'white' ? '#ffffff' : bg === 'black' ? '#000000' : document.getElementById('bg-color').value;
+        outCtx.fillStyle = bgColor;
+        outCtx.fillRect(0, 0, outCanvas.width, outCanvas.height);
+      }
+
+      // Calculate source crop region
+      var sx = (cropState.x / renderedScale) * (originalImage.width / canvas.width);
+      var sy = (cropState.y / renderedScale) * (originalImage.height / canvas.height);
+      var sw = (cropState.w / renderedScale) * (originalImage.width / canvas.width);
+      var sh = (cropState.h / renderedScale) * (originalImage.height / canvas.height);
+
+      outCtx.filter = filterStr;
+      outCtx.translate(outCanvas.width / 2, outCanvas.height / 2);
+      outCtx.rotate((rotation * Math.PI) / 180);
+      outCtx.scale(flipH ? -1 : 1, 1);
+      outCtx.translate(-outCanvas.width / 2, -outCanvas.height / 2);
+      outCtx.drawImage(originalImage, sx, sy, sw, sh, 0, 0, outCanvas.width, outCanvas.height);
+
+      var format = document.getElementById('format-select').value;
+      var quality = parseInt(document.getElementById('quality-slider').value) / 100;
+
+      if (maxSizeKb && format !== 'image/png') {
+        var q = quality;
+        var tryConvert = function() {
+          outCanvas.toBlob(function(blob) {
+            if (!blob) return resolve(null);
+            if (blob.size <= maxSizeKb * 1024 || q <= 0.1) {
+              resolve({ blob: blob, canvas: outCanvas });
+            } else {
+              q -= 0.1;
+              quality = q;
+              tryConvert();
+            }
+          }, format, q);
+        };
+        tryConvert();
+      } else {
+        outCanvas.toBlob(function(blob) {
+          resolve({ blob: blob, canvas: outCanvas });
+        }, format, quality);
+      }
+    });
+  }
+
+  function downloadBlob(blob, filename) {
+    if (lastBlobUrl) URL.revokeObjectURL(lastBlobUrl);
+    lastBlobUrl = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = lastBlobUrl;
+    a.download = filename;
+    a.click();
+  }
+
+  document.getElementById('download-btn').addEventListener('click', function() {
+    var w = parseInt(document.getElementById('target-w').value) || Math.round(cropState.w / renderedScale);
+    var h = parseInt(document.getElementById('target-h').value) || Math.round(cropState.h / renderedScale);
+    var maxSize = parseInt(document.getElementById('max-size').value) || 0;
+    processImage(w, h, maxSize).then(function(result) {
+      if (result) {
+        var ext = document.getElementById('format-select').value.split('/')[1].replace('jpeg', 'jpg');
+        downloadBlob(result.blob, 'image-cropped.' + ext);
+        window.showToast && window.showToast('Downloaded');
+      }
+    });
+  });
+
+  document.getElementById('download-multi').addEventListener('click', function() {
+    var sizes = [
+      { name: 'original', w: parseInt(document.getElementById('target-w').value) || Math.round(originalImage.width * cropState.w / canvas.width), h: parseInt(document.getElementById('target-h').value) || Math.round(originalImage.height * cropState.h / canvas.height) },
+      { name: 'thumb', w: 200, h: 200 },
+      { name: 'avatar', w: 400, h: 400 }
+    ];
+    var i = 0;
+    function next() {
+      if (i >= sizes.length) {
+        window.showToast && window.showToast('All sizes downloaded');
+        return;
+      }
+      var s = sizes[i++];
+      var aspectRatio = s.w / s.h;
+      if (currentRatio > 0) {
+        s.h = Math.round(s.w / currentRatio);
+      }
+      processImage(s.w, s.h, 0).then(function(result) {
+        if (result) {
+          var ext = document.getElementById('format-select').value.split('/')[1].replace('jpeg', 'jpg');
+          downloadBlob(result.blob, 'image-' + s.name + '.' + ext);
+        }
+        setTimeout(next, 500);
+      });
+    }
+    next();
+  });
+})();
+</script>
+</body>
+</html>

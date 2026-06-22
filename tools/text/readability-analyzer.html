@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Readability Analyzer — Flesch Reading Ease & Grade Level | zlbox</title>
+  <meta name="description" content="Free readability analyzer. Check Flesch Reading Ease Score, grade level, reading time and word stats. For writers, bloggers, SEO." />
+  <link rel="stylesheet" href="../../css/components.css" />
+  <link rel="stylesheet" href="/css/theme.css" />
+  <link rel="canonical" href="https://www.zlbox.site/tools/text/readability-analyzer.html" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:image" content="https://www.zlbox.site/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Readability Analyzer","description":"Analyze text readability with Flesch score and grade level","url":"https://www.zlbox.site/tools/text/readability-analyzer.html","applicationCategory":"UtilityApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9V6L0Z956X"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-9V6L0Z956X');</script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
+  <style>
+    .analyzer-grid { display: grid; grid-template-columns: 1fr 360px; gap: 20px; }
+    @media (max-width: 900px) { .analyzer-grid { grid-template-columns: 1fr; } }
+    .analyzer-section { background: var(--card, #fff); border: 1px solid var(--border, #e5e7eb); border-radius: 12px; padding: 20px; margin-bottom: 20px; }
+    .analyzer-section h3 { margin-top: 0; margin-bottom: 16px; font-size: 1rem; font-weight: 600; color: var(--text, #1f2937); }
+    .text-input { width: 100%; min-height: 360px; padding: 12px; border: 2px solid var(--input-border, #e5e7eb); border-radius: 8px; background: var(--input-bg, #fff); color: var(--text, #1f2937); font-size: .9rem; box-sizing: border-box; resize: vertical; font-family: ui-monospace, Consolas, monospace; line-height: 1.6; }
+    .text-input:focus { outline: none; border-color: var(--primary, #2563eb); box-shadow: 0 0 0 3px var(--primary-light, #dbeafe); }
+    .stats-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .stat-card { background: var(--bg-subtle, #f8fafc); border: 1px solid var(--border, #e5e7eb); border-radius: 8px; padding: 10px 12px; }
+    .stat-label { font-size: .7rem; color: var(--text-muted, #64748b); margin-bottom: 2px; }
+    .stat-value { font-size: 1.2rem; font-weight: 700; color: var(--text, #1f2937); }
+    .readability-badge { padding: 10px 20px; border-radius: 20px; font-size: .9rem; font-weight: 600; display: inline-block; text-align: center; min-width: 160px; }
+    .badge-very-easy { background: #dcfce7; color: #14532d; }
+    .badge-easy { background: #d1fae5; color: #166534; }
+    .badge-standard { background: #dbeafe; color: #1e40af; }
+    .badge-difficult { background: #fed7aa; color: #9a3412; }
+    .badge-very-difficult { background: #fee2e2; color: #991b1b; }
+    .grade-level { font-size: .8rem; color: var(--text-muted, #64748b); margin-top: 6px; }
+    .time-row { display: flex; gap: 10px; margin-top: 12px; flex-wrap: wrap; }
+    .time-item { padding: 6px 12px; background: var(--bg-subtle, #f8fafc); border-radius: 6px; font-size: .8rem; border: 1px solid var(--border, #e5e7eb); }
+    .time-item .time-label { color: var(--text-muted, #64748b); }
+    .time-item .time-value { font-weight: 600; color: var(--text, #1f2937); margin-left: 4px; }
+    .long-sentences { display: flex; gap: 12px; flex-wrap: wrap; }
+    .long-stat { padding: 10px 14px; border-radius: 8px; flex: 1; min-width: 120px; }
+    .long-red { background: #fee2e2; color: #991b1b; border: 1px solid #fecaca; }
+    .long-orange { background: #fed7aa; color: #9a3412; border: 1px solid #fdba74; }
+    .long-stat-num { font-size: 1.5rem; font-weight: 700; }
+    .long-stat-label { font-size: .75rem; opacity: .8; }
+    .long-sentence-list { max-height: 150px; overflow-y: auto; margin-top: 10px; }
+    .long-sentence { padding: 6px 10px; background: #fef3c7; border: 1px solid #fde68a; border-radius: 4px; margin-bottom: 4px; font-size: .75rem; color: #92400e; line-height: 1.4; }
+    .copy-btn { padding: 8px 16px; background: var(--primary, #2563eb); color: #fff; border: none; border-radius: 6px; font-size: .85rem; cursor: pointer; font-weight: 500; margin-top: 12px; }
+    .copy-btn:hover { background: var(--primary-hover, #1d4ed8); }
+    .related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-top: 16px; }
+    .related-card { background: var(--card, #fff); border: 1px solid var(--border, #e5e7eb); border-radius: 8px; padding: 16px; text-decoration: none; transition: all .2s; }
+    .related-card:hover { border-color: var(--primary, #2563eb); box-shadow: 0 2px 8px rgba(37,99,235,.1); }
+    .related-card h4 { margin: 0 0 4px; font-size: .95rem; color: var(--text, #1f2937); }
+    .related-card p { margin: 0; font-size: .8rem; color: var(--text-muted, #64748b); }
+  </style>
+</head>
+<body>
+
+<nav class="site-nav" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo"><span class="nav-logo-icon">zl</span><span class="nav-logo-text">zlbox</span></a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+    <div class="nav-links">
+      <a href="/categories/text.html">Text</a>
+      <a href="/categories/generator.html">Generator</a>
+      <a href="/categories/image.html">Image</a>
+      <a href="/categories/pdf.html">PDF</a>
+      <a href="/categories/seo.html">SEO</a>
+      <a href="/categories/dev.html">Dev</a>
+      <button class="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+    </div>
+  </div>
+</nav>
+
+<main class="tool-page">
+  <div class="breadcrumb">
+    <a href="/">Home</a>
+    <span>›</span>
+    <a href="/categories/text.html">Text Tools</a>
+    <span>›</span>
+    <span>Readability Analyzer</span>
+  </div>
+
+  <header class="tool-header">
+    <h1>Readability Analyzer</h1>
+    <p>Analyze text readability with Flesch Reading Ease, Flesch-Kincaid Grade Level, reading time, and word statistics. Perfect for writers, bloggers, and SEO content.</p>
+  </header>
+
+  <div class="analyzer-grid">
+    <div class="analyzer-section">
+      <h3>Input Text</h3>
+      <textarea id="text-input" class="text-input" placeholder="Paste or type your text here to analyze readability..."></textarea>
+      <button id="copy-report" class="copy-btn">Copy Markdown Report</button>
+    </div>
+
+    <div>
+      <div class="analyzer-section">
+        <h3>Readability Score</h3>
+        <div style="text-align: center;">
+          <div class="readability-badge" id="readability-badge">-</div>
+          <div class="grade-level" id="grade-level"></div>
+        </div>
+        <div style="margin-top: 16px;">
+          <div class="stat-label">Flesch Reading Ease</div>
+          <div class="stat-value" id="flesch-score" style="font-size: 2rem;">0</div>
+        </div>
+        <div style="margin-top: 12px;">
+          <div class="stat-label">Flesch-Kincaid Grade Level</div>
+          <div class="stat-value" id="grade-score" style="font-size: 1.5rem;">0</div>
+        </div>
+      </div>
+
+      <div class="analyzer-section">
+        <h3>Basic Statistics</h3>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-label">Words</div>
+            <div class="stat-value" id="word-count">0</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Characters</div>
+            <div class="stat-value" id="char-count">0</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">No Spaces</div>
+            <div class="stat-value" id="char-no-space">0</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Sentences</div>
+            <div class="stat-value" id="sentence-count">0</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Paragraphs</div>
+            <div class="stat-value" id="paragraph-count">0</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Avg Word Length</div>
+            <div class="stat-value" id="avg-word-length">0</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Avg Sentence Length</div>
+            <div class="stat-value" id="avg-sentence-length">0</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Syllables</div>
+            <div class="stat-value" id="syllable-count">0</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="analyzer-section">
+        <h3>Reading Time</h3>
+        <div class="time-row">
+          <div class="time-item"><span class="time-label">200 WPM:</span><span class="time-value" id="time-slow">0 min</span></div>
+          <div class="time-item"><span class="time-label">250 WPM:</span><span class="time-value" id="time-avg">0 min</span></div>
+          <div class="time-item"><span class="time-label">300 WPM:</span><span class="time-value" id="time-fast">0 min</span></div>
+        </div>
+      </div>
+
+      <div class="analyzer-section">
+        <h3>Vocabulary Diversity</h3>
+        <div class="stat-card">
+          <div class="stat-label">Unique / Total</div>
+          <div class="stat-value" id="vocab-ratio">0%</div>
+          <div class="stat-detail" id="vocab-detail">0 unique words</div>
+        </div>
+      </div>
+
+      <div class="analyzer-section">
+        <h3>Long Sentences</h3>
+        <div class="long-sentences">
+          <div class="long-stat long-red">
+            <div class="long-stat-num" id="long-red-count">0</div>
+            <div class="long-stat-label">Sentences &gt; 30 words</div>
+          </div>
+          <div class="long-stat long-orange">
+            <div class="long-stat-num" id="long-orange-count">0</div>
+            <div class="long-stat-label">Sentences &gt; 20 words</div>
+          </div>
+        </div>
+        <div class="long-sentence-list" id="long-sentence-list"></div>
+      </div>
+    </div>
+  </div>
+
+  <section class="related-tools">
+    <h2>Related Tools</h2>
+    <div class="related-grid">
+      <a href="/tools/text/word-counter.html" class="related-card"><h4>Word Counter</h4><p>Count words and characters</p></a>
+      <a href="/tools/text/text-analyzer.html" class="related-card"><h4>Text Analyzer</h4><p>Text statistics and analysis</p></a>
+      <a href="/tools/seo/keyword-density.html" class="related-card"><h4>Keyword Density</h4><p>Analyze keyword usage</p></a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <p>© 2025 zlbox — Free online tools for everyone.</p>
+  </div>
+</footer>
+
+<script src="/js/theme.js"></script>
+<script>
+(function() {
+  var textInput = document.getElementById('text-input');
+  var debounceTimer = null;
+
+  function countSyllables(word) {
+    word = word.toLowerCase().replace(/[^a-z]/g, '');
+    if (word.length <= 2) return 1;
+    var vowels = 'aeiouy';
+    var count = 0;
+    var prevWasVowel = false;
+    for (var i = 0; i < word.length; i++) {
+      var isVowel = vowels.indexOf(word[i]) !== -1;
+      if (isVowel && !prevWasVowel) count++;
+      prevWasVowel = isVowel;
+    }
+    if (word.endsWith('e') && count > 1) count--;
+    return Math.max(1, count);
+  }
+
+  function getWords(text) {
+    return text.match(/[a-zA-Z0-9']+/g) || [];
+  }
+
+  function getSentences(text) {
+    return text.split(/[.!?]+/).filter(function(s) { return s.trim().length > 0; });
+  }
+
+  function fleschReadingEase(text) {
+    var words = getWords(text);
+    var sentences = getSentences(text);
+    if (words.length === 0 || sentences.length === 0) return 0;
+    var totalSyllables = 0;
+    for (var i = 0; i < words.length; i++) totalSyllables += countSyllables(words[i]);
+    var asl = words.length / sentences.length;
+    var asw = totalSyllables / words.length;
+    var score = 206.835 - (1.015 * asl) - (84.6 * asw);
+    return Math.max(0, Math.min(100, score));
+  }
+
+  function fleschKincaidGrade(text) {
+    var words = getWords(text);
+    var sentences = getSentences(text);
+    if (words.length === 0 || sentences.length === 0) return 0;
+    var totalSyllables = 0;
+    for (var i = 0; i < words.length; i++) totalSyllables += countSyllables(words[i]);
+    var asl = words.length / sentences.length;
+    var asw = totalSyllables / words.length;
+    var grade = 0.39 * asl + 11.8 * asw - 15.59;
+    return Math.max(0, grade);
+  }
+
+  function getReadabilityLabel(score) {
+    if (score >= 90) return { label: 'Very Easy', cls: 'badge-very-easy', desc: '5th grade level. Easily understood by an average 11-year-old student.' };
+    if (score >= 80) return { label: 'Easy', cls: 'badge-easy', desc: '6th grade level. Conversational English for consumers.' };
+    if (score >= 70) return { label: 'Fairly Easy', cls: 'badge-easy', desc: '7th grade level. Fairly easy to read.' };
+    if (score >= 60) return { label: 'Standard', cls: 'badge-standard', desc: '8th-9th grade level. Plain English. Good for most readers.' };
+    if (score >= 50) return { label: 'Fairly Difficult', cls: 'badge-standard', desc: '10th-12th grade level. Fairly difficult to read.' };
+    if (score >= 30) return { label: 'Difficult', cls: 'badge-difficult', desc: 'College level. Difficult to read. Best for academic or technical audiences.' };
+    return { label: 'Very Difficult', cls: 'badge-very-difficult', desc: 'Graduate level. Very difficult to read. Best for professional or specialist audiences.' };
+  }
+
+  function formatTime(min) {
+    if (min < 1) return '< 1 min';
+    if (min < 60) return min.toFixed(1) + ' min';
+    var h = Math.floor(min / 60);
+    var m = Math.round(min % 60);
+    return h + 'h ' + m + 'm';
+  }
+
+  function analyzeText() {
+    var text = textInput.value;
+    var words = getWords(text);
+    var wordCount = words.length;
+    var charCount = text.length;
+    var charNoSpace = text.replace(/\s/g, '').length;
+    var sentences = getSentences(text);
+    var sentenceCount = sentences.length;
+    var paragraphs = text.split(/\n\s*\n/).filter(function(p) { return p.trim().length > 0; }).length;
+    if (paragraphs === 0 && text.trim().length > 0) paragraphs = 1;
+    var totalSyllables = 0;
+    for (var i = 0; i < words.length; i++) totalSyllables += countSyllables(words[i]);
+    var avgWordLength = wordCount > 0 ? (words.join('').length / wordCount).toFixed(1) : 0;
+    var avgSentenceLength = sentenceCount > 0 ? (wordCount / sentenceCount).toFixed(1) : 0;
+
+    var flesch = fleschReadingEase(text);
+    var grade = fleschKincaidGrade(text);
+    var readability = getReadabilityLabel(flesch);
+
+    document.getElementById('word-count').textContent = wordCount;
+    document.getElementById('char-count').textContent = charCount;
+    document.getElementById('char-no-space').textContent = charNoSpace;
+    document.getElementById('sentence-count').textContent = sentenceCount;
+    document.getElementById('paragraph-count').textContent = paragraphs;
+    document.getElementById('avg-word-length').textContent = avgWordLength;
+    document.getElementById('avg-sentence-length').textContent = avgSentenceLength;
+    document.getElementById('syllable-count').textContent = totalSyllables;
+
+    document.getElementById('flesch-score').textContent = Math.round(flesch);
+    document.getElementById('grade-score').textContent = grade.toFixed(1);
+    var badge = document.getElementById('readability-badge');
+    badge.textContent = readability.label;
+    badge.className = 'readability-badge ' + readability.cls;
+    document.getElementById('grade-level').textContent = readability.desc;
+
+    document.getElementById('time-slow').textContent = formatTime(wordCount / 200);
+    document.getElementById('time-avg').textContent = formatTime(wordCount / 250);
+    document.getElementById('time-fast').textContent = formatTime(wordCount / 300);
+
+    var uniqueWords = {};
+    for (var i = 0; i < words.length; i++) uniqueWords[words[i].toLowerCase()] = true;
+    var uniqueCount = Object.keys(uniqueWords).length;
+    document.getElementById('vocab-ratio').textContent = wordCount > 0 ? ((uniqueCount / wordCount) * 100).toFixed(1) + '%' : '0%';
+    document.getElementById('vocab-detail').textContent = uniqueCount + ' unique words';
+
+    var redCount = 0, orangeCount = 0;
+    var longList = [];
+    for (var i = 0; i < sentences.length; i++) {
+      var sw = getWords(sentences[i]);
+      if (sw.length > 30) redCount++;
+      else if (sw.length > 20) orangeCount++;
+      if (sw.length > 20) longList.push({ text: sentences[i].trim(), count: sw.length });
+    }
+    document.getElementById('long-red-count').textContent = redCount;
+    document.getElementById('long-orange-count').textContent = orangeCount;
+    var listEl = document.getElementById('long-sentence-list');
+    listEl.innerHTML = '';
+    for (var i = 0; i < Math.min(5, longList.length); i++) {
+      var div = document.createElement('div');
+      div.className = 'long-sentence';
+      var txt = longList[i].text.length > 100 ? longList[i].text.substring(0, 100) + '...' : longList[i].text;
+      div.textContent = longList[i].count + ' words: ' + txt;
+      listEl.appendChild(div);
+    }
+  }
+
+  function debouncedAnalyze() {
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(analyzeText, 100);
+  }
+
+  textInput.addEventListener('input', debouncedAnalyze);
+
+  document.getElementById('copy-report').addEventListener('click', function() {
+    var text = textInput.value;
+    var words = getWords(text);
+    var sentences = getSentences(text);
+    var flesch = fleschReadingEase(text);
+    var grade = fleschKincaidGrade(text);
+    var readability = getReadabilityLabel(flesch);
+    var totalSyllables = 0;
+    for (var i = 0; i < words.length; i++) totalSyllables += countSyllables(words[i]);
+    var uniqueWords = {};
+    for (var i = 0; i < words.length; i++) uniqueWords[words[i].toLowerCase()] = true;
+    var uniqueCount = Object.keys(uniqueWords).length;
+
+    var report = '# Text Readability Report\n\n';
+    report += '## Readability\n\n';
+    report += '- **Flesch Reading Ease**: ' + Math.round(flesch) + ' (' + readability.label + ')\n';
+    report += '- **Flesch-Kincaid Grade Level**: ' + grade.toFixed(1) + '\n';
+    report += '- **Description**: ' + readability.desc + '\n\n';
+    report += '## Statistics\n\n';
+    report += '- Words: ' + words.length + '\n';
+    report += '- Characters (with spaces): ' + text.length + '\n';
+    report += '- Characters (no spaces): ' + text.replace(/\s/g, '').length + '\n';
+    report += '- Sentences: ' + sentences.length + '\n';
+    report += '- Paragraphs: ' + (text.split(/\n\s*\n/).filter(function(p) { return p.trim().length > 0; }).length || (text.trim() ? 1 : 0)) + '\n';
+    report += '- Average Word Length: ' + (words.length > 0 ? (words.join('').length / words.length).toFixed(1) : 0) + '\n';
+    report += '- Average Sentence Length: ' + (sentences.length > 0 ? (words.length / sentences.length).toFixed(1) : 0) + ' words\n';
+    report += '- Total Syllables: ' + totalSyllables + '\n';
+    report += '- Vocabulary Diversity: ' + (words.length > 0 ? ((uniqueCount / words.length) * 100).toFixed(1) : 0) + '% (' + uniqueCount + ' unique)\n\n';
+    report += '## Reading Time\n\n';
+    report += '- Slow (200 WPM): ' + formatTime(words.length / 200) + '\n';
+    report += '- Average (250 WPM): ' + formatTime(words.length / 250) + '\n';
+    report += '- Fast (300 WPM): ' + formatTime(words.length / 300) + '\n';
+
+    if (window.copyToClipboard) window.copyToClipboard(report);
+    else navigator.clipboard.writeText(report);
+    window.showToast && window.showToast('Report copied');
+  });
+
+  analyzeText();
+})();
+</script>
+</body>
+</html>

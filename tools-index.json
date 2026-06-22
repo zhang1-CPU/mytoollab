@@ -414,5 +414,37 @@
     "url": "/tools/generator/device-info.html",
     "keywords": ["device", "screen", "browser", "hardware", "info", "debug"],
     "icon": "📱"
+  },
+  {
+    "name": "Readability Analyzer",
+    "category": "Text",
+    "description": "Analyze text readability with Flesch score and grade level",
+    "url": "/tools/text/readability-analyzer.html",
+    "keywords": ["readability", "flesch", "grade", "level", "writing", "analyzer"],
+    "icon": "📖"
+  },
+  {
+    "name": "Image Cropper",
+    "category": "Image",
+    "description": "Crop, resize and convert images for social media",
+    "url": "/tools/image/image-cropper.html",
+    "keywords": ["image", "crop", "resize", "social", "media", "instagram", "youtube"],
+    "icon": "✂️"
+  },
+  {
+    "name": "PDF to Image",
+    "category": "PDF",
+    "description": "Convert PDF pages to JPG, PNG or WebP images",
+    "url": "/tools/pdf/pdf-to-image.html",
+    "keywords": ["pdf", "image", "convert", "jpg", "png", "webp"],
+    "icon": "🖼️"
+  },
+  {
+    "name": "CSS & JS Minifier",
+    "category": "Developer",
+    "description": "Format and minify CSS and JavaScript code",
+    "url": "/tools/dev/code-minifier.html",
+    "keywords": ["css", "js", "minifier", "formatter", "compress", "developer"],
+    "icon": "🗜️"
   }
 ]

@@ -238,25 +238,29 @@
       row.className='mono-box';
       row.style.padding='10px 12px';
       row.innerHTML='<span class="mono-box__text" style="font-size:0.92rem;">'+display+'</span><button class="btn" style="padding:6px 12px;font-size:0.82rem;">Copy</button>';
-      row.querySelector('button').addEventListener('click',(function(val){return function(){copyText(val);};})(display));
+      row.querySelector('button').addEventListener('click',(function(val, btn){return function(){copyText(val, btn);};})(display, row.querySelector('button')));
       list.appendChild(row);
     }
     document.getElementById('note').textContent=cnt+' UUID'+(cnt===1?'':'s')+' generated.';
   }
 
-  function copyText(txt){
-    if(navigator.clipboard && navigator.clipboard.writeText){
-      navigator.clipboard.writeText(txt).then(function(){
-        document.getElementById('note').textContent='Copied '+txt.length+' character'+(txt.length===1?'':'s')+' to clipboard.';
-      },function(){ fallbackCopy(txt); });
-    } else { fallbackCopy(txt); }
-  }
-  function fallbackCopy(txt){
-    var ta=document.createElement('textarea');
-    ta.value=txt; document.body.appendChild(ta); ta.select();
-    try{ document.execCommand('copy'); document.getElementById('note').textContent='Copied to clipboard.'; }
-    catch(e){ document.getElementById('note').textContent='Copy failed.'; }
-    document.body.removeChild(ta);
+  function copyText(txt, btn){
+    if(window.copyToClipboard){
+      window.copyToClipboard(txt, btn);
+    } else {
+      // fallback
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(txt).then(function(){
+          document.getElementById('note').textContent='Copied!';
+        });
+      } else {
+        var ta=document.createElement('textarea');
+        ta.value=txt; document.body.appendChild(ta); ta.select();
+        try{ document.execCommand('copy'); document.getElementById('note').textContent='Copied!'; }
+        catch(e){ document.getElementById('note').textContent='Copy failed.'; }
+        document.body.removeChild(ta);
+      }
+    }
   }
 
   document.getElementById('gen').addEventListener('click',render);

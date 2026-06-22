@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <title>IP Address Generator – Random IPv4 & IPv6 with CIDR | zlbox</title>
+ <meta name="description" content="Free online IP address generator. Create random IPv4 or IPv6 addresses in bulk, generate within a CIDR range, or pick public/private networks. Copy and download results." />
+ <link rel="stylesheet" href="../../css/components.css" />
+ <link rel="canonical" href="https://www.zlbox.site/tools/generator/ip-address.html" />
+ <meta name="google-site-verification" content="google4bd1e08685667667" />
+ <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
+<script>
+(function() {
+  var toggle = document.querySelector('.nav-toggle');
+  var navLinks = document.querySelector('.nav-links');
+  if (!toggle || !navLinks) return;
+  toggle.addEventListener('click', function() {
+    var isOpen = navLinks.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', isOpen);
+  });
+  var path = location.pathname;
+  document.querySelectorAll('.nav-link').forEach(function(link) {
+    var href = link.getAttribute('href');
+    if (href && (path === href || path.indexOf(href.replace('/index.html','')) > -1)) {
+      link.classList.add('active');
+    }
+  });
+})();
+</script>
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta property="og:title" content="IP Address Generator – Random IPv4 & IPv6 with CIDR | zlbox" />
+  <meta property="og:description" content="Free online IP address generator. Create random IPv4 or IPv6 addresses in bulk, generate within a CIDR range, or pick public/private networks." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.zlbox.site/tools/generator/ip-address.html" />
+  <meta property="og:site_name" content="zlbox" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"IP Address Generator – Random IPv4 & IPv6","description":"Free online IP address generator. Create random IPv4 or IPv6 addresses in bulk, generate within a CIDR range, or pick public/private networks.","url":"https://www.zlbox.site/tools/generator/ip-address.html","applicationCategory":"Network Tool","operatingSystem":"Any (browser-based)","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"browserRequirements":"Requires a modern web browser with JavaScript enabled."}</script>
+
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.zlbox.site/"},{"@type":"ListItem","position":2,"name":"Generator Tools","item":"https://www.zlbox.site/categories/generator.html"}]}</script>
+
+  
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.zlbox.site/"},{"@type":"ListItem","position":2,"name":"Generator & QR Tools","item":"https://www.zlbox.site/categories/generator.html"},{"@type":"ListItem","position":3,"name":"Ip Address Generator"}]}</script>
+  <style>
+.site-nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,.97); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); box-shadow: 0 1px 4px rgba(0,0,0,.05); }
+.nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; align-items: center; gap: 8px; height: 52px; }
+.nav-logo { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 1rem; color: var(--brand); text-decoration: none; flex-shrink: 0; margin-right: 12px; }
+.nav-logo:hover { text-decoration: none; }
+.nav-logo-icon { width: 36px; height: 36px; background: var(--brand); color: #fff; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: .9rem; flex-shrink: 0; }
+.nav-logo-text { font-size: .95rem; }
+.nav-links { display: flex; align-items: center; gap: 2px; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none; flex: 1; }
+.nav-links::-webkit-scrollbar { display: none; }
+.nav-link { display: inline-flex; align-items: center; padding: 5px 10px; font-size: .82rem; font-weight: 500; color: var(--text); border-radius: 6px; white-space: nowrap; transition: all .15s; flex-shrink: 0; }
+.nav-link:hover { background: var(--brand); color: #fff; text-decoration: none; }
+.nav-link.active { background: #eff6ff; color: var(--brand); }
+.nav-toggle { display: none; flex-direction: column; justify-content: center; gap: 4px; width: 32px; height: 32px; padding: 4px; background: none; border: 1px solid var(--border); border-radius: 6px; cursor: pointer; flex-shrink: 0; margin-left: auto; }
+.nav-toggle span { display: block; width: 100%; height: 2px; background: var(--text); border-radius: 1px; }
+@media (max-width: 768px) { .nav-logo-text { display: none; } .nav-inner { gap: 6px; } .nav-toggle { display: flex; } .nav-links { display: none; position: absolute; top: 52px; left: 0; right: 0; background: #fff; border-bottom: 1px solid var(--border); box-shadow: 0 4px 12px rgba(0,0,0,.1); flex-direction: column; align-items: flex-start; padding: 8px 0; z-index: 99; overflow: visible; } .nav-links.open { display: flex; } .nav-link { width: 100%; padding: 10px 20px; font-size: .9rem; border-radius: 0; } }
+
+.field-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px; }
+.row-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px; }
+.result-grid { display: grid; grid-template-columns: 1fr; gap: 8px; margin-top: 16px; }
+@media (max-width: 560px) { .field-grid, .row-grid { grid-template-columns: 1fr; } }
+.mono-box__text { font-family: ui-monospace, Consolas, monospace; font-size: .92rem; word-break: break-all; }
+.note { color: var(--muted); font-size: .9rem; margin-top: 10px; }
+.err { color: #b91c1c; font-size: .9rem; margin-top: 6px; }
+  </style>
+ <meta property="og:image" content="https://www.zlbox.site/og-image.png" />
+ <meta property="og:image:width" content="1200" />
+ <meta property="og:image:height" content="630" />
+ <meta name="twitter:card" content="summary_large_image" />
+ <meta name="twitter:title" content="IP Address Generator – Random IPv4 & IPv6 with CIDR" />
+ <meta name="twitter:description" content="Free online IP generator. Create random IPv4 or IPv6 addresses in bulk, generate within a CIDR range, or pick public/private networks." />
+ <meta name="twitter:image" content="https://www.zlbox.site/og-image.png" />
+
+ <meta name="robots" content="index, follow" />
+ <script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Generate IP Addresses","description":"Step-by-step guide to generating IP addresses","step":[{"@type":"HowToStep","name":"Choose version","text":"Pick IPv4 or IPv6 and how many addresses to generate.","position":1},{"@type":"HowToStep","name":"Pick range","text":"Use random public/private networks or enter a specific CIDR.","position":2},{"@type":"HowToStep","name":"Generate","text":"Click Generate and copy or download the results.","position":3}]}</script>
+</head>
+<body>
+
+ <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo" aria-label="zlbox Home">
+        <span class="nav-logo-icon">zl</span>
+        <span class="nav-logo-text">zlbox</span>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-links" role="list">
+        <a href="/tools/index.html" class="nav-link" role="listitem">All Tools</a>
+        <a href="/categories/text.html" class="nav-link" role="listitem">Text</a>
+        <a href="/categories/calculator.html" class="nav-link" role="listitem">Calculator</a>
+        <a href="/categories/generator.html" class="nav-link" role="listitem">Generator</a>
+        <a href="/categories/image.html" class="nav-link" role="listitem">Image</a>
+        <a href="/categories/pdf.html" class="nav-link" role="listitem">PDF</a>
+        <a href="/blog/index.html" class="nav-link" role="listitem">Blog</a>
+      </div>
+    </div>
+  </nav>
+
+<div class="container-md">
+ <div class="hero">
+ <div class="breadcrumb"><a href="../../index.html">Home</a> &rsaquo; <a href="../../categories/generator.html">Generator Tools</a> &rsaquo; IP Address Generator</div>
+ <h1>IP Address Generator</h1>
+ <p>Generate random IPv4 or IPv6 addresses in bulk. Pick public networks, private ranges (10.x, 172.16-31.x, 192.168.x), or supply your own CIDR. Copy or download your list in one click.</p>
+ </div>
+
+ <div class="card">
+ <div class="field-grid">
+  <div class="field">
+    <label for="version">IP Version</label>
+    <select id="version">
+      <option value="ipv4" selected>IPv4</option>
+      <option value="ipv6">IPv6</option>
+    </select>
+  </div>
+  <div class="field">
+    <label for="count">Quantity (1–50)</label>
+    <input type="number" id="count" min="1" max="50" step="1" value="10" />
+  </div>
+ </div>
+
+ <div class="field-grid">
+  <div class="field">
+    <label for="range">Range / Preset</label>
+    <select id="range">
+      <option value="public" selected>Public IPv4 (random)</option>
+      <option value="private">Private (10.x, 172.16-31.x, 192.168.x)</option>
+      <option value="192.168.0.0/16">192.168.0.0/16</option>
+      <option value="10.0.0.0/8">10.0.0.0/8</option>
+      <option value="172.16.0.0/12">172.16.0.0/12</option>
+      <option value="cidr">Custom CIDR (IPv4)…</option>
+      <option value="cidrv6" disabled>Custom CIDR (IPv6)…</option>
+    </select>
+  </div>
+  <div class="field" id="cidr-field" style="display:none">
+    <label for="cidr">CIDR</label>
+    <input type="text" id="cidr" placeholder="e.g. 192.168.1.0/24" />
+  </div>
+ </div>
+
+ <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px">
+  <button class="btn" id="gen" style="flex:1;min-width:140px">Generate</button>
+  <button class="btn btn--ghost" id="copy-btn">Copy All</button>
+  <button class="btn btn--ghost" id="download-btn">Download .txt</button>
+ </div>
+
+ <p id="status" class="note"></p>
+ <div id="list" class="result-grid"></div>
+ </div>
+
+ <div class="section">
+  <h2>How it works</h2>
+  <ol class="steps">
+    <li>Pick IPv4 or IPv6 and how many addresses you want (1–50).</li>
+    <li>Choose a preset (public / private / common CIDRs) or supply a custom CIDR like <code>10.1.0.0/16</code>.</li>
+    <li>All addresses are generated locally in your browser using cryptographically strong randomness.</li>
+  </ol>
+ </div>
+
+ <section class="tool-info" aria-label="Tool information">
+  <h2>What is this tool?</h2>
+  <p>An IP Address Generator produces random IP addresses for testing firewall rules, load balancer configs, QA test data, or documentation examples. All generation happens entirely in your browser.</p>
+
+  <h2>How to use</h2>
+  <ol class="steps-list">
+    <li>Step 1: Choose IP version (IPv4 or IPv6).</li>
+    <li>Step 2: Set a count (1–50).</li>
+    <li>Step 3: Pick a range preset, or choose 'Custom CIDR' and enter a range.</li>
+    <li>Step 4: Copy the whole list or download as a text file.</li>
+  </ol>
+
+  <h2>Use cases</h2>
+  <ul class="usecase-list">
+    <li>Generating example addresses for documentation and diagrams.</li>
+    <li>Populating test data for network tooling / monitoring dashboards.</li>
+    <li>Testing ACL rules, firewall configs, and IP allow/deny lists.</li>
+    <li>Load testing scripts that need realistic source addresses.</li>
+  </ul>
+
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq">
+    <details class="faq-item">
+      <summary>Are these real, routable IPs?</summary>
+      <p>Generated addresses follow valid syntax, but they may or may not correspond to actual hosts on the internet. Private-range IPs are not globally routable by design.</p>
+    </details>
+    <details class="faq-item">
+      <summary>What's a CIDR?</summary>
+      <p>CIDR notation (e.g. 192.168.1.0/24) describes a network and its prefix length. /24 means the first 24 bits are the network, leaving 8 bits (256 addresses) for hosts.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Can I generate IPv6 in a specific subnet?</summary>
+      <p>IPv6 support is limited to fully random addresses in this release. Custom IPv6 CIDRs are coming soon.</p>
+    </details>
+  </div>
+ </section>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Are these real, routable IPs?","acceptedAnswer":{"@type":"Answer","text":"Generated addresses follow valid syntax, but they may or may not correspond to actual hosts on the internet. Private-range IPs are not globally routable by design."}},{"@type":"Question","name":"What's a CIDR?","acceptedAnswer":{"@type":"Answer","text":"CIDR notation (e.g. 192.168.1.0/24) describes a network and its prefix length. /24 means the first 24 bits are the network, leaving 8 bits (256 addresses) for hosts."}},{"@type":"Question","name":"Can I generate IPv6 in a specific subnet?","acceptedAnswer":{"@type":"Answer","text":"IPv6 support is limited to fully random addresses in this release. Custom IPv6 CIDRs are coming soon."}}]}</script>
+
+ <div class="section">
+  <h2>Related tools</h2>
+  <div class="related-grid">
+    <a href="uuid-generator.html">UUID Generator</a>
+    <a href="random-number-generator.html">Random Number Generator</a>
+    <a href="password-generator.html">Password Generator</a>
+    <a href="qr-code-generator.html">QR Code Generator</a>
+    <a href="hash-generator.html">Hash Generator</a>
+    <a href="../text/base64.html">Base64 Encoder</a>
+  </div>
+ </div>
+
+ <footer class="footer">
+  <div class="footer-links">
+    <a href="password-generator.html">Password Generator</a>
+    <a href="qr-code-generator.html">QR Code Generator</a>
+    <a href="random-number-generator.html">Random Number</a>
+    <span style="color:var(--border);margin:0 6px">|</span>
+    <a href="../../about.html">About</a>
+    <a href="../../privacy.html">Privacy</a>
+    <a href="../../disclaimer.html">Disclaimer</a>
+  </div>
+  <p class="footer-copy">&copy; 2026 zlbox. All rights reserved.</p>
+ </footer>
+</div>
+
+<script>
+(function(){
+  var versionEl = document.getElementById('version');
+  var countEl = document.getElementById('count');
+  var rangeEl = document.getElementById('range');
+  var cidrField = document.getElementById('cidr-field');
+  var cidrEl = document.getElementById('cidr');
+  var listEl = document.getElementById('list');
+  var statusEl = document.getElementById('status');
+
+  function rndUint32(){
+    var a = new Uint32Array(1);
+    crypto.getRandomValues(a);
+    return a[0];
+  }
+  function rndByte(){ return rndUint32() & 0xff; }
+
+  function randomIPv4InRange(firstOctetRanges){
+    // firstOctetRanges is array of [lo,hi] (inclusive) for first octet
+    if (!firstOctetRanges || !firstOctetRanges.length) firstOctetRanges = [[1,223]];
+    var range = firstOctetRanges[rndUint32() % firstOctetRanges.length];
+    var first = range[0] + (rndUint32() % (range[1] - range[0] + 1));
+    var second = rndByte();
+    var third = rndByte();
+    var fourth = rndByte();
+    // Avoid network/broadcast for common /8 networks (classful)
+    return first + '.' + second + '.' + third + '.' + fourth;
+  }
+
+  function ipToInt(s){
+    var parts = s.split('.');
+    if (parts.length !== 4) return null;
+    var val = 0;
+    for (var i=0;i<4;i++){
+      var n = parseInt(parts[i],10);
+      if (isNaN(n) || n<0 || n>255) return null;
+      val = (val * 256) + n;
+    }
+    return val;
+  }
+  function intToIp(v){
+    v = v >>> 0;
+    return ((v>>>24)&0xff) + '.' + ((v>>>16)&0xff) + '.' + ((v>>>8)&0xff) + '.' + (v&0xff);
+  }
+
+  function parseCidr(s){
+    // Accepts "192.168.1.0/24" or "10.0.0.0 8" etc.
+    s = (s || '').trim();
+    var parts = s.split('/');
+    if (parts.length !== 2) return null;
+    var net = parts[0].trim();
+    var prefix = parseInt(parts[1],10);
+    if (isNaN(prefix) || prefix < 0 || prefix > 32) return null;
+    var netInt = ipToInt(net);
+    if (netInt === null) return null;
+    // Mask to the prefix
+    var mask = prefix === 0 ? 0 : (0xffffffff << (32 - prefix)) >>> 0;
+    var network = (netInt & mask) >>> 0;
+    var size = prefix === 32 ? 1 : (0x100000000 >>> prefix);
+    return { network: network, size: size, prefix: prefix };
+  }
+
+  function genInCidr(c, count){
+    var out = [];
+    var seen = new Set();
+    var network = c.network;
+    var size = c.size;
+    if (size <= 2){
+      // /31 or /32 — include all hosts to avoid ambiguity
+      for (var i=0;i<size && i<count;i++){
+        out.push(intToIp((network + i) >>> 0));
+      }
+      return out;
+    }
+    // Exclude network address and broadcast for small ranges when possible,
+    // but keep it simple: sample from size-2 offset to include all
+    var maxSamples = Math.min(count, size);
+    var guard = 0;
+    while (out.length < maxSamples && guard < maxSamples * 20){
+      var offset = (rndUint32() % size) >>> 0;
+      var ip = intToIp((network + offset) >>> 0);
+      if (!seen.has(ip)){ seen.add(ip); out.push(ip); }
+      guard++;
+    }
+    return out;
+  }
+
+  function genRandomIPv4Public(count){
+    var out = [];
+    var seen = new Set();
+    var avoid = [
+      [0,0],[10,10],[127,127],[169,169],[172,172],[192,192],[224,255]
+    ]; // includes multicast/reserved
+    // We'll also block 172.16-31 (12-bit block) and 192.168 specifically inside generate
+    var guard = 0;
+    while (out.length < count && guard < count * 50){
+      var ip = randomIPv4InRange([[1,9],[11,126],[128,168],[173,191],[193,223]]);
+      // Extra: block 192.0.0.0/24, 192.0.2.0/24, 203.0.113.0/24 (TEST-NET), 198.51.100/24 and 198.18.0.0/15 roughly
+      var parts = ip.split('.').map(Number);
+      if (parts[0] === 192 && parts[1] === 0 && parts[2] === 0) { guard++; continue; }
+      if (parts[0] === 192 && parts[1] === 0 && parts[2] === 2) { guard++; continue; }
+      if (parts[0] === 198 && (parts[1] === 51 || parts[1] === 18 || parts[1] === 19)) { guard++; continue; }
+      if (parts[0] === 203 && parts[1] === 0 && parts[2] === 113) { guard++; continue; }
+      if (seen.has(ip)){ guard++; continue; }
+      seen.add(ip);
+      out.push(ip);
+      guard++;
+    }
+    return out;
+  }
+
+  function genRandomIPv4Private(count){
+    var cidrs = ['10.0.0.0/8', '172.16.0.0/12', '192.168.0.0/16'];
+    var parsed = cidrs.map(parseCidr);
+    var out = [];
+    // Distribute roughly evenly
+    var per = Math.ceil(count / parsed.length);
+    var buckets = parsed.map(function(c){ return genInCidr(c, per); });
+    for (var i=0;i<count;i++){
+      // Round-robin
+      var b = buckets[i % buckets.length];
+      if (b && b.length) out.push(b.shift());
+    }
+    return out.slice(0, count);
+  }
+
+  function genIPv6(count){
+    // RFC 4193 style with random bytes
+    var out = [];
+    for (var i=0;i<count;i++){
+      var b = new Uint8Array(16);
+      crypto.getRandomValues(b);
+      var hextets = [];
+      for (var j=0;j<8;j++){
+        hextets.push(((b[j*2]<<8)|b[j*2+1]>>>0).toString(16).padStart(4,'0'));
+      }
+      // Collapse longest run of zero hextets per RFC5952
+      var bestStart = -1, bestLen = 0;
+      var curStart = -1, curLen = 0;
+      for (var k=0;k<8;k++){
+        if (hextets[k] === '0000'){
+          if (curStart === -1) curStart = k;
+          curLen++;
+          if (curLen > bestLen && curLen >= 2){
+            bestLen = curLen; bestStart = curStart;
+          }
+        } else {
+          curStart = -1; curLen = 0;
+        }
+      }
+      var parts = hextets.slice();
+      if (bestStart >= 0){
+        parts.splice(bestStart, bestLen, '');
+        if (bestStart === 0) parts = [''].concat(parts);
+        if (bestStart + bestLen === 8) parts = parts.concat(['']);
+      }
+      var ip = parts.join(':');
+      out.push(ip);
+    }
+    return out;
+  }
+
+  function generate(){
+    var count = parseInt(countEl.value, 10);
+    if (isNaN(count) || count < 1) count = 1;
+    if (count > 50) count = 50;
+    countEl.value = count;
+
+    var version = versionEl.value;
+    var range = rangeEl.value;
+    var results = [];
+    statusEl.textContent = '';
+
+    if (version === 'ipv4'){
+      if (range === 'public'){
+        results = genRandomIPv4Public(count);
+      } else if (range === 'private'){
+        results = genRandomIPv4Private(count);
+      } else if (range === 'cidr'){
+        var c = parseCidr(cidrEl.value);
+        if (!c){ statusEl.textContent = 'Invalid CIDR. Use format like 192.168.1.0/24.'; return; }
+        results = genInCidr(c, count);
+        if (results.length < count){
+          statusEl.textContent = 'Range only contains ' + c.size + ' address' + (c.size===1?'':'s') + '.';
+        }
+      } else {
+        // Built-in CIDR string
+        var c2 = parseCidr(range);
+        if (c2) results = genInCidr(c2, count);
+      }
+    } else {
+      // IPv6
+      results = genIPv6(count);
+    }
+
+    listEl.innerHTML = '';
+    for (var i=0;i<results.length;i++){
+      var row = document.createElement('div');
+      row.className = 'mono-box';
+      row.style.padding = '10px 12px';
+      row.innerHTML = '<span class="mono-box__text">' + results[i] + '</span><button class="btn">Copy</button>';
+      (function(val){ row.querySelector('button').addEventListener('click', function(){ copyText(val); }); })(results[i]);
+      listEl.appendChild(row);
+    }
+    if (!statusEl.textContent) statusEl.textContent = 'Generated ' + results.length.toLocaleString() + ' address' + (results.length===1?'':'s') + '.';
+  }
+
+  function copyText(txt){
+    if (navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(function(){
+        statusEl.textContent = 'Copied to clipboard.';
+      }, function(){ fallbackCopy(txt); });
+    } else { fallbackCopy(txt); }
+    function fallbackCopy(t2){
+      var ta = document.createElement('textarea');
+      ta.value = t2; document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy'); statusEl.textContent = 'Copied to clipboard.'; }
+      catch(e){ statusEl.textContent = 'Copy failed.'; }
+      document.body.removeChild(ta);
+    }
+  }
+
+  function collect(){
+    var items = [];
+    var nodes = listEl.querySelectorAll('.mono-box__text');
+    for (var i=0;i<nodes.length;i++) items.push(nodes[i].textContent.trim());
+    return items;
+  }
+
+  function updateCidrVisibility(){
+    var v = rangeEl.value;
+    cidrField.style.display = (v === 'cidr') ? 'block' : 'none';
+    // Show a hint for IPv6
+    if (versionEl.value === 'ipv6'){
+      statusEl.textContent = 'IPv6 support: fully random addresses in this release.';
+    } else {
+      statusEl.textContent = '';
+    }
+  }
+
+  document.getElementById('gen').addEventListener('click', generate);
+  document.getElementById('copy-btn').addEventListener('click', function(){
+    var items = collect();
+    if (!items.length){ statusEl.textContent = 'Nothing to copy.'; return; }
+    copyText(items.join('\n'));
+  });
+  document.getElementById('download-btn').addEventListener('click', function(){
+    var items = collect();
+    if (!items.length){ statusEl.textContent = 'Nothing to download.'; return; }
+    var blob = new Blob([items.join('\n')], { type: 'text/plain;charset=utf-8' });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url; a.download = 'ip-addresses-' + items.length + '.txt';
+    document.body.appendChild(a); a.click();
+    setTimeout(function(){ document.body.removeChild(a); URL.revokeObjectURL(url); }, 50);
+    statusEl.textContent = 'Downloaded ' + items.length.toLocaleString() + ' addresses.';
+  });
+
+  rangeEl.addEventListener('change', updateCidrVisibility);
+  versionEl.addEventListener('change', updateCidrVisibility);
+
+  generate();
+})();
+</script>
+</body>
+</html>

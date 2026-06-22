@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Loan Calculator – Monthly Mortgage Payment & Amortization | My Tool Lab</title>
+  <meta name="description" content="Free loan and mortgage calculator: compute the monthly payment, total payment, total interest, and view an amortization schedule for up to 36 months." />
+  <link rel="stylesheet" href="../../css/components.css" />
+  <link rel="canonical" href="https://www.zlbox.site/tools/calculator/loan-calculator.html" />
+  <meta name="google-site-verification" content="google4bd1e08685667667" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
+
+  <meta property="og:image" content="https://www.zlbox.site/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Loan Calculator" />
+  <meta name="twitter:description" content="Calculate monthly loan payments" />
+  <meta name="twitter:image" content="https://www.zlbox.site/og-image.png" />
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <meta name="robots" content="index, follow" />
+
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Loan Calculator", "description": "Calculate monthly loan payments", "url": "https://www.zlbox.site/tools/calculator/loan-calculator.html", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9V6L0Z956X"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-9V6L0Z956X');</script>
+</head>
+<body>
+<div class="container-md">
+  <div class="hero">
+    <div class="breadcrumb"><a href="../../index.html">Home</a> &rsaquo; <a href="../../index.html">Calculator Tools</a> &rsaquo; Loan Calculator</div>
+    <h1>Loan Calculator</h1>
+    <p>Estimate monthly payments, total interest, and view a detailed amortization schedule for mortgages, car loans, and personal loans.</p>
+  </div>
+
+  <div class="card">
+    <div class="field-row">
+      <div class="field">
+        <label>Loan amount ($)</label>
+        <input type="number" id="amount" min="0" step="100" value="200000" />
+      </div>
+      <div class="field">
+        <label>Annual interest rate (%)</label>
+        <input type="number" id="rate" min="0" step="0.01" value="5.5" />
+      </div>
+    </div>
+
+    <div class="field-row">
+      <div class="field">
+        <label>Term</label>
+        <input type="number" id="term" min="1" step="1" value="30" />
+      </div>
+      <div class="field">
+        <label>Unit</label>
+        <select id="unit">
+          <option value="years" selected>Years</option>
+          <option value="months">Months</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="stats-grid" style="margin-top:14px;">
+      <div class="stat stat--accent">
+        <div class="stat__value" id="m-payment">$0</div>
+        <div class="stat__label">Monthly Payment</div>
+      </div>
+      <div class="stat">
+        <div class="stat__value" id="m-total" style="font-size:1.3rem;">$0</div>
+        <div class="stat__label">Total Payment</div>
+      </div>
+      <div class="stat">
+        <div class="stat__value" id="m-interest" style="font-size:1.3rem;">$0</div>
+        <div class="stat__label">Total Interest</div>
+      </div>
+    </div>
+
+    <div class="section" style="padding:0;margin-top:20px;">
+      <h3>Amortization Schedule</h3>
+      <div style="overflow-x:auto;">
+        <table class="tbl" id="schedule">
+          <thead>
+            <tr>
+              <th>Month</th>
+              <th>Payment</th>
+              <th>Principal</th>
+              <th>Interest</th>
+              <th>Balance</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <p style="font-size:0.82rem;color:var(--muted);text-align:center;margin-top:8px;">Showing the first 36 months of the loan schedule.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>How it works</h2>
+    <ol class="steps">
+      <li>Enter the loan amount, annual interest rate, and loan term (in years or months).</li>
+      <li>Monthly payment = P &times; r(1+r)<sup>n</sup> / ((1+r)<sup>n</sup> − 1), where r = rate / 12 / 100 and n = total months.</li>
+      <li>The amortization table breaks down each monthly payment into principal and interest components.</li>
+    </ol>
+  </div>
+
+  <div class="section">
+    <h2>Related tools</h2>
+    <div class="related-grid">
+      <a href="basic-calculator.html">Basic Calculator</a>
+      <a href="percentage-calculator.html">Percentage Calculator</a>
+      <a href="bmi-calculator.html">BMI Calculator</a>
+      <a href="age-calculator.html">Age Calculator</a>
+      <a href="unit-converter.html">Unit Converter</a>
+      <a href="scientific-calculator.html">Scientific Calculator</a>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="basic-calculator.html">Basic Calculator</a>
+      <a href="percentage-calculator.html">Percentage Calculator</a>
+      <a href="age-calculator.html">Age Calculator</a>
+      <span style="color:var(--border);margin:0 6px">|</span>
+      <a href="../../about.html">About</a>
+      <a href="../../privacy.html">Privacy</a>
+      <a href="../../disclaimer.html">Disclaimer</a>
+    </div>
+    <p class="footer-copy">&copy; 2026 My Tool Lab. All rights reserved.</p>
+  </footer>
+</div>
+
+<script>
+(function(){
+  var fmt=function(n){return '$'+n.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});};
+  var amountEl=document.getElementById('amount');
+  var rateEl=document.getElementById('rate');
+  var termEl=document.getElementById('term');
+  var unitEl=document.getElementById('unit');
+  var payEl=document.getElementById('m-payment');
+  var totalEl=document.getElementById('m-total');
+  var interestEl=document.getElementById('m-interest');
+  var tbody=document.querySelector('#schedule tbody');
+
+  function update(){
+    var P=parseFloat(amountEl.value);
+    var annual=parseFloat(rateEl.value);
+    var term=parseFloat(termEl.value);
+    if(!(P>0)||!(annual>=0)||!(term>0)){
+      payEl.textContent='$0'; totalEl.textContent='$0'; interestEl.textContent='$0';
+      tbody.innerHTML=''; return;
+    }
+    var n=(unitEl.value==='years')?term*12:term;
+    var r=annual/12/100;
+    var monthly;
+    if(r===0){ monthly=P/n; }
+    else { monthly=P*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1); }
+    var total=monthly*n;
+    var interest=total-P;
+    payEl.textContent=fmt(monthly);
+    totalEl.textContent=fmt(total);
+    interestEl.textContent=fmt(interest);
+
+    // schedule
+    var rows='';
+    var balance=P;
+    var maxRows=Math.min(36, n);
+    for(var i=1;i<=maxRows;i++){
+      var iPay=r*balance;
+      var pPay=monthly-iPay;
+      balance=balance-pPay;
+      if(i===maxRows && balance>0){
+        // adjust for rounding on final displayed row — small fix
+        pPay+=balance; balance=0;
+      }
+      rows+='<tr><td>'+i+'</td><td>'+fmt(monthly)+'</td><td>'+fmt(pPay)+'</td><td>'+fmt(iPay)+'</td><td>'+fmt(Math.max(0,balance))+'</td></tr>';
+    }
+    tbody.innerHTML=rows;
+  }
+
+  [amountEl,rateEl,termEl,unitEl].forEach(function(el){
+    el.addEventListener('input',update);
+    el.addEventListener('change',update);
+  });
+  update();
+})();
+</script>
+</body>
+</html>

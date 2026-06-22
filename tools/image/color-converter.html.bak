@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Color Converter – HEX to RGB to HSL Convert Online Free | My Tool Lab</title>
+  <meta name="description" content="Free online color converter. Convert colors between HEX, RGB, RGBA, HSL, and HSLA formats. Pick colors or paste values. Copy ready-to-use CSS values." />
+  <meta name="keywords" content="color converter, hex to rgb, rgb to hex, hsl converter, color picker, convert color, css color converter" />
+  <link rel="canonical" href="https://www.zlbox.site/tools/image/color-converter.html" />
+  <meta name="google-site-verification" content="google4bd1e08685667667" />
+  <meta name="robots" content="index, follow" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Color Converter","applicationCategory":"UtilityApplication","operatingSystem":"Any (Web-based)","description":"Free online color converter for HEX, RGB, RGBA, HSL, and HSLA formats.","url":"https://www.zlbox.site/tools/image/color-converter.html","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+  </script>
+  <link rel="stylesheet" href="../../css/components.css" />
+  <style>
+    .swatch-preview{display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+    .swatch{width:140px;height:140px;border-radius:10px;border:1px solid var(--border);background-color:#2563eb;}
+    .swatch-info{flex:1;min-width:200px;}
+    .swatch-info .name{font-size:1.4rem;font-weight:700;color:var(--text);}
+    .swatch-info .sub{color:var(--muted);font-size:.85rem;margin-top:4px;}
+    .picker-row{display:flex;align-items:center;gap:10px;margin-top:12px;}
+    .picker-row .color-picker{width:48px;height:48px;border:1px solid var(--border);border-radius:8px;padding:0;background:none;cursor:pointer;flex-shrink:0;}
+    .picker-row .tool-input{flex:1;padding:10px 12px;font-family:inherit;font-size:.92rem;border:1px solid var(--border);border-radius:8px;background:#fff;color:var(--text);outline:none;}
+    .picker-row .tool-input:focus{border-color:var(--brand);}
+    .field-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px;}
+    .field{display:flex;align-items:center;gap:8px;}
+    .field .label{font-weight:600;font-size:.85rem;color:var(--text);min-width:60px;}
+    .field input{flex:1;padding:8px 12px;border:1px solid var(--border);border-radius:8px;font-family:ui-monospace,Consolas,monospace;font-size:.9rem;background:#fff;color:var(--text);outline:none;}
+    .field input:focus{border-color:var(--brand);}
+    .status{margin-top:10px;font-size:.85rem;text-align:right;color:var(--muted);}
+    .status.ok{color:#16a34a;}
+    .status.err{color:#b91c1c;}
+    @media (max-width:560px){.field-grid{grid-template-columns:1fr;}.swatch{width:100%;height:120px;}}
+  </style>
+
+  <meta property="og:image" content="https://www.zlbox.site/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Color Converter" />
+  <meta name="twitter:description" content="Convert colors between formats" />
+  <meta name="twitter:image" content="https://www.zlbox.site/og-image.png" />
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9V6L0Z956X"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-9V6L0Z956X');</script>
+</head>
+<body>
+<div class="container-md">
+  <div class="hero">
+    <div class="breadcrumb"><a href="../../index.html">Home</a> &rsaquo; <a href="../../categories/image.html">Image Tools</a> &rsaquo; Color Converter</div>
+    <h1>Color Converter</h1>
+    <p>Pick a color or paste HEX, RGB, or HSL values — see live conversions and copy ready-to-use CSS strings.</p>
+  </div>
+
+  <div class="card">
+    <div class="swatch-preview">
+      <div class="swatch" id="swatch"></div>
+      <div class="swatch-info">
+        <div class="name" id="swatchName">#2563EB</div>
+        <div class="sub">Use the picker or paste any value below.</div>
+        <div class="picker-row">
+          <input type="color" id="colorPicker" class="color-picker" value="#2563eb" />
+          <input type="text" id="anyInput" class="tool-input" placeholder="Paste #hex, rgb(), rgba(), hsl(), hsla()" />
+          <button class="btn" id="parseBtn">Parse</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="field-grid">
+      <div class="field"><span class="label">HEX</span><input type="text" id="hexIn" /><button class="btn btn--sm btn--ghost" data-copy="hexIn">Copy</button></div>
+      <div class="field"><span class="label">HEXA</span><input type="text" id="hexaIn" /><button class="btn btn--sm btn--ghost" data-copy="hexaIn">Copy</button></div>
+      <div class="field"><span class="label">RGB</span><input type="text" id="rgbIn" /><button class="btn btn--sm btn--ghost" data-copy="rgbIn">Copy</button></div>
+      <div class="field"><span class="label">RGBA</span><input type="text" id="rgbaIn" /><button class="btn btn--sm btn--ghost" data-copy="rgbaIn">Copy</button></div>
+      <div class="field"><span class="label">HSL</span><input type="text" id="hslIn" /><button class="btn btn--sm btn--ghost" data-copy="hslIn">Copy</button></div>
+      <div class="field"><span class="label">HSLA</span><input type="text" id="hslaIn" /><button class="btn btn--sm btn--ghost" data-copy="hslaIn">Copy</button></div>
+    </div>
+    <div class="status" id="status"></div>
+  </div>
+
+  <div class="section">
+    <h2>How it works</h2>
+    <ol class="steps">
+      <li><strong>Select:</strong> Use the color picker or paste a value into the "Parse" box.</li>
+      <li><strong>Convert:</strong> HEX, RGB/RGBA, and HSL/HSLA fields update automatically.</li>
+      <li><strong>Copy:</strong> Click "Copy" next to any format to copy a CSS-ready value.</li>
+    </ol>
+  </div>
+
+  <div class="section">
+    <h2>Related tools</h2>
+    <div class="related-grid">
+      <a href="color-picker.html">Color Picker</a>
+      <a href="image-compressor.html">Image Compressor</a>
+      <a href="image-resizer.html">Image Resizer</a>
+      <a href="background-remover.html">Background Remover</a>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="color-picker.html">Color Picker</a>
+      <a href="image-compressor.html">Image Compressor</a>
+      <span style="color:var(--border);margin:0 6px;">|</span>
+      <a href="../../about.html">About</a>
+      <a href="../../privacy.html">Privacy</a>
+      <a href="../../disclaimer.html">Disclaimer</a>
+    </div>
+    <p class="footer-copy">&copy; 2026 My Tool Lab. All rights reserved.</p>
+  </footer>
+</div>
+
+<script>
+(function(){
+  const swatch = document.getElementById('swatch');
+  const swatchName = document.getElementById('swatchName');
+  const colorPicker = document.getElementById('colorPicker');
+  const anyInput = document.getElementById('anyInput');
+  const parseBtn = document.getElementById('parseBtn');
+  const statusEl = document.getElementById('status');
+  const hexIn = document.getElementById('hexIn');
+  const hexaIn = document.getElementById('hexaIn');
+  const rgbIn = document.getElementById('rgbIn');
+  const rgbaIn = document.getElementById('rgbaIn');
+  const hslIn = document.getElementById('hslIn');
+  const hslaIn = document.getElementById('hslaIn');
+
+  let state = { r: 37, g: 99, b: 235, a: 1 };
+
+  function clampByte(v){ v=Number(v); return isNaN(v) ? 0 : Math.max(0, Math.min(255, Math.round(v))); }
+  function clampFloat(v){ v=Number(v); return isNaN(v) ? 0 : Math.max(0, Math.min(1, v)); }
+  function toHex2(n){ const h = n.toString(16); return h.length === 1 ? '0'+h : h; }
+
+  function rgbToHsl(r,g,b){
+    r/=255; g/=255; b/=255;
+    const max=Math.max(r,g,b), min=Math.min(r,g,b);
+    let h=0, s=0, l=(max+min)/2;
+    if(max!==min){
+      const d = max-min;
+      s = l > 0.5 ? d/(2-max-min) : d/(max+min);
+      switch(max){
+        case r: h=(g-b)/d+(g<b?6:0); break;
+        case g: h=(b-r)/d+2; break;
+        case b: h=(r-g)/d+4; break;
+      }
+      h/=6;
+    }
+    return { h: Math.round(h*360), s: Math.round(s*100), l: Math.round(l*100) };
+  }
+
+  function hslToRgb(h,s,l){
+    h=((h%360)+360)%360; s=Math.max(0,Math.min(100,s))/100; l=Math.max(0,Math.min(100,l))/100;
+    if(s===0){ const g=Math.round(l*255); return {r:g,g:g,b:g}; }
+    const hue2rgb = (p,q,t) => { if(t<0)t+=1; if(t>1)t-=1; if(t<1/6)return p+(q-p)*6*t; if(t<1/2)return q; if(t<2/3)return p+(q-p)*(2/3-t)*6; return p; };
+    const q=l<0.5?l*(1+s):l+s-l*s, p=2*l-q;
+    return { r: Math.round(hue2rgb(p,q,h/360+1/3)*255), g: Math.round(hue2rgb(p,q,h/360)*255), b: Math.round(hue2rgb(p,q,h/360-1/3)*255) };
+  }
+
+  function render(){
+    const hex = '#' + toHex2(state.r) + toHex2(state.g) + toHex2(state.b);
+    const hexa = hex + toHex2(Math.round(state.a*255));
+    const hsl = rgbToHsl(state.r, state.g, state.b);
+    swatch.style.backgroundColor = 'rgba('+state.r+','+state.g+','+state.b+','+state.a+')';
+    swatchName.textContent = hex.toUpperCase();
+    colorPicker.value = hex;
+    hexIn.value = hex.toUpperCase();
+    hexaIn.value = hexa.toUpperCase();
+    rgbIn.value = 'rgb('+state.r+', '+state.g+', '+state.b+')';
+    rgbaIn.value = 'rgba('+state.r+', '+state.g+', '+state.b+', '+Number(state.a.toFixed(2))+')';
+    hslIn.value = 'hsl('+hsl.h+', '+hsl.s+'%, '+hsl.l+'%)';
+    hslaIn.value = 'hsla('+hsl.h+', '+hsl.s+'%, '+hsl.l+'%, '+Number(state.a.toFixed(2))+')';
+  }
+
+  function parseAny(text){
+    if(!text) return null;
+    const s = text.trim().toLowerCase();
+    let m;
+    if((m = s.match(/^#?([0-9a-f]{8})$/))){
+      const n = m[1];
+      return { r: parseInt(n.substr(0,2),16), g: parseInt(n.substr(2,2),16), b: parseInt(n.substr(4,2),16), a: parseInt(n.substr(6,2),16)/255 };
+    }
+    if((m = s.match(/^#?([0-9a-f]{6})$/))){
+      const n = m[1];
+      return { r: parseInt(n.substr(0,2),16), g: parseInt(n.substr(2,2),16), b: parseInt(n.substr(4,2),16), a: 1 };
+    }
+    if((m = s.match(/^#?([0-9a-f]{3})$/))){
+      const n = m[1];
+      return { r: parseInt(n[0]+n[0],16), g: parseInt(n[1]+n[1],16), b: parseInt(n[2]+n[2],16), a: 1 };
+    }
+    if((m = s.match(/^rgba?\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*(?:,\s*(\d*\.?\d+)\s*)?\)$/))){
+      const a = m[4] !== undefined ? clampFloat(parseFloat(m[4])) : 1;
+      return { r: clampByte(m[1]), g: clampByte(m[2]), b: clampByte(m[3]), a };
+    }
+    if((m = s.match(/^hsla?\(\s*(\d+(?:\.\d+)?)\s*,?\s*(\d+(?:\.\d+)?)%?\s*,?\s*(\d+(?:\.\d+)?)%?\s*(?:,?\s*(\d*\.?\d+)\s*)?\)$/))){
+      const h = parseFloat(m[1]);
+      const sat = parseFloat(m[2]);
+      const l = parseFloat(m[3]);
+      const a = m[4] !== undefined ? clampFloat(parseFloat(m[4])) : 1;
+      const { r,g,b } = hslToRgb(h, sat, l);
+      return { r,g,b, a };
+    }
+    return null;
+  }
+
+  colorPicker.addEventListener('input', function(){
+    const v = colorPicker.value;
+    state.r = parseInt(v.substr(1,2),16); state.g = parseInt(v.substr(3,2),16); state.b = parseInt(v.substr(5,2),16);
+    render();
+  });
+
+  parseBtn.addEventListener('click', function(){
+    const res = parseAny(anyInput.value);
+    if(!res){ statusEl.textContent = 'Invalid color value.'; statusEl.className='status err'; return; }
+    state = { r: res.r, g: res.g, b: res.b, a: res.a || 1 }; render();
+    statusEl.textContent = 'Parsed successfully.'; statusEl.className='status ok';
+  });
+
+  function applyValue(field){
+    return function(){
+      let res = parseAny(field.value);
+      if(!res){ statusEl.textContent = 'Invalid value.'; statusEl.className='status err'; return; }
+      state = { r: res.r, g: res.g, b: res.b, a: res.a || 1 }; render();
+      statusEl.textContent=''; statusEl.className='status';
+    };
+  }
+  hexIn.addEventListener('change', applyValue(hexIn));
+  hexaIn.addEventListener('change', applyValue(hexaIn));
+  rgbIn.addEventListener('change', applyValue(rgbIn));
+  rgbaIn.addEventListener('change', applyValue(rgbaIn));
+  hslIn.addEventListener('change', applyValue(hslIn));
+  hslaIn.addEventListener('change', applyValue(hslaIn));
+
+  document.querySelectorAll('[data-copy]').forEach(btn=>{
+    btn.addEventListener('click', function(){
+      const id = btn.dataset.copy; const el = document.getElementById(id);
+      try { navigator.clipboard.writeText(el.value).then(function(){statusEl.textContent='Copied: '+el.value; statusEl.className='status ok';}).catch(function(){statusEl.textContent='Copied: '+el.value; statusEl.className='status ok';}); }
+      catch(e){ el.select(); document.execCommand('copy'); statusEl.textContent='Copied: '+el.value; statusEl.className='status ok'; }
+    });
+  });
+
+  render();
+})();
+</script>
+</body>
+</html>

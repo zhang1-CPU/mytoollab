@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HTML Formatter – Beautify HTML Code Online | My Tool Lab</title>
+  <meta name="description" content="Free online HTML formatter. Beautify, indent, and format your HTML code with proper structure. Runs locally in your browser." />
+  <link rel="canonical" href="https://www.zlbox.site/tools/text/html-formatter.html" />
+  <meta name="google-site-verification" content="google4bd1e08685667667" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../../css/components.css" />
+
+  <meta property="og:image" content="https://www.zlbox.site/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="HTML Formatter" />
+  <meta name="twitter:description" content="Format HTML code" />
+  <meta name="twitter:image" content="https://www.zlbox.site/og-image.png" />
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <meta name="robots" content="index, follow" />
+
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "HTML Formatter", "description": "Format HTML code", "url": "https://www.zlbox.site/tools/text/html-formatter.html", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9V6L0Z956X"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-9V6L0Z956X');</script>
+</head>
+<body>
+<div class="container-md">
+  <div class="hero">
+    <div class="breadcrumb"><a href="../../index.html">Home</a> &rsaquo; <a href="../../categories/text.html">Text Tools</a> &rsaquo; HTML Formatter</div>
+    <h1>HTML Formatter</h1>
+    <p>Paste minified HTML and get clean, indented markup. Handles self-closing tags automatically.</p>
+  </div>
+
+  <div class="card">
+    <div class="editor">
+      <textarea id="inputText" placeholder='Paste HTML here… e.g. <div><p>Hello</p><br></div>' spellcheck="false"></textarea>
+      <div class="editor__toolbar">
+        <button class="btn btn--sm btn--ghost" id="sampleBtn">Sample</button>
+        <button class="btn btn--sm btn--ghost" id="clearBtn">Clear</button>
+        <div style="margin-left:auto"></div>
+        <button class="btn btn--sm" id="formatBtn">Format</button>
+        <button class="btn btn--sm btn--ghost" id="copyBtn">Copy</button>
+      </div>
+    </div>
+    <div class="editor" style="margin-top:10px;">
+      <textarea id="outputText" readonly placeholder="Formatted HTML appears here…" spellcheck="false"></textarea>
+      <div class="editor__toolbar">
+        <span id="statusLabel" style="font-size:0.82rem;color:var(--muted);">Ready</span>
+        <div style="margin-left:auto"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>How it works</h2>
+    <ol class="steps">
+      <li>Paste your HTML into the top box — messy, minified, whatever.</li>
+      <li>Click Format — the tool tokenizes tags and applies consistent indentation.</li>
+      <li>Copy the cleaned output and paste into your editor.</li>
+    </ol>
+  </div>
+
+  <div class="section">
+    <h2>Related tools</h2>
+    <div class="related-grid">
+      <a href="json-formatter.html">JSON Formatter</a>
+      <a href="sql-formatter.html">SQL Formatter</a>
+      <a href="case-converter.html">Case Converter</a>
+      <a href="word-counter.html">Word Counter</a>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="word-counter.html">Word Counter</a>
+      <a href="case-converter.html">Case Converter</a>
+      <a href="json-formatter.html">JSON Formatter</a>
+      <span style="color:var(--border);margin:0 6px">|</span>
+      <a href="../../about.html">About</a>
+      <a href="../../privacy.html">Privacy</a>
+      <a href="../../disclaimer.html">Disclaimer</a>
+    </div>
+    <p class="footer-copy">&copy; 2026 My Tool Lab. All rights reserved.</p>
+  </footer>
+</div>
+
+<script>
+(function() {
+  var VOID = new Set(['br','hr','img','input','meta','link','source','track','wbr','area','base','col','embed','param']);
+  var inputEl = document.getElementById('inputText');
+  var outputEl = document.getElementById('outputText');
+  var formatBtn = document.getElementById('formatBtn');
+  var clearBtn = document.getElementById('clearBtn');
+  var sampleBtn = document.getElementById('sampleBtn');
+  var copyBtn = document.getElementById('copyBtn');
+  var statusEl = document.getElementById('statusLabel');
+
+  function setStatus(msg, ok) {
+    statusEl.textContent = msg;
+    statusEl.style.color = ok ? '#047857' : (ok === false ? '#b91c1c' : 'var(--muted)');
+  }
+
+  function format(html) {
+    if (!html) return '';
+    var tokens = html.match(/<!--[\s\S]*?-->|<\/?[^>]+>|[^<]+/g) || [];
+    var indent = '  ';
+    var level = 0;
+    var out = [];
+    for (var i = 0; i < tokens.length; i++) {
+      var t = tokens[i];
+      var trimmed = t.trim();
+      if (!trimmed) continue;
+      if (/^<!--/.test(trimmed)) {
+        out.push(indent.repeat(level) + trimmed);
+      } else if (/^<\//.test(trimmed)) {
+        level = Math.max(0, level - 1);
+        out.push(indent.repeat(level) + trimmed);
+      } else if (/^<[^!?\/]/.test(trimmed)) {
+        var m = trimmed.match(/^<\s*([\w:-]+)/);
+        var tag = m ? m[1].toLowerCase() : '';
+        if (VOID.has(tag)) {
+          out.push(indent.repeat(level) + trimmed);
+        } else {
+          out.push(indent.repeat(level) + trimmed);
+          level++;
+        }
+      } else {
+        out.push(indent.repeat(level) + trimmed);
+      }
+    }
+    return out.join('\n');
+  }
+
+  formatBtn.addEventListener('click', function() {
+    var result = format(inputEl.value);
+    outputEl.value = result;
+    setStatus(result ? 'HTML formatted' : 'Ready', result ? true : null);
+  });
+
+  clearBtn.addEventListener('click', function() {
+    inputEl.value = ''; outputEl.value = ''; setStatus('Ready'); inputEl.focus();
+  });
+
+  sampleBtn.addEventListener('click', function() {
+    inputEl.value = '<!DOCTYPE html><html><head><title>Sample page</title><meta charset="UTF-8"><link rel="stylesheet" href="style.css"></head><body><div class="container"><h1>Hello World</h1><p>This is a <strong>sample</strong> HTML document used by the formatter.</p><br><p>Try it out by clicking the <em>Format</em> button.</p></div></body></html>';
+    outputEl.value = '';
+    setStatus('Sample loaded');
+  });
+
+  copyBtn.addEventListener('click', function() {
+    if (!outputEl.value) return;
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(outputEl.value).then(function() {
+        copyBtn.textContent = 'Copied!';
+        setTimeout(function() { copyBtn.textContent = 'Copy'; }, 1200);
+      });
+    } else {
+      outputEl.select(); document.execCommand('copy');
+      copyBtn.textContent = 'Copied!';
+      setTimeout(function() { copyBtn.textContent = 'Copy'; }, 1200);
+    }
+  });
+})();
+</script>
+</body>
+</html>

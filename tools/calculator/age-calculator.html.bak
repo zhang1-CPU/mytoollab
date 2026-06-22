@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Age Calculator – Calculate Exact Age in Years, Months, Days | My Tool Lab</title>
+  <meta name="description" content="Free online age calculator. Enter your birthday to calculate your exact age in years, months, weeks, days, hours, minutes, and seconds. Instant results." />
+  <link rel="stylesheet" href="../../css/components.css" />
+  <link rel="canonical" href="https://www.zlbox.site/tools/calculator/age-calculator.html" />
+  <meta name="google-site-verification" content="google4bd1e08685667667" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9V6L0Z956X"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9V6L0Z956X');
+  </script>
+
+  <meta property="og:image" content="https://www.zlbox.site/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Age Calculator" />
+  <meta name="twitter:description" content="Calculate exact age from birth date" />
+  <meta name="twitter:image" content="https://www.zlbox.site/og-image.png" />
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <meta name="robots" content="index, follow" />
+
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Age Calculator", "description": "Calculate exact age from birth date", "url": "https://www.zlbox.site/tools/calculator/age-calculator.html", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+</head>
+<body>
+<div class="container-md">
+  <div class="hero">
+    <div class="breadcrumb"><a href="../../index.html">Home</a> &rsaquo; <a href="../../categories/calculator.html">Calculator Tools</a> &rsaquo; Age Calculator</div>
+    <h1>Age Calculator</h1>
+    <p>Enter your birthday to calculate your exact age in years, months, weeks, days, hours, minutes, and seconds.</p>
+  </div>
+
+  <div class="ad-slot">
+    <ins class="adsbygoogle" style="display:block;width:100%;max-width:728px;height:auto;margin:0 auto;" data-ad-client="ca-pub-5420550088713746" data-ad-slot="9999999999" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+
+  <div class="card">
+    <div class="field"><label>Your Birthday</label><input type="date" id="birthdate" /></div>
+    <button class="btn btn--block" id="calcBtn">Calculate My Age</button>
+    <div class="note note--warn" id="err" style="display:none;"></div>
+
+    <div class="stats-grid" id="results" style="display:none;">
+      <div class="stat"><div class="stat__value" id="years">0</div><div class="stat__label">Years</div></div>
+      <div class="stat"><div class="stat__value" id="months">0</div><div class="stat__label">Months</div></div>
+      <div class="stat"><div class="stat__value" id="weeks">0</div><div class="stat__label">Weeks</div></div>
+      <div class="stat"><div class="stat__value" id="days">0</div><div class="stat__label">Days</div></div>
+      <div class="stat"><div class="stat__value" id="hours">0</div><div class="stat__label">Hours</div></div>
+      <div class="stat"><div class="stat__value" id="minutes">0</div><div class="stat__label">Minutes</div></div>
+      <div class="stat"><div class="stat__value" id="seconds">0</div><div class="stat__label">Seconds</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>How it works</h2>
+    <p>Simply enter your birth date in the input above. The tool compares it with the current date on your device and computes the difference in years, months, days — plus the totals in weeks, hours, minutes, and seconds — using the local time zone on your computer.</p>
+    <p>All calculations happen in your browser. Your birth date is never sent to a server.</p>
+  </div>
+
+  <div class="ad-slot">
+    <ins class="adsbygoogle" style="display:block;width:100%;max-width:728px;height:auto;margin:0 auto;" data-ad-client="ca-pub-5420550088713746" data-ad-slot="9999999999" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+
+  <div class="section">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq">
+      <details><summary>How accurate is this age calculator?</summary><p>The calculator uses your device clock and the Gregorian calendar. It accounts for leap years and is accurate to the second.</p></details>
+      <details><summary>Does it account for leap years?</summary><p>Yes. Leap years and months with different day counts are handled automatically by the JavaScript Date engine.</p></details>
+      <details><summary>What time zone is used?</summary><p>The tool uses your device's local time zone for the "today" reference point.</p></details>
+      <details><summary>Is my data stored anywhere?</summary><p>No. All computations are done locally in your browser. Nothing is transmitted or stored.</p></details>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="percentage-calculator.html">Percentage Calculator</a>
+      <a href="basic-calculator.html">Basic Calculator</a>
+      <a href="../../about.html">About</a>
+      <a href="../../privacy.html">Privacy</a>
+      <a href="../../disclaimer.html">Disclaimer</a>
+    </div>
+    <p class="footer-copy">&copy; 2026 My Tool Lab. All rights reserved.</p>
+  </footer>
+</div>
+
+<script>
+(function(){
+  var btn=document.getElementById('calcBtn');
+  var inp=document.getElementById('birthdate');
+  var err=document.getElementById('err');
+  var res=document.getElementById('results');
+  function fmt(n){return n.toLocaleString();}
+  function calc(){
+    err.style.display='none';
+    if(!inp.value){err.textContent='Please select a valid date.';err.style.display='block';res.style.display='none';return;}
+    var birth=new Date(inp.value);
+    var now=new Date();
+    if(birth>now){err.textContent='Birth date cannot be in the future.';err.style.display='block';res.style.display='none';return;}
+    if(isNaN(birth.getTime())){err.textContent='Invalid date.';err.style.display='block';res.style.display='none';return;}
+    var y=now.getFullYear()-birth.getFullYear();
+    var m=now.getMonth()-birth.getMonth();
+    var d=now.getDate()-birth.getDate();
+    if(d<0){m--;d+=new Date(now.getFullYear(),now.getMonth(),0).getDate();}
+    if(m<0){y--;m+=12;}
+    var totalMs=now-birth;
+    var totalSec=Math.floor(totalMs/1000);
+    var totalMin=Math.floor(totalSec/60);
+    var totalHr=Math.floor(totalMin/60);
+    var totalDay=Math.floor(totalHr/24);
+    var totalWk=Math.floor(totalDay/7);
+    var totalMon=y*12+m;
+    document.getElementById('years').textContent=fmt(y);
+    document.getElementById('months').textContent=fmt(totalMon);
+    document.getElementById('weeks').textContent=fmt(totalWk);
+    document.getElementById('days').textContent=fmt(totalDay);
+    document.getElementById('hours').textContent=fmt(totalHr);
+    document.getElementById('minutes').textContent=fmt(totalMin);
+    document.getElementById('seconds').textContent=fmt(totalSec);
+    res.style.display='grid';
+  }
+  btn.addEventListener('click',calc);
+  inp.addEventListener('change',calc);
+})();
+</script>
+</body>
+</html>

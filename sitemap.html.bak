@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sitemap – All Pages | zlbox</title>
+  <meta name="description" content="Complete sitemap of zlbox. Browse all free online tools, blog articles, and category pages. Find any tool or article quickly." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.zlbox.site/sitemap.html" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="google-site-verification" content="google4bd1e08685667667" />
+
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
+  <script>
+(function() {
+  var toggle = document.querySelector('.nav-toggle');
+  var navLinks = document.querySelector('.nav-links');
+  if (!toggle || !navLinks) return;
+  toggle.addEventListener('click', function() {
+    var isOpen = navLinks.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', isOpen);
+  });
+  var path = location.pathname;
+  document.querySelectorAll('.nav-link').forEach(function(link) {
+    var href = link.getAttribute('href');
+    if (href && (path === href || path.indexOf(href.replace('/index.html','')) > -1)) {
+      link.classList.add('active');
+    }
+  });
+})();
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9V6L0Z956X"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9V6L0Z956X');
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --brand:#2563eb; --brand-hover:#1d4ed8; --text:#1e293b; --muted:#64748b; --border:#e2e8f0; --bg:#ffffff; --bg-subtle:#f8fafc; --surface:#ffffff; --radius:12px; --max-w:1120px; }
+    body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; color:var(--text); background:var(--bg); line-height:1.45; }
+    a { color:var(--brand); text-decoration:none; } a:hover { color:var(--brand-hover); text-decoration:underline; }
+    .container { max-width:var(--max-w); margin:0 auto; padding:0 24px; width:100%; }
+    .breadcrumb { font-size:.85rem; color:var(--muted); margin:20px 0 8px; } .breadcrumb a { color:var(--muted); } .breadcrumb a:hover { color:var(--brand); }
+    .page-hero { padding:24px 0 20px; text-align:center; }
+    .page-hero h1 { font-size:clamp(1.8rem,5vw,2.5rem); font-weight:800; line-height:1.15; margin-bottom:10px; }
+    .page-hero p { font-size:1.05rem; color:var(--muted); max-width:620px; margin:0 auto; }
+    h2 { font-size:1.45rem; font-weight:700; margin:32px 0 12px; color:var(--text); }
+    h2 .count { font-size:.9rem; color:var(--muted); font-weight:500; }
+    p { color:#334155; }
+    .ad-block { margin:20px auto; text-align:center; }
+    .cat-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:24px; margin:20px 0 10px; }
+    .cat-block { border:1px solid var(--border); border-radius:var(--radius); padding:22px; background:var(--surface); box-shadow:0 2px 6px rgba(15,23,42,.04); }
+    .cat-title { font-size:1.1rem; font-weight:700; margin-bottom:4px; display:flex; align-items:center; gap:10px; }
+    .cat-title .icon { font-size:1.2rem; }
+    .cat-subtitle { color:var(--muted); font-size:.85rem; margin-bottom:16px; }
+    .page-list { display:flex; flex-direction:column; gap:6px; }
+    .page-item { display:flex; align-items:center; gap:8px; padding:8px 12px; background:var(--bg-subtle); border-radius:8px; color:var(--text); text-decoration:none; font-size:.9rem; transition:background .15s, border-color .15s; border:1px solid transparent; }
+    .page-item:hover { background:#e8f1ff; border-color:#c7dbfb; text-decoration:none; }
+    .page-item .arrow { color:var(--muted); font-size:.8rem; }
+    footer { margin-top:48px; padding:32px 0 24px; border-top:1px solid var(--border); text-align:center; background:var(--bg-subtle); }
+    .footer-tagline { font-size:.9rem; color:var(--muted); margin-bottom:14px; } .footer-tagline strong { color:var(--text); }
+    .footer-links { display:flex; justify-content:center; flex-wrap:wrap; gap:4px 18px; font-size:.85rem; margin-bottom:12px; } .footer-links a { color:var(--muted); }
+    .footer-copy { font-size:.8rem; color:#94a3b8; margin-top:10px; } .footer-divider { width:1px; height:10px; background:var(--border); display:inline-block; vertical-align:middle; margin:0 4px; }
+    @media (max-width:780px){ .cat-grid { grid-template-columns:1fr; } .site-header__inner { flex-direction:column; align-items:flex-start; } }
+  
+/* ── Site Navigation ── */
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255,255,255,.97);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 1px 4px rgba(0,0,0,.05);
+}
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 52px;
+}
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--brand);
+  text-decoration: none;
+  flex-shrink: 0;
+  margin-right: 12px;
+}
+.nav-logo:hover { text-decoration: none; }
+.nav-logo-icon {
+  width: 36px;
+  height: 36px;
+  background: var(--brand);
+  color: #fff;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: .9rem;
+  flex-shrink: 0;
+}
+.nav-logo-text { font-size: .95rem; }
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  flex: 1;
+}
+.nav-links::-webkit-scrollbar { display: none; }
+.nav-link {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 10px;
+  font-size: .82rem;
+  font-weight: 500;
+  color: var(--text);
+  border-radius: 6px;
+  white-space: nowrap;
+  transition: all .15s;
+  flex-shrink: 0;
+}
+.nav-link:hover {
+  background: var(--brand);
+  color: #fff;
+  text-decoration: none;
+}
+.nav-link.active {
+  background: #eff6ff;
+  color: var(--brand);
+}
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  width: 32px;
+  height: 32px;
+  padding: 4px;
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  cursor: pointer;
+  flex-shrink: 0;
+  margin-left: auto;
+}
+.nav-toggle span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: var(--text);
+  border-radius: 1px;
+}
+@media (max-width: 768px) {
+  .nav-logo-text { display: none; }
+  .nav-inner { gap: 6px; }
+  .nav-toggle { display: flex; }
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 52px;
+    left: 0;
+    right: 0;
+    background: #fff;
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 4px 12px rgba(0,0,0,.1);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 8px 0;
+    z-index: 99;
+    overflow: visible;
+  }
+  .nav-links.open { display: flex; }
+  .nav-link {
+    width: 100%;
+    padding: 10px 20px;
+    font-size: .9rem;
+    border-radius: 0;
+  }
+}
+  </style>
+
+  <meta property="og:title" content="Sitemap – All Pages | zlbox" />
+  <meta property="og:description" content="Complete sitemap of zlbox. Browse all free online tools, blog articles, and category pages." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.zlbox.site/sitemap.html" />
+  <meta property="og:site_name" content="zlbox" />
+  <meta property="og:image" content="https://www.zlbox.site/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Sitemap – All Pages | zlbox" />
+  <meta name="twitter:description" content="Complete sitemap of zlbox. Browse all free online tools, blog articles, and category pages." />
+  <meta name="twitter:image" content="https://www.zlbox.site/og-image.png" />
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebPage","name":"Sitemap","description":"Complete sitemap of zlbox","url":"https://www.zlbox.site/sitemap.html","isPartOf":{"@type":"WebSite","name":"zlbox","url":"https://www.zlbox.site/"}}
+  </script>
+
+</head>
+<body>
+
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo" aria-label="zlbox Home">
+        <span class="nav-logo-icon">zl</span>
+        <span class="nav-logo-text">zlbox</span>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-links" role="list">
+        <a href="/tools/index.html" class="nav-link" role="listitem">All Tools</a>
+        <a href="/categories/text.html" class="nav-link" role="listitem">Text</a>
+        <a href="/categories/calculator.html" class="nav-link" role="listitem">Calculator</a>
+        <a href="/categories/generator.html" class="nav-link" role="listitem">Generator</a>
+        <a href="/categories/image.html" class="nav-link" role="listitem">Image</a>
+        <a href="/categories/pdf.html" class="nav-link" role="listitem">PDF</a>
+        <a href="/blog/index.html" class="nav-link" role="listitem">Blog</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <nav class="breadcrumb"><a href="/">Home</a> / Sitemap</nav>
+  </div>
+
+  <section class="page-hero"><div class="container">
+    <h1>Site Map</h1>
+    <p>Browse all pages on zlbox. Find the tool or article you need.</p>
+  </div></section>
+
+  <div class="container"><div class="ad-block"><ins class="adsbygoogle" style="display:block;width:100%;max-width:728px;height:auto;margin:0 auto;" data-ad-client="ca-pub-5420550088713746" data-ad-slot="9988776655" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div>
+
+  <div class="container">
+    <div class="cat-grid">
+      <div class="cat-block">
+        <div class="cat-title"><span class="icon">&#127968;</span>Main Pages</div>
+        <div class="page-list">
+          <a class="page-item" href="/"><span class="arrow">&#8594;</span>Home</a>
+          <a class="page-item" href="/tools/index.html"><span class="arrow">&#8594;</span>All Tools</a>
+          <a class="page-item" href="/blog/index.html"><span class="arrow">&#8594;</span>Blog</a>
+          <a class="page-item" href="/about.html"><span class="arrow">&#8594;</span>About</a>
+          <a class="page-item" href="/contact.html"><span class="arrow">&#8594;</span>Contact</a>
+          <a class="page-item" href="/privacy.html"><span class="arrow">&#8594;</span>Privacy Policy</a>
+          <a class="page-item" href="/disclaimer.html"><span class="arrow">&#8594;</span>Disclaimer</a>
+        </div>
+      </div>
+
+      <div class="cat-block">
+        <div class="cat-title"><span class="icon">&#128196;</span>Categories <span class="count">(5)</span></div>
+        <div class="page-list">
+          <a class="page-item" href="/categories/text.html"><span class="arrow">&#8594;</span>Text & Developer Tools</a>
+          <a class="page-item" href="/categories/calculator.html"><span class="arrow">&#8594;</span>Calculator Tools</a>
+          <a class="page-item" href="/categories/generator.html"><span class="arrow">&#8594;</span>Generators & QR</a>
+          <a class="page-item" href="/categories/image.html"><span class="arrow">&#8594;</span>Image & Color Tools</a>
+          <a class="page-item" href="/categories/pdf.html"><span class="arrow">&#8594;</span>PDF Tools</a>
+        </div>
+      </div>
+
+      <div class="cat-block">
+        <div class="cat-title"><span class="icon">&#128196;</span>PDF Tools <span class="count">(4)</span></div>
+        <div class="page-list">
+          <a class="page-item" href="/tools/pdf/compress-pdf.html"><span class="arrow">&#8594;</span>Compress PDF</a>
+          <a class="page-item" href="/tools/pdf/merge-pdf.html"><span class="arrow">&#8594;</span>Merge PDF</a>
+          <a class="page-item" href="/tools/pdf/split-pdf.html"><span class="arrow">&#8594;</span>Split PDF</a>
+          <a class="page-item" href="/tools/pdf/jpg-to-pdf.html"><span class="arrow">&#8594;</span>JPG to PDF</a>
+        </div>
+      </div>
+
+      <div class="cat-block">
+        <div class="cat-title"><span class="icon">&#128247;</span>Image & Color Tools <span class="count">(6)</span></div>
+        <div class="page-list">
+          <a class="page-item" href="/tools/image/image-compressor.html"><span class="arrow">&#8594;</span>Image Compressor</a>
+          <a class="page-item" href="/tools/image/image-converter.html"><span class="arrow">&#8594;</span>Image Converter</a>
+          <a class="page-item" href="/tools/image/image-resizer.html"><span class="arrow">&#8594;</span>Image Resizer</a>
+          <a class="page-item" href="/tools/image/background-remover.html"><span class="arrow">&#8594;</span>Background Remover</a>
+          <a class="page-item" href="/tools/image/color-picker.html"><span class="arrow">&#8594;</span>Color Picker</a>
+          <a class="page-item" href="/tools/image/color-converter.html"><span class="arrow">&#8594;</span>Color Converter</a>
+        </div>
+      </div>
+
+      <div class="cat-block">
+        <div class="cat-title"><span class="icon">&#128736;</span>Generators &amp; QR <span class="count">(9)</span></div>
+        <div class="page-list">
+          <a class="page-item" href="/tools/generator/password-generator.html"><span class="arrow">&#8594;</span>Password Generator</a>
+          <a class="page-item" href="/tools/generator/qr-code-generator.html"><span class="arrow">&#8594;</span>QR Code Generator</a>
+          <a class="page-item" href="/tools/generator/qr-code-scanner.html"><span class="arrow">&#8594;</span>QR Code Scanner</a>
+          <a class="page-item" href="/tools/generator/uuid-generator.html"><span class="arrow">&#8594;</span>UUID Generator</a>
+          <a class="page-item" href="/tools/generator/hash-generator.html"><span class="arrow">&#8594;</span>Hash Generator</a>
+          <a class="page-item" href="/tools/generator/ip-address.html"><span class="arrow">&#8594;</span>IP Address Generator</a>
+          <a class="page-item" href="/tools/generator/random-number-generator.html"><span class="arrow">&#8594;</span>Random Number</a>
+          <a class="page-item" href="/tools/generator/pomodoro-timer.html"><span class="arrow">&#8594;</span>Pomodoro Timer</a>
+          <a class="page-item" href="/tools/generator/what-is-my-ip.html"><span class="arrow">&#8594;</span>What Is My IP</a>
+        </div>
+      </div>
+
+      <div class="cat-block">
+        <div class="cat-title"><span class="icon">&#128200;</span>Calculator Tools <span class="count">(7)</span></div>
+        <div class="page-list">
+          <a class="page-item" href="/tools/calculator/age-calculator.html"><span class="arrow">&#8594;</span>Age Calculator</a>
+          <a class="page-item" href="/tools/calculator/percentage-calculator.html"><span class="arrow">&#8594;</span>Percentage Calculator</a>
+          <a class="page-item" href="/tools/calculator/basic-calculator.html"><span class="arrow">&#8594;</span>Basic Calculator</a>
+          <a class="page-item" href="/tools/calculator/scientific-calculator.html"><span class="arrow">&#8594;</span>Scientific Calculator</a>
+          <a class="page-item" href="/tools/calculator/bmi-calculator.html"><span class="arrow">&#8594;</span>BMI Calculator</a>
+          <a class="page-item" href="/tools/calculator/loan-calculator.html"><span class="arrow">&#8594;</span>Loan Calculator</a>
+          <a class="page-item" href="/tools/calculator/unit-converter.html"><span class="arrow">&#8594;</span>Unit Converter</a>
+        </div>
+      </div>
+
+      <div class="cat-block">
+        <div class="cat-title"><span class="icon">&#128221;</span>Text & Developer Tools <span class="count">(12)</span></div>
+        <div class="page-list">
+          <a class="page-item" href="/tools/text/word-counter.html"><span class="arrow">&#8594;</span>Word Counter</a>
+          <a class="page-item" href="/tools/text/json-formatter.html"><span class="arrow">&#8594;</span>JSON Formatter</a>
+          <a class="page-item" href="/tools/text/html-formatter.html"><span class="arrow">&#8594;</span>HTML Formatter</a>
+          <a class="page-item" href="/tools/text/sql-formatter.html"><span class="arrow">&#8594;</span>SQL Formatter</a>
+          <a class="page-item" href="/tools/text/case-converter.html"><span class="arrow">&#8594;</span>Case Converter</a>
+          <a class="page-item" href="/tools/text/base64.html"><span class="arrow">&#8594;</span>Base64 Encode/Decode</a>
+          <a class="page-item" href="/tools/text/url-encoder.html"><span class="arrow">&#8594;</span>URL Encode/Decode</a>
+          <a class="page-item" href="/tools/text/html-encoder.html"><span class="arrow">&#8594;</span>HTML Encode/Decode</a>
+          <a class="page-item" href="/tools/text/lorem-ipsum.html"><span class="arrow">&#8594;</span>Lorem Ipsum</a>
+          <a class="page-item" href="/tools/text/remove-duplicates.html"><span class="arrow">&#8594;</span>Remove Duplicates</a>
+          <a class="page-item" href="/tools/text/number-base-converter.html"><span class="arrow">&#8594;</span>Binary/Hex/Decimal</a>
+          <a class="page-item" href="/tools/text/csv-to-json.html"><span class="arrow">&#8594;</span>CSV to JSON</a>
+        </div>
+      </div>
+
+      <div class="cat-block">
+        <div class="cat-title"><span class="icon">&#128218;</span>Blog Articles <span class="count">(12)</span></div>
+        <div class="page-list">
+          <a class="page-item" href="/blog/how-to-compress-pdf.html"><span class="arrow">&#8594;</span>How to Compress PDF Files</a>
+          <a class="page-item" href="/blog/pdf-tools-guide.html"><span class="arrow">&#8594;</span>PDF Tools Guide</a>
+          <a class="page-item" href="/blog/image-compression-guide.html"><span class="arrow">&#8594;</span>Image Compression Guide</a>
+          <a class="page-item" href="/blog/batch-image-processing.html"><span class="arrow">&#8594;</span>Batch Image Processing</a>
+          <a class="page-item" href="/blog/color-design-basics.html"><span class="arrow">&#8594;</span>Color Design Basics</a>
+          <a class="page-item" href="/blog/json-formatter-developers.html"><span class="arrow">&#8594;</span>JSON Formatter for Developers</a>
+          <a class="page-item" href="/blog/password-security.html"><span class="arrow">&#8594;</span>Password Security Guide</a>
+          <a class="page-item" href="/blog/qr-code-business.html"><span class="arrow">&#8594;</span>QR Code for Business</a>
+          <a class="page-item" href="/blog/qr-code-types.html"><span class="arrow">&#8594;</span>QR Code Types</a>
+          <a class="page-item" href="/blog/age-calculator-uses.html"><span class="arrow">&#8594;</span>Age Calculator Uses</a>
+          <a class="page-item" href="/blog/percent-calculator-everyday.html"><span class="arrow">&#8594;</span>Percentage Calculator Everyday</a>
+          <a class="page-item" href="/blog/data-privacy-tools.html"><span class="arrow">&#8594;</span>Data Privacy Tools</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p class="footer-tagline"><strong>zlbox</strong> &mdash; Free online tools for everyone.</p>
+      <div class="footer-links"><a href="/tools/index.html">All Tools</a><span class="footer-divider"></span><a href="/about.html">About</a><span class="footer-divider"></span><a href="/privacy.html">Privacy</a><span class="footer-divider"></span><a href="/disclaimer.html">Disclaimer</a></div>
+      <p class="footer-copy">&copy; 2026 zlbox. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,260 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Understanding Different Types of QR Codes: URL vs vCard WiFi and More</title>
+  <meta name="description" content="Guide to different QR code data types and when to use each. Technical explanation.">
+  <meta name="keywords" content="qr code types, qr code data types, url qr, vcard qr, wifi qr">
+  <meta name="google-site-verification" content="google4bd1e08685667667">
+  <link rel="canonical" href="https://www.zlbox.site/blog/qr-code-types.html">
+  <meta property="og:title" content="Understanding Different Types of QR Codes: URL vs vCard WiFi and More">
+  <meta property="og:description" content="Guide to different QR code data types and when to use each. Technical explanation.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.zlbox.site/blog/qr-code-types.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9V6L0Z956X"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9V6L0Z956X');
+  </script>
+  <style>
+    :root{--brand:#2563eb;--brand-hover:#1d4ed8;--text:#1e293b;--muted:#64748b;--border:#e2e8f0;--bg:#ffffff;--bg-subtle:#f8fafc;--surface:#ffffff;--radius:12px;--max-w:860px;}
+    *{box-sizing:border-box} html,body{margin:0;padding:0;color:var(--text);background:var(--bg);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
+    a{color:var(--brand);text-decoration:none} a:hover{color:var(--brand-hover);text-decoration:underline}
+    .container{max-width:var(--max-w);margin:0 auto;padding:0 20px}
+    .site-header{background:#fff;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
+    .site-header__inner{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;max-width:var(--max-w);margin:0 auto}
+    .brand{font-weight:700;color:var(--text);font-size:1.15rem} .brand span{color:var(--brand)}
+    .top-nav{display:flex;gap:16px;flex-wrap:wrap;font-size:.95rem} .top-nav a{color:var(--text)} .top-nav a:hover{color:var(--brand);text-decoration:none}
+    .breadcrumb{padding:14px 0;font-size:.9rem;color:var(--muted)} .breadcrumb .sep{margin:0 6px;color:#cbd5e1} .breadcrumb .current{color:var(--text)}
+    .article-hero{padding:14px 0 22px;background:linear-gradient(180deg,#f8fafc,#fff)}
+    .meta-row{display:flex;align-items:center;gap:10px;color:var(--muted);font-size:.88rem;margin-bottom:10px}
+    .cat-tag{background:#eff6ff;color:#1e40af;padding:4px 10px;border-radius:999px;font-size:.78rem;font-weight:600;letter-spacing:.02em}
+    .article-hero h1{font-size:2rem;line-height:1.2;margin:4px 0 10px}
+    .lead{font-size:1.08rem;color:var(--muted);margin:0;max-width:760px}
+    .ad-block{background:var(--bg-subtle);border:1px solid var(--border);border-radius:var(--radius);padding:14px;margin:22px 0;text-align:center}
+    article{padding:6px 0 8px} article h2{font-size:1.45rem;margin:34px 0 10px;border-bottom:1px solid var(--border);padding-bottom:6px}
+    article h3{font-size:1.1rem;margin:22px 0 6px;color:var(--text)}
+    article p{margin:10px 0} article ul{margin:10px 0 10px 22px} article ul li{margin:6px 0}
+    article code{background:#f1f5f9;border:1px solid var(--border);padding:2px 6px;border-radius:6px;font-size:.9rem}
+    pre{background:#f8fafc;border:1px solid var(--border);border-radius:var(--radius);padding:12px 14px;overflow-x:auto;font-size:.85rem;line-height:1.45}
+    .tip-box{background:#eff6ff;border:1px solid #bfdbfe;color:#1e3a8a;padding:14px 16px;border-radius:var(--radius);margin:20px 0;font-size:.95rem}
+    table{width:100%;border-collapse:collapse;margin:16px 0;background:#fff} th,td{border:1px solid var(--border);padding:10px 12px;text-align:left;font-size:.95rem} th{background:var(--bg-subtle);color:var(--text)}
+    .section-title{font-size:1.4rem;margin:22px 0 14px}
+    .section-divider{border:0;border-top:1px solid var(--border);margin:30px 0 0}
+    .related-articles{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .article-card{display:block;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;text-decoration:none;color:var(--text);transition:border-color .15s,transform .15s} .article-card:hover{border-color:var(--brand);transform:translateY(-1px);text-decoration:none}
+    .article-card__cat{display:inline-block;font-size:.74rem;color:#1e40af;background:#eff6ff;padding:3px 8px;border-radius:999px;font-weight:600;margin-bottom:8px}
+    .article-card__title{font-size:1.05rem;margin:2px 0 6px;color:var(--text)} .article-card__date{color:var(--muted);font-size:.8rem;margin-bottom:8px}
+    .article-card__excerpt{color:var(--muted);font-size:.9rem;margin:0 0 10px} .article-card__read{color:var(--brand);font-weight:600;font-size:.9rem}
+    .related-tools{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:14px}
+    .tool-card{display:flex;align-items:center;gap:10px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:12px;color:var(--text)} .tool-card:hover{border-color:var(--brand);text-decoration:none}
+    .tool-card .ico{background:#eff6ff;color:var(--brand);border-radius:10px;width:36px;height:36px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+    .tool-card .txt{font-size:.95rem;line-height:1.2} .tool-card .txt small{display:block;color:var(--muted);font-size:.8rem;margin-top:2px}
+    footer{background:var(--bg-subtle);border-top:1px solid var(--border);margin-top:36px;padding:24px 0 18px;text-align:center}
+    .footer-tagline{color:var(--text);margin:0 0 10px} .footer-links{display:flex;justify-content:center;flex-wrap:wrap;gap:4px 18px;font-size:.88rem;margin-bottom:10px} .footer-links a{color:var(--muted)}
+    .footer-tool-links{display:flex;flex-wrap:wrap;justify-content:center;gap:4px 18px;font-size:.82rem;margin:6px 0 14px} .footer-tool-links a{color:var(--muted)}
+    .footer-copy{font-size:.78rem;color:#94a3b8;margin-top:8px} .footer-divider{width:1px;height:10px;background:var(--border);display:inline-block;vertical-align:middle;margin:0 4px}
+    @media (max-width:780px){ .related-articles { grid-template-columns:1fr; } .related-tools { grid-template-columns:repeat(2,1fr); } .site-header__inner { flex-direction:column;align-items:flex-start; } }
+    @media (max-width:520px){ .article-hero h1 { font-size:1.65rem; } article h2 { font-size:1.25rem; } .related-tools { grid-template-columns:1fr; } }
+  </style>
+
+  <meta property="og:image" content="https://www.zlbox.site/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Types of QR Codes" />
+  <meta name="twitter:description" content="QR code varieties" />
+  <meta name="twitter:image" content="https://www.zlbox.site/og-image.png" />
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <meta name="robots" content="index, follow" />
+
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Types of QR Codes", "description": "QR code varieties", "url": "https://www.zlbox.site/blog/qr-code-types.html", "author": {"@type": "Organization", "name": "My Tool Lab"}, "publisher": {"@type": "Organization", "name": "My Tool Lab"}, "datePublished": "2026-06-22", "dateModified": "2026-06-22"}</script>
+</head>
+<body>
+  <header class="site-header"><div class="container site-header__inner"><a href="../index.html" class="brand">My<span>Tool</span>Lab</a><nav class="top-nav"><a href="../categories/pdf.html">PDF</a><a href="../categories/image.html">Image</a><a href="../categories/text.html">Text</a><a href="../categories/generator.html">Generators</a><a href="index.html">Blog</a></nav></div></header>
+
+  <div class="container"><nav class="breadcrumb"><a href="../index.html">Home</a><span class="sep">/</span><a href="index.html">Blog</a><span class="sep">/</span><span class="current">QR Code Types</span></nav></div>
+
+  <section class="article-hero"><div class="container">
+    <div class="meta-row"><span class="cat-tag">Technology</span><span>June 10, 2026</span><span>&middot;</span><span>6 min read</span></div>
+    <h1>Understanding Different Types of QR Codes</h1>
+    <p class="lead">All QR codes store data, but the data format determines what a phone does with it. Here is a guide to URLs, vCards, WiFi, email, SMS, geo-location, and more, with practical use cases for each.</p>
+  </div></section>
+
+  <div class="container"><div class="ad-block"><ins class="adsbygoogle" style="display:block;width:100%;max-width:728px;height:auto;margin:0 auto;" data-ad-client="ca-pub-5420550088713746" data-ad-slot="8899001122" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div>
+
+  <div class="container">
+  <article>
+    <h2>Static vs. Dynamic QR Codes</h2>
+    <p>A QR code is simply an image that encodes text. Two broad categories cover every use case.</p>
+    <ul>
+      <li><strong>Static QR codes</strong> encode the target information directly into the pattern. The content cannot be changed without regenerating and reprinting the code. These are free, simple, and permanent.</li>
+      <li><strong>Dynamic QR codes</strong> store a short URL that redirects to the actual content. Because the redirection happens server-side, you can change what the URL points to without changing the printed code. Useful for marketing campaigns where you want to measure scans or update the landing page later.</li>
+    </ul>
+    <p>Dynamic codes need a tracking service and are slightly more complex. For most everyday uses &mdash; a business card, a menu, a WiFi password &mdash; a static QR code is perfect.</p>
+
+    <h2>The Data Types Your Phone Recognizes</h2>
+    <p>Modern phones interpret certain patterns inside a QR code automatically. The pattern decides the action: open a URL, add a contact, connect to WiFi, and so on.</p>
+
+    <h3>1. URL / Website</h3>
+    <p>The most common QR code by a wide margin. Your phone opens the link in the default browser.</p>
+    <pre>https://example.com/summer-menu</pre>
+    <ul>
+      <li>Best for: marketing posters, product packaging, business cards pointing to a landing page.</li>
+      <li>Tip: keep the URL short. Every additional character adds more modules to the QR code, making it harder to scan.</li>
+    </ul>
+
+    <h3>2. Plain Text</h3>
+    <p>A plain-text QR code shows the text on screen with no automatic action. Useful for messages, notes, or information that does not need automation.</p>
+    <pre>Pickup code A-215. Thank you!</pre>
+
+    <h3>3. vCard &mdash; Contact Information</h3>
+    <p>A vCard QR code encodes structured contact data so the phone prompts "Add to contacts." The formal format begins with <code>BEGIN:VCARD</code>.</p>
+    <pre>BEGIN:VCARD
+VERSION:3.0
+N:Doe;John
+ORG:Acme Inc.
+TEL:+1-555-0199
+EMAIL:john@example.com
+URL:https://example.com
+END:VCARD</pre>
+    <ul>
+      <li>Best for: business cards, conference badges, storefront windows.</li>
+      <li>Note: support for vCard fields varies by phone. Stick to the basics (name, phone, email, organization) for widest compatibility.</li>
+    </ul>
+
+    <h3>4. WiFi Configuration</h3>
+    <p>A WiFi QR code encodes network credentials so a phone can connect with a single tap. This is the standard format used by Android and iOS camera apps.</p>
+    <pre>WIFI:T:WPA;S:HomeNetwork;P:secret123;;</pre>
+    <p>Field breakdown: <code>T</code> is the encryption type (WPA, WEP, or "nopass" for open networks), <code>S</code> is the network name (SSID), <code>P</code> is the password.</p>
+    <ul>
+      <li>Best for: cafes, offices, co-working spaces, vacation rentals.</li>
+      <li>Security: Anyone can scan and read the password. Place it where you already trust the audience. Rotate guest-network passwords monthly.</li>
+    </ul>
+
+    <h3>5. Email (mailto)</h3>
+    <p>Scanning launches the default email app with recipient, subject, and body pre-filled.</p>
+    <pre>mailto:hello@example.com?subject=Inquiry&body=Hello%2C%20</pre>
+    <ul>
+      <li>Best for: customer-support posters, product registration, "email us" kiosks.</li>
+    </ul>
+
+    <h3>6. SMS / Text Message</h3>
+    <p>Opens the SMS app with a phone number and optional message pre-filled.</p>
+    <pre>SMSTO:+15550199:Text us for a free sample</pre>
+
+    <h3>7. Telephone Number</h3>
+    <p>Prompts the phone to make a call.</p>
+    <pre>tel:+15550199</pre>
+    <p>Useful on window signs ("Call for a free estimate") and emergency-information posters.</p>
+
+    <h3>8. Geo-Location</h3>
+    <p>Opens a map at a specific latitude and longitude.</p>
+    <pre>geo:40.7128,-74.0060</pre>
+    <ul>
+      <li>Best for: "Find us" posters, real-estate flyers, travel guides.</li>
+      <li>Tip: pull coordinates from Google Maps by right-clicking a spot.</li>
+    </ul>
+
+    <h3>9. Event / Calendar</h3>
+    <p>Adds an event to the phone's calendar with title, location, start time, and end time.</p>
+    <pre>BEGIN:VEVENT
+SUMMARY:Design Review
+DTSTART:20260715T100000Z
+DTEND:20260715T110000Z
+LOCATION:Conference Room 3
+END:VEVENT</pre>
+
+    <h2>Size, Error Correction, and Scannability</h2>
+    <p>QR codes come in 40 sizes (versions). Version 1 is a 21&times;21 module pattern that can store a short URL. Version 40 is 177&times;177 and can store thousands of characters. In practice, versions 1 through 10 handle most real-world uses.</p>
+    <p>Error correction is the percentage of the pattern that can be damaged while still remaining scannable. Four levels are available:</p>
+    <table>
+      <thead><tr><th>Level</th><th>Recovery</th><th>Typical use</th></tr></thead>
+      <tbody>
+        <tr><td>L</td><td>~7%</td><td>Web URLs, indoor use</td></tr>
+        <tr><td>M</td><td>~15%</td><td>General-purpose, business cards</td></tr>
+        <tr><td>Q</td><td>~25%</td><td>Product labels, outdoor posters</td></tr>
+        <tr><td>H</td><td>~30%</td><td>Labels that may get damaged</td></tr>
+      </tbody>
+    </table>
+    <p>Higher error correction means more modules for the same amount of data &mdash; so the QR code physically grows. Pick the lowest level that matches where the code will live.</p>
+
+    <div class="tip-box"><strong>Scannability tip.</strong> Leave a quiet zone (blank white margin) at least four modules wide around every QR code. Phones need this margin to detect where the pattern begins and ends. Without it, tight designs fail to scan.</div>
+
+    <div class="ad-block"><ins class="adsbygoogle" style="display:block;width:100%;max-width:728px;height:auto;margin:0 auto;" data-ad-client="ca-pub-5420550088713746" data-ad-slot="9900112233" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+
+    <h2>Choosing the Right Type</h2>
+    <table>
+      <thead><tr><th>Scenario</th><th>Recommended type</th></tr></thead>
+      <tbody>
+        <tr><td>Landing page, menu, product info</td><td>URL</td></tr>
+        <tr><td>Business card, conference badge</td><td>vCard</td></tr>
+        <tr><td>Cafe / office guest network</td><td>WiFi</td></tr>
+        <tr><td>"Email us" support contact</td><td>mailto</td></tr>
+        <tr><td>Call for a quote</td><td>tel</td></tr>
+        <tr><td>Storefront direction sign</td><td>geo</td></tr>
+        <tr><td>Event registration</td><td>URL or event (VEVENT)</td></tr>
+        <tr><td>Short message / pickup code</td><td>Text</td></tr>
+        <tr><td>Marketing campaign (tracked)</td><td>Dynamic URL</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Best Practices</h2>
+    <ul>
+      <li><strong>Keep content short.</strong> A shorter QR code is easier to scan from a distance and holds up better when printed small. Use short URLs when possible.</li>
+      <li><strong>Test on both Android and iOS.</strong> The two platforms have subtle differences in how they prompt actions (especially WiFi and vCard).</li>
+      <li><strong>Prefer HTTPS URLs.</strong> Modern browsers warn on plain HTTP, which hurts trust and conversion.</li>
+      <li><strong>Provide a text fallback.</strong> Next to a WiFi QR code, also print the network name and password for devices that cannot scan.</li>
+      <li><strong>Choose colors with enough contrast.</strong> The modules must be darker than the background. Dark blue on white works; red on pink does not. If you must brand a QR code, use level H error correction so small visual changes do not break it.</li>
+      <li><strong>Do not put sensitive data in a QR code without a reason.</strong> Anyone can scan and read it. WiFi passwords, internal URLs, and personal information should live behind a login or on a guest network, not in a static QR code posted publicly.</li>
+    </ul>
+
+    <h2>Common Pitfalls</h2>
+    <ul>
+      <li><strong>URLs with special characters.</strong> Ampersands, question marks, and non-English characters must be encoded properly. A good QR generator does this for you; double-check if you craft them by hand.</li>
+      <li><strong>Long vCards failing to scan.</strong> If a vCard contains a physical address, two phone numbers, a work email, a personal email, and a title, it may overflow into a version the phone struggles with. Trim fields you do not need.</li>
+      <li><strong>Printed too small.</strong> If modules are smaller than about 3 mm on paper, many phones fail from arm's length. Target 10 mm per module for outdoor posters.</li>
+      <li><strong>Glossy or curved surfaces.</strong> Reflective paper and curved labels cause glare. Use matte stock and flat surfaces where possible.</li>
+    </ul>
+
+    <div class="tip-box"><strong>One last test.</strong> Before committing to a print run, scan the final design from the actual distance users will stand. If it fails, increase the size, boost error correction, or shorten the content.</div>
+  </article>
+  </div>
+
+  <div class="container"><div class="ad-block"><ins class="adsbygoogle" style="display:block;width:100%;max-width:728px;height:auto;margin:0 auto;" data-ad-client="ca-pub-5420550088713746" data-ad-slot="7711223344" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div>
+
+  <div class="container"><hr class="section-divider"><h2 class="section-title">Related Articles</h2>
+    <div class="related-articles">
+      <a class="article-card" href="qr-code-business.html"><span class="article-card__cat">Business</span><h3 class="article-card__title">10 Practical Ways Businesses Can Use QR Codes in 2026</h3><div class="article-card__date">May 30, 2026 &middot; 7 min read</div><p class="article-card__excerpt">Menus, payments, marketing, reviews, WiFi access, contactless check-in, and more.</p><span class="article-card__read">Read article &rarr;</span></a>
+      <a class="article-card" href="data-privacy-tools.html"><span class="article-card__cat">Privacy</span><h3 class="article-card__title">Why Privacy-First Tools: Keeping Your Data Safe in 2026</h3><div class="article-card__date">April 18, 2026 &middot; 7 min read</div><p class="article-card__excerpt">Browser-based tools versus cloud services &mdash; understanding client-side processing.</p><span class="article-card__read">Read article &rarr;</span></a>
+      <a class="article-card" href="password-security.html"><span class="article-card__cat">Security</span><h3 class="article-card__title">Strong Password Security Guide</h3><div class="article-card__date">June 11, 2026 &middot; 8 min read</div><p class="article-card__excerpt">How strong passwords are created, password managers, and common mistakes.</p><span class="article-card__read">Read article &rarr;</span></a>
+      <a class="article-card" href="json-formatter-developers.html"><span class="article-card__cat">Developers</span><h3 class="article-card__title">JSON Formatter: Essential Tool for Developers and Data Teams</h3><div class="article-card__date">May 9, 2026 &middot; 6 min read</div><p class="article-card__excerpt">Readability, debugging, API development, and code quality tips.</p><span class="article-card__read">Read article &rarr;</span></a>
+    </div>
+  </div>
+
+  <div class="container"><h2 class="section-title">QR Code Tools</h2>
+    <div class="related-tools">
+      <a class="tool-card" href="../tools/generator/qr-code-generator.html"><span class="ico">&#128241;</span><span class="txt">QR Code Generator<small>URL, vCard, WiFi, SMS</small></span></a>
+      <a class="tool-card" href="../tools/generator/password-generator.html"><span class="ico">&#128274;</span><span class="txt">Password Generator<small>Secure passwords</small></span></a>
+      <a class="tool-card" href="../tools/text/json-formatter.html"><span class="ico">&#9998;</span><span class="txt">Text Tools<small>Case, count, trim</small></span></a>
+      <a class="tool-card" href="../tools/image/image-compressor.html"><span class="ico">&#128444;</span><span class="txt">Image Compressor<small>Shrink images</small></span></a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p class="footer-tagline"><strong>My Tool Lab</strong> &mdash; Free online tools for everyone.</p>
+      <div class="footer-links"><a href="../about.html">About</a><span class="footer-divider"></span><a href="../contact.html">Contact</a><span class="footer-divider"></span><a href="../privacy.html">Privacy</a><span class="footer-divider"></span><a href="../disclaimer.html">Disclaimer</a></div>
+      <div class="footer-tool-links"><a href="../categories/pdf.html">PDF Tools</a><span class="footer-divider"></span><a href="../categories/image.html">Image Tools</a><span class="footer-divider"></span><a href="../categories/text.html">Text Tools</a><span class="footer-divider"></span><a href="../categories/generator.html">Generators</a></div>
+      <p class="footer-copy">&copy; 2026 My Tool Lab. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

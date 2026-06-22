@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lorem Ipsum Generator – Free Placeholder Text | My Tool Lab</title>
+  <meta name="description" content="Free online Lorem Ipsum generator. Generate customizable placeholder text with configurable paragraphs, sentences, and words. Perfect for mockups and wireframes." />
+  <link rel="canonical" href="https://www.zlbox.site/tools/text/lorem-ipsum.html" />
+  <meta name="google-site-verification" content="google4bd1e08685667667" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../../css/components.css" />
+
+  <meta property="og:image" content="https://www.zlbox.site/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Lorem Ipsum" />
+  <meta name="twitter:description" content="Generate placeholder text" />
+  <meta name="twitter:image" content="https://www.zlbox.site/og-image.png" />
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <meta name="robots" content="index, follow" />
+
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Lorem Ipsum", "description": "Generate placeholder text", "url": "https://www.zlbox.site/tools/text/lorem-ipsum.html", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9V6L0Z956X"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-9V6L0Z956X');</script>
+</head>
+<body>
+<div class="container-md">
+  <div class="hero">
+    <div class="breadcrumb"><a href="../../index.html">Home</a> &rsaquo; <a href="../../categories/text.html">Text Tools</a> &rsaquo; Lorem Ipsum</div>
+    <h1>Lorem Ipsum Generator</h1>
+    <p>Generate placeholder text with customizable paragraph, sentence, and word counts.</p>
+  </div>
+
+  <div class="card">
+    <div class="row-grid" style="margin-bottom:10px;">
+      <div class="row" style="gap:6px;">
+        <label for="paraCount">Paragraphs</label>
+        <input type="number" id="paraCount" value="3" min="1" max="20" style="max-width:80px;" />
+      </div>
+      <div class="row" style="gap:6px;">
+        <label for="sentCount">Sentences</label>
+        <input type="number" id="sentCount" value="4" min="1" max="20" style="max-width:80px;" />
+      </div>
+    </div>
+    <div class="row" style="gap:6px;">
+      <label for="wordCount">Words per sentence</label>
+      <input type="number" id="wordCount" value="8" min="1" max="50" style="max-width:80px;" />
+    </div>
+    <div class="row" style="margin-top:10px;">
+      <button class="btn btn--sm" id="genBtn" style="flex:1;">Generate</button>
+      <button class="btn btn--sm btn--ghost" id="copyBtn">Copy</button>
+    </div>
+    <div class="editor" style="margin-top:10px;">
+      <textarea id="outputText" readonly placeholder="Generated text appears here…" style="min-height:180px;"></textarea>
+      <div class="editor__toolbar">
+        <span id="stats" style="font-size:0.82rem;color:var(--muted);">0 words</span>
+        <div style="margin-left:auto"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>How it works</h2>
+    <ol class="steps">
+      <li>Set the number of paragraphs, sentences per paragraph, and words per sentence.</li>
+      <li>Click Generate — random but readable placeholder text is created instantly.</li>
+      <li>Hit Copy to paste it into your design or document.</li>
+    </ol>
+  </div>
+
+  <div class="section">
+    <h2>Related tools</h2>
+    <div class="related-grid">
+      <a href="word-counter.html">Word Counter</a>
+      <a href="case-converter.html">Case Converter</a>
+      <a href="json-formatter.html">JSON Formatter</a>
+      <a href="base64.html">Base64 Encode/Decode</a>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="word-counter.html">Word Counter</a>
+      <a href="case-converter.html">Case Converter</a>
+      <a href="json-formatter.html">JSON Formatter</a>
+      <span style="color:var(--border);margin:0 6px">|</span>
+      <a href="../../about.html">About</a>
+      <a href="../../privacy.html">Privacy</a>
+      <a href="../../disclaimer.html">Disclaimer</a>
+    </div>
+    <p class="footer-copy">&copy; 2026 My Tool Lab. All rights reserved.</p>
+  </footer>
+</div>
+
+<script>
+(function() {
+  var LOREM = [
+    'lorem','ipsum','dolor','sit','amet','consectetur','adipiscing','elit',
+    'sed','do','eiusmod','tempor','incididunt','ut','labore','et',
+    'dolore','magna','aliqua','enim','ad','minim','veniam','quis',
+    'nostrud','exercitation','ullamco','laboris','nisi','aliquip','ex',
+    'ea','commodo','consequat','duis','aute','irure','reprehenderit',
+    'voluptate','velit','esse','cillum','eu','fugiat','nulla','pariatur',
+    'sint','occaecat','cupidatat','non','proident','sunt','culpa','qui',
+    'officia','deserunt','mollit','anim','laborum','curabitur','pretium',
+    'tincidunt','lacus','gravida','orci','odio','morbi','sem','sapien',
+    'integer','leo','maecenas','mattis','ornare','massae','ultrices',
+    'posuere','cubilia','curae','donec','pharetra','convallis','urna',
+    'mollis','imperdiet','sagittis','nam','dui','cursus'
+  ];
+  var paraEl   = document.getElementById('paraCount');
+  var sentEl   = document.getElementById('sentCount');
+  var wordEl   = document.getElementById('wordCount');
+  var genBtn   = document.getElementById('genBtn');
+  var copyBtn  = document.getElementById('copyBtn');
+  var outputEl = document.getElementById('outputText');
+  var statsEl  = document.getElementById('stats');
+
+  function generate() {
+    var paraN = parseInt(paraEl.value, 10) || 3;
+    var sentN = parseInt(sentEl.value, 10) || 4;
+    var wordN = parseInt(wordEl.value, 10) || 8;
+    var result = '';
+    var totalWords = 0;
+    for (var p = 0; p < paraN; p++) {
+      var para = '';
+      for (var s = 0; s < sentN; s++) {
+        var actual = Math.floor(Math.random() * (wordN / 2)) + Math.ceil(wordN / 2);
+        var sentence = [];
+        for (var w = 0; w < actual; w++) {
+          sentence.push(LOREM[Math.floor(Math.random() * LOREM.length)]);
+        }
+        sentence[0] = sentence[0].charAt(0).toUpperCase() + sentence[0].slice(1);
+        para += sentence.join(' ') + (s < sentN - 1 ? ' ' : '.');
+        totalWords += actual;
+      }
+      result += para + (p < paraN - 1 ? '\n\n' : '');
+    }
+    outputEl.value = result;
+    statsEl.textContent = totalWords.toLocaleString() + ' words | ' + (paraN * sentN) + ' sentences | ' + paraN + ' paragraphs';
+  }
+
+  genBtn.addEventListener('click', generate);
+  copyBtn.addEventListener('click', function() {
+    if (!outputEl.value) return;
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(outputEl.value).then(function() {
+        copyBtn.textContent = 'Copied!';
+        setTimeout(function() { copyBtn.textContent = 'Copy'; }, 1200);
+      });
+    } else {
+      outputEl.select(); document.execCommand('copy');
+      copyBtn.textContent = 'Copied!';
+      setTimeout(function() { copyBtn.textContent = 'Copy'; }, 1200);
+    }
+  });
+
+  generate();
+})();
+</script>
+</body>
+</html>

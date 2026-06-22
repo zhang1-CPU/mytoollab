@@ -11,7 +11,7 @@
   <meta name="robots" content="index, follow" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="../../css/components.css" />
+  <link rel="stylesheet" href="../../_css/components.css" />
   <style>
     .drop{border:2px dashed var(--border);border-radius:var(--radius);padding:16px 12px;text-align:center;cursor:pointer;transition:border-color .15s,background .15s;}
     .drop.drag{border-color:var(--brand);background:#eff6ff;}

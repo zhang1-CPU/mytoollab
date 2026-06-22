@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UUID Generator – Random UUID v4 with Copy | My Tool Lab</title>
+  <meta name="description" content="Free online UUID v4 generator. Create 1 to 100 unique identifiers with hyphens or in uppercase, and copy them in one click." />
+  <link rel="stylesheet" href="../../css/components.css" />
+  <link rel="canonical" href="https://www.zlbox.site/tools/generator/uuid-generator.html" />
+  <meta name="google-site-verification" content="google4bd1e08685667667" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
+
+  <meta property="og:image" content="https://www.zlbox.site/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="UUID Generator" />
+  <meta name="twitter:description" content="Generate unique UUIDs" />
+  <meta name="twitter:image" content="https://www.zlbox.site/og-image.png" />
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <meta name="robots" content="index, follow" />
+
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "UUID Generator", "description": "Generate unique UUIDs", "url": "https://www.zlbox.site/tools/generator/uuid-generator.html", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9V6L0Z956X"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-9V6L0Z956X');</script>
+</head>
+<body>
+<div class="container-md">
+  <div class="hero">
+    <div class="breadcrumb"><a href="../../index.html">Home</a> &rsaquo; <a href="../../index.html">Generator Tools</a> &rsaquo; UUID Generator</div>
+    <h1>UUID Generator (v4)</h1>
+    <p>Generate cryptographically secure random UUID v4 identifiers in bulk. Toggle hyphens and case, then copy one or all with a single click.</p>
+  </div>
+
+  <div class="card">
+    <div class="field-row">
+      <div class="field">
+        <label>Quantity (1–100)</label>
+        <input type="number" id="count" min="1" max="100" step="1" value="5" />
+      </div>
+      <div class="field">
+        <label>Options</label>
+        <div style="display:flex;gap:16px;padding-top:8px;">
+          <label style="font-size:0.9rem;"><input type="checkbox" id="hyphens" checked /> Hyphens</label>
+          <label style="font-size:0.9rem;"><input type="checkbox" id="upper" /> Uppercase</label>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:flex;gap:8px;margin-top:6px;flex-wrap:wrap;">
+      <button class="btn" id="gen" style="flex:1;min-width:160px;">Generate</button>
+      <button class="btn btn--ghost" id="copy-all">Copy All</button>
+    </div>
+
+    <div id="list" style="margin-top:14px;display:flex;flex-direction:column;gap:6px;"></div>
+    <p style="text-align:center;font-size:0.82rem;color:var(--muted);margin-top:8px;" id="note"></p>
+  </div>
+
+  <div class="section">
+    <h2>How it works</h2>
+    <ol class="steps">
+      <li>Choose how many UUIDs you want (1–100) and whether to include hyphens or use uppercase.</li>
+      <li>Each UUID v4 is generated using the browser's crypto module, producing 122 bits of randomness.</li>
+      <li>Click the copy button on any UUID, or use <strong>Copy All</strong> to grab the full list to your clipboard.</li>
+    </ol>
+  </div>
+
+  <div class="section">
+    <h2>Related tools</h2>
+    <div class="related-grid">
+      <a href="random-number-generator.html">Random Number Generator</a>
+      <a href="hash-generator.html">Hash Generator</a>
+      <a href="what-is-my-ip.html">What Is My IP</a>
+      <a href="../text/base64.html">Base64 Encoder</a>
+      <a href="../text/csv-to-json.html">CSV to JSON Converter</a>
+      <a href="../text/html-encoder.html">HTML Encoder</a>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="random-number-generator.html">Random Number Generator</a>
+      <a href="hash-generator.html">Hash Generator</a>
+      <a href="what-is-my-ip.html">What Is My IP</a>
+      <span style="color:var(--border);margin:0 6px">|</span>
+      <a href="../../about.html">About</a>
+      <a href="../../privacy.html">Privacy</a>
+      <a href="../../disclaimer.html">Disclaimer</a>
+    </div>
+    <p class="footer-copy">&copy; 2026 My Tool Lab. All rights reserved.</p>
+  </footer>
+</div>
+
+<script>
+(function(){
+  function genUUID(){
+    if(crypto.randomUUID) return crypto.randomUUID();
+    // fallback RFC4122 v4
+    var rnd=crypto.getRandomValues.bind(crypto);
+    var r=new Uint8Array(16); rnd(r);
+    r[6]=(r[6]&0x0f)|0x40; r[8]=(r[8]&0x3f)|0x80;
+    var hex=Array.from(r).map(function(b){return (b<16?'0':'')+b.toString(16);}).join('');
+    return [hex.slice(0,8),hex.slice(8,12),hex.slice(12,16),hex.slice(16,20),hex.slice(20,32)].join('-');
+  }
+  function fmt(u){
+    var s=u;
+    if(!document.getElementById('hyphens').checked) s=s.replace(/-/g,'');
+    if(document.getElementById('upper').checked) s=s.toUpperCase();
+    return s;
+  }
+  function render(){
+    var cnt=Math.max(1,Math.min(100,parseInt(document.getElementById('count').value,10)||5));
+    document.getElementById('count').value=cnt;
+    var list=document.getElementById('list');
+    list.innerHTML='';
+    for(var i=0;i<cnt;i++){
+      var u=genUUID();
+      var display=fmt(u);
+      var row=document.createElement('div');
+      row.className='mono-box';
+      row.style.padding='10px 12px';
+      row.innerHTML='<span class="mono-box__text" style="font-size:0.92rem;">'+display+'</span><button class="btn" style="padding:6px 12px;font-size:0.82rem;">Copy</button>';
+      row.querySelector('button').addEventListener('click',(function(val){return function(){copyText(val);};})(display));
+      list.appendChild(row);
+    }
+    document.getElementById('note').textContent=cnt+' UUID'+(cnt===1?'':'s')+' generated.';
+  }
+
+  function copyText(txt){
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(function(){
+        document.getElementById('note').textContent='Copied '+txt.length+' character'+(txt.length===1?'':'s')+' to clipboard.';
+      },function(){ fallbackCopy(txt); });
+    } else { fallbackCopy(txt); }
+  }
+  function fallbackCopy(txt){
+    var ta=document.createElement('textarea');
+    ta.value=txt; document.body.appendChild(ta); ta.select();
+    try{ document.execCommand('copy'); document.getElementById('note').textContent='Copied to clipboard.'; }
+    catch(e){ document.getElementById('note').textContent='Copy failed.'; }
+    document.body.removeChild(ta);
+  }
+
+  document.getElementById('gen').addEventListener('click',render);
+  document.getElementById('hyphens').addEventListener('change',render);
+  document.getElementById('upper').addEventListener('change',render);
+  document.getElementById('count').addEventListener('change',render);
+  document.getElementById('copy-all').addEventListener('click',function(){
+    var txts=Array.from(document.querySelectorAll('#list .mono-box__text')).map(function(el){return el.textContent.trim();});
+    copyText(txts.join('\n'));
+  });
+  render();
+})();
+</script>
+</body>
+</html>

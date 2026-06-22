@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Base64 Encode / Decode – Free Online Tool | My Tool Lab</title>
+  <meta name="description" content="Free online Base64 encoder and decoder. Instantly encode text to Base64 or decode Base64 strings back to plain text. Supports Unicode, Chinese characters, and special symbols." />
+  <link rel="stylesheet" href="../../css/components.css" />
+  <link rel="canonical" href="https://www.zlbox.site/tools/text/base64.html" />
+  <meta name="google-site-verification" content="google4bd1e08685667667" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9V6L0Z956X"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9V6L0Z956X');
+  </script>
+
+  <meta property="og:image" content="https://www.zlbox.site/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Base64 Encoder" />
+  <meta name="twitter:description" content="Encode and decode Base64" />
+  <meta name="twitter:image" content="https://www.zlbox.site/og-image.png" />
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <meta name="robots" content="index, follow" />
+
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Base64 Encoder", "description": "Encode and decode Base64", "url": "https://www.zlbox.site/tools/text/base64.html", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+</head>
+<body>
+<div class="container-md">
+  <div class="hero">
+    <div class="breadcrumb"><a href="../../index.html">Home</a> &rsaquo; <a href="../../categories/text.html">Text Tools</a> &rsaquo; Base64 Encode &amp; Decode</div>
+    <h1>Base64 Encode &amp; Decode</h1>
+    <p>Encode plain text to Base64 or decode Base64 strings back — in real time, no page reload needed.</p>
+  </div>
+
+  <div class="ad-slot">
+    <ins class="adsbygoogle" style="display:block;width:100%;max-width:728px;height:auto;margin:0 auto;" data-ad-client="ca-pub-5420550088713746" data-ad-slot="7890123456" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+
+  <div class="card">
+    <div class="tabs">
+      <button class="tabs__btn is-active" data-mode="encode">⬆ Encode</button>
+      <button class="tabs__btn" data-mode="decode">⬇ Decode</button>
+    </div>
+    <div class="editor">
+      <textarea id="input-text" placeholder="Type or paste your text here…" autocomplete="off" spellcheck="false"></textarea>
+      <div class="editor__toolbar">
+        <button class="btn btn--sm" id="convert-btn">Convert</button>
+        <button class="btn btn--sm btn--ghost" id="clear-btn">Clear</button>
+      </div>
+    </div>
+    <div class="editor" style="margin-top:10px;">
+      <textarea id="output-text" placeholder="Result appears here automatically…" readonly></textarea>
+      <div class="editor__toolbar">
+        <button class="btn btn--sm" id="copy-btn">Copy Result</button>
+        <button class="btn btn--sm btn--ghost" id="swap-btn">Swap</button>
+      </div>
+    </div>
+    <div class="note note--warn" id="error-msg" style="display:none;"></div>
+  </div>
+
+  <div class="ad-slot">
+    <ins class="adsbygoogle" style="display:block;width:100%;max-width:728px;height:auto;margin:0 auto;" data-ad-client="ca-pub-5420550088713746" data-ad-slot="8901234567" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+
+  <div class="section">
+    <h2>What Is This Tool For?</h2>
+    <p>Base64 encoding converts binary or text data into a safe ASCII string — commonly used when embedding images in HTML/CSS, passing data through URLs, or storing credentials in config files. If you're a developer working with APIs, email attachments, or JWT tokens, you'll run into Base64 constantly.</p>
+    <p>This tool works just as well for non-developers. Need to decode a mysterious string you found in a config file or a web request? Paste it in, flip to Decode mode, and you'll see the original text instantly. It handles Unicode and Chinese characters too, so no garbled output.</p>
+  </div>
+
+  <div class="section">
+    <h2>How to Use</h2>
+    <ul class="steps">
+      <li>Choose your mode — hit <strong>Encode</strong> to convert plain text to Base64, or <strong>Decode</strong> to reverse a Base64 string back to readable text.</li>
+      <li>Type or paste your content into the top input box, then press <strong>Convert</strong>. The result appears instantly in the output box.</li>
+      <li>Hit <strong>Copy Result</strong> to grab the output with one tap, or use <strong>Swap</strong> to move the output back into the input for a quick round-trip.</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Examples</h2>
+    <div class="note"><strong>Example 1 — Encoding an API key for an HTTP header</strong><p>Input: <code>myuser:s3cr3tP@ss</code></p><p>Base64 Output: <code>bXl1c2VyOnMzY3IzdFBAc3M=</code></p><p>Use it as: <code>Authorization: Basic bXl1c2VyOnMzY3IzdFBAc3M=</code></p></div>
+    <div class="note"><strong>Example 2 — Decoding a Base64 string from a JWT payload</strong><p>Input: <code>eyJ1c2VyIjoiYWxpY2UiLCJyb2xlIjoiYWRtaW4ifQ==</code></p><p>Decoded Output: <code>{"user":"alice","role":"admin"}</code></p></div>
+  </div>
+
+  <div class="ad-slot">
+    <ins class="adsbygoogle" style="display:block;width:100%;max-width:728px;height:auto;margin:0 auto;" data-ad-client="ca-pub-5420550088713746" data-ad-slot="9012345678" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+
+  <div class="section">
+    <h2>FAQ</h2>
+    <div class="faq">
+      <details><summary>Is Base64 a form of encryption?</summary><p>No. Base64 is encoding, not encryption. Anyone with this tool can decode a Base64 string immediately. Don't use it to hide sensitive data — use proper encryption like AES for that.</p></details>
+      <details><summary>Why does my decoded output look garbled?</summary><p>The input might not be valid Base64, or it could be encoding binary data (like an image) rather than text. This tool is designed for text content. Binary files need a different approach.</p></details>
+      <details><summary>Does it support Chinese characters and emoji?</summary><p>Yes. The tool uses UTF-8 encoding under the hood, so Chinese, Japanese, Arabic, emoji, and other Unicode characters all encode and decode correctly.</p></details>
+      <details><summary>Is my data sent to a server?</summary><p>No. Everything runs locally in your browser using native JavaScript. Nothing you type is transmitted anywhere — safe to use with sensitive strings.</p></details>
+      <details><summary>What's the "=" padding at the end of Base64 strings?</summary><p>Base64 works in 3-byte chunks. If the input isn't a multiple of 3 bytes, "=" characters are added to pad the output to the correct length. It's normal and expected.</p></details>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Related Tools</h2>
+    <div class="related-grid">
+      <a href="word-counter.html">📝 Word Counter</a>
+      <a href="case-converter.html">🔡 Case Converter</a>
+      <a href="lorem-ipsum.html">📄 Lorem Ipsum Generator</a>
+      <a href="json-formatter.html">📋 JSON Formatter</a>
+      <a href="url-encoder.html">🔗 URL Encoder</a>
+      <a href="../../index.html">🏠 Home</a>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="../../about.html">About</a>
+      <a href="../../privacy.html">Privacy</a>
+      <a href="../../disclaimer.html">Disclaimer</a>
+    </div>
+    <p class="footer-copy">&copy; 2026 My Tool Lab. All rights reserved.</p>
+  </footer>
+</div>
+
+<script>
+(function(){
+  var currentMode='encode';
+  var tabs=document.querySelectorAll('.tabs__btn');
+  var inp=document.getElementById('input-text');
+  var out=document.getElementById('output-text');
+  var err=document.getElementById('error-msg');
+  var convertBtn=document.getElementById('convert-btn');
+  var clearBtn=document.getElementById('clear-btn');
+  var copyBtn=document.getElementById('copy-btn');
+  var swapBtn=document.getElementById('swap-btn');
+
+  function setMode(mode){
+    currentMode=mode;
+    tabs.forEach(function(b){
+      b.classList.toggle('is-active',b.getAttribute('data-mode')===mode);
+    });
+    inp.placeholder=mode==='encode'?'Type or paste your text here…':'Paste a Base64 string here…';
+    convertBtn.textContent=mode==='encode'?'Encode':'Decode';
+    convert();
+  }
+  tabs.forEach(function(b){
+    b.addEventListener('click',function(){setMode(b.getAttribute('data-mode'));});
+  });
+
+  function safeEncode(str){
+    return btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g,function(_,p1){return String.fromCharCode(parseInt(p1,16));}));
+  }
+  function safeDecode(str){
+    return decodeURIComponent(atob(str).split('').map(function(c){return '%'+('00'+c.charCodeAt(0).toString(16)).slice(-2);}).join(''));
+  }
+  function convert(){
+    var val=inp.value;
+    err.textContent='';err.style.display='none';
+    if(!val.trim()){out.value='';return;}
+    try{
+      out.value=currentMode==='encode'?safeEncode(val):safeDecode(val);
+    }catch(e){
+      out.value='';
+      err.textContent=currentMode==='decode'?'⚠ Invalid Base64 string. Check your input and try again.':'⚠ Encoding failed. Please check your input.';
+      err.style.display='block';
+    }
+  }
+  convertBtn.addEventListener('click',convert);
+  inp.addEventListener('input',convert);
+  clearBtn.addEventListener('click',function(){inp.value='';out.value='';err.style.display='none';err.textContent='';inp.focus();});
+  copyBtn.addEventListener('click',function(){
+    if(!out.value)return;
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(out.value).then(function(){copyBtn.textContent='✓ Copied!';setTimeout(function(){copyBtn.textContent='Copy Result';},1500);});
+    }else{
+      out.select();document.execCommand('copy');
+      copyBtn.textContent='✓ Copied!';setTimeout(function(){copyBtn.textContent='Copy Result';},1500);
+    }
+  });
+  swapBtn.addEventListener('click',function(){
+    var tmp=inp.value;inp.value=out.value;out.value=tmp;err.style.display='none';err.textContent='';
+  });
+})();
+</script>
+</body>
+</html>

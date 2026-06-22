@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <title>PDF Info – Read PDF Metadata & Details | zlbox</title>
+ <meta name="description" content="Free online PDF info tool. Upload a PDF to view filename, size, pages, title, author, creation date, PDF version, and more." />
+ <link rel="stylesheet" href="../../css/components.css" />
+ <link rel="canonical" href="https://www.zlbox.site/tools/pdf/pdf-info.html" />
+ <meta name="google-site-verification" content="google4bd1e08685667667" />
+ <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
+<script>
+(function() {
+  var toggle = document.querySelector('.nav-toggle');
+  var navLinks = document.querySelector('.nav-links');
+  if (!toggle || !navLinks) return;
+  toggle.addEventListener('click', function() {
+    var isOpen = navLinks.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', isOpen);
+  });
+  var path = location.pathname;
+  document.querySelectorAll('.nav-link').forEach(function(link) {
+    var href = link.getAttribute('href');
+    if (href && (path === href || path.indexOf(href.replace('/index.html','')) > -1)) {
+      link.classList.add('active');
+    }
+  });
+})();
+</script>
+
+ <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+ <meta property="og:title" content="PDF Info – Read PDF Metadata & Details | zlbox" />
+ <meta property="og:description" content="Free online PDF info tool. Upload a PDF to view filename, size, pages, title, author, creation date, PDF version, and more." />
+ <meta property="og:type" content="website" />
+ <meta property="og:url" content="https://www.zlbox.site/tools/pdf/pdf-info.html" />
+ <meta property="og:site_name" content="zlbox" />
+ <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "PDF Info", "description": "Free online PDF info tool. Upload a PDF to view filename, size, pages, title, author, creation date, PDF version, and more.", "url": "https://www.zlbox.site/tools/pdf/pdf-info.html", "applicationCategory": "PDF Tool", "operatingSystem": "Any (browser-based)", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "browserRequirements": "Requires a modern web browser with JavaScript enabled."}</script>
+
+ <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.zlbox.site/"}, {"@type": "ListItem", "position": 2, "name": "PDF Tools", "item": "https://www.zlbox.site/categories/pdf.html"}]}</script>
+
+ 
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.zlbox.site/"},{"@type":"ListItem","position":2,"name":"PDF Tools","item":"https://www.zlbox.site/categories/pdf.html"},{"@type":"ListItem","position":3,"name":"Pdf Info"}]}</script>
+  <style>
+.site-nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,.97); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); box-shadow: 0 1px 4px rgba(0,0,0,.05); }
+.nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; align-items: center; gap: 8px; height: 52px; }
+.nav-logo { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 1rem; color: var(--brand); text-decoration: none; flex-shrink: 0; margin-right: 12px; }
+.nav-logo:hover { text-decoration: none; }
+.nav-logo-icon { width: 36px; height: 36px; background: var(--brand); color: #fff; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: .9rem; flex-shrink: 0; }
+.nav-logo-text { font-size: .95rem; }
+.nav-links { display: flex; align-items: center; gap: 2px; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none; flex: 1; }
+.nav-links::-webkit-scrollbar { display: none; }
+.nav-link { display: inline-flex; align-items: center; padding: 5px 10px; font-size: .82rem; font-weight: 500; color: var(--text); border-radius: 6px; white-space: nowrap; transition: all .15s; flex-shrink: 0; }
+.nav-link:hover { background: var(--brand-50); color: var(--brand); text-decoration: none; }
+.nav-link.active { background: var(--brand-50); color: var(--brand); }
+.nav-toggle { display: none; margin-left: auto; background: transparent; border: 1px solid var(--border); color: var(--text); padding: 4px 8px; border-radius: 6px; font-size: .8rem; cursor: pointer; }
+@media (max-width: 820px) {
+  .nav-toggle { display: inline-flex; }
+  .nav-links { display: none; position: absolute; top: 52px; left: 0; right: 0; background: #fff; flex-direction: column; align-items: stretch; padding: 8px; border-bottom: 1px solid var(--border); box-shadow: 0 4px 12px rgba(0,0,0,.06); }
+  .nav-links.open { display: flex; }
+  .nav-link { border-radius: 6px; padding: 8px 12px; }
+}
+</style>
+</head>
+<body>
+<nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="../../index.html" class="nav-logo"><span class="nav-logo-icon">Z</span><span class="nav-logo-text">zlbox</span></a>
+      <div class="nav-links" role="list">
+        <a href="../../index.html" class="nav-link" role="listitem">Home</a>
+        <a href="../../categories/generator.html" class="nav-link" role="listitem">Generator</a>
+        <a href="../../categories/calculator.html" class="nav-link" role="listitem">Calculator</a>
+        <a href="../../categories/text.html" class="nav-link" role="listitem">Text</a>
+        <a href="../../categories/image.html" class="nav-link" role="listitem">Image</a>
+        <a href="../../categories/pdf.html" class="nav-link" role="listitem">PDF</a>
+        <a href="../../tools/index.html" class="nav-link" role="listitem">All Tools</a>
+        <a href="../../about.html" class="nav-link" role="listitem">About</a>
+        <a href="/blog/index.html" class="nav-link" role="listitem">Blog</a>
+      </div>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">Menu</button>
+    </div>
+  </nav>
+
+<div class="container-md">
+ <div class="hero">
+ <div class="breadcrumb"><a href="../../index.html">Home</a> &rsaquo; <a href="../../categories/pdf.html">PDF Tools</a> &rsaquo; PDF Info</div>
+ <h1>PDF Info</h1>
+ <p>Upload any PDF to inspect its metadata — filename, size, page count, title, author, creation date, and PDF version. All processing happens locally in your browser.</p>
+ </div>
+
+ <div class="card">
+ <div class="field-grid">
+ <div class="field">
+ <label for="file">PDF File</label>
+ <input type="file" id="file" accept="application/pdf,.pdf" />
+ <p class="note" id="status">No file selected.</p>
+ </div>
+ </div>
+
+ <div id="result" class="result-grid" style="display:none;margin-top:16px"></div>
+
+ <div id="actions" style="display:none;margin-top:12px;gap:8px;flex-wrap:wrap">
+ <button class="btn btn--ghost" id="copy">Copy Metadata</button>
+ <button class="btn btn--ghost" id="download">Download .json</button>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>How it works</h2>
+ <ol class="steps">
+ <li>Select a PDF file from your device.</li>
+ <li>Metadata is parsed locally in your browser — nothing is uploaded to a server.</li>
+ <li>Review the extracted details and copy or download the result as JSON.</li>
+ </ol>
+ </div>
+
+ <section class="tool-info" aria-label="Tool information">
+  <h2>What is PDF metadata?</h2>
+  <p>PDF metadata is a small set of properties embedded inside a PDF file. It typically includes the document title, author, subject, keywords, creation and modification dates, the producing application, and the PDF version.</p>
+
+  <h2>How to use</h2>
+  <ol class="steps-list">
+<li>Step 1: Click 'PDF File' and choose a .pdf file from your device.</li>
+<li>Step 2: Wait a moment while the file is parsed locally.</li>
+<li>Step 3: Review the extracted information.</li>
+<li>Step 4: Copy the metadata to clipboard or download it as a JSON file.</li>
+  </ol>
+
+  <h2>Use cases</h2>
+  <ul class="usecase-list">
+<li>Checking the provenance and author of a received PDF.</li>
+<li>Verifying page count and file size before upload.</li>
+<li>Extracting metadata for cataloging or archiving.</li>
+<li>Reviewing PDF version compatibility with your tools.</li>
+  </ul>
+
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq">
+<details class="faq-item">
+  <summary>Is my PDF uploaded to a server?</summary>
+  <p>No. The PDF is parsed entirely in your browser using JavaScript. Your file never leaves your device.</p>
+</details>
+<details class="faq-item">
+  <summary>What metadata can be extracted?</summary>
+  <p>The tool reads the Info dictionary commonly present in PDFs, including Title, Author, Subject, Keywords, Creator, Producer, CreationDate, and ModDate. It also reports the PDF version, page count, and file size.</p>
+</details>
+<details class="faq-item">
+  <summary>Why does my PDF show no metadata?</summary>
+  <p>Some PDFs are produced without metadata, or metadata was intentionally stripped. In that case only basic information such as file size, PDF version, and page count will be shown.</p>
+</details>
+  </div>
+</section>
+
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is my PDF uploaded to a server?", "acceptedAnswer": {"@type": "Answer", "text": "No. The PDF is parsed entirely in your browser using JavaScript. Your file never leaves your device."}}, {"@type": "Question", "name": "What metadata can be extracted?", "acceptedAnswer": {"@type": "Answer", "text": "The tool reads the Info dictionary commonly present in PDFs, including Title, Author, Subject, Keywords, Creator, Producer, CreationDate, and ModDate. It also reports the PDF version, page count, and file size."}}, {"@type": "Question", "name": "Why does my PDF show no metadata?", "acceptedAnswer": {"@type": "Answer", "text": "Some PDFs are produced without metadata, or metadata was intentionally stripped. In that case only basic information such as file size, PDF version, and page count will be shown."}}]}
+</script>
+ <div class="section">
+ <h2>Related tools</h2>
+ <div class="related-grid">
+ <a href="pdf-to-text.html">PDF to Text</a>
+ <a href="merge-pdf.html">Merge PDF</a>
+ <a href="split-pdf.html">Split PDF</a>
+ <a href="compress-pdf.html">Compress PDF</a>
+ <a href="jpg-to-pdf.html">JPG to PDF</a>
+ <a href="../image/image-resizer.html">Image Resizer</a>
+ </div>
+ </div>
+
+ <footer class="footer">
+ <div class="footer-links">
+ <a href="pdf-to-text.html">PDF to Text</a>
+ <a href="merge-pdf.html">Merge PDF</a>
+ <a href="split-pdf.html">Split PDF</a>
+ <span style="color:var(--border);margin:0 6px">|</span>
+ <a href="../../about.html">About</a>
+ <a href="../../privacy.html">Privacy</a>
+ <a href="../../disclaimer.html">Disclaimer</a>
+ </div>
+ <p class="footer-copy">&copy; 2026 zlbox. All rights reserved.</p>
+ </footer>
+</div>
+
+<script>
+(function(){
+  var fileEl = document.getElementById('file');
+  var statusEl = document.getElementById('status');
+  var resultEl = document.getElementById('result');
+  var actionsEl = document.getElementById('actions');
+  var lastMeta = null;
+
+  function formatBytes(b){
+    if (b === 0 || b == null) return '0 B';
+    var units = ['B','KB','MB','GB','TB'];
+    var i = Math.floor(Math.log(b)/Math.log(1024));
+    return (b / Math.pow(1024, i)).toFixed(i===0?0:2) + ' ' + units[i];
+  }
+
+  function pdfStringToUtf8(bytes){
+    // PDF strings can be literal or hex. After extraction, we might have UTF-8, UTF-16BE, or PDFDocEncoding.
+    if (bytes.length >= 2 && bytes[0] === 0xfe && bytes[1] === 0xff){
+      // UTF-16BE BOM
+      var chars = [];
+      for (var i=2;i<bytes.length;i+=2){
+        var cp = (bytes[i]<<8) | (bytes[i+1] & 0xff);
+        if (cp >= 0xd800 && cp <= 0xdbff && i+3 < bytes.length){
+          var low = ((bytes[i+2]<<8) | (bytes[i+3] & 0xff));
+          var code = 0x10000 + (((cp - 0xd800) << 10) | (low - 0xdc00));
+          chars.push(code);
+          i += 2;
+        } else {
+          chars.push(cp);
+        }
+      }
+      try { return String.fromCodePoint.apply(null, chars); } catch(e){ return String.fromCharCode.apply(null, chars); }
+    }
+    // Plain ASCII / UTF-8
+    try {
+      var str = '';
+      for (var j=0;j<bytes.length;j++) str += String.fromCharCode(bytes[j]);
+      return decodeURIComponent(escape(str));
+    } catch(e){
+      var s = '';
+      for (var k=0;k<bytes.length;k++) s += String.fromCharCode(bytes[k]);
+      return s;
+    }
+  }
+
+  function parsePdfDate(s){
+    if (!s) return null;
+    // D:YYYYMMDDHHmmSS[+-HH'mm'] or D:YYYYMMDDHHmmSSZ or just YYYYMMDDHHmmSS
+    var m = s.match(/^D?:?(\d{4})(\d{2})(\d{2})(\d{2})(\d{2})(\d{2})([Z+\-])?(?:(\d{2})'?(\d{2})?)?/);
+    if (!m) return null;
+    var year = parseInt(m[1],10);
+    var mo = parseInt(m[2],10)-1;
+    var d = parseInt(m[3],10);
+    var hh = parseInt(m[4],10);
+    var mm = parseInt(m[5],10);
+    var ss = parseInt(m[6],10);
+    var date = new Date(Date.UTC(year, mo, d, hh, mm, ss));
+    if (m[7] && m[7] !== 'Z' && m[8]){
+      var offH = parseInt(m[8],10);
+      var offM = m[9] ? parseInt(m[9],10) : 0;
+      var offMin = offH*60+offM;
+      if (m[7] === '+') offMin = -offMin;
+      date = new Date(date.getTime() + offMin*60000);
+    }
+    return date;
+  }
+
+  function formatDate(d){
+    if (!d) return null;
+    try { return d.toISOString(); } catch(e){ return d.toString(); }
+  }
+
+  function readBytes(buf, offset, length){
+    return new Uint8Array(buf, offset, length);
+  }
+
+  function findSequence(bytes, needle, from){
+    from = from || 0;
+    var n = needle.length;
+    outer:
+    for (var i = from, len = bytes.length - n; i <= len; i++){
+      for (var j = 0; j < n; j++){
+        if (bytes[i+j] !== needle[j]) continue outer;
+      }
+      return i;
+    }
+    return -1;
+  }
+
+  function bytesToString(bytes){
+    var s = '';
+    for (var i=0;i<bytes.length;i++) s += String.fromCharCode(bytes[i]);
+    return s;
+  }
+
+  function extractPdfInfo(buf){
+    var bytes = new Uint8Array(buf);
+    var result = {
+      version: null,
+      title: null,
+      author: null,
+      subject: null,
+      keywords: null,
+      creator: null,
+      producer: null,
+      creationDate: null,
+      modificationDate: null,
+      pageCount: null,
+      fileSize: bytes.length,
+      trapped: null
+    };
+
+    // PDF version header: %PDF-1.x
+    if (bytes.length > 10 && bytes[0] === 0x25 && bytes[1] === 0x50 && bytes[2] === 0x44 && bytes[3] === 0x46){
+      var vstr = '';
+      for (var k=4; k<16 && k<bytes.length; k++){
+        if (bytes[k] === 0x0a || bytes[k] === 0x0d) break;
+        vstr += String.fromCharCode(bytes[k]);
+      }
+      result.version = vstr.replace(/^-\s*/, '').trim();
+    }
+
+    // Find Info reference in trailer. Scan file backwards for %%EOF, then find "trailer" then "/Info"
+    var eof = findSequence(bytes, [0x25,0x25,0x45,0x4F,0x46], Math.max(0, bytes.length - 4096));
+    var trailerStart = -1;
+    if (eof === -1){
+      // Fallback: search in whole last 64kb
+      eof = bytes.length - 1;
+    }
+    var scanFrom = Math.max(0, eof - 16384);
+    var trailerIdx = findSequence(bytes, [0x74,0x72,0x61,0x69,0x6C,0x65,0x72], scanFrom);
+    var trailerStart2 = -1;
+    if (trailerIdx >= 0) trailerStart2 = trailerIdx;
+
+    // Find "/Info N N R" in trailer area
+    var infoRef = null;
+    var trailerArea = bytes.subarray(trailerStart2 >= 0 ? trailerStart2 : scanFrom, bytes.length);
+    var infoIdx = findSequence(trailerArea, [0x2F,0x49,0x6E,0x66,0x6F], 0);
+    if (infoIdx >= 0){
+      // Read "N N R" after "/Info"
+      var rest = bytesToString(trailerArea.subarray(infoIdx + 5, infoIdx + 5 + 64));
+      var refMatch = rest.match(/\s*(\d+)\s+(\d+)\s+R/);
+      if (refMatch){
+        infoRef = { num: parseInt(refMatch[1],10), gen: parseInt(refMatch[2],10) };
+      }
+    }
+
+    // Find "Size N" (for cross reference size) and page count
+    var sizeMatch = bytesToString(trailerArea).match(/\/Size\s+(\d+)/);
+    if (sizeMatch){ result.size = parseInt(sizeMatch[1],10); }
+
+    // Read cross reference table to find Info object offset and Pages object
+    var xrefIdx = findSequence(bytes, [0x78,0x72,0x65,0x66], scanFrom); // "xref"
+    var offsets = {};
+    if (xrefIdx >= 0){
+      // Parse simple xref table: lines of "0000000000 65535 n"
+      var i = xrefIdx + 4;
+      // skip whitespace
+      while (i < bytes.length && (bytes[i] === 0x20 || bytes[i] === 0x0a || bytes[i] === 0x0d)) i++;
+      // find object count line(s)
+      var content = bytesToString(bytes.subarray(i, Math.min(i + 65536, bytes.length)));
+      var xrefMatch = content.match(/^(\d+)\s+(\d+)[\s\S]/);
+      var objLines = [];
+      if (xrefMatch){
+        var startObj = parseInt(xrefMatch[1],10);
+        var count = parseInt(xrefMatch[2],10);
+        var rest2 = content.substring(content.indexOf('\n')+1);
+        var lines = rest2.split(/\r?\n/);
+        var objIdx = startObj;
+        for (var L=0; L<lines.length && L<count*2; L++){
+          var line = lines[L];
+          var m2 = line.match(/^(\d{10})\s+(\d{5})\s+([nf])/);
+          if (m2){
+            if (m2[3] === 'n') offsets[objIdx] = parseInt(m2[1],10);
+            objIdx++;
+          } else if (line.match(/^\d+\s+\d+/)){
+            // new subsection header
+            var hs = line.split(/\s+/);
+            objIdx = parseInt(hs[0],10);
+          }
+        }
+      }
+    }
+
+    // If we couldn't parse xref, scan for objects by brute force
+    function findObjectOffset(num){
+      if (offsets[num] != null) return offsets[num];
+      // Search "N N obj"
+      var pat = new Uint8Array(32);
+      var prefix = num + ' ';
+      for (var p=0; p<prefix.length; p++) pat[p] = prefix.charCodeAt(p);
+      // Fallback search for "<num> <gen> obj" using text search
+      var text = bytesToString(bytes.subarray(0, Math.min(bytes.length, 16*1024*1024)));
+      var re = new RegExp('(?:^|[^\\d])('+num+'\\s+\\d+\\s+obj)', 'm');
+      var mm = text.match(re);
+      if (mm){
+        return mm.index + (mm[0].length - mm[1].length);
+      }
+      return -1;
+    }
+
+    function readObjectAt(offset){
+      // Read until "endobj"
+      if (offset < 0 || offset >= bytes.length) return null;
+      var end = Math.min(offset + 131072, bytes.length);
+      var slice = bytes.subarray(offset, end);
+      var txt = bytesToString(slice);
+      var endObj = txt.indexOf('endobj');
+      if (endObj < 0) return txt;
+      return txt.substring(0, endObj);
+    }
+
+    function extractDictEntries(objText){
+      var out = {};
+      // Find /Key value pairs inside the first <<...>> dictionary
+      var dictStart = objText.indexOf('<<');
+      var dictEnd = objText.indexOf('>>', dictStart + 2);
+      if (dictStart < 0 || dictEnd < 0) return out;
+      var dict = objText.substring(dictStart + 2, dictEnd);
+      // Replace literal newlines inside () strings carefully
+      var i = 0;
+      while (i < dict.length){
+        var slashIdx = dict.indexOf('/', i);
+        if (slashIdx < 0) break;
+        // Key: /Name
+        var keyMatch = dict.substring(slashIdx).match(/^\/([A-Za-z0-9_]+)/);
+        if (!keyMatch){ i = slashIdx + 1; continue; }
+        var key = keyMatch[1];
+        var valStart = slashIdx + keyMatch[0].length;
+        // Skip whitespace
+        while (valStart < dict.length && /\s/.test(dict[valStart])) valStart++;
+        var value = null;
+        var nextSlash1 = dict.indexOf('/', valStart);
+        var nextGt = dict.indexOf('>>', valStart);
+        var boundary = dict.length;
+        if (nextSlash1 >= 0) boundary = Math.min(boundary, nextSlash1);
+        if (nextGt >= 0) boundary = Math.min(boundary, nextGt);
+        var rawVal = dict.substring(valStart, boundary);
+
+        if (rawVal[0] === '('){
+          // Literal string - find matching close paren
+          var depth = 0, idx = 0, escaped = false;
+          for (idx = 0; idx < rawVal.length; idx++){
+            var ch = rawVal[idx];
+            if (escaped){ escaped = false; continue; }
+            if (ch === '\\'){ escaped = true; continue; }
+            if (ch === '('){ depth++; continue; }
+            if (ch === ')'){ depth--; if (depth === 0){ idx++; break; } }
+          }
+          var inner = rawVal.substring(1, idx - 1);
+          // Unescape \n \r \t \\ \( \) and \\ddd octal
+          inner = inner.replace(/\\([nrtbf\\()])/g, function(match, c){
+            switch(c){
+              case 'n': return '\n'; case 'r': return '\r'; case 't': return '\t';
+              case 'b': return '\b'; case 'f': return '\f'; case '\\': return '\\';
+              case '(': return '('; case ')': return ')';
+              default: return c;
+            }
+          });
+          inner = inner.replace(/\\(\d{1,3})/g, function(m, digits){
+            return String.fromCharCode(parseInt(digits, 8));
+          });
+          // Convert to bytes for BOM detection
+          var bArr = [];
+          for (var ci=0;ci<inner.length;ci++) bArr.push(inner.charCodeAt(ci) & 0xff);
+          value = pdfStringToUtf8(new Uint8Array(bArr));
+        } else if (rawVal[0] === '<' && rawVal[1] !== '<'){
+          // Hex string <DEADBEEF>
+          var hexEnd = rawVal.indexOf('>');
+          if (hexEnd > 0){
+            var hex = rawVal.substring(1, hexEnd).replace(/\s+/g,'');
+            var bytes2 = new Uint8Array(hex.length/2);
+            for (var hi=0;hi<bytes2.length;hi++){
+              bytes2[hi] = parseInt(hex.substr(hi*2, 2), 16);
+            }
+            value = pdfStringToUtf8(bytes2);
+          }
+        } else if (/^\d+\s+\d+\s+R/.test(rawVal)){
+          value = rawVal.match(/^\d+\s+\d+\s+R/)[0];
+        } else {
+          value = rawVal.trim().split(/\s+/)[0];
+        }
+
+        out[key] = value;
+        i = valStart + (rawVal.length > 0 ? rawVal.length : 1);
+      }
+      return out;
+    }
+
+    // If we found /Info reference, read that object
+    if (infoRef){
+      var infoOff = findObjectOffset(infoRef.num);
+      if (infoOff >= 0){
+        var objText = readObjectAt(infoOff);
+        if (objText){
+          var entries = extractDictEntries(objText);
+          if (entries.Title) result.title = entries.Title;
+          if (entries.Author) result.author = entries.Author;
+          if (entries.Subject) result.subject = entries.Subject;
+          if (entries.Keywords) result.keywords = entries.Keywords;
+          if (entries.Creator) result.creator = entries.Creator;
+          if (entries.Producer) result.producer = entries.Producer;
+          if (entries.CreationDate) result.creationDate = formatDate(parsePdfDate(entries.CreationDate));
+          if (entries.ModDate) result.modificationDate = formatDate(parsePdfDate(entries.ModDate));
+          if (entries.Trapped) result.trapped = entries.Trapped;
+        }
+      }
+    }
+
+    // Find root /Pages object for page count
+    var rootRef = null;
+    var trailerArea2 = bytesToString(trailerArea);
+    var rootMatch = trailerArea2.match(/\/Root\s+(\d+)\s+(\d+)\s+R/);
+    if (rootMatch){
+      rootRef = { num: parseInt(rootMatch[1],10), gen: parseInt(rootMatch[2],10) };
+      var rootOff = findObjectOffset(rootRef.num);
+      if (rootOff >= 0){
+        var rootText = readObjectAt(rootOff);
+        var rootEntries = extractDictEntries(rootText);
+        if (rootEntries.Pages){
+          var pagesRef = rootEntries.Pages.match(/(\d+)\s+(\d+)\s+R/);
+          if (pagesRef){
+            var pagesOff = findObjectOffset(parseInt(pagesRef[1],10));
+            if (pagesOff >= 0){
+              var pagesText = readObjectAt(pagesOff);
+              // Look for /Count N in pages dict
+              var countMatch = pagesText.match(/\/Count[\s\/]+(\d+)/);
+              if (!countMatch) countMatch = pagesText.match(/\/Count\s+(\d+)/);
+              if (countMatch) result.pageCount = parseInt(countMatch[1],10);
+            }
+          }
+        }
+      }
+    }
+
+    // Fallback page count by scanning whole file for /Count N near /Type /Pages
+    if (result.pageCount == null){
+      var textFull = bytesToString(bytes.subarray(0, Math.min(bytes.length, 10*1024*1024)));
+      var rePages = /\/Type\s*\/Pages[\s\S]{0,200}?\/Count\s+(\d+)/g;
+      var mm;
+      var maxCount = null;
+      while ((mm = rePages.exec(textFull)) !== null){
+        var c = parseInt(mm[1],10);
+        if (maxCount == null || c > maxCount) maxCount = c;
+      }
+      result.pageCount = maxCount;
+    }
+
+    return result;
+  }
+
+  function render(info, filename){
+    var fields = [
+      ['Filename', filename],
+      ['File Size', info.fileSize != null ? formatBytes(info.fileSize) + ' (' + info.fileSize.toLocaleString() + ' bytes)' : null],
+      ['PDF Version', info.version],
+      ['Pages', info.pageCount != null ? info.pageCount.toLocaleString() : null],
+      ['Title', info.title],
+      ['Author', info.author],
+      ['Subject', info.subject],
+      ['Keywords', info.keywords],
+      ['Creator', info.creator],
+      ['Producer', info.producer],
+      ['Created', info.creationDate],
+      ['Modified', info.modificationDate],
+      ['Trapped', info.trapped]
+    ];
+    resultEl.innerHTML = '';
+    for (var i=0;i<fields.length;i++){
+      var val = fields[i][1];
+      if (val === null || val === undefined || val === '') val = '-';
+      var row = document.createElement('div');
+      row.className = 'result-grid';
+      row.style.display = 'flex';
+      row.style.justifyContent = 'space-between';
+      row.style.gap = '12px';
+      row.style.padding = '8px 12px';
+      row.style.borderBottom = '1px solid var(--border)';
+      row.innerHTML = '<strong style="color:var(--text)">'+fields[i][0]+'</strong><span style="text-align:right;max-width:60%;word-break:break-all;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.9rem">'+String(val).replace(/</g,'&lt;').replace(/>/g,'&gt;')+'</span>';
+      resultEl.appendChild(row);
+    }
+    resultEl.style.display = 'block';
+    actionsEl.style.display = 'flex';
+
+    lastMeta = {};
+    for (var j=0;j<fields.length;j++){
+      var v = fields[j][1];
+      if (v !== null && v !== undefined && v !== '') lastMeta[fields[j][0]] = v;
+    }
+  }
+
+  function copyText(txt){
+    if (navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(function(){
+        statusEl.textContent = 'Copied to clipboard.';
+      }, function(){ fallbackCopy(txt); });
+    } else { fallbackCopy(txt); }
+  }
+  function fallbackCopy(txt){
+    var ta = document.createElement('textarea');
+    ta.value = txt; document.body.appendChild(ta); ta.select();
+    try { document.execCommand('copy'); statusEl.textContent = 'Copied to clipboard.'; }
+    catch(e){ statusEl.textContent = 'Copy failed.'; }
+    document.body.removeChild(ta);
+  }
+
+  function downloadJson(meta, filename){
+    var blob = new Blob([JSON.stringify(meta, null, 2)], { type:'application/json;charset=utf-8' });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url;
+    var base = (filename || 'pdf-info').replace(/\.pdf$/i,'');
+    a.download = base + '-info.json';
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(function(){ document.body.removeChild(a); URL.revokeObjectURL(url); }, 50);
+    statusEl.textContent = 'Downloaded metadata.';
+  }
+
+  fileEl.addEventListener('change', function(){
+    var f = fileEl.files && fileEl.files[0];
+    if (!f){ resultEl.style.display = 'none'; actionsEl.style.display = 'none'; statusEl.textContent = 'No file selected.'; return; }
+    statusEl.textContent = 'Reading file...';
+    var reader = new FileReader();
+    reader.onload = function(e){
+      try {
+        var buf = e.target.result;
+        var info = extractPdfInfo(buf);
+        render(info, f.name);
+        statusEl.textContent = 'Parsed ' + f.name + ' (' + formatBytes(f.size) + ').';
+      } catch(err){
+        statusEl.textContent = 'Could not parse the PDF: ' + err.message;
+        resultEl.style.display = 'none';
+        actionsEl.style.display = 'none';
+      }
+    };
+    reader.onerror = function(){
+      statusEl.textContent = 'Failed to read file.';
+    };
+    reader.readAsArrayBuffer(f);
+  });
+
+  document.getElementById('copy').addEventListener('click', function(){
+    if (!lastMeta){ statusEl.textContent = 'No metadata to copy.'; return; }
+    var lines = [];
+    Object.keys(lastMeta).forEach(function(k){ lines.push(k + ': ' + lastMeta[k]); });
+    copyText(lines.join('\n'));
+  });
+  document.getElementById('download').addEventListener('click', function(){
+    if (!lastMeta){ statusEl.textContent = 'No metadata to download.'; return; }
+    downloadJson(lastMeta, fileEl.files[0] ? fileEl.files[0].name : 'pdf-info');
+  });
+})();
+</script>
+</body>
+</html>

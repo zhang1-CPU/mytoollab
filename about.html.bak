@@ -1,0 +1,172 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About | My Tool Lab</title>
+  <meta name="description" content="Learn about My Tool Lab, a free browser-based online tools website for text and developer tasks." />
+  <link rel="canonical" href="https://www.zlbox.site/about.html" />
+  <meta name="google-site-verification" content="google4bd1e08685667667" />
+
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" 
+      crossorigin="anonymous"></script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9V6L0Z956X"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9V6L0Z956X');
+  </script>
+
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wqad1y8deq");
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --brand: #2563eb;
+      --brand-hover: #1d4ed8;
+      --text: #1e293b;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --bg: #ffffff;
+      --bg-subtle: #f8fafc;
+      --radius: 16px;
+      --shadow: 0 2px 12px rgba(0,0,0,0.06);
+      --max-w: 800px;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: var(--text);
+      background: var(--bg-subtle);
+      line-height: 1.7;
+      padding-bottom: 60px;
+    }
+
+    a { color: var(--brand); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 20px; }
+
+    /* Header */
+    .page-header {
+      text-align: center;
+      padding: 60px 0 40px;
+    }
+
+    .page-title {
+      font-size: clamp(2rem, 5vw, 2.5rem);
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+
+    .page-subtitle {
+      font-size: 1rem;
+      color: var(--muted);
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    /* Main Content */
+    .main-content {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 40px;
+      box-shadow: var(--shadow);
+    }
+
+    .main-content p {
+      font-size: 1rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+
+    .main-content p:last-child {
+      margin-bottom: 0;
+    }
+
+    .main-content a {
+      color: var(--brand);
+      text-decoration: underline;
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding-top: 40px;
+    }
+
+    .footer a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      margin: 0 12px;
+    }
+
+    .footer a:hover {
+      color: var(--brand);
+    }
+
+    @media (max-width: 600px) {
+      .main-content {
+        padding: 24px;
+      }
+      .footer a {
+        display: inline-block;
+        margin: 6px 8px;
+      }
+    }
+  </style>
+
+  <meta property="og:image" content="https://www.zlbox.site/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="About" />
+  <meta name="twitter:description" content="About page" />
+  <meta name="twitter:image" content="https://www.zlbox.site/og-image.png" />
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <meta name="robots" content="index, follow" />
+
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "About", "description": "About page", "url": "https://www.zlbox.site/about.html"}</script>
+</head>
+<body>
+  <div class="container">
+    <header class="page-header">
+      <h1 class="page-title">About My Tool Lab</h1>
+      <p class="page-subtitle">Free online tools built to help you get things done faster.</p>
+    </header>
+
+    <main class="main-content">
+      <p>My Tool Lab is a simple online tools website built to help people get quick results without signing up or installing anything. The site focuses on lightweight browser-based tools for text tasks and developer tasks, so you can use them instantly on desktop or mobile.</p>
+
+      <p>Our goal is to make everyday tasks faster and easier. Whether you want to count words, convert text case, format JSON, or encode Base64, the tools are designed to be clear, fast, and practical.</p>
+
+      <p>We keep the site minimal on purpose. That means fewer distractions, faster loading, and a better experience for people who just want to get something done.</p>
+
+      <p>If you find a bug or want a new tool added, please use the <a href="/contact.html">Contact</a> page. We review feedback and keep improving the site over time.</p>
+    </main>
+
+    <footer class="footer">
+      <a href="/">Home</a>
+      <a href="/categories/text.html">Tools</a>
+      <a href="/contact.html">Contact</a>
+      <a href="/privacy.html">Privacy Policy</a>
+      <a href="/disclaimer.html">Disclaimer</a>
+    </footer>
+  </div>
+</body>
+</html>

@@ -11,10 +11,10 @@
   <circle cx="1100" cy="100" r="180" fill="#ffffff08"/>
   <g transform="translate(600,170)">
     <rect x="-70" y="-70" width="140" height="140" rx="32" fill="#ffffff" opacity="0.15"/>
-    <text x="0" y="22" font-family="Arial Black" font-size="72" font-weight="900" text-anchor="middle" fill="#ffffff">M</text>
+    <text x="0" y="22" font-family="Arial Black" font-size="56" font-weight="900" text-anchor="middle" fill="#ffffff">zl</text>
   </g>
-  <text x="600" y="340" font-family="Arial Black" font-size="64" font-weight="900" text-anchor="middle" fill="#ffffff" letter-spacing="-2">My Tool Lab</text>
+  <text x="600" y="340" font-family="Arial Black" font-size="64" font-weight="900" text-anchor="middle" fill="#ffffff" letter-spacing="-2">zlbox</text>
   <text x="600" y="390" font-family="Arial" font-size="26" text-anchor="middle" fill="#bfdbfe" letter-spacing="1">Free Online Tools for Everyone</text>
   <rect x="0" y="590" width="1200" height="40" fill="#00000033"/>
-  <text x="600" y="616" font-family="Arial" font-size="15" text-anchor="middle" fill="#93c5fd">37+ FREE TOOLS · NO SIGNUP · 100% PRIVATE · zlbox.site</text>
+  <text x="600" y="616" font-family="Arial" font-size="15" text-anchor="middle" fill="#93c5fd">40+ FREE TOOLS · NO SIGNUP · 100% PRIVATE · zlbox.site</text>
 </svg>

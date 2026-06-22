@@ -26,8 +26,121 @@
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-9V6L0Z956X"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-9V6L0Z956X');</script>
+<style>
+/* Site Navigation */
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #fff;
+  border-bottom: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px rgba(0,0,0,.05);
+}
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px;
+}
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  color: #2563eb;
+  text-decoration: none;
+}
+.nav-logo-icon {
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 18px;
+}
+.nav-logo-text {
+  font-size: 18px;
+}
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+}
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: #0f172a;
+  margin: 5px 0;
+  transition: all .2s;
+}
+.nav-links {
+  display: flex;
+  gap: 4px;
+}
+.nav-link {
+  padding: 8px 12px;
+  font-size: .88rem;
+  font-weight: 500;
+  color: #64748b;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: all .2s;
+}
+.nav-link:hover {
+  color: #2563eb;
+  background: #f1f5f9;
+}
+@media (max-width: 768px) {
+  .nav-toggle { display: block; }
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 56px;
+    left: 0;
+    right: 0;
+    background: #fff;
+    border-bottom: 1px solid #e2e8f0;
+    padding: 8px 20px;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .nav-links.active { display: flex; }
+  .nav-link { padding: 12px 16px; }
+}
+</style>
 </head>
 <body>
+
+<nav class="site-nav" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo" aria-label="My Tool Lab Home">
+      <span class="nav-logo-icon">M</span>
+      <span class="nav-logo-text">My Tool Lab</span>
+    </a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links" role="list">
+      <a href="/tools/index.html" class="nav-link" role="listitem">All Tools</a>
+      <a href="/categories/text.html" class="nav-link" role="listitem">Text</a>
+      <a href="/categories/calculator.html" class="nav-link" role="listitem">Calculator</a>
+      <a href="/categories/generator.html" class="nav-link" role="listitem">Generator</a>
+      <a href="/categories/image.html" class="nav-link" role="listitem">Image</a>
+      <a href="/categories/pdf.html" class="nav-link" role="listitem">PDF</a>
+      <a href="/blog/index.html" class="nav-link" role="listitem">Blog</a>
+    </div>
+  </div>
+</nav>
+
 <div class="container-md">
   <div class="hero">
     <div class="breadcrumb"><a href="../../index.html">Home</a> &rsaquo; <a href="../../index.html">Generator Tools</a> &rsaquo; Random Number Generator</div>
@@ -196,6 +309,19 @@
   document.getElementById('gen').addEventListener('click',run);
   run();
 })();
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+  var toggle=document.querySelector('.nav-toggle');
+  var links=document.querySelector('.nav-links');
+  if(toggle&&links){
+    toggle.addEventListener('click',function(){
+      links.classList.toggle('active');
+      toggle.setAttribute('aria-expanded',links.classList.contains('active'));
+    });
+  }
+});
 </script>
 </body>
 </html>

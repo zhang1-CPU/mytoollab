@@ -1,513 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <meta charset="UTF-8" />
- <meta name="viewport" content="width=device-width, initial-scale=1.0" />
- <title>QR Code Generator – Free QR Code Creator for URL, Text, WiFi | zlbox</title>
- <meta name="description" content="Free online QR code generator. Create QR codes for URLs, text, email, phone, WiFi networks and more. Instant download, no signup required." />
- <link rel="canonical" href="https://www.zlbox.site/tools/generator/qr-code-generator.html" />
- <meta name="google-site-verification" content="google4bd1e08685667667" />
- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
-<script>
-/* Navigation toggle for mobile */
-(function() {
-  var toggle = document.querySelector('.nav-toggle');
-  var navLinks = document.querySelector('.nav-links');
-  if (!toggle || !navLinks) return;
-  toggle.addEventListener('click', function() {
-    var isOpen = navLinks.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', isOpen);
-  });
-  // Highlight active link
-  var path = location.pathname;
-  document.querySelectorAll('.nav-link').forEach(function(link) {
-    var href = link.getAttribute('href');
-    if (href && (path === href || path.indexOf(href.replace('/index.html','')) > -1)) {
-      link.classList.add('active');
-    }
-  });
-})();
-</script>
- <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
- <link rel="stylesheet" href="../../css/components.css" />
- <style>
- .tabs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;}
- .tab{padding:8px 14px;font-size:.85rem;background:var(--bg);border:1px solid var(--border);border-radius:8px;cursor:pointer;color:var(--muted);font-weight:600;font-family:inherit;}
- .tab.active{background:var(--brand);color:#fff;border-color:var(--brand);}
- .tab-panel{display:none;}
- .tab-panel.active{display:block;}
- .field-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:10px;}
- .qr-wrap{text-align:center;padding:14px 0;}
- #qr{display:inline-block;background:#fff;padding:14px;border-radius:10px;border:1px solid var(--border);}
- #qr img,#qr canvas{display:block;margin:0 auto;}
- .field{margin-bottom:10px;}
- .field label{display:block;font-size:.85rem;font-weight:600;margin-bottom:6px;color:var(--muted);}
- .field input,.field select,.field textarea{width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:8px;font-size:.95rem;background:#fff;color:var(--text);font-family:inherit;}
- .field input:focus,.field select:focus,.field textarea:focus{outline:2px solid var(--brand);outline-offset:1px;border-color:var(--brand);}
- .field textarea{min-height:80px;resize:vertical;}
- .row-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:10px;}
- @media (max-width:560px){.field-grid{grid-template-columns:1fr;}.row-grid{grid-template-columns:1fr;}}
- 
-/* ── Site Navigation ── */
-.site-nav {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: rgba(255,255,255,.97);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--border);
-  box-shadow: 0 1px 4px rgba(0,0,0,.05);
-}
-.nav-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  height: 52px;
-}
-.nav-logo {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-weight: 700;
-  font-size: 1rem;
-  color: var(--brand);
-  text-decoration: none;
-  flex-shrink: 0;
-  margin-right: 12px;
-}
-.nav-logo:hover { text-decoration: none; }
-.nav-logo-icon {
-  width: 36px;
-  height: 36px;
-  background: var(--brand);
-  color: #fff;
-  border-radius: 6px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 900;
-  font-size: .9rem;
-  flex-shrink: 0;
-}
-.nav-logo-text { font-size: .95rem; }
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 2px;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-  flex: 1;
-}
-.nav-links::-webkit-scrollbar { display: none; }
-.nav-link {
-  display: inline-flex;
-  align-items: center;
-  padding: 5px 10px;
-  font-size: .82rem;
-  font-weight: 500;
-  color: var(--text);
-  border-radius: 6px;
-  white-space: nowrap;
-  transition: all .15s;
-  flex-shrink: 0;
-}
-.nav-link:hover {
-  background: var(--brand);
-  color: #fff;
-  text-decoration: none;
-}
-.nav-link.active {
-  background: #eff6ff;
-  color: var(--brand);
-}
-.nav-toggle {
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  gap: 4px;
-  width: 32px;
-  height: 32px;
-  padding: 4px;
-  background: none;
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  cursor: pointer;
-  flex-shrink: 0;
-  margin-left: auto;
-}
-.nav-toggle span {
-  display: block;
-  width: 100%;
-  height: 2px;
-  background: var(--text);
-  border-radius: 1px;
-}
-@media (max-width: 768px) {
-  .nav-logo-text { display: none; }
-  .nav-inner { gap: 6px; }
-  .nav-toggle { display: flex; }
-  .nav-links {
-    display: none;
-    position: absolute;
-    top: 52px;
-    left: 0;
-    right: 0;
-    background: #fff;
-    border-bottom: 1px solid var(--border);
-    box-shadow: 0 4px 12px rgba(0,0,0,.1);
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 8px 0;
-    z-index: 99;
-    overflow: visible;
-  }
-  .nav-links.open { display: flex; }
-  .nav-link {
-    width: 100%;
-    padding: 10px 20px;
-    font-size: .9rem;
-    border-radius: 0;
-  }
-}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QR Code Generator – Free QR Code Creator for URL, Text, WiFi | My Tool Lab</title>
+  <meta name="description" content="Free online QR code generator. Create QR codes for URLs, text, email, phone, WiFi networks and more. Instant download, no signup required." />
+  <link rel="canonical" href="https://www.zlbox.site/tools/generator/qr-code-generator.html" />
+  <meta name="google-site-verification" content="google4bd1e08685667667" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <link rel="stylesheet" href="../../_css/components.css" />
+  <style>
+    .tabs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;}
+    .tab{padding:8px 14px;font-size:.85rem;background:var(--bg);border:1px solid var(--border);border-radius:8px;cursor:pointer;color:var(--muted);font-weight:600;font-family:inherit;}
+    .tab.active{background:var(--brand);color:#fff;border-color:var(--brand);}
+    .tab-panel{display:none;}
+    .tab-panel.active{display:block;}
+    .field-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:10px;}
+    .qr-wrap{text-align:center;padding:14px 0;}
+    #qr{display:inline-block;background:#fff;padding:14px;border-radius:10px;border:1px solid var(--border);}
+    #qr img,#qr canvas{display:block;margin:0 auto;}
+    .field{margin-bottom:10px;}
+    .field label{display:block;font-size:.85rem;font-weight:600;margin-bottom:6px;color:var(--muted);}
+    .field input,.field select,.field textarea{width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:8px;font-size:.95rem;background:#fff;color:var(--text);font-family:inherit;}
+    .field input:focus,.field select:focus,.field textarea:focus{outline:2px solid var(--brand);outline-offset:1px;border-color:var(--brand);}
+    .field textarea{min-height:80px;resize:vertical;}
+    @media (max-width:560px){.field-grid{grid-template-columns:1fr;}}
   </style>
 
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <meta property="og:title" content="QR Code Generator – Free QR Code Creator for URL, Text, WiFi | zlbox" />
-  <meta property="og:description" content="Free online QR code generator. Create QR codes for URLs, text, email, phone, WiFi networks and more. Instant download, no signup required." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.zlbox.site/tools/generator/qr-code-generator.html" />
-  <meta property="og:site_name" content="zlbox" />
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "QR Code Generator – Free QR Code Creator for URL, Text, WiFi", "description": "Free online QR code generator. Create QR codes for URLs, text, email, phone, WiFi networks and more. Instant download, no signup required.", "url": "https://www.zlbox.site/tools/generator/qr-code-generator.html", "applicationCategory": "Generator Tool", "operatingSystem": "Any (browser-based)", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "browserRequirements": "Requires a modern web browser with JavaScript enabled."}</script>
-
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.zlbox.site/"}, {"@type": "ListItem", "position": 2, "name": "Generator Tools", "item": "https://www.zlbox.site/categories/generator.html"}]}</script>
   <meta property="og:image" content="https://www.zlbox.site/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="QR Code Generator – Free QR Code Creator for URL, Text, WiFi" />
-  <meta name="twitter:description" content="Free online QR code generator. Create QR codes for URLs, text, email, phone, WiFi networks and more. Instant download, no signup required." />
+  <meta name="twitter:title" content="QR Code Generator" />
+  <meta name="twitter:description" content="Generate QR codes instantly" />
   <meta name="twitter:image" content="https://www.zlbox.site/og-image.png" />
 
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
   <meta name="robots" content="index, follow" />
-  <script type="application/ld+json">{
-  "@context": "https://schema.org",
-  "@type": "HowTo",
-  "name": "How to Generate a QR Code",
-  "description": "Step by step guide: How to Generate a QR Code",
-  "step": [
-    {
-      "@type": "HowToStep",
-      "name": "Enter content",
-      "text": "Enter the URL, text, or data you want in the QR code.",
-      "position": 1
-    },
-    {
-      "@type": "HowToStep",
-      "name": "Customize (optional)",
-      "text": "Adjust size, color, and error correction level.",
-      "position": 2
-    },
-    {
-      "@type": "HowToStep",
-      "name": "Download QR code",
-      "text": "Click 'Download' to save the QR code image.",
-      "position": 3
-    }
-  ]
-}</script>
+
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "QR Code Generator", "description": "Generate QR codes instantly", "url": "https://www.zlbox.site/tools/generator/qr-code-generator.html", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9V6L0Z956X"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-9V6L0Z956X');</script>
 </head>
 <body>
-
-  <nav class="site-nav" aria-label="Main navigation">
-    <div class="nav-inner">
-      <a href="/" class="nav-logo" aria-label="zlbox Home">
-        <span class="nav-logo-icon">zl</span>
-        <span class="nav-logo-text">zlbox</span>
-      </a>
-      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-      <div class="nav-links" role="list">
-        <a href="/tools/index.html" class="nav-link" role="listitem">All Tools</a>
-        <a href="/categories/text.html" class="nav-link" role="listitem">Text</a>
-        <a href="/categories/calculator.html" class="nav-link" role="listitem">Calculator</a>
-        <a href="/categories/generator.html" class="nav-link" role="listitem">Generator</a>
-        <a href="/categories/image.html" class="nav-link" role="listitem">Image</a>
-        <a href="/categories/pdf.html" class="nav-link" role="listitem">PDF</a>
-        <a href="/blog/index.html" class="nav-link" role="listitem">Blog</a>
-      </div>
-    </div>
-  </nav>
-
 <div class="container-md">
- <div class="hero">
- <div class="breadcrumb"><a href="../../index.html">Home</a> &rsaquo; <a href="../../categories/generator.html">Generator Tools</a> &rsaquo; QR Code Generator</div>
- <h1>QR Code Generator</h1>
- <p>Create scannable QR codes for URLs, text, email, phone, SMS, vCard, and WiFi. Download as PNG, JPG, or SVG — free, no signup.</p>
- </div>
-
- <div class="card">
- <div class="tabs" id="tabs">
- <button class="tab active" data-tab="url">URL</button>
- <button class="tab" data-tab="text">Text</button>
- <button class="tab" data-tab="email">Email</button>
- <button class="tab" data-tab="phone">Phone</button>
- <button class="tab" data-tab="sms">SMS</button>
- <button class="tab" data-tab="vcard">vCard</button>
- <button class="tab" data-tab="wifi">WiFi</button>
- </div>
-
- <div class="tab-panel active" data-panel="url">
- <div class="field"><label>Website URL</label><input type="url" id="f-url" placeholder="https://example.com" value="https://example.com" /></div>
- </div>
- <div class="tab-panel" data-panel="text">
- <div class="field"><label>Text</label><textarea id="f-text" placeholder="Enter any text...">Hello world!</textarea></div>
- </div>
- <div class="tab-panel" data-panel="email">
- <div class="field"><label>Email address</label><input type="email" id="f-email" placeholder="you@example.com" /></div>
- <div class="field"><label>Subject</label><input type="text" id="f-email-sub" placeholder="Subject (optional)" /></div>
- </div>
- <div class="tab-panel" data-panel="phone">
- <div class="field"><label>Phone number</label><input type="tel" id="f-phone" placeholder="+1 555 123 4567" /></div>
- </div>
- <div class="tab-panel" data-panel="sms">
- <div class="field"><label>Phone number</label><input type="tel" id="f-sms-phone" placeholder="+1 555 123 4567" /></div>
- <div class="field"><label>Message</label><textarea id="f-sms-msg" placeholder="Your message..." maxlength="160"></textarea></div>
- </div>
- <div class="tab-panel" data-panel="vcard">
- <div class="field-grid">
- <div class="field"><label>First name</label><input type="text" id="f-vc-fn" placeholder="John" /></div>
- <div class="field"><label>Last name</label><input type="text" id="f-vc-ln" placeholder="Doe" /></div>
- </div>
- <div class="field-grid">
- <div class="field"><label>Organization</label><input type="text" id="f-vc-org" placeholder="Company" /></div>
- <div class="field"><label>Title</label><input type="text" id="f-vc-title" placeholder="Job title" /></div>
- </div>
- <div class="field-grid">
- <div class="field"><label>Phone</label><input type="tel" id="f-vc-tel" placeholder="+1 555 123 4567" /></div>
- <div class="field"><label>Email</label><input type="email" id="f-vc-email" placeholder="you@example.com" /></div>
- </div>
- <div class="field"><label>Website</label><input type="url" id="f-vc-url" placeholder="https://example.com" /></div>
- <div class="field"><label>Address</label><input type="text" id="f-vc-addr" placeholder="Street, City, Country" /></div>
- </div>
- <div class="tab-panel" data-panel="wifi">
- <div class="field"><label>Network name (SSID)</label><input type="text" id="f-wifi-ssid" placeholder="MyWiFi" /></div>
- <div class="field"><label>Password</label><input type="text" id="f-wifi-pass" placeholder="WiFi password" /></div>
- <div class="field"><label>Encryption</label><select id="f-wifi-enc"><option>WPA</option><option>WEP</option><option>nopass</option></select></div>
- </div>
-
- <div class="field-grid">
- <div class="field"><label>Size (px)</label><input type="number" id="f-size" min="100" max="1000" value="256" /></div>
- <div class="field"><label>Foreground color</label><input type="color" id="f-color" value="#000000" /></div>
- </div>
- <div class="field-grid">
- <div class="field"><label>Background color</label><input type="color" id="f-bg" value="#ffffff" /></div>
- <div class="field"><label>Error Correction Level</label><select id="f-ecc"><option value="L">L (Low ~7%)</option><option value="M" selected>M (Medium ~15%)</option><option value="Q">Q (Quartile ~25%)</option><option value="H">H (High ~30% – supports logo)</option></select></div>
- </div>
-
- </div>
-
- <div class="card">
- <div class="qr-wrap"><div id="qr"></div></div>
- <div class="row-grid">
- <button class="btn btn--ghost" id="dlPng">Download PNG</button>
- <button class="btn btn--ghost" id="dlJpg">Download JPG</button>
- <button class="btn btn--ghost" id="dlSvg">Download SVG</button>
- </div>
- </div>
-
- <div class="section">
- <h2>How it works</h2>
- <ol class="steps">
- <li>Select a tab (URL, Text, Email, Phone, SMS, vCard, or WiFi) and enter your data.</li>
- <li>Choose a size, colors, and error correction level — the QR code updates instantly.</li>
- <li>Click "Download PNG", "Download JPG", or "Download SVG" to save the QR code.</li>
- </ol>
- </div>
-
- <section class="tool-info" aria-label="Tool information">
-  <h2>What is QR Code Generator?</h2>
-  <p>A QR code generator creates scannable QR codes from text, URLs, email addresses, phone numbers, Wi-Fi credentials, or any other data. QR codes can store hundreds to thousands of characters and are scannable by any smartphone camera.</p>
-
-  <h2>How to use</h2>
-  <ol class="steps-list">
-<li>Step 1: Select the content type (URL, text, Wi-Fi, vCard, etc.).</li>
-<li>Step 2: Enter or paste your content.</li>
-<li>Step 3: Choose a QR code color and size.</li>
-<li>Step 4: Click 'Generate QR Code' to create the image.</li>
-<li>Step 5: Download or copy the QR code.</li>
-  </ol>
-
-  <h2>Use cases</h2>
-  <ul class="usecase-list">
-<li>Linking physical marketing materials to websites or promotions.</li>
-<li>Sharing Wi-Fi credentials without typing passwords.</li>
-<li>Creating digital business cards and contact cards.</li>
-<li>Adding QR codes to restaurant menus and event tickets.</li>
-  </ul>
-
-  <h2>Frequently Asked Questions</h2>
-  <div class="faq">
-<details class="faq-item">
-  <summary>How much data can a QR code hold?</summary>
-  <p>It depends on the error correction level and version. A standard QR code can store up to 4,296 alphanumeric characters. The more data, the denser the code becomes.</p>
-</details>
-<details class="faq-item">
-  <summary>Will the QR code still work if part of it is damaged?</summary>
-  <p>Yes. QR codes use Reed-Solomon error correction. Depending on the version and error level, up to 30% of the code can be damaged and still scan successfully.</p>
-</details>
-<details class="faq-item">
-  <summary>Can I customize the QR code colors?</summary>
-  <p>Yes, but avoid very light colors for the foreground as they won't scan well. Use dark colors on light backgrounds for best reliability.</p>
-</details>
+  <div class="hero">
+    <div class="breadcrumb"><a href="../../index.html">Home</a> &rsaquo; <a href="../../categories/generator.html">Generator Tools</a> &rsaquo; QR Code Generator</div>
+    <h1>QR Code Generator</h1>
+    <p>Create scannable QR codes for URLs, text, email, WiFi, and phone numbers. Download as PNG — free, no signup.</p>
   </div>
-</section>
 
-<script type="application/ld+json">
-{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How much data can a QR code hold?", "acceptedAnswer": {"@type": "Answer", "text": "It depends on the error correction level and version. A standard QR code can store up to 4,296 alphanumeric characters. The more data, the denser the code becomes."}}, {"@type": "Question", "name": "Will the QR code still work if part of it is damaged?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. QR codes use Reed-Solomon error correction. Depending on the version and error level, up to 30% of the code can be damaged and still scan successfully."}}, {"@type": "Question", "name": "Can I customize the QR code colors?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, but avoid very light colors for the foreground as they won't scan well. Use dark colors on light backgrounds for best reliability."}}]}
-</script>
- <div class="section">
- <h2>Related tools</h2>
- <div class="related-grid">
- <a href="qr-code-scanner.html">QR Code Scanner</a>
- <a href="password-generator.html">Password Generator</a>
- <a href="../text/base64.html">Base64 Encode/Decode</a>
- <a href="../image/image-resizer.html">Image Resizer</a>
- </div>
- </div>
+  <div class="card">
+    <div class="tabs" id="tabs">
+      <button class="tab active" data-tab="url">URL</button>
+      <button class="tab" data-tab="text">Text</button>
+      <button class="tab" data-tab="email">Email</button>
+      <button class="tab" data-tab="phone">Phone</button>
+      <button class="tab" data-tab="wifi">WiFi</button>
+    </div>
 
- <footer class="footer">
- <div class="footer-links">
- <a href="qr-code-scanner.html">QR Scanner</a>
- <a href="password-generator.html">Password Generator</a>
- <span style="color:var(--border);margin:0 6px;">|</span>
- <a href="../../about.html">About</a>
- <a href="../../privacy.html">Privacy</a>
- <a href="../../disclaimer.html">Disclaimer</a>
- </div>
- <p class="footer-copy">&copy; 2026 zlbox. All rights reserved.</p>
- </footer>
+    <div class="tab-panel active" data-panel="url">
+      <div class="field"><label>Website URL</label><input type="url" id="f-url" placeholder="https://example.com" value="https://example.com" /></div>
+    </div>
+    <div class="tab-panel" data-panel="text">
+      <div class="field"><label>Text</label><textarea id="f-text" placeholder="Enter any text...">Hello world!</textarea></div>
+    </div>
+    <div class="tab-panel" data-panel="email">
+      <div class="field"><label>Email address</label><input type="email" id="f-email" placeholder="you@example.com" /></div>
+      <div class="field"><label>Subject</label><input type="text" id="f-email-sub" placeholder="Subject (optional)" /></div>
+    </div>
+    <div class="tab-panel" data-panel="phone">
+      <div class="field"><label>Phone number</label><input type="tel" id="f-phone" placeholder="+1 555 123 4567" /></div>
+    </div>
+    <div class="tab-panel" data-panel="wifi">
+      <div class="field"><label>Network name (SSID)</label><input type="text" id="f-wifi-ssid" placeholder="MyWiFi" /></div>
+      <div class="field"><label>Password</label><input type="text" id="f-wifi-pass" placeholder="WiFi password" /></div>
+      <div class="field"><label>Encryption</label><select id="f-wifi-enc"><option>WPA</option><option>WEP</option><option>nopass</option></select></div>
+    </div>
+
+    <div class="field-grid">
+      <div class="field"><label>Size (px)</label><input type="number" id="f-size" min="100" max="1000" value="256" /></div>
+      <div class="field"><label>Color</label><input type="color" id="f-color" value="#000000" /></div>
+    </div>
+
+    <button class="btn" id="genBtn">Generate QR Code</button>
+  </div>
+
+  <div class="card">
+    <div class="qr-wrap"><div id="qr"></div></div>
+    <button class="btn btn--ghost" id="dlBtn">Download PNG</button>
+  </div>
+
+  <div class="section">
+    <h2>How it works</h2>
+    <ol class="steps">
+      <li>Select a tab (URL, Text, Email, Phone, or WiFi) and enter your data.</li>
+      <li>Choose a size and color for the QR code, then click "Generate".</li>
+      <li>Click "Download PNG" to save the QR code image.</li>
+    </ol>
+  </div>
+
+  <div class="section">
+    <h2>Related tools</h2>
+    <div class="related-grid">
+      <a href="qr-code-scanner.html">QR Code Scanner</a>
+      <a href="password-generator.html">Password Generator</a>
+      <a href="../text/base64.html">Base64 Encode/Decode</a>
+      <a href="../image/image-resizer.html">Image Resizer</a>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="qr-code-scanner.html">QR Scanner</a>
+      <a href="password-generator.html">Password Generator</a>
+      <span style="color:var(--border);margin:0 6px;">|</span>
+      <a href="../../about.html">About</a>
+      <a href="../../privacy.html">Privacy</a>
+      <a href="../../disclaimer.html">Disclaimer</a>
+    </div>
+    <p class="footer-copy">&copy; 2026 My Tool Lab. All rights reserved.</p>
+  </footer>
 </div>
 
 <script>
 (function(){
- var active='url';
- document.querySelectorAll('.tab').forEach(function(t){
- t.addEventListener('click',function(){
- active=t.getAttribute('data-tab');
- document.querySelectorAll('.tab').forEach(function(x){x.classList.remove('active');});
- document.querySelectorAll('.tab-panel').forEach(function(x){x.classList.remove('active');});
- t.classList.add('active');
- document.querySelector('.tab-panel[data-panel="'+active+'"]').classList.add('active');
- gen();
- });
- });
- function escapeStr(str){return String(str||'').replace(/\\/g,'\\\\').replace(/"/g,'\\"').replace(/:/g,'\\:').replace(/;/g,'\\;');}
- function v(str){return String(str||'').trim();}
- function build(){
- if(active==='url')return document.getElementById('f-url').value.trim();
- if(active==='text')return document.getElementById('f-text').value;
- if(active==='email'){var e=document.getElementById('f-email').value.trim();var s=document.getElementById('f-email-sub').value.trim();return 'mailto:'+e+(s?'?subject='+encodeURIComponent(s):'');}
- if(active==='phone')return 'tel:'+document.getElementById('f-phone').value.trim();
- if(active==='sms'){
-  var ph=document.getElementById('f-sms-phone').value.trim();
-  var msg=document.getElementById('f-sms-msg').value;
-  return 'SMSTO:'+ph+':'+msg;
- }
- if(active==='vcard'){
-  var fn=v(document.getElementById('f-vc-fn').value);
-  var ln=v(document.getElementById('f-vc-ln').value);
-  var org=v(document.getElementById('f-vc-org').value);
-  var title=v(document.getElementById('f-vc-title').value);
-  var tel=v(document.getElementById('f-vc-tel').value);
-  var email=v(document.getElementById('f-vc-email').value);
-  var url=v(document.getElementById('f-vc-url').value);
-  var addr=v(document.getElementById('f-vc-addr').value);
-  if(!fn&&!ln&&!org&&!tel&&!email)return '';
-  var full=(fn||'')+(ln?' '+ln:'');
-  var lines=['BEGIN:VCARD','VERSION:3.0'];
-  lines.push('N:'+ln+';'+fn+';;;');
-  lines.push('FN:'+(full||org||'Contact'));
-  if(org)lines.push('ORG:'+org);
-  if(title)lines.push('TITLE:'+title);
-  if(tel)lines.push('TEL:'+tel);
-  if(email)lines.push('EMAIL:'+email);
-  if(url)lines.push('URL:'+url);
-  if(addr)lines.push('ADR:;;'+addr+';;;;');
-  lines.push('END:VCARD');
-  return lines.join('\r\n');
- }
- if(active==='wifi'){var ssid=document.getElementById('f-wifi-ssid').value;var pass=document.getElementById('f-wifi-pass').value;var enc=document.getElementById('f-wifi-enc').value;return 'WIFI:T:'+enc+';S:'+escapeStr(ssid)+';P:'+escapeStr(pass)+';;';}
- return'';
- }
- var qrEl=document.getElementById('qr');
- function mapEcc(v){
-  if(v==='L')return QRCode.CorrectLevel.L;
-  if(v==='Q')return QRCode.CorrectLevel.Q;
-  if(v==='H')return QRCode.CorrectLevel.H;
-  return QRCode.CorrectLevel.M;
- }
- function gen(){
- var text=build();
- qrEl.innerHTML='';
- if(!text){qrEl.textContent='Please enter data.';return;}
- var size=parseInt(document.getElementById('f-size').value,10)||256;
- size=Math.max(100,Math.min(1000,size));
- var color=document.getElementById('f-color').value||'#000000';
- var bg=document.getElementById('f-bg').value||'#ffffff';
- var ecc=mapEcc(document.getElementById('f-ecc').value);
- try{
- new QRCode(qrEl,{text:text,width:size,height:size,colorDark:color,colorLight:bg,correctLevel:ecc});
- }catch(e){qrEl.textContent='Could not generate QR code.';}
- }
- function getCanvas(){
- var canvas=qrEl.querySelector('canvas');
- if(canvas)return canvas;
- var img=qrEl.querySelector('img');
- if(img){
-  var c=document.createElement('canvas');
-  c.width=img.width||256;c.height=img.height||256;
-  var ctx=c.getContext('2d');
-  ctx.fillStyle=document.getElementById('f-bg').value||'#ffffff';
-  ctx.fillRect(0,0,c.width,c.height);
-  ctx.drawImage(img,0,0,c.width,c.height);
-  return c;
- }
- return null;
- }
- function triggerDownload(dataUrl,filename){
- var a=document.createElement('a');a.href=dataUrl;a.download=filename;document.body.appendChild(a);a.click();document.body.removeChild(a);
- }
- document.getElementById('dlPng').addEventListener('click',function(){
- var canvas=getCanvas();if(!canvas){gen();canvas=getCanvas();if(!canvas)return;}
- triggerDownload(canvas.toDataURL('image/png'),'qrcode.png');
- });
- document.getElementById('dlJpg').addEventListener('click',function(){
- var canvas=getCanvas();if(!canvas){gen();canvas=getCanvas();if(!canvas)return;}
- triggerDownload(canvas.toDataURL('image/jpeg',0.92),'qrcode.jpg');
- });
- document.getElementById('dlSvg').addEventListener('click',function(){
- var canvas=getCanvas();if(!canvas){gen();canvas=getCanvas();if(!canvas)return;}
- var dataUrl=canvas.toDataURL('image/png');
- var w=canvas.width,h=canvas.height;
- var svg='<svg xmlns="http://www.w3.org/2000/svg" width="'+w+'" height="'+h+'"><image href="'+dataUrl+'" width="'+w+'" height="'+h+'"/></svg>';
- var svgBlob=new Blob([svg],{type:'image/svg+xml;charset=utf-8'});
- var svgUrl=URL.createObjectURL(svgBlob);
- var a=document.createElement('a');a.href=svgUrl;a.download='qrcode.svg';document.body.appendChild(a);a.click();document.body.removeChild(a);
- setTimeout(function(){URL.revokeObjectURL(svgUrl);},1000);
- });
- document.querySelectorAll('.card input, .card textarea, .card select').forEach(function(el){
- el.addEventListener('input',gen);
- el.addEventListener('change',gen);
- });
- if(typeof QRCode!=='undefined')gen();
- else{var iv=setInterval(function(){if(typeof QRCode!=='undefined'){clearInterval(iv);gen();}},80);}
+  var active='url';
+  document.querySelectorAll('.tab').forEach(function(t){
+    t.addEventListener('click',function(){
+      active=t.getAttribute('data-tab');
+      document.querySelectorAll('.tab').forEach(function(x){x.classList.remove('active');});
+      document.querySelectorAll('.tab-panel').forEach(function(x){x.classList.remove('active');});
+      t.classList.add('active');
+      document.querySelector('.tab-panel[data-panel="'+active+'"]').classList.add('active');
+    });
+  });
+  function escapeStr(str){return String(str||'').replace(/\\/g,'\\\\').replace(/"/g,'\\"').replace(/:/g,'\\:').replace(/;/g,'\\;');}
+  function build(){
+    if(active==='url')return document.getElementById('f-url').value.trim();
+    if(active==='text')return document.getElementById('f-text').value;
+    if(active==='email'){var e=document.getElementById('f-email').value.trim();var s=document.getElementById('f-email-sub').value.trim();return 'mailto:'+e+(s?'?subject='+encodeURIComponent(s):'');}
+    if(active==='phone')return 'tel:'+document.getElementById('f-phone').value.trim();
+    if(active==='wifi'){var ssid=document.getElementById('f-wifi-ssid').value;var pass=document.getElementById('f-wifi-pass').value;var enc=document.getElementById('f-wifi-enc').value;return 'WIFI:T:'+enc+';S:'+escapeStr(ssid)+';P:'+escapeStr(pass)+';;';}
+    return'';
+  }
+  var qrEl=document.getElementById('qr');
+  var lastQr=null;
+  function gen(){
+    var text=build();
+    qrEl.innerHTML='';
+    if(!text){qrEl.textContent='Please enter data.';return;}
+    var size=parseInt(document.getElementById('f-size').value,10)||256;
+    size=Math.max(100,Math.min(1000,size));
+    var color=document.getElementById('f-color').value||'#000000';
+    try{
+      lastQr=new QRCode(qrEl,{text:text,width:size,height:size,colorDark:color,colorLight:'#ffffff',correctLevel:QRCode.CorrectLevel.M});
+    }catch(e){qrEl.textContent='Could not generate QR code.';}
+  }
+  document.getElementById('genBtn').addEventListener('click',gen);
+  document.getElementById('dlBtn').addEventListener('click',function(){
+    var canvas=qrEl.querySelector('canvas');
+    var img=qrEl.querySelector('img');
+    var dataUrl='';
+    if(canvas)dataUrl=canvas.toDataURL('image/png');
+    else if(img)dataUrl=img.src;
+    else{gen();return;}
+    var a=document.createElement('a');a.href=dataUrl;a.download='qrcode.png';document.body.appendChild(a);a.click();document.body.removeChild(a);
+  });
+  if(typeof QRCode!=='undefined')gen();
 })();
 </script>
 </body>

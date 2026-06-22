@@ -1,363 +1,173 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <meta charset="UTF-8" />
- <meta name="viewport" content="width=device-width, initial-scale=1.0" />
- <title>Case Converter – UPPERCASE, lowercase, camelCase, PascalCase & More | zlbox</title>
- <meta name="description" content="Free online text case converter: UPPERCASE, lowercase, Title Case, Sentence case, camelCase, PascalCase, snake_case, kebab-case. Real-time conversion with one-click copy." />
- <link rel="canonical" href="https://www.zlbox.site/tools/text/case-converter.html" />
- <meta name="google-site-verification" content="google4bd1e08685667667" />
- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
-<script>
-(function() {
-  var toggle = document.querySelector('.nav-toggle');
-  var navLinks = document.querySelector('.nav-links');
-  if (!toggle || !navLinks) return;
-  toggle.addEventListener('click', function() {
-    var isOpen = navLinks.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', isOpen);
-  });
-  var path = location.pathname;
-  document.querySelectorAll('.nav-link').forEach(function(link) {
-    var href = link.getAttribute('href');
-    if (href && (path === href || path.indexOf(href.replace('/index.html','')) > -1)) {
-      link.classList.add('active');
-    }
-  });
-})();
-</script>
- <link rel="stylesheet" href="../../css/components.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Case Converter – UPPERCASE, lowercase, camelCase & More | My Tool Lab</title>
+  <meta name="description" content="Free online text case converter with 7 formats: UPPERCASE, lowercase, Title Case, snake_case, kebab-case, camelCase, and PascalCase. Real-time conversion, one-click copy." />
+  <link rel="canonical" href="https://www.zlbox.site/tools/text/case-converter.html" />
+  <meta name="google-site-verification" content="google4bd1e08685667667" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../../_css/components.css" />
 
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <meta property="og:title" content="Case Converter – UPPERCASE, lowercase, camelCase, PascalCase & More | zlbox" />
-  <meta property="og:description" content="Free online text case converter: UPPERCASE, lowercase, Title Case, Sentence case, camelCase, PascalCase, snake_case, kebab-case. Real-time conversion." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.zlbox.site/tools/text/case-converter.html" />
-  <meta property="og:site_name" content="zlbox" />
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Case Converter","description":"Convert text between common cases in real-time. UPPERCASE, lowercase, Title Case, Sentence case, camelCase, PascalCase, snake_case, kebab-case.","url":"https://www.zlbox.site/tools/text/case-converter.html","applicationCategory":"Text Tool","operatingSystem":"Any (browser-based)","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"browserRequirements":"Requires a modern web browser with JavaScript enabled."}</script>
-
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.zlbox.site/"},{"@type":"ListItem","position":2,"name":"Text Tools","item":"https://www.zlbox.site/categories/text.html"}]}</script>
-
-  
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.zlbox.site/"},{"@type":"ListItem","position":2,"name":"Text & Developer Tools","item":"https://www.zlbox.site/categories/text.html"},{"@type":"ListItem","position":3,"name":"Case Converter"}]}</script>
-  <style>
-.site-nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,.97); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); box-shadow: 0 1px 4px rgba(0,0,0,.05); }
-.nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; align-items: center; gap: 8px; height: 52px; }
-.nav-logo { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 1rem; color: var(--brand); text-decoration: none; flex-shrink: 0; margin-right: 12px; }
-.nav-logo:hover { text-decoration: none; }
-.nav-logo-icon { width: 36px; height: 36px; background: var(--brand); color: #fff; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: .9rem; flex-shrink: 0; }
-.nav-logo-text { font-size: .95rem; }
-.nav-links { display: flex; align-items: center; gap: 2px; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none; flex: 1; }
-.nav-links::-webkit-scrollbar { display: none; }
-.nav-link { display: inline-flex; align-items: center; padding: 5px 10px; font-size: .82rem; font-weight: 500; color: var(--text); border-radius: 6px; white-space: nowrap; transition: all .15s; flex-shrink: 0; }
-.nav-link:hover { background: var(--brand); color: #fff; text-decoration: none; }
-.nav-link.active { background: #eff6ff; color: var(--brand); }
-.nav-toggle { display: none; flex-direction: column; justify-content: center; gap: 4px; width: 32px; height: 32px; padding: 4px; background: none; border: 1px solid var(--border); border-radius: 6px; cursor: pointer; flex-shrink: 0; margin-left: auto; }
-.nav-toggle span { display: block; width: 100%; height: 2px; background: var(--text); border-radius: 1px; }
-@media (max-width: 768px) {
-  .nav-logo-text { display: none; }
-  .nav-inner { gap: 6px; }
-  .nav-toggle { display: flex; }
-  .nav-links { display: none; position: absolute; top: 52px; left: 0; right: 0; background: #fff; border-bottom: 1px solid var(--border); box-shadow: 0 4px 12px rgba(0,0,0,.1); flex-direction: column; align-items: flex-start; padding: 8px 0; z-index: 99; overflow: visible; }
-  .nav-links.open { display: flex; }
-  .nav-link { width: 100%; padding: 10px 20px; font-size: .9rem; border-radius: 0; }
-}
-.panel-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-@media (max-width: 900px) { .panel-grid { grid-template-columns: 1fr; } }
-.panel { background: #fff; border: 1px solid var(--border); border-radius: 10px; padding: 14px; display: flex; flex-direction: column; }
-.panel h3 { margin: 0 0 10px; font-size: 14px; color: var(--text); }
-.case-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 8px; margin-top: 10px; }
-.case-grid button { padding: 8px 10px; border: 1px solid var(--border); background: #f8fafc; color: var(--text); border-radius: 6px; font-size: 13px; cursor: pointer; transition: all .15s; }
-.case-grid button:hover { background: #e2e8f0; }
-.case-grid button.is-active { background: var(--brand); color: #fff; border-color: var(--brand); }
-  </style>
   <meta property="og:image" content="https://www.zlbox.site/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Case Converter – UPPERCASE, lowercase, camelCase, PascalCase & More" />
-  <meta name="twitter:description" content="Free online text case converter: UPPERCASE, lowercase, Title Case, Sentence case, camelCase, PascalCase, snake_case, kebab-case." />
+  <meta name="twitter:title" content="Case Converter" />
+  <meta name="twitter:description" content="Convert text case" />
   <meta name="twitter:image" content="https://www.zlbox.site/og-image.png" />
 
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
   <meta name="robots" content="index, follow" />
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Case Converter","description":"Step by step guide: How to Use Case Converter","step":[{"@type":"HowToStep","name":"Enter text","text":"Paste or type text into the input box.","position":1},{"@type":"HowToStep","name":"Choose a case","text":"Select a target case from the buttons: UPPERCASE, lowercase, camelCase, PascalCase, Title Case, Sentence case, snake_case, kebab-case.","position":2},{"@type":"HowToStep","name":"Copy result","text":"Click Copy to copy the converted text.","position":3}]}</script>
+
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Case Converter", "description": "Convert text case", "url": "https://www.zlbox.site/tools/text/case-converter.html", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9V6L0Z956X"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-9V6L0Z956X');</script>
 </head>
 <body>
-
-  <nav class="site-nav" aria-label="Main navigation">
-    <div class="nav-inner">
-      <a href="/" class="nav-logo" aria-label="zlbox Home">
-        <span class="nav-logo-icon">zl</span>
-        <span class="nav-logo-text">zlbox</span>
-      </a>
-      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-      <div class="nav-links" role="list">
-        <a href="/tools/index.html" class="nav-link" role="listitem">All Tools</a>
-        <a href="/categories/text.html" class="nav-link" role="listitem">Text</a>
-        <a href="/categories/calculator.html" class="nav-link" role="listitem">Calculator</a>
-        <a href="/categories/generator.html" class="nav-link" role="listitem">Generator</a>
-        <a href="/categories/image.html" class="nav-link" role="listitem">Image</a>
-        <a href="/categories/pdf.html" class="nav-link" role="listitem">PDF</a>
-        <a href="/blog/index.html" class="nav-link" role="listitem">Blog</a>
-      </div>
-    </div>
-  </nav>
-
 <div class="container-md">
- <div class="hero">
- <div class="breadcrumb"><a href="../../index.html">Home</a> &rsaquo; <a href="../../categories/text.html">Text Tools</a> &rsaquo; Case Converter</div>
- <h1>Case Converter</h1>
- <p>Convert text between 8 common cases in real-time &mdash; ideal for developers, writers, and content editors.</p>
- </div>
+  <div class="hero">
+    <div class="breadcrumb"><a href="../../index.html">Home</a> &rsaquo; <a href="../../categories/text.html">Text Tools</a> &rsaquo; Case Converter</div>
+    <h1>Case Converter</h1>
+    <p>Convert text between 7 common cases in one click — developers and writers love it.</p>
+  </div>
 
- <div class="card">
-  <div class="panel-grid">
-    <div class="panel">
-      <h3>Input</h3>
-      <textarea id="inputText" placeholder="Paste or type your text here…" spellcheck="false" style="min-height:200px;font-family:inherit;font-size:14px;line-height:1.6;padding:12px;border:1px solid var(--border);border-radius:8px;resize:vertical"></textarea>
-      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:10px">
-        <button class="btn btn--sm btn--ghost" id="sampleBtn">Sample</button>
-        <button class="btn btn--sm btn--ghost" id="clearBtn">Clear</button>
-        <span style="margin-left:auto;font-size:12px;color:var(--muted);align-self:center" id="inputStats"></span>
+  <div class="card">
+    <div class="editor">
+      <textarea id="inputText" placeholder="Paste or type your text here…" spellcheck="false"></textarea>
+      <div class="editor__toolbar" style="flex-wrap:wrap; gap:8px; justify-content:flex-start;">
+        <button class="btn btn--sm" data-mode="uppercase">UPPERCASE</button>
+        <button class="btn btn--sm" data-mode="lowercase">lowercase</button>
+        <button class="btn btn--sm" data-mode="titlecase">Title Case</button>
+        <button class="btn btn--sm" data-mode="sentencecase">Sentence case</button>
+        <button class="btn btn--sm" data-mode="camelcase">camelCase</button>
+        <button class="btn btn--sm" data-mode="snakecase">snake_case</button>
+        <button class="btn btn--sm" data-mode="kebabcase">kebab-case</button>
       </div>
     </div>
-
-    <div class="panel">
-      <h3>Output</h3>
-      <div class="case-grid">
-        <button data-mode="uppercase">UPPERCASE</button>
-        <button data-mode="lowercase">lowercase</button>
-        <button data-mode="titlecase">Title Case</button>
-        <button data-mode="sentencecase">Sentence case</button>
-        <button data-mode="camelcase">camelCase</button>
-        <button data-mode="pascalcase">PascalCase</button>
-        <button data-mode="snakecase">snake_case</button>
-        <button data-mode="kebabcase">kebab-case</button>
-      </div>
-      <textarea id="outputText" readonly placeholder="Converted text appears here…" style="margin-top:12px;min-height:180px;font-family:inherit;font-size:14px;line-height:1.6;padding:12px;border:1px solid var(--border);border-radius:8px;resize:vertical;background:#fafafa"></textarea>
-      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;align-items:center">
-        <span style="font-size:12px;color:var(--muted)" id="statusLabel">Ready</span>
-        <button class="btn btn--sm btn--ghost" id="downloadBtn" style="margin-left:auto">Download</button>
+    <div class="editor" style="margin-top:10px;">
+      <textarea id="outputText" readonly placeholder="Converted text appears here…" spellcheck="false"></textarea>
+      <div class="editor__toolbar">
+        <button class="btn btn--sm btn--ghost" id="clearBtn">Clear</button>
+        <div style="margin-left:auto"></div>
         <button class="btn btn--sm" id="copyBtn">Copy</button>
       </div>
     </div>
   </div>
- </div>
 
- <div class="section">
- <h2>How it works</h2>
- <ol class="steps">
- <li>Paste or type your text into the left-side input. Numbers and punctuation are preserved.</li>
- <li>Select a case from the button grid. The output updates in real-time as you edit.</li>
- <li>Copy or download the result &mdash; nothing is transmitted to a server.</li>
- </ol>
- </div>
-
- <section class="tool-info" aria-label="Tool information">
-  <h2>What is Case Converter?</h2>
-  <p>A case converter transforms text between different letter-casing conventions used in programming, writing, and file naming &mdash; UPPERCASE, lowercase, Title Case, Sentence case, camelCase, PascalCase, snake_case, and kebab-case.</p>
-
-  <h2>Use cases</h2>
-  <ul class="usecase-list">
-<li>Converting variable and function names across coding styles (camelCase, snake_case, PascalCase).</li>
-<li>Standardizing headings and titles for documents and blog posts.</li>
-<li>Cleaning up copied text from emails, chats, and the web.</li>
-<li>Preparing filenames and URL slugs (kebab-case).</li>
-  </ul>
-
-  <h2>Frequently Asked Questions</h2>
-  <div class="faq">
-<details class="faq-item"><summary>What's the difference between camelCase and PascalCase?</summary><p>camelCase starts with a lowercase letter (e.g., <code>userName</code>). PascalCase capitalizes each word including the first (e.g., <code>UserName</code>). JavaScript/Java favor camelCase for variables, while C# and TypeScript types use PascalCase.</p></details>
-<details class="faq-item"><summary>When should I use snake_case vs kebab-case?</summary><p>snake_case (underscores, <code>user_id</code>) is common in Python, Ruby, SQL column names, and PHP. kebab-case (hyphens, <code>user-id</code>) is used for URLs, CSS classes, and file names in multi-word file systems.</p></details>
-<details class="faq-item"><summary>Are numbers and punctuation preserved?</summary><p>Yes. Numbers, symbols, and punctuation from the original input are preserved in each case style; only letters are transformed.</p></details>
-<details class="faq-item"><summary>Is my data sent to a server?</summary><p>No. All conversion happens locally in your browser using pure JavaScript. Your text never leaves your device.</p></details>
+  <div class="section">
+    <h2>How it works</h2>
+    <ol class="steps">
+      <li>Paste your text into the top box. Supports sentences, identifiers, and mixed input.</li>
+      <li>Click a case button — the output updates instantly. No page reload.</li>
+      <li>Hit Copy to grab the result, or Clear to start over.</li>
+    </ol>
   </div>
-</section>
 
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What's the difference between camelCase and PascalCase?","acceptedAnswer":{"@type":"Answer","text":"camelCase starts with a lowercase letter; PascalCase capitalizes each word including the first."}},{"@type":"Question","name":"Are numbers and punctuation preserved?","acceptedAnswer":{"@type":"Answer","text":"Yes. Numbers, symbols, and punctuation from the original input are preserved in each case style."}},{"@type":"Question","name":"Is my data sent to a server?","acceptedAnswer":{"@type":"Answer","text":"No. All conversion happens locally in your browser using pure JavaScript."}}]}</script>
- <div class="section">
- <h2>Related tools</h2>
- <div class="related-grid">
- <a href="word-counter.html">Word Counter</a>
- <a href="lorem-ipsum.html">Lorem Ipsum Generator</a>
- <a href="base64.html">Base64 Encode/Decode</a>
- <a href="json-formatter.html">JSON Formatter</a>
- <a href="url-encoder.html">URL Encode/Decode</a>
- </div>
- </div>
+  <div class="section">
+    <h2>Related tools</h2>
+    <div class="related-grid">
+      <a href="word-counter.html">Word Counter</a>
+      <a href="lorem-ipsum.html">Lorem Ipsum</a>
+      <a href="base64.html">Base64 Encode/Decode</a>
+      <a href="json-formatter.html">JSON Formatter</a>
+    </div>
+  </div>
 
- <footer class="footer">
- <div class="footer-links">
- <a href="word-counter.html">Word Counter</a>
- <a href="case-converter.html">Case Converter</a>
- <a href="json-formatter.html">JSON Formatter</a>
- <span style="color:var(--border);margin:0 6px">|</span>
- <a href="../../about.html">About</a>
- <a href="../../privacy.html">Privacy</a>
- <a href="../../disclaimer.html">Disclaimer</a>
- </div>
- <p class="footer-copy">&copy; 2026 zlbox. All rights reserved.</p>
- </footer>
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="word-counter.html">Word Counter</a>
+      <a href="case-converter.html">Case Converter</a>
+      <a href="json-formatter.html">JSON Formatter</a>
+      <span style="color:var(--border);margin:0 6px">|</span>
+      <a href="../../about.html">About</a>
+      <a href="../../privacy.html">Privacy</a>
+      <a href="../../disclaimer.html">Disclaimer</a>
+    </div>
+    <p class="footer-copy">&copy; 2026 My Tool Lab. All rights reserved.</p>
+  </footer>
 </div>
 
 <script>
 (function() {
-  'use strict';
-  var inputEl = document.getElementById('inputText');
-  var outputEl = document.getElementById('outputText');
-  var statusEl = document.getElementById('statusLabel');
-  var statsEl = document.getElementById('inputStats');
-  var currentMode = 'uppercase';
-
-  // Precompile minor words for Title Case
   var MINOR = new Set(['a','an','the','and','but','or','nor','for','so','yet','at','by','in','of','on','to','up','as','is','it','via']);
-
   function splitWords(text) {
-    // Split camelCase, PascalCase, spaces, hyphens, underscores, punctuation
     return text
-      .replace(/([a-z0-9])([A-Z])/g, '$1 $2')
+      .replace(/([a-z])([A-Z])/g, '$1 $2')
       .replace(/([A-Z]+)([A-Z][a-z])/g, '$1 $2')
-      .replace(/[-_:,.!?()]+/g, ' ')
+      .replace(/[-_]+/g, ' ')
+      .replace(/[^a-zA-Z0-9 ]/g, ' ')
       .trim()
       .split(/\s+/)
-      .filter(function(w) { return w.length > 0; });
+      .filter(Boolean);
   }
-
   var converters = {
     uppercase: function(t) { return t.toUpperCase(); },
     lowercase: function(t) { return t.toLowerCase(); },
     titlecase: function(t) {
-      // Preserve line structure, capitalize first & last words + non-minor words
-      var lines = t.split('\n');
-      return lines.map(function(line) {
-        var tokens = line.split(/(\s+)/);
-        var out = [];
-        var firstWordFound = false;
-        var lastWordIdx = -1;
-        for (var i = tokens.length - 1; i >= 0; i--) {
-          if (/\S/.test(tokens[i])) { lastWordIdx = i; break; }
-        }
-        for (var i = 0; i < tokens.length; i++) {
-          var tok = tokens[i];
-          if (!/\S/.test(tok)) { out.push(tok); continue; }
-          var isWord = /[A-Za-z]/.test(tok);
-          if (!isWord) { out.push(tok); continue; }
-          if (!firstWordFound || i === lastWordIdx || !MINOR.has(tok.toLowerCase())) {
-            out.push(tok.charAt(0).toUpperCase() + tok.slice(1).toLowerCase());
-          } else {
-            out.push(tok.toLowerCase());
-          }
-          firstWordFound = true;
-        }
-        return out.join('');
-      }).join('\n');
+      var tokens = t.trim().split(/(\s+)/);
+      return tokens.map(function(part, i) {
+        if (!/\S/.test(part)) return part;
+        var words = part.split(/\s+/).filter(Boolean);
+        if (!words.length) return part;
+        var first = words[0].charAt(0).toUpperCase() + words[0].slice(1).toLowerCase();
+        var rest = words.slice(1).map(function(w) {
+          return MINOR.has(w.toLowerCase()) ? w.toLowerCase() : w.charAt(0).toUpperCase() + w.slice(1).toLowerCase();
+        });
+        return [first].concat(rest).join(' ');
+      }).join('');
     },
     sentencecase: function(t) {
-      // Capitalize first letter of each sentence separated by . ! ?
-      var lower = t.toLowerCase();
-      var result = '';
-      var shouldCapitalize = true;
-      for (var i = 0; i < lower.length; i++) {
-        var ch = lower.charAt(i);
-        if (shouldCapitalize && /[a-z]/.test(ch)) {
-          result += ch.toUpperCase();
-          shouldCapitalize = false;
-        } else {
-          result += ch;
-          if (ch === '.' || ch === '!' || ch === '?') shouldCapitalize = true;
-        }
-      }
-      return result;
+      var lower = t.toLowerCase().trim();
+      if (!lower) return '';
+      return lower.charAt(0).toUpperCase() + lower.slice(1);
     },
+    snakecase: function(t) { return splitWords(t).join('_').toLowerCase(); },
+    kebabcase: function(t) { return splitWords(t).join('-').toLowerCase(); },
     camelcase: function(t) {
       var words = splitWords(t);
       if (!words.length) return '';
       return words[0].toLowerCase() + words.slice(1).map(function(w) {
         return w.charAt(0).toUpperCase() + w.slice(1).toLowerCase();
       }).join('');
-    },
-    pascalcase: function(t) {
-      var words = splitWords(t);
-      if (!words.length) return '';
-      return words.map(function(w) {
-        return w.charAt(0).toUpperCase() + w.slice(1).toLowerCase();
-      }).join('');
-    },
-    snakecase: function(t) {
-      return splitWords(t).map(function(w) { return w.toLowerCase(); }).join('_');
-    },
-    kebabcase: function(t) {
-      return splitWords(t).map(function(w) { return w.toLowerCase(); }).join('-');
     }
   };
-
-  function updateStats() {
-    var text = inputEl.value;
-    var chars = text.length;
-    var words = text.trim() ? text.trim().split(/\s+/).length : 0;
-    statsEl.textContent = words + ' words / ' + chars + ' chars';
-  }
-
-  function render() {
-    var conv = converters[currentMode];
-    if (!conv) { outputEl.value = ''; statusEl.textContent = 'Ready'; return; }
-    var text = inputEl.value;
-    if (!text.trim()) { outputEl.value = ''; statusEl.textContent = 'Ready'; return; }
-    outputEl.value = conv(text);
-    statusEl.textContent = 'Converted to ' + currentMode.replace('case', ' case');
-    updateStats();
-  }
+  var inputEl  = document.getElementById('inputText');
+  var outputEl = document.getElementById('outputText');
+  var copyBtn  = document.getElementById('copyBtn');
+  var clearBtn = document.getElementById('clearBtn');
+  var lastMode = null;
 
   document.querySelectorAll('[data-mode]').forEach(function(btn) {
     btn.addEventListener('click', function() {
       var mode = btn.getAttribute('data-mode');
-      currentMode = mode;
-      document.querySelectorAll('[data-mode]').forEach(function(b) {
-        b.classList.toggle('is-active', b.getAttribute('data-mode') === mode);
-      });
-      render();
+      var converter = converters[mode];
+      if (!converter) return;
+      outputEl.value = converter(inputEl.value);
+      lastMode = mode;
     });
   });
 
-  document.getElementById('clearBtn').addEventListener('click', function() {
-    inputEl.value = ''; outputEl.value = ''; inputEl.focus(); updateStats();
-  });
-
-  document.getElementById('sampleBtn').addEventListener('click', function() {
-    inputEl.value = 'The Quick Brown Fox Jumps Over The Lazy Dog. A JavaScript variable, like user_name or UserName, can be converted to camelCase, PascalCase, snake_case, and kebab-case. Try it out!';
-    render();
-  });
-
-  document.getElementById('copyBtn').addEventListener('click', function() {
-    var txt = outputEl.value;
-    if (!txt) return;
+  copyBtn.addEventListener('click', function() {
+    if (!outputEl.value) return;
     if (navigator.clipboard) {
-      navigator.clipboard.writeText(txt).then(function() { statusEl.textContent = 'Copied to clipboard'; });
+      navigator.clipboard.writeText(outputEl.value).then(function() {
+        copyBtn.textContent = 'Copied!';
+        setTimeout(function() { copyBtn.textContent = 'Copy'; }, 1200);
+      });
     } else {
-      var ta = document.createElement('textarea'); ta.value = txt; document.body.appendChild(ta); ta.select();
-      try { document.execCommand('copy'); statusEl.textContent = 'Copied'; }
-      catch(e) { statusEl.textContent = 'Copy failed'; }
-      document.body.removeChild(ta);
+      outputEl.select(); document.execCommand('copy');
+      copyBtn.textContent = 'Copied!';
+      setTimeout(function() { copyBtn.textContent = 'Copy'; }, 1200);
     }
   });
 
-  document.getElementById('downloadBtn').addEventListener('click', function() {
-    var txt = outputEl.value;
-    if (!txt) return;
-    var blob = new Blob([txt], { type: 'text/plain;charset=utf-8' });
-    var url = URL.createObjectURL(blob);
-    var a = document.createElement('a');
-    a.href = url; a.download = 'converted.txt';
-    document.body.appendChild(a); a.click(); document.body.removeChild(a);
-    setTimeout(function() { URL.revokeObjectURL(url); }, 1000);
+  clearBtn.addEventListener('click', function() {
+    inputEl.value = ''; outputEl.value = ''; inputEl.focus();
   });
-
-  inputEl.addEventListener('input', render);
-  // Initialize - first button is active
-  document.querySelector('[data-mode="uppercase"]').classList.add('is-active');
-  updateStats();
 })();
 </script>
 </body>

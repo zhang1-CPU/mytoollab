@@ -1,658 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <meta charset="UTF-8" />
- <meta name="viewport" content="width=device-width, initial-scale=1.0" />
- <title>Basic Calculator – Simple Online Arithmetic Calculator | zlbox</title>
- <meta name="description" content="Free basic online calculator for addition, subtraction, multiplication, and division. Simple, fast, works on any device without signup." />
- <link rel="stylesheet" href="../../css/components.css" />
- <link rel="canonical" href="https://www.zlbox.site/tools/calculator/basic-calculator.html" />
- <meta name="google-site-verification" content="google4bd1e8685667667" />
- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
-<script>
-/* Navigation toggle for mobile */
-(function() {
-  var toggle = document.querySelector('.nav-toggle');
-  var navLinks = document.querySelector('.nav-links');
-  if (!toggle || !navLinks) return;
-  toggle.addEventListener('click', function() {
-    var isOpen = navLinks.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', isOpen);
-  });
-  // Highlight active link
-  var path = location.pathname;
-  document.querySelectorAll('.nav-link').forEach(function(link) {
-    var href = link.getAttribute('href');
-    if (href && (path === href || path.indexOf(href.replace('/index.html','')) > -1)) {
-      link.classList.add('active');
-    }
-  });
-})();
-</script>
- <script async src="https://www.googletagmanager.com/gtag/js?id=G-9V6L0Z956X"></script>
- <script>
- window.dataLayer = window.dataLayer || [];
- function gtag(){dataLayer.push(arguments);}
- gtag('js', new Date());
- gtag('config', 'G-9V6L0Z956X');
- </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Basic Calculator – Simple Online Arithmetic Calculator | My Tool Lab</title>
+  <meta name="description" content="Free basic online calculator for addition, subtraction, multiplication, and division. Simple, fast, works on any device without signup." />
+  <link rel="stylesheet" href="../../_css/components.css" />
+  <link rel="canonical" href="https://www.zlbox.site/tools/calculator/basic-calculator.html" />
+  <meta name="google-site-verification" content="google4bd1e08685667667" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9V6L0Z956X"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9V6L0Z956X');
+  </script>
 
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <meta property="og:title" content="Basic Calculator – Simple Online Arithmetic Calculator | zlbox" />
-  <meta property="og:description" content="Free basic online calculator for addition, subtraction, multiplication, and division. Simple, fast, works on any device without signup." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.zlbox.site/tools/calculator/basic-calculator.html" />
-  <meta property="og:site_name" content="zlbox" />
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Basic Calculator – Simple Online Arithmetic Calculator", "description": "Free basic online calculator for addition, subtraction, multiplication, and division. Simple, fast, works on any device without signup.", "url": "https://www.zlbox.site/tools/calculator/basic-calculator.html", "applicationCategory": "Calculator Tool", "operatingSystem": "Any (browser-based)", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "browserRequirements": "Requires a modern web browser with JavaScript enabled."}</script>
-
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.zlbox.site/"}, {"@type": "ListItem", "position": 2, "name": "Calculator Tools", "item": "https://www.zlbox.site/categories/calculator.html"}]}</script>
-
-  
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.zlbox.site/"},{"@type":"ListItem","position":2,"name":"Calculator Tools","item":"https://www.zlbox.site/categories/calculator.html"},{"@type":"ListItem","position":3,"name":"Basic Calculator"}]}</script>
-  <style>
-/* ── Site Navigation ── */
-.site-nav {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: rgba(255,255,255,.97);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--border);
-  box-shadow: 0 1px 4px rgba(0,0,0,.05);
-}
-.nav-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  height: 52px;
-}
-.nav-logo {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-weight: 700;
-  font-size: 1rem;
-  color: var(--brand);
-  text-decoration: none;
-  flex-shrink: 0;
-  margin-right: 12px;
-}
-.nav-logo:hover { text-decoration: none; }
-.nav-logo-icon {
-  width: 36px;
-  height: 36px;
-  background: var(--brand);
-  color: #fff;
-  border-radius: 6px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 900;
-  font-size: .9rem;
-  flex-shrink: 0;
-}
-.nav-logo-text { font-size: .95rem; }
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 2px;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-  flex: 1;
-}
-.nav-links::-webkit-scrollbar { display: none; }
-.nav-link {
-  display: inline-flex;
-  align-items: center;
-  padding: 5px 10px;
-  font-size: .82rem;
-  font-weight: 500;
-  color: var(--text);
-  border-radius: 6px;
-  white-space: nowrap;
-  transition: all .15s;
-  flex-shrink: 0;
-}
-.nav-link:hover {
-  background: var(--brand);
-  color: #fff;
-  text-decoration: none;
-}
-.nav-link.active {
-  background: #eff6ff;
-  color: var(--brand);
-}
-.nav-toggle {
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  gap: 4px;
-  width: 32px;
-  height: 32px;
-  padding: 4px;
-  background: none;
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  cursor: pointer;
-  flex-shrink: 0;
-  margin-left: auto;
-}
-.nav-toggle span {
-  display: block;
-  width: 100%;
-  height: 2px;
-  background: var(--text);
-  border-radius: 1px;
-}
-@media (max-width: 768px) {
-  .nav-logo-text { display: none; }
-  .nav-inner { gap: 6px; }
-  .nav-toggle { display: flex; }
-  .nav-links {
-    display: none;
-    position: absolute;
-    top: 52px;
-    left: 0;
-    right: 0;
-    background: #fff;
-    border-bottom: 1px solid var(--border);
-    box-shadow: 0 4px 12px rgba(0,0,0,.1);
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 8px 0;
-    z-index: 99;
-    overflow: visible;
-  }
-  .nav-links.open { display: flex; }
-  .nav-link {
-    width: 100%;
-    padding: 10px 20px;
-    font-size: .9rem;
-    border-radius: 0;
-  }
-}
-
-/* ── 计算器核心样式 ── */
-.calc-display {
-  background: #1f2937;
-  color: #fff;
-  border-radius: 10px;
-  padding: 16px 18px;
-  text-align: right;
-  margin-bottom: 14px;
-  min-height: 96px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 8px;
-}
-.calc-display .expr {
-  font-size: .95rem;
-  color: #9ca3af;
-  min-height: 1.2em;
-  word-break: break-all;
-  line-height: 1.3;
-}
-.calc-display .cur {
-  font-size: 2.2rem;
-  font-weight: 700;
-  line-height: 1.2;
-  word-break: break-all;
-}
-.calc-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
-}
-.calc-btn {
-  appearance: none;
-  border: 1px solid var(--border);
-  background: #fff;
-  color: var(--text);
-  border-radius: 8px;
-  padding: 16px 6px;
-  font-size: 1.15rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all .12s ease;
-  user-select: none;
-  font-family: inherit;
-}
-.calc-btn:hover { background: #f3f4f6; border-color: #d1d5db; }
-.calc-btn:active { transform: translateY(1px); background: #e5e7eb; }
-.calc-btn--op { background: #fef3c7; color: #92400e; border-color: #fde68a; }
-.calc-btn--op:hover { background: #fde68a; }
-.calc-btn--eq { background: var(--brand); color: #fff; border-color: var(--brand); grid-column: span 2; }
-.calc-btn--eq:hover { opacity: .92; }
-.calc-btn--clear { background: #fee2e2; color: #991b1b; border-color: #fecaca; }
-.calc-btn--clear:hover { background: #fecaca; }
-.calc-btn--zero { grid-column: span 2; }
-.calc-btn--wide { grid-column: span 2; }
-@media (max-width: 480px) {
-  .calc-btn { padding: 14px 4px; font-size: 1.05rem; }
-  .calc-display .cur { font-size: 1.8rem; }
-}
-  </style>
   <meta property="og:image" content="https://www.zlbox.site/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Basic Calculator – Simple Online Arithmetic Calculator" />
-  <meta name="twitter:description" content="Free basic online calculator for addition, subtraction, multiplication, and division. Simple, fast, works on any device without signup." />
+  <meta name="twitter:title" content="Basic Calculator" />
+  <meta name="twitter:description" content="Simple arithmetic calculator" />
   <meta name="twitter:image" content="https://www.zlbox.site/og-image.png" />
 
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
   <meta name="robots" content="index, follow" />
-  <script type="application/ld+json">{
-  "@context": "https://schema.org",
-  "@type": "HowTo",
-  "name": "How to Use Basic Calculator",
-  "description": "Step by step guide: How to Use Basic Calculator",
-  "step": [
-    {
-      "@type": "HowToStep",
-      "name": "Enter numbers",
-      "text": "Click number buttons or use your keyboard to enter numbers.",
-      "position": 1
-    },
-    {
-      "@type": "HowToStep",
-      "name": "Select operation",
-      "text": "Choose addition, subtraction, multiplication, or division.",
-      "position": 2
-    },
-    {
-      "@type": "HowToStep",
-      "name": "Get result",
-      "text": "Click '=' to see the calculation result.",
-      "position": 3
-    }
-  ]
-}</script>
+
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Basic Calculator", "description": "Simple arithmetic calculator", "url": "https://www.zlbox.site/tools/calculator/basic-calculator.html", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
 </head>
 <body>
-
-  <nav class="site-nav" aria-label="Main navigation">
-    <div class="nav-inner">
-      <a href="/" class="nav-logo" aria-label="zlbox Home">
-        <span class="nav-logo-icon">zl</span>
-        <span class="nav-logo-text">zlbox</span>
-      </a>
-      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-      <div class="nav-links" role="list">
-        <a href="/tools/index.html" class="nav-link" role="listitem">All Tools</a>
-        <a href="/categories/text.html" class="nav-link" role="listitem">Text</a>
-        <a href="/categories/calculator.html" class="nav-link" role="listitem">Calculator</a>
-        <a href="/categories/generator.html" class="nav-link" role="listitem">Generator</a>
-        <a href="/categories/image.html" class="nav-link" role="listitem">Image</a>
-        <a href="/categories/pdf.html" class="nav-link" role="listitem">PDF</a>
-        <a href="/blog/index.html" class="nav-link" role="listitem">Blog</a>
-      </div>
-    </div>
-  </nav>
-
 <div class="container-md">
- <div class="hero">
- <div class="breadcrumb"><a href="../../index.html">Home</a> &rsaquo; <a href="../../categories/calculator.html">Calculator Tools</a> &rsaquo; Basic Calculator</div>
- <h1>Basic Calculator</h1>
- <p>A simple arithmetic calculator for addition, subtraction, multiplication, and division.</p>
- </div>
-
- <div class="ad-slot">
- <ins class="adsbygoogle" style="display:block;width:100%;max-width:728px;height:auto;margin:0 auto;" data-ad-client="ca-pub-5420550088713746" data-ad-slot="9999999999" data-ad-format="auto" data-full-width-responsive="true"></ins>
- <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
- </div>
-
- <div class="card">
-  <div class="calc-display">
-    <div class="expr" id="expr">&nbsp;</div>
-    <div class="cur" id="cur">0</div>
+  <div class="hero">
+    <div class="breadcrumb"><a href="../../index.html">Home</a> &rsaquo; <a href="../../categories/calculator.html">Calculator Tools</a> &rsaquo; Basic Calculator</div>
+    <h1>Basic Calculator</h1>
+    <p>A simple arithmetic calculator for addition, subtraction, multiplication, and division.</p>
   </div>
-  <div class="calc-grid">
-    <button class="calc-btn calc-btn--clear" data-k="C">Clear</button>
-    <button class="calc-btn calc-btn--clear" data-k="DEL">Backspace</button>
-    <button class="calc-btn calc-btn--op" data-k="÷">÷</button>
-    <button class="calc-btn calc-btn--op" data-k="×">×</button>
-    <button class="calc-btn" data-k="7">7</button>
-    <button class="calc-btn" data-k="8">8</button>
-    <button class="calc-btn" data-k="9">9</button>
-    <button class="calc-btn calc-btn--op" data-k="+">+</button>
-    <button class="calc-btn" data-k="4">4</button>
-    <button class="calc-btn" data-k="5">5</button>
-    <button class="calc-btn" data-k="6">6</button>
-    <button class="calc-btn calc-btn--op" data-k="−">−</button>
-    <button class="calc-btn" data-k="1">1</button>
-    <button class="calc-btn" data-k="2">2</button>
-    <button class="calc-btn" data-k="3">3</button>
-    <button class="calc-btn calc-btn--eq" data-k="=">=</button>
-    <button class="calc-btn calc-btn--zero" data-k="0">0</button>
-    <button class="calc-btn" data-k=".">.</button>
+
+  <div class="ad-slot">
+    <ins class="adsbygoogle" style="display:block;width:100%;max-width:728px;height:auto;margin:0 auto;" data-ad-client="ca-pub-5420550088713746" data-ad-slot="9999999999" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
   </div>
- </div>
 
- <div class="ad-slot">
- <ins class="adsbygoogle" style="display:block;width:100%;max-width:728px;height:auto;margin:0 auto;" data-ad-client="ca-pub-5420550088713746" data-ad-slot="9999999999" data-ad-format="auto" data-full-width-responsive="true"></ins>
- <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
- </div>
-
- <div class="section">
- <h2>Features</h2>
- <p>Four basic operations — add, subtract, multiply, divide.</p>
- <p>Decimal support — type a decimal point at any time.</p>
- <p>Keyboard friendly — you can also use your keyboard (0-9, +, -, *, /, ., Enter, Backspace, Esc).</p>
- <p>Mobile optimized — large buttons designed for touch.</p>
- </div>
-
-<section class="tool-info" aria-label="Tool information">
-  <h2>What is Basic Calculator?</h2>
-  <p>A basic online calculator performs fundamental arithmetic operations — addition, subtraction, multiplication, and division — directly in your browser. No app download or internet connection required after the page loads.</p>
-
-  <h2>How to use</h2>
-  <ol class="steps-list">
-<li>Step 1: Click the number buttons or use your keyboard to enter a value.</li>
-<li>Step 2: Click an operation (+, -, ×, ÷) to set the calculation.</li>
-<li>Step 3: Click '=' or press Enter to see the result.</li>
-<li>Step 4: Use 'Clear' to clear and 'Backspace' to delete the last character.</li>
-  </ol>
-
-  <h2>Use cases</h2>
-  <ul class="usecase-list">
-<li>Quick everyday math — shopping totals, splitting bills, tip calculations.</li>
-<li>Home improvement and construction measurements.</li>
-<li>Budget planning and expense tracking.</li>
-<li>Homework and study assistance for students.</li>
-  </ul>
-
-  <h2>Frequently Asked Questions</h2>
-  <div class="faq">
-<details class="faq-item">
-  <summary>Can I use keyboard shortcuts?</summary>
-  <p>Yes. Use your number pad or keyboard numbers, and standard operators (+, -, *, /) for calculations. Press Enter for '=' and Escape to clear.</p>
-</details>
-<details class="faq-item">
-  <summary>Does it handle decimal numbers?</summary>
-  <p>Yes. Click the '.' button or press '.' on your keyboard to enter decimal values.</p>
-</details>
-<details class="faq-item">
-  <summary>What happens if I divide by zero?</summary>
-  <p>The calculator displays an error message. Dividing by zero is mathematically undefined.</p>
-</details>
+  <div class="card">
+    <div class="calc-display">
+      <div class="expr" id="expr">&nbsp;</div>
+      <div class="cur" id="cur">0</div>
+    </div>
+    <div class="keys">
+      <button class="key key--clear" data-k="C">C</button>
+      <button class="key key--clear" data-k="DEL">⌫</button>
+      <button class="key key--op" data-k="%">%</button>
+      <button class="key key--op" data-k="/">÷</button>
+      <button class="key" data-k="7">7</button>
+      <button class="key" data-k="8">8</button>
+      <button class="key" data-k="9">9</button>
+      <button class="key key--op" data-k="*">×</button>
+      <button class="key" data-k="4">4</button>
+      <button class="key" data-k="5">5</button>
+      <button class="key" data-k="6">6</button>
+      <button class="key key--op" data-k="-">−</button>
+      <button class="key" data-k="1">1</button>
+      <button class="key" data-k="2">2</button>
+      <button class="key" data-k="3">3</button>
+      <button class="key key--op" data-k="+">+</button>
+      <button class="key" data-k="0" style="grid-column:span 2;">0</button>
+      <button class="key" data-k=".">.</button>
+      <button class="key key--eq" data-k="=">=</button>
+    </div>
   </div>
-</section>
 
-<script type="application/ld+json">
-{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Can I use keyboard shortcuts?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Use your number pad or keyboard numbers, and standard operators (+, -, *, /) for calculations. Press Enter for '=' and Escape to clear."}}, {"@type": "Question", "name": "Does it handle decimal numbers?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Click the '.' button or press '.' on your keyboard to enter decimal values."}}, {"@type": "Question", "name": "What happens if I divide by zero?", "acceptedAnswer": {"@type": "Answer", "text": "The calculator displays an error message. Dividing by zero is mathematically undefined."}}]}
-</script>
+  <div class="ad-slot">
+    <ins class="adsbygoogle" style="display:block;width:100%;max-width:728px;height:auto;margin:0 auto;" data-ad-client="ca-pub-5420550088713746" data-ad-slot="9999999999" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
 
-<footer class="footer">
- <div class="footer-links">
- <a href="age-calculator.html">Age Calculator</a>
- <a href="percentage-calculator.html">Percentage Calculator</a>
- <a href="../../about.html">About</a>
- <a href="../../privacy.html">Privacy</a>
- <a href="../../disclaimer.html">Disclaimer</a>
- </div>
- <p class="footer-copy">&copy; 2026 zlbox. All rights reserved.</p>
- </footer>
+  <div class="section">
+    <h2>Features</h2>
+    <p>Four basic operations — add, subtract, multiply, divide.</p>
+    <p>Decimal support — type a decimal point at any time.</p>
+    <p>Keyboard friendly — you can also use your keyboard (0-9, +, -, *, /, ., Enter, Backspace, Esc).</p>
+    <p>Mobile optimized — large buttons designed for touch.</p>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="age-calculator.html">Age Calculator</a>
+      <a href="percentage-calculator.html">Percentage Calculator</a>
+      <a href="../../about.html">About</a>
+      <a href="../../privacy.html">Privacy</a>
+      <a href="../../disclaimer.html">Disclaimer</a>
+    </div>
+    <p class="footer-copy">&copy; 2026 My Tool Lab. All rights reserved.</p>
+  </footer>
 </div>
 
 <script>
 (function(){
-  'use strict';
-
-  var exprEl = document.getElementById('expr');
-  var curEl  = document.getElementById('cur');
-
-  // ── tokens 存的是「原始表达式文本」，避免 toLocaleString 再 parseFloat 误差 ──
-  // tokens 存 number token. 每个 number token 保留原始数字字符串（不含千分位）
-  // 显示时用 toLocaleString 美化；运算时用 parseFloat(rawText)
-  var tokens = []; // [{t:'n', raw:'123.5'}, {t:'o', v:'+'}, ...]
-  var currentRaw = ''; // 当前正在编辑数字的原始字符串（例如 "123."）
-  var justEvaluated = false;
-  var resultValue = null;
-
-  function fmtRaw(raw){
-    var n = parseFloat(raw);
-    if (!isFinite(n)) return 'Error';
-    var rounded = Math.round(n * 1e12) / 1e12;
-    return rounded.toLocaleString(undefined, { maximumFractionDigits: 10 });
-  }
-  function fmtNumber(n){
-    if (!isFinite(n)) return 'Error';
-    var rounded = Math.round(n * 1e12) / 1e12;
-    return rounded.toLocaleString(undefined, { maximumFractionDigits: 10 });
-  }
-
-  function render(){
-    var disp = '';
-    for (var i=0;i<tokens.length;i++){
-      var tk = tokens[i];
-      if (tk.t === 'n') {
-        disp += fmtRaw(tk.raw);
-      } else {
-        var c = tk.v;
-        if (c === '*') c = '×';
-        else if (c === '/') c = '÷';
-        else if (c === '-') c = '−';
-        disp += ' ' + c + ' ';
+  var cur='0',expr='';
+  var curEl=document.getElementById('cur');
+  var exprEl=document.getElementById('expr');
+  function render(){curEl.textContent=cur;exprEl.innerHTML=expr?expr.replace(/\*/g,'×').replace(/\//g,'÷').replace(/-/g,'−'):'&nbsp;';}
+  function isOp(c){return c==='+'||c==='-'||c==='*'||c==='/';}
+  function safeEval(s){try{if(!s)return'0';s=s.replace(/--/g,'+');var r=Function('"use strict";return('+s+')')();if(r===Infinity||r===-Infinity||isNaN(r))return'Error';return String(parseFloat(r.toFixed(10)));}catch(e){return'Error';}}
+  function pressPercent(){
+    var curText=curEl.textContent;
+    var exprText=exprEl.textContent.replace(/×/g,'*').replace(/÷/g,'/').replace(/−/g,'-').replace(/&nbsp;/g,'');
+    var m=exprText.match(/([+\-*/]?)\s*(\d+(?:\.\d+)?)\s*$/);
+    var lastNum=m?parseFloat(m[2]):null;
+    if(!isNaN(curText)&&curText!=='Error'){
+      cur=String(parseFloat(curText)/100);
+    } else if(lastNum){
+      var idx=exprText.lastIndexOf(String(lastNum));
+      if(idx>=0){
+        var newPart=String(lastNum/100);
+        expr=exprText.substring(0,idx)+newPart;
+        cur='0';
       }
     }
-    exprEl.innerHTML = disp ? disp : '&nbsp;';
-    if (justEvaluated){
-      curEl.textContent = curEl.dataset.result || '0';
-    } else {
-      curEl.textContent = currentRaw ? fmtRaw(currentRaw) : '0';
-    }
+    render();
   }
-
-  function lastIsNumber(){
-    return tokens.length > 0 && tokens[tokens.length - 1].t === 'n';
-  }
-  function lastIsOperator(){
-    return tokens.length > 0 && tokens[tokens.length - 1].t === 'o';
-  }
-
-  function evaluate(){
-    if (tokens.length === 0) return NaN;
-    // 先处理 * /
-    var s1 = [];
-    for (var i=0;i<tokens.length;i++){
-      var tk = tokens[i];
-      if (tk.t === 'n'){ s1.push({t:'n', v:parseFloat(tk.raw)}); }
-      else if (tk.t === 'o'){
-        if (tk.v === '*' || tk.v === '/'){
-          var left = s1.pop();
-          var right = tokens[i+1];
-          if (!left || !right || right.t !== 'n') return NaN;
-          var r;
-          if (tk.v === '*') r = left.v * parseFloat(right.raw);
-          else {
-            if (parseFloat(right.raw) === 0) return NaN;
-            r = left.v / parseFloat(right.raw);
-          }
-          s1.push({t:'n', v:r});
-          i++; // 跳过右侧数字
-        } else {
-          s1.push(tk);
-        }
-      }
-    }
-    if (s1.length === 0) return NaN;
-    var result = s1[0].v;
-    if (!isFinite(result)) return NaN;
-    for (var j=1;j<s1.length;j+=2){
-      var op = s1[j];
-      var num = s1[j+1];
-      if (!op || !num || num.t !== 'n') return NaN;
-      if (op.v === '+') result += num.v;
-      else if (op.v === '-') result -= num.v;
-      else return NaN;
-    }
-    return result;
-  }
-
-  function commitCurrentAsNumber(){
-    if (currentRaw === '') return;
-    tokens.push({t:'n', raw:currentRaw});
-    currentRaw = '';
-  }
-
-  function pressDigitOrDot(k){
-    if (justEvaluated){
-      tokens = [];
-      currentRaw = '';
-      justEvaluated = false;
-    }
-    if (currentRaw === '' && lastIsNumber()){
-      // 不应该出现，但兜底
-    }
-    if (k === '.'){
-      if (currentRaw === ''){
-        currentRaw = '0.';
-      } else if (currentRaw.indexOf('.') === -1){
-        currentRaw = currentRaw + '.';
-      }
-      return;
-    }
-    if (currentRaw === '0'){
-      currentRaw = k; // 避免 "07" → "7"
-    } else {
-      currentRaw = currentRaw + k;
-    }
-  }
-
-  function pressOp(op){
-    if (justEvaluated){
-      if (resultValue === null || !isFinite(resultValue)){ clearAll(); return; }
-      tokens = [{t:'n', raw: String(resultValue)}];
-      currentRaw = '';
-      justEvaluated = false;
-    }
-    // 如果当前正在编辑数字 → 先提交
-    if (currentRaw !== ''){
-      commitCurrentAsNumber();
-    }
-    if (tokens.length === 0){
-      if (op === '-'){
-        tokens.push({t:'n', raw:'0'});
-        tokens.push({t:'o', v:'-'});
-      }
-      return;
-    }
-    if (lastIsOperator()){
-      tokens[tokens.length - 1].v = op;
-      return;
-    }
-    tokens.push({t:'o', v:op});
-  }
-
-  function clearAll(){
-    tokens = [];
-    currentRaw = '';
-    justEvaluated = false;
-    resultValue = null;
-    curEl.dataset.result = '';
-  }
-
-  function backspace(){
-    if (justEvaluated){ clearAll(); return; }
-    if (currentRaw !== ''){
-      if (currentRaw.length <= 1){
-        currentRaw = '';
-      } else {
-        currentRaw = currentRaw.substring(0, currentRaw.length - 1);
-      }
-      return;
-    }
-    // 否则 tokens 最后一个是运算符 → 删掉
-    if (tokens.length > 0){
-      var last = tokens[tokens.length - 1];
-      if (last.t === 'o'){
-        tokens.pop();
-        // 恢复最后一个数字用于编辑
-        if (tokens.length > 0 && tokens[tokens.length - 1].t === 'n'){
-          currentRaw = tokens[tokens.length - 1].raw;
-          tokens.pop();
-        }
-      } else {
-        tokens.pop();
-      }
-    }
-  }
-
-  function tokensToStringForExpr(){
-    var disp = '';
-    for (var i=0;i<tokens.length;i++){
-      var tk = tokens[i];
-      if (tk.t === 'n') { disp += fmtRaw(tk.raw); }
-      else {
-        var c = tk.v;
-        if (c === '*') c = '×';
-        else if (c === '/') c = '÷';
-        else if (c === '-') c = '−';
-        disp += ' ' + c + ' ';
-      }
-    }
-    return disp;
-  }
-
-  function pressEqual(){
-    if (currentRaw !== '') commitCurrentAsNumber();
-    if (tokens.length === 0 || lastIsOperator()) return;
-    var r = evaluate();
-    if (!isFinite(r) || isNaN(r)){
-      curEl.dataset.result = 'Error';
-      curEl.textContent = 'Error';
-      exprEl.innerHTML = tokensToStringForExpr() + ' =';
-      justEvaluated = true;
-      resultValue = null;
-      return;
-    }
-    var formatted = fmtNumber(r);
-    exprEl.innerHTML = tokensToStringForExpr() + ' =';
-    curEl.dataset.result = formatted;
-    curEl.textContent = formatted;
-    resultValue = r;
-    tokens = [{t:'n', raw: String(r)}];
-    currentRaw = '';
-    justEvaluated = true;
-  }
-
   function press(k){
-    if (k === 'C'){ clearAll(); render(); return; }
-    if (k === 'DEL'){ backspace(); render(); return; }
-    if (k === '='){ pressEqual(); render(); return; }
-    if (k === '+'){ pressOp('+'); render(); return; }
-    if (k === '−' || k === '-'){ pressOp('-'); render(); return; }
-    if (k === '×' || k === '*'){ pressOp('*'); render(); return; }
-    if (k === '÷' || k === '/'){ pressOp('/'); render(); return; }
-    if (/^[0-9]$/.test(k)){ pressDigitOrDot(k); render(); return; }
-    if (k === '.'){ pressDigitOrDot('.'); render(); return; }
+    if(k==='C'){cur='0';expr='';}
+    else if(k==='DEL'){cur=cur.length>1?cur.slice(0,-1):'0';}
+    else if(k==='='){
+      var full=expr+cur;
+      var out=safeEval(full);
+      expr='';cur=out;
+    }else if(k==='%'){pressPercent();return;
+    }else if(isOp(k)){
+      var full=expr+cur;
+      if(expr&&cur==='0'&&!full.match(/[0-9.]$/))return;
+      var left=safeEval(full);
+      if(left==='Error'){cur='Error';expr='';return;}
+      expr=left+' '+k+' ';cur='0';
+    }else if(k==='.'){
+      if(cur.indexOf('.')===-1)cur+='.';
+    }else if(/[0-9]/.test(k)){
+      cur=(cur==='0')?k:cur+k;
+    }
+    render();
   }
-
-  document.querySelectorAll('.calc-btn').forEach(function(btn){
-    btn.addEventListener('click', function(){ press(btn.getAttribute('data-k')); });
+  document.querySelectorAll('.key').forEach(function(b){b.addEventListener('click',function(){press(b.getAttribute('data-k'));});});
+  document.addEventListener('keydown',function(e){
+    var k=e.key;
+    if(/[0-9]/.test(k))press(k);
+    else if(k==='.'||k==='+'||k==='-'||k==='*'||k==='/')press(k);
+    else if(k==='Enter'||k==='='){e.preventDefault();press('=');}
+    else if(k==='Backspace')press('DEL');
+    else if(k==='Escape')press('C');
   });
-  document.addEventListener('keydown', function(e){
-    var k = e.key;
-    if (/^[0-9]$/.test(k)) { e.preventDefault(); press(k); }
-    else if (k === '.') { e.preventDefault(); press(k); }
-    else if (k === '+') { e.preventDefault(); press('+'); }
-    else if (k === '-') { e.preventDefault(); press('-'); }
-    else if (k === '*') { e.preventDefault(); press('×'); }
-    else if (k === '/') { e.preventDefault(); press('÷'); }
-    else if (k === 'Enter' || k === '=') { e.preventDefault(); press('='); }
-    else if (k === 'Backspace') { e.preventDefault(); press('DEL'); }
-    else if (k === 'Escape') { e.preventDefault(); press('C'); }
-  });
-
   render();
 })();
 </script>

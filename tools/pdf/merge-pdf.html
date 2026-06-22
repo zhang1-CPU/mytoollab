@@ -1,507 +1,173 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <meta charset="UTF-8" />
- <meta name="viewport" content="width=device-width, initial-scale=1.0" />
- <title>Merge PDFs – Combine Multiple PDF Files | zlbox</title>
- <meta name="description" content="Free online PDF merger. Combine multiple PDF files in your browser in the order you choose. Drag to sort, privacy-first — nothing uploaded." />
- <link rel="stylesheet" href="../../css/components.css" />
- <link rel="canonical" href="https://www.zlbox.site/tools/pdf/merge-pdf.html" />
- <meta name="google-site-verification" content="google4bd1e08685667667" />
- <meta property="og:title" content="Merge PDFs – Combine Multiple PDF Files" />
- <meta property="og:description" content="Free online PDF merger. Combine multiple PDF files locally in your browser. Drag to sort, privacy-first." />
- <meta property="og:type" content="website" />
- <meta property="og:url" content="https://www.zlbox.site/tools/pdf/merge-pdf.html" />
- <meta property="og:image" content="https://www.zlbox.site/og-image.png" />
- <meta name="twitter:card" content="summary_large_image" />
- <meta name="twitter:title" content="Merge PDFs – Combine Multiple PDF Files" />
- <meta name="twitter:description" content="Free online PDF merger. Combine multiple PDF files locally in your browser." />
- <meta name="robots" content="index, follow" />
- <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Merge PDFs","description":"Free online PDF merger. Combine multiple PDF files locally in your browser. Drag to sort, privacy-first.","url":"https://www.zlbox.site/tools/pdf/merge-pdf.html","applicationCategory":"PDF Tool","operatingSystem":"Any (browser-based)","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"browserRequirements":"Requires a modern web browser with JavaScript enabled."}</script>
- <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.zlbox.site/"},{"@type":"ListItem","position":2,"name":"PDF Tools","item":"https://www.zlbox.site/categories/pdf.html"}]}</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Merge PDF – Combine Multiple PDF Files Online Free | My Tool Lab</title>
+  <meta name="description" content="Free online PDF merger. Combine multiple PDF files into one document. Easy drag-and-drop, no signup, no installation, 100% private processing in your browser." />
+  <meta name="keywords" content="merge pdf, combine pdf, pdf merger, join pdf, pdf join, merge pdf files, pdf merge online free" />
+  <link rel="canonical" href="https://www.zlbox.site/tools/pdf/merge-pdf.html" />
+  <meta name="google-site-verification" content="google4bd1e08685667667" />
+  <meta name="robots" content="index, follow" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../../_css/components.css" />
+  <style>
+    .drop{border:2px dashed var(--border);border-radius:var(--radius);padding:16px 12px;text-align:center;cursor:pointer;transition:border-color .15s,background .15s;}
+    .drop.drag{border-color:var(--brand);background:#eff6ff;}
+    .drop-icon{font-size:2.4rem;margin-bottom:8px;}
+    .file-list{margin-top:12px;display:flex;flex-direction:column;gap:6px;}
+    .file-item{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-sm);padding:8px 10px;display:flex;align-items:center;gap:8px;font-size:.88rem;}
+    .file-item .name{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+    .file-item .meta{color:var(--muted);font-size:.82rem;}
+    .file-item .ctrl{display:flex;gap:4px;}
+    .icon-btn{background:#fff;border:1px solid var(--border);border-radius:6px;padding:4px 8px;font-size:.82rem;cursor:pointer;color:var(--text);}
+    .icon-btn:hover{background:#f1f5f9;}
+    .icon-btn.danger:hover{background:#fee2e2;color:#b91c1c;border-color:#fecaca;}
+    .status{margin-top:10px;font-size:.9rem;text-align:center;padding:10px;border-radius:var(--radius-sm);background:#f0fdf4;border:1px solid #bbf7d0;color:#166534;}
+    .status.error{background:#fef2f2;border-color:#fecaca;color:#b91c1c;}
+  </style>
+
+  <meta property="og:image" content="https://www.zlbox.site/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Merge PDF" />
+  <meta name="twitter:description" content="Combine multiple PDFs" />
+  <meta name="twitter:image" content="https://www.zlbox.site/og-image.png" />
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Merge PDF", "description": "Combine multiple PDFs", "url": "https://www.zlbox.site/tools/pdf/merge-pdf.html", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9V6L0Z956X"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-9V6L0Z956X');</script>
 </head>
 <body>
-  <nav class="site-nav" aria-label="Main navigation">
-    <div class="nav-inner">
-      <a href="/" class="nav-logo" aria-label="zlbox Home"><span class="nav-logo-icon">zl</span><span class="nav-logo-text">zlbox</span></a>
-      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
-      <div class="nav-links" role="list">
-        <a href="/tools/index.html" class="nav-link" role="listitem">All Tools</a>
-        <a href="/categories/text.html" class="nav-link" role="listitem">Text</a>
-        <a href="/categories/generator.html" class="nav-link" role="listitem">Generator</a>
-        <a href="/categories/image.html" class="nav-link" role="listitem">Image</a>
-        <a href="/categories/pdf.html" class="nav-link" role="listitem">PDF</a>
-      </div>
-    </div>
-  </nav>
-
-  <div class="container-md">
-    <div class="hero">
-      <div class="breadcrumb"><a href="../../index.html">Home</a> &rsaquo; <a href="../../categories/pdf.html">PDF Tools</a> &rsaquo; Merge PDFs</div>
-      <h1>Merge PDFs</h1>
-      <p>Combine multiple PDF files into one, in the order you choose. Arrange pages by dragging thumbnails and download the result.</p>
-    </div>
-
-    <div class="card">
-      <div id="drop" class="drop-zone" tabindex="0" role="button" aria-label="Upload PDFs">
-        <div style="display:flex;flex-direction:column;align-items:center;gap:6px;">
-          <div style="font-size:26px;">📑</div>
-          <div><strong>Drop PDFs here</strong> or click to choose files</div>
-          <div style="color:var(--muted); font-size:.85rem;">Multiple PDFs. Combine all other content</div>
-        </div>
-        <input id="file" type="file" multiple accept="application/pdf,.pdf" style="display:none;" />
-      </div>
-
-      <div class="row-grid" style="margin-top:16px;">
-        <div class="row" style="gap:8px; align-items:center; flex: 8px; flex-wrap:wrap;">
-          <label style="display:flex; gap:8px; align-items:center;"><input type="checkbox" id="optPages" checked /> Merge all pages</label>
-        </div>
-        <div class="row" style="justify-content:flex-end; flex-wrap:wrap;">
-          <button class="btn btn--sm btn--ghost" id="sortBtn">Sort by name</button>
-          <button class="btn btn--sm btn--ghost" id="clearBtn">Clear</button>
-          <button class="btn btn--sm" id="runBtn" disabled>Build merged PDF</button>
-        </div>
-      </div>
-
-      <div id="items" style="margin-top:16px;"></div>
-      <div id="result" style="margin-top:16px;"></div>
-    </div>
-
-    <div class="section">
-      <h2>How it works</h2>
-      <ol class="steps">
-        <li>Drop one or more PDFs onto the drop zone.</li>
-        <li>Reorder files by dragging thumbnails, or click Sort by name.</li>
-        <li>Click Build merged PDF and download the combined file.</li>
-      </ol>
-    </div>
-
-    <section class="tool-info">
-      <h2>What is it?</h2>
-      <p>A browser-only PDF merger. It reads each PDF, extracts individual page objects, composes them into a new pages tree with a new xref table. No uploads, no tracking.</p>
-      <h2>Use cases</h2>
-      <ul class="usecase-list">
-        <li>Combining scanned documents into a single report.</li>
-        <li>Stacking presentation slides and handouts together.</li>
-        <li>Packaging related e-sign packets for archives.</li>
-      </ul>
-    </section>
-
-    <div class="section">
-      <h2>Related tools</h2>
-      <div class="related-grid">
-        <a href="split-pdf.html">Split PDF</a>
-        <a href="compress-pdf.html">Compress PDF</a>
-        <a href="jpg-to-pdf.html">Images to PDF</a>
-      </div>
-    </div>
-
-    <footer class="footer">
-      <div class="footer-links">
-        <a href="split-pdf.html">Split PDF</a>
-        <a href="compress-pdf.html">Compress PDF</a>
-        <span style="color:var(--border);margin:0 6px;">|</span>
-        <a href="../../about.html">About</a>
-        <a href="../../privacy.html">Privacy</a>
-        <a href="../../disclaimer.html">Disclaimer</a>
-      </div>
-      <p class="footer-copy">&copy; 2026 zlbox. All rights reserved.</p>
-    </footer>
+<div class="container-md">
+  <div class="hero">
+    <div class="breadcrumb"><a href="../../index.html">Home</a> &rsaquo; <a href="../../categories/pdf.html">PDF Tools</a> &rsaquo; Merge PDF</div>
+    <h1>Merge PDF</h1>
+    <p>Combine multiple PDF files into a single document. Drag, drop, reorder, and download — all processed locally in your browser.</p>
   </div>
+
+  <div class="card">
+    <div class="drop" id="dropZone">
+      <div class="drop-icon">&#128193;</div>
+      <h3>Drop PDFs here, or click to browse</h3>
+      <p style="font-size:.85rem;color:var(--muted);margin-top:4px;">Select one or more PDF files. Files never leave your device.</p>
+      <input type="file" id="fileInput" multiple accept="application/pdf,.pdf" />
+    </div>
+    <div class="file-list" id="fileList"></div>
+    <div class="row" style="margin-top:10px;">
+      <button class="btn btn--ghost" id="clearBtn" disabled style="flex:1;">Clear All</button>
+      <button class="btn" id="mergeBtn" disabled style="flex:1;">Merge &amp; Download</button>
+    </div>
+    <div class="status" id="status" style="display:none;"></div>
+  </div>
+
+  <div class="section">
+    <h2>How it works</h2>
+    <ol class="steps">
+      <li>Upload PDFs by drag-and-drop or click to browse. Multiple files supported.</li>
+      <li>Reorder files using the up/down arrows on each file row.</li>
+      <li>Click Merge &amp; Download. Your combined PDF is generated locally in seconds.</li>
+    </ol>
+  </div>
+
+  <div class="section">
+    <h2>Related tools</h2>
+    <div class="related-grid">
+      <a href="split-pdf.html">Split PDF</a>
+      <a href="compress-pdf.html">Compress PDF</a>
+      <a href="jpg-to-pdf.html">JPG to PDF</a>
+      <a href="../image/image-compressor.html">Image Compressor</a>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="split-pdf.html">Split PDF</a>
+      <a href="compress-pdf.html">Compress PDF</a>
+      <a href="jpg-to-pdf.html">JPG to PDF</a>
+      <span style="color:var(--border);margin:0 6px">|</span>
+      <a href="../../about.html">About</a>
+      <a href="../../privacy.html">Privacy</a>
+      <a href="../../disclaimer.html">Disclaimer</a>
+    </div>
+    <p class="footer-copy">&copy; 2026 My Tool Lab. All rights reserved.</p>
+  </footer>
+</div>
 
 <script>
 (function(){
-  var drop = document.getElementById('drop');
-  var fileInput = document.getElementById('file');
-  var itemsEl = document.getElementById('items');
-  var resultEl = document.getElementById('result');
-  var runBtn = document.getElementById('runBtn');
-  var clearBtn = document.getElementById('clearBtn');
-  var sortBtn = document.getElementById('sortBtn');
-
-  var items = [];
-  var nextId = 1;
-
-  drop.addEventListener('click', function(){ fileInput.click(); });
-  drop.addEventListener('keydown', function(e){ if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); fileInput.click(); }});
-  drop.addEventListener('dragover', function(e){ e.preventDefault(); drop.classList.add('dragover'); });
-  drop.addEventListener('dragleave', function(e){ drop.classList.remove('dragover'); });
-  drop.addEventListener('drop', function(e){
-    e.preventDefault();
-    drop.classList.remove('dragover');
-    if(e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files.length){
-      handleFiles(Array.prototype.slice.call(e.dataTransfer.files));
-    }
-  });
-  fileInput.addEventListener('change', function(){
-    if(fileInput.files && fileInput.files.length){
-      handleFiles(Array.prototype.slice.call(fileInput.files));
-      fileInput.value = '';
-    }
-  });
-
-  clearBtn.addEventListener('click', function(){ items = []; render(); });
-  sortBtn.addEventListener('click', function(){ items.sort(function(a,b){ return a.name.localeCompare(b.name, undefined, {numeric:true}); render(); }); });
-
-  function handleFiles(files){
-    for(var i = 0; i < files.length; i++){
-      var f = files[i];
-      if(!/\.pdf$/i.test(f.name) && !/^application\/pdf$/i.test(f.type)) continue;
-      var item = {id: nextId++, name: f.name, fileSize: f.size, loading: true, file: f};
-      items.push(item);
-      (function(it){
-        var reader = new FileReader();
-        reader.onload = function(e){
-          try {
-            var bytes = new Uint8Array(e.target.result);
-            it.data = bytes;
-            parsePdf(it);
-          } catch(err){ it.error = 'Failed to parse PDF.'; it.loading = false; render(); }
-        };
-        reader.onerror = function(){ it.error = 'Failed to read file.'; it.loading = false; render(); };
-        reader.readAsArrayBuffer(f);
-      })(item);
-    }
-    render();
-  }
-
-  // Find nth index of a pattern
-  function indexOfN(bytes, pattern, start){
-    start = start || 0;
-    var pLen = pattern.length;
-    for(var i = start; i <= bytes.length - pLen; i++){
-      var match = true;
-      for(var j = 0; j < pLen; j++){
-        if(bytes[i+j] !== pattern.charCodeAt(j)){ match = false; break; }
-      }
-      if(match) return i;
-    }
-    return -1;
-  }
-
-  function findObject(bytes, objNum){
-    // Returns {start, end, headerStart} where start is byte offset of "X Y obj"
-    var pattern = objNum + ' 0 obj';
-    var idx = indexOfN(bytes, pattern, 0);
-    if(idx === -1) return null;
-    var headerStart = idx;
-    var start = idx + pattern.length;
-    // find matching "endobj"
-    var endobj = indexOfN(bytes, 'endobj', start);
-    return {headerStart: headerStart, start: start, end: endobj};
-  }
-
-  function parseDictionary(bytes, start){
-    // Find the top-level << ... >> dictionary at start. Returns object after <<.
-    var cursor = start;
-    while(cursor < bytes.length && (bytes[cursor] === 10 || bytes[cursor] === 13 || bytes[cursor] === 32 || bytes[cursor] === 9)) cursor++;
-    if(bytes[cursor] !== 60 || bytes[cursor+1] !== 60) return null; // not <<
-    // Count << ... >> allowing nesting
-    var depth = 0;
-    var i = cursor;
-    var startDict = i;
-    depth = 1; i += 2;
-    while(i < bytes.length && depth > 0){
-      if(bytes[i] === 60 && bytes[i+1] === 60){ depth++; i+=2; continue; }
-      if(bytes[i] === 62 && bytes[i+1] === 62){ depth--; i+=2; continue; }
-      i++;
-    }
-    return {start: cursor, end: i, text: decodeLatin(bytes, cursor, i)};
-  }
-
-  function decodeLatin(bytes, a, b){
-    var s = '';
-    for(var i = a; i < b; i++) s += String.fromCharCode(bytes[i]);
-    return s;
-  }
-
-  function parsePdf(it){
-    // Extract the list of page object numbers from /Pages and /Kids arrays
-    var bytes = it.data;
-    // Find trailer /Root reference
-    var trailerIdx = indexOfN(bytes, 'trailer', bytes.length - 500 > 0 ? bytes.length - 500 : 0);
-    if(trailerIdx === -1) { it.error = 'Could not find trailer.'; it.loading = false; render(); return; }
-    // Find /Root N
-    var rootMatch = decodeLatin(bytes, trailerIdx, Math.min(trailerIdx + 200, bytes.length)).match(/\/Root\s+(\d+)\s+0\s+R/);
-    if(!rootMatch){ it.error = 'No root.'; it.loading = false; render(); return; }
-    var rootNum = parseInt(rootMatch[1], 10);
-    var root = findObject(bytes, rootNum);
-    if(!root){ it.error = 'Could not find root.'; it.loading = false; render(); return; }
-    var rootDict = parseDictionary(bytes, root.start);
-    var pagesMatch = rootDict.text.match(/\/Pages\s+(\d+)\s+0\s+R/);
-    if(!pagesMatch){ it.error = 'Could not find pages.'; it.loading = false; render(); return; }
-    var pagesNum = parseInt(pagesMatch[1], 10);
-    var pagesObj = findObject(bytes, pagesNum);
-    var pagesDict = parseDictionary(bytes, pagesObj.start);
-    // Parse /Kids [N1 0 R N2 0 R ...]
-    // We accept a /Kids [...] array; find the content between '[' and the matching ']' (account for nested arrays being absent on most simple files).
-    var kids = extractKids(pagesDict.text);
-    it.pageCount = kids.length;
-    it.pageObjectIds = kids;
-    it.loading = false;
-    render();
-  }
-
-  function extractKids(dictText){
-    var m = dictText.match(/\/Kids\s*\[([^\]]*)\]/);
-    if(!m) return [];
-    var content = m[1];
-    var ids = [];
-    var re = /(\d+)\s+0\s+R/g;
-    var match;
-    while((match = re.exec(content)) !== null) ids.push(parseInt(match[1], 10);
-    return ids;
-  }
-
+  var dropZone=document.getElementById('dropZone'), fileInput=document.getElementById('fileInput'),
+      fileList=document.getElementById('fileList'), mergeBtn=document.getElementById('mergeBtn'),
+      clearBtn=document.getElementById('clearBtn'), statusEl=document.getElementById('status');
+  var files=[];
+  function fmt(b){if(b<1024)return b+' B';if(b<1048576)return(b/1024).toFixed(1)+' KB';return(b/1048576).toFixed(2)+' MB';}
   function render(){
-    if(items.length === 0){
-      itemsEl.innerHTML = '';
-      resultEl.innerHTML = '';
-      runBtn.disabled = true;
-      return;
-    }
-    var html = '<div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(180px,1fr)); gap:10px;">';
-    for(var i = 0; i < items.length; i++){
-      var it = items[i];
-      html += '<div class="thumb" draggable="true" data-id="' + it.id + '" style="border:1px solid var(--border); border-radius:10px; padding:10px; cursor:grab;">';
-      html += '<div style="aspect-ratio:1; background:var(--surface); border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:22px;">📄</div>';
-      html += '<div style="font-size:.8rem; margin-top:6px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">' + escapeHtml(it.name) + '</div>';
-      html += '<div style="font-size:.75rem; color:var(--muted);">' + (it.pageCount ? it.pageCount + ' pages · ' : '') + formatBytes(it.fileSize) + (it.loading ? ' · Loading…' : '') + (it.error ? ' · ' + it.error : '') + '</div>';
-      html += '<div style="display:flex; gap:4px; margin-top:6px;">';
-      if(i > 0) html += '<button class="btn btn--sm btn--ghost" data-act="up" data-id="' + it.id + '" style="flex:1; padding:4px;">↑</button>';
-      if(i < items.length - 1) html += '<button class="btn btn--sm btn--ghost" data-act="down" data-id="' + it.id + '" style="flex:1; padding:4px;">↓</button>';
-      html += '<button class="btn btn--sm btn--ghost" data-act="del" data-id="' + it.id + '" style="flex:1; padding:4px;">✕</button>';
-      html += '</div>';
-      html += '</div>';
-    }
-    html += '</div>';
-    itemsEl.innerHTML = html;
-    var btns = itemsEl.querySelectorAll('button[data-act]');
-    for(var b = 0; b < btns.length; b++){
-      (function(btn){
-        btn.addEventListener('click', function(){
-          var id = parseInt(btn.getAttribute('data-id'), 10);
-          var act = btn.getAttribute('data-act');
-          var idx = items.findIndex(function(x){ return x.id === id; });
-          if(idx === -1) return;
-          if(act === 'del'){ items.splice(idx,1); render(); return; }
-          if(act === 'up' && idx > 0){ var t = items[idx-1]; items[idx-1] = items[idx]; items[idx] = t; render(); return; }
-          if(act === 'down' && idx < items.length - 1){ var t2 = items[idx+1]; items[idx+1] = items[idx]; items[idx] = t2; render(); return; }
-        });
-      })(btns[b]);
-    }
-    // drag
-    var thumbs = itemsEl.querySelectorAll('.thumb[draggable="true"]');
-    var dragId = null;
-    for(var t = 0; t < thumbs.length; t++){
-      (function(el){
-        el.addEventListener('dragstart', function(e){
-          dragId = parseInt(el.getAttribute('data-id'), 10);
-          e.dataTransfer.effectAllowed = 'move';
-          el.style.opacity = '0.5';
-        });
-        el.addEventListener('dragend', function(){ el.style.opacity = '1'; dragId = null; render(); });
-        el.addEventListener('dragover', function(e){ e.preventDefault(); e.dataTransfer.dropEffect = 'move'; });
-        el.addEventListener('drop', function(e){
-          e.preventDefault();
-          var targetId = parseInt(el.getAttribute('data-id'), 10);
-          if(dragId === null || dragId === targetId) return;
-          var from = items.findIndex(function(x){ return x.id === dragId; });
-          var to = items.findIndex(function(x){ return x.id === targetId; });
-          if(from === -1 || to === -1) return;
-          var moved = items.splice(from, 1)[0];
-          items.splice(to, 0, moved);
-          render();
-        });
-      })(thumbs[t]);
-    }
-    runBtn.disabled = !items.some(function(x){ return !x.loading && !x.error; });
-  }
-
-  function formatBytes(n){
-    if(!n && n !== 0) return '';
-    if(n < 1024) return n.toLocaleString() + ' B';
-    if(n < 1024*1024) return (n/1024).toFixed(2) + ' KB';
-    return (n/1024/1024).toFixed(2) + ' MB';
-  }
-  function escapeHtml(s){ return String(s).replace(/[&<>"']/g, function(m){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]; }); }
-
-  // Build merged PDF by assembling all page objects sequentially into a new file
-  function buildMergedPdf(){
-    var out = [];
-    var xref = [];
-    var pos = 0;
-    function push(str){ out.push(str); pos += str.length; }
-    function pushBytes(bytes){
-      // push a Uint8Array without corrupting high bytes
-      var s = '';
-      for(var i = 0; i < bytes.length; i++) s += String.fromCharCode(bytes[i]);
-      out.push(s);
-      pos += bytes.length;
-    }
-    push('%PDF-1.4\n%\xff\xff\xff\xff\n');
-    var nextObj = 1;
-    // Reserve root and pages objects first:
-    var catalogObj = nextObj++;
-    var pagesObj = nextObj++;
-    var pageObjs = []; // list of page ids
-    var pageContentsObjs = [];
-    // Add all page objects: for each source PDF and each page, we'll write the page object, contents stream (if exists), plus a minimal parent /Pages.
-
-    // Gather all pages: iterate items in order; for each item, take its page objects; write a new page object with a /Parent pointing to our pages object
-    // Strategy: for each source PDF, iterate its page objects; for each, find the corresponding page dict bytes, replace /Parent with a new parent reference, copy remaining content; write the page object bytes (including the modified page dict and the /Contents stream if exists).
-    // The copied bytes are: original bytes from the page object, but with a new /Parent reference. We'll replace any /Parent X 0 R with /Parent pagesObj 0 R
-    // For the output we need: (pageCount + pages object + catalog object + content streams)
-    // We'll for each source page:
-    //   1) find "N 0 obj << ... >> (stream ... endstream)? endobj
-    //   2) extract the dictionary, find /Parent, replace reference; also need to figure out where the dictionary ends
-    //   3) write N' 0 obj <<modified dict>> endobj  (using new id)
-    //   4) keep same /Contents reference: we keep it pointing to original's /Contents N 0 R which in output will be a new object; copy Contents as-is; to keep this simple: copy contents stream bytes as-is
-    // We will write pages and catalog at the very end after all page+contents streams are written (but we need page object ids for /Kids).
-    // Solution: first pass collect (pageDictBytes, contentsBytes) pairs; second pass write them in output order, recording ids for /Kids, then write pages/catalog
-    var collected = [];
-    for(var i = 0; i < items.length; i++){
-      var it = items[i];
-      if(it.error || it.loading || !it.pageObjectIds) continue;
-      for(var p = 0; p < it.pageObjectIds.length; p++){
-        var pageNum = it.pageObjectIds[p];
-        var pageObj = findObject(it.data, pageNum);
-        if(!pageObj) continue;
-        // find page dict
-        var dict = parseDictionary(it.data, pageObj.start);
-        if(!dict) continue;
-        var dictText = it.data.slice(dict.start, dict.end);
-        var newDict = replaceParent(dictText, pagesObj);
-        // find /Contents reference
-        var contentsRefMatch = decodeLatin(newDict, 0, newDict.length).match(/\/Contents\s+(\d+)\s+0\s+R/);
-        // copy the contents object bytes; we'll extract the bytes of the contents object:
-        var contentsBytes = null;
-        if(contentsRefMatch){
-          var contentsNum = parseInt(contentsRefMatch[1], 10);
-          var contentsObj = findObject(it.data, contentsNum);
-          if(contentsObj){
-            // copy entire object bytes: from headerStart to end of "endobj"
-            var startByte = contentsObj.headerStart;
-            var endByte = contentsObj.end;
-            // copy bytes as-is
-            var copy = it.data.slice(startByte, endByte + 'endobj'.length);
-            contentsBytes = copy;
-          }
-        }
-        collected.push({dict: newDict, contents: contentsBytes);
-      }
-    }
-    // write all collected pages
-    for(var i = 0; i < collected.length; i++){
-      var col = collected[i];
-      // Write contents if exists
-      var contentsOutId = null;
-      if(col.contents){
-        contentsOutId = nextObj++;
-        xref[contentsOutId] = pos;
-        pushBytes(col.contents);
-        push('\n');
-      }
-      // Write page with updated /Contents reference if applicable
-      var pageOutId = nextObj++;
-      // build a page dictionary text; we'll rewrite the dict bytes but substitute the contents reference: replace /Contents <oldNum> 0 R with /Contents contentsOutId 0 R
-      // col.dict bytes need to replace the reference; but also need to transform numbers inside dict's /Contents reference (original was like /Contents N 0 R; we need /Contents contentsOutId 0 R)
-      // col.dict holds a bytes slice from original; we need to replace the old /Contents reference within the bytes: it can be found; we will produce the dict bytes with a modified reference.
-      var dictBytes = replaceContents(col.dict, contentsOutId);
-      xref[pageOutId] = pos;
-      push(pageOutId + ' 0 obj\n');
-      pushBytes(dictBytes);
-      push('\nendobj\n');
-      pageObjs.push(pageOutId);
-    }
-
-    // Write Pages object
-    xref[pagesObj] = pos;
-    var kidsStr = '';
-    for(var i = 0; i < pageObjs.length; i++) kidsStr += pageObjs[i] + ' 0 R ';
-    push(pagesObj + ' 0 obj\n<< /Type /Pages /Kids [' + kidsStr.trim() + '] /Count ' + pageObjs.length + ' >>\nendobj\n');
-    // Write catalog
-    xref[catalogObj] = pos;
-    push(catalogObj + ' 0 obj\n<< /Type /Catalog /Pages ' + pagesObj + ' 0 R >>\nendobj\n');
-    // xref
-    var xrefPos = pos;
-    var totalObjs = nextObj;
-    var xrefStr = 'xref\n0 ' + totalObjs + '\n';
-    for(var i = 0; i < totalObjs; i++){
-      if(i === 0) xrefStr += '0000000000 65535 f \n';
-      else {
-        var p = xref[i] || 0;
-        var pStr = String(p);
-        while(pStr.length < 10) pStr = '0' + pStr;
-        xrefStr += pStr + ' 00000 n \n';
-      }
-    }
-    push(xrefStr);
-    push('trailer\n<< /Size ' + totalObjs + ' /Root ' + catalogObj + ' 0 R >>\nstartxref\n' + xrefPos + '\n%%EOF');
-    // convert out bytes
-    var buf = new Uint8Array(pos);
-    var cursor = 0;
-    for(var i = 0; i < out.length; i++){
-      var s = out[i];
-      for(var c = 0; c < s.length; c++) buf[cursor++] = s.charCodeAt(c) & 0xff;
-    }
-    return buf;
-  }
-
-  // Replace the /Parent reference in a dictionary bytes with a new one. Input: Uint8Array slice of dictionary including << and >>. Find /Parent X 0 R replace with /Parent newParent 0 R
-  function replaceParent(dictBytesSlice, newParent){
-    var s = decodeLatin(dictBytesSlice, 0, dictBytesSlice.length);
-    s = s.replace(/\/Parent\s+\d+\s+0\s+R/, '/Parent ' + newParent + ' 0 R');
-    // convert back to bytes
-    var bytes = new Uint8Array(s.length);
-    for(var i = 0; i < s.length; i++) bytes[i] = s.charCodeAt(i);
-    return bytes;
-  }
-
-  function replaceContents(dictBytesSlice, newContentsOutId){
-    var s = decodeLatin(dictBytesSlice, 0, dictBytesSlice.length);
-    s = s.replace(/\/Contents\s+\d+\s+0\s+R/, '/Contents ' + newContentsOutId + ' 0 R');
-    var bytes = new Uint8Array(s.length);
-    for(var i = 0; i < s.length; i++) bytes[i] = s.charCodeAt(i);
-    return bytes;
-  }
-
-  function decodeLatin(bytes, a, b){
-    var s = '';
-    for(var i = a; i < b; i++) s += String.fromCharCode(bytes[i]);
-    return s;
-  }
-
-  runBtn.addEventListener('click', function(){
-    if(items.length === 0) return;
-    resultEl.innerHTML = '<div style="color:var(--muted); font-size:.85rem;">Building merged PDF…</div>';
-    setTimeout(function(){
-      try {
-        var bytes = buildMergedPdf();
-        var blob = new Blob([bytes], {type: 'application/pdf'});
-        var url = URL.createObjectURL(blob);
-        var fn = 'merged.pdf';
-        var html = '';
-        html += '<div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:10px; margin-bottom:10px;">';
-        html += '<div class="stat"><div class="stat-label">Pages</div><div class="stat-value">' + items.filter(function(x){ return !x.error && !x.loading; }).reduce(function(acc, x){ return acc + (x.pageCount || 0; }, 0) + '</div></div>';
-        html += '<div class="stat"><div class="stat-label">Size</div><div class="stat-value">' + formatBytes(bytes.length) + '</div></div>';
-        html += '</div>';
-        html += '<div style="display:flex; gap:8px; flex-wrap:wrap;"><a href="' + url + '" download="' + fn + '" class="btn btn--sm">Download PDF</a><span style="color:var(--muted); font-size:.85rem; align-self:center;">' + fn + '</span></div>';
-        resultEl.innerHTML = html;
-      } catch(err){
-        resultEl.innerHTML = '<div style="color:#b91c1c;">Failed: ' + escapeHtml(err.message || 'Unknown error') + '</div>';
-      }
-    }, 30);
-  });
-
-  var toggle = document.querySelector('.nav-toggle');
-  if(toggle){
-    toggle.addEventListener('click', function(){
-      var links = document.querySelector('.nav-links');
-      var open = links.classList.toggle('open');
-      toggle.setAttribute('aria-expanded', open);
+    fileList.innerHTML='';
+    files.forEach(function(f,i){
+      var row=document.createElement('div');
+      row.className='file-item';
+      row.innerHTML='<div class="name">'+f.name+'</div><div class="meta">'+fmt(f.size)+'</div><div class="ctrl">'+
+        '<button class="icon-btn" data-act="up" data-i="'+i+'" title="Move up">&#9650;</button>'+
+        '<button class="icon-btn" data-act="down" data-i="'+i+'" title="Move down">&#9660;</button>'+
+        '<button class="icon-btn danger" data-act="del" data-i="'+i+'" title="Remove">&#10006;</button></div>';
+      fileList.appendChild(row);
     });
+    var hasItems=files.length>0;
+    mergeBtn.disabled=!hasItems; clearBtn.disabled=!hasItems;
   }
+  fileList.addEventListener('click',function(e){
+    var btn=e.target.closest('button');
+    if(!btn)return;
+    var act=btn.dataset.act, i=parseInt(btn.dataset.i,10);
+    if(act==='up'&&i>0){var t=files[i-1];files[i-1]=files[i];files[i]=t;render();}
+    else if(act==='down'&&i<files.length-1){var t2=files[i+1];files[i+1]=files[i];files[i]=t2;render();}
+    else if(act==='del'){files.splice(i,1);render();}
+  });
+  function addFiles(list){
+    for(var i=0;i<list.length;i++){
+      var f=list[i];
+      if(f.type==='application/pdf'||/\.pdf$/i.test(f.name))files.push(f);
+    }
+    render();
+  }
+  fileInput.addEventListener('change',function(){if(this.files)addFiles(this.files);this.value='';});
+  dropZone.addEventListener('click',function(){fileInput.click();});
+  ['dragover','dragenter'].forEach(function(ev){dropZone.addEventListener(ev,function(e){e.preventDefault();dropZone.classList.add('drag');});});
+  ['dragleave','drop'].forEach(function(ev){dropZone.addEventListener(ev,function(e){e.preventDefault();dropZone.classList.remove('drag');});});
+  dropZone.addEventListener('drop',function(e){if(e.dataTransfer&&e.dataTransfer.files)addFiles(e.dataTransfer.files);});
+  clearBtn.addEventListener('click',function(){files=[];statusEl.style.display='none';render();});
+  mergeBtn.addEventListener('click',async function(){
+    if(files.length===0)return;
+    statusEl.style.display='block';statusEl.className='status';statusEl.textContent='Merging...';
+    mergeBtn.disabled=true;
+    try{
+      if(!window.PDFLib||!window.PDFLib.PDFDocument)throw new Error('PDF library not loaded');
+      var PDFDocument=window.PDFLib.PDFDocument;
+      var merged=await PDFDocument.create();
+      for(var i=0;i<files.length;i++){
+        var buf=await files[i].arrayBuffer();
+        var src=await PDFDocument.load(buf);
+        var pages=await merged.copyPages(src,src.getPageIndices());
+        pages.forEach(function(p){merged.addPage(p);});
+      }
+      var out=await merged.save();
+      var blob=new Blob([out],{type:'application/pdf'});
+      var url=URL.createObjectURL(blob);
+      var a=document.createElement('a');a.href=url;a.download='merged.pdf';
+      document.body.appendChild(a);a.click();a.remove();
+      setTimeout(function(){URL.revokeObjectURL(url);},1000);
+      statusEl.textContent='Merged '+files.length+' file(s) successfully.';
+    }catch(err){
+      statusEl.className='status error';statusEl.textContent='Error: '+(err.message||'Something went wrong.');
+    }finally{
+      mergeBtn.disabled=false;
+    }
+  });
   render();
 })();
 </script>

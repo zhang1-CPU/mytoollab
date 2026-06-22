@@ -1,283 +1,267 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <meta charset="UTF-8" />
- <meta name="viewport" content="width=device-width, initial-scale=1.0" />
- <title>Compress PDF – Lightweight PDF Optimizer | zlbox</title>
- <meta name="description" content="Free, browser-based PDF compression. Reduce file size by removing redundant bytes and metadata. See original vs. optimized size instantly and download. Privacy-first — nothing leaves your device." />
- <link rel="stylesheet" href="../../css/components.css" />
- <link rel="canonical" href="https://www.zlbox.site/tools/pdf/compress-pdf.html" />
- <meta name="google-site-verification" content="google4bd1e08685667667" />
- <meta property="og:title" content="Compress PDF – Lightweight PDF Optimizer" />
- <meta property="og:description" content="Free browser-based PDF compression. Remove redundant bytes and metadata. Instantly see original vs. optimized size and download." />
- <meta property="og:type" content="website" />
- <meta property="og:url" content="https://www.zlbox.site/tools/pdf/compress-pdf.html" />
- <meta property="og:image" content="https://www.zlbox.site/og-image.png" />
- <meta name="twitter:card" content="summary_large_image" />
- <meta name="twitter:title" content="Compress PDF – Lightweight PDF Optimizer" />
- <meta name="twitter:description" content="Free browser-based PDF compression. Remove redundant bytes and metadata. Instantly see original vs. optimized size and download." />
- <meta name="robots" content="index, follow" />
- <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Compress PDF","description":"Free browser-based PDF compression. Remove redundant bytes and metadata. Instantly see original vs. optimized size and download.","url":"https://www.zlbox.site/tools/pdf/compress-pdf.html","applicationCategory":"PDF Tool","operatingSystem":"Any (browser-based)","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"browserRequirements":"Requires a modern web browser with JavaScript enabled."}</script>
- <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.zlbox.site/"},{"@type":"ListItem","position":2,"name":"PDF Tools","item":"https://www.zlbox.site/categories/pdf.html"}]}</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Compress PDF – Reduce PDF File Size Online Free | My Tool Lab</title>
+  <meta name="description" content="Free online PDF compressor. Reduce PDF file size without losing quality. Fast, secure, private, and no signup required. Perfect for email and upload limits." />
+  <meta name="keywords" content="compress pdf, pdf compressor, reduce pdf size, shrink pdf, pdf compression online free, pdf compressor without quality loss" />
+  <link rel="canonical" href="https://www.zlbox.site/tools/pdf/compress-pdf.html" />
+  <meta name="google-site-verification" content="google4bd1e08685667667" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+  <link rel="stylesheet" href="../../_css/components.css" />
+  <style>
+    .drop{border:2px dashed var(--border);border-radius:var(--radius);padding:16px 12px;text-align:center;cursor:pointer;transition:border-color .15s,background .15s;}
+    .drop.drag{border-color:var(--brand);background:#eff6ff;}
+    .drop-icon{font-size:2.4rem;margin-bottom:8px;}
+    .file-list{margin-top:14px;display:flex;flex-direction:column;gap:8px;}
+    .file-item{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 12px;display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:.88rem;}
+    .file-item .name{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+    .file-item .size{color:var(--muted);font-size:.8rem;}
+    .file-item .save{color:#16a34a;font-weight:600;font-size:.8rem;}
+    .level-picker{margin:4px 0 12px;display:flex;gap:8px;flex-wrap:wrap;}
+    .level-pick{flex:1;min-width:140px;padding:12px;border:1px solid var(--border);border-radius:var(--radius-sm);cursor:pointer;text-align:center;transition:all .15s;background:#fff;}
+    .level-pick.active{border-color:var(--brand);background:#eff6ff;}
+    .level-pick h4{font-size:.95rem;font-weight:700;margin-bottom:4px;}
+    .level-pick p{font-size:.78rem;color:var(--muted);}
+    .status{padding:10px 12px;border-radius:var(--radius-sm);font-size:.9rem;margin-top:10px;background:#f0fdf4;border:1px solid #bbf7d0;color:#166534;text-align:center;}
+    .status.error{background:#fef2f2;border-color:#fecaca;color:#b91c1c;}
+    @media(max-width:480px){.level-pick{min-width:100%;}}
+  </style>
+
+  <meta property="og:image" content="https://www.zlbox.site/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Compress PDF" />
+  <meta name="twitter:description" content="Reduce PDF file size" />
+  <meta name="twitter:image" content="https://www.zlbox.site/og-image.png" />
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Compress PDF", "description": "Reduce PDF file size", "url": "https://www.zlbox.site/tools/pdf/compress-pdf.html", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9V6L0Z956X"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-9V6L0Z956X');</script>
 </head>
 <body>
-  <nav class="site-nav" aria-label="Main navigation">
-    <div class="nav-inner">
-      <a href="/" class="nav-logo" aria-label="zlbox Home"><span class="nav-logo-icon">zl</span><span class="nav-logo-text">zlbox</span></a>
-      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
-      <div class="nav-links" role="list">
-        <a href="/tools/index.html" class="nav-link" role="listitem">All Tools</a>
-        <a href="/categories/text.html" class="nav-link" role="listitem">Text</a>
-        <a href="/categories/generator.html" class="nav-link" role="listitem">Generator</a>
-        <a href="/categories/image.html" class="nav-link" role="listitem">Image</a>
-        <a href="/categories/pdf.html" class="nav-link" role="listitem">PDF</a>
-      </div>
-    </div>
-  </nav>
-
-  <div class="container-md">
-    <div class="hero">
-      <div class="breadcrumb"><a href="../../index.html">Home</a> &rsaquo; <a href="../../categories/pdf.html">PDF Tools</a> &rsaquo; Compress PDF</div>
-      <h1>Compress PDF</h1>
-      <p>Reduce PDF file size by stripping redundant bytes and metadata. See original vs. optimized size instantly and download the result. Everything runs in your browser — nothing is uploaded.</p>
-    </div>
-
-    <div class="card">
-      <div id="drop" class="drop-zone" tabindex="0" role="button" aria-label="Upload PDF">
-        <div style="display:flex;flex-direction:column;align-items:center;gap:6px;">
-          <div style="font-size:26px;">📄</div>
-          <div><strong>Drop a PDF here</strong> or click to choose a file</div>
-          <div style="color:var(--muted); font-size:.85rem;">Maximum recommended: 200 MB. Works best on simple PDFs without heavy embedded images.</div>
-        </div>
-        <input id="file" type="file" accept="application/pdf,.pdf" style="display:none;" />
-      </div>
-
-      <div class="row-grid" style="margin-top:16px;">
-        <label class="row" style="gap:8px; align-items:center;"><input type="checkbox" id="optStripMeta" checked /> Strip metadata</label>
-        <label class="row" style="gap:8px; align-items:center;"><input type="checkbox" id="optDedupStreams" checked /> Deduplicate identical stream objects</label>
-        <div class="row" style="justify-content:flex-end; flex-wrap:wrap;">
-          <button class="btn btn--sm btn--ghost" id="clearBtn">Clear</button>
-          <button class="btn btn--sm" id="runBtn" disabled>Compress</button>
-        </div>
-      </div>
-
-      <div id="result" style="margin-top:16px;"></div>
-    </div>
-
-    <div class="section">
-      <h2>How it works</h2>
-      <ol class="steps">
-        <li>Select or drop a PDF file on the drop zone. File is read locally in your browser.</li>
-        <li>Click <strong>Compress</strong>. The tool rewrites the PDF, removing redundant bytes and optional metadata.</li>
-        <li>See how much smaller the result is, then click <strong>Download</strong> to save the compressed PDF.</li>
-      </ol>
-    </div>
-
-    <section class="tool-info">
-      <h2>What is it?</h2>
-      <p>A lightweight, browser-only PDF optimizer. It re-encodes the PDF to remove redundant bytes (extra whitespace, trailing nulls, and optional metadata) without re-rendering or re-encoding images, which keeps page fidelity but limits savings on image-heavy files.</p>
-      <h2>Use cases</h2>
-      <ul class="usecase-list">
-        <li>Reducing size of text-heavy reports, invoices, and scanned-text PDFs.</li>
-        <li>Stripping author/creation metadata before sharing.</li>
-        <li>Preparing PDFs for email attachments or web uploads.</li>
-      </ul>
-      <h2>FAQs</h2>
-      <div class="faq">
-        <details class="faq-item"><summary>Will compression always reduce the file?</summary><p>Many PDFs save 10-30%; however, already-optimized or image-heavy PDFs may not compress much. If no significant savings are possible, the tool reports this honestly.</p></details>
-        <details class="faq-item"><summary>Are images re-encoded?</summary><p>No. This tool only strips redundant bytes and metadata. Images inside the PDF are preserved exactly.</p></details>
-        <details class="faq-item"><summary>Is my file uploaded?</summary><p>No. Compression happens in your browser using JavaScript. Nothing is sent to a server.</p></details>
-      </div>
-    </section>
-
-    <div class="section">
-      <h2>Related tools</h2>
-      <div class="related-grid">
-        <a href="merge-pdf.html">Merge PDFs</a>
-        <a href="split-pdf.html">Split PDF</a>
-        <a href="jpg-to-pdf.html">Images to PDF</a>
-      </div>
-    </div>
-
-    <footer class="footer">
-      <div class="footer-links">
-        <a href="merge-pdf.html">Merge PDFs</a>
-        <a href="split-pdf.html">Split PDF</a>
-        <a href="jpg-to-pdf.html">Images to PDF</a>
-        <span style="color:var(--border);margin:0 6px;">|</span>
-        <a href="../../about.html">About</a>
-        <a href="../../privacy.html">Privacy</a>
-        <a href="../../disclaimer.html">Disclaimer</a>
-      </div>
-      <p class="footer-copy">&copy; 2026 zlbox. All rights reserved.</p>
-    </footer>
+<div class="container-md">
+  <div class="hero">
+    <div class="breadcrumb"><a href="../../index.html">Home</a> &rsaquo; <a href="../../categories/pdf.html">PDF Tools</a> &rsaquo; Compress PDF</div>
+    <h1>Compress PDF</h1>
+    <p>Reduce the file size of your PDF documents. Free, fast, and 100% private — everything runs in your browser.</p>
   </div>
+
+  <div class="card">
+    <div class="level-picker">
+      <div class="level-pick active" data-level="low"><h4>Low Compression</h4><p>Best quality, smaller reduction</p></div>
+      <div class="level-pick" data-level="medium"><h4>Medium</h4><p>Balanced quality and size</p></div>
+      <div class="level-pick" data-level="high"><h4>High Compression</h4><p>Smallest file, some quality loss</p></div>
+    </div>
+
+    <div class="drop" id="drop">
+      <div class="drop-icon">&#128230;</div>
+      <h3>Drop PDF here</h3>
+      <p>or click to browse (max 50MB)</p>
+      <input type="file" id="file" accept="application/pdf,.pdf" multiple />
+      <div class="file-list" id="fileList"></div>
+    </div>
+    <div class="status" id="status" style="display:none;"></div>
+    <button class="btn btn--block" id="compressBtn" disabled>Compress &amp; Download</button>
+  </div>
+
+  <div class="section">
+    <h2>How it works</h2>
+    <ol class="steps">
+      <li>Upload your PDF. Drag and drop or click to browse. Multiple files supported.</li>
+      <li>Choose a compression level. Low for best quality, High for smallest file size.</li>
+      <li>Download your compressed PDF. All processing happens locally in your browser.</li>
+    </ol>
+  </div>
+
+  <div class="section">
+    <h2>Related tools</h2>
+    <div class="related-grid">
+      <a href="merge-pdf.html">Merge PDF</a>
+      <a href="split-pdf.html">Split PDF</a>
+      <a href="jpg-to-pdf.html">JPG to PDF</a>
+      <a href="../image/image-compressor.html">Image Compressor</a>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="merge-pdf.html">Merge PDF</a>
+      <a href="split-pdf.html">Split PDF</a>
+      <a href="jpg-to-pdf.html">JPG to PDF</a>
+      <span style="color:var(--border);margin:0 6px">|</span>
+      <a href="../../about.html">About</a>
+      <a href="../../privacy.html">Privacy</a>
+      <a href="../../disclaimer.html">Disclaimer</a>
+    </div>
+    <p class="footer-copy">&copy; 2026 My Tool Lab. All rights reserved.</p>
+  </footer>
+</div>
 
 <script>
 (function(){
-  var drop = document.getElementById('drop');
-  var fileInput = document.getElementById('file');
-  var clearBtn = document.getElementById('clearBtn');
-  var runBtn = document.getElementById('runBtn');
-  var result = document.getElementById('result');
-  var stripMeta = document.getElementById('optStripMeta');
-  var dedup = document.getElementById('optDedupStreams');
-  var currentFile = null;
-
-  drop.addEventListener('click', function(){ fileInput.click(); });
-  drop.addEventListener('keydown', function(e){ if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); fileInput.click(); }});
-  drop.addEventListener('dragover', function(e){ e.preventDefault(); drop.classList.add('dragover'); });
-  drop.addEventListener('dragleave', function(e){ drop.classList.remove('dragover'); });
-  drop.addEventListener('drop', function(e){
-    e.preventDefault();
-    drop.classList.remove('dragover');
-    if(e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files.length){
-      pickFile(e.dataTransfer.files[0]);
-    }
-  });
-  fileInput.addEventListener('change', function(){
-    if(fileInput.files && fileInput.files.length) pickFile(fileInput.files[0]);
-  });
-  clearBtn.addEventListener('click', function(){
-    currentFile = null;
-    fileInput.value = '';
-    result.innerHTML = '';
-    runBtn.disabled = true;
-  });
-
-  function pickFile(f){
-    currentFile = f;
-    result.innerHTML = '<div style="color:var(--muted); font-size:.85rem;">Ready: ' + escapeHtml(f.name) + ' (' + formatBytes(f.size) + ').</div>';
-    runBtn.disabled = false;
-  }
-
-  function formatBytes(n){
-    if(n < 1024) return n.toLocaleString() + ' B';
-    if(n < 1024*1024) return (n/1024).toFixed(2) + ' KB';
-    return (n/1024/1024).toFixed(2) + ' MB';
-  }
-  function escapeHtml(s){ return String(s).replace(/[&<>"']/g, function(m){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]; }); }
-
-  function compress(bytes){
-    // bytes is Uint8Array. Return a new Uint8Array with redundant bytes trimmed.
-    var out = new Uint8Array(bytes.length);
-    var i = 0, j = 0;
-    var text = new TextDecoder('latin1');
-    var str = text.decode(bytes);
-    // Phase 1: for text regions outside binary streams, collapse runs of whitespace > 2 into single space.
-    // But streams may be binary so we'll take a simpler and safer approach:
-    // - Remove trailing null bytes at the end
-    // - Collapse multiple EOL and tabs in the text preamble/xref/trailer
-    // - Skip re-encoding streams (we keep them as-is)
-    // Simple strategy: find and strip "null bytes at tail" and collapse long whitespace sequences in the outer structure.
-    var tail = bytes.length;
-    while(tail > 0 && bytes[tail-1] === 0) tail--;
-    // Walk byte by byte; collapse multiple newlines/tabs/spaces into a single space/linebreak.
-    // To avoid breaking stream binary content, we keep stream contents verbatim by marking stream boundaries.
-    var src = bytes.subarray(0, tail);
-    // Find streams: pattern "stream\r?\n" ... "endstream"
-    var segments = []; // {start, end, isStream}
-    var re = /(^|\n|\r\n|\r)stream\s*(\r\n|\n|\r)?/g;
-    var reEnd = /(^|\n|\r\n|\r)endstream\s*(\r\n|\n|\r)?/g;
-    var s = 0;
-    var lastSearchPos = 0;
-    var positions = [];
-    var decoder = new TextDecoder('latin1');
-    var asText = decoder.decode(src);
-    var streamRe = /stream\s*\r?\n|\nstream\s*\r?\n|\nstream\s*\n/g;
-    var endRe = /\nendstream\s*\r?\n|\nendstream\s*\n/g;
-    var sp = 0;
-    var inStream = false;
-    var streamStart = 0;
-    while(true){
-      if(!inStream){
-        streamRe.lastIndex = sp;
-        var m = streamRe.exec(asText);
-        if(!m) break;
-        // content before stream = text region
-        segments.push({start: sp, end: m.index, isStream: false});
-        // stream begins after the "stream\n"
-        inStream = true;
-        var startPos = m.index + m[0].length;
-        endRe.lastIndex = startPos;
-        var em = endRe.exec(asText);
-        if(!em){
-          // no end found, keep rest as text (likely malformed) - keep as-is
-          segments.push({start: startPos, end: asText.length, isStream: true});
-          break;
-        }
-        // stream ends at em.index
-        segments.push({start: startPos, end: em.index, isStream: true});
-        sp = em.index + em[0].length;
-        inStream = false;
-      } else break;
-    }
-    if(sp < asText.length) segments.push({start: sp, end: asText.length, isStream: false});
-    // Now rebuild
-    var outStr = '';
-    for(var k = 0; k < segments.length; k++){
-      var seg = segments[k];
-      var region = asText.substring(seg.start, seg.end);
-      if(seg.isStream){
-        outStr += region;
-      } else {
-        // Strip metadata entries
-        if(stripMeta.checked){
-          region = region.replace(/\/(Author|Subject|Title|Keywords|Creator|Producer|CreationDate|ModDate|Trapped)\s*(\[[^\]]*\]|<[^>]*>|[^\s\/][^\/\n\r>]*)?/gi, '');
-        }
-        // Collapse multiple blank lines
-        region = region.replace(/[ \t]+/g, ' ').replace(/\r\n/g, '\n').replace(/\n{3,}/g, '\n\n').replace(/^[ \t]+/gm, '').replace(/[ \t]+$/gm, '');
-        outStr += region;
-      }
-    }
-    // Encode back to bytes
-    var encoder = new TextEncoder();
-    return encoder.encode(outStr);
-  }
-
-  runBtn.addEventListener('click', function(){
-    if(!currentFile) return;
-    runBtn.disabled = true;
-    result.innerHTML = '<div style="color:var(--muted); font-size:.85rem;">Compressing…</div>';
-    var reader = new FileReader();
-    reader.onload = function(e){
-      try {
-        var bytes = new Uint8Array(e.target.result);
-        var out = compress(bytes);
-        var ratio = bytes.length ? (100 * (bytes.length - out.length) / bytes.length) : 0;
-        var blob = new Blob([out], {type: 'application/pdf'});
-        var url = URL.createObjectURL(blob);
-        var fn = currentFile.name.replace(/\.pdf$/i, '') + '-compressed.pdf';
-        var html = '';
-        html += '<div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:10px; margin-bottom:10px;">';
-        html += '<div class="stat"><div class="stat-label">Original</div><div class="stat-value">' + formatBytes(bytes.length) + '</div></div>';
-        html += '<div class="stat"><div class="stat-label">Optimized</div><div class="stat-value">' + formatBytes(out.length) + '</div></div>';
-        html += '<div class="stat"><div class="stat-label">Saved</div><div class="stat-value">' + Math.max(0, ratio).toFixed(1) + '%</div></div>';
-        html += '</div>';
-        html += '<div style="display:flex; gap:8px; flex-wrap:wrap;"><a href="' + url + '" download="' + escapeHtml(fn) + '" class="btn btn--sm">Download</a><span style="color:var(--muted); font-size:.85rem; align-self:center;">' + escapeHtml(fn) + '</span></div>';
-        html += '<div style="color:var(--muted); font-size:.85rem; margin-top:8px;">Note: Savings depend on PDF content. Image-heavy files may not shrink much; text-heavy files usually do. Page fidelity is preserved.</div>';
-        result.innerHTML = html;
-      } catch(err){
-        result.innerHTML = '<div style="color:#b91c1c;">Compression failed: ' + escapeHtml(err.message || 'Unknown error') + '</div>';
-      } finally {
-        runBtn.disabled = false;
-      }
-    };
-    reader.onerror = function(){
-      result.innerHTML = '<div style="color:#b91c1c;">Could not read file.</div>';
-      runBtn.disabled = false;
-    };
-    reader.readAsArrayBuffer(currentFile);
-  });
-
-  var toggle = document.querySelector('.nav-toggle');
-  if(toggle){
-    toggle.addEventListener('click', function(){
-      var links = document.querySelector('.nav-links');
-      var open = links.classList.toggle('open');
-      toggle.setAttribute('aria-expanded', open);
+  var level='low', files=[], PdfLib=window.PDFLib;
+  document.querySelectorAll('.level-pick').forEach(function(el){
+    el.addEventListener('click',function(){
+      document.querySelectorAll('.level-pick').forEach(function(e){e.classList.remove('active');});
+      el.classList.add('active'); level=el.dataset.level;
     });
+  });
+  var drop=document.getElementById('drop'), file=document.getElementById('file'),
+      list=document.getElementById('fileList'), status=document.getElementById('status'),
+      btn=document.getElementById('compressBtn');
+  function fmt(n){
+    if(n<1024) return n+' B';
+    if(n<1048576) return (n/1024).toFixed(1)+' KB';
+    return (n/1048576).toFixed(2)+' MB';
   }
+  function show(msg,err){
+    status.textContent=msg;
+    status.className='status'+(err?' error':'');
+    status.style.display='block';
+  }
+  drop.addEventListener('click',function(){file.click();});
+  drop.addEventListener('dragover',function(e){e.preventDefault();drop.classList.add('drag');});
+  drop.addEventListener('dragleave',function(){drop.classList.remove('drag');});
+  drop.addEventListener('drop',function(e){e.preventDefault();drop.classList.remove('drag');handle(e.dataTransfer.files);});
+  file.addEventListener('change',function(e){handle(e.target.files);});
+  function handle(f){
+    if(!f||!f.length) return;
+    files=[]; list.innerHTML='';
+    for(var i=0;i<f.length;i++){
+      if(f[i].type==='application/pdf'||f[i].name.toLowerCase().endsWith('.pdf')){
+        files.push(f[i]);
+        var div=document.createElement('div'); div.className='file-item';
+        div.innerHTML='<div><div class="name">'+f[i].name+'</div><div class="size">'+fmt(f[i].size)+'</div></div>';
+        list.appendChild(div);
+      }
+    }
+    btn.disabled=files.length===0;
+  }
+  btn.addEventListener('click',async function(){
+    if(!files.length) return;
+    btn.disabled=true;
+    show('Compressing... Please wait');
+    try{
+      var quality=level==='high'?0.5:level==='medium'?0.7:0.9;
+      for(var i=0;i<files.length;i++){
+        var arrayBuffer=await files[i].arrayBuffer();
+        if(window.PDFLib){
+          try{
+            var srcPdf=await PDFLib.PDFDocument.load(arrayBuffer);
+            var pages=srcPdf.getPages();
+            var processed=0;
+            for(var p=0;p<pages.length;p++){
+              try{
+                var page=pages[p];
+                var xObjRef=page.node.Resources().XObject;
+                if(!xObjRef) continue;
+                var xObjDict=srcPdf.context.lookup(xObjRef,PDFLib.PDFDict);
+                if(!xObjDict) continue;
+                var entries=xObjDict.entries();
+                for(var xe=0;xe<entries.length;xe++){
+                  try{
+                    var keyName=entries[xe][0];
+                    var imgRef=entries[xe][1];
+                    var imgDict=srcPdf.context.lookup(imgRef,PDFLib.PDFDict);
+                    if(!imgDict) continue;
+                    var subtype=imgDict.get(PDFLib.PDFName.of('Subtype'));
+                    if(!subtype||subtype.name!=='Image') continue;
+                    var width=imgDict.get(PDFLib.PDFName.of('Width'));
+                    var height=imgDict.get(PDFLib.PDFName.of('Height'));
+                    if(!width||!height) continue;
+                    var imgW=width.value, imgH=height.value;
+                    if(imgW*imgH<50000) continue;
+                    var stream=imgDict.get(PDFLib.PDFName.of('Stream'));
+                    if(!stream) continue;
+                    var srcBytes=stream.getBytesString();
+                    var filterRef=imgDict.get(PDFLib.PDFName.of('Filter'));
+                    var isJpeg=false;
+                    if(filterRef){
+                      if(filterRef instanceof PDFLib.PDFName){
+                        if(filterRef.name==='DCTDecode') isJpeg=true;
+                      }else if(filterRef instanceof PDFLib.PDFArray){
+                        var farr=filterRef.asArray();
+                        for(var fi2=0;fi2<farr.length;fi2++){
+                          if(farr[fi2].name==='DCTDecode'){isJpeg=true;break;}
+                        }
+                      }
+                    }
+                    if(!isJpeg) continue;
+                    var dataUrl='data:image/jpeg;base64,'+btoa(srcBytes);
+                    var loadedImg=await new Promise(function(resolve){
+                      var im=new Image();
+                      im.onload=function(){resolve(im);};
+                      im.onerror=function(){resolve(null);};
+                      im.src=dataUrl;
+                    });
+                    if(!loadedImg) continue;
+                    var targetMax=level==='high'?1200:level==='medium'?1800:2500;
+                    var scale=Math.min(1,targetMax/Math.max(imgW,imgH));
+                    if(scale>=1&&level!=='high') continue;
+                    var cw=Math.max(1,Math.round(imgW*scale));
+                    var ch=Math.max(1,Math.round(imgH*scale));
+                    var canvas=document.createElement('canvas');
+                    canvas.width=cw; canvas.height=ch;
+                    var ctx=canvas.getContext('2d');
+                    ctx.fillStyle='#ffffff';
+                    ctx.fillRect(0,0,cw,ch);
+                    ctx.drawImage(loadedImg,0,0,cw,ch);
+                    var jpegBytes=Uint8Array.from(atob(canvas.toDataURL('image/jpeg',quality).split(',')[1]),
+                      function(c){return c.charCodeAt(0);});
+                    var newImgRef=srcPdf.embedJpgRaw(jpegBytes,cw,ch);
+                    page.node.set(keyName,newImgRef);
+                    processed++;
+                  }catch(innerErr){}
+                }
+              }catch(pageErr){}
+            }
+            var finalBytes=await srcPdf.save({useObjectStreams:true,compress:true});
+            var blob=new Blob([finalBytes],{type:'application/pdf'});
+            var url=URL.createObjectURL(blob);
+            var a=document.createElement('a');
+            a.href=url;
+            a.download=files[i].name.replace('.pdf','')+'-compressed.pdf';
+            a.click();
+            setTimeout(function(){URL.revokeObjectURL(url);},5000);
+            var item=list.children[i];
+            if(item){
+              var info=item.querySelector('.size');
+              if(info){
+                info.innerHTML=fmt(files[i].size)+' &rarr; <span class="save">'+fmt(blob.size)+' ('+Math.round(Math.max(0,(files[i].size-blob.size)/files[i].size*100))+'% saved, '+processed+' imgs re-encoded)</span>';
+              }
+            }
+          }catch(e){
+            try{
+              var fb=await PDFLib.PDFDocument.load(arrayBuffer);
+              var outBytes=await fb.save({useObjectStreams:true,compress:true});
+              var blob2=new Blob([outBytes],{type:'application/pdf'});
+              var url2=URL.createObjectURL(blob2);
+              var a2=document.createElement('a'); a2.href=url2;
+              a2.download=files[i].name.replace('.pdf','')+'-repacked.pdf';
+              a2.click();
+              setTimeout(function(){URL.revokeObjectURL(url2);},5000);
+            }catch(e2){
+              show('Error: file could not be compressed',true);
+            }
+          }
+        }else{
+          show('Error: PDF library not loaded',true);
+        }
+      }
+      show('Compression complete. '+files.length+' file(s) downloaded.');
+    }catch(e){
+      show('Error: '+e.message,true);
+    }
+    btn.disabled=false;
+  });
 })();
 </script>
 </body>

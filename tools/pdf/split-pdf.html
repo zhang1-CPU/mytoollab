@@ -1,522 +1,255 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <meta charset="UTF-8" />
- <meta name="viewport" content="width=device-width, initial-scale=1.0" />
- <title>Split PDF – Extract Pages | zlbox</title>
- <meta name="description" content="Split a PDF by page ranges (e.g., 1,3-5,7) or split each page into its own file. Download results as a ZIP — 100% private, browser-based, no uploads." />
- <link rel="stylesheet" href="../../css/components.css" />
- <link rel="canonical" href="https://www.zlbox.site/tools/pdf/split-pdf.html" />
- <meta name="google-site-verification" content="google4bd1e08685667667" />
- <meta property="og:title" content="Split PDF – Extract Pages" />
- <meta property="og:description" content="Split a PDF by page ranges or each page into its own file. Download results as a ZIP." />
- <meta property="og:type" content="website" />
- <meta property="og:url" content="https://www.zlbox.site/tools/pdf/split-pdf.html" />
- <meta property="og:image" content="https://www.zlbox.site/og-image.png" />
- <meta name="twitter:card" content="summary_large_image" />
- <meta name="twitter:title" content="Split PDF – Extract Pages" />
- <meta name="twitter:description" content="Split a PDF by page ranges or each page into its own file. Download results as a ZIP." />
- <meta name="robots" content="index, follow" />
- <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Split PDF","description":"Split a PDF by page ranges or each page into its own file. Download results as a ZIP.","url":"https://www.zlbox.site/tools/pdf/split-pdf.html","applicationCategory":"PDF Tool","operatingSystem":"Any (browser-based)","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"browserRequirements":"Requires a modern web browser with JavaScript enabled."}</script>
- <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.zlbox.site/"},{"@type":"ListItem","position":2,"name":"PDF Tools","item":"https://www.zlbox.site/categories/pdf.html"}]}</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Split PDF – Extract Pages from PDF Online Free | My Tool Lab</title>
+  <meta name="description" content="Free online PDF splitter. Extract pages or split a PDF into multiple files. Simple interface, runs locally in browser, no signup required." />
+  <meta name="keywords" content="split pdf, pdf splitter, extract pdf pages, separate pdf, cut pdf, pdf extract pages, split pdf online free" />
+  <link rel="canonical" href="https://www.zlbox.site/tools/pdf/split-pdf.html" />
+  <meta name="google-site-verification" content="google4bd1e08685667667" />
+  <meta name="robots" content="index, follow" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../../_css/components.css" />
+  <style>
+    .drop{border:2px dashed var(--border);border-radius:var(--radius);padding:16px 12px;text-align:center;cursor:pointer;transition:border-color .15s,background .15s;}
+    .drop.drag{border-color:var(--brand);background:#eff6ff;}
+    .drop-icon{font-size:2.4rem;margin-bottom:8px;}
+    .file-info{margin-top:10px;padding:10px 12px;background:var(--bg);border-radius:var(--radius-sm);font-size:.88rem;display:none;}
+    .file-info.show{display:block;}
+    .file-info strong{color:var(--brand);}
+    .status{margin-top:10px;font-size:.9rem;text-align:center;padding:10px;border-radius:var(--radius-sm);background:#f0fdf4;border:1px solid #bbf7d0;color:#166534;}
+    .status.error{background:#fef2f2;border-color:#fecaca;color:#b91c1c;}
+  </style>
+
+  <meta property="og:image" content="https://www.zlbox.site/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Split PDF" />
+  <meta name="twitter:description" content="Extract pages from PDF" />
+  <meta name="twitter:image" content="https://www.zlbox.site/og-image.png" />
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Split PDF", "description": "Extract pages from PDF", "url": "https://www.zlbox.site/tools/pdf/split-pdf.html", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9V6L0Z956X"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-9V6L0Z956X');</script>
 </head>
 <body>
-  <nav class="site-nav" aria-label="Main navigation">
-    <div class="nav-inner">
-      <a href="/" class="nav-logo" aria-label="zlbox Home"><span class="nav-logo-icon">zl</span><span class="nav-logo-text">zlbox</span></a>
-      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
-      <div class="nav-links" role="list">
-        <a href="/tools/index.html" class="nav-link" role="listitem">All Tools</a>
-        <a href="/categories/text.html" class="nav-link" role="listitem">Text</a>
-        <a href="/categories/generator.html" class="nav-link" role="listitem">Generator</a>
-        <a href="/categories/image.html" class="nav-link" role="listitem">Image</a>
-        <a href="/categories/pdf.html" class="nav-link" role="listitem">PDF</a>
-      </div>
-    </div>
-  </nav>
-
-  <div class="container-md">
-    <div class="hero">
-      <div class="breadcrumb"><a href="../../index.html">Home</a> &rsaquo; <a href="../../categories/pdf.html">PDF Tools</a> &rsaquo; Split PDF</div>
-      <h1>Split PDF</h1>
-      <p>Upload a PDF and split it. Choose either "one file per page" or a range expression like "1,3-5,7" to extract specific pages. All files are bundled into a ZIP for download.</p>
-    </div>
-
-    <div class="card">
-      <div id="drop" class="drop-zone" tabindex="0" role="button" aria-label="Upload PDF">
-        <div style="display:flex;flex-direction:column;align-items:center;gap:6px;">
-          <div style="font-size:26px;">📑</div>
-          <div><strong>Drop a PDF here</strong> or click to choose a file</div>
-          <div id="fileInfo" style="color:var(--muted); font-size:.85rem;"></div>
-        </div>
-        <input id="file" type="file" accept="application/pdf,.pdf" style="display:none;" />
-      </div>
-
-      <div class="row-grid" style="margin-top:16px;">
-        <div class="row" style="gap:8px; align-items:center; flex: 1 1 300px;">
-          <label style="display:flex; gap:8px; align-items:center;">
-            <input type="radio" name="mode" id="modeEach" checked /> Each page
-          </label>
-          <label style="display:flex; gap:8px; align-items:center;">
-            <input type="radio" name="mode" id="modeRange" /> Range
-            <input id="rangeExpr" type="text" placeholder="e.g. 1,3-5,7" style="max-width:260px; padding:4px 8px; border-radius:6px; border:1px solid var(--border); background:var(--surface); color:var(--text); font-size:0.85rem;" />
-          </label>
-        </div>
-        <div class="row" style="justify-content:flex-end; flex-wrap:wrap;">
-          <button class="btn btn--sm btn--ghost" id="clearBtn">Clear</button>
-          <button class="btn btn--sm" id="runBtn" disabled>Split PDF</button>
-        </div>
-      </div>
-
-      <div id="result" style="margin-top:16px;"></div>
-    </div>
-
-    <div class="section">
-      <h2>How it works</h2>
-      <ol class="steps">
-        <li>Drop your PDF onto the drop zone or click to select.</li>
-        <li>Choose either "Each page" or specify a range expression like "1,3-5,7".</li>
-        <li>Click <strong>Split PDF</strong> and download the resulting ZIP.</li>
-      </ol>
-    </div>
-
-    <section class="tool-info">
-      <h2>What is it?</h2>
-      <p>A browser-only PDF splitter. The original PDF is parsed, selected pages are collected, and for each requested page a new minimal PDF (1 page each) is produced and packaged into a single ZIP. Pages that cannot be parsed are skipped with a warning.</p>
-      <h2>Use cases</h2>
-      <ul class="usecase-list">
-        <li>Extracting invoice or receipt pages from a large batch.</li>
-        <li>Splitting presentations or reports before sharing specific sections.</li>
-        <li>Preparing e-sign envelopes per-page from one file.</li>
-      </ul>
-    </section>
-
-    <div class="section">
-      <h2>Related tools</h2>
-      <div class="related-grid">
-        <a href="merge-pdf.html">Merge PDFs</a>
-        <a href="compress-pdf.html">Compress PDF</a>
-        <a href="jpg-to-pdf.html">Images to PDF</a>
-      </div>
-    </div>
-
-    <footer class="footer">
-      <div class="footer-links">
-        <a href="merge-pdf.html">Merge PDFs</a>
-        <a href="compress-pdf.html">Compress PDF</a>
-        <span style="color:var(--border);margin:0 6px;">|</span>
-        <a href="../../about.html">About</a>
-        <a href="../../privacy.html">Privacy</a>
-        <a href="../../disclaimer.html">Disclaimer</a>
-      </div>
-      <p class="footer-copy">&copy; 2026 zlbox. All rights reserved.</p>
-    </footer>
+<div class="container-md">
+  <div class="hero">
+    <div class="breadcrumb"><a href="../../index.html">Home</a> &rsaquo; <a href="../../categories/pdf.html">PDF Tools</a> &rsaquo; Split PDF</div>
+    <h1>Split PDF</h1>
+    <p>Extract specific pages or split a PDF into multiple documents. Processing runs entirely in your browser.</p>
   </div>
 
-<script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+  <div class="card">
+    <div class="drop" id="dropZone">
+      <div class="drop-icon">&#128203;</div>
+      <h3>Drop a PDF here, or click to browse</h3>
+      <p style="font-size:.85rem;color:var(--muted);margin-top:4px;">Select one PDF file. All processing is private and local.</p>
+      <input type="file" id="fileInput" accept="application/pdf,.pdf" />
+    </div>
+    <div class="file-info" id="fileInfo"></div>
+
+    <div class="row-grid" style="margin-top:12px;">
+      <div class="row row--col">
+        <label for="modeSelect">Split mode</label>
+        <select id="modeSelect" style="width:100%;">
+          <option value="single">Extract selected pages (one PDF)</option>
+          <option value="each">Each selected page as separate PDF</option>
+          <option value="everyN">Every N pages as separate PDF</option>
+        </select>
+      </div>
+      <div class="row row--col" id="rangeWrap">
+        <label for="rangeInput">Pages (e.g. 1-3,5,7-10)</label>
+        <input type="text" id="rangeInput" placeholder="e.g. 1-3,5,7-10" />
+      </div>
+      <div class="row row--col" id="nWrap" style="display:none;">
+        <label for="everyN">Split every N pages</label>
+        <input type="number" id="everyN" value="2" min="1" max="9999" />
+      </div>
+    </div>
+
+    <div class="row" style="margin-top:10px;">
+      <button class="btn btn--ghost" id="clearBtn" disabled style="flex:1;">Reset</button>
+      <button class="btn" id="splitBtn" disabled style="flex:1;">Split &amp; Download</button>
+    </div>
+    <div class="status" id="status" style="display:none;"></div>
+  </div>
+
+  <div class="section">
+    <h2>How it works</h2>
+    <ol class="steps">
+      <li>Upload your PDF by drag-and-drop or click to browse.</li>
+      <li>Choose a split mode: extract pages, split each page, or every N pages.</li>
+      <li>Click Split &amp; Download. PDFs are generated locally in your browser.</li>
+    </ol>
+  </div>
+
+  <div class="section">
+    <h2>Related tools</h2>
+    <div class="related-grid">
+      <a href="merge-pdf.html">Merge PDF</a>
+      <a href="compress-pdf.html">Compress PDF</a>
+      <a href="jpg-to-pdf.html">JPG to PDF</a>
+      <a href="../image/image-compressor.html">Image Compressor</a>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="merge-pdf.html">Merge PDF</a>
+      <a href="compress-pdf.html">Compress PDF</a>
+      <a href="jpg-to-pdf.html">JPG to PDF</a>
+      <span style="color:var(--border);margin:0 6px">|</span>
+      <a href="../../about.html">About</a>
+      <a href="../../privacy.html">Privacy</a>
+      <a href="../../disclaimer.html">Disclaimer</a>
+    </div>
+    <p class="footer-copy">&copy; 2026 My Tool Lab. All rights reserved.</p>
+  </footer>
+</div>
+
 <script>
 (function(){
-  var drop = document.getElementById('drop');
-  var fileInput = document.getElementById('file');
-  var resultEl = document.getElementById('result');
-  var runBtn = document.getElementById('runBtn');
-  var clearBtn = document.getElementById('clearBtn');
-  var fileInfo = document.getElementById('fileInfo');
-  var modeEach = document.getElementById('modeEach');
-  var modeRange = document.getElementById('modeRange');
-  var rangeExpr = document.getElementById('rangeExpr');
+  var dropZone=document.getElementById('dropZone'), fileInput=document.getElementById('fileInput'),
+      fileInfo=document.getElementById('fileInfo'), rangeInput=document.getElementById('rangeInput'),
+      modeSelect=document.getElementById('modeSelect'), everyN=document.getElementById('everyN'),
+      nWrap=document.getElementById('nWrap'), rangeWrap=document.getElementById('rangeWrap'),
+      splitBtn=document.getElementById('splitBtn'), clearBtn=document.getElementById('clearBtn'),
+      statusEl=document.getElementById('status');
+  var currentFile=null, totalPages=0;
 
-  var currentFile = null;
-
-  drop.addEventListener('click', function(){ fileInput.click(); });
-  drop.addEventListener('keydown', function(e){ if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); fileInput.click(); }});
-  drop.addEventListener('dragover', function(e){ e.preventDefault(); drop.classList.add('dragover'); });
-  drop.addEventListener('dragleave', function(e){ drop.classList.remove('dragover'); });
-  drop.addEventListener('drop', function(e){
-    e.preventDefault();
-    drop.classList.remove('dragover');
-    if(e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files.length){
-      pickFile(e.dataTransfer.files[0]);
+  function fmt(b){if(b<1024)return b+' B';if(b<1048576)return(b/1024).toFixed(1)+' KB';return(b/1048576).toFixed(2)+' MB';}
+  function showInfo(){
+    if(currentFile){
+      fileInfo.innerHTML='<strong>File:</strong> '+currentFile.name+' &middot; <strong>Size:</strong> '+fmt(currentFile.size)+(totalPages?' &middot; <strong>Pages:</strong> '+totalPages:'');
+      fileInfo.classList.add('show');
+    }else{fileInfo.classList.remove('show');}
+  }
+  function setFile(file){
+    if(!file)return;
+    currentFile=file; totalPages=0;
+    splitBtn.disabled=false; clearBtn.disabled=false;
+    statusEl.style.display='none';
+    showInfo();
+    if(window.PDFLib&&window.PDFLib.PDFDocument){
+      file.arrayBuffer().then(function(buf){return window.PDFLib.PDFDocument.load(buf);}).then(function(doc){
+        totalPages=doc.getPageCount(); showInfo();
+      }).catch(function(){});
     }
-  });
-  fileInput.addEventListener('change', function(){
-    if(fileInput.files && fileInput.files.length) pickFile(fileInput.files[0]);
-  });
-  clearBtn.addEventListener('click', function(){
-    currentFile = null;
-    fileInput.value = '';
-    resultEl.innerHTML = '';
-    fileInfo.textContent = '';
-    runBtn.disabled = true;
-  });
-
-  function pickFile(f){
-    currentFile = f;
-    fileInfo.textContent = f.name + ' (' + formatBytes(f.size) + ')';
-    runBtn.disabled = false;
   }
+  fileInput.addEventListener('change',function(){if(this.files&&this.files[0])setFile(this.files[0]);this.value='';});
+  dropZone.addEventListener('click',function(){fileInput.click();});
+  ['dragover','dragenter'].forEach(function(ev){dropZone.addEventListener(ev,function(e){e.preventDefault();dropZone.classList.add('drag');});});
+  ['dragleave','drop'].forEach(function(ev){dropZone.addEventListener(ev,function(e){e.preventDefault();dropZone.classList.remove('drag');});});
+  dropZone.addEventListener('drop',function(e){if(e.dataTransfer&&e.dataTransfer.files&&e.dataTransfer.files[0])setFile(e.dataTransfer.files[0]);});
 
-  function formatBytes(n){
-    if(n < 1024) return n.toLocaleString() + ' B';
-    if(n < 1024*1024) return (n/1024).toFixed(2) + ' KB';
-    return (n/1024/1024).toFixed(2) + ' MB';
-  }
-  function escapeHtml(s){ return String(s).replace(/[&<>"']/g, function(m){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]; }); }
+  modeSelect.addEventListener('change',function(){
+    var m=this.value;
+    nWrap.style.display=m==='everyN'?'':'none';
+    rangeWrap.style.display=m==='everyN'?'none':'';
+    rangeInput.disabled=m==='everyN';
+  });
 
-  // PDF helpers (shared minimal parser/writer)
-  function indexOfN(bytes, pattern, start){
-    start = start || 0;
-    var pLen = pattern.length;
-    for(var i = start; i <= bytes.length - pLen; i++){
-      var match = true;
-      for(var j = 0; j < pLen; j++){
-        if(bytes[i+j] !== pattern.charCodeAt(j)){ match = false; break; }
+  clearBtn.addEventListener('click',function(){
+    currentFile=null; totalPages=0; rangeInput.value=''; modeSelect.value='single';
+    everyN.value=2; nWrap.style.display='none'; rangeWrap.style.display=''; rangeInput.disabled=false;
+    splitBtn.disabled=true; clearBtn.disabled=true; fileInfo.classList.remove('show');
+    statusEl.style.display='none';
+  });
+
+  function parseRange(text,maxPage){
+    var pages=new Set();
+    var parts=String(text||'').replace(/\s/g,'').split(',');
+    for(var i=0;i<parts.length;i++){
+      var part=parts[i];
+      if(!part)continue;
+      if(part.indexOf('-')>=0){
+        var ab=part.split('-');
+        var a=parseInt(ab[0],10), b=parseInt(ab[1],10);
+        if(isNaN(a)||isNaN(b))continue;
+        var lo=Math.max(1,Math.min(a,b)), hi=Math.min(maxPage||99999,Math.max(a,b));
+        for(var p=lo;p<=hi;p++)pages.add(p);
+      }else{
+        var n=parseInt(part,10);
+        if(!isNaN(n)&&n>=1)pages.add(n);
       }
-      if(match) return i;
     }
-    return -1;
+    return Array.from(pages).sort(function(x,y){return x-y;});
   }
 
-  function findObject(bytes, objNum){
-    var pattern = objNum + ' 0 obj';
-    var idx = indexOfN(bytes, pattern, 0);
-    if(idx === -1) return null;
-    var start = idx + pattern.length;
-    var endobj = indexOfN(bytes, 'endobj', start);
-    return {headerStart: idx, start: start, end: endobj};
+  async function downloadDoc(doc,name){
+    var out=await doc.save();
+    var blob=new Blob([out],{type:'application/pdf'});
+    var url=URL.createObjectURL(blob);
+    var a=document.createElement('a');
+    a.href=url; a.download=name; a.target='_blank';
+    document.body.appendChild(a); a.click();
+    setTimeout(function(){a.remove(); URL.revokeObjectURL(url);},300);
   }
 
-  function parseDictionary(bytes, start){
-    var cursor = start;
-    while(cursor < bytes.length && (bytes[cursor] === 10 || bytes[cursor] === 13 || bytes[cursor] === 32 || bytes[cursor] === 9)) cursor++;
-    if(bytes[cursor] !== 60 || bytes[cursor+1] !== 60) return null;
-    var depth = 1;
-    var i = cursor + 2;
-    while(i < bytes.length && depth > 0){
-      if(bytes[i] === 60 && bytes[i+1] === 60){ depth++; i+=2; continue; }
-      if(bytes[i] === 62 && bytes[i+1] === 62){ depth--; i+=2; continue; }
-      i++;
-    }
-    return {start: cursor, end: i};
-  }
+  splitBtn.addEventListener('click',async function(){
+    if(!currentFile)return;
+    statusEl.style.display='block'; statusEl.className='status'; statusEl.textContent='Splitting...';
+    splitBtn.disabled=true;
+    try{
+      if(!window.PDFLib||!window.PDFLib.PDFDocument)throw new Error('PDF library not loaded');
+      var PDFDocument=window.PDFLib.PDFDocument;
+      var buf=await currentFile.arrayBuffer();
+      var src=await PDFDocument.load(buf);
+      var pageCount=src.getPageCount();
+      totalPages=pageCount; showInfo();
+      var mode=modeSelect.value;
+      var baseName=currentFile.name.replace(/\.pdf$/i,'');
 
-  function decodeLatin(bytes, a, b){
-    var s = '';
-    for(var i = a; i < b; i++) s += String.fromCharCode(bytes[i]);
-    return s;
-  }
-
-  function parsePdf(bytes){
-    var trailerIdx = indexOfN(bytes, 'trailer', Math.max(0, bytes.length - 2000));
-    if(trailerIdx === -1) return null;
-    var trailerText = decodeLatin(bytes, trailerIdx, Math.min(bytes.length, trailerIdx + 400));
-    var rootMatch = trailerText.match(/\/Root\s+(\d+)\s+0\s+R/);
-    if(!rootMatch) return null;
-    var rootNum = parseInt(rootMatch[1], 10);
-    var root = findObject(bytes, rootNum);
-    if(!root) return null;
-    var rootDict = parseDictionary(bytes, root.start);
-    var rootText = decodeLatin(bytes, rootDict.start, rootDict.end);
-    var pagesMatch = rootText.match(/\/Pages\s+(\d+)\s+0\s+R/);
-    if(!pagesMatch) return null;
-    var pagesNum = parseInt(pagesMatch[1], 10);
-    var pagesObj = findObject(bytes, pagesNum);
-    var pagesDict = parseDictionary(bytes, pagesObj.start);
-    var pagesText = decodeLatin(bytes, pagesDict.start, pagesDict.end);
-    var kids = [];
-    var re = /(\d+)\s+0\s+R/g;
-    var m;
-    while((m = re.exec(pagesText)) !== null) kids.push(parseInt(m[1], 10));
-    return {kids: kids, data: bytes};
-  }
-
-  // Build a single-page PDF from a page object (identified by pageNum in data)
-  // Output: Uint8Array of the new PDF bytes
-  function buildSinglePagePdf(data, pageNum){
-    var pageObj = findObject(data, pageNum);
-    if(!pageObj) return null;
-    var pageDict = parseDictionary(data, pageObj.start);
-    if(!pageDict) return null;
-    // Extract page dict bytes
-    var pageDictBytes = data.slice(pageDict.start, pageDict.end);
-    // Replace /Parent reference with our new Pages object id (object 2)
-    var pageDictText = decodeLatin(pageDictBytes, 0, pageDictBytes.length);
-    pageDictText = pageDictText.replace(/\/Parent\s+\d+\s+0\s+R/, '/Parent 2 0 R');
-    // Find /Contents and /Resources references inside the page dict; we'll extract their bytes
-    var contentsMatch = pageDictText.match(/\/Contents\s+(\d+)\s+0\s+R/);
-    var resourcesMatch = pageDictText.match(/\/Resources\s+(\d+)\s+0\s+R/);
-    // Also, /Font /XObject inside /Resources may reference other objects; we'll try to extract immediate referenced objects.
-    var referencedObjects = {};
-    function markRef(num){ referencedObjects[num] = true; }
-    function collectDictRefs(dictBytesSlice){
-      var text = decodeLatin(dictBytesSlice, 0, dictBytesSlice.length);
-      var re = /\/\w+\s+(\d+)\s+0\s+R/g;
-      var m;
-      while((m = re.exec(text)) !== null) markRef(parseInt(m[1], 10));
-    }
-    collectDictRefs(pageDictBytes);
-    // Collect resources dict
-    function collectObject(num){
-      if(referencedObjects[num] === true || !num) return;
-      var obj = findObject(data, num);
-      if(!obj) return;
-      var dict = parseDictionary(data, obj.start);
-      if(dict){
-        var text = decodeLatin(data, dict.start, dict.end);
-        var re = /(\d+)\s+0\s+R/g;
-        var m;
-        while((m = re.exec(text)) !== null){
-          var next = parseInt(m[1], 10);
-          if(!referencedObjects[next]){
-            referencedObjects[next] = true;
-            collectObject(next);
-          }
+      if(mode==='everyN'){
+        var n=Math.max(1, parseInt(everyN.value,10)||1);
+        var part=1;
+        for(var start=0;start<pageCount;start+=n){
+          var end=Math.min(pageCount, start+n);
+          var newDoc=await PDFDocument.create();
+          var idxs=[]; for(var k=start;k<end;k++)idxs.push(k);
+          var pages=await newDoc.copyPages(src,idxs);
+          pages.forEach(function(p){newDoc.addPage(p);});
+          await downloadDoc(newDoc, baseName+'_part'+part+'.pdf');
+          part++;
+          await new Promise(function(r){setTimeout(r,150);});
         }
-      }
-    }
-    // mark page and its referenced objects
-    referencedObjects[pageNum] = true;
-    var keys = Object.keys(referencedObjects);
-    for(var k = 0; k < keys.length; k++){
-      var num = parseInt(keys[k], 10);
-      if(referencedObjects[num] === true){
-        // find dict + contents
-        var obj = findObject(data, num);
-        if(obj){
-          var dict = parseDictionary(data, obj.start);
-          if(dict){
-            var slice = data.slice(dict.start, dict.end);
-            // parse all refs from the slice
-            var t = decodeLatin(slice, 0, slice.length);
-            var r = /\b(\d+)\s+0\s+R\b/g;
-            var match;
-            while((match = r.exec(t)) !== null){
-              var next = parseInt(match[1], 10);
-              if(!referencedObjects[next]){
-                referencedObjects[next] = true;
-                collectObject(next);
-              }
-            }
-          }
+        statusEl.textContent='Split into '+(part-1)+' file(s).';
+      }else if(mode==='each'){
+        var pages=parseRange(rangeInput.value, pageCount);
+        if(!pages.length)throw new Error('No valid pages specified. Example: 1-3,5,7-10');
+        for(var pi=0;pi<pages.length;pi++){
+          var pg=pages[pi];
+          if(pg<1||pg>pageCount)continue;
+          var doc2=await PDFDocument.create();
+          var cp=await doc2.copyPages(src,[pg-1]);
+          doc2.addPage(cp[0]);
+          await downloadDoc(doc2, baseName+'_page'+pg+'.pdf');
+          await new Promise(function(r){setTimeout(r,150);});
         }
+        statusEl.textContent='Split '+pages.length+' page(s).';
+      }else{
+        var pages2=parseRange(rangeInput.value, pageCount);
+        if(!pages2.length)throw new Error('No valid pages specified. Example: 1-3,5,7-10');
+        var doc3=await PDFDocument.create();
+        var idxs2=pages2.filter(function(p){return p>=1&&p<=pageCount;}).map(function(p){return p-1;});
+        var copied=await doc3.copyPages(src,idxs2);
+        copied.forEach(function(p){doc3.addPage(p);});
+        await downloadDoc(doc3, baseName+'_extracted.pdf');
+        statusEl.textContent='Extracted '+copied.length+' page(s).';
       }
+    }catch(err){
+      statusEl.className='status error'; statusEl.textContent='Error: '+(err.message||'Something went wrong.');
+    }finally{
+      splitBtn.disabled=false;
     }
-
-    // Assign new ids: 1 catalog, 2 pages, 3 page, and the rest sequential based on sorted referenced set
-    var sortedRefs = Object.keys(referencedObjects).map(function(x){ return parseInt(x, 10); }).sort(function(a,b){ return a-b; });
-    // Build mapping old -> new, excluding the page num because it's object 3
-    var newIdMap = {};
-    var nextNewId = 4;
-    for(var i = 0; i < sortedRefs.length; i++){
-      var num = sortedRefs[i];
-      if(num === pageNum) newIdMap[num] = 3;
-      else newIdMap[num] = nextNewId++;
-    }
-    // Now write out PDF
-    var out = [];
-    var xref = [];
-    var pos = 0;
-    function push(str){ out.push(str); pos += str.length; }
-    function pushBytes(bytes){
-      var s = '';
-      for(var i = 0; i < bytes.length; i++) s += String.fromCharCode(bytes[i]);
-      out.push(s);
-      pos += bytes.length;
-    }
-    push('%PDF-1.4\n%\xff\xff\xff\xff\n');
-
-    // Catalog (object 1)
-    xref[1] = pos;
-    push('1 0 obj\n<< /Type /Catalog /Pages 2 0 R >>\nendobj\n');
-
-    // Pages (object 2)
-    xref[2] = pos;
-    push('2 0 obj\n<< /Type /Pages /Kids [3 0 R] /Count 1 >>\nendobj\n');
-
-    // Page (object 3)
-    var pageOutId = newIdMap[pageNum];
-    // Build page dict with replaced references: map all \d+ 0 R patterns in the page dict text using newIdMap
-    var newPageDict = pageDictText.replace(/\b(\d+)\s+0\s+R\b/g, function(match, num){
-      var n = parseInt(num, 10);
-      if(newIdMap[n] !== undefined) return newIdMap[n] + ' 0 R';
-      return match;
-    });
-    xref[pageOutId] = pos;
-    push(pageOutId + ' 0 obj\n' + newPageDict + '\nendobj\n');
-
-    // Write out each other referenced object
-    var outIds = [];
-    for(var k = 0; k < sortedRefs.length; k++){
-      var num = sortedRefs[k];
-      if(num === pageNum) continue;
-      var obj = findObject(data, num);
-      if(!obj) continue;
-      // Copy bytes of the object: from "num 0 obj" to end of "endobj"
-      var startByte = obj.headerStart;
-      var endByte = obj.end + 'endobj'.length;
-      // Need to replace internal references to other objects in the copied bytes with new ids
-      var slice = data.slice(startByte, endByte);
-      // Do byte-safe replacement: decode latin, replace pattern, re-encode bytes
-      var text = '';
-      for(var i = 0; i < slice.length; i++) text += String.fromCharCode(slice[i]);
-      // Replace old object number with new number (N 0 obj, N 0 endobj, N 0 R inside)
-      var newId = newIdMap[num];
-      // Replace any X 0 obj in the object body with newId 0 obj (the header references itself as N 0 obj)
-      // Do this smartly: match /obj or /endobj prefixes first
-      text = text.replace(/\b(\d+)\s+0\s+(obj|endobj|R)\b/g, function(m, n, suffix){
-        var num2 = parseInt(n, 10);
-        if(newIdMap[num2] !== undefined) return newIdMap[num2] + ' 0 ' + suffix;
-        return m;
-      });
-      xref[newId] = pos;
-      pushBytes(stringToBytes(text));
-      push('\n');
-      outIds.push(newId);
-    }
-
-    // Build xref and trailer
-    var totalObjs = nextNewId;
-    var xrefPos = pos;
-    var xrefStr = 'xref\n0 ' + totalObjs + '\n';
-    for(var i = 0; i < totalObjs; i++){
-      if(i === 0) xrefStr += '0000000000 65535 f \n';
-      else {
-        var p = xref[i] || 0;
-        var pStr = String(p);
-        while(pStr.length < 10) pStr = '0' + pStr;
-        xrefStr += pStr + ' 00000 n \n';
-      }
-    }
-    push(xrefStr);
-    push('trailer\n<< /Size ' + totalObjs + ' /Root 1 0 R >>\nstartxref\n' + xrefPos + '\n%%EOF');
-    var buf = new Uint8Array(pos);
-    var cursor = 0;
-    for(var i = 0; i < out.length; i++){
-      var s = out[i];
-      for(var c = 0; c < s.length; c++) buf[cursor++] = s.charCodeAt(c) & 0xff;
-    }
-    return buf;
-  }
-
-  function stringToBytes(text){
-    var bytes = new Uint8Array(text.length);
-    for(var i = 0; i < text.length; i++) bytes[i] = text.charCodeAt(i) & 0xff;
-    return bytes;
-  }
-
-  function parseRange(expr, totalPages){
-    // Returns array of page indices (1-based) or null on error
-    expr = (expr || '').trim();
-    if(!expr) return null;
-    var parts = expr.split(',');
-    var result = [];
-    for(var i = 0; i < parts.length; i++){
-      var part = parts[i].trim();
-      if(!part) continue;
-      var dash = part.indexOf('-');
-      if(dash >= 0){
-        var a = parseInt(part.substring(0, dash), 10);
-        var b = parseInt(part.substring(dash+1), 10);
-        if(isNaN(a) || isNaN(b)) return null;
-        if(a < 1 || b < 1) return null;
-        if(a > b) return null;
-        for(var p = a; p <= b; p++) result.push(p);
-      } else {
-        var num = parseInt(part, 10);
-        if(isNaN(num) || num < 1) return null;
-        result.push(num);
-      }
-    }
-    // Dedup and sort
-    var set = {};
-    var dedup = [];
-    for(var i = 0; i < result.length; i++){
-      if(!set[result[i]]){ set[result[i]] = true; dedup.push(result[i]); }
-    }
-    return dedup;
-  }
-
-  runBtn.addEventListener('click', function(){
-    if(!currentFile) return;
-    resultEl.innerHTML = '<div style="color:var(--muted); font-size:.85rem;">Parsing and splitting…</div>';
-    setTimeout(function(){
-      var reader = new FileReader();
-      reader.onload = function(e){
-        try {
-          var bytes = new Uint8Array(e.target.result);
-          var parsed = parsePdf(bytes);
-          if(!parsed || !parsed.kids.length){
-            resultEl.innerHTML = '<div style="color:#b91c1c;">Could not parse PDF pages. Try a simpler PDF.</div>';
-            return;
-          }
-          var total = parsed.kids.length;
-          var pagesToSplit;
-          if(modeEach.checked){
-            pagesToSplit = [];
-            for(var p = 1; p <= total; p++) pagesToSplit.push(p);
-          } else {
-            pagesToSplit = parseRange(rangeExpr.value, total);
-            if(!pagesToSplit || !pagesToSplit.length){
-              resultEl.innerHTML = '<div style="color:#b91c1c;">Invalid range. Use something like: 1,3-5,7</div>';
-              return;
-            }
-            // verify bounds
-            for(var i = 0; i < pagesToSplit.length; i++){
-              if(pagesToSplit[i] > total){
-                resultEl.innerHTML = '<div style="color:#b91c1c;">Page ' + pagesToSplit[i] + ' is out of range. Total pages: ' + total + '.</div>';
-                return;
-              }
-            }
-          }
-          // Produce single-page PDFs
-          var pdfs = [];
-          var skipped = 0;
-          for(var i = 0; i < pagesToSplit.length; i++){
-            var pageNum = pagesToSplit[i];
-            var bytes2 = buildSinglePagePdf(bytes, parsed.kids[pageNum - 1]);
-            if(!bytes2){ skipped++; continue; }
-            pdfs.push({page: pageNum, bytes: bytes2});
-          }
-          if(!pdfs.length){
-            resultEl.innerHTML = '<div style="color:#b91c1c;">No pages could be extracted.</div>';
-            return;
-          }
-          var zip = new JSZip();
-          var baseName = currentFile.name.replace(/\.pdf$/i, '');
-          for(var i = 0; i < pdfs.length; i++){
-            var fn = baseName + '-page-' + pdfs[i].page + '.pdf';
-            zip.file(fn, pdfs[i].bytes);
-          }
-          zip.generateAsync({type:'blob'}).then(function(blob){
-            var url = URL.createObjectURL(blob);
-            var fn = baseName + '-split.zip';
-            var html = '';
-            html += '<div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:10px; margin-bottom:10px;">';
-            html += '<div class="stat"><div class="stat-label">Original pages</div><div class="stat-value">' + total + '</div></div>';
-            html += '<div class="stat"><div class="stat-label">Output files</div><div class="stat-value">' + pdfs.length + '</div></div>';
-            html += '<div class="stat"><div class="stat-label">ZIP size</div><div class="stat-value">' + formatBytes(blob.size) + '</div></div>';
-            html += '</div>';
-            if(skipped > 0) html += '<div style="color:var(--muted); font-size:.85rem; margin-top:6px;">' + skipped.toLocaleString() + ' page(s) could not be extracted (unsupported stream references or unusual PDF structure).</div>';
-            html += '<div style="display:flex; gap:8px; flex-wrap:wrap; margin-top:8px;"><a href="' + url + '" download="' + escapeHtml(fn) + '" class="btn btn--sm">Download ZIP</a></div>';
-            resultEl.innerHTML = html;
-          });
-        } catch(err){
-          resultEl.innerHTML = '<div style="color:#b91c1c;">Split failed: ' + escapeHtml(err.message || 'Unknown error') + '</div>';
-        }
-      };
-      reader.onerror = function(){ resultEl.innerHTML = '<div style="color:#b91c1c;">Could not read file.</div>'; };
-      reader.readAsArrayBuffer(currentFile);
-    }, 30);
   });
-
-  var toggle = document.querySelector('.nav-toggle');
-  if(toggle){
-    toggle.addEventListener('click', function(){
-      var links = document.querySelector('.nav-links');
-      var open = links.classList.toggle('open');
-      toggle.setAttribute('aria-expanded', open);
-    });
-  }
 })();
 </script>
 </body>

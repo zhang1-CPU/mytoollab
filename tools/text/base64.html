@@ -1,434 +1,193 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <meta charset="UTF-8" />
- <meta name="viewport" content="width=device-width, initial-scale=1.0" />
- <title>Base64 Encode &amp; Decode – Text &amp; File Tool | zlbox</title>
- <meta name="description" content="Free online Base64 encoder and decoder. Encode text or files to Base64, or decode Base64 strings back to text &mdash; side by side, in real time." />
- <link rel="canonical" href="https://www.zlbox.site/tools/text/base64.html" />
- <meta name="google-site-verification" content="google4bd1e08685667667" />
- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
-<script>
-(function() {
-  var toggle = document.querySelector('.nav-toggle');
-  var navLinks = document.querySelector('.nav-links');
-  if (!toggle || !navLinks) return;
-  toggle.addEventListener('click', function() {
-    var isOpen = navLinks.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', isOpen);
-  });
-  var path = location.pathname;
-  document.querySelectorAll('.nav-link').forEach(function(link) {
-    var href = link.getAttribute('href');
-    if (href && (path === href || path.indexOf(href.replace('/index.html','')) > -1)) {
-      link.classList.add('active');
-    }
-  });
-})();
-</script>
- <link rel="stylesheet" href="../../css/components.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Base64 Encode / Decode – Free Online Tool | My Tool Lab</title>
+  <meta name="description" content="Free online Base64 encoder and decoder. Instantly encode text to Base64 or decode Base64 strings back to plain text. Supports Unicode, Chinese characters, and special symbols." />
+  <link rel="stylesheet" href="../../_css/components.css" />
+  <link rel="canonical" href="https://www.zlbox.site/tools/text/base64.html" />
+  <meta name="google-site-verification" content="google4bd1e08685667667" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9V6L0Z956X"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9V6L0Z956X');
+  </script>
 
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <meta property="og:title" content="Base64 Encode &amp; Decode – Text &amp; File Tool | zlbox" />
-  <meta property="og:description" content="Free online Base64 encoder and decoder. Encode text or files to Base64, or decode Base64 strings back to text or files." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.zlbox.site/tools/text/base64.html" />
-  <meta property="og:site_name" content="zlbox" />
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Base64 Encode &amp; Decode","description":"Free online Base64 encoder and decoder. Supports text and file input with real-time conversion.","url":"https://www.zlbox.site/tools/text/base64.html","applicationCategory":"Text Tool","operatingSystem":"Any (browser-based)","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"browserRequirements":"Requires a modern web browser with JavaScript enabled."}</script>
-
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.zlbox.site/"},{"@type":"ListItem","position":2,"name":"Text Tools","item":"https://www.zlbox.site/categories/text.html"}]}</script>
-
-  
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.zlbox.site/"},{"@type":"ListItem","position":2,"name":"Text & Developer Tools","item":"https://www.zlbox.site/categories/text.html"},{"@type":"ListItem","position":3,"name":"Base64 Encode &Amp; Decode"}]}</script>
-  <style>
-.site-nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,.97); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); box-shadow: 0 1px 4px rgba(0,0,0,.05); }
-.nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; align-items: center; gap: 8px; height: 52px; }
-.nav-logo { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 1rem; color: var(--brand); text-decoration: none; flex-shrink: 0; margin-right: 12px; }
-.nav-logo:hover { text-decoration: none; }
-.nav-logo-icon { width: 36px; height: 36px; background: var(--brand); color: #fff; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: .9rem; flex-shrink: 0; }
-.nav-logo-text { font-size: .95rem; }
-.nav-links { display: flex; align-items: center; gap: 2px; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none; flex: 1; }
-.nav-links::-webkit-scrollbar { display: none; }
-.nav-link { display: inline-flex; align-items: center; padding: 5px 10px; font-size: .82rem; font-weight: 500; color: var(--text); border-radius: 6px; white-space: nowrap; transition: all .15s; flex-shrink: 0; }
-.nav-link:hover { background: var(--brand); color: #fff; text-decoration: none; }
-.nav-link.active { background: #eff6ff; color: var(--brand); }
-.nav-toggle { display: none; flex-direction: column; justify-content: center; gap: 4px; width: 32px; height: 32px; padding: 4px; background: none; border: 1px solid var(--border); border-radius: 6px; cursor: pointer; flex-shrink: 0; margin-left: auto; }
-.nav-toggle span { display: block; width: 100%; height: 2px; background: var(--text); border-radius: 1px; }
-@media (max-width: 768px) {
-  .nav-logo-text { display: none; }
-  .nav-inner { gap: 6px; }
-  .nav-toggle { display: flex; }
-  .nav-links { display: none; position: absolute; top: 52px; left: 0; right: 0; background: #fff; border-bottom: 1px solid var(--border); box-shadow: 0 4px 12px rgba(0,0,0,.1); flex-direction: column; align-items: flex-start; padding: 8px 0; z-index: 99; overflow: visible; }
-  .nav-links.open { display: flex; }
-  .nav-link { width: 100%; padding: 10px 20px; font-size: .9rem; border-radius: 0; }
-}
-.panel-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-@media (max-width: 900px) { .panel-grid { grid-template-columns: 1fr; } }
-.panel { background: #fff; border: 1px solid var(--border); border-radius: 10px; padding: 14px; display: flex; flex-direction: column; }
-.panel h3 { margin: 0 0 10px; font-size: 14px; color: var(--text); }
-.panel .tag { display: inline-block; padding: 2px 8px; background: #e0f2fe; color: #0369a1; font-size: 11px; border-radius: 999px; font-weight: 600; margin-left: 6px; letter-spacing: 0.5px; }
-.file-drop { border: 2px dashed var(--border); border-radius: 8px; padding: 14px; text-align: center; color: var(--muted); font-size: 13px; cursor: pointer; margin-bottom: 8px; transition: border-color 0.2s, background 0.2s; }
-.file-drop:hover { border-color: var(--brand); background: #f8fafc; }
-.file-drop.is-over { border-color: var(--brand); background: #eff6ff; color: var(--brand); }
-.file-info { font-size: 12px; color: var(--muted); margin-top: 6px; }
-.error-box { background: #fef2f2; border: 1px solid #fecaca; color: #991b1b; padding: 10px 12px; border-radius: 8px; font-size: 13px; margin-top: 8px; }
-  </style>
   <meta property="og:image" content="https://www.zlbox.site/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Base64 Encode &amp; Decode – Text &amp; File Tool" />
-  <meta name="twitter:description" content="Free online Base64 encoder and decoder with text and file support." />
+  <meta name="twitter:title" content="Base64 Encoder" />
+  <meta name="twitter:description" content="Encode and decode Base64" />
   <meta name="twitter:image" content="https://www.zlbox.site/og-image.png" />
 
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
   <meta name="robots" content="index, follow" />
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use Base64 Encode &amp; Decode","description":"Step by step guide: How to Use Base64 Encode &amp; Decode","step":[{"@type":"HowToStep","name":"Enter content","text":"Paste text or upload a file in the left panel to encode, or paste a Base64 string in the right panel to decode.","position":1},{"@type":"HowToStep","name":"Convert","text":"The output updates in real time; no button click required.","position":2},{"@type":"HowToStep","name":"Copy or download","text":"Copy the result to clipboard or download as a file.","position":3}]}</script>
+
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Base64 Encoder", "description": "Encode and decode Base64", "url": "https://www.zlbox.site/tools/text/base64.html", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
 </head>
 <body>
-
-  <nav class="site-nav" aria-label="Main navigation">
-    <div class="nav-inner">
-      <a href="/" class="nav-logo" aria-label="zlbox Home">
-        <span class="nav-logo-icon">zl</span>
-        <span class="nav-logo-text">zlbox</span>
-      </a>
-      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-      <div class="nav-links" role="list">
-        <a href="/tools/index.html" class="nav-link" role="listitem">All Tools</a>
-        <a href="/categories/text.html" class="nav-link" role="listitem">Text</a>
-        <a href="/categories/calculator.html" class="nav-link" role="listitem">Calculator</a>
-        <a href="/categories/generator.html" class="nav-link" role="listitem">Generator</a>
-        <a href="/categories/image.html" class="nav-link" role="listitem">Image</a>
-        <a href="/categories/pdf.html" class="nav-link" role="listitem">PDF</a>
-        <a href="/blog/index.html" class="nav-link" role="listitem">Blog</a>
-      </div>
-    </div>
-  </nav>
-
 <div class="container-md">
- <div class="hero">
- <div class="breadcrumb"><a href="../../index.html">Home</a> &rsaquo; <a href="../../categories/text.html">Text Tools</a> &rsaquo; Base64</div>
- <h1>Base64 Encode &amp; Decode</h1>
- <p>Convert text or files to Base64, or decode Base64 strings back to text &mdash; side by side, in real time, entirely in your browser.</p>
- </div>
+  <div class="hero">
+    <div class="breadcrumb"><a href="../../index.html">Home</a> &rsaquo; <a href="../../categories/text.html">Text Tools</a> &rsaquo; Base64 Encode &amp; Decode</div>
+    <h1>Base64 Encode &amp; Decode</h1>
+    <p>Encode plain text to Base64 or decode Base64 strings back — in real time, no page reload needed.</p>
+  </div>
 
- <div class="card">
-  <div class="panel-grid">
-    <div class="panel">
-      <h3>Plain text &rarr; Base64 <span class="tag">encode</span></h3>
-      <textarea id="encInput" placeholder="Paste or type text to encode…" spellcheck="false" style="min-height:180px;font-family:ui-monospace,Consolas,Menlo,monospace;font-size:13px;line-height:1.6;padding:12px;border:1px solid var(--border);border-radius:8px;resize:vertical"></textarea>
-      <div class="file-drop" id="encDrop">Drop a file here, or <strong>click to browse</strong></div>
-      <input type="file" id="encFile" style="display:none" />
-      <div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:8px">
-        <button class="btn btn--sm btn--ghost" id="encClearBtn">Clear</button>
-        <span style="margin-left:auto;font-size:12px;color:var(--muted)" id="encStats">0 chars</span>
-        <button class="btn btn--sm btn--ghost" id="encDownloadBtn">Download</button>
-        <button class="btn btn--sm" id="encCopyBtn">Copy</button>
-      </div>
-      <div id="encError"></div>
+  <div class="ad-slot">
+    <ins class="adsbygoogle" style="display:block;width:100%;max-width:728px;height:auto;margin:0 auto;" data-ad-client="ca-pub-5420550088713746" data-ad-slot="7890123456" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+
+  <div class="card">
+    <div class="tabs">
+      <button class="tabs__btn is-active" data-mode="encode">⬆ Encode</button>
+      <button class="tabs__btn" data-mode="decode">⬇ Decode</button>
     </div>
-
-    <div class="panel">
-      <h3>Base64 &rarr; Plain text <span class="tag">decode</span></h3>
-      <textarea id="decInput" placeholder="Paste a Base64 string to decode…" spellcheck="false" style="min-height:180px;font-family:ui-monospace,Consolas,Menlo,monospace;font-size:13px;line-height:1.6;padding:12px;border:1px solid var(--border);border-radius:8px;resize:vertical"></textarea>
-      <div class="file-drop" id="decDrop">Drop a Base64 text file here, or <strong>click to browse</strong></div>
-      <input type="file" id="decFile" style="display:none" />
-      <div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:8px">
-        <button class="btn btn--sm btn--ghost" id="decClearBtn">Clear</button>
-        <span style="margin-left:auto;font-size:12px;color:var(--muted)" id="decStats">0 chars</span>
-        <button class="btn btn--sm btn--ghost" id="decDownloadBtn">Download</button>
-        <button class="btn btn--sm" id="decCopyBtn">Copy</button>
+    <div class="editor">
+      <textarea id="input-text" placeholder="Type or paste your text here…" autocomplete="off" spellcheck="false"></textarea>
+      <div class="editor__toolbar">
+        <button class="btn btn--sm" id="convert-btn">Convert</button>
+        <button class="btn btn--sm btn--ghost" id="clear-btn">Clear</button>
       </div>
-      <div id="decError"></div>
+    </div>
+    <div class="editor" style="margin-top:10px;">
+      <textarea id="output-text" placeholder="Result appears here automatically…" readonly></textarea>
+      <div class="editor__toolbar">
+        <button class="btn btn--sm" id="copy-btn">Copy Result</button>
+        <button class="btn btn--sm btn--ghost" id="swap-btn">Swap</button>
+      </div>
+    </div>
+    <div class="note note--warn" id="error-msg" style="display:none;"></div>
+  </div>
+
+  <div class="ad-slot">
+    <ins class="adsbygoogle" style="display:block;width:100%;max-width:728px;height:auto;margin:0 auto;" data-ad-client="ca-pub-5420550088713746" data-ad-slot="8901234567" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+
+  <div class="section">
+    <h2>What Is This Tool For?</h2>
+    <p>Base64 encoding converts binary or text data into a safe ASCII string — commonly used when embedding images in HTML/CSS, passing data through URLs, or storing credentials in config files. If you're a developer working with APIs, email attachments, or JWT tokens, you'll run into Base64 constantly.</p>
+    <p>This tool works just as well for non-developers. Need to decode a mysterious string you found in a config file or a web request? Paste it in, flip to Decode mode, and you'll see the original text instantly. It handles Unicode and Chinese characters too, so no garbled output.</p>
+  </div>
+
+  <div class="section">
+    <h2>How to Use</h2>
+    <ul class="steps">
+      <li>Choose your mode — hit <strong>Encode</strong> to convert plain text to Base64, or <strong>Decode</strong> to reverse a Base64 string back to readable text.</li>
+      <li>Type or paste your content into the top input box, then press <strong>Convert</strong>. The result appears instantly in the output box.</li>
+      <li>Hit <strong>Copy Result</strong> to grab the output with one tap, or use <strong>Swap</strong> to move the output back into the input for a quick round-trip.</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Examples</h2>
+    <div class="note"><strong>Example 1 — Encoding an API key for an HTTP header</strong><p>Input: <code>myuser:s3cr3tP@ss</code></p><p>Base64 Output: <code>bXl1c2VyOnMzY3IzdFBAc3M=</code></p><p>Use it as: <code>Authorization: Basic bXl1c2VyOnMzY3IzdFBAc3M=</code></p></div>
+    <div class="note"><strong>Example 2 — Decoding a Base64 string from a JWT payload</strong><p>Input: <code>eyJ1c2VyIjoiYWxpY2UiLCJyb2xlIjoiYWRtaW4ifQ==</code></p><p>Decoded Output: <code>{"user":"alice","role":"admin"}</code></p></div>
+  </div>
+
+  <div class="ad-slot">
+    <ins class="adsbygoogle" style="display:block;width:100%;max-width:728px;height:auto;margin:0 auto;" data-ad-client="ca-pub-5420550088713746" data-ad-slot="9012345678" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+
+  <div class="section">
+    <h2>FAQ</h2>
+    <div class="faq">
+      <details><summary>Is Base64 a form of encryption?</summary><p>No. Base64 is encoding, not encryption. Anyone with this tool can decode a Base64 string immediately. Don't use it to hide sensitive data — use proper encryption like AES for that.</p></details>
+      <details><summary>Why does my decoded output look garbled?</summary><p>The input might not be valid Base64, or it could be encoding binary data (like an image) rather than text. This tool is designed for text content. Binary files need a different approach.</p></details>
+      <details><summary>Does it support Chinese characters and emoji?</summary><p>Yes. The tool uses UTF-8 encoding under the hood, so Chinese, Japanese, Arabic, emoji, and other Unicode characters all encode and decode correctly.</p></details>
+      <details><summary>Is my data sent to a server?</summary><p>No. Everything runs locally in your browser using native JavaScript. Nothing you type is transmitted anywhere — safe to use with sensitive strings.</p></details>
+      <details><summary>What's the "=" padding at the end of Base64 strings?</summary><p>Base64 works in 3-byte chunks. If the input isn't a multiple of 3 bytes, "=" characters are added to pad the output to the correct length. It's normal and expected.</p></details>
     </div>
   </div>
- </div>
 
- <div class="section">
- <h2>How it works</h2>
- <ol class="steps">
- <li>Left panel: type or paste text, or drop/upload a file to encode to Base64. Output updates in real time.</li>
- <li>Right panel: paste a Base64 string or upload a Base64 text file to decode back to plain text.</li>
- <li>Use Copy or Download on either panel &mdash; nothing leaves your device. Binary (image, PDF) files decode to downloadable binaries.</li>
- </ol>
- </div>
-
- <section class="tool-info" aria-label="Tool information">
-  <h2>What is Base64?</h2>
-  <p>Base64 is a binary-to-text encoding scheme that converts any sequence of bytes into a human-readable ASCII string using 64 characters (A&ndash;Z, a&ndash;z, 0&ndash;9, +, /, with = for padding). It is widely used for embedding images in HTML/CSS, passing data through URLs, and storing binary content inside text protocols like email.</p>
-
-  <h2>Use cases</h2>
-  <ul class="usecase-list">
-<li>Embedding small images directly in HTML or CSS files as data URIs.</li>
-<li>Encoding API credentials for safe transmission via HTTP Basic auth headers.</li>
-<li>Decoding Base64 payloads found in JWT tokens, emails, or logs.</li>
-<li>Encoding or decoding attachments in email (MIME) or JSON payloads.</li>
-  </ul>
-
-  <h2>Frequently Asked Questions</h2>
-  <div class="faq">
-<details class="faq-item"><summary>Is Base64 encryption?</summary><p>No. Base64 is encoding, not encryption &mdash; it provides no confidentiality. Anyone can reverse it. Use AES or similar for sensitive data.</p></details>
-<details class="faq-item"><summary>Why does my decoded output look garbled?</summary><p>The input may encode binary data (an image, a PDF, a ZIP file). Use the Download button to save it as a binary file instead of copying text.</p></details>
-<details class="faq-item"><summary>Does Base64 increase file size?</summary><p>Yes, by approximately 33% (each 3 bytes become 4 characters + padding).</p></details>
-<details class="faq-item"><summary>Is my data sent to a server?</summary><p>No. Everything runs locally in your browser using native Web APIs. Nothing you paste or upload is transmitted anywhere.</p></details>
+  <div class="section">
+    <h2>Related Tools</h2>
+    <div class="related-grid">
+      <a href="word-counter.html">📝 Word Counter</a>
+      <a href="case-converter.html">🔡 Case Converter</a>
+      <a href="lorem-ipsum.html">📄 Lorem Ipsum Generator</a>
+      <a href="json-formatter.html">📋 JSON Formatter</a>
+      <a href="url-encoder.html">🔗 URL Encoder</a>
+      <a href="../../index.html">🏠 Home</a>
+    </div>
   </div>
-</section>
 
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is Base64 encryption?","acceptedAnswer":{"@type":"Answer","text":"No. Base64 is encoding, not encryption."}},{"@type":"Question","name":"Does Base64 increase file size?","acceptedAnswer":{"@type":"Answer","text":"Yes, by approximately 33%."}},{"@type":"Question","name":"Is my data sent to a server?","acceptedAnswer":{"@type":"Answer","text":"No. Everything runs locally in your browser."}}]}</script>
- <div class="section">
- <h2>Related tools</h2>
- <div class="related-grid">
- <a href="url-encoder.html">URL Encode/Decode</a>
- <a href="json-formatter.html">JSON Formatter</a>
- <a href="case-converter.html">Case Converter</a>
- <a href="word-counter.html">Word Counter</a>
- <a href="csv-to-json.html">CSV &harr; JSON</a>
- </div>
- </div>
-
- <footer class="footer">
- <div class="footer-links">
- <a href="word-counter.html">Word Counter</a>
- <a href="case-converter.html">Case Converter</a>
- <a href="json-formatter.html">JSON Formatter</a>
- <span style="color:var(--border);margin:0 6px">|</span>
- <a href="../../about.html">About</a>
- <a href="../../privacy.html">Privacy</a>
- <a href="../../disclaimer.html">Disclaimer</a>
- </div>
- <p class="footer-copy">&copy; 2026 zlbox. All rights reserved.</p>
- </footer>
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="../../about.html">About</a>
+      <a href="../../privacy.html">Privacy</a>
+      <a href="../../disclaimer.html">Disclaimer</a>
+    </div>
+    <p class="footer-copy">&copy; 2026 My Tool Lab. All rights reserved.</p>
+  </footer>
 </div>
 
 <script>
-(function() {
-  'use strict';
+(function(){
+  var currentMode='encode';
+  var tabs=document.querySelectorAll('.tabs__btn');
+  var inp=document.getElementById('input-text');
+  var out=document.getElementById('output-text');
+  var err=document.getElementById('error-msg');
+  var convertBtn=document.getElementById('convert-btn');
+  var clearBtn=document.getElementById('clear-btn');
+  var copyBtn=document.getElementById('copy-btn');
+  var swapBtn=document.getElementById('swap-btn');
 
-  // ---------- helpers ----------
-  function $(id) { return document.getElementById(id); }
-  function showError(el, msg) {
-    if (!msg) { el.innerHTML = ''; return; }
-    el.innerHTML = '<div class="error-box">' + msg + '</div>';
+  function setMode(mode){
+    currentMode=mode;
+    tabs.forEach(function(b){
+      b.classList.toggle('is-active',b.getAttribute('data-mode')===mode);
+    });
+    inp.placeholder=mode==='encode'?'Type or paste your text here…':'Paste a Base64 string here…';
+    convertBtn.textContent=mode==='encode'?'Encode':'Decode';
+    convert();
   }
+  tabs.forEach(function(b){
+    b.addEventListener('click',function(){setMode(b.getAttribute('data-mode'));});
+  });
 
-  function utf8ToBase64(str) {
-    // Handle Unicode safely
-    var bytes = new TextEncoder().encode(str);
-    var binary = '';
-    for (var i = 0; i < bytes.length; i++) binary += String.fromCharCode(bytes[i]);
-    return btoa(binary);
+  function safeEncode(str){
+    return btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g,function(_,p1){return String.fromCharCode(parseInt(p1,16));}));
   }
-
-  function base64ToUtf8(str) {
-    // Remove whitespace and data URI prefix if present
-    var cleaned = str.replace(/^data:[^;]+;base64,/, '').replace(/\s+/g, '');
-    var binary = atob(cleaned);
-    var bytes = new Uint8Array(binary.length);
-    for (var i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
-    // Try decoding as UTF-8; fall back to latin-1 if fails
-    try {
-      return new TextDecoder('utf-8', { fatal: true }).decode(bytes);
-    } catch (e) {
-      return new TextDecoder('utf-8').decode(bytes);
+  function safeDecode(str){
+    return decodeURIComponent(atob(str).split('').map(function(c){return '%'+('00'+c.charCodeAt(0).toString(16)).slice(-2);}).join(''));
+  }
+  function convert(){
+    var val=inp.value;
+    err.textContent='';err.style.display='none';
+    if(!val.trim()){out.value='';return;}
+    try{
+      out.value=currentMode==='encode'?safeEncode(val):safeDecode(val);
+    }catch(e){
+      out.value='';
+      err.textContent=currentMode==='decode'?'⚠ Invalid Base64 string. Check your input and try again.':'⚠ Encoding failed. Please check your input.';
+      err.style.display='block';
     }
   }
-
-  function base64ToBlob(str) {
-    var cleaned = str.replace(/^data:[^;]+;base64,/, '').replace(/\s+/g, '');
-    var binary = atob(cleaned);
-    var bytes = new Uint8Array(binary.length);
-    for (var i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
-    return new Blob([bytes]);
-  }
-
-  function copyText(el, txt, statusEl, fallbackText) {
-    if (!txt) return;
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(txt).then(function() { statusEl.textContent = 'Copied'; });
-    } else {
-      var ta = document.createElement('textarea'); ta.value = txt; document.body.appendChild(ta); ta.select();
-      try { document.execCommand('copy'); statusEl.textContent = 'Copied'; }
-      catch(e) { statusEl.textContent = 'Copy failed'; }
-      document.body.removeChild(ta);
+  convertBtn.addEventListener('click',convert);
+  inp.addEventListener('input',convert);
+  clearBtn.addEventListener('click',function(){inp.value='';out.value='';err.style.display='none';err.textContent='';inp.focus();});
+  copyBtn.addEventListener('click',function(){
+    if(!out.value)return;
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(out.value).then(function(){copyBtn.textContent='✓ Copied!';setTimeout(function(){copyBtn.textContent='Copy Result';},1500);});
+    }else{
+      out.select();document.execCommand('copy');
+      copyBtn.textContent='✓ Copied!';setTimeout(function(){copyBtn.textContent='Copy Result';},1500);
     }
-  }
-
-  function download(filename, blob) {
-    var url = URL.createObjectURL(blob);
-    var a = document.createElement('a');
-    a.href = url; a.download = filename;
-    document.body.appendChild(a); a.click(); document.body.removeChild(a);
-    setTimeout(function() { URL.revokeObjectURL(url); }, 1000);
-  }
-
-  function formatBytes(n) {
-    if (n < 1024) return n + ' B';
-    if (n < 1024 * 1024) return (n / 1024).toFixed(1) + ' KB';
-    return (n / 1024 / 1024).toFixed(2) + ' MB';
-  }
-
-  function attachDropHandlers(dropEl, inputEl, onFile) {
-    var fileInput = inputEl;
-    dropEl.addEventListener('click', function() { fileInput.click(); });
-    fileInput.addEventListener('change', function() {
-      if (fileInput.files && fileInput.files[0]) onFile(fileInput.files[0]);
-    });
-    ['dragenter','dragover'].forEach(function(ev) {
-      dropEl.addEventListener(ev, function(e) { e.preventDefault(); dropEl.classList.add('is-over'); });
-    });
-    ['dragleave','drop'].forEach(function(ev) {
-      dropEl.addEventListener(ev, function(e) { e.preventDefault(); dropEl.classList.remove('is-over'); });
-    });
-    dropEl.addEventListener('drop', function(e) {
-      if (e.dataTransfer.files && e.dataTransfer.files[0]) onFile(e.dataTransfer.files[0]);
-    });
-  }
-
-  // ---------- Encode panel ----------
-  var encInput = $('encInput');
-  var encStats = $('encStats');
-  var encCopyBtn = $('encCopyBtn');
-  var encDownloadBtn = $('encDownloadBtn');
-  var encClearBtn = $('encClearBtn');
-  var encDrop = $('encDrop');
-  var encFile = $('encFile');
-  var encError = $('encError');
-  var lastEncBase64 = '';
-  var lastEncFilename = '';
-
-  function updateEncode() {
-    var txt = encInput.value;
-    showError(encError, null);
-    try {
-      lastEncBase64 = utf8ToBase64(txt);
-      encStats.textContent = 'Input: ' + new Blob([txt]).size + ' bytes &rarr; ' + lastEncBase64.length + ' Base64 chars';
-    } catch (e) {
-      lastEncBase64 = '';
-      showError(encError, 'Encoding failed: ' + e.message);
-      encStats.textContent = '0 chars';
-    }
-  }
-
-  encInput.addEventListener('input', updateEncode);
-
-  attachDropHandlers(encDrop, encFile, function(file) {
-    lastEncFilename = file.name + '.b64';
-    var reader = new FileReader();
-    reader.onload = function(e) {
-      var result = e.target.result;
-      // result is a data URL beginning "data:...;base64,"
-      var base64 = result.split(',')[1] || '';
-      lastEncBase64 = base64;
-      // also populate text area for text files if they are small
-      if (file.size < 500 * 1024 && /text|json|javascript|xml|css|html|csv|markdown|plain/.test(file.type || '')) {
-        try {
-          encInput.value = new TextDecoder('utf-8').decode(e.target.result ? null : new Uint8Array(e.target.result));
-        } catch (err) {}
-      }
-      // Write the raw base64 into the textarea so users can copy/edit
-      encInput.value = base64;
-      encStats.textContent = file.name + ' (' + formatBytes(file.size) + ') &rarr; ' + base64.length + ' Base64 chars';
-      showError(encError, null);
-    };
-    reader.onerror = function() { showError(encError, 'Failed to read file'); };
-    reader.readAsDataURL(file);
   });
-
-  encCopyBtn.addEventListener('click', function() {
-    copyText(encCopyBtn, lastEncBase64, encStats);
+  swapBtn.addEventListener('click',function(){
+    var tmp=inp.value;inp.value=out.value;out.value=tmp;err.style.display='none';err.textContent='';
   });
-  encDownloadBtn.addEventListener('click', function() {
-    if (!lastEncBase64) return;
-    var blob = new Blob([lastEncBase64], { type: 'text/plain;charset=utf-8' });
-    download(lastEncFilename || 'encoded.b64.txt', blob);
-  });
-  encClearBtn.addEventListener('click', function() {
-    encInput.value = ''; lastEncBase64 = ''; lastEncFilename = ''; updateEncode();
-  });
-  updateEncode();
-
-  // ---------- Decode panel ----------
-  var decInput = $('decInput');
-  var decStats = $('decStats');
-  var decCopyBtn = $('decCopyBtn');
-  var decDownloadBtn = $('decDownloadBtn');
-  var decClearBtn = $('decClearBtn');
-  var decDrop = $('decDrop');
-  var decFile = $('decFile');
-  var decError = $('decError');
-  var lastDecBlob = null;
-  var lastDecText = '';
-  var lastDecFilename = '';
-
-  function updateDecode() {
-    var txt = decInput.value;
-    showError(decError, null);
-    if (!txt.trim()) { lastDecBlob = null; lastDecText = ''; decStats.textContent = '0 chars'; return; }
-    try {
-      var cleaned = txt.replace(/^data:[^;]+;base64,/, '').replace(/\s+/g, '');
-      lastDecBlob = base64ToBlob(txt);
-      try {
-        lastDecText = base64ToUtf8(txt);
-        decStats.textContent = 'Base64: ' + cleaned.length + ' chars &rarr; ' + lastDecBlob.size + ' bytes decoded (text)';
-      } catch (e) {
-        lastDecText = '';
-        decStats.textContent = 'Base64: ' + cleaned.length + ' chars &rarr; ' + lastDecBlob.size + ' bytes decoded (binary)';
-      }
-    } catch (e) {
-      lastDecBlob = null; lastDecText = '';
-      showError(decError, 'Invalid Base64 string. Check for stray characters and padding.');
-      decStats.textContent = '0 chars';
-    }
-  }
-
-  decInput.addEventListener('input', updateDecode);
-
-  attachDropHandlers(decDrop, decFile, function(file) {
-    lastDecFilename = file.name.replace(/\.(b64|txt|base64)$/i, '.decoded');
-    if (lastDecFilename === file.name) lastDecFilename = file.name + '.decoded';
-    var reader = new FileReader();
-    reader.onload = function(e) {
-      var content = e.target.result;
-      decInput.value = content;
-      updateDecode();
-    };
-    reader.onerror = function() { showError(decError, 'Failed to read file'); };
-    reader.readAsText(file);
-  });
-
-  decCopyBtn.addEventListener('click', function() {
-    if (!lastDecText && !lastDecBlob) return;
-    // Prefer UTF-8 text for copy; fall back to binary as a warning
-    if (lastDecText) copyText(decCopyBtn, lastDecText, decStats);
-    else { decStats.textContent = 'Binary content detected — use Download to save as file.'; }
-  });
-  decDownloadBtn.addEventListener('click', function() {
-    if (!lastDecBlob) return;
-    // Decide extension by sniffing first bytes for common formats
-    var reader = new FileReader();
-    reader.onload = function(e) {
-      var bytes = new Uint8Array(e.target.result);
-      var ext = 'txt';
-      if (bytes.length >= 3 && bytes[0] === 0xEF && bytes[1] === 0xBB && bytes[2] === 0xBF) ext = 'txt';
-      else if (bytes.length >= 4 && bytes[0] === 0x25 && bytes[1] === 0x50 && bytes[2] === 0x44 && bytes[3] === 0x46) ext = 'pdf';
-      else if (bytes.length >= 2 && bytes[0] === 0xFF && bytes[1] === 0xD8) ext = 'jpg';
-      else if (bytes.length >= 8 && bytes[0] === 0x89 && bytes[1] === 0x50 && bytes[2] === 0x4E && bytes[3] === 0x47 && bytes[4] === 0x0D && bytes[5] === 0x0A && bytes[6] === 0x1A && bytes[7] === 0x0A) ext = 'png';
-      else if (bytes.length >= 3 && bytes[0] === 0x47 && bytes[1] === 0x49 && bytes[2] === 0x46) ext = 'gif';
-      else if (bytes.length >= 4 && bytes[0] === 0x50 && bytes[1] === 0x4B && bytes[2] === 0x03 && bytes[3] === 0x04) ext = 'zip';
-      else if (bytes.length >= 8 && bytes[0] === 0x3C && bytes[1] === 0x73 && bytes[2] === 0x76 && bytes[3] === 0x67 && bytes[4] === 0x20 && bytes[5] === 0x78 && bytes[6] === 0x6D && bytes[7] === 0x6C) ext = 'svg';
-      else if (bytes.length >= 2 && bytes[0] === 0x42 && bytes[1] === 0x4D) ext = 'bmp';
-      else if (bytes.length >= 2 && bytes[0] === 0x1F && bytes[1] === 0x8B) ext = 'gz';
-      else if (bytes.length >= 4 && (bytes[0] === 0x7B || bytes[0] === 0x5B)) ext = 'json';
-      download(lastDecFilename || 'decoded.' + ext, lastDecBlob);
-    };
-    reader.readAsArrayBuffer(lastDecBlob.slice(0, Math.min(lastDecBlob.size, 16)));
-  });
-  decClearBtn.addEventListener('click', function() {
-    decInput.value = ''; lastDecBlob = null; lastDecText = ''; lastDecFilename = ''; updateDecode();
-  });
-  updateDecode();
 })();
 </script>
 </body>

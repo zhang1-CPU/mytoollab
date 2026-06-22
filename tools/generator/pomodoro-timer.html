@@ -1,440 +1,205 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <meta charset="UTF-8" />
- <meta name="viewport" content="width=device-width, initial-scale=1.0" />
- <title>Pomodoro Timer – Free Focus Timer with Sound & Notifications | zlbox</title>
- <meta name="description" content="Free Pomodoro timer. Customize work, short break, and long break durations. Sound alerts, system notifications, progress ring, and keyboard shortcuts." />
- <link rel="stylesheet" href="../../css/components.css" />
- <link rel="canonical" href="https://www.zlbox.site/tools/generator/pomodoro-timer.html" />
- <meta name="google-site-verification" content="google4bd1e08685667667" />
- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
-<script>
-(function() {
-  var toggle = document.querySelector('.nav-toggle');
-  var navLinks = document.querySelector('.nav-links');
-  if (!toggle || !navLinks) return;
-  toggle.addEventListener('click', function() {
-    var isOpen = navLinks.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', isOpen);
-  });
-  var path = location.pathname;
-  document.querySelectorAll('.nav-link').forEach(function(link) {
-    var href = link.getAttribute('href');
-    if (href && (path === href || path.indexOf(href.replace('/index.html','')) > -1)) {
-      link.classList.add('active');
-    }
-  });
-})();
-</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pomodoro Timer – Free Online Focus Timer | My Tool Lab</title>
+  <meta name="description" content="Free, lightweight Pomodoro timer. Focus for 25 minutes, take a 5-minute break, and stay productive. Custom durations, sound alerts, and keyboard shortcuts." />
+  <link rel="canonical" href="https://www.zlbox.site/tools/generator/pomodoro-timer.html" />
+  <meta name="google-site-verification" content="google4bd1e08685667667" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../../_css/components.css" />
 
- <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
- <meta property="og:title" content="Pomodoro Timer – Free Focus Timer with Sound & Notifications | zlbox" />
- <meta property="og:description" content="Free Pomodoro timer. Customize work, short break, and long break durations. Sound alerts, system notifications, progress ring, and keyboard shortcuts." />
- <meta property="og:type" content="website" />
- <meta property="og:url" content="https://www.zlbox.site/tools/generator/pomodoro-timer.html" />
- <meta property="og:site_name" content="zlbox" />
- <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Pomodoro Timer – Free Focus Timer","description":"Free Pomodoro timer with customizable work/break durations, sound alerts, and system notifications.","url":"https://www.zlbox.site/tools/generator/pomodoro-timer.html","applicationCategory":"Productivity Tool","operatingSystem":"Any (browser-based)","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"browserRequirements":"Requires a modern web browser with JavaScript enabled."}</script>
+  <meta property="og:image" content="https://www.zlbox.site/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Pomodoro Timer" />
+  <meta name="twitter:description" content="Focus timer for productivity" />
+  <meta name="twitter:image" content="https://www.zlbox.site/og-image.png" />
 
- <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.zlbox.site/"},{"@type":"ListItem","position":2,"name":"Generator Tools","item":"https://www.zlbox.site/categories/generator.html"}]}</script>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
- 
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.zlbox.site/"},{"@type":"ListItem","position":2,"name":"Generator & QR Tools","item":"https://www.zlbox.site/categories/generator.html"},{"@type":"ListItem","position":3,"name":"Pomodoro Timer"}]}</script>
-  <style>
-.site-nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,.97); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); box-shadow: 0 1px 4px rgba(0,0,0,.05); }
-.nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; align-items: center; gap: 8px; height: 52px; }
-.nav-logo { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 1rem; color: var(--brand); text-decoration: none; flex-shrink: 0; margin-right: 12px; }
-.nav-logo:hover { text-decoration: none; }
-.nav-logo-icon { width: 36px; height: 36px; background: var(--brand); color: #fff; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: .9rem; flex-shrink: 0; }
-.nav-logo-text { font-size: .95rem; }
-.nav-links { display: flex; align-items: center; gap: 2px; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none; flex: 1; }
-.nav-links::-webkit-scrollbar { display: none; }
-.nav-link { display: inline-flex; align-items: center; padding: 5px 10px; font-size: .82rem; font-weight: 500; color: var(--text); border-radius: 6px; white-space: nowrap; transition: all .15s; flex-shrink: 0; }
-.nav-link:hover { background: var(--brand); color: #fff; text-decoration: none; }
-.nav-link.active { background: #eff6ff; color: var(--brand); }
-.nav-toggle { display: none; flex-direction: column; justify-content: center; gap: 4px; width: 32px; height: 32px; padding: 4px; background: none; border: 1px solid var(--border); border-radius: 6px; cursor: pointer; flex-shrink: 0; margin-left: auto; }
-.nav-toggle span { display: block; width: 100%; height: 2px; background: var(--text); border-radius: 1px; }
-@media (max-width: 768px) { .nav-logo-text { display: none; } .nav-inner { gap: 6px; } .nav-toggle { display: flex; } .nav-links { display: none; position: absolute; top: 52px; left: 0; right: 0; background: #fff; border-bottom: 1px solid var(--border); box-shadow: 0 4px 12px rgba(0,0,0,.1); flex-direction: column; align-items: flex-start; padding: 8px 0; z-index: 99; overflow: visible; } .nav-links.open { display: flex; } .nav-link { width: 100%; padding: 10px 20px; font-size: .9rem; border-radius: 0; } }
+  <meta name="robots" content="index, follow" />
 
-.pomodoro-card { display: flex; flex-direction: column; align-items: center; }
-.ring-wrap { position: relative; width: 280px; height: 280px; margin: 8px 0 16px; }
-.ring-wrap svg { width: 100%; height: 100%; transform: rotate(-90deg); }
-.ring-bg { fill: none; stroke: var(--border); stroke-width: 14; }
-.ring-fg { fill: none; stroke: var(--brand); stroke-width: 14; stroke-linecap: round; transition: stroke-dashoffset 1s linear; }
-.ring-text { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
-.mode-label { font-size: .9rem; color: var(--muted); font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
-.time-display { font-size: 3.5rem; font-weight: 700; color: var(--text); font-variant-numeric: tabular-nums; line-height: 1.1; margin-top: 6px; }
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Pomodoro Timer", "description": "Focus timer for productivity", "url": "https://www.zlbox.site/tools/generator/pomodoro-timer.html", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
 
-.timer-buttons { display: flex; flex-wrap: wrap; gap: 8px; width: 100%; justify-content: center; }
-.timer-buttons .btn { min-width: 120px; }
-
-.field-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px; width: 100%; }
-.row-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px; }
-@media (max-width: 560px) { .field-grid, .row-grid { grid-template-columns: 1fr; } .ring-wrap { width: 240px; height: 240px; } .time-display { font-size: 2.8rem; } }
-
-.stats-row { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 12px; justify-content: center; }
-.stat-pill { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 8px 14px; font-size: .9rem; color: var(--text); }
-.stat-pill b { color: var(--brand); }
-.note { color: var(--muted); font-size: .9rem; margin-top: 10px; }
- </style>
- <meta property="og:image" content="https://www.zlbox.site/og-image.png" />
- <meta property="og:image:width" content="1200" />
- <meta property="og:image:height" content="630" />
- <meta name="twitter:card" content="summary_large_image" />
- <meta name="twitter:title" content="Pomodoro Timer – Free Focus Timer with Sound & Notifications" />
- <meta name="twitter:description" content="Free Pomodoro timer with customizable work/break durations, sound alerts, and system notifications." />
- <meta name="twitter:image" content="https://www.zlbox.site/og-image.png" />
-
- <meta name="robots" content="index, follow" />
- <script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Use the Pomodoro Timer","description":"Step-by-step guide to the Pomodoro Timer","step":[{"@type":"HowToStep","name":"Set durations","text":"Enter work (default 25 min), short break (5 min), and long break (15 min) durations.","position":1},{"@type":"HowToStep","name":"Enable alerts","text":"Toggle sound and browser notifications so you don't miss a session end.","position":2},{"@type":"HowToStep","name":"Start focusing","text":"Click Start and focus until the timer ends.","position":3}]}</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9V6L0Z956X"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-9V6L0Z956X');</script>
 </head>
 <body>
+<div class="container-md">
+  <div class="hero">
+    <div class="breadcrumb"><a href="../../index.html">Home</a> &rsaquo; <a href="password-generator.html">Generator Tools</a> &rsaquo; Pomodoro Timer</div>
+    <h1>Pomodoro Timer</h1>
+    <p>A clean, keyboard-friendly Pomodoro timer. Set your focus session, break, and long-break durations — then stay in the zone without leaving the tab.</p>
+  </div>
 
- <nav class="site-nav" aria-label="Main navigation">
-    <div class="nav-inner">
-      <a href="/" class="nav-logo" aria-label="zlbox Home">
-        <span class="nav-logo-icon">zl</span>
-        <span class="nav-logo-text">zlbox</span>
-      </a>
-      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-      <div class="nav-links" role="list">
-        <a href="/tools/index.html" class="nav-link" role="listitem">All Tools</a>
-        <a href="/categories/text.html" class="nav-link" role="listitem">Text</a>
-        <a href="/categories/calculator.html" class="nav-link" role="listitem">Calculator</a>
-        <a href="/categories/generator.html" class="nav-link" role="listitem">Generator</a>
-        <a href="/categories/image.html" class="nav-link" role="listitem">Image</a>
-        <a href="/categories/pdf.html" class="nav-link" role="listitem">PDF</a>
-        <a href="/blog/index.html" class="nav-link" role="listitem">Blog</a>
+  <div class="card">
+    <div class="clock">
+      <div class="clock__label" id="modeLabel">Focus</div>
+      <div class="clock__time" id="timeLeft">25:00</div>
+      <div class="clock__buttons">
+        <button class="btn" id="startBtn">Start</button>
+        <button class="btn btn--ghost" id="pauseBtn">Pause</button>
+        <button class="btn btn--ghost" id="resetBtn">Reset</button>
+        <button class="btn btn--ghost" id="skipBtn">Skip</button>
       </div>
     </div>
-  </nav>
-
-<div class="container-md">
- <div class="hero">
- <div class="breadcrumb"><a href="../../index.html">Home</a> &rsaquo; <a href="../../categories/generator.html">Generator Tools</a> &rsaquo; Pomodoro Timer</div>
- <h1>Pomodoro Timer</h1>
- <p>A clean, keyboard-friendly Pomodoro timer. Customize work, short break, and long break durations — then stay in the zone with sound alerts and browser notifications.</p>
- </div>
-
- <div class="card pomodoro-card">
- <div class="ring-wrap" aria-hidden="true">
-  <svg viewBox="0 0 200 200">
-    <circle class="ring-bg" cx="100" cy="100" r="90"></circle>
-    <circle class="ring-fg" id="ring-fg" cx="100" cy="100" r="90" stroke-dasharray="565.48" stroke-dashoffset="0"></circle>
-  </svg>
-  <div class="ring-text">
-    <div class="mode-label" id="mode-label">Focus</div>
-    <div class="time-display" id="time-display">25:00</div>
   </div>
- </div>
 
- <div class="timer-buttons">
-  <button class="btn" id="start-btn">Start</button>
-  <button class="btn btn--ghost" id="pause-btn">Pause</button>
-  <button class="btn btn--ghost" id="reset-btn">Reset</button>
-  <button class="btn btn--ghost" id="skip-btn">Skip</button>
- </div>
-
- <div class="stats-row">
-  <span class="stat-pill">Completed: <b id="done-count">0</b></span>
-  <span class="stat-pill">Long break every: <b id="long-every-display">4</b> focus sessions</span>
- </div>
- </div>
-
- <div class="card">
- <h3 style="margin-top:0">Settings</h3>
- <div class="field-grid">
-  <div class="field">
-    <label for="work-min">Focus (minutes)</label>
-    <input type="number" id="work-min" min="1" max="180" value="25" />
+  <div class="card">
+    <div class="row-grid">
+      <div class="field">
+        <label for="focusMin">Focus (minutes)</label>
+        <input type="number" id="focusMin" value="25" min="1" max="180" />
+      </div>
+      <div class="field">
+        <label for="breakMin">Short break (minutes)</label>
+        <input type="number" id="breakMin" value="5" min="1" max="60" />
+      </div>
+      <div class="field">
+        <label for="longMin">Long break (minutes)</label>
+        <input type="number" id="longMin" value="15" min="1" max="60" />
+      </div>
+      <div class="field">
+        <label for="longEvery">Long break every</label>
+        <input type="number" id="longEvery" value="4" min="1" max="20" />
+      </div>
+    </div>
+    <div class="row">
+      <label><input type="checkbox" id="soundOn" checked /> Sound alert at the end of each segment</label>
+    </div>
+    <div class="row">
+      <label><input type="checkbox" id="notifyOn" /> Browser notification (requires permission)</label>
+    </div>
+    <div class="row" style="justify-content:center; padding:12px 0 0">
+      <div class="stat__label">Completed sessions: <span id="doneCount">0</span></div>
+    </div>
   </div>
-  <div class="field">
-    <label for="short-min">Short break (minutes)</label>
-    <input type="number" id="short-min" min="1" max="60" value="5" />
+
+  <div class="section">
+    <h2>Keyboard shortcuts</h2>
+    <div class="note">Press <strong>Space</strong> to start / pause and <strong>R</strong> to reset the current segment.</div>
   </div>
-  <div class="field">
-    <label for="long-min">Long break (minutes)</label>
-    <input type="number" id="long-min" min="1" max="60" value="15" />
+
+  <div class="section">
+    <h2>Related tools</h2>
+    <div class="related-grid">
+      <a href="random-number-generator.html">Random Number Generator</a>
+      <a href="uuid-generator.html">UUID Generator</a>
+      <a href="../calculator/percentage-calculator.html">Percentage Calculator</a>
+    </div>
   </div>
-  <div class="field">
-    <label for="long-every">Long break every (N sessions)</label>
-    <input type="number" id="long-every" min="1" max="20" value="4" />
-  </div>
- </div>
 
- <div class="row-grid">
-  <div class="field">
-    <label><input type="checkbox" id="sound-on" checked /> Sound alert</label>
-  </div>
-  <div class="field">
-    <label><input type="checkbox" id="notify-on" /> Browser notifications</label>
-  </div>
- </div>
-
- <p class="note" id="note">Keyboard shortcuts: <strong>Space</strong> to start/pause, <strong>R</strong> to reset, <strong>N</strong> to skip.</p>
- </div>
-
- <div class="section">
-  <h2>How it works</h2>
-  <ol class="steps">
-    <li>Choose your focus, short break, and long break durations. Turn on sound alerts and browser notifications if you want.</li>
-    <li>Click <strong>Start</strong>. A progress ring wraps around the countdown so you can see progress at a glance.</li>
-    <li>After the configured number of focus sessions, a long break starts automatically. Otherwise, the timer alternates between work and short breaks.</li>
-  </ol>
- </div>
-
- <section class="tool-info" aria-label="Tool information">
-  <h2>What is the Pomodoro Technique?</h2>
-  <p>The Pomodoro Technique breaks work into 25-minute focused sessions ('Pomodoros'), separated by 5-minute short breaks. After a set of sessions, take a longer (15–30 minute) break. It's designed to reduce mental fatigue and improve sustained attention.</p>
-
-  <h2>How to use</h2>
-  <ol class="steps-list">
-    <li>Step 1: Set your preferred durations (default 25 / 5 / 15 minutes).</li>
-    <li>Step 2: Click 'Start' and focus until the timer beeps.</li>
-    <li>Step 3: Take the break period and repeat.</li>
-    <li>Step 4: Use keyboard shortcuts (Space, R, N) to keep your hands on the keyboard.</li>
-  </ol>
-
-  <h2>Use cases</h2>
-  <ul class="usecase-list">
-    <li>Deep work sessions for writers, designers, and developers.</li>
-    <li>Managing ADHD and improving sustained attention.</li>
-    <li>Studying / exam prep with built-in rest periods.</li>
-    <li>Team-friendly sessions so everyone rests at the same time.</li>
-  </ul>
-
-  <h2>Frequently Asked Questions</h2>
-  <div class="faq">
-    <details class="faq-item">
-      <summary>Why 25 minutes?</summary>
-      <p>25 minutes is long enough to get meaningful work done but short enough that you don't fatigue. You can adjust all durations in Settings.</p>
-    </details>
-    <details class="faq-item">
-      <summary>Does it work when I switch tabs?</summary>
-      <p>Yes — the timer continues in the background. If you enable browser notifications, you'll see an alert when a phase ends.</p>
-    </details>
-    <details class="faq-item">
-      <summary>How do notifications work?</summary>
-      <p>When you check 'Browser notifications', your browser asks for permission. Alerts appear through the standard OS notification center.</p>
-    </details>
-  </div>
- </section>
-
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Why 25 minutes?","acceptedAnswer":{"@type":"Answer","text":"25 minutes is long enough to get meaningful work done but short enough that you don't fatigue. You can adjust all durations in Settings."}},{"@type":"Question","name":"Does it work when I switch tabs?","acceptedAnswer":{"@type":"Answer","text":"Yes — the timer continues in the background. If you enable browser notifications, you'll see an alert when a phase ends."}},{"@type":"Question","name":"How do notifications work?","acceptedAnswer":{"@type":"Answer","text":"When you check 'Browser notifications', your browser asks for permission. Alerts appear through the standard OS notification center."}}]}</script>
-
- <div class="section">
-  <h2>Related tools</h2>
-  <div class="related-grid">
-    <a href="random-number-generator.html">Random Number Generator</a>
-    <a href="uuid-generator.html">UUID Generator</a>
-    <a href="../calculator/percentage-calculator.html">Percentage Calculator</a>
-    <a href="password-generator.html">Password Generator</a>
-  </div>
- </div>
-
- <footer class="footer">
-  <div class="footer-links">
-    <a href="password-generator.html">Password Generator</a>
-    <a href="qr-code-generator.html">QR Code Generator</a>
-    <a href="random-number-generator.html">Random Number</a>
-    <span style="color:var(--border);margin:0 6px">|</span>
-    <a href="../../about.html">About</a>
-    <a href="../../privacy.html">Privacy</a>
-    <a href="../../disclaimer.html">Disclaimer</a>
-  </div>
-  <p class="footer-copy">&copy; 2026 zlbox. All rights reserved.</p>
- </footer>
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="password-generator.html">Password Generator</a>
+      <a href="qr-code-generator.html">QR Code Generator</a>
+      <a href="random-number-generator.html">Random Number</a>
+      <span style="color:var(--border);margin:0 6px">|</span>
+      <a href="../../about.html">About</a>
+      <a href="../../privacy.html">Privacy</a>
+      <a href="../../disclaimer.html">Disclaimer</a>
+    </div>
+    <p class="footer-copy">&copy; 2026 My Tool Lab. All rights reserved.</p>
+  </footer>
 </div>
 
 <script>
 (function(){
-  var modeLabel = document.getElementById('mode-label');
-  var timeDisplay = document.getElementById('time-display');
-  var doneCountEl = document.getElementById('done-count');
-  var longEveryDisplay = document.getElementById('long-every-display');
-  var ringFg = document.getElementById('ring-fg');
-  var workMinEl = document.getElementById('work-min');
-  var shortMinEl = document.getElementById('short-min');
-  var longMinEl = document.getElementById('long-min');
-  var longEveryEl = document.getElementById('long-every');
-  var soundOnEl = document.getElementById('sound-on');
-  var notifyOnEl = document.getElementById('notify-on');
-  var noteEl = document.getElementById('note');
+  var focusMin = document.getElementById('focusMin');
+  var breakMin = document.getElementById('breakMin');
+  var longMin = document.getElementById('longMin');
+  var longEvery = document.getElementById('longEvery');
+  var soundOn = document.getElementById('soundOn');
+  var notifyOn = document.getElementById('notifyOn');
+  var timeEl = document.getElementById('timeLeft');
+  var modeEl = document.getElementById('modeLabel');
+  var doneEl = document.getElementById('doneCount');
+  var startBtn = document.getElementById('startBtn');
+  var pauseBtn = document.getElementById('pauseBtn');
+  var resetBtn = document.getElementById('resetBtn');
+  var skipBtn = document.getElementById('skipBtn');
 
-  var RING_CIRC = 2 * Math.PI * 90; // 565.48
-  ringFg.setAttribute('stroke-dasharray', RING_CIRC.toFixed(2));
+  var mode = 'focus'; // 'focus' | 'short' | 'long'
+  var remaining = +focusMin.value * 60;
+  var totalSessions = 0;
+  var interval = null;
 
-  var MODES = { focus: 'Focus', short: 'Short Break', long: 'Long Break' };
-  var mode = 'focus';
-  var remaining = clampMinutes(+workMinEl.value) * 60;
-  var totalSec = remaining;
-  var completed = 0;
-  var intervalId = null;
-
-  function clampMinutes(v){ v = parseInt(v,10); if(isNaN(v)||v<1) v=1; return v; }
-
+  function durFor(m){
+    var v = m === 'focus' ? +focusMin.value
+            : m === 'short' ? +breakMin.value
+            : +longMin.value;
+    return Math.max(1, v | 0) * 60;
+  }
   function fmt(s){
-    s = Math.max(0, s|0);
-    var m = (s/60)|0;
-    var ss = s%60;
-    return (m<10?'0':'') + m + ':' + (ss<10?'0':'') + ss;
+    s = Math.max(0, s | 0);
+    var m = (s / 60) | 0, ss = s % 60;
+    return (m < 10 ? '0' : '') + m + ':' + (ss < 10 ? '0' : '') + ss;
   }
-
+  function titleCase(s){ return s.charAt(0).toUpperCase() + s.slice(1); }
   function render(){
-    timeDisplay.textContent = fmt(remaining);
-    modeLabel.textContent = MODES[mode] || 'Focus';
-    document.title = fmt(remaining) + ' – ' + (MODES[mode]||'Focus') + ' | zlbox';
-    var progress = totalSec > 0 ? remaining / totalSec : 0;
-    ringFg.setAttribute('stroke-dashoffset', (RING_CIRC * (1-progress)).toFixed(2));
+    timeEl.textContent = fmt(remaining);
+    modeEl.textContent = mode === 'focus' ? 'Focus' : mode === 'short' ? 'Short Break' : 'Long Break';
+    document.title = fmt(remaining) + ' – ' + modeEl.textContent + ' | My Tool Lab';
   }
-
-  function durationFor(m){
-    var v = m === 'focus' ? +workMinEl.value
-          : m === 'short' ? +shortMinEl.value
-          : +longMinEl.value;
-    return clampMinutes(v) * 60;
-  }
-
   function setMode(m){
     mode = m;
-    totalSec = durationFor(m);
-    remaining = totalSec;
+    remaining = durFor(m);
     render();
   }
-
-  function playBeep(){
-    try {
-      var Ctx = window.AudioContext || window.webkitAudioContext;
-      if (!Ctx) return;
-      var ctx = new Ctx();
-      var o = ctx.createOscillator();
-      var g = ctx.createGain();
-      o.connect(g); g.connect(ctx.destination);
-      o.type = 'sine'; o.frequency.value = 880;
-      g.gain.setValueAtTime(0.0001, ctx.currentTime);
-      g.gain.exponentialRampToValueAtTime(0.3, ctx.currentTime + 0.02);
-      g.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.9);
-      o.start();
-      o.stop(ctx.currentTime + 1);
-      setTimeout(function(){ try { ctx.close(); } catch(e){} }, 1200);
-    } catch(e){}
-  }
-
-  function notify(title, body){
-    try {
-      if (!notifyOnEl.checked) return;
-      if (!('Notification' in window)) return;
-      if (Notification.permission === 'granted') {
-        new Notification(title, { body: body });
-      } else if (Notification.permission !== 'denied') {
-        Notification.requestPermission().then(function(p){
-          if (p === 'granted') new Notification(title, { body: body });
-        });
-      }
-    } catch(e){}
-  }
-
-  function endPhase(){
-    pause();
-    var wasFocus = mode === 'focus';
-    if (wasFocus) {
-      completed += 1;
-      doneCountEl.textContent = completed.toLocaleString();
-      var every = clampMinutes(longEveryEl.value) || 4;
-      var nextMode = (completed % every === 0) ? 'long' : 'short';
-      setMode(nextMode);
-      notify('Focus complete!', 'Time for a break.');
-      noteEl.textContent = 'Focus session complete — break starting.';
-    } else {
-      setMode('focus');
-      notify('Break over', 'Back to focus.');
-      noteEl.textContent = 'Break over — focus session starting.';
-    }
-    if (soundOnEl.checked) playBeep();
-    start();
-  }
-
   function tick(){
     remaining -= 1;
     if (remaining <= 0){
-      endPhase();
+      pause();
+      if (mode === 'focus'){
+        totalSessions += 1;
+        doneEl.textContent = totalSessions;
+        var nextMode = (totalSessions % (+longEvery.value || 4) === 0) ? 'long' : 'short';
+        setMode(nextMode);
+        alertEnd('Focus complete. Time for a break!');
+      } else {
+        setMode('focus');
+        alertEnd('Break over. Back to focus!');
+      }
       return;
     }
     render();
   }
-
-  function start(){
-    if (intervalId) return;
-    // Request notification permission proactively when user clicks start
-    if (notifyOnEl.checked && 'Notification' in window && Notification.permission === 'default'){
-      Notification.requestPermission().then(function(){});
-    }
-    intervalId = setInterval(tick, 1000);
-  }
-  function pause(){
-    if (intervalId){ clearInterval(intervalId); intervalId = null; }
-  }
-  function reset(){
-    pause();
-    totalSec = durationFor(mode);
-    remaining = totalSec;
-    render();
-  }
-  function skip(){
-    pause();
-    var wasFocus = mode === 'focus';
-    if (wasFocus){
-      completed += 1;
-      doneCountEl.textContent = completed.toLocaleString();
-      var every = clampMinutes(longEveryEl.value) || 4;
-      setMode((completed % every === 0) ? 'long' : 'short');
-    } else {
-      setMode('focus');
-    }
+  function start(){ if (interval) return; interval = setInterval(tick, 1000); }
+  function pause(){ if (interval){ clearInterval(interval); interval = null; } }
+  function reset(){ pause(); remaining = durFor(mode); render(); }
+  function skip(){ pause(); var next = mode === 'focus' ? ((totalSessions+1) % (+longEvery.value || 4) === 0 ? 'long' : 'short') : 'focus'; if (mode !== 'focus') { next = 'focus'; } if (mode === 'focus'){ totalSessions += 1; doneEl.textContent = totalSessions; } setMode(next); }
+  function alertEnd(msg){
+    try {
+      if (soundOn.checked){
+        var ctx = (window.AudioContext || window.webkitAudioContext) ? new (window.AudioContext || window.webkitAudioContext)() : null;
+        if (ctx){
+          var o = ctx.createOscillator(), g = ctx.createGain();
+          o.connect(g); g.connect(ctx.destination);
+          o.frequency.value = 880; o.type = 'sine';
+          g.gain.setValueAtTime(0.001, ctx.currentTime);
+          g.gain.exponentialRampToValueAtTime(0.3, ctx.currentTime + 0.02);
+          g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.5);
+          o.start(); o.stop(ctx.currentTime + 0.55);
+        }
+      }
+    } catch(e){}
+    try {
+      if (notifyOn.checked && 'Notification' in window && Notification.permission === 'granted'){
+        new Notification('Pomodoro Timer', { body: msg });
+      }
+    } catch(e){}
   }
 
-  // UI bindings
-  document.getElementById('start-btn').addEventListener('click', start);
-  document.getElementById('pause-btn').addEventListener('click', pause);
-  document.getElementById('reset-btn').addEventListener('click', reset);
-  document.getElementById('skip-btn').addEventListener('click', skip);
-
-  function updateLongEvery(){
-    var v = clampMinutes(longEveryEl.value) || 4;
-    longEveryDisplay.textContent = v.toLocaleString();
-  }
-  updateLongEvery();
-
-  [workMinEl, shortMinEl, longMinEl].forEach(function(el){
-    el.addEventListener('change', function(){ if (!intervalId) { totalSec = durationFor(mode); remaining = totalSec; render(); } });
-  });
-  longEveryEl.addEventListener('change', updateLongEvery);
-
-  notifyOnEl.addEventListener('change', function(){
-    if (notifyOnEl.checked && 'Notification' in window && Notification.permission === 'default'){
-      Notification.requestPermission().then(function(p){
-        if (p === 'granted') noteEl.textContent = 'Notifications enabled.';
-        else { noteEl.textContent = 'Notifications not enabled.'; notifyOnEl.checked = false; }
-      });
-    }
-  });
-
-  document.addEventListener('keydown', function(e){
-    if (e.target && (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.tagName === 'SELECT')) return;
-    if (e.code === 'Space'){
-      e.preventDefault();
-      if (intervalId) pause(); else start();
-    } else if (e.key && e.key.toLowerCase() === 'r'){
-      e.preventDefault();
-      reset();
-    } else if (e.key && e.key.toLowerCase() === 'n'){
-      e.preventDefault();
-      skip();
-    }
-  });
-
+  startBtn.addEventListener('click', start);
+  pauseBtn.addEventListener('click', pause);
+  resetBtn.addEventListener('click', reset);
+  skipBtn.addEventListener('click', skip);
+  [focusMin, breakMin, longMin].forEach(function(el){ el.addEventListener('change', function(){ if (!interval) remaining = durFor(mode); render(); }); });
+  notifyOn.addEventListener('change', function(){ if (notifyOn.checked && 'Notification' in window && Notification.permission === 'default') Notification.requestPermission(); });
+  document.addEventListener('keydown', function(e){ if (e.target && (e.target.tagName === 'INPUT')) return; if (e.code === 'Space'){ e.preventDefault(); interval ? pause() : start(); } else if (e.key.toLowerCase() === 'r'){ reset(); } });
   render();
 })();
 </script>

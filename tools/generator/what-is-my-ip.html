@@ -1,291 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <meta charset="UTF-8" />
- <meta name="viewport" content="width=device-width, initial-scale=1.0" />
- <title>What is my IP? – IP Lookup & Browser Info | zlbox</title>
- <meta name="description" content="Free online tool to find your public IP address, User-Agent, screen resolution, time zone, language, and browser details. Copy results as JSON with one click." />
- <link rel="stylesheet" href="../../css/components.css" />
- <link rel="canonical" href="https://www.zlbox.site/tools/generator/what-is-my-ip.html" />
- <meta name="google-site-verification" content="google4bd1e08685667667" />
- <meta property="og:title" content="What is my IP? – IP Lookup & Browser Info" />
- <meta property="og:description" content="Free online tool to find your public IP address, User-Agent, screen resolution, time zone, language, and browser details." />
- <meta property="og:type" content="website" />
- <meta property="og:url" content="https://www.zlbox.site/tools/generator/what-is-my-ip.html" />
- <meta property="og:image" content="https://www.zlbox.site/og-image.png" />
- <meta name="twitter:card" content="summary_large_image" />
- <meta name="twitter:title" content="What is my IP? – IP Lookup & Browser Info" />
- <meta name="twitter:description" content="Free online tool to find your public IP address, User-Agent, screen resolution, time zone, language, and browser details." />
- <meta name="robots" content="index, follow" />
- <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"What is my IP?","description":"Free online tool to find your public IP address, User-Agent, screen resolution, time zone, language, and browser details.","url":"https://www.zlbox.site/tools/generator/what-is-my-ip.html","applicationCategory":"Utility","operatingSystem":"Any (browser-based)","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"browserRequirements":"Requires a modern web browser with JavaScript enabled."}</script>
- <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.zlbox.site/"},{"@type":"ListItem","position":2,"name":"Generator Tools","item":"https://www.zlbox.site/categories/generator.html"}]}</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>What Is My IP – IPv4, IPv6 &amp; Browser Info | My Tool Lab</title>
+  <meta name="description" content="Reveal your public IP address (IPv4 / IPv6) and useful browser information: user agent, platform, screen/viewport size, timezone, and language." />
+  <link rel="stylesheet" href="../../_css/components.css" />
+  <link rel="canonical" href="https://www.zlbox.site/tools/generator/what-is-my-ip.html" />
+  <meta name="google-site-verification" content="google4bd1e08685667667" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
+
+  <meta property="og:image" content="https://www.zlbox.site/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="What Is My IP" />
+  <meta name="twitter:description" content="Show your public IP address" />
+  <meta name="twitter:image" content="https://www.zlbox.site/og-image.png" />
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <meta name="robots" content="index, follow" />
+
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "What Is My IP", "description": "Show your public IP address", "url": "https://www.zlbox.site/tools/generator/what-is-my-ip.html", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9V6L0Z956X"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-9V6L0Z956X');</script>
 </head>
 <body>
-  <nav class="site-nav" aria-label="Main navigation">
-    <div class="nav-inner">
-      <a href="/" class="nav-logo" aria-label="zlbox Home"><span class="nav-logo-icon">zl</span><span class="nav-logo-text">zlbox</span></a>
-      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
-      <div class="nav-links" role="list">
-        <a href="/tools/index.html" class="nav-link" role="listitem">All Tools</a>
-        <a href="/categories/text.html" class="nav-link" role="listitem">Text</a>
-        <a href="/categories/generator.html" class="nav-link" role="listitem">Generator</a>
-        <a href="/categories/image.html" class="nav-link" role="listitem">Image</a>
-        <a href="/categories/pdf.html" class="nav-link" role="listitem">PDF</a>
-      </div>
-    </div>
-  </nav>
-
-  <div class="container-md">
-    <div class="hero">
-      <div class="breadcrumb"><a href="../../index.html">Home</a> &rsaquo; <a href="../../categories/generator.html">Generator Tools</a> &rsaquo; What is my IP?</div>
-      <h1>What is my IP?</h1>
-      <p>See your public IP address and instantly get a snapshot of your browser — User-Agent, screen resolution, time zone, language, and platform. Copy the full results as JSON.</p>
-    </div>
-
-    <div class="card">
-      <div id="stats" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:10px; margin-bottom:12px;">
-        <div class="stat"><div class="stat-label">Public IP</div><div class="stat-value" id="f-ip">Loading…</div></div>
-        <div class="stat"><div class="stat-label">Browser</div><div class="stat-value" id="f-browser">-</div></div>
-        <div class="stat"><div class="stat-label">Operating System</div><div class="stat-value" id="f-os">-</div></div>
-        <div class="stat"><div class="stat-label">Platform</div><div class="stat-value" id="f-platform">-</div></div>
-        <div class="stat"><div class="stat-label">Screen</div><div class="stat-value" id="f-screen">-</div></div>
-        <div class="stat"><div class="stat-label">Viewport</div><div class="stat-value" id="f-viewport">-</div></div>
-        <div class="stat"><div class="stat-label">Time zone</div><div class="stat-value" id="f-tz">-</div></div>
-        <div class="stat"><div class="stat-label">Language</div><div class="stat-value" id="f-lang">-</div></div>
-        <div class="stat"><div class="stat-label">Cookies</div><div class="stat-value" id="f-cookie">-</div></div>
-        <div class="stat"><div class="stat-label">Color depth</div><div class="stat-value" id="f-color">-</div></div>
-        <div class="stat"><div class="stat-label">DPR</div><div class="stat-value" id="f-dpr">-</div></div>
-        <div class="stat"><div class="stat-label">Do Not Track</div><div class="stat-value" id="f-dnt">-</div></div>
-      </div>
-
-      <div class="field" style="margin-top:10px;">
-        <label>User-Agent</label>
-        <textarea id="ua" rows="3" readonly spellcheck="false" style="background:var(--surface); color:var(--text);"></textarea>
-      </div>
-
-      <div style="display:flex; gap:8px; flex-wrap:wrap; margin-top:10px;">
-        <button class="btn btn--sm" id="copyBtn">Copy JSON</button>
-        <button class="btn btn--sm btn--ghost" id="downBtn">Download JSON</button>
-        <button class="btn btn--sm btn--ghost" id="refreshBtn">Refresh</button>
-        <span id="status" style="color:var(--muted); font-size:.85rem; align-self:center; margin-left:6px;"></span>
-      </div>
-    </div>
-
-    <div class="section">
-      <h2>How it works</h2>
-      <ol class="steps">
-        <li>Open this page — your device provides the browser details instantly.</li>
-        <li>Your public IP is resolved via a public API (see the data sources).</li>
-        <li>Click <strong>Copy JSON</strong> or <strong>Download JSON</strong> to take the snapshot elsewhere.</li>
-      </ol>
-    </div>
-
-    <section class="tool-info">
-      <h2>What is it?</h2>
-      <p>A client-side snapshot tool — it reads the browser's own data (User-Agent, screen, time zone, language, color depth, device pixel ratio, Do Not Track) and adds your public IP from a JSON endpoint. No account, no tracking, no cookies set by this page.</p>
-      <h2>Use cases</h2>
-      <ul class="usecase-list">
-        <li>Quickly sharing your IP or User-Agent with support teams during debugging.</li>
-        <li>Verifying what headers and resolution a browser reports from a specific device.</li>
-        <li>Including a device snapshot alongside bug reports.</li>
-      </ul>
-      <h2>FAQs</h2>
-      <div class="faq">
-        <details class="faq-item"><summary>Why is the IP not detected?</summary><p>The IP lookup requires a network call to a public JSON service. If that call is blocked by a firewall or ad blocker, the IP section will show "Not available". Try refreshing or disabling the blocker temporarily.</p></details>
-        <details class="faq-item"><summary>Is anything stored on zlbox servers?</summary><p>No. The page renders client-side; IP resolution is done via a third-party JSON endpoint. The page does not record anything.</p></details>
-      </div>
-    </section>
-
-    <div class="section">
-      <h2>Related tools</h2>
-      <div class="related-grid">
-        <a href="qr-code-generator.html">QR Code Generator</a>
-        <a href="../text/case-converter.html">Case Converter</a>
-        <a href="../image/image-resizer.html">Image Resizer</a>
-      </div>
-    </div>
-
-    <footer class="footer">
-      <div class="footer-links">
-        <a href="qr-code-generator.html">QR Code Generator</a>
-        <a href="qr-code-scanner.html">QR Code Scanner</a>
-        <span style="color:var(--border);margin:0 6px;">|</span>
-        <a href="../../about.html">About</a>
-        <a href="../../privacy.html">Privacy</a>
-        <a href="../../disclaimer.html">Disclaimer</a>
-      </div>
-      <p class="footer-copy">&copy; 2026 zlbox. All rights reserved.</p>
-    </footer>
+<div class="container-md">
+  <div class="hero">
+    <div class="breadcrumb"><a href="../../index.html">Home</a> &rsaquo; <a href="../../index.html">Generator Tools</a> &rsaquo; What Is My IP</div>
+    <h1>What Is My IP</h1>
+    <p>Detect your public IPv4 and IPv6 addresses, and browse a quick overview of your browser, screen, and timezone — all in one page.</p>
   </div>
+
+  <div class="card">
+    <div class="stats-grid">
+      <div class="stat stat--accent" style="grid-column:1/-1;">
+        <div class="stat__value" id="ipv4" style="font-size:1.5rem;">—</div>
+        <div class="stat__label">Your IPv4 Address</div>
+        <button class="btn btn--ghost" id="copy-v4" style="margin-top:6px;">Copy IPv4</button>
+      </div>
+      <div class="stat" style="grid-column:1/-1;">
+        <div class="stat__value" id="ipv6" style="font-size:1.1rem;word-break:break-all;">—</div>
+        <div class="stat__label">Your IPv6 Address</div>
+        <button class="btn btn--ghost" id="copy-v6" style="margin-top:6px;">Copy IPv6</button>
+      </div>
+    </div>
+
+    <div style="margin-top:14px;" id="info-list">
+      <div class="row"><label>Browser / Platform</label><span id="browser" style="font-family:ui-monospace,Consolas,Menlo,monospace;">—</span></div>
+      <div class="row"><label>User Agent</label><span id="ua" style="font-family:ui-monospace,Consolas,Menlo,monospace;font-size:0.8rem;word-break:break-all;text-align:right;max-width:60%;">—</span></div>
+      <div class="row"><label>Screen Size</label><span id="screen" style="font-family:ui-monospace,Consolas,Menlo,monospace;">—</span></div>
+      <div class="row"><label>Viewport Size</label><span id="viewport" style="font-family:ui-monospace,Consolas,Menlo,monospace;">—</span></div>
+      <div class="row"><label>Timezone</label><span id="tz" style="font-family:ui-monospace,Consolas,Menlo,monospace;">—</span></div>
+      <div class="row"><label>Language</label><span id="lang" style="font-family:ui-monospace,Consolas,Menlo,monospace;">—</span></div>
+    </div>
+    <p style="text-align:center;font-size:0.82rem;color:var(--muted);margin-top:10px;" id="note">Detecting your IP address and browser information...</p>
+  </div>
+
+  <div class="section">
+    <h2>How it works</h2>
+    <ol class="steps">
+      <li>Your browser queries a public IP service (<code>ipify.org</code>) to fetch your current IPv4 and IPv6 addresses.</li>
+      <li>The remaining info is extracted directly from your browser using standard JavaScript APIs (no plugins, no server-side tracking).</li>
+      <li>Nothing leaves your browser except the two HTTPS calls needed to fetch your public IPs.</li>
+    </ol>
+  </div>
+
+  <div class="section">
+    <h2>Related tools</h2>
+    <div class="related-grid">
+      <a href="random-number-generator.html">Random Number Generator</a>
+      <a href="uuid-generator.html">UUID Generator</a>
+      <a href="hash-generator.html">Hash Generator</a>
+      <a href="../text/base64.html">Base64 Encoder</a>
+      <a href="../text/number-base-converter.html">Number Base Converter</a>
+      <a href="../text/html-encoder.html">HTML Encoder</a>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="random-number-generator.html">Random Number Generator</a>
+      <a href="uuid-generator.html">UUID Generator</a>
+      <a href="hash-generator.html">Hash Generator</a>
+      <span style="color:var(--border);margin:0 6px">|</span>
+      <a href="../../about.html">About</a>
+      <a href="../../privacy.html">Privacy</a>
+      <a href="../../disclaimer.html">Disclaimer</a>
+    </div>
+    <p class="footer-copy">&copy; 2026 My Tool Lab. All rights reserved.</p>
+  </footer>
+</div>
 
 <script>
 (function(){
-  var fields = {
-    ip: document.getElementById('f-ip'),
-    browser: document.getElementById('f-browser'),
-    os: document.getElementById('f-os'),
-    platform: document.getElementById('f-platform'),
-    screen: document.getElementById('f-screen'),
-    viewport: document.getElementById('f-viewport'),
-    tz: document.getElementById('f-tz'),
-    lang: document.getElementById('f-lang'),
-    cookie: document.getElementById('f-cookie'),
-    color: document.getElementById('f-color'),
-    dpr: document.getElementById('f-dpr'),
-    dnt: document.getElementById('f-dnt'),
-    ua: document.getElementById('ua')
-  };
-  var status = document.getElementById('status');
-  var copyBtn = document.getElementById('copyBtn');
-  var downBtn = document.getElementById('downBtn');
-  var refreshBtn = document.getElementById('refreshBtn');
-
-  function detectBrowser(ua){
-    if(/edg\/| edge\//i.test(ua)) return 'Edge';
-    if(/edga\//i.test(ua)) return 'Edge Mobile';
-    if(/opr\//i.test(ua)) return 'Opera';
-    if(/vivaldi\//i.test(ua)) return 'Vivaldi';
-    if(/firefox\//i.test(ua)) return 'Firefox';
-    if(/chrome\//i.test(ua)) return 'Chrome';
-    if(/safari\//i.test(ua)) return 'Safari';
-    if(/trident\//i.test(ua) || /msie \d/i.test(ua)) return 'Internet Explorer';
-    return 'Unknown';
-  }
-  function detectOS(ua){
-    if(/windows nt/i.test(ua)){
-      var m = /windows nt (\d+\.\d+)/i.exec(ua);
-      if(m){
-        var v = m[1];
-        if(v === '10.0') return 'Windows 10/11';
-        if(v === '6.3') return 'Windows 8.1';
-        if(v === '6.2') return 'Windows 8';
-        if(v === '6.1') return 'Windows 7';
-        return 'Windows';
-      }
-    }
-    if(/iphone|ipad|ipod/i.test(ua)){
-      var m2 = /os (\d+[_.]\d+)/i.exec(ua);
-      return 'iOS' + (m2 ? ' ' + m2[1].replace(/_/g, '.') : '');
-    }
-    if(/mac os x/i.test(ua)){
-      var m3 = /mac os x (\d+[_.]\d+)/i.exec(ua);
-      return 'macOS' + (m3 ? ' ' + m3[1].replace(/_/g, '.') : '');
-    }
-    if(/android/i.test(ua)){
-      var m4 = /android (\d+\.\d+)/i.exec(ua);
-      return 'Android' + (m4 ? ' ' + m4[1] : '');
-    }
-    if(/linux/i.test(ua)) return 'Linux';
-    if(/cros/i.test(ua)) return 'Chrome OS';
-    return 'Unknown';
-  }
-
-  function snapshot(){
-    var ua = navigator.userAgent || '';
-    return {
-      ip: fields.ip.textContent && fields.ip.textContent.indexOf('Loading') === -1 ? fields.ip.textContent : '',
-      userAgent: ua,
-      browser: detectBrowser(ua),
-      os: detectOS(ua),
-      platform: navigator.platform || '-',
-      screen: screen.width + ' × ' + screen.height + ' @ ' + screen.colorDepth + ' bit',
-      viewport: document.documentElement.clientWidth + ' × ' + document.documentElement.clientHeight,
-      timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone || 'Unknown',
-      language: navigator.language || '',
-      languages: navigator.languages ? Array.prototype.slice.call(navigator.languages) : [],
-      cookieEnabled: navigator.cookieEnabled,
-      colorDepth: screen.colorDepth,
-      pixelRatio: window.devicePixelRatio || 1,
-      doNotTrack: (navigator.doNotTrack || (window.external && window.external.msTrackingProtectionEnabled && window.external.msTrackingProtectionEnabled() ? 'yes' : null) || 'unknown'),
-      online: navigator.onLine,
-      javaEnabled: navigator.javaEnabled && navigator.javaEnabled()
-    };
-  }
-
-  function render(){
-    var snap = snapshot();
-    fields.browser.textContent = snap.browser;
-    fields.os.textContent = snap.os;
-    fields.platform.textContent = snap.platform;
-    fields.screen.textContent = snap.screen;
-    fields.viewport.textContent = snap.viewport;
-    fields.tz.textContent = snap.timeZone;
-    fields.lang.textContent = snap.language + (snap.languages && snap.languages.length > 1 ? ' (' + snap.languages.join(', ') + ')' : '');
-    fields.cookie.textContent = snap.cookieEnabled ? 'Enabled' : 'Disabled';
-    fields.color.textContent = snap.colorDepth + ' bit';
-    fields.dpr.textContent = snap.pixelRatio.toFixed(2) + 'x';
-    fields.dnt.textContent = snap.doNotTrack === '1' || snap.doNotTrack === 'yes' ? 'On' : 'Off';
-    fields.ua.value = snap.userAgent;
-  }
-
-  function fetchIp(){
-    fields.ip.textContent = 'Resolving…';
-    var candidates = ['https://api.ipify.org?format=json'];
-    var idx = 0;
-    function tryNext(){
-      if(idx >= candidates.length){ fields.ip.textContent = 'Not available'; return; }
-      var url = candidates[idx++];
-      fetch(url).then(function(r){ return r.json(); }).then(function(data){
-        if(data && data.ip){ fields.ip.textContent = data.ip; }
-        else tryNext();
-      }).catch(tryNext);
-    }
-    tryNext();
-  }
-
-  function escapeHtml(s){ return String(s).replace(/[&<>"']/g, function(m){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]; }); }
-
-  function copyJSON(){
-    var snap = snapshot();
-    var json = JSON.stringify(snap, null, 2);
+  function copyText(txt, btn){
     if(navigator.clipboard && navigator.clipboard.writeText){
-      navigator.clipboard.writeText(json).then(function(){
-        status.textContent = 'Copied JSON to clipboard.';
-        setTimeout(function(){ status.textContent = ''; }, 2500);
+      navigator.clipboard.writeText(txt).then(function(){
+        document.getElementById('note').textContent='Copied: '+txt;
       });
     } else {
-      var ta = document.createElement('textarea');
-      ta.value = json;
-      document.body.appendChild(ta);
-      ta.select();
-      try { document.execCommand('copy'); status.textContent = 'Copied JSON to clipboard.'; }
-      catch(e){ status.textContent = 'Copy failed.'; }
-      ta.remove();
+      var ta=document.createElement('textarea');
+      ta.value=txt; document.body.appendChild(ta); ta.select();
+      try{ document.execCommand('copy'); document.getElementById('note').textContent='Copied.'; }
+      catch(e){ document.getElementById('note').textContent='Copy failed.'; }
+      document.body.removeChild(ta);
     }
   }
 
-  function downloadJSON(){
-    var snap = snapshot();
-    var json = JSON.stringify(snap, null, 2);
-    var blob = new Blob([json], {type: 'application/json;charset=utf-8'});
-    var url = URL.createObjectURL(blob);
-    var a = document.createElement('a');
-    a.href = url;
-    a.download = 'browser-info.json';
-    document.body.appendChild(a); a.click();
-    setTimeout(function(){ a.remove(); URL.revokeObjectURL(url); }, 200);
-    status.textContent = 'Downloaded JSON.';
-    setTimeout(function(){ status.textContent = ''; }, 2500);
-  }
-
-  copyBtn.addEventListener('click', copyJSON);
-  downBtn.addEventListener('click', downloadJSON);
-  refreshBtn.addEventListener('click', function(){ fetchIp(); status.textContent = 'Refreshed.'; setTimeout(function(){ status.textContent = ''; }, 2500); });
-
-  var toggle = document.querySelector('.nav-toggle');
-  if(toggle){
-    toggle.addEventListener('click', function(){
-      var links = document.querySelector('.nav-links');
-      var open = links.classList.toggle('open');
-      toggle.setAttribute('aria-expanded', open);
+  function fetchIP(url, el, label){
+    return fetch(url).then(function(r){return r.json();}).then(function(j){
+      el.textContent=j.ip||'—';
+      el.dataset.ip=j.ip||'';
+      document.getElementById('note').textContent=label+' detected: '+(j.ip||'—');
+    }).catch(function(){
+      el.textContent='(unavailable — offline or blocked)';
     });
   }
 
-  window.addEventListener('resize', function(){
-    fields.viewport.textContent = document.documentElement.clientWidth + ' × ' + document.documentElement.clientHeight;
+  // Detect browser
+  function detectBrowser(){
+    var ua=navigator.userAgent;
+    var b='Unknown';
+    if(/Edg\//.test(ua)) b='Edge';
+    else if(/OPR\/|Opera/.test(ua)) b='Opera';
+    else if(/Chrome\//.test(ua) && !/Chromium/.test(ua)) b='Chrome';
+    else if(/Firefox\//.test(ua)) b='Firefox';
+    else if(/Safari\//.test(ua) && !/Chrome\//.test(ua)) b='Safari';
+    else if(/MSIE |Trident\//.test(ua)) b='Internet Explorer';
+    var p='';
+    if(/Windows/.test(ua)) p='Windows';
+    else if(/Mac OS X/.test(ua)) p='macOS';
+    else if(/Android/.test(ua)) p='Android';
+    else if(/iPhone|iPad|iPod/.test(ua)) p='iOS';
+    else if(/Linux/.test(ua)) p='Linux';
+    return b+(p?' · '+p:'');
+  }
+
+  document.getElementById('ua').textContent=navigator.userAgent||'—';
+  document.getElementById('browser').textContent=detectBrowser();
+  document.getElementById('screen').textContent=(screen.width||'?')+' × '+(screen.height||'?');
+  document.getElementById('viewport').textContent=window.innerWidth+' × '+window.innerHeight;
+  try{ document.getElementById('tz').textContent=(Intl.DateTimeFormat().resolvedOptions().timeZone||'—')+' (UTC'+((-new Date().getTimezoneOffset()/60)>=0?'+':'')+(-new Date().getTimezoneOffset()/60)+')';}catch(e){ document.getElementById('tz').textContent='—'; }
+  document.getElementById('lang').textContent=navigator.language||'—';
+
+  fetchIP('https://api.ipify.org?format=json', document.getElementById('ipv4'), 'IPv4');
+  fetchIP('https://api64.ipify.org?format=json', document.getElementById('ipv6'), 'IPv6');
+
+  document.getElementById('copy-v4').addEventListener('click',function(){
+    copyText(document.getElementById('ipv4').dataset.ip||document.getElementById('ipv4').textContent);
   });
-  render();
-  fetchIp();
+  document.getElementById('copy-v6').addEventListener('click',function(){
+    copyText(document.getElementById('ipv6').dataset.ip||document.getElementById('ipv6').textContent);
+  });
+
+  window.addEventListener('resize',function(){
+    document.getElementById('viewport').textContent=window.innerWidth+' × '+window.innerHeight;
+  });
 })();
 </script>
 </body>

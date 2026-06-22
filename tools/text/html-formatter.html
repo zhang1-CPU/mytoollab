@@ -1,509 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <meta charset="UTF-8" />
- <meta name="viewport" content="width=device-width, initial-scale=1.0" />
- <title>HTML Formatter – Beautify HTML Code Online | zlbox</title>
- <meta name="description" content="Free online HTML formatter. Beautify, indent, minify and convert HTML to Markdown. Runs locally in your browser." />
- <link rel="canonical" href="https://www.zlbox.site/tools/text/html-formatter.html" />
- <meta name="google-site-verification" content="google4bd1e08685667667" />
- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
-<script>
-(function() {
-  var toggle = document.querySelector('.nav-toggle');
-  var navLinks = document.querySelector('.nav-links');
-  if (!toggle || !navLinks) return;
-  toggle.addEventListener('click', function() {
-    var isOpen = navLinks.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', isOpen);
-  });
-  var path = location.pathname;
-  document.querySelectorAll('.nav-link').forEach(function(link) {
-    var href = link.getAttribute('href');
-    if (href && (path === href || path.indexOf(href.replace('/index.html','')) > -1)) {
-      link.classList.add('active');
-    }
-  });
-})();
-</script>
- <link rel="stylesheet" href="../../css/components.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HTML Formatter – Beautify HTML Code Online | My Tool Lab</title>
+  <meta name="description" content="Free online HTML formatter. Beautify, indent, and format your HTML code with proper structure. Runs locally in your browser." />
+  <link rel="canonical" href="https://www.zlbox.site/tools/text/html-formatter.html" />
+  <meta name="google-site-verification" content="google4bd1e08685667667" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../../_css/components.css" />
 
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <meta property="og:title" content="HTML Formatter – Beautify HTML Code Online | zlbox" />
-  <meta property="og:description" content="Free online HTML formatter. Beautify, indent, minify and convert HTML to Markdown. Runs locally in your browser." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.zlbox.site/tools/text/html-formatter.html" />
-  <meta property="og:site_name" content="zlbox" />
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"HTML Formatter – Beautify HTML Code Online","description":"Free online HTML formatter. Beautify, indent, minify and convert HTML to Markdown. Runs locally in your browser.","url":"https://www.zlbox.site/tools/text/html-formatter.html","applicationCategory":"Text Tool","operatingSystem":"Any (browser-based)","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"browserRequirements":"Requires a modern web browser with JavaScript enabled."}</script>
-
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.zlbox.site/"},{"@type":"ListItem","position":2,"name":"Text Tools","item":"https://www.zlbox.site/categories/text.html"}]}</script>
-
-  
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.zlbox.site/"},{"@type":"ListItem","position":2,"name":"Text & Developer Tools","item":"https://www.zlbox.site/categories/text.html"},{"@type":"ListItem","position":3,"name":"Html Formatter"}]}</script>
-  <style>
-.site-nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,.97); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); box-shadow: 0 1px 4px rgba(0,0,0,.05); }
-.nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; align-items: center; gap: 8px; height: 52px; }
-.nav-logo { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 1rem; color: var(--brand); text-decoration: none; flex-shrink: 0; margin-right: 12px; }
-.nav-logo:hover { text-decoration: none; }
-.nav-logo-icon { width: 36px; height: 36px; background: var(--brand); color: #fff; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: .9rem; flex-shrink: 0; }
-.nav-logo-text { font-size: .95rem; }
-.nav-links { display: flex; align-items: center; gap: 2px; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none; flex: 1; }
-.nav-links::-webkit-scrollbar { display: none; }
-.nav-link { display: inline-flex; align-items: center; padding: 5px 10px; font-size: .82rem; font-weight: 500; color: var(--text); border-radius: 6px; white-space: nowrap; transition: all .15s; flex-shrink: 0; }
-.nav-link:hover { background: var(--brand); color: #fff; text-decoration: none; }
-.nav-link.active { background: #eff6ff; color: var(--brand); }
-.nav-toggle { display: none; flex-direction: column; justify-content: center; gap: 4px; width: 32px; height: 32px; padding: 4px; background: none; border: 1px solid var(--border); border-radius: 6px; cursor: pointer; flex-shrink: 0; margin-left: auto; }
-.nav-toggle span { display: block; width: 100%; height: 2px; background: var(--text); border-radius: 1px; }
-@media (max-width: 768px) {
-  .nav-logo-text { display: none; }
-  .nav-inner { gap: 6px; }
-  .nav-toggle { display: flex; }
-  .nav-links { display: none; position: absolute; top: 52px; left: 0; right: 0; background: #fff; border-bottom: 1px solid var(--border); box-shadow: 0 4px 12px rgba(0,0,0,.1); flex-direction: column; align-items: flex-start; padding: 8px 0; z-index: 99; overflow: visible; }
-  .nav-links.open { display: flex; }
-  .nav-link { width: 100%; padding: 10px 20px; font-size: .9rem; border-radius: 0; }
-}
-.panel-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-@media (max-width: 900px) { .panel-grid { grid-template-columns: 1fr; } }
-.panel { background: #fff; border: 1px solid var(--border); border-radius: 10px; padding: 14px; display: flex; flex-direction: column; }
-.panel h3 { margin: 0 0 10px; font-size: 14px; color: var(--text); }
-.tabs-row { display: flex; gap: 6px; margin-bottom: 10px; flex-wrap: wrap; }
-.tabs-row button { padding: 6px 12px; border: 1px solid var(--border); background: #f8fafc; color: var(--text); border-radius: 6px; font-size: 13px; cursor: pointer; }
-.tabs-row button.is-active { background: var(--brand); color: #fff; border-color: var(--brand); }
-.btn-row { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
-
-.html-highlight {
-  background: #0f172a; color: #e2e8f0; border-radius: 8px; padding: 14px 16px;
-  font-family: ui-monospace, Consolas, Menlo, monospace; font-size: 13px; line-height: 1.6;
-  white-space: pre; overflow-x: auto; margin: 0;
-}
-.html-tag { color: #f472b6; }
-.html-attr { color: #fbbf24; }
-.html-str { color: #86efac; }
-.html-text { color: #e2e8f0; }
-.html-comment { color: #64748b; font-style: italic; }
-  </style>
   <meta property="og:image" content="https://www.zlbox.site/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="HTML Formatter – Beautify HTML Code Online" />
-  <meta name="twitter:description" content="Free online HTML formatter. Beautify, indent, minify and convert HTML to Markdown." />
+  <meta name="twitter:title" content="HTML Formatter" />
+  <meta name="twitter:description" content="Format HTML code" />
   <meta name="twitter:image" content="https://www.zlbox.site/og-image.png" />
 
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
   <meta name="robots" content="index, follow" />
-  <script type="application/ld+json">{
-  "@context": "https://schema.org",
-  "@type": "HowTo",
-  "name": "How to Use HTML Formatter",
-  "description": "Step by step guide: How to Use HTML Formatter",
-  "step": [
-    {"@type":"HowToStep","name":"Paste HTML code","text":"Paste your HTML code into the input box.","position":1},
-    {"@type":"HowToStep","name":"Format or minify","text":"Click Format for pretty-printed code or Minify for compact output.","position":2},
-    {"@type":"HowToStep","name":"Copy or download","text":"Click Copy to copy formatted HTML or Download to save it.","position":3}
-  ]
-}</script>
+
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "HTML Formatter", "description": "Format HTML code", "url": "https://www.zlbox.site/tools/text/html-formatter.html", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9V6L0Z956X"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-9V6L0Z956X');</script>
 </head>
 <body>
-
-  <nav class="site-nav" aria-label="Main navigation">
-    <div class="nav-inner">
-      <a href="/" class="nav-logo" aria-label="zlbox Home">
-        <span class="nav-logo-icon">zl</span>
-        <span class="nav-logo-text">zlbox</span>
-      </a>
-      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-      <div class="nav-links" role="list">
-        <a href="/tools/index.html" class="nav-link" role="listitem">All Tools</a>
-        <a href="/categories/text.html" class="nav-link" role="listitem">Text</a>
-        <a href="/categories/calculator.html" class="nav-link" role="listitem">Calculator</a>
-        <a href="/categories/generator.html" class="nav-link" role="listitem">Generator</a>
-        <a href="/categories/image.html" class="nav-link" role="listitem">Image</a>
-        <a href="/categories/pdf.html" class="nav-link" role="listitem">PDF</a>
-        <a href="/blog/index.html" class="nav-link" role="listitem">Blog</a>
-      </div>
-    </div>
-  </nav>
-
 <div class="container-md">
- <div class="hero">
- <div class="breadcrumb"><a href="../../index.html">Home</a> &rsaquo; <a href="../../categories/text.html">Text Tools</a> &rsaquo; HTML Formatter</div>
- <h1>HTML Formatter</h1>
- <p>Paste minified HTML and get clean, indented markup. Also supports minification, syntax highlighting, and HTML &rarr; Markdown conversion.</p>
- </div>
-
- <div class="card">
-  <div class="row-grid">
-    <div class="field">
-      <label for="indentSize">Indentation</label>
-      <select id="indentSize">
-        <option value="2">2 spaces</option>
-        <option value="4">4 spaces</option>
-        <option value="tab">Tab</option>
-      </select>
-    </div>
-    <div class="field field-inline" style="justify-content:flex-end;padding-top:18px">
-      <label><input type="checkbox" id="preserveEmpty" /> Preserve empty lines</label>
-    </div>
+  <div class="hero">
+    <div class="breadcrumb"><a href="../../index.html">Home</a> &rsaquo; <a href="../../categories/text.html">Text Tools</a> &rsaquo; HTML Formatter</div>
+    <h1>HTML Formatter</h1>
+    <p>Paste minified HTML and get clean, indented markup. Handles self-closing tags automatically.</p>
   </div>
 
-  <div class="panel-grid">
-    <div class="panel">
-      <h3>Input</h3>
-      <textarea id="inputText" placeholder='Paste HTML here… e.g. <div><p>Hello</p><br></div>' spellcheck="false" style="min-height:280px;font-family:ui-monospace,Consolas,Menlo,monospace;font-size:13px;line-height:1.6"></textarea>
-      <div class="btn-row" style="margin-top:10px">
-        <button class="btn btn--sm" id="sampleBtn">Sample</button>
+  <div class="card">
+    <div class="editor">
+      <textarea id="inputText" placeholder='Paste HTML here… e.g. <div><p>Hello</p><br></div>' spellcheck="false"></textarea>
+      <div class="editor__toolbar">
+        <button class="btn btn--sm btn--ghost" id="sampleBtn">Sample</button>
         <button class="btn btn--sm btn--ghost" id="clearBtn">Clear</button>
-        <button class="btn btn--sm" id="formatBtn" style="margin-left:auto">Format</button>
-        <button class="btn btn--sm btn--ghost" id="minifyBtn">Minify</button>
-        <button class="btn btn--sm btn--ghost" id="toMdBtn">HTML &rarr; Markdown</button>
+        <div style="margin-left:auto"></div>
+        <button class="btn btn--sm" id="formatBtn">Format</button>
+        <button class="btn btn--sm btn--ghost" id="copyBtn">Copy</button>
       </div>
     </div>
-
-    <div class="panel">
-      <h3>Output</h3>
-      <div class="tabs-row">
-        <button class="is-active" data-view="highlighted">Highlighted</button>
-        <button data-view="plain">Plain text</button>
-        <button data-view="markdown">Markdown</button>
-      </div>
-      <div id="outputArea" style="flex:1;min-height:280px;overflow:auto"></div>
-      <div class="btn-row" style="margin-top:10px">
-        <span id="statusLabel" style="font-size:12px;color:var(--muted);align-self:center">Ready</span>
-        <button class="btn btn--sm btn--ghost" id="downloadBtn" style="margin-left:auto">Download</button>
-        <button class="btn btn--sm" id="copyBtn">Copy</button>
+    <div class="editor" style="margin-top:10px;">
+      <textarea id="outputText" readonly placeholder="Formatted HTML appears here…" spellcheck="false"></textarea>
+      <div class="editor__toolbar">
+        <span id="statusLabel" style="font-size:0.82rem;color:var(--muted);">Ready</span>
+        <div style="margin-left:auto"></div>
       </div>
     </div>
   </div>
- </div>
 
- <div class="section">
- <h2>How it works</h2>
- <ol class="steps">
- <li>Paste your HTML into the left panel &mdash; messy, minified, whatever.</li>
- <li>Click <strong>Format</strong> to beautify with consistent indentation. Click <strong>Minify</strong> to strip whitespace for production.</li>
- <li>Switch to <strong>Highlighted</strong> for color-coded output, or click <strong>HTML &rarr; Markdown</strong> to get a rough Markdown equivalent suitable for headings, lists, links, emphasis, code blocks, and paragraphs.</li>
- <li>Copy or download the result &mdash; everything runs in your browser.</li>
- </ol>
- </div>
-
- <section class="tool-info" aria-label="Tool information">
-  <h2>What is HTML Formatter?</h2>
-  <p>An HTML formatter (beautifier) cleans up and indents messy HTML code. It adds consistent indentation, removes unnecessary whitespace, and formats nested tags for maximum readability. Essential for debugging and reviewing HTML.</p>
-
-  <h2>How to use</h2>
-  <ol class="steps-list">
-<li>Step 1: Paste messy or minified HTML into the input.</li>
-<li>Step 2: Click Format to beautify the code, or Minify to compress it.</li>
-<li>Step 3: Review the formatted output with syntax highlighting.</li>
-<li>Step 4: Copy the clean HTML, download it, or convert to Markdown.</li>
-  </ol>
-
-  <h2>Use cases</h2>
-  <ul class="usecase-list">
-<li>Debugging and reading minified HTML from CMS platforms.</li>
-<li>Formatting raw HTML templates for easier editing.</li>
-<li>Prettifying HTML copied from browser developer tools.</li>
-<li>Generating Markdown drafts from existing HTML content.</li>
-<li>Standardizing HTML code across a project.</li>
-  </ul>
-
-  <h2>Frequently Asked Questions</h2>
-  <div class="faq">
-<details class="faq-item"><summary>Does formatting change my HTML?</summary><p>It only changes whitespace and indentation. All tags, attributes, and content remain exactly the same.</p></details>
-<details class="faq-item"><summary>How accurate is HTML to Markdown?</summary><p>The converter handles headings, paragraphs, lists, links, emphasis, inline code, and preformatted blocks. Complex nested structures may need manual tweaking.</p></details>
-<details class="faq-item"><summary>Can I format inline CSS and JavaScript too?</summary><p>The HTML formatter focuses on HTML structure. For CSS/JS formatting, use a dedicated code formatter for best results.</p></details>
+  <div class="section">
+    <h2>How it works</h2>
+    <ol class="steps">
+      <li>Paste your HTML into the top box — messy, minified, whatever.</li>
+      <li>Click Format — the tool tokenizes tags and applies consistent indentation.</li>
+      <li>Copy the cleaned output and paste into your editor.</li>
+    </ol>
   </div>
-</section>
 
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Does formatting change my HTML?","acceptedAnswer":{"@type":"Answer","text":"It only changes whitespace and indentation."}},{"@type":"Question","name":"How accurate is HTML to Markdown?","acceptedAnswer":{"@type":"Answer","text":"The converter handles headings, paragraphs, lists, links, emphasis, inline code, and preformatted blocks."}}]}</script>
- <div class="section">
- <h2>Related tools</h2>
- <div class="related-grid">
- <a href="json-formatter.html">JSON Formatter</a>
- <a href="case-converter.html">Case Converter</a>
- <a href="word-counter.html">Word Counter</a>
- <a href="base64.html">Base64 Encode/Decode</a>
- <a href="csv-to-json.html">CSV &harr; JSON</a>
- </div>
- </div>
+  <div class="section">
+    <h2>Related tools</h2>
+    <div class="related-grid">
+      <a href="json-formatter.html">JSON Formatter</a>
+      <a href="sql-formatter.html">SQL Formatter</a>
+      <a href="case-converter.html">Case Converter</a>
+      <a href="word-counter.html">Word Counter</a>
+    </div>
+  </div>
 
- <footer class="footer">
- <div class="footer-links">
- <a href="word-counter.html">Word Counter</a>
- <a href="case-converter.html">Case Converter</a>
- <a href="json-formatter.html">JSON Formatter</a>
- <span style="color:var(--border);margin:0 6px">|</span>
- <a href="../../about.html">About</a>
- <a href="../../privacy.html">Privacy</a>
- <a href="../../disclaimer.html">Disclaimer</a>
- </div>
- <p class="footer-copy">&copy; 2026 zlbox. All rights reserved.</p>
- </footer>
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="word-counter.html">Word Counter</a>
+      <a href="case-converter.html">Case Converter</a>
+      <a href="json-formatter.html">JSON Formatter</a>
+      <span style="color:var(--border);margin:0 6px">|</span>
+      <a href="../../about.html">About</a>
+      <a href="../../privacy.html">Privacy</a>
+      <a href="../../disclaimer.html">Disclaimer</a>
+    </div>
+    <p class="footer-copy">&copy; 2026 My Tool Lab. All rights reserved.</p>
+  </footer>
 </div>
 
 <script>
 (function() {
-  'use strict';
-  var VOID = new Set(['br','hr','img','input','meta','link','source','track','wbr','area','base','col','embed','param','?xml','?']);
-  var BLOCK = new Set(['html','head','body','div','p','section','article','aside','nav','header','footer','main','ul','ol','li','table','thead','tbody','tr','td','th','blockquote','pre','h1','h2','h3','h4','h5','h6','form','fieldset','dl','dt','dd','script','style','title']);
+  var VOID = new Set(['br','hr','img','input','meta','link','source','track','wbr','area','base','col','embed','param']);
   var inputEl = document.getElementById('inputText');
-  var indentEl = document.getElementById('indentSize');
-  var outputArea = document.getElementById('outputArea');
+  var outputEl = document.getElementById('outputText');
+  var formatBtn = document.getElementById('formatBtn');
+  var clearBtn = document.getElementById('clearBtn');
+  var sampleBtn = document.getElementById('sampleBtn');
+  var copyBtn = document.getElementById('copyBtn');
   var statusEl = document.getElementById('statusLabel');
-  var currentView = 'highlighted';
-  var lastText = '';
 
   function setStatus(msg, ok) {
     statusEl.textContent = msg;
     statusEl.style.color = ok ? '#047857' : (ok === false ? '#b91c1c' : 'var(--muted)');
   }
-  function getIndent() {
-    var v = indentEl.value;
-    if (v === 'tab') return '\t';
-    return parseInt(v, 10);
-  }
-  function escapeHtml(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
 
   function format(html) {
     if (!html) return '';
     var tokens = html.match(/<!--[\s\S]*?-->|<\/?[^>]+>|[^<]+/g) || [];
-    var indentUnit = getIndent();
-    if (typeof indentUnit === 'number') indentUnit = new Array(indentUnit + 1).join(' ');
+    var indent = '  ';
     var level = 0;
     var out = [];
-    var prevTagWasBlock = false;
     for (var i = 0; i < tokens.length; i++) {
       var t = tokens[i];
       var trimmed = t.trim();
       if (!trimmed) continue;
       if (/^<!--/.test(trimmed)) {
-        out.push(indent(level, indentUnit) + trimmed);
+        out.push(indent.repeat(level) + trimmed);
       } else if (/^<\//.test(trimmed)) {
-        var m = trimmed.match(/^<\/\s*([\w:-]+)/);
-        var tag = m ? m[1].toLowerCase() : '';
-        if (BLOCK.has(tag)) level = Math.max(0, level - 1);
-        out.push(indent(level, indentUnit) + trimmed);
+        level = Math.max(0, level - 1);
+        out.push(indent.repeat(level) + trimmed);
       } else if (/^<[^!?\/]/.test(trimmed)) {
-        var m2 = trimmed.match(/^<\s*([\w:-]+)/);
-        var tag2 = m2 ? m2[1].toLowerCase() : '';
-        if (VOID.has(tag2)) {
-          out.push(indent(level, indentUnit) + trimmed);
+        var m = trimmed.match(/^<\s*([\w:-]+)/);
+        var tag = m ? m[1].toLowerCase() : '';
+        if (VOID.has(tag)) {
+          out.push(indent.repeat(level) + trimmed);
         } else {
-          out.push(indent(level, indentUnit) + trimmed);
-          if (BLOCK.has(tag2)) level++;
+          out.push(indent.repeat(level) + trimmed);
+          level++;
         }
       } else {
-        // text
-        var text = trimmed.replace(/\s+/g, ' ');
-        out.push(indent(level, indentUnit) + text);
+        out.push(indent.repeat(level) + trimmed);
       }
     }
     return out.join('\n');
   }
-  function indent(n, u) { var s = ''; for (var i = 0; i < n; i++) s += u; return s; }
 
-  function minify(html) {
-    if (!html) return '';
-    // Remove comments
-    var out = html.replace(/<!--[\s\S]*?-->/g, '');
-    // Collapse whitespace between tags
-    out = out.replace(/>\s+</g, '><').replace(/\s+/g, ' ').trim();
-    return out;
-  }
-
-  function highlightHtml(html) {
-    if (!html) return '';
-    var tokens = html.match(/<!--[\s\S]*?-->|<\/?[^>]+>|[^<]+/g) || [];
-    var out = '';
-    for (var i = 0; i < tokens.length; i++) {
-      var t = tokens[i];
-      if (/^<!--/.test(t)) { out += '<span class="html-comment">' + escapeHtml(t) + '</span>'; continue; }
-      if (/^<\/?/.test(t)) {
-        // tag with optional attributes
-        var attrStart = t.search(/\s/);
-        var closing = t[1] === '/' ? 1 : 0;
-        var gt = t.lastIndexOf('>');
-        var selfClose = t[gt - 1] === '/' ? 1 : 0;
-        var tagName = '';
-        var rest = '';
-        if (attrStart === -1 || attrStart > gt) {
-          // no attrs
-          var inner = t.substring(1 + closing, gt - (selfClose ? 1 : 0)).trim();
-          tagName = inner;
-          rest = '';
-        } else {
-          tagName = t.substring(1 + closing, attrStart).trim();
-          rest = t.substring(attrStart, gt - (selfClose ? 1 : 0));
-        }
-        // color attributes and values
-        var attrHtml = '';
-        // Split " key=value" segments preserving quotes
-        var parts = rest.match(/\s+[A-Za-z_:][\w:-]*\s*(=\s*(?:"[^"]*"|'[^']*'|[^\s>]+))?/g) || [];
-        attrHtml = parts.map(function(p) {
-          var eq = p.indexOf('=');
-          if (eq === -1) return '<span class="html-attr">' + escapeHtml(p) + '</span>';
-          var key = p.substring(0, eq);
-          var val = p.substring(eq + 1);
-          return '<span class="html-attr">' + escapeHtml(key) + '</span>=<span class="html-str">' + escapeHtml(val) + '</span>';
-        }).join('');
-        out += '<span class="html-tag">&lt;' + (closing ? '/' : '') + escapeHtml(tagName) + '</span>' + attrHtml + (selfClose ? '<span class="html-tag">/&gt;</span>' : '<span class="html-tag">&gt;</span>');
-      } else {
-        out += '<span class="html-text">' + escapeHtml(t) + '</span>';
-      }
-    }
-    return '<pre class="html-highlight">' + out + '</pre>';
-  }
-
-  function htmlToMarkdown(html) {
-    if (!html) return '';
-    var md = html;
-    // Remove comments
-    md = md.replace(/<!--[\s\S]*?-->/g, '');
-    // Remove script/style blocks
-    md = md.replace(/<(script|style)\b[^>]*>[\s\S]*?<\/\1>/gi, '');
-
-    // Headings
-    md = md.replace(/<h1\b[^>]*>([\s\S]*?)<\/h1>/gi, function(_, c) { return '# ' + stripTags(c).trim() + '\n\n'; });
-    md = md.replace(/<h2\b[^>]*>([\s\S]*?)<\/h2>/gi, function(_, c) { return '## ' + stripTags(c).trim() + '\n\n'; });
-    md = md.replace(/<h3\b[^>]*>([\s\S]*?)<\/h3>/gi, function(_, c) { return '### ' + stripTags(c).trim() + '\n\n'; });
-    md = md.replace(/<h4\b[^>]*>([\s\S]*?)<\/h4>/gi, function(_, c) { return '#### ' + stripTags(c).trim() + '\n\n'; });
-    md = md.replace(/<h5\b[^>]*>([\s\S]*?)<\/h5>/gi, function(_, c) { return '##### ' + stripTags(c).trim() + '\n\n'; });
-    md = md.replace(/<h6\b[^>]*>([\s\S]*?)<\/h6>/gi, function(_, c) { return '###### ' + stripTags(c).trim() + '\n\n'; });
-
-    // Pre / code blocks
-    md = md.replace(/<pre\b[^>]*>([\s\S]*?)<\/pre>/gi, function(_, c) { return '\n```\n' + decodeEntities(stripTags(c).trim()) + '\n```\n\n'; });
-    md = md.replace(/<code\b[^>]*>([\s\S]*?)<\/code>/gi, function(_, c) { return '`' + decodeEntities(stripTags(c)) + '`'; });
-
-    // Horizontal rule
-    md = md.replace(/<hr\b[^>]*\/?>/gi, '\n---\n\n');
-
-    // Line breaks
-    md = md.replace(/<br\b[^>]*\/?>/gi, '  \n');
-
-    // Links
-    md = md.replace(/<a\b[^>]*href\s*=\s*(?:"([^"]*)"|'([^']*)')\b[^>]*>([\s\S]*?)<\/a>/gi, function(_, h1, h2, text) {
-      var href = h1 || h2 || '';
-      return '[' + stripTags(text).trim() + '](' + href + ')';
-    });
-
-    // Emphasis
-    md = md.replace(/<(strong|b)\b[^>]*>([\s\S]*?)<\/\1>/gi, function(_, _tag, text) { return '**' + stripTags(text).trim() + '**'; });
-    md = md.replace(/<(em|i)\b[^>]*>([\s\S]*?)<\/\1>/gi, function(_, _tag, text) { return '*' + stripTags(text).trim() + '*'; });
-
-    // Images (rough)
-    md = md.replace(/<img\b[^>]*\bsrc\s*=\s*(?:"([^"]*)"|'([^']*)')\b[^>]*\balt\s*=\s*(?:"([^"]*)"|'([^']*)')/gi, function(_, s1, s2, a1, a2) { return '![' + (a1 || a2 || '') + '](' + (s1 || s2 || '') + ')'; });
-
-    // Lists - replace <li> with "- " and remove closing li
-    md = md.replace(/<(ul|ol)\b[^>]*>([\s\S]*?)<\/\1>/gi, function(_, tag, items) {
-      var isOrdered = tag.toLowerCase() === 'ol';
-      var idx = 1;
-      var processed = items.replace(/<li\b[^>]*>([\s\S]*?)<\/li>/gi, function(_, c) {
-        var prefix = isOrdered ? (idx++ + '. ') : '- ';
-        return prefix + stripTags(c).trim() + '\n';
-      });
-      return '\n' + processed + '\n';
-    });
-
-    // Paragraphs
-    md = md.replace(/<p\b[^>]*>([\s\S]*?)<\/p>/gi, function(_, c) { return stripTags(c).trim() + '\n\n'; });
-
-    // Blockquote
-    md = md.replace(/<blockquote\b[^>]*>([\s\S]*?)<\/blockquote>/gi, function(_, c) {
-      return '\n' + stripTags(c).trim().split('\n').map(function(line) { return '> ' + line; }).join('\n') + '\n\n';
-    });
-
-    // Remove any remaining tags
-    md = md.replace(/<[^>]+>/g, '');
-
-    // Decode entities
-    md = decodeEntities(md);
-
-    // Collapse excessive blank lines
-    md = md.replace(/\n{3,}/g, '\n\n').trim();
-
-    return md;
-  }
-  function stripTags(s) { return String(s).replace(/<[^>]+>/g, ''); }
-  function decodeEntities(s) {
-    return String(s)
-      .replace(/&nbsp;/g, ' ')
-      .replace(/&amp;/g, '&')
-      .replace(/&lt;/g, '<')
-      .replace(/&gt;/g, '>')
-      .replace(/&quot;/g, '"')
-      .replace(/&#39;/g, "'")
-      .replace(/&#(\d+);/g, function(_, n) { return String.fromCharCode(parseInt(n, 10)); });
-  }
-
-  function render(view) {
-    currentView = view || currentView;
-    var tabs = document.querySelectorAll('[data-view]');
-    tabs.forEach(function(t) { t.classList.toggle('is-active', t.getAttribute('data-view') === currentView); });
-    var raw = inputEl.value;
-    if (!raw.trim()) { outputArea.innerHTML = ''; lastText = ''; setStatus('Ready'); return; }
-    var formatted = format(raw);
-    var output = '';
-    if (currentView === 'highlighted') {
-      outputArea.innerHTML = highlightHtml(formatted);
-      lastText = formatted;
-    } else if (currentView === 'plain') {
-      outputArea.innerHTML = '<textarea readonly style="width:100%;min-height:280px;border:1px solid var(--border);border-radius:8px;padding:12px;font-family:ui-monospace,Consolas,Menlo,monospace;font-size:13px;line-height:1.6">' + escapeHtml(formatted) + '</textarea>';
-      lastText = formatted;
-    } else if (currentView === 'markdown') {
-      var md = htmlToMarkdown(raw);
-      outputArea.innerHTML = '<textarea readonly style="width:100%;min-height:280px;border:1px solid var(--border);border-radius:8px;padding:12px;font-family:ui-monospace,Consolas,Menlo,monospace;font-size:13px;line-height:1.6">' + escapeHtml(md) + '</textarea>';
-      lastText = md;
-    }
-    setStatus('Formatted (' + (new Blob([lastText]).size) + ' bytes)', true);
-  }
-
-  // Events
-  document.getElementById('sampleBtn').addEventListener('click', function() {
-    inputEl.value = '<!DOCTYPE html><html><head><title>Sample page</title><meta charset="UTF-8"></head><body><div class="container"><h1>Hello World</h1><p>This is a <strong>sample</strong> HTML document used by the formatter.</p><br><p>Try it out by clicking the <em>Format</em> button.</p><ul><li>Features: indentation, minification, syntax highlighting</li><li>Convert to Markdown: headings, lists, links, emphasis</li></ul></div></body></html>';
-    render('highlighted');
+  formatBtn.addEventListener('click', function() {
+    var result = format(inputEl.value);
+    outputEl.value = result;
+    setStatus(result ? 'HTML formatted' : 'Ready', result ? true : null);
   });
-  document.getElementById('clearBtn').addEventListener('click', function() {
-    inputEl.value = ''; outputArea.innerHTML = ''; setStatus('Ready'); inputEl.focus();
+
+  clearBtn.addEventListener('click', function() {
+    inputEl.value = ''; outputEl.value = ''; setStatus('Ready'); inputEl.focus();
   });
-  document.getElementById('formatBtn').addEventListener('click', function() { render('highlighted'); });
-  document.getElementById('minifyBtn').addEventListener('click', function() {
-    var m = minify(inputEl.value);
-    lastText = m;
-    outputArea.innerHTML = '<textarea readonly style="width:100%;min-height:280px;border:1px solid var(--border);border-radius:8px;padding:12px;font-family:ui-monospace,Consolas,Menlo,monospace;font-size:13px;line-height:1.6">' + escapeHtml(m) + '</textarea>';
-    setStatus('Minified (' + (new Blob([m]).size) + ' bytes)', true);
+
+  sampleBtn.addEventListener('click', function() {
+    inputEl.value = '<!DOCTYPE html><html><head><title>Sample page</title><meta charset="UTF-8"><link rel="stylesheet" href="style.css"></head><body><div class="container"><h1>Hello World</h1><p>This is a <strong>sample</strong> HTML document used by the formatter.</p><br><p>Try it out by clicking the <em>Format</em> button.</p></div></body></html>';
+    outputEl.value = '';
+    setStatus('Sample loaded');
   });
-  document.getElementById('toMdBtn').addEventListener('click', function() { render('markdown'); });
-  indentEl.addEventListener('change', function() { render(); });
-  document.querySelectorAll('[data-view]').forEach(function(btn) {
-    btn.addEventListener('click', function() { render(btn.getAttribute('data-view')); });
-  });
-  document.getElementById('copyBtn').addEventListener('click', function() {
-    var txt = lastText || format(inputEl.value);
-    if (!txt) return;
+
+  copyBtn.addEventListener('click', function() {
+    if (!outputEl.value) return;
     if (navigator.clipboard) {
-      navigator.clipboard.writeText(txt).then(function() { setStatus('Copied', true); });
+      navigator.clipboard.writeText(outputEl.value).then(function() {
+        copyBtn.textContent = 'Copied!';
+        setTimeout(function() { copyBtn.textContent = 'Copy'; }, 1200);
+      });
     } else {
-      var ta = document.createElement('textarea'); ta.value = txt; document.body.appendChild(ta); ta.select();
-      try { document.execCommand('copy'); setStatus('Copied', true); } catch(e) { setStatus('Copy failed', false); }
-      document.body.removeChild(ta);
+      outputEl.select(); document.execCommand('copy');
+      copyBtn.textContent = 'Copied!';
+      setTimeout(function() { copyBtn.textContent = 'Copy'; }, 1200);
     }
   });
-  document.getElementById('downloadBtn').addEventListener('click', function() {
-    var txt = lastText || format(inputEl.value);
-    if (!txt) return;
-    var ext = currentView === 'markdown' ? 'md' : 'html';
-    var mime = currentView === 'markdown' ? 'text/markdown' : 'text/html';
-    var blob = new Blob([txt], { type: mime });
-    var url = URL.createObjectURL(blob);
-    var a = document.createElement('a');
-    a.href = url; a.download = 'output.' + ext;
-    document.body.appendChild(a); a.click(); document.body.removeChild(a);
-    setTimeout(function() { URL.revokeObjectURL(url); }, 1000);
-  });
-  inputEl.addEventListener('input', function() { render(); });
-  render();
 })();
 </script>
 </body>

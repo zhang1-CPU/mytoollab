@@ -1,739 +1,297 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <meta charset="UTF-8" />
- <meta name="viewport" content="width=device-width, initial-scale=1.0" />
- <title>Scientific Calculator – Advanced Math with Sin, Cos, Log & Exponents | zlbox</title>
- <meta name="description" content="Free online scientific calculator for trigonometry (sin, cos, tan), logarithms (log, ln), exponents, square roots, factorials, and parentheses expression evaluation." />
- <link rel="stylesheet" href="../../css/components.css" />
- <link rel="canonical" href="https://www.zlbox.site/tools/calculator/scientific-calculator.html" />
- <meta name="google-site-verification" content="google4bd1e8685667667" />
- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
-<script>
-/* Navigation toggle for mobile */
-(function() {
-  var toggle = document.querySelector('.nav-toggle');
-  var navLinks = document.querySelector('.nav-links');
-  if (!toggle || !navLinks) return;
-  toggle.addEventListener('click', function() {
-    var isOpen = navLinks.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', isOpen);
-  });
-  var path = location.pathname;
-  document.querySelectorAll('.nav-link').forEach(function(link) {
-    var href = link.getAttribute('href');
-    if (href && (path === href || path.indexOf(href.replace('/index.html','')) > -1)) {
-      link.classList.add('active');
-    }
-  });
-})();
-</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scientific Calculator – Advanced Math with Sin, Cos, Log & Exponents | My Tool Lab</title>
+  <meta name="description" content="Free online scientific calculator for trigonometry (sin, cos, tan), logarithms (log, ln), exponents, square roots, factorials, percentages, and parentheses expression evaluation." />
+  <link rel="stylesheet" href="../../_css/components.css" />
+  <link rel="canonical" href="https://www.zlbox.site/tools/calculator/scientific-calculator.html" />
+  <meta name="google-site-verification" content="google4bd1e08685667667" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
 
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <meta property="og:title" content="Scientific Calculator – Advanced Math with Sin, Cos, Log & Exponents | zlbox" />
-  <meta property="og:description" content="Free online scientific calculator for trigonometry (sin, cos, tan), logarithms (log, ln), exponents, square roots, factorials, and parentheses expression evaluation." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.zlbox.site/tools/calculator/scientific-calculator.html" />
-  <meta property="og:site_name" content="zlbox" />
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Scientific Calculator – Advanced Math with Sin, Cos, Log & Exponents", "description": "Free online scientific calculator for trigonometry (sin, cos, tan), logarithms (log, ln), exponents, square roots, factorials, and parentheses expression evaluation.", "url": "https://www.zlbox.site/tools/calculator/scientific-calculator.html", "applicationCategory": "Calculator Tool", "operatingSystem": "Any (browser-based)", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "browserRequirements": "Requires a modern web browser with JavaScript enabled."}</script>
-
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.zlbox.site/"}, {"@type": "ListItem", "position": 2, "name": "Calculator Tools", "item": "https://www.zlbox.site/categories/calculator.html"}]}</script>
-
-  
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.zlbox.site/"},{"@type":"ListItem","position":2,"name":"Calculator Tools","item":"https://www.zlbox.site/categories/calculator.html"},{"@type":"ListItem","position":3,"name":"Scientific Calculator"}]}</script>
-  <style>
-/* ── Site Navigation ── */
-.site-nav {
-  position: sticky; top: 0; z-index: 100;
-  background: rgba(255,255,255,.97);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--border);
-  box-shadow: 0 1px 4px rgba(0,0,0,.05);
-}
-.nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; align-items: center; gap: 8px; height: 52px; }
-.nav-logo { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 1rem; color: var(--brand); text-decoration: none; flex-shrink: 0; margin-right: 12px; }
-.nav-logo:hover { text-decoration: none; }
-.nav-logo-icon { width: 36px; height: 36px; background: var(--brand); color: #fff; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: .9rem; flex-shrink: 0; }
-.nav-logo-text { font-size: .95rem; }
-.nav-links { display: flex; align-items: center; gap: 2px; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none; flex: 1; }
-.nav-links::-webkit-scrollbar { display: none; }
-.nav-link { display: inline-flex; align-items: center; padding: 5px 10px; font-size: .82rem; font-weight: 500; color: var(--text); border-radius: 6px; white-space: nowrap; transition: all .15s; flex-shrink: 0; }
-.nav-link:hover { background: var(--brand); color: #fff; text-decoration: none; }
-.nav-link.active { background: #eff6ff; color: var(--brand); }
-.nav-toggle { display: none; flex-direction: column; justify-content: center; gap: 4px; width: 32px; height: 32px; padding: 4px; background: none; border: 1px solid var(--border); border-radius: 6px; cursor: pointer; flex-shrink: 0; margin-left: auto; }
-.nav-toggle span { display: block; width: 100%; height: 2px; background: var(--text); border-radius: 1px; }
-@media (max-width: 768px) {
-  .nav-logo-text { display: none; }
-  .nav-inner { gap: 6px; }
-  .nav-toggle { display: flex; }
-  .nav-links { display: none; position: absolute; top: 52px; left: 0; right: 0; background: #fff; border-bottom: 1px solid var(--border); box-shadow: 0 4px 12px rgba(0,0,0,.1); flex-direction: column; align-items: flex-start; padding: 8px 0; z-index: 99; overflow: visible; }
-  .nav-links.open { display: flex; }
-  .nav-link { width: 100%; padding: 10px 20px; font-size: .9rem; border-radius: 0; }
-}
-
-/* ── Calculator styles ── */
-.calc-display {
-  background: #1f2937; color: #fff; border-radius: 10px;
-  padding: 14px 16px; margin-bottom: 12px;
-  display: flex; flex-direction: column; gap: 6px;
-  min-height: 96px;
-}
-.calc-display .expr { font-size: .9rem; color: #9ca3af; word-break: break-all; line-height: 1.4; }
-.calc-display .cur { font-size: 2.1rem; font-weight: 700; word-break: break-all; }
-
-.calc-toolbar {
-  display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-bottom: 10px;
-}
-.calc-mode { display: inline-flex; border: 1px solid var(--border); border-radius: 6px; overflow: hidden; }
-.calc-mode button {
-  appearance: none; background: #fff; border: none; padding: 6px 14px; font-size: .85rem; cursor: pointer; font-family: inherit; color: var(--text);
-}
-.calc-mode button.is-active { background: var(--brand); color: #fff; }
-.calc-equals { flex: 0 0 auto; }
-
-.calc-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 8px;
-}
-.calc-btn {
-  appearance: none; border: 1px solid var(--border); background: #fff;
-  color: var(--text); border-radius: 8px; padding: 12px 6px;
-  font-size: 1rem; font-weight: 600; cursor: pointer; transition: all .12s ease;
-  user-select: none; font-family: inherit;
-}
-.calc-btn:hover { background: #f3f4f6; border-color: #d1d5db; }
-.calc-btn:active { transform: translateY(1px); background: #e5e7eb; }
-.calc-btn--fn { background: #eef2ff; color: #3730a3; border-color: #c7d2fe; font-size: .9rem; }
-.calc-btn--fn:hover { background: #e0e7ff; }
-.calc-btn--op { background: #fef3c7; color: #92400e; border-color: #fde68a; }
-.calc-btn--op:hover { background: #fde68a; }
-.calc-btn--eq { background: var(--brand); color: #fff; border-color: var(--brand); }
-.calc-btn--eq:hover { opacity: .92; }
-.calc-btn--clear { background: #fee2e2; color: #991b1b; border-color: #fecaca; }
-.calc-btn--clear:hover { background: #fecaca; }
-
-@media (max-width: 640px) {
-  .calc-grid { grid-template-columns: repeat(4, 1fr); }
-  .calc-btn { padding: 10px 4px; font-size: .95rem; }
-  .calc-display .cur { font-size: 1.6rem; }
-}
-  </style>
   <meta property="og:image" content="https://www.zlbox.site/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Scientific Calculator – Advanced Math with Sin, Cos, Log & Exponents" />
-  <meta name="twitter:description" content="Free online scientific calculator for trigonometry (sin, cos, tan), logarithms (log, ln), exponents, square roots, factorials, and parentheses expression evaluation." />
+  <meta name="twitter:title" content="Scientific Calculator" />
+  <meta name="twitter:description" content="Advanced math calculator" />
   <meta name="twitter:image" content="https://www.zlbox.site/og-image.png" />
 
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
   <meta name="robots" content="index, follow" />
-  <script type="application/ld+json">{
-  "@context": "https://schema.org",
-  "@type": "HowTo",
-  "name": "How to Use Scientific Calculator",
-  "description": "Step by step guide: How to Use Scientific Calculator",
-  "step": [
-    {"@type": "HowToStep", "name": "Enter calculation", "text": "Use the keypad or keyboard to enter your mathematical expression.", "position": 1},
-    {"@type": "HowToStep", "name": "Use advanced functions", "text": "Access trigonometric, logarithmic, and other scientific functions.", "position": 2},
-    {"@type": "HowToStep", "name": "Get result", "text": "Press Enter or '=' to calculate the result.", "position": 3}
-  ]
-}</script>
+
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Scientific Calculator", "description": "Advanced math calculator", "url": "https://www.zlbox.site/tools/calculator/scientific-calculator.html", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9V6L0Z956X"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-9V6L0Z956X');</script>
 </head>
 <body>
-
-  <nav class="site-nav" aria-label="Main navigation">
-    <div class="nav-inner">
-      <a href="/" class="nav-logo" aria-label="zlbox Home">
-        <span class="nav-logo-icon">zl</span>
-        <span class="nav-logo-text">zlbox</span>
-      </a>
-      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-      <div class="nav-links" role="list">
-        <a href="/tools/index.html" class="nav-link" role="listitem">All Tools</a>
-        <a href="/categories/text.html" class="nav-link" role="listitem">Text</a>
-        <a href="/categories/calculator.html" class="nav-link" role="listitem">Calculator</a>
-        <a href="/categories/generator.html" class="nav-link" role="listitem">Generator</a>
-        <a href="/categories/image.html" class="nav-link" role="listitem">Image</a>
-        <a href="/categories/pdf.html" class="nav-link" role="listitem">PDF</a>
-        <a href="/blog/index.html" class="nav-link" role="listitem">Blog</a>
-      </div>
-    </div>
-  </nav>
-
 <div class="container-md">
- <div class="hero">
- <div class="breadcrumb"><a href="../../index.html">Home</a> &rsaquo; <a href="../../categories/calculator.html">Calculator Tools</a> &rsaquo; Scientific Calculator</div>
- <h1>Scientific Calculator</h1>
- <p>Solve advanced math problems — trigonometry, logarithms, exponents, factorials, and percentage calculations — all in one compact calculator.</p>
- </div>
-
- <div class="card">
-  <div class="calc-display">
-    <div class="expr" id="expr">&nbsp;</div>
-    <div class="cur" id="cur">0</div>
+  <div class="hero">
+    <div class="breadcrumb"><a href="../../index.html">Home</a> &rsaquo; <a href="../../index.html">Calculator Tools</a> &rsaquo; Scientific Calculator</div>
+    <h1>Scientific Calculator</h1>
+    <p>Solve advanced math problems — trigonometry, logarithms, exponents, factorials, and percentage calculations — all in one compact calculator.</p>
   </div>
 
-  <div class="calc-toolbar">
-    <div class="calc-mode" role="group" aria-label="Angle mode">
-      <button id="mode-deg" class="is-active" type="button">Deg</button>
-      <button id="mode-rad" type="button">Rad</button>
+  <div class="card">
+    <div class="calc-display">
+      <div class="expr" id="expr">&nbsp;</div>
+      <div class="cur" id="cur">0</div>
     </div>
-    <span style="color:#6b7280;font-size:.85rem;">Switch angle unit for sin, cos, tan, asin, acos, atan.</span>
+    <div class="keys keys--5">
+      <button class="key" data-k="sin(">sin</button>
+      <button class="key" data-k="cos(">cos</button>
+      <button class="key" data-k="tan(">tan</button>
+      <button class="key" data-k="log(">log</button>
+      <button class="key" data-k="ln(">ln</button>
+      <button class="key" data-k="sqrt(">&radic;</button>
+      <button class="key" data-k="sqr">x&sup2;</button>
+      <button class="key" data-k="pow">x<sup>y</sup></button>
+      <button class="key" data-k="pi">&pi;</button>
+      <button class="key" data-k="e">e</button>
+      <button class="key" data-k="fact">n!</button>
+      <button class="key" data-k="(">(</button>
+      <button class="key" data-k=")">)</button>
+      <button class="key key--op" data-k="%">%</button>
+      <button class="key key--clear" data-k="C">C</button>
+      <button class="key" data-k="7">7</button>
+      <button class="key" data-k="8">8</button>
+      <button class="key" data-k="9">9</button>
+      <button class="key key--op" data-k="/">÷</button>
+      <button class="key key--clear" data-k="DEL">⌫</button>
+      <button class="key" data-k="4">4</button>
+      <button class="key" data-k="5">5</button>
+      <button class="key" data-k="6">6</button>
+      <button class="key key--op" data-k="*">×</button>
+      <button class="key" data-k=".">.</button>
+      <button class="key" data-k="1">1</button>
+      <button class="key" data-k="2">2</button>
+      <button class="key" data-k="3">3</button>
+      <button class="key key--op" data-k="-">−</button>
+      <button class="key key--op" data-k="+">+</button>
+      <button class="key" data-k="0" style="grid-column:span 2;">0</button>
+      <button class="key" data-k="00">00</button>
+      <button class="key key--eq" data-k="=" style="grid-column:span 2;">=</button>
+    </div>
   </div>
 
-  <div class="calc-grid">
-    <button class="calc-btn calc-btn--fn" data-insert="sin(">sin</button>
-    <button class="calc-btn calc-btn--fn" data-insert="cos(">cos</button>
-    <button class="calc-btn calc-btn--fn" data-insert="tan(">tan</button>
-    <button class="calc-btn calc-btn--fn" data-insert="log(">log</button>
-    <button class="calc-btn calc-btn--fn" data-insert="ln(">ln</button>
-    <button class="calc-btn calc-btn--fn" data-insert="asin(">sin⁻¹</button>
-    <button class="calc-btn calc-btn--fn" data-insert="acos(">cos⁻¹</button>
-    <button class="calc-btn calc-btn--fn" data-insert="atan(">tan⁻¹</button>
-    <button class="calc-btn calc-btn--fn" data-insert="exp(">eˣ</button>
-    <button class="calc-btn calc-btn--fn" data-insert="sqrt(">√</button>
-    <button class="calc-btn calc-btn--fn" data-insert="pow(">xʸ</button>
-    <button class="calc-btn calc-btn--fn" data-insert="!">n!</button>
-    <button class="calc-btn calc-btn--fn" data-insert="pi">π</button>
-    <button class="calc-btn calc-btn--fn" data-insert="e">e</button>
-    <button class="calc-btn calc-btn--fn" data-insert="(-)">±</button>
-    <button class="calc-btn calc-btn--clear" data-insert="C">C</button>
-    <button class="calc-btn calc-btn--clear" data-insert="DEL">⌫</button>
-    <button class="calc-btn calc-btn--op" data-insert="(">(</button>
-    <button class="calc-btn calc-btn--op" data-insert=")">)</button>
-    <button class="calc-btn calc-btn--op" data-insert="/">÷</button>
-    <button class="calc-btn" data-insert="7">7</button>
-    <button class="calc-btn" data-insert="8">8</button>
-    <button class="calc-btn" data-insert="9">9</button>
-    <button class="calc-btn calc-btn--op" data-insert="*">×</button>
-    <button class="calc-btn calc-btn--clear" data-insert="%">%</button>
-    <button class="calc-btn" data-insert="4">4</button>
-    <button class="calc-btn" data-insert="5">5</button>
-    <button class="calc-btn" data-insert="6">6</button>
-    <button class="calc-btn calc-btn--op" data-insert="-">−</button>
-    <button class="calc-btn calc-btn--fn" data-insert=".">.</button>
-    <button class="calc-btn" data-insert="1">1</button>
-    <button class="calc-btn" data-insert="2">2</button>
-    <button class="calc-btn" data-insert="3">3</button>
-    <button class="calc-btn calc-btn--op" data-insert="+">+</button>
-    <button class="calc-btn calc-btn--eq" data-insert="=">=</button>
-    <button class="calc-btn" data-insert="0">0</button>
-    <button class="calc-btn" data-insert="00">00</button>
+  <div class="section">
+    <h2>How it works</h2>
+    <ol class="steps">
+      <li>Click or tap keys to build your expression; trig functions expect degrees (e.g., sin(30) = 0.5).</li>
+      <li>Use parentheses ( ) to control the order of evaluation and compose nested math.</li>
+      <li>Press <strong>=</strong> or hit <strong>Enter</strong> to compute. Use <strong>C</strong> to clear or <strong>⌫</strong> to delete the last character.</li>
+    </ol>
   </div>
- </div>
 
- <div class="section">
-  <h2>How it works</h2>
-  <p>Click or tap keys to build your expression. Use parentheses to control the order of evaluation and compose nested math. Use <strong>=</strong> or <strong>Enter</strong> to compute; <strong>C</strong> clears; <strong>⌫</strong> removes the last token. Switch between <strong>Deg</strong> / <strong>Rad</strong> for trigonometric functions.</p>
- </div>
-
-<section class="tool-info" aria-label="Tool information">
-  <h2>What is Scientific Calculator?</h2>
-  <p>A scientific calculator performs advanced mathematical operations including trigonometry (sin, cos, tan, and their inverses), logarithms (base-10 and natural), exponents, roots, factorials, and more. The angle mode (Degrees or Radians) controls trig input/output.</p>
-  <h2>How to use</h2>
-  <ol class="steps-list">
-  <li>Use the numeric pad for basic input; you can also type directly on your keyboard (0-9 + - * / . ( ) ^ ! Enter Backspace Esc).</li>
-  <li>Select DEG or RAD mode depending on whether your trigonometric input is in degrees or radians.</li>
-  <li>Click function buttons (sin, cos, log, ln, sqrt, etc.) — they automatically append a parenthesis. Close parentheses manually.</li>
-  <li>Use <strong>xʸ</strong> for exponentiation and <strong>n!</strong> for factorials. Use <strong>π</strong> and <strong>e</strong> for constants.</li>
-  <li>Press <strong>=</strong> or Enter to evaluate. The result appears at the bottom; the original expression appears at the top.</li>
-  </ol>
-  <h2>Use cases</h2>
-  <ul class="usecase-list">
-  <li>Engineering and physics homework and coursework.</li>
-  <li>Scientific research calculations and data analysis.</li>
-  <li>Financial modeling with exponential functions and logarithms.</li>
-  <li>Programming and computer science calculations.</li>
-  </ul>
-  <h2>Frequently Asked Questions</h2>
-  <div class="faq">
-  <details class="faq-item"><summary>What's the difference between DEG and RAD?</summary><p>DEG (Degrees) interprets trig input using 0-360° per full circle. RAD (Radians) uses 0-2π. Use DEG for everyday unit conversions; use RAD for calculus and advanced math.</p></details>
-  <details class="faq-item"><summary>Can I use constants like π and e?</summary><p>Yes. Click <strong>π</strong> for Pi (3.14159…) and <strong>e</strong> for Euler's number (2.71828…). The <strong>eˣ</strong> button inserts exp(, which computes e raised to a value.</p></details>
-  <details class="faq-item"><summary>Does it support parentheses?</summary><p>Yes. You can nest multiple levels of parentheses for complex expressions.</p></details>
-  <details class="faq-item"><summary>What is the operator precedence?</summary><p>Parentheses first, then functions and factorials, then exponentiation right-associative, then × ÷, then + −. Unary minus is supported.</p></details>
+  <div class="section">
+    <h2>Related tools</h2>
+    <div class="related-grid">
+      <a href="basic-calculator.html">Basic Calculator</a>
+      <a href="percentage-calculator.html">Percentage Calculator</a>
+      <a href="age-calculator.html">Age Calculator</a>
+      <a href="unit-converter.html">Unit Converter</a>
+      <a href="bmi-calculator.html">BMI Calculator</a>
+      <a href="loan-calculator.html">Loan Calculator</a>
+    </div>
   </div>
-</section>
 
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What's the difference between DEG and RAD?","acceptedAnswer":{"@type":"Answer","text":"DEG (Degrees) interprets trig input using 0-360° per full circle. RAD (Radians) uses 0-2π. Use DEG for everyday unit conversions; use RAD for calculus and advanced math."}},{"@type":"Question","name":"Can I use constants like π and e?","acceptedAnswer":{"@type":"Answer","text":"Yes. Click π for Pi and e for Euler's number. Use eˣ for exponentiation."}},{"@type":"Question","name":"Does it support parentheses?","acceptedAnswer":{"@type":"Answer","text":"Yes, you can nest multiple levels of parentheses for complex expressions."}}]}
-</script>
-
- <div class="section">
-  <h2>Related tools</h2>
-  <div class="related-grid">
-    <a href="basic-calculator.html">Basic Calculator</a>
-    <a href="percentage-calculator.html">Percentage Calculator</a>
-    <a href="age-calculator.html">Age Calculator</a>
-    <a href="unit-converter.html">Unit Converter</a>
-    <a href="bmi-calculator.html">BMI Calculator</a>
-    <a href="loan-calculator.html">Loan Calculator</a>
-  </div>
- </div>
-
-<footer class="footer">
- <div class="footer-links">
- <a href="basic-calculator.html">Basic Calculator</a>
- <a href="percentage-calculator.html">Percentage Calculator</a>
- <a href="age-calculator.html">Age Calculator</a>
- <span style="color:var(--border);margin:0 6px">|</span>
- <a href="../../about.html">About</a>
- <a href="../../privacy.html">Privacy</a>
- <a href="../../disclaimer.html">Disclaimer</a>
- </div>
- <p class="footer-copy">&copy; 2026 zlbox. All rights reserved.</p>
-</footer>
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="basic-calculator.html">Basic Calculator</a>
+      <a href="percentage-calculator.html">Percentage Calculator</a>
+      <a href="age-calculator.html">Age Calculator</a>
+      <span style="color:var(--border);margin:0 6px">|</span>
+      <a href="../../about.html">About</a>
+      <a href="../../privacy.html">Privacy</a>
+      <a href="../../disclaimer.html">Disclaimer</a>
+    </div>
+    <p class="footer-copy">&copy; 2026 My Tool Lab. All rights reserved.</p>
+  </footer>
 </div>
 
 <script>
 (function(){
-  'use strict';
+  var cur='0', expr='';
+  var curEl=document.getElementById('cur');
+  var exprEl=document.getElementById('expr');
+  var justEvaluated=false;
 
-  // ── Expression-based calculator using Shunting-Yard ──
-  // expr 存储用户输入的规范化字符串（仅使用内部符号：+ - * / ^ ! ( ) 数字 小数点 以及函数名字 如 sin cos）
-  // display 则基于 expr 做更友好的展示（× ÷ π e 等）
-
-  var exprEl = document.getElementById('expr');
-  var curEl  = document.getElementById('cur');
-  var expr = '';          // 例如 "sin(pi/2) + 3!"
-  var angleMode = 'deg';  // 'deg' or 'rad'
-
-  // 按钮插入文本 → 规范化文本的映射。默认 data-insert 字符原样加入 expr。
-  // 特别处理：π → 'pi'，× → '*'，÷ → '/'，− → '-'，"(-)" → 在 expr 前插入 unary minus context
-
-  function fmtNumber(n){
-    if (isNaN(n)) return 'Error';
-    if (!isFinite(n)) return 'Error';
-    var rounded = Math.round(n * 1e12) / 1e12;
-    return rounded.toLocaleString(undefined, { maximumFractionDigits: 10 });
+  function displayExpr(s){
+    return s.replace(/\*/g,'×').replace(/\//g,'÷').replace(/-/g,'−');
   }
-
-  function displayFromExpr(s){
-    // 把内部 expr 转为用户可读的形式
-    // pi → π, e( → exp( 不替换，函数名不变；运算符 *→×, /→÷
-    var out = s;
-    out = out.replace(/\bpi\b/g, '\u03C0');
-    out = out.replace(/\bexp\(/g, 'e^(');
-    out = out.replace(/\*/g, '\u00D7').replace(/\//g, '\u00F7');
-    return out;
-  }
-
   function render(){
-    exprEl.innerHTML = expr ? displayFromExpr(expr) + ' ' : '&nbsp;';
-    // 当前值 = 实时尝试计算
-    if (expr === ''){ curEl.textContent = '0'; return; }
-    var r = safeEvaluate(expr);
-    if (r === null || isNaN(r) || !isFinite(r)){
-      // 保留上一次合法显示
-      curEl.textContent = curEl.dataset.last || '…';
-    } else {
-      var formatted = fmtNumber(r);
-      curEl.textContent = formatted;
-      curEl.dataset.last = formatted;
-    }
+    curEl.textContent=cur;
+    exprEl.innerHTML=expr?displayExpr(expr):'&nbsp;';
   }
-
-  // ── Tokenizer ──
-  // token 类型: 'num', 'op', 'lparen', 'rparen', 'func', 'fac'
-  var FUNCTIONS = ['sin','cos','tan','asin','acos','atan','log','ln','exp','sqrt','pow'];
-
-  function tokenize(s){
-    var tokens = [];
-    var i = 0;
-    s = s.replace(/\s+/g, '');
-    while (i < s.length){
-      var ch = s[i];
-      // number
-      if (/[0-9.]/.test(ch)){
-        var j = i;
-        while (j < s.length && /[0-9.]/.test(s[j])) j++;
-        var num = s.substring(i, j);
-        var n = parseFloat(num);
-        if (isNaN(n)) return null;
-        tokens.push({t:'num', v:n});
-        i = j;
-        continue;
-      }
-      // identifier: function name / pi / e
-      if (/[a-zA-Z]/.test(ch)){
-        var j2 = i;
-        while (j2 < s.length && /[a-zA-Z0-9]/.test(s[j2])) j2++;
-        var word = s.substring(i, j2);
-        if (word === 'pi'){
-          tokens.push({t:'num', v:Math.PI});
-        } else if (word === 'e'){
-          tokens.push({t:'num', v:Math.E});
-        } else if (FUNCTIONS.indexOf(word) !== -1){
-          tokens.push({t:'func', v:word});
-        } else {
-          return null;
-        }
-        i = j2;
-        continue;
-      }
-      if (ch === '+' || ch === '-' || ch === '*' || ch === '/' || ch === '^'){
-        tokens.push({t:'op', v:ch});
-        i++; continue;
-      }
-      if (ch === '('){ tokens.push({t:'lparen'}); i++; continue; }
-      if (ch === ')'){ tokens.push({t:'rparen'}); i++; continue; }
-      if (ch === '!'){ tokens.push({t:'fac'}); i++; continue; }
-      return null; // 不识别字符
-    }
-    // 处理 unary minus: "-x" 或 "(-x)" 或 "op - x"
-    var normalized = [];
-    for (var k=0; k<tokens.length; k++){
-      var tk = tokens[k];
-      if (tk.t === 'op' && tk.v === '-'){
-        var prev = normalized[normalized.length - 1];
-        var isUnary = !prev || prev.t === 'op' || prev.t === 'lparen' || prev.t === 'func';
-        if (isUnary){
-          // 插入 -1 *
-          normalized.push({t:'num', v:-1});
-          normalized.push({t:'op', v:'*'});
-          continue;
-        }
-      }
-      // unary plus: 忽略
-      if (tk.t === 'op' && tk.v === '+'){
-        var prev2 = normalized[normalized.length - 1];
-        var isUnary2 = !prev2 || prev2.t === 'op' || prev2.t === 'lparen' || prev2.t === 'func';
-        if (isUnary2) continue;
-      }
-      normalized.push(tk);
-    }
-    return normalized;
-  }
-
-  // ── Shunting-Yard ──
-  // 优先级: ^ (4, right) > * / (3, left) > + - (2, left)
-  // 函数 (隐式 5) 与 阶乘 (6)
-  function precedence(op){
-    if (op === '+' || op === '-') return 2;
-    if (op === '*' || op === '/') return 3;
-    if (op === '^') return 4;
-    return 0;
-  }
-  function rightAssoc(op){ return op === '^'; }
-
-  function toRPN(tokens){
-    var out = [];
-    var stack = [];
-    for (var i=0;i<tokens.length;i++){
-      var tk = tokens[i];
-      if (tk.t === 'num') out.push(tk);
-      else if (tk.t === 'func') stack.push(tk);
-      else if (tk.t === 'op'){
-        while (stack.length){
-          var top = stack[stack.length - 1];
-          if (top.t === 'func'){ out.push(stack.pop()); continue; }
-          if (top.t === 'op'){
-            var pTop = precedence(top.v);
-            var pCur = precedence(tk.v);
-            if (pTop > pCur || (pTop === pCur && !rightAssoc(tk.v))){
-              out.push(stack.pop());
-              continue;
-            }
-          }
-          break;
-        }
-        stack.push(tk);
-      }
-      else if (tk.t === 'lparen') stack.push(tk);
-      else if (tk.t === 'rparen'){
-        while (stack.length && stack[stack.length - 1].t !== 'lparen'){
-          out.push(stack.pop());
-        }
-        if (stack.length === 0) return null; // 不匹配
-        stack.pop(); // 丢左括号
-        // 如果顶部是函数 → 弹出
-        if (stack.length && stack[stack.length - 1].t === 'func'){
-          out.push(stack.pop());
-        }
-      }
-      else if (tk.t === 'fac'){
-        // 立即把阶乘当作对前一个数字/组的一元操作 → 输出一个特殊 op token
-        out.push({t:'uop', v:'!'});
-      }
-    }
-    while (stack.length){
-      var top = stack[stack.length - 1];
-      if (top.t === 'lparen' || top.t === 'rparen') return null;
-      out.push(stack.pop());
-    }
-    return out;
-  }
-
-  // ── RPN evaluator ──
-  // pow: 接受两个参数; 其他单参数函数接受一个参数
-  function applyFunction(name, args){
-    for (var i=0;i<args.length;i++){
-      if (!isFinite(args[i])) return NaN;
-    }
-    var toRad = function(x){ return angleMode === 'deg' ? x * Math.PI / 180 : x; };
-    var fromRad = function(x){ return angleMode === 'deg' ? x * 180 / Math.PI : x; };
-    switch(name){
-      case 'sin': return Math.sin(toRad(args[0]));
-      case 'cos': return Math.cos(toRad(args[0]));
-      case 'tan': return Math.tan(toRad(args[0]));
-      case 'asin': return fromRad(Math.asin(args[0]));
-      case 'acos': return fromRad(Math.acos(args[0]));
-      case 'atan': return fromRad(Math.atan(args[0]));
-      case 'log': return args[0] > 0 ? Math.log(args[0]) / Math.LN10 : NaN;
-      case 'ln':  return args[0] > 0 ? Math.log(args[0]) : NaN;
-      case 'exp': return Math.exp(args[0]);
-      case 'sqrt': return args[0] >= 0 ? Math.sqrt(args[0]) : NaN;
-      case 'pow': return Math.pow(args[0], args[1]);
-      default: return NaN;
-    }
+  function isOp(c){return c==='+'||c==='-'||c==='*'||c==='/';}
+  function isLastCharDigitOrClose(){
+    var t=(expr+cur).replace(/\s/g,'');
+    return t.length===0 || /[0-9.)!]$/.test(t);
   }
 
   function factorial(n){
-    if (!isFinite(n)) return NaN;
-    if (n < 0) return NaN;
-    if (n > 170) return Infinity;
-    var rounded = Math.round(n);
-    // 若与原值差超过小阈值则是小数，拒绝
-    if (Math.abs(n - rounded) > 1e-9) return NaN;
-    var r = 1;
-    for (var i=2;i<=rounded;i++) r *= i;
-    return r;
+    if(n<0||isNaN(n)||n%1!==0) return NaN;
+    if(n>170) return Infinity;
+    var r=1; for(var i=2;i<=n;i++) r*=i; return r;
   }
 
-  function evaluateRPN(rpn){
-    var stack = [];
-    for (var i=0;i<rpn.length;i++){
-      var tk = rpn[i];
-      if (tk.t === 'num') stack.push(tk.v);
-      else if (tk.t === 'uop' && tk.v === '!'){
-        if (stack.length === 0) return NaN;
-        var x = stack.pop();
-        stack.push(factorial(x));
-      }
-      else if (tk.t === 'op'){
-        if (stack.length < 2) return NaN;
-        var b = stack.pop(), a = stack.pop();
-        if (!isFinite(a) || !isFinite(b)) return NaN;
-        var r;
-        switch(tk.v){
-          case '+': r = a + b; break;
-          case '-': r = a - b; break;
-          case '*': r = a * b; break;
-          case '/':
-            if (b === 0) return NaN;
-            r = a / b; break;
-          case '^': r = Math.pow(a, b); break;
-          default: return NaN;
+  function preprocess(s){
+    s=s.replace(/\s+/g,'');
+    if(!s) return '';
+    // factorial: convert n! -> fact(n)  (scan from right)
+    while(s.indexOf('!')>=0){
+      var idx=s.indexOf('!');
+      // find start of number/grouping before !
+      var j=idx-1;
+      if(j>=0 && s.charAt(j)===')'){
+        // match paren
+        var depth=1; j--;
+        while(j>=0 && depth>0){
+          if(s.charAt(j)===')') depth++;
+          else if(s.charAt(j)==='(') depth--;
+          if(depth===0) break;
+          j--;
         }
-        stack.push(r);
+        if(depth!==0) return null;
+        var inside=s.substring(j, idx); // includes outer parens
+        s=s.substring(0,j)+'fact('+inside.substring(1,inside.length-1)+')'+s.substring(idx+1);
+      } else {
+        while(j>=0 && /[0-9.]/.test(s.charAt(j))) j--;
+        var num=s.substring(j+1,idx);
+        s=s.substring(0,j+1)+'fact('+num+')'+s.substring(idx+1);
       }
-      else if (tk.t === 'func'){
-        // pow 需要 2 个参数；其他 1 个参数
-        if (tk.v === 'pow'){
-          if (stack.length < 2) return NaN;
-          var b2 = stack.pop(), a2 = stack.pop();
-          stack.push(applyFunction('pow', [a2, b2]));
-        } else {
-          if (stack.length < 1) return NaN;
-          var a3 = stack.pop();
-          stack.push(applyFunction(tk.v, [a3]));
+    }
+    // constants
+    s=s.replace(/\bpi\b/g,'('+Math.PI+')').replace(/(^|[^a-z])e(?![a-z0-9])/gi,function(m,c){return c+'('+Math.E+')';});
+    // square
+    s=s.replace(/\bsqr\(/g,'sqr(');
+    return s;
+  }
+
+  function safeEval(raw){
+    try{
+      var full=preprocess(raw);
+      if(full===null||!full) return 'Error';
+      // check 0^0
+      if(/\b0\s*\^\s*0\b/.test(full)) return 'Error';
+      // use ** for exponentiation
+      full=full.replace(/\^/g,'**');
+      var fnBody='"use strict"; var sin=function(x){var r=Math.sin(x*Math.PI/180);return Math.abs(r)<1e-12?0:r;}; var cos=function(x){var r=Math.cos(x*Math.PI/180);return Math.abs(r)<1e-12?0:r;}; var tan=function(x){var rad=x*Math.PI/180;if(Math.abs((x%180)-90)<1e-9)return NaN;return Math.tan(rad);}; var log=function(x){if(x<=0)return NaN;return Math.log10(x);}; var ln=function(x){if(x<=0)return NaN;return Math.log(x);}; var sqrt=function(x){if(x<0)return NaN;return Math.sqrt(x);}; var sqr=function(x){return x*x;}; var fact=function(x){var n=Math.floor(x);if(n<0||isNaN(n))return NaN;if(n>170)return Infinity;var r=1;for(var i=2;i<=n;i++)r*=i;return r;}; return('+full+')';
+      var r=Function(fnBody)();
+      if(!isFinite(r)||isNaN(r)) return 'Error';
+      // round to avoid floating error
+      var rounded=Math.round(r*1e12)/1e12;
+      return String(rounded);
+    }catch(e){ return 'Error'; }
+  }
+
+  function appendToCurOrExpr(s){
+    if(justEvaluated){ justEvaluated=false; expr=''; cur='0'; }
+    // decide whether to append to cur or to expr
+    // strategy: treat expr as "committed part", cur as currently editing token
+    cur=(cur==='0'&&/[0-9(]/.test(s.charAt(0))&&!(cur==='0'&&s==='('&&false))?s:cur+s;
+  }
+
+  function press(k){
+    if(k==='C'){ cur='0'; expr=''; justEvaluated=false; render(); return; }
+    if(k==='DEL'){
+      if(justEvaluated){ cur='0'; expr=''; justEvaluated=false; }
+      else if(cur.length>1) cur=cur.slice(0,-1);
+      else cur='0';
+      render(); return;
+    }
+    if(k==='='){
+      var full=expr+cur;
+      var out=safeEval(full);
+      expr=displayExpr(expr+cur)+' =';
+      cur=out;
+      justEvaluated=true;
+      render(); return;
+    }
+    if(k==='%'){
+      // treat % as dividing by 100 the last number typed
+      var m=cur.match(/(\d+(?:\.\d+)?)$/);
+      if(m){
+        var val=parseFloat(m[1])/100;
+        cur=cur.substring(0,cur.length-m[1].length)+String(val);
+      } else {
+        var em=expr.match(/(\d+(?:\.\d+)?)(\s*[+\-*/]\s*)?$/);
+        if(em){
+          var n=parseFloat(em[1])/100;
+          expr=expr.substring(0,expr.length-em[1].length-(em[2]?em[2].length:0))+String(n)+(em[2]?em[2]:'');
         }
       }
+      render(); return;
     }
-    if (stack.length !== 1) return NaN;
-    return stack[0];
-  }
-
-  function safeEvaluate(s){
-    try {
-      if (!s) return null;
-      var tokens = tokenize(s);
-      if (!tokens || tokens.length === 0) return null;
-      var rpn = toRPN(tokens);
-      if (!rpn) return null;
-      var r = evaluateRPN(rpn);
-      if (r === null || isNaN(r) || !isFinite(r)) return null;
-      return r;
-    } catch(e){
-      return null;
+    if(justEvaluated && /[0-9.]/.test(k)){
+      expr=''; cur='0'; justEvaluated=false;
+    } else if(justEvaluated){
+      justEvaluated=false;
+      if(cur!=='Error'){ expr=cur+' '; cur='0'; }
+      else { expr=''; cur='0'; }
     }
-  }
 
-  // ── 编辑操作 ──
-  // 在 expr 中插入文本；先判断是否需要补 *（隐式乘法）
-  function needsImplicitMultiply(before){
-    if (before === '') return false;
-    var last = before.charAt(before.length - 1);
-    if (/[0-9.]/.test(last)) return true;
-    if (last === ')') return true;
-    if (last === '!') return true;
-    // 紧跟在 pi 或 e 后面（通过字符判断：pi 最后一个字母是 i，e 后是 e）
-    if (last === 'i' || last === 'e') return true;
-    return false;
-  }
-
-  function insert(plain){
-    // 接受原始按钮 data-insert（包含 pi, !, (-), pow( 等）
-    if (plain === 'C'){ expr = ''; return; }
-    if (plain === 'DEL'){
-      // 删除最后一个 token（函数名整个删，数字整个删，符号/括号删一个）
-      // 简化：先删除最后一个字符；如果刚好删到函数名中间则再删到函数边界
-      if (expr.length === 0) return;
-      // 匹配末尾 token
-      var m = expr.match(/([a-zA-Z][a-zA-Z0-9]*|[0-9.]+|[^\s])\s*$/);
-      if (m){
-        var end = m[0].length;
-        expr = expr.substring(0, expr.length - end);
+    if(/^[0-9]+$/.test(k)){
+      cur=(cur==='0')?k:cur+k;
+    } else if(k==='.'){
+      if(cur.indexOf('.')===-1) cur+='.';
+    } else if(isOp(k)){
+      // commit cur to expr, then operator
+      var full=expr+cur;
+      if(/[+\-*/]\s*$/.test(expr)&&cur==='0'){
+        expr=expr.replace(/[+\-*/]\s*$/, k+' ');
       } else {
-        expr = expr.substring(0, expr.length - 1);
+        var left=safeEval(full);
+        if(left==='Error'){ cur='Error'; expr=''; render(); return; }
+        expr=left+' '+k+' '; cur='0';
       }
-      return;
-    }
-    if (plain === '='){
-      var r = safeEvaluate(expr);
-      if (r === null){
-        curEl.textContent = 'Error';
-        return;
-      }
-      var rounded = Math.round(r * 1e12) / 1e12;
-      expr = String(rounded);
-      return;
-    }
-    if (plain === '(-)'){
-      // 插入负号上下文：若末尾是数字/右括号/! → 插入 "*-1"
-      // 否则插入 "-1*"（用于函数前的一元负号）
-      if (needsImplicitMultiply(expr)){
-        expr += '*(-1)*';
+    } else if(k==='('){
+      // open a new group; if current is non-zero number, treat as implicit *
+      if(cur!=='0'){
+        expr=expr+cur+'*';
+        cur='(';
       } else {
-        expr += '-1*';
+        cur=(cur==='0')?'(':cur+'(';
       }
-      return;
+    } else if(k===')'){
+      cur=cur+')';
+    } else if(k==='pi'){
+      cur=(cur==='0')?'pi':cur+'pi';
+    } else if(k==='e'){
+      cur=(cur==='0')?'e':cur+'e';
+    } else if(k==='sqr'){
+      // square current number
+      if(cur==='0'){ cur='sqr('; }
+      else { cur='sqr('+cur+')'; }
+    } else if(k==='pow'){
+      // x^y: convert current number into exponent form, user continues editing exponent
+      expr=expr+cur+'^('; cur='0';
+    } else if(k==='fact'){
+      cur=cur+'!';
+    } else if(/^(sin|cos|tan|log|ln|sqrt)\($/.test(k)){
+      if(cur==='0') cur=k;
+      else cur=cur+k;
     }
-    // pow: 特殊处理 — pow 是二元函数，需要用逗号分隔参数
-    // 用户体验：按 xʸ 时把当前表达式作为第一个参数，开始第二个参数输入
-    // 实现简化：插入 "pow(expr_rest, " 不现实；我们采用 ^ 替代 pow。
-    // 所以 data-insert="pow(" 的按钮实际转成 "^(" 之前补括号把前序变成底数
-    if (plain === 'pow('){
-      if (expr === ''){ expr = '^('; return; }
-      // 取「最后一个数/括号组」作为底数，包裹为括号
-      // 简化：如果 expr 结尾是数字/标识符/!)，直接插入 "^("
-      var last = expr.charAt(expr.length - 1);
-      if (/[0-9.a-zA-Z!)]/.test(last)){
-        expr += '^(';
-      } else {
-        expr += '^(';
-      }
-      return;
-    }
-    if (plain === '!'){
-      expr += '!';
-      return;
-    }
-    if (plain === 'pi'){
-      if (needsImplicitMultiply(expr)) expr += '*';
-      expr += 'pi';
-      return;
-    }
-    if (plain === 'e'){
-      if (needsImplicitMultiply(expr)) expr += '*';
-      expr += 'e';
-      return;
-    }
-    // 数字或 '.'
-    if (/^[0-9.]$/.test(plain) || /^00$/.test(plain)){
-      // 避免重复小数点
-      if (plain === '.'){
-        // 取最后一个数字片段
-        var m2 = expr.match(/[0-9.]+$/);
-        if (m2 && m2[0].indexOf('.') !== -1) return;
-      }
-      // 如前面是 pi/e/)! → 插入 *
-      if (needsImplicitMultiply(expr)) expr += '*';
-      expr += plain;
-      return;
-    }
-    // 单字符运算符
-    if (/^[+\-*/^]$/.test(plain)){
-      expr += plain;
-      return;
-    }
-    // 括号
-    if (plain === '('){
-      if (needsImplicitMultiply(expr)) expr += '*';
-      expr += '(';
-      return;
-    }
-    if (plain === ')'){
-      expr += ')';
-      return;
-    }
-    // 百分号：把 "n%" 处理成 "(n/100)" — 简单处理：取最后一个数字
-    if (plain === '%'){
-      var m3 = expr.match(/([0-9.]+)([^0-9.]*)$/);
-      if (m3){
-        var numPart = m3[1];
-        var tail = m3[2];
-        var pos = expr.length - tail.length - numPart.length;
-        expr = expr.substring(0, pos) + '(' + numPart + '/100)' + tail;
-      }
-      return;
-    }
-    // 函数（以 ( 结尾）: sin(, cos(, tan(, asin(, acos(, atan(, log(, ln(, exp(, sqrt(
-    var match = plain.match(/^([a-z]+)\($/);
-    if (match){
-      var fn = match[1];
-      if (FUNCTIONS.indexOf(fn) !== -1){
-        if (needsImplicitMultiply(expr)) expr += '*';
-        expr += fn + '(';
-        return;
-      }
-    }
-    // 兜底：原样插入
-    expr += plain;
-  }
-
-  // ── Keyboard ──
-  document.addEventListener('keydown', function(e){
-    var k = e.key;
-    if (/^[0-9]$/.test(k)){ e.preventDefault(); insert(k); render(); return; }
-    if (k === '.'){ e.preventDefault(); insert('.'); render(); return; }
-    if (k === '+' || k === '-' || k === '*' || k === '/' || k === '^'){
-      e.preventDefault(); insert(k); render(); return;
-    }
-    if (k === '(' || k === ')'){ e.preventDefault(); insert(k); render(); return; }
-    if (k === '!'){ e.preventDefault(); insert('!'); render(); return; }
-    if (k === '%'){ e.preventDefault(); insert('%'); render(); return; }
-    if (k === 'Enter' || k === '='){ e.preventDefault(); insert('='); render(); return; }
-    if (k === 'Backspace'){ e.preventDefault(); insert('DEL'); render(); return; }
-    if (k === 'Escape'){ e.preventDefault(); insert('C'); render(); return; }
-  });
-
-  // ── Buttons ──
-  document.querySelectorAll('.calc-btn').forEach(function(btn){
-    btn.addEventListener('click', function(){
-      var v = btn.getAttribute('data-insert');
-      if (v) { insert(v); render(); }
-    });
-  });
-
-  // ── Mode switch ──
-  var degBtn = document.getElementById('mode-deg');
-  var radBtn = document.getElementById('mode-rad');
-  degBtn.addEventListener('click', function(){
-    angleMode = 'deg';
-    degBtn.classList.add('is-active');
-    radBtn.classList.remove('is-active');
     render();
-  });
-  radBtn.addEventListener('click', function(){
-    angleMode = 'rad';
-    radBtn.classList.add('is-active');
-    degBtn.classList.remove('is-active');
-    render();
-  });
+  }
 
+  document.querySelectorAll('.key').forEach(function(b){
+    b.addEventListener('click',function(){ press(b.getAttribute('data-k')); });
+  });
+  document.addEventListener('keydown',function(e){
+    var k=e.key;
+    if(/^[0-9]$/.test(k)) press(k);
+    else if(k==='.'||k==='+'||k==='-'||k==='*'||k==='/') press(k);
+    else if(k==='('||k===')') press(k);
+    else if(k==='Enter'||k==='='){ e.preventDefault(); press('='); }
+    else if(k==='Backspace') press('DEL');
+    else if(k==='Escape') press('C');
+    else if(k==='%') press('%');
+    else if(k==='^') press('pow');
+  });
   render();
 })();
 </script>

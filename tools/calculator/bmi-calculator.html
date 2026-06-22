@@ -1,488 +1,177 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <meta charset="UTF-8" />
- <meta name="viewport" content="width=device-width, initial-scale=1.0" />
- <title>BMI Calculator – Body Mass Index Metric / Imperial | zlbox</title>
- <meta name="description" content="Free online BMI calculator with metric (kg/cm) and imperial (lb/in) units. Instantly compute your body mass index and see the category (underweight, normal, overweight, obese)." />
- <link rel="stylesheet" href="../../css/components.css" />
- <link rel="canonical" href="https://www.zlbox.site/tools/calculator/bmi-calculator.html" />
- <meta name="google-site-verification" content="google4bd1e08685667667" />
- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
-<script>
-/* Navigation toggle for mobile */
-(function() {
-  var toggle = document.querySelector('.nav-toggle');
-  var navLinks = document.querySelector('.nav-links');
-  if (!toggle || !navLinks) return;
-  toggle.addEventListener('click', function() {
-    var isOpen = navLinks.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', isOpen);
-  });
-  // Highlight active link
-  var path = location.pathname;
-  document.querySelectorAll('.nav-link').forEach(function(link) {
-    var href = link.getAttribute('href');
-    if (href && (path === href || path.indexOf(href.replace('/index.html','')) > -1)) {
-      link.classList.add('active');
-    }
-  });
-})();
-</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BMI Calculator – Body Mass Index Metric / Imperial | My Tool Lab</title>
+  <meta name="description" content="Free online BMI calculator with metric (kg/cm) and imperial (lb/in) units. Instantly compute your body mass index and see the category (underweight, normal, overweight, obese)." />
+  <link rel="stylesheet" href="../../_css/components.css" />
+  <link rel="canonical" href="https://www.zlbox.site/tools/calculator/bmi-calculator.html" />
+  <meta name="google-site-verification" content="google4bd1e08685667667" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
 
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <meta property="og:title" content="BMI Calculator – Body Mass Index Metric / Imperial | zlbox" />
-  <meta property="og:description" content="Free online BMI calculator with metric (kg/cm) and imperial (lb/in) units. Instantly compute your body mass index and see the category (underweight, normal, overweight, obese)." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.zlbox.site/tools/calculator/bmi-calculator.html" />
-  <meta property="og:site_name" content="zlbox" />
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "BMI Calculator – Body Mass Index Metric / Imperial", "description": "Free online BMI calculator with metric (kg/cm) and imperial (lb/in) units. Instantly compute your body mass index and see the category (underweight, normal, overweight, obese).", "url": "https://www.zlbox.site/tools/calculator/bmi-calculator.html", "applicationCategory": "Calculator Tool", "operatingSystem": "Any (browser-based)", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "browserRequirements": "Requires a modern web browser with JavaScript enabled."}</script>
-
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.zlbox.site/"}, {"@type": "ListItem", "position": 2, "name": "Calculator Tools", "item": "https://www.zlbox.site/categories/calculator.html"}]}</script>
-
-  
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.zlbox.site/"},{"@type":"ListItem","position":2,"name":"Calculator Tools","item":"https://www.zlbox.site/categories/calculator.html"},{"@type":"ListItem","position":3,"name":"Bmi Calculator"}]}</script>
-  <style>
-/* ── Site Navigation ── */
-.site-nav {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: rgba(255,255,255,.97);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--border);
-  box-shadow: 0 1px 4px rgba(0,0,0,.05);
-}
-.nav-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  height: 52px;
-}
-.nav-logo {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-weight: 700;
-  font-size: 1rem;
-  color: var(--brand);
-  text-decoration: none;
-  flex-shrink: 0;
-  margin-right: 12px;
-}
-.nav-logo:hover { text-decoration: none; }
-.nav-logo-icon {
-  width: 36px;
-  height: 36px;
-  background: var(--brand);
-  color: #fff;
-  border-radius: 6px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 900;
-  font-size: .9rem;
-  flex-shrink: 0;
-}
-.nav-logo-text { font-size: .95rem; }
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 2px;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-  flex: 1;
-}
-.nav-links::-webkit-scrollbar { display: none; }
-.nav-link {
-  display: inline-flex;
-  align-items: center;
-  padding: 5px 10px;
-  font-size: .82rem;
-  font-weight: 500;
-  color: var(--text);
-  border-radius: 6px;
-  white-space: nowrap;
-  transition: all .15s;
-  flex-shrink: 0;
-}
-.nav-link:hover {
-  background: var(--brand);
-  color: #fff;
-  text-decoration: none;
-}
-.nav-link.active {
-  background: #eff6ff;
-  color: var(--brand);
-}
-.nav-toggle {
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  gap: 4px;
-  width: 32px;
-  height: 32px;
-  padding: 4px;
-  background: none;
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  cursor: pointer;
-  flex-shrink: 0;
-  margin-left: auto;
-}
-.nav-toggle span {
-  display: block;
-  width: 100%;
-  height: 2px;
-  background: var(--text);
-  border-radius: 1px;
-}
-@media (max-width: 768px) {
-  .nav-logo-text { display: none; }
-  .nav-inner { gap: 6px; }
-  .nav-toggle { display: flex; }
-  .nav-links {
-    display: none;
-    position: absolute;
-    top: 52px;
-    left: 0;
-    right: 0;
-    background: #fff;
-    border-bottom: 1px solid var(--border);
-    box-shadow: 0 4px 12px rgba(0,0,0,.1);
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 8px 0;
-    z-index: 99;
-    overflow: visible;
-  }
-  .nav-links.open { display: flex; }
-  .nav-link {
-    width: 100%;
-    padding: 10px 20px;
-    font-size: .9rem;
-    border-radius: 0;
-  }
-}
-  </style>
   <meta property="og:image" content="https://www.zlbox.site/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="BMI Calculator – Body Mass Index Metric / Imperial" />
-  <meta name="twitter:description" content="Free online BMI calculator with metric (kg/cm) and imperial (lb/in) units. Instantly compute your body mass index and see the category (underweight, normal, overweight, obese)." />
+  <meta name="twitter:title" content="BMI Calculator" />
+  <meta name="twitter:description" content="Body mass index calculator" />
   <meta name="twitter:image" content="https://www.zlbox.site/og-image.png" />
 
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
   <meta name="robots" content="index, follow" />
-  <script type="application/ld+json">{
-  "@context": "https://schema.org",
-  "@type": "HowTo",
-  "name": "How to Calculate BMI",
-  "description": "Step by step guide: How to Calculate BMI",
-  "step": [
-    {
-      "@type": "HowToStep",
-      "name": "Enter measurements",
-      "text": "Enter your height and weight using your preferred unit system.",
-      "position": 1
-    },
-    {
-      "@type": "HowToStep",
-      "name": "Select unit system",
-      "text": "Choose metric (kg/cm) or imperial (lb/ft-in).",
-      "position": 2
-    },
-    {
-      "@type": "HowToStep",
-      "name": "View BMI result",
-      "text": "See your BMI value and health category.",
-      "position": 3
-    }
-  ]
-}</script>
+
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "BMI Calculator", "description": "Body mass index calculator", "url": "https://www.zlbox.site/tools/calculator/bmi-calculator.html", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9V6L0Z956X"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-9V6L0Z956X');</script>
 </head>
 <body>
+<div class="container-md">
+  <div class="hero">
+    <div class="breadcrumb"><a href="../../index.html">Home</a> &rsaquo; <a href="../../index.html">Calculator Tools</a> &rsaquo; BMI Calculator</div>
+    <h1>BMI Calculator</h1>
+    <p>Compute your Body Mass Index instantly using metric (kg/cm) or imperial (lb/in) units and see which weight category you fall into.</p>
+  </div>
 
-  <nav class="site-nav" aria-label="Main navigation">
-    <div class="nav-inner">
-      <a href="/" class="nav-logo" aria-label="zlbox Home">
-        <span class="nav-logo-icon">zl</span>
-        <span class="nav-logo-text">zlbox</span>
-      </a>
-      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-      <div class="nav-links" role="list">
-        <a href="/tools/index.html" class="nav-link" role="listitem">All Tools</a>
-        <a href="/categories/text.html" class="nav-link" role="listitem">Text</a>
-        <a href="/categories/calculator.html" class="nav-link" role="listitem">Calculator</a>
-        <a href="/categories/generator.html" class="nav-link" role="listitem">Generator</a>
-        <a href="/categories/image.html" class="nav-link" role="listitem">Image</a>
-        <a href="/categories/pdf.html" class="nav-link" role="listitem">PDF</a>
-        <a href="/blog/index.html" class="nav-link" role="listitem">Blog</a>
+  <div class="card">
+    <div class="tabs" id="tabs">
+      <button class="tabs__btn is-active" data-unit="metric">Metric (kg/cm)</button>
+      <button class="tabs__btn" data-unit="imperial">Imperial (lb/in)</button>
+    </div>
+
+    <div class="tab-panel is-active" id="panel-metric">
+      <div class="field-row">
+        <div class="field">
+          <label>Weight (kg)</label>
+          <input type="number" id="w-kg" min="1" step="0.1" value="70" />
+        </div>
+        <div class="field">
+          <label>Height (cm)</label>
+          <input type="number" id="h-cm" min="1" step="0.1" value="170" />
+        </div>
       </div>
     </div>
-  </nav>
 
-<div class="container-md">
- <div class="hero">
- <div class="breadcrumb"><a href="../../index.html">Home</a> &rsaquo; <a href="../../categories/calculator.html">Calculator Tools</a> &rsaquo; BMI Calculator</div>
- <h1>BMI Calculator</h1>
- <p>Compute your Body Mass Index instantly using metric (kg/cm) or imperial (lb/in) units and see which weight category you fall into.</p>
- </div>
+    <div class="tab-panel" id="panel-imperial">
+      <div class="field-row">
+        <div class="field">
+          <label>Weight (lb)</label>
+          <input type="number" id="w-lb" min="1" step="0.1" value="154" />
+        </div>
+        <div class="field">
+          <label>Height (in)</label>
+          <input type="number" id="h-in" min="1" step="0.1" value="67" />
+        </div>
+      </div>
+    </div>
 
- <div class="card">
- <div class="tabs" id="tabs">
- <button class="tabs__btn is-active" data-unit="metric">Metric (kg/cm)</button>
- <button class="tabs__btn" data-unit="imperial">Imperial (lb/in)</button>
- </div>
-
- <div class="field-grid" id="panel-metric">
- <div class="field">
- <label>Gender</label>
- <select id="sex-m">
- <option value="male">Male</option>
- <option value="female">Female</option>
- </select>
- </div>
- <div class="field">
- <label>Weight (kg)</label>
- <input type="number" id="w-kg" min="1" step="0.1" value="70" />
- </div>
- <div class="field">
- <label>Height (cm)</label>
- <input type="number" id="h-cm" min="1" step="0.1" value="170" />
- </div>
- </div>
-
- <div class="field-grid" id="panel-imperial" style="display:none">
- <div class="field">
- <label>Gender</label>
- <select id="sex-i">
- <option value="male">Male</option>
- <option value="female">Female</option>
- </select>
- </div>
- <div class="field">
- <label>Weight (lb)</label>
- <input type="number" id="w-lb" min="1" step="0.1" value="154" />
- </div>
- <div class="field">
- <label>Height (in)</label>
- <input type="number" id="h-in" min="1" step="0.1" value="67" />
- </div>
- </div>
-
- <div class="stats-grid" id="results">
- <div class="stat stat--accent">
- <div class="stat__value" id="bmi-val">—</div>
- <div class="stat__label">BMI</div>
- </div>
- <div class="stat">
- <div class="stat__value" id="bmi-cat">—</div>
- <div class="stat__label">Category</div>
- </div>
- <div class="stat">
- <div class="stat__value" id="bmi-ideal">—</div>
- <div class="stat__label">Ideal Weight (Devine)</div>
- </div>
- </div>
-
- <div class="bmi-bar" id="bmi-bar" aria-label="BMI category">
- <div class="bmi-bar__seg bmi-bar__seg--u"></div>
- <div class="bmi-bar__seg bmi-bar__seg--n"></div>
- <div class="bmi-bar__seg bmi-bar__seg--o"></div>
- <div class="bmi-bar__seg bmi-bar__seg--ob"></div>
- <div class="bmi-bar__marker" id="bmi-marker"></div>
- </div>
- <div class="bmi-bar__labels">
- <span>Underweight &lt;18.5</span>
- <span>Normal 18.5–25</span>
- <span>Overweight 25–30</span>
- <span>Obese &gt;30</span>
- </div>
-
- <div class="note note--success" id="bmi-note"></div>
- </div>
-
- <style>
- .bmi-bar{display:flex;height:14px;border-radius:7px;overflow:hidden;margin:12px 0 4px;position:relative;border:1px solid var(--border);}
- .bmi-bar__seg{flex:1;}
- .bmi-bar__seg--u{background:#60a5fa;flex:1.85;}
- .bmi-bar__seg--n{background:#34d399;flex:1.5;}
- .bmi-bar__seg--o{background:#fbbf24;flex:1;}
- .bmi-bar__seg--ob{background:#f87171;flex:1.5;}
- .bmi-bar__marker{position:absolute;top:-4px;width:4px;height:22px;background:#111827;border-radius:2px;transition:left .2s;left:0;}
- .bmi-bar__labels{display:flex;justify-content:space-between;font-size:.72rem;color:#6b7280;flex-wrap:wrap;gap:6px;}
- </style>
-
- <div class="section">
- <h2>How it works</h2>
- <ol class="steps">
- <li>Choose the unit system (Metric or Imperial) and enter your weight and height.</li>
- <li>BMI = weight(kg) / height(m)&sup2; — or 703 &times; weight(lb) / height(in)&sup2; for imperial.</li>
- <li>Results update live as you type; your category is color-coded for quick reference.</li>
- </ol>
- </div>
-
- <section class="tool-info" aria-label="Tool information">
-  <h2>What is BMI Calculator?</h2>
-  <p>A BMI (Body Mass Index) calculator estimates body fat based on your height and weight. It provides a numerical score that categorizes you as underweight, normal weight, overweight, or obese, serving as a general health screening tool.</p>
-
-  <h2>How to use</h2>
-  <ol class="steps-list">
-<li>Step 1: Select your measurement unit system (Metric or Imperial).</li>
-<li>Step 2: Enter your height and weight.</li>
-<li>Step 3: Click 'Calculate' to see your BMI score and category.</li>
-<li>Step 4: Review the BMI chart for context and understanding.</li>
-  </ol>
-
-  <h2>Use cases</h2>
-  <ul class="usecase-list">
-<li>General health and fitness assessment during wellness checkups.</li>
-<li>Setting fitness goals and tracking weight management progress.</li>
-<li>Pre-insurance or pre-employment health screening reference.</li>
-<li>Educational purposes for understanding body composition metrics.</li>
-  </ul>
-
-  <h2>Frequently Asked Questions</h2>
-  <div class="faq">
-<details class="faq-item">
-  <summary>Is BMI an accurate measure of health?</summary>
-  <p>BMI is a general screening tool. It doesn't distinguish between muscle and fat mass, so athletes and elderly individuals may have misleading scores. Always consult a healthcare professional for personal health assessment.</p>
-</details>
-<details class="faq-item">
-  <summary>What are the BMI categories?</summary>
-  <p>Under 18.5: Underweight | 18.5–24.9: Normal | 25–29.9: Overweight | 30+: Obese. These ranges apply to most adults aged 20+.</p>
-</details>
-<details class="faq-item">
-  <summary>Does the calculator work for children?</summary>
-  <p>This calculator uses standard adult BMI categories. For children and teens (under 20), age and gender-specific percentiles should be used instead.</p>
-</details>
+    <div class="stats-grid" id="results" style="margin-top:14px;">
+      <div class="stat stat--accent">
+        <div class="stat__value" id="bmi-val">—</div>
+        <div class="stat__label">BMI</div>
+      </div>
+      <div class="stat">
+        <div class="stat__value" id="bmi-cat" style="font-size:1.3rem;">—</div>
+        <div class="stat__label">Category</div>
+      </div>
+    </div>
+    <p style="text-align:center;font-size:0.82rem;color:var(--muted);margin-top:10px;" id="bmi-note">
+      WHO reference ranges: Underweight &lt; 18.5 &middot; Normal 18.5–25 &middot; Overweight 25–30 &middot; Obese &gt; 30.
+    </p>
   </div>
-</section>
 
-<script type="application/ld+json">
-{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is BMI an accurate measure of health?", "acceptedAnswer": {"@type": "Answer", "text": "BMI is a general screening tool. It doesn't distinguish between muscle and fat mass, so athletes and elderly individuals may have misleading scores. Always consult a healthcare professional for personal health assessment."}}, {"@type": "Question", "name": "What are the BMI categories?", "acceptedAnswer": {"@type": "Answer", "text": "Under 18.5: Underweight | 18.5–24.9: Normal | 25–29.9: Overweight | 30+: Obese. These ranges apply to most adults aged 20+."}}, {"@type": "Question", "name": "Does the calculator work for children?", "acceptedAnswer": {"@type": "Answer", "text": "This calculator uses standard adult BMI categories. For children and teens (under 20), age and gender-specific percentiles should be used instead."}}]}
-</script>
- <div class="section">
- <h2>Related tools</h2>
- <div class="related-grid">
- <a href="basic-calculator.html">Basic Calculator</a>
- <a href="percentage-calculator.html">Percentage Calculator</a>
- <a href="age-calculator.html">Age Calculator</a>
- <a href="loan-calculator.html">Loan Calculator</a>
- <a href="unit-converter.html">Unit Converter</a>
- <a href="scientific-calculator.html">Scientific Calculator</a>
- </div>
- </div>
+  <div class="section">
+    <h2>How it works</h2>
+    <ol class="steps">
+      <li>Choose the unit system (Metric or Imperial) and enter your weight and height.</li>
+      <li>BMI = weight(kg) / height(m)&sup2; — or 703 &times; weight(lb) / height(in)&sup2; for imperial.</li>
+      <li>Results update live as you type; your category is color-coded for quick reference.</li>
+    </ol>
+  </div>
 
- <footer class="footer">
- <div class="footer-links">
- <a href="basic-calculator.html">Basic Calculator</a>
- <a href="percentage-calculator.html">Percentage Calculator</a>
- <a href="age-calculator.html">Age Calculator</a>
- <span style="color:var(--border);margin:0 6px">|</span>
- <a href="../../about.html">About</a>
- <a href="../../privacy.html">Privacy</a>
- <a href="../../disclaimer.html">Disclaimer</a>
- </div>
- <p class="footer-copy">&copy; 2026 zlbox. All rights reserved.</p>
- </footer>
+  <div class="section">
+    <h2>Related tools</h2>
+    <div class="related-grid">
+      <a href="basic-calculator.html">Basic Calculator</a>
+      <a href="percentage-calculator.html">Percentage Calculator</a>
+      <a href="age-calculator.html">Age Calculator</a>
+      <a href="loan-calculator.html">Loan Calculator</a>
+      <a href="unit-converter.html">Unit Converter</a>
+      <a href="scientific-calculator.html">Scientific Calculator</a>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="basic-calculator.html">Basic Calculator</a>
+      <a href="percentage-calculator.html">Percentage Calculator</a>
+      <a href="age-calculator.html">Age Calculator</a>
+      <span style="color:var(--border);margin:0 6px">|</span>
+      <a href="../../about.html">About</a>
+      <a href="../../privacy.html">Privacy</a>
+      <a href="../../disclaimer.html">Disclaimer</a>
+    </div>
+    <p class="footer-copy">&copy; 2026 My Tool Lab. All rights reserved.</p>
+  </footer>
 </div>
 
 <script>
 (function(){
- var tabs=document.querySelectorAll('#tabs .tabs__btn');
- var panelM=document.getElementById('panel-metric');
- var panelI=document.getElementById('panel-imperial');
- var current='metric';
+  var tabs=document.querySelectorAll('#tabs .tabs__btn');
+  var panels={metric:document.getElementById('panel-metric'),imperial:document.getElementById('panel-imperial')};
+  var current='metric';
+  tabs.forEach(function(b){
+    b.addEventListener('click',function(){
+      tabs.forEach(function(x){x.classList.remove('is-active');});
+      b.classList.add('is-active');
+      current=b.getAttribute('data-unit');
+      Object.keys(panels).forEach(function(k){panels[k].classList.toggle('is-active',k===current);});
+      update();
+    });
+  });
 
- function update(){
- var bmi=null, w=0, h=0, ideal=null, unitL='', sex='male';
- if(current==='metric'){
- w=parseFloat(document.getElementById('w-kg').value);
- h=parseFloat(document.getElementById('h-cm').value);
- sex=document.getElementById('sex-m').value;
- unitL='kg';
- if(w>0 && h>0){
- var hm=h/100;
- bmi=w/(hm*hm);
- ideal=(sex==='male')?(50+0.9*(h-152)):(45.5+0.9*(h-152));
- }
- } else {
- w=parseFloat(document.getElementById('w-lb').value);
- h=parseFloat(document.getElementById('h-in').value);
- sex=document.getElementById('sex-i').value;
- unitL='lb';
- if(w>0 && h>0){
- bmi=703*w/(h*h);
- ideal=(sex==='male')?(50+0.9*(h*2.54-152)):(45.5+0.9*(h*2.54-152));
- if(ideal) ideal=ideal*2.20462;
- }
- }
- var valEl=document.getElementById('bmi-val');
- var catEl=document.getElementById('bmi-cat');
- var idealEl=document.getElementById('bmi-ideal');
- var noteEl=document.getElementById('bmi-note');
- var marker=document.getElementById('bmi-marker');
+  function update(){
+    var bmi=null, w=0, h=0;
+    if(current==='metric'){
+      w=parseFloat(document.getElementById('w-kg').value);
+      h=parseFloat(document.getElementById('h-cm').value);
+      if(w>0 && h>0){
+        var hm=h/100;
+        bmi=w/(hm*hm);
+      }
+    } else {
+      w=parseFloat(document.getElementById('w-lb').value);
+      h=parseFloat(document.getElementById('h-in').value);
+      if(w>0 && h>0){
+        bmi=703*w/(h*h);
+      }
+    }
+    var valEl=document.getElementById('bmi-val');
+    var catEl=document.getElementById('bmi-cat');
+    if(bmi===null||isNaN(bmi)){
+      valEl.textContent='—'; valEl.style.color='';
+      catEl.textContent='—'; catEl.style.color='';
+      return;
+    }
+    valEl.textContent=bmi.toFixed(1);
+    var cat='', color='';
+    if(bmi<18.5){ cat='Underweight'; color='#3b82f6'; }
+    else if(bmi<25){ cat='Normal'; color='#10b981'; }
+    else if(bmi<30){ cat='Overweight'; color='#f59e0b'; }
+    else { cat='Obese'; color='#ef4444'; }
+    catEl.textContent=cat;
+    catEl.style.color=color;
+    valEl.style.color=color;
+  }
 
- if(bmi===null||isNaN(bmi)){
- valEl.textContent='—'; valEl.style.color='';
- catEl.textContent='—'; catEl.style.color='';
- idealEl.textContent='—'; idealEl.style.color='';
- noteEl.textContent=''; noteEl.style.display='none';
- marker.style.left='0%';
- return;
- }
- valEl.textContent=bmi.toFixed(2);
- var cat='', color='', idx=0;
- if(bmi<18.5){ cat='Underweight'; color='#3b82f6'; idx=0; }
- else if(bmi<25){ cat='Normal'; color='#10b981'; idx=1; }
- else if(bmi<30){ cat='Overweight'; color='#f59e0b'; idx=2; }
- else { cat='Obese'; color='#ef4444'; idx=3; }
- catEl.textContent=cat; catEl.style.color=color;
- valEl.style.color=color;
-
- var idealTxt='—';
- if(ideal!==null && !isNaN(ideal)){
- idealEl.textContent=ideal.toFixed(2)+' '+unitL;
- idealEl.style.color=color;
- idealTxt=ideal.toFixed(2)+' '+unitL;
- } else { idealEl.textContent='—'; }
-
- var minV=15, maxV=40;
- var clamped=Math.max(minV,Math.min(maxV,bmi));
- var pct=((clamped-minV)/(maxV-minV))*100;
- marker.style.left=pct+'%';
-
- noteEl.innerHTML='Your BMI is <strong>'+bmi.toFixed(2)+'</strong> ('+cat+'). Ideal weight range (Devine): ~<strong>'+idealTxt+'</strong>.';
- noteEl.style.display='block';
- }
-
- tabs.forEach(function(b){
- b.addEventListener('click',function(){
- tabs.forEach(function(x){x.classList.remove('is-active');});
- b.classList.add('is-active');
- current=b.getAttribute('data-unit');
- panelM.style.display=(current==='metric')?'grid':'none';
- panelI.style.display=(current==='imperial')?'grid':'none';
- update();
- });
- });
- ['w-kg','h-cm','w-lb','h-in','sex-m','sex-i'].forEach(function(id){
- var el=document.getElementById(id);
- if(!el) return;
- el.addEventListener('input',update);
- el.addEventListener('change',update);
- });
- update();
+  ['w-kg','h-cm','w-lb','h-in'].forEach(function(id){
+    var el=document.getElementById(id);
+    el.addEventListener('input',update);
+    el.addEventListener('change',update);
+  });
+  update();
 })();
 </script>
 </body>

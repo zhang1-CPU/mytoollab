@@ -1,344 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <meta charset="UTF-8" />
- <meta name="viewport" content="width=device-width, initial-scale=1.0" />
- <title>JSON Formatter – Format, Validate & Beautify JSON Online | zlbox</title>
- <meta name="description" content="Free online JSON formatter with real-time formatting, syntax highlighting, minify, tree view, JSONPath, and one-click copy." />
- <link rel="canonical" href="https://www.zlbox.site/tools/text/json-formatter.html" />
- <meta name="google-site-verification" content="google4bd1e08685667667" />
- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JSON Formatter – Format, Validate & Beautify JSON Online | My Tool Lab</title>
+  <meta name="description" content="Free online JSON formatter with real-time formatting, syntax highlighting, minify, and one-click copy. Perfect for developers debugging APIs and configs." />
+  <link rel="canonical" href="https://www.zlbox.site/tools/text/json-formatter.html" />
+  <meta name="google-site-verification" content="google4bd1e08685667667" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../../_css/components.css" />
 
- <link rel="stylesheet" href="../../css/components.css" />
-
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <meta property="og:title" content="JSON Formatter – Format, Validate & Beautify JSON Online | zlbox" />
-  <meta property="og:description" content="Free online JSON formatter with real-time formatting, syntax highlighting, minify, and one-click copy." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.zlbox.site/tools/text/json-formatter.html" />
-  <meta property="og:site_name" content="zlbox" />
-  <script type="application/ld+json">{"@context": "https://schema.org","@type":"WebApplication","name":"JSON Formatter – Format, Validate & Beautify JSON Online","description":"Free online JSON formatter with syntax highlighting, minify, tree view, JSONPath, and one-click copy.","url":"https://www.zlbox.site/tools/text/json-formatter.html","applicationCategory":"Text Tool","operatingSystem":"Any (browser-based)","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"browserRequirements":"Requires a modern web browser with JavaScript enabled."}</script>
-
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.zlbox.site/"},{"@type":"ListItem","position":2,"name":"Text Tools","item":"https://www.zlbox.site/categories/text.html"}]}</script>
-
-  
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.zlbox.site/"},{"@type":"ListItem","position":2,"name":"Text & Developer Tools","item":"https://www.zlbox.site/categories/text.html"},{"@type":"ListItem","position":3,"name":"Json Formatter"}]}</script>
-  <style>
-/* ── Site Navigation ── */
-.site-nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,.97); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); box-shadow: 0 1px 4px rgba(0,0,0,.05); }
-.nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; align-items: center; gap: 8px; height: 52px; }
-.nav-logo { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 1rem; color: var(--brand); text-decoration: none; flex-shrink: 0; margin-right: 12px; }
-.nav-logo:hover { text-decoration: none; }
-.nav-logo-icon { width: 36px; height: 36px; background: var(--brand); color: #fff; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: .9rem; flex-shrink: 0; }
-.nav-logo-text { font-size: .95rem; }
-.nav-links { display: flex; align-items: center; gap: 2px; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none; flex: 1; }
-.nav-links::-webkit-scrollbar { display: none; }
-.nav-link { display: inline-flex; align-items: center; padding: 5px 10px; font-size: .82rem; font-weight: 500; color: var(--text); border-radius: 6px; white-space: nowrap; transition: all .15s; flex-shrink: 0; }
-.nav-link:hover { background: var(--brand); color: #fff; text-decoration: none; }
-.nav-link.active { background: #eff6ff; color: var(--brand); }
-.nav-toggle { display: none; flex-direction: column; justify-content: center; gap: 4px; width: 32px; height: 32px; padding: 4px; background: none; border: 1px solid var(--border); border-radius: 6px; cursor: pointer; flex-shrink: 0; margin-left: auto; }
-.nav-toggle span { display: block; width: 100%; height: 2px; background: var(--text); border-radius: 1px; }
-@media (max-width: 768px) {
-  .nav-logo-text { display: none; }
-  .nav-inner { gap: 6px; }
-  .nav-toggle { display: flex; }
-  .nav-links { display: none; position: absolute; top: 52px; left: 0; right: 0; background: #fff; border-bottom: 1px solid var(--border); box-shadow: 0 4px 12px rgba(0,0,0,.1); flex-direction: column; align-items: flex-start; padding: 8px 0; z-index: 99; overflow: visible; }
-  .nav-links.open { display: flex; }
-  .nav-link { width: 100%; padding: 10px 20px; font-size: .9rem; border-radius: 0; }
-}
-
-/* ── JSON tool extras ── */
-.json-highlight {
-  background: #0f172a;
-  color: #e2e8f0;
-  border-radius: 8px;
-  padding: 14px 16px;
-  font-family: ui-monospace, Consolas, Menlo, monospace;
-  font-size: 13px;
-  line-height: 1.6;
-  white-space: pre;
-  overflow-x: auto;
-  margin: 0;
-}
-.j-key { color: #7dd3fc; }
-.j-string { color: #86efac; }
-.j-number { color: #fbbf24; }
-.j-bool { color: #f472b6; }
-.j-null { color: #f87171; }
-.j-punct { color: #94a3b8; }
-
-.tree-view {
-  background: #ffffff;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 14px 16px;
-  font-family: ui-monospace, Consolas, Menlo, monospace;
-  font-size: 13px;
-  line-height: 1.7;
-  max-height: 520px;
-  overflow: auto;
-}
-.tree-node { padding-left: 20px; }
-.tree-toggle { cursor: pointer; color: var(--brand); user-select: none; display: inline-block; width: 14px; text-align: center; font-weight: 700; }
-.tree-toggle:hover { color: #1e40af; }
-.tree-collapsed > .tree-children { display: none; }
-.tree-collapsed > .tree-line > .tree-value-inline { display: none; }
-.tree-collapsed > .tree-line::after { content: " ... "; color: var(--muted); }
-.tree-key { color: #0369a1; font-weight: 600; }
-.tree-string { color: #166534; }
-.tree-number { color: #854d0e; }
-.tree-bool { color: #9d174d; }
-.tree-null { color: #991b1b; }
-.tree-punct { color: #6b7280; }
-.tree-line { white-space: pre; }
-
-.error-box {
-  background: #fef2f2;
-  border: 1px solid #fecaca;
-  color: #991b1b;
-  padding: 12px 14px;
-  border-radius: 8px;
-  font-family: ui-monospace, Consolas, Menlo, monospace;
-  font-size: 13px;
-  line-height: 1.6;
-  white-space: pre-wrap;
-}
-.error-box strong { color: #7f1d1d; }
-
-.panel-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-@media (max-width: 900px) { .panel-grid { grid-template-columns: 1fr; } }
-.panel { background: #fff; border: 1px solid var(--border); border-radius: 10px; padding: 14px; display: flex; flex-direction: column; }
-.panel h3 { margin: 0 0 10px; font-size: 14px; color: var(--text); }
-.tabs-row { display: flex; gap: 6px; margin-bottom: 10px; flex-wrap: wrap; }
-.tabs-row button { padding: 6px 12px; border: 1px solid var(--border); background: #f8fafc; color: var(--text); border-radius: 6px; font-size: 13px; cursor: pointer; }
-.tabs-row button.is-active { background: var(--brand); color: #fff; border-color: var(--brand); }
-.row-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; margin-bottom: 10px; }
-.field { display: flex; flex-direction: column; gap: 4px; font-size: 13px; }
-.field label { font-size: 12px; color: var(--muted); font-weight: 500; }
-.field input, .field select { padding: 6px 10px; border: 1px solid var(--border); border-radius: 6px; font-size: 13px; font-family: inherit; outline: none; }
-.field input:focus, .field select:focus { border-color: var(--brand); }
-.field input[type="checkbox"] { width: auto; }
-.field-inline { display: flex; align-items: center; gap: 6px; font-size: 13px; }
-.btn-row { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
-  </style>
   <meta property="og:image" content="https://www.zlbox.site/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="JSON Formatter – Format, Validate & Beautify JSON Online" />
-  <meta name="twitter:description" content="Free online JSON formatter with syntax highlighting, minify, tree view, JSONPath, and one-click copy." />
+  <meta name="twitter:title" content="JSON Formatter" />
+  <meta name="twitter:description" content="Format and validate JSON" />
   <meta name="twitter:image" content="https://www.zlbox.site/og-image.png" />
 
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
   <meta name="robots" content="index, follow" />
-  <script type="application/ld+json">{
-  "@context": "https://schema.org",
-  "@type": "HowTo",
-  "name": "How to Use JSON Formatter",
-  "description": "Step by step guide: How to Use JSON Formatter",
-  "step": [
-    {"@type":"HowToStep","name":"Paste your JSON","text":"Copy your JSON data and paste it into the input box.","position":1},
-    {"@type":"HowToStep","name":"Choose strict or JSON5","text":"Choose strict JSON or the looser JSON5 parsing.","position":2},
-    {"@type":"HowToStep","name":"View formatted output","text":"View the beautified output with syntax highlighting or tree view.","position":3}
-  ]
-}</script>
+
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "JSON Formatter", "description": "Format and validate JSON", "url": "https://www.zlbox.site/tools/text/json-formatter.html", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9V6L0Z956X"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-9V6L0Z956X');</script>
+</head>
+<body>
+<div class="container-md">
+  <div class="hero">
+    <div class="breadcrumb"><a href="../../index.html">Home</a> &rsaquo; <a href="../../categories/text.html">Text Tools</a> &rsaquo; JSON Formatter</div>
+    <h1>JSON Formatter</h1>
+    <p>Paste your JSON — format, minify, and copy in seconds. Everything runs in your browser.</p>
+  </div>
+
+  <div class="card">
+    <div class="editor">
+      <textarea id="inputText" placeholder='Paste JSON here… e.g. {"name":"Alice","age":30}' spellcheck="false" autocomplete="off"></textarea>
+      <div class="editor__toolbar">
+        <button class="btn btn--sm btn--ghost" id="sampleBtn">Sample</button>
+        <button class="btn btn--sm btn--ghost" id="clearBtn">Clear</button>
+        <div style="margin-left:auto"></div>
+        <button class="btn btn--sm" id="formatBtn">Format</button>
+        <button class="btn btn--sm" id="minifyBtn">Minify</button>
+        <button class="btn btn--sm" id="copyBtn">Copy</button>
+      </div>
+    </div>
+    <div class="editor" style="margin-top:10px;">
+      <textarea id="outputText" readonly placeholder="Formatted or minified output appears here…" spellcheck="false"></textarea>
+      <div class="editor__toolbar">
+        <span id="statusLabel" style="font-size:0.82rem;color:var(--muted);">Ready</span>
+        <div style="margin-left:auto"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>How it works</h2>
+    <ol class="steps">
+      <li>Paste your JSON into the top box.</li>
+      <li>Hit Format for pretty-printed output, or Minify to strip whitespace.</li>
+      <li>Click Copy to grab the result. Errors are reported inline.</li>
+    </ol>
+  </div>
+
+  <div class="section">
+    <h2>Related tools</h2>
+    <div class="related-grid">
+      <a href="word-counter.html">Word Counter</a>
+      <a href="case-converter.html">Case Converter</a>
+      <a href="base64.html">Base64 Encode/Decode</a>
+      <a href="html-formatter.html">HTML Formatter</a>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="word-counter.html">Word Counter</a>
+      <a href="case-converter.html">Case Converter</a>
+      <a href="json-formatter.html">JSON Formatter</a>
+      <span style="color:var(--border);margin:0 6px">|</span>
+      <a href="../../about.html">About</a>
+      <a href="../../privacy.html">Privacy</a>
+      <a href="../../disclaimer.html">Disclaimer</a>
+    </div>
+    <p class="footer-copy">&copy; 2026 My Tool Lab. All rights reserved.</p>
+  </footer>
+</div>
+
 <script>
 (function() {
-  var toggle = document.querySelector('.nav-toggle');
-  var navLinks = document.querySelector('.nav-links');
-  if (!toggle || !navLinks) return;
-  toggle.addEventListener('click', function() {
-    var isOpen = navLinks.classList.contains('open');
-    if (isOpen) navLinks.classList.remove('open');
-    else navLinks.classList.add('open');
+  var inputEl    = document.getElementById('inputText');
+  var outputEl   = document.getElementById('outputText');
+  var formatBtn  = document.getElementById('formatBtn');
+  var minifyBtn  = document.getElementById('minifyBtn');
+  var clearBtn   = document.getElementById('clearBtn');
+  var sampleBtn  = document.getElementById('sampleBtn');
+  var copyBtn    = document.getElementById('copyBtn');
+  var statusEl   = document.getElementById('statusLabel');
+
+  function setStatus(msg, ok) {
+    statusEl.textContent = msg;
+    statusEl.style.color = ok ? '#047857' : (ok === false ? '#b91c1c' : 'var(--muted)');
+  }
+
+  formatBtn.addEventListener('click', function() {
+    var raw = inputEl.value.trim();
+    if (!raw) { outputEl.value = ''; setStatus('Ready'); return; }
+    try {
+      var parsed = JSON.parse(raw);
+      outputEl.value = JSON.stringify(parsed, null, 2);
+      setStatus('Formatted successfully', true);
+    } catch (e) {
+      outputEl.value = '';
+      setStatus('Error: ' + e.message, false);
+    }
   });
-  document.querySelectorAll('.nav-link').forEach(function(link) {
-    var href = link.getAttribute('href') || '';
-    if (window.location.pathname.indexOf(href.replace('/index.html', '')) > -1) {
-      link.classList.add('active');
+
+  minifyBtn.addEventListener('click', function() {
+    var raw = inputEl.value.trim();
+    if (!raw) { outputEl.value = ''; setStatus('Ready'); return; }
+    try {
+      var parsed = JSON.parse(raw);
+      outputEl.value = JSON.stringify(parsed);
+      setStatus('Minified successfully', true);
+    } catch (e) {
+      outputEl.value = '';
+      setStatus('Error: ' + e.message, false);
+    }
+  });
+
+  sampleBtn.addEventListener('click', function() {
+    inputEl.value = JSON.stringify({
+      user: { id: 42, name: 'Alice Johnson', email: 'alice@example.com', roles: ['admin', 'editor'], active: true },
+      preferences: { theme: 'dark', language: 'en-US', notifications: null },
+      token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9'
+    }, null, 2);
+    outputEl.value = '';
+    setStatus('Sample loaded');
+  });
+
+  clearBtn.addEventListener('click', function() {
+    inputEl.value = ''; outputEl.value = ''; setStatus('Ready'); inputEl.focus();
+  });
+
+  copyBtn.addEventListener('click', function() {
+    if (!outputEl.value) return;
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(outputEl.value).then(function() {
+        copyBtn.textContent = 'Copied!';
+        setTimeout(function() { copyBtn.textContent = 'Copy'; }, 1200);
+      });
+    } else {
+      outputEl.select(); document.execCommand('copy');
+      copyBtn.textContent = 'Copied!';
+      setTimeout(function() { copyBtn.textContent = 'Copy'; }, 1200);
     }
   });
 })();
 </script>
-</head>
-<body>
-
-  <nav class="site-nav" aria-label="Main navigation">
-    <div class="nav-inner">
-      <a href="/" class="nav-logo" aria-label="zlbox Home">
-        <span class="nav-logo-icon">zl</span>
-        <span class="nav-logo-text">zlbox</span>
-      </a>
-      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-      <div class="nav-links" role="list">
-        <a href="/tools/index.html" class="nav-link" role="listitem">All Tools</a>
-        <a href="/categories/text.html" class="nav-link" role="listitem">Text</a>
-        <a href="/categories/calculator.html" class="nav-link" role="listitem">Calculator</a>
-        <a href="/categories/generator.html" class="nav-link" role="listitem">Generator</a>
-        <a href="/categories/image.html" class="nav-link" role="listitem">Image</a>
-        <a href="/categories/pdf.html" class="nav-link" role="listitem">PDF</a>
-        <a href="/blog/index.html" class="nav-link" role="listitem">Blog</a>
-      </div>
-    </div>
-  </nav>
-
-<div class="container-md">
- <div class="hero">
- <div class="breadcrumb"><a href="../../index.html">Home</a> &rsaquo; <a href="../../categories/text.html">Text Tools</a> &rsaquo; JSON Formatter</div>
- <h1>JSON Formatter</h1>
- <p>Paste your JSON &mdash; format, minify, explore via tree view, or query with JSONPath. Everything runs locally in your browser.</p>
- </div>
-
- <div class="card">
-  <div class="row-grid">
-    <div class="field">
-      <label for="parseMode">Parse mode</label>
-      <select id="parseMode">
-        <option value="strict">Strict JSON (strict parsing)</option>
-        <option value="json5">JSON5 / Loose (single quotes, trailing commas, comments)</option>
-      </select>
-    </div>
-    <div class="field">
-      <label for="indentSize">Indentation</label>
-      <select id="indentSize">
-        <option value="2">2 spaces</option>
-        <option value="4">4 spaces</option>
-        <option value="tab">Tab</option>
-      </select>
-    </div>
-    <div class="field field-inline" style="justify-content:flex-end;padding-top:18px">
-      <label><input type="checkbox" id="sortKeys" /> Sort keys alphabetically</label>
-    </div>
-  </div>
-
-  <div class="panel-grid">
-    <div class="panel">
-      <h3>Input</h3>
-      <textarea id="inputText" placeholder='Paste JSON or JSON5 here…" spellcheck="false" autocomplete="off" style="min-height:260px;font-family:ui-monospace,Consolas,Menlo,monospace;font-size:13px;line-height:1.6"></textarea>
-      <div class="btn-row" style="margin-top:10px">
-        <button class="btn btn--sm" id="sampleBtn">Sample</button>
-        <button class="btn btn--sm btn--ghost" id="clearBtn">Clear</button>
-        <button class="btn btn--sm" id="formatBtn" style="margin-left:auto">Format</button>
-        <button class="btn btn--sm btn--ghost" id="minifyBtn">Minify</button>
-      </div>
-      <div class="field">
-        <label for="jsonpathInput">JSONPath query (e.g. $.store.book[0].title or $..price)</label>
-        <input type="text" id="jsonpathInput" placeholder="$..author" />
-      </div>
-    </div>
-
-    <div class="panel">
-      <h3>Output</h3>
-      <div class="tabs-row">
-        <button class="is-active" data-view="highlighted">Highlighted</button>
-        <button data-view="plain">Plain text</button>
-        <button data-view="tree">Tree view</button>
-        <button data-view="minified">Minified</button>
-      </div>
-      <div id="outputArea" style="flex:1;min-height:260px;overflow:auto"></div>
-      <div class="btn-row" style="margin-top:10px">
-        <span id="statusLabel" style="font-size:12px;color:var(--muted);align-self:center">Ready</span>
-        <button class="btn btn--sm btn--ghost" id="downloadBtn" style="margin-left:auto">Download</button>
-        <button class="btn btn--sm" id="copyBtn">Copy</button>
-      </div>
-    </div>
-  </div>
- </div>
-
- <div class="section">
- <h2>How it works</h2>
- <ol class="steps">
- <li>Paste JSON or JSON5-style text into the Input panel. JSON5 relaxes strict rules: single-quoted strings, trailing commas, comments, and unquoted keys are all accepted.</li>
- <li>Click Format to beautify; click Minify for a compact one-liner. Switch to Tree view to collapse nested objects and arrays.</li>
- <li>Enter a JSONPath expression (e.g. <code>$.store.book[0].title</code>, <code>$..price</code>) to filter values; matched nodes are highlighted.</li>
- <li>Copy or Download the final JSON &mdash; all processing happens in your browser; nothing is uploaded.</li>
- </ol>
- </div>
-
- <section class="tool-info" aria-label="Tool information">
-  <h2>What is JSON Formatter?</h2>
-  <p>A JSON formatter validates, beautifies, and prettifies JSON data. It checks for syntax errors, formats the structure with proper indentation, and can minify JSON for production use. An everyday essential for developers debugging APIs and configs.</p>
-
-  <h2>How to use</h2>
-  <ol class="steps-list">
-<li>Step 1: Paste JSON data into the editor.</li>
-<li>Step 2: Choose strict or JSON5 (loose) parsing.</li>
-<li>Step 3: Click Format to beautify, or Minify to compress.</li>
-<li>Step 4: Explore with Tree view or query with JSONPath, then Copy or Download.</li>
-  </ol>
-
-  <h2>Use cases</h2>
-  <ul class="usecase-list">
-<li>Debugging JSON responses from APIs.</li>
-<li>Formatting configuration files and data exports.</li>
-<li>Validating JSON syntax before deployment.</li>
-<li>Comparing JSON structures between different sources.</li>
-<li>Drilling into large JSON with JSONPath queries.</li>
-  </ul>
-
-  <h2>Frequently Asked Questions</h2>
-  <div class="faq">
-<details class="faq-item"><summary>Does it validate JSON?</summary><p>Yes. Invalid JSON is reported with the specific line, column, and a readable message.</p></details>
-<details class="faq-item"><summary>What is JSON5?</summary><p>JSON5 is a relaxed superset of JSON that also allows single-quoted strings, trailing commas, unquoted keys, and comments. Choose the JSON5 parse mode to accept these.</p></details>
-<details class="faq-item"><summary>How do I write a JSONPath?</summary><p>Start with <code>$</code> for the root, then <code>.key</code> for object keys and <code>[index]</code> for array indices. Double-dot <code>$..key</code> searches recursively.</p></details>
-<details class="faq-item"><summary>Is my data sent anywhere?</summary><p>No. Everything runs locally in your browser using pure JavaScript &mdash; nothing is uploaded or logged.</p></details>
-  </div>
-</section>
-
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Does it validate JSON?","acceptedAnswer":{"@type":"Answer","text":"Yes. Invalid JSON is reported with the specific line, column, and a readable message."}},{"@type":"Question","name":"What is JSON5?","acceptedAnswer":{"@type":"Answer","text":"JSON5 is a relaxed superset of JSON that also allows single-quoted strings, trailing commas, unquoted keys, and comments."}},{"@type":"Question","name":"Is my data sent anywhere?","acceptedAnswer":{"@type":"Answer","text":"No. Everything runs locally in your browser using pure JavaScript."}}]}</script>
- <div class="section">
- <h2>Related tools</h2>
- <div class="related-grid">
- <a href="word-counter.html">Word Counter</a>
- <a href="case-converter.html">Case Converter</a>
- <a href="base64.html">Base64 Encode/Decode</a>
- <a href="html-formatter.html">HTML Formatter</a>
- <a href="csv-to-json.html">CSV &harr; JSON</a>
- </div>
- </div>
-
- <footer class="footer">
- <div class="footer-links">
- <a href="word-counter.html">Word Counter</a>
- <a href="case-converter.html">Case Converter</a>
- <a href="json-formatter.html">JSON Formatter</a>
- <span style="color:var(--border);margin:0 6px">|</span>
- <a href="../../about.html">About</a>
- <a href="../../privacy.html">Privacy</a>
- <a href="../../disclaimer.html">Disclaimer</a>
- </div>
- <p class="footer-copy">&copy; 2026 zlbox. All rights reserved.</p>
- </footer>
-</div>
-
-
- <div class="section">
- <h2>Related tools</h2>
- <div class="related-grid">
- <a href="word-counter.html">Word Counter</a>
- <a href="case-converter.html">Case Converter</a>
- <a href="base64.html">Base64 Encode/Decode</a>
- <a href="html-formatter.html">HTML Formatter</a>
- <a href="csv-to-json.html">CSV &harr; JSON</a>
- </div>
- </div>
-
- <footer class="footer">
- <div class="footer-links">
- <a href="word-counter.html">Word Counter</a>
- <a href="case-converter.html">Case Converter</a>
- <a href="json-formatter.html">JSON Formatter</a>
- <span style="color:var(--border);margin:0 6px">|</span>
- <a href="../../about.html">About</a>
- <a href="../../privacy.html">Privacy</a>
- <a href="../../disclaimer.html">Disclaimer</a>
- </div>
- <p class="footer-copy">&copy; 2026 zlbox. All rights reserved.</p>
- </footer>
-</div>
-
-
-<script src="json-formatter.js"></script>
 </body>
 </html>

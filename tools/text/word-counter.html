@@ -1,722 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <meta charset="UTF-8" />
- <meta name="viewport" content="width=device-width, initial-scale=1.0" />
- <title>Word Counter – Instant Word & Character Count Online | zlbox</title>
- <meta name="description" content="Free real-time word and character counter. Paste or type your text and instantly see total words, characters, sentences, paragraphs, reading time, speaking time, and keyword density — no button clicks needed. Perfect for writers, students, developers, and content creators." />
- <link rel="canonical" href="https://www.zlbox.site/tools/text/word-counter.html" />
- <meta name="google-site-verification" content="google4bd1e08685667667" />
- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
-<script>
-/* Navigation toggle for mobile */
-(function() {
-  var toggle = document.querySelector('.nav-toggle');
-  var navLinks = document.querySelector('.nav-links');
-  if (!toggle || !navLinks) return;
-  toggle.addEventListener('click', function() {
-    var isOpen = navLinks.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', isOpen);
-  });
-  // Highlight active link
-  var path = location.pathname;
-  document.querySelectorAll('.nav-link').forEach(function(link) {
-    var href = link.getAttribute('href');
-    if (href && (path === href || path.indexOf(href.replace('/index.html','')) > -1)) {
-      link.classList.add('active');
-    }
-  });
-})();
-</script>
- <link rel="stylesheet" href="../../css/components.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Word Counter – Instant Word & Character Count Online | My Tool Lab</title>
+  <meta name="description" content="Free real-time word and character counter. Paste or type your text and instantly see total words, characters, and trimmed length — no button clicks needed. Perfect for writers, students, developers, and content creators." />
+  <link rel="canonical" href="https://www.zlbox.site/tools/text/word-counter.html" />
+  <meta name="google-site-verification" content="google4bd1e08685667667" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../../_css/components.css" />
 
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <meta property="og:title" content="Word Counter – Instant Word & Character Count Online | zlbox" />
-  <meta property="og:description" content="Free real-time word and character counter. Paste or type your text and instantly see total words, characters, sentences, paragraphs, reading time, speaking time, and keyword density — no button clicks needed. Perfect for writers, students, developers, and content creators." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.zlbox.site/tools/text/word-counter.html" />
-  <meta property="og:site_name" content="zlbox" />
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Word Counter – Instant Word & Character Count Online", "description": "Free real-time word and character counter. Paste or type your text and instantly see total words, characters, sentences, paragraphs, reading time, speaking time, and keyword density — no button clicks needed. Perfect for writers, students, developers, and content creators.", "url": "https://www.zlbox.site/tools/text/word-counter.html", "applicationCategory": "Text Tool", "operatingSystem": "Any (browser-based)", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "browserRequirements": "Requires a modern web browser with JavaScript enabled."}</script>
-
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.zlbox.site/"}, {"@type": "ListItem", "position": 2, "name": "Text Tools", "item": "https://www.zlbox.site/categories/text.html"}]}</script>
-
-  
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.zlbox.site/"},{"@type":"ListItem","position":2,"name":"Text & Developer Tools","item":"https://www.zlbox.site/categories/text.html"},{"@type":"ListItem","position":3,"name":"Word Counter"}]}</script>
-  <style>
-/* ── Site Navigation ── */
-.site-nav {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: rgba(255,255,255,.97);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--border);
-  box-shadow: 0 1px 4px rgba(0,0,0,.05);
-}
-.nav-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  height: 52px;
-}
-.nav-logo {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-weight: 700;
-  font-size: 1rem;
-  color: var(--brand);
-  text-decoration: none;
-  flex-shrink: 0;
-  margin-right: 12px;
-}
-.nav-logo:hover { text-decoration: none; }
-.nav-logo-icon {
-  width: 36px;
-  height: 36px;
-  background: var(--brand);
-  color: #fff;
-  border-radius: 6px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 900;
-  font-size: .9rem;
-  flex-shrink: 0;
-}
-.nav-logo-text { font-size: .95rem; }
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 2px;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-  flex: 1;
-}
-.nav-links::-webkit-scrollbar { display: none; }
-.nav-link {
-  display: inline-flex;
-  align-items: center;
-  padding: 5px 10px;
-  font-size: .82rem;
-  font-weight: 500;
-  color: var(--text);
-  border-radius: 6px;
-  white-space: nowrap;
-  transition: all .15s;
-  flex-shrink: 0;
-}
-.nav-link:hover {
-  background: var(--brand);
-  color: #fff;
-  text-decoration: none;
-}
-.nav-link.active {
-  background: #eff6ff;
-  color: var(--brand);
-}
-.nav-toggle {
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  gap: 4px;
-  width: 32px;
-  height: 32px;
-  padding: 4px;
-  background: none;
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  cursor: pointer;
-  flex-shrink: 0;
-}
-.nav-toggle span {
-  display: block;
-  width: 100%;
-  height: 2px;
-  background: var(--text);
-  border-radius: 1px;
-}
-@media (max-width: 768px) {
-  .nav-logo-text { display: none; }
-  .nav-inner { gap: 6px; }
-  .nav-toggle { display: flex; }
-  .nav-links {
-    display: none;
-    position: absolute;
-    top: 52px;
-    left: 0;
-    right: 0;
-    background: #fff;
-    border-bottom: 1px solid var(--border);
-    box-shadow: 0 4px 12px rgba(0,0,0,.1);
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 8px 0;
-    z-index: 99;
-    overflow: visible;
-  }
-  .nav-links.open { display: flex; }
-  .nav-link {
-    width: 100%;
-    padding: 10px 20px;
-    font-size: .9rem;
-    border-radius: 0;
-  }
-}
-
-/* ── Page-specific tweaks ── */
-.word-counter-stats {
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-}
-.keyword-section {
-  display: none;
-  margin-top: 14px;
-  padding: 16px;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-}
-.keyword-section.is-visible { display: block; }
-.keyword-section__title {
-  margin: 0 0 10px 0;
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: var(--text);
-  letter-spacing: 0.02em;
-}
-.keyword-section__hint {
-  font-size: 0.78rem;
-  color: var(--muted);
-  margin-left: 8px;
-  font-weight: 400;
-}
-.keyword-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px 8px;
-}
-.keyword-chip {
-  display: inline-flex;
-  align-items: baseline;
-  gap: 6px;
-  background: var(--brand-light);
-  color: var(--brand);
-  border: 1px solid rgba(37, 99, 235, 0.15);
-  border-radius: 999px;
-  padding: 5px 10px;
-  font-size: 0.82rem;
-  line-height: 1.2;
-  transition: background 0.15s, transform 0.15s;
-}
-.keyword-chip:hover { background: #dbeafe; transform: translateY(-1px); }
-.keyword-chip__term { font-weight: 600; word-break: break-word; }
-.keyword-chip__count {
-  font-size: 0.72rem;
-  color: var(--muted);
-  font-weight: 500;
-}
-.toolbar-btn { min-width: 0; }
-.toolbar-toast {
-  position: fixed;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%) translateY(20px);
-  background: var(--brand);
-  color: #fff;
-  padding: 10px 18px;
-  border-radius: 999px;
-  font-size: 0.85rem;
-  font-weight: 500;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.15);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.2s, transform 0.2s;
-  z-index: 9999;
-}
-.toolbar-toast.is-visible {
-  opacity: 1;
-  transform: translateX(-50%) translateY(0);
-}
-  </style>
   <meta property="og:image" content="https://www.zlbox.site/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Word Counter – Instant Word & Character Count Online" />
-  <meta name="twitter:description" content="Free real-time word and character counter. Paste or type your text and instantly see total words, characters, sentences, paragraphs, reading time, speaking time, and keyword density — no button clicks needed. Perfect for writers, students, developers, and content creators." />
+  <meta name="twitter:title" content="Word Counter" />
+  <meta name="twitter:description" content="Count words and characters" />
   <meta name="twitter:image" content="https://www.zlbox.site/og-image.png" />
 
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
   <meta name="robots" content="index, follow" />
-  <script type="application/ld+json">{
-  "@context": "https://schema.org",
-  "@type": "HowTo",
-  "name": "How to Use Word Counter",
-  "description": "Step by step guide: How to Use Word Counter",
-  "step": [
-    {
-      "@type": "HowToStep",
-      "name": "Paste or type text",
-      "text": "Enter or paste your text into the input box. Supports CJK (Chinese / Japanese / Korean) character counting.",
-      "position": 1
-    },
-    {
-      "@type": "HowToStep",
-      "name": "View statistics",
-      "text": "Instantly see word count, character count, character count (no spaces), sentence count, paragraph count, reading time, speaking time, and keyword density.",
-      "position": 2
-    },
-    {
-      "@type": "HowToStep",
-      "name": "Copy, upload, download or clear",
-      "text": "Copy your text or stats, upload a .txt file, download as .txt, or clear the input to start over.",
-      "position": 3
-    }
-  ]
-}</script>
+
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Word Counter", "description": "Count words and characters", "url": "https://www.zlbox.site/tools/text/word-counter.html", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9V6L0Z956X"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-9V6L0Z956X');</script>
 </head>
 <body>
+<div class="container-md">
+  <div class="hero">
+    <div class="breadcrumb"><a href="../../index.html">Home</a> &rsaquo; <a href="../../categories/text.html">Text Tools</a> &rsaquo; Word Counter</div>
+    <h1>Word Counter</h1>
+    <p>Type or paste your text — stats update in real time. No button needed, no data sent anywhere.</p>
+  </div>
 
-  <nav class="site-nav" aria-label="Main navigation">
-    <div class="nav-inner">
-      <a href="/" class="nav-logo" aria-label="zlbox Home">
-        <span class="nav-logo-icon">zl</span>
-        <span class="nav-logo-text">zlbox</span>
-      </a>
-      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-      <div class="nav-links" role="list">
-        <a href="/tools/index.html" class="nav-link" role="listitem">All Tools</a>
-        <a href="/categories/text.html" class="nav-link" role="listitem">Text</a>
-        <a href="/categories/calculator.html" class="nav-link" role="listitem">Calculator</a>
-        <a href="/categories/generator.html" class="nav-link" role="listitem">Generator</a>
-        <a href="/categories/image.html" class="nav-link" role="listitem">Image</a>
-        <a href="/categories/pdf.html" class="nav-link" role="listitem">PDF</a>
-        <a href="/blog/index.html" class="nav-link" role="listitem">Blog</a>
+  <div class="card">
+    <div class="editor">
+      <textarea id="inputText" placeholder="Start typing or paste your text here…" spellcheck="true"></textarea>
+      <div class="editor__toolbar">
+        <button class="btn btn--sm btn--ghost" id="clearBtn">Clear</button>
+        <div style="margin-left:auto"></div>
       </div>
     </div>
-  </nav>
-
-<div class="container-md">
- <div class="hero">
- <div class="breadcrumb"><a href="../../index.html">Home</a> &rsaquo; <a href="../../categories/text.html">Text Tools</a> &rsaquo; Word Counter</div>
- <h1>Word Counter</h1>
- <p>Type or paste your text — stats update in real time. Supports Chinese / Japanese / Korean character counting. No data sent anywhere.</p>
- </div>
-
- <div class="card">
- <div class="editor">
- <textarea id="inputText" placeholder="Start typing or paste your text here…" spellcheck="true"></textarea>
- <div class="editor__toolbar">
- <button class="btn btn--sm btn--ghost toolbar-btn" id="clearBtn" type="button" title="Clear all text">Clear</button>
- <button class="btn btn--sm btn--ghost toolbar-btn" id="copyTextBtn" type="button" title="Copy text to clipboard">Copy text</button>
- <button class="btn btn--sm btn--ghost toolbar-btn" id="copyStatsBtn" type="button" title="Copy statistics to clipboard">Copy stats</button>
- <button class="btn btn--sm btn--ghost toolbar-btn" id="uploadBtn" type="button" title="Upload a .txt file">Upload .txt</button>
- <button class="btn btn--sm btn--ghost toolbar-btn" id="downloadBtn" type="button" title="Download text as .txt">Download .txt</button>
- <input type="file" id="uploadFileInput" accept=".txt,text/plain" style="display:none" />
- <div style="margin-left:auto"></div>
- </div>
- </div>
- <div class="stats-grid word-counter-stats" id="stats">
- <div class="stat"><div class="stat__value" id="wordCount">0</div><div class="stat__label">Words</div></div>
- <div class="stat"><div class="stat__value" id="charCount">0</div><div class="stat__label">Characters</div></div>
- <div class="stat"><div class="stat__value" id="charNoSpace">0</div><div class="stat__label">Characters (no spaces)</div></div>
- <div class="stat"><div class="stat__value" id="sentenceCount">0</div><div class="stat__label">Sentences</div></div>
- <div class="stat"><div class="stat__value" id="paraCount">0</div><div class="stat__label">Paragraphs</div></div>
- <div class="stat"><div class="stat__value" id="readTime">0 min</div><div class="stat__label">Reading time</div></div>
- <div class="stat"><div class="stat__value" id="speakTime">0 min</div><div class="stat__label">Speaking time</div></div>
- </div>
- <div class="keyword-section" id="keywordSection" role="region" aria-label="Keyword density">
- <div class="keyword-section__title" id="keywordTitle">Top keywords <span class="keyword-section__hint">Top 10 tokens with 3+ characters</span></div>
- <div class="keyword-list" id="keywordList" aria-live="polite"></div>
- </div>
- </div>
-
- <div class="section">
- <h2>How it works</h2>
- <ol class="steps">
- <li>Paste or type your text into the box above. CJK characters are counted individually as words.</li>
- <li>Word count, character count, sentences, paragraphs, reading/speaking time and top keywords update as you type.</li>
- <li>Hit Clear to reset. Copy text, copy stats, upload a .txt file or download as .txt at any time. Everything runs in your browser — nothing is uploaded.</li>
- </ol>
- </div>
-
- <section class="tool-info" aria-label="Tool information">
-  <h2>What is Word Counter?</h2>
-  <p>A word counter counts words, characters (with and without spaces), sentences, paragraphs, reading time (200 wpm), speaking time (130 wpm) and top keyword density in real-time as you type or paste text. It's a fundamental tool for writers, students, and anyone who needs to meet character or word limits.</p>
-
-  <h2>How to use</h2>
-  <ol class="steps-list">
-<li>Step 1: Type or paste your text into the text area.</li>
-<li>Step 2: Statistics update in real-time — no need to click anything.</li>
-<li>Step 3: View word count, character count (with and without spaces), sentences, paragraphs, reading time, speaking time, and top keywords.</li>
-<li>Step 4: Use the toolbar to Clear, Copy text, Copy stats, Upload .txt or Download .txt.</li>
-  </ol>
-
-  <h2>Use cases</h2>
-  <ul class="usecase-list">
-<li>Meeting essay, article, or blog post word count requirements.</li>
-<li>Checking character limits for social media posts and meta descriptions.</li>
-<li>Estimating reading / speaking time for articles, speeches and presentations.</li>
-<li>Identifying keyword density to optimize SEO content.</li>
-<li>Analyzing Chinese, Japanese and Korean text — each CJK character counts as one word.</li>
-  </ul>
-
-  <h2>Frequently Asked Questions</h2>
-  <div class="faq">
-<details class="faq-item">
-  <summary>Does it count words in Chinese, Japanese or Korean?</summary>
-  <p>Yes. Each CJK character is counted individually as one word, which matches common counter conventions for those languages. Space-separated languages (English, Spanish, etc.) continue to use whitespace boundaries.</p>
-</details>
-<details class="faq-item">
-  <summary>What's the difference between Characters and Characters (no spaces)?</summary>
-  <p>Characters includes every code unit including spaces, tabs and newlines. Characters (no spaces) excludes any whitespace character.</p>
-</details>
-<details class="faq-item">
-  <summary>How are reading and speaking time calculated?</summary>
-  <p>Reading time uses 200 words per minute, speaking time uses 130 words per minute — both industry-standard defaults.</p>
-</details>
-<details class="faq-item">
-  <summary>What is keyword density?</summary>
-  <p>The 10 most frequent tokens of 3 or more characters in your text, along with their counts — useful for quick content analysis and SEO checks.</p>
-</details>
+    <div class="stats-grid" id="stats">
+      <div class="stat"><div class="stat__value" id="wordCount">0</div><div class="stat__label">Words</div></div>
+      <div class="stat"><div class="stat__value" id="charCount">0</div><div class="stat__label">Characters</div></div>
+      <div class="stat"><div class="stat__value" id="trimmedCount">0</div><div class="stat__label">Trimmed</div></div>
+    </div>
   </div>
-</section>
 
-<script type="application/ld+json">
-{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Does it count words in Chinese, Japanese or Korean?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Each CJK character is counted individually as one word, which matches common counter conventions for those languages. Space-separated languages (English, Spanish, etc.) continue to use whitespace boundaries."}}, {"@type": "Question", "name": "What's the difference between Characters and Characters (no spaces)?", "acceptedAnswer": {"@type": "Answer", "text": "Characters includes every code unit including spaces, tabs and newlines. Characters (no spaces) excludes any whitespace character."}}, {"@type": "Question", "name": "How are reading and speaking time calculated?", "acceptedAnswer": {"@type": "Answer", "text": "Reading time uses 200 words per minute, speaking time uses 130 words per minute — both industry-standard defaults."}}, {"@type": "Question", "name": "What is keyword density?", "acceptedAnswer": {"@type": "Answer", "text": "The 10 most frequent tokens of 3 or more characters in your text, along with their counts — useful for quick content analysis and SEO checks."}}]}
-</script>
- <div class="section">
- <h2>Related tools</h2>
- <div class="related-grid">
- <a href="case-converter.html">Case Converter</a>
- <a href="lorem-ipsum.html">Lorem Ipsum</a>
- <a href="base64.html">Base64 Encode/Decode</a>
- <a href="json-formatter.html">JSON Formatter</a>
- </div>
- </div>
+  <div class="section">
+    <h2>How it works</h2>
+    <ol class="steps">
+      <li>Paste or type your text into the box above.</li>
+      <li>Word count, character count, and trimmed length update as you type.</li>
+      <li>Hit Clear to reset. Everything runs in your browser — nothing is uploaded.</li>
+    </ol>
+  </div>
 
- <footer class="footer">
- <div class="footer-links">
- <a href="word-counter.html">Word Counter</a>
- <a href="case-converter.html">Case Converter</a>
- <a href="json-formatter.html">JSON Formatter</a>
- <span style="color:var(--border);margin:0 6px">|</span>
- <a href="../../about.html">About</a>
- <a href="../../privacy.html">Privacy</a>
- <a href="../../disclaimer.html">Disclaimer</a>
- </div>
- <p class="footer-copy">&copy; 2026 zlbox. All rights reserved.</p>
- </footer>
+  <div class="section">
+    <h2>Related tools</h2>
+    <div class="related-grid">
+      <a href="case-converter.html">Case Converter</a>
+      <a href="lorem-ipsum.html">Lorem Ipsum</a>
+      <a href="base64.html">Base64 Encode/Decode</a>
+      <a href="json-formatter.html">JSON Formatter</a>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="word-counter.html">Word Counter</a>
+      <a href="case-converter.html">Case Converter</a>
+      <a href="json-formatter.html">JSON Formatter</a>
+      <span style="color:var(--border);margin:0 6px">|</span>
+      <a href="../../about.html">About</a>
+      <a href="../../privacy.html">Privacy</a>
+      <a href="../../disclaimer.html">Disclaimer</a>
+    </div>
+    <p class="footer-copy">&copy; 2026 My Tool Lab. All rights reserved.</p>
+  </footer>
 </div>
 
-<div class="toolbar-toast" id="toolbarToast" role="status" aria-live="polite"></div>
-
 <script>
-(function(){
-  const input = document.getElementById('inputText');
-  const wordEl = document.getElementById('wordCount');
-  const charEl = document.getElementById('charCount');
-  const charNoSpaceEl = document.getElementById('charNoSpace');
-  const sentenceEl = document.getElementById('sentenceCount');
-  const paraEl = document.getElementById('paraCount');
-  const readEl = document.getElementById('readTime');
-  const speakEl = document.getElementById('speakTime');
-  const keywordSection = document.getElementById('keywordSection');
-  const keywordList = document.getElementById('keywordList');
-  const clearBtn = document.getElementById('clearBtn');
-  const copyTextBtn = document.getElementById('copyTextBtn');
-  const copyStatsBtn = document.getElementById('copyStatsBtn');
-  const uploadBtn = document.getElementById('uploadBtn');
-  const uploadFileInput = document.getElementById('uploadFileInput');
-  const downloadBtn = document.getElementById('downloadBtn');
-  const toast = document.getElementById('toolbarToast');
-
-  const CJK_REGEX = /[\u3040-\u30ff\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff\uAC00-\uD7AF]/;
-  const MULTI_CJK = /[\u3040-\u30ff\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff\uAC00-\uD7AF]+/g;
-  const WHITESPACE_ONLY = /^\s*$/;
-  const STOP_SPLIT_RE = /[^a-zA-Z\u00C0-\u024F\u0400-\u04FF]+/;
-
-  function showToast(msg){
-    if(!toast) return;
-    toast.textContent = msg;
-    toast.classList.add('is-visible');
-    clearTimeout(showToast._t);
-    showToast._t = setTimeout(function(){ toast.classList.remove('is-visible'); }, 1400);
+  const input     = document.getElementById('inputText');
+  const wordEl    = document.getElementById('wordCount');
+  const charEl    = document.getElementById('charCount');
+  const trimmedEl = document.getElementById('trimmedCount');
+  const clearBtn  = document.getElementById('clearBtn');
+  function update() {
+    const raw     = input.value;
+    const trimmed = raw.trim();
+    const words   = trimmed === '' ? 0 : trimmed.split(/\s+/).length;
+    wordEl.textContent    = words.toLocaleString();
+    charEl.textContent    = raw.length.toLocaleString();
+    trimmedEl.textContent = trimmed.length.toLocaleString();
   }
-
-  function formatMinutes(min){
-    if(min === 0) return '0 min';
-    if(min < 1) return Math.ceil(min * 60) + ' sec';
-    if(min < 10) {
-      const whole = Math.floor(min);
-      const frac = min - whole;
-      if(frac < 0.1) return whole + ' min';
-      return min.toFixed(1) + ' min';
-    }
-    return Math.round(min).toLocaleString() + ' min';
-  }
-
-  function countWords(text){
-    if(!text || WHITESPACE_ONLY.test(text)) return 0;
-    let count = 0;
-    const tokens = text.split(/\s+/);
-    for(let i=0;i<tokens.length;i++){
-      const tk = tokens[i];
-      if(!tk) continue;
-      const cjkMatches = tk.match(MULTI_CJK);
-      let cjkChars = 0;
-      if(cjkMatches){
-        for(let j=0;j<cjkMatches.length;j++){
-          cjkChars += cjkMatches[j].length;
-        }
-      }
-      let nonCjkPart = tk.replace(MULTI_CJK, ' ');
-      nonCjkPart = nonCjkPart.replace(/\s+/g, ' ').trim();
-      let nonCjkWords = 0;
-      if(nonCjkPart){
-        nonCjkWords = nonCjkPart.split(' ').length;
-      }
-      count += cjkChars + nonCjkWords;
-    }
-    return count;
-  }
-
-  function countSentences(text){
-    if(!text || WHITESPACE_ONLY.test(text)) return 0;
-    const trimmed = text.trim();
-    const m = trimmed.match(/[^.!?。！？．\n]+[.!?。！？．]+/g);
-    let count = m ? m.length : 0;
-    const lastEnd = /[.!?。！？．\n]$/.test(trimmed);
-    const afterLastPeriod = lastEnd ? '' : trimmed.replace(/[.!?。！？．]+[^.!?。！？．\n]*$/, '');
-    const trailingChunk = lastEnd ? '' : trimmed.split(/[.!?。！？．]+/).pop();
-    if(!lastEnd && trailingChunk && !WHITESPACE_ONLY.test(trailingChunk)) count += 1;
-    return count;
-  }
-
-  function countParagraphs(text){
-    if(!text || WHITESPACE_ONLY.test(text)) return 0;
-    const blocks = text.split(/\n\s*\n/);
-    let count = 0;
-    for(let i=0;i<blocks.length;i++){
-      if(!WHITESPACE_ONLY.test(blocks[i])) count++;
-    }
-    return count;
-  }
-
-  function countCharsNoSpace(text){
-    if(!text) return 0;
-    return text.replace(/\s/g, '').length;
-  }
-
-  function getTopKeywords(text, limit){
-    limit = limit || 10;
-    if(!text || WHITESPACE_ONLY.test(text)) return [];
-    const lower = text.toLowerCase();
-    const freq = Object.create(null);
-    const segments = lower.split(/[\s,.;:!?()\[\]{}"'`~@#$%^&*|\\/<>+=—–\-_。、：；！？（）《》「」『』【】〔〕・…·]+/);
-    for(let i=0;i<segments.length;i++){
-      const seg = segments[i];
-      if(!seg) continue;
-      if(CJK_REGEX.test(seg)){
-        for(let c=0;c<seg.length;c++){
-          const ch = seg[c];
-          if(CJK_REGEX.test(ch)){
-            freq[ch] = (freq[ch] || 0) + 1;
-          } else {
-            const piece = ch;
-            if(piece.length >= 3) freq[piece] = (freq[piece] || 0) + 1;
-          }
-        }
-      } else {
-        if(seg.length >= 3) freq[seg] = (freq[seg] || 0) + 1;
-      }
-    }
-    const entries = [];
-    for(const k in freq){
-      if(k.length >= 3) entries.push([k, freq[k]]);
-    }
-    entries.sort(function(a,b){
-      if(b[1] !== a[1]) return b[1] - a[1];
-      return a[0] < b[0] ? -1 : 1;
-    });
-    return entries.slice(0, limit);
-  }
-
-  let lastStats = { words:0, chars:0, charsNoSpace:0, sentences:0, paragraphs:0, readMin:0, speakMin:0 };
-
-  function update(){
-    const raw = input.value;
-    const wordCount = countWords(raw);
-    const charCount = raw.length;
-    const charNoSpace = countCharsNoSpace(raw);
-    const sentences = countSentences(raw);
-    const paragraphs = countParagraphs(raw);
-    const readMin = wordCount / 200;
-    const speakMin = wordCount / 130;
-
-    wordEl.textContent = wordCount.toLocaleString();
-    charEl.textContent = charCount.toLocaleString();
-    charNoSpaceEl.textContent = charNoSpace.toLocaleString();
-    sentenceEl.textContent = sentences.toLocaleString();
-    paraEl.textContent = paragraphs.toLocaleString();
-    readEl.textContent = formatMinutes(readMin);
-    speakEl.textContent = formatMinutes(speakMin);
-
-    lastStats = {
-      words: wordCount,
-      chars: charCount,
-      charsNoSpace: charNoSpace,
-      sentences: sentences,
-      paragraphs: paragraphs,
-      readMin: readMin,
-      speakMin: speakMin
-    };
-
-    const hasContent = raw.length > 0 && !WHITESPACE_ONLY.test(raw);
-    if(hasContent){
-      const keywords = getTopKeywords(raw, 10);
-      if(keywords.length > 0){
-        keywordSection.classList.add('is-visible');
-        const totalTok = keywords.reduce(function(s,p){ return s + p[1]; }, 0);
-        keywordList.innerHTML = '';
-        for(let i=0;i<keywords.length;i++){
-          const span = document.createElement('span');
-          span.className = 'keyword-chip';
-          const term = document.createElement('span');
-          term.className = 'keyword-chip__term';
-          term.textContent = keywords[i][0];
-          const count = document.createElement('span');
-          count.className = 'keyword-chip__count';
-          count.textContent = keywords[i][1] + '×';
-          span.appendChild(term);
-          span.appendChild(count);
-          keywordList.appendChild(span);
-        }
-      } else {
-        keywordSection.classList.remove('is-visible');
-        keywordList.innerHTML = '';
-      }
-    } else {
-      keywordSection.classList.remove('is-visible');
-      keywordList.innerHTML = '';
-    }
-  }
-
-  function copyToClipboard(text){
-    if(navigator.clipboard && window.isSecureContext){
-      return navigator.clipboard.writeText(text).then(function(){ return true; }, function(){ return fallbackCopy(text); });
-    }
-    return fallbackCopy(text);
-  }
-
-  function fallbackCopy(text){
-    try {
-      const ta = document.createElement('textarea');
-      ta.value = text;
-      ta.setAttribute('readonly','');
-      ta.style.position = 'fixed';
-      ta.style.top = '-9999px';
-      ta.style.left = '0';
-      document.body.appendChild(ta);
-      ta.select();
-      ta.setSelectionRange(0, ta.value.length);
-      const ok = document.execCommand('copy');
-      document.body.removeChild(ta);
-      return ok;
-    } catch(e){ return false; }
-  }
-
   input.addEventListener('input', update);
-
-  clearBtn.addEventListener('click', function(){
-    input.value = '';
-    update();
-    input.focus();
-    showToast('Cleared');
-  });
-
-  copyTextBtn.addEventListener('click', function(){
-    const text = input.value;
-    if(!text){ showToast('Nothing to copy'); return; }
-    copyToClipboard(text).then(function(ok){
-      showToast(ok ? 'Text copied' : 'Copy failed');
-    });
-  });
-
-  copyStatsBtn.addEventListener('click', function(){
-    const s = lastStats;
-    const lines = [
-      'Words: ' + s.words.toLocaleString(),
-      'Characters: ' + s.chars.toLocaleString(),
-      'Characters (no spaces): ' + s.charsNoSpace.toLocaleString(),
-      'Sentences: ' + s.sentences.toLocaleString(),
-      'Paragraphs: ' + s.paragraphs.toLocaleString(),
-      'Reading time: ' + formatMinutes(s.readMin),
-      'Speaking time: ' + formatMinutes(s.speakMin)
-    ];
-    const top = getTopKeywords(input.value, 10);
-    if(top.length){
-      lines.push('');
-      lines.push('Top keywords:');
-      for(let i=0;i<top.length;i++){
-        lines.push('  ' + top[i][0] + ' — ' + top[i][1]);
-      }
-    }
-    copyToClipboard(lines.join('\n')).then(function(ok){
-      showToast(ok ? 'Stats copied' : 'Copy failed');
-    });
-  });
-
-  uploadBtn.addEventListener('click', function(){
-    uploadFileInput.value = '';
-    uploadFileInput.click();
-  });
-
-  uploadFileInput.addEventListener('change', function(){
-    const file = uploadFileInput.files && uploadFileInput.files[0];
-    if(!file) return;
-    const reader = new FileReader();
-    reader.onload = function(e){
-      try {
-        input.value = String(e.target.result || '');
-        update();
-        showToast('Uploaded: ' + file.name);
-      } catch(err){
-        showToast('Failed to read file');
-      }
-    };
-    reader.onerror = function(){ showToast('Failed to read file'); };
-    reader.readAsText(file, 'utf-8');
-  });
-
-  downloadBtn.addEventListener('click', function(){
-    const text = input.value;
-    if(!text){ showToast('Nothing to download'); return; }
-    try {
-      const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = 'word-counter-' + (new Date().toISOString().slice(0,10)) + '.txt';
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      setTimeout(function(){ try { URL.revokeObjectURL(url); } catch(_){} }, 1000);
-      showToast('Downloaded');
-    } catch(err){
-      showToast('Download failed');
-    }
-  });
-
+  clearBtn.addEventListener('click', () => { input.value = ''; update(); input.focus(); });
   update();
-})();
 </script>
 </body>
 </html>

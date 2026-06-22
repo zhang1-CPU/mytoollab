@@ -382,5 +382,37 @@
     "url": "/tools/dev/markdown-editor.html",
     "keywords": ["markdown", "editor", "preview", "md", "developer", "write"],
     "icon": "📝"
+  },
+  {
+    "name": "Text Analyzer",
+    "category": "Text",
+    "description": "Analyze text readability with Flesch score and statistics",
+    "url": "/tools/text/text-analyzer.html",
+    "keywords": ["text", "analyzer", "readability", "flesch", "statistics", "writing"],
+    "icon": "📊"
+  },
+  {
+    "name": "JSON CSV Converter",
+    "category": "Text",
+    "description": "Convert JSON to CSV and CSV to JSON with nested support",
+    "url": "/tools/text/json-csv-converter.html",
+    "keywords": ["json", "csv", "convert", "flatten", "nested", "developer"],
+    "icon": "🔄"
+  },
+  {
+    "name": "Image Base64 Converter",
+    "category": "Image",
+    "description": "Convert images to Base64 and decode Base64 to images",
+    "url": "/tools/image/image-base64.html",
+    "keywords": ["base64", "image", "encode", "decode", "data", "uri"],
+    "icon": "🖼️"
+  },
+  {
+    "name": "Device Info Detector",
+    "category": "Generator",
+    "description": "Detect screen, browser, hardware and network information",
+    "url": "/tools/generator/device-info.html",
+    "keywords": ["device", "screen", "browser", "hardware", "info", "debug"],
+    "icon": "📱"
   }
 ]

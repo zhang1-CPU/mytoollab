@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Device Info Detector — Screen, Browser & Hardware Info | zlbox</title>
+  <meta name="description" content="Detect screen resolution, device pixel ratio, browser info, CPU cores, memory, network type, and WebGL renderer. Useful for frontend developers and debugging." />
+  <link rel="stylesheet" href="../../css/components.css" />
+  <link rel="stylesheet" href="/css/theme.css" />
+  <link rel="canonical" href="https://www.zlbox.site/tools/generator/device-info.html" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:image" content="https://www.zlbox.site/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Device Info Detector","description":"Detect screen, browser, and hardware information","url":"https://www.zlbox.site/tools/generator/device-info.html","applicationCategory":"UtilityApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9V6L0Z956X"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-9V6L0Z956X');</script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
+  <style>
+    .info-section { background: var(--card, #fff); border: 1px solid var(--border, #e5e7eb); border-radius: 12px; padding: 20px; margin-bottom: 20px; }
+    .info-section h3 { margin-top: 0; margin-bottom: 16px; font-size: 1rem; font-weight: 600; color: var(--text, #1f2937); display: flex; align-items: center; gap: 8px; }
+    .info-section h3 .icon { font-size: 1.2rem; }
+    .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+    .info-item { background: var(--bg-subtle, #f8fafc); border: 1px solid var(--border, #e5e7eb); border-radius: 8px; padding: 12px; }
+    .info-label { font-size: .75rem; color: var(--text-muted, #64748b); margin-bottom: 4px; }
+    .info-value { font-size: .95rem; color: var(--text, #1f2937); font-weight: 600; word-break: break-all; }
+    .info-value.highlight { color: var(--primary, #2563eb); }
+    .info-value.warning { color: #f59e0b; }
+    .info-value.success { color: #22c55e; }
+    .info-value.error { color: #ef4444; }
+    .info-detail { font-size: .7rem; color: var(--text-muted, #64748b); margin-top: 4px; }
+    .toolbar { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-top: 16px; }
+    .action-btn { padding: 10px 20px; border: 1px solid var(--border, #e5e7eb); background: var(--card, #fff); color: var(--text, #1f2937); border-radius: 8px; font-size: .85rem; cursor: pointer; font-weight: 500; }
+    .action-btn.primary { background: var(--primary, #2563eb); color: #fff; border: none; }
+    .action-btn:hover { opacity: .9; }
+    .viewport-box { background: var(--code-bg, #f1f5f9); border: 1px solid var(--border, #e5e7eb); border-radius: 8px; padding: 16px; margin-top: 16px; text-align: center; }
+    .viewport-visual { display: inline-block; background: var(--primary-light, #dbeafe); border: 2px solid var(--primary, #2563eb); border-radius: 4px; padding: 8px 16px; margin: 8px; }
+    .viewport-label { font-size: .8rem; color: var(--text-muted, #64748b); }
+    .viewport-value { font-size: 1.1rem; font-weight: 700; color: var(--primary, #2563eb); }
+    .ua-box { background: var(--code-bg, #f1f5f9); border: 1px solid var(--border, #e5e7eb); border-radius: 8px; padding: 12px; font-family: ui-monospace, Consolas, monospace; font-size: .8rem; word-break: break-all; color: var(--text, #1f2937); max-height: 150px; overflow: auto; }
+    .webgl-box { background: var(--code-bg, #f1f5f9); border: 1px solid var(--border, #e5e7eb); border-radius: 8px; padding: 12px; font-family: ui-monospace, Consolas, monospace; font-size: .8rem; word-break: break-all; color: var(--text, #1f2937); }
+    .related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-top: 16px; }
+    .related-card { background: var(--card, #fff); border: 1px solid var(--border, #e5e7eb); border-radius: 8px; padding: 16px; text-decoration: none; transition: all .2s; }
+    .related-card:hover { border-color: var(--primary, #2563eb); box-shadow: 0 2px 8px rgba(37,99,235,.1); }
+    .related-card h4 { margin: 0 0 4px; font-size: .95rem; color: var(--text, #1f2937); }
+    .related-card p { margin: 0; font-size: .8rem; color: var(--text-muted, #64748b); }
+    .loading { color: var(--text-muted, #64748b); font-size: .8rem; }
+  </style>
+</head>
+<body>
+
+<nav class="site-nav" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo"><span class="nav-logo-icon">zl</span><span class="nav-logo-text">zlbox</span></a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+    <div class="nav-links">
+      <a href="/categories/text.html">Text</a>
+      <a href="/categories/generator.html">Generator</a>
+      <a href="/categories/image.html">Image</a>
+      <a href="/categories/pdf.html">PDF</a>
+      <a href="/categories/seo.html">SEO</a>
+      <a href="/categories/dev.html">Dev</a>
+      <button class="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+    </div>
+  </div>
+</nav>
+
+<main class="tool-page">
+  <div class="breadcrumb">
+    <a href="/">Home</a>
+    <span>›</span>
+    <a href="/categories/generator.html">Generator Tools</a>
+    <span>›</span>
+    <span>Device Info</span>
+  </div>
+
+  <header class="tool-header">
+    <h1>Device Info Detector</h1>
+    <p>Detect screen resolution, device pixel ratio, browser info, hardware specs, network type, and WebGL renderer. Useful for frontend developers and debugging.</p>
+  </header>
+
+  <!-- Screen Info -->
+  <div class="info-section">
+    <h3><span class="icon">🖥️</span> Screen Information</h3>
+    <div class="info-grid">
+      <div class="info-item">
+        <div class="info-label">Screen Resolution</div>
+        <div class="info-value" id="screen-resolution">-</div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">Available Screen</div>
+        <div class="info-value" id="screen-available">-</div>
+        <div class="info-detail">Excludes taskbar/dock</div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">Device Pixel Ratio (DPR)</div>
+        <div class="info-value highlight" id="dpr">-</div>
+        <div class="info-detail">Retina/HiDPI indicator</div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">Color Depth</div>
+        <div class="info-value" id="color-depth">-</div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">Orientation</div>
+        <div class="info-value" id="screen-orientation">-</div>
+      </div>
+    </div>
+    <div class="viewport-box">
+      <div class="viewport-label">Current Viewport (Inner Window)</div>
+      <div class="viewport-visual">
+        <div class="viewport-value" id="viewport-size">-</div>
+      </div>
+      <div class="viewport-label" style="margin-top: 8px;">Document (with scrollbars)</div>
+      <div class="viewport-visual">
+        <div class="viewport-value" id="document-size">-</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Browser Info -->
+  <div class="info-section">
+    <h3><span class="icon">🌐</span> Browser Information</h3>
+    <div class="info-grid">
+      <div class="info-item">
+        <div class="info-label">User Agent</div>
+        <div class="ua-box" id="user-agent">-</div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">Language</div>
+        <div class="info-value" id="browser-language">-</div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">Online Status</div>
+        <div class="info-value" id="online-status">-</div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">Cookies Enabled</div>
+        <div class="info-value" id="cookies-enabled">-</div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">Do Not Track</div>
+        <div class="info-value" id="do-not-track">-</div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">Platform</div>
+        <div class="info-value" id="platform">-</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hardware Info -->
+  <div class="info-section">
+    <h3><span class="icon">⚙️</span> Hardware Information</h3>
+    <div class="info-grid">
+      <div class="info-item">
+        <div class="info-label">CPU Cores</div>
+        <div class="info-value highlight" id="cpu-cores">-</div>
+        <div class="info-detail">navigator.hardwareConcurrency</div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">Device Memory</div>
+        <div class="info-value" id="device-memory">-</div>
+        <div class="info-detail">navigator.deviceMemory (approximate)</div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">Touch Support</div>
+        <div class="info-value" id="touch-support">-</div>
+        <div class="info-detail">Max touch points</div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">Max Touch Points</div>
+        <div class="info-value" id="max-touch-points">-</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Network Info -->
+  <div class="info-section">
+    <h3><span class="icon">📡</span> Network Information</h3>
+    <div class="info-grid">
+      <div class="info-item">
+        <div class="info-label">Connection Type</div>
+        <div class="info-value" id="connection-type">-</div>
+        <div class="info-detail">effectiveType (4g, 3g, 2g)</div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">Downlink Speed</div>
+        <div class="info-value" id="downlink-speed">-</div>
+        <div class="info-detail">Estimated Mbps</div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">RTT (Latency)</div>
+        <div class="info-value" id="rtt">-</div>
+        <div class="info-detail">Round-trip time in ms</div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">Save Data Mode</div>
+        <div class="info-value" id="save-data">-</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Battery Info -->
+  <div class="info-section">
+    <h3><span class="icon">🔋</span> Battery Information</h3>
+    <div class="info-grid">
+      <div class="info-item">
+        <div class="info-label">Battery Level</div>
+        <div class="info-value" id="battery-level"><span class="loading">Loading...</span></div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">Charging Status</div>
+        <div class="info-value" id="charging-status"><span class="loading">Loading...</span></div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">Charging Time</div>
+        <div class="info-value" id="charging-time"><span class="loading">Loading...</span></div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">Discharging Time</div>
+        <div class="info-value" id="discharging-time"><span class="loading">Loading...</span></div>
+      </div>
+    </div>
+    <div class="info-detail" style="margin-top: 8px;">Note: Battery API may not be available in all browsers due to privacy restrictions.</div>
+  </div>
+
+  <!-- WebGL Info -->
+  <div class="info-section">
+    <h3><span class="icon">🎮</span> WebGL / GPU Information</h3>
+    <div class="info-grid">
+      <div class="info-item">
+        <div class="info-label">WebGL Version</div>
+        <div class="info-value" id="webgl-version">-</div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">Renderer (GPU)</div>
+        <div class="webgl-box" id="webgl-renderer">-</div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">Vendor</div>
+        <div class="webgl-box" id="webgl-vendor">-</div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">Max Texture Size</div>
+        <div class="info-value" id="max-texture-size">-</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Copy Actions -->
+  <div class="toolbar">
+    <button class="action-btn primary" id="copy-markdown">Copy as Markdown Table</button>
+    <button class="action-btn" id="copy-text">Copy as Plain Text</button>
+    <button class="action-btn" id="copy-json">Copy as JSON</button>
+  </div>
+
+  <section class="related-tools">
+    <h2>Related Tools</h2>
+    <div class="related-grid">
+      <a href="/tools/generator/what-is-my-ip.html" class="related-card"><h4>What Is My IP</h4><p>Get your public IP address</p></a>
+      <a href="/tools/generator/uuid-generator.html" class="related-card"><h4>UUID Generator</h4><p>Generate unique identifiers</p></a>
+      <a href="/tools/generator/password-generator.html" class="related-card"><h4>Password Generator</h4><p>Generate secure passwords</p></a>
+      <a href="/tools/generator/qr-code-generator.html" class="related-card"><h4>QR Code Generator</h4><p>Create QR codes</p></a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <p>© 2025 zlbox — Free online tools for everyone.</p>
+  </div>
+</footer>
+
+<script src="/js/theme.js"></script>
+<script>
+(function() {
+  var deviceInfo = {};
+
+  // Screen info
+  deviceInfo.screenResolution = screen.width + ' × ' + screen.height;
+  deviceInfo.screenAvailable = screen.availWidth + ' × ' + screen.availHeight;
+  deviceInfo.dpr = window.devicePixelRatio;
+  deviceInfo.colorDepth = screen.colorDepth + '-bit';
+  deviceInfo.orientation = screen.orientation ? screen.orientation.type : 'Unknown';
+
+  document.getElementById('screen-resolution').textContent = deviceInfo.screenResolution;
+  document.getElementById('screen-available').textContent = deviceInfo.screenAvailable;
+  document.getElementById('dpr').textContent = deviceInfo.dpr;
+  document.getElementById('color-depth').textContent = deviceInfo.colorDepth;
+  document.getElementById('screen-orientation').textContent = deviceInfo.orientation;
+
+  // Viewport
+  function updateViewport() {
+    document.getElementById('viewport-size').textContent = window.innerWidth + ' × ' + window.innerHeight;
+    document.getElementById('document-size').textContent = document.documentElement.scrollWidth + ' × ' + document.documentElement.scrollHeight;
+  }
+  updateViewport();
+  window.addEventListener('resize', updateViewport);
+
+  // Browser info
+  deviceInfo.userAgent = navigator.userAgent;
+  deviceInfo.browserLanguage = navigator.language;
+  deviceInfo.onlineStatus = navigator.onLine ? 'Online' : 'Offline';
+  deviceInfo.cookiesEnabled = navigator.cookieEnabled ? 'Enabled' : 'Disabled';
+  deviceInfo.doNotTrack = navigator.doNotTrack || 'Not set';
+  deviceInfo.platform = navigator.platform || 'Unknown';
+
+  document.getElementById('user-agent').textContent = deviceInfo.userAgent;
+  document.getElementById('browser-language').textContent = deviceInfo.browserLanguage;
+  document.getElementById('online-status').textContent = deviceInfo.onlineStatus;
+  document.getElementById('online-status').className = 'info-value ' + (navigator.onLine ? 'success' : 'error');
+  document.getElementById('cookies-enabled').textContent = deviceInfo.cookiesEnabled;
+  document.getElementById('cookies-enabled').className = 'info-value ' + (navigator.cookieEnabled ? 'success' : 'error');
+  document.getElementById('do-not-track').textContent = deviceInfo.doNotTrack;
+  document.getElementById('platform').textContent = deviceInfo.platform;
+
+  // Hardware info
+  deviceInfo.cpuCores = navigator.hardwareConcurrency || 'Unknown';
+  deviceInfo.deviceMemory = navigator.deviceMemory ? navigator.deviceMemory + ' GB' : 'Unknown';
+  deviceInfo.touchSupport = 'ontouchstart' in window || navigator.maxTouchPoints > 0 ? 'Supported' : 'Not Supported';
+  deviceInfo.maxTouchPoints = navigator.maxTouchPoints || 0;
+
+  document.getElementById('cpu-cores').textContent = deviceInfo.cpuCores;
+  document.getElementById('device-memory').textContent = deviceInfo.deviceMemory;
+  document.getElementById('touch-support').textContent = deviceInfo.touchSupport;
+  document.getElementById('touch-support').className = 'info-value ' + (deviceInfo.touchSupport === 'Supported' ? 'success' : '');
+  document.getElementById('max-touch-points').textContent = deviceInfo.maxTouchPoints;
+
+  // Network info
+  var connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+  if (connection) {
+    deviceInfo.connectionType = connection.effectiveType || 'Unknown';
+    deviceInfo.downlinkSpeed = connection.downlink ? connection.downlink + ' Mbps' : 'Unknown';
+    deviceInfo.rtt = connection.rtt ? connection.rtt + ' ms' : 'Unknown';
+    deviceInfo.saveData = connection.saveData ? 'Enabled' : 'Disabled';
+
+    document.getElementById('connection-type').textContent = deviceInfo.connectionType;
+    document.getElementById('downlink-speed').textContent = deviceInfo.downlinkSpeed;
+    document.getElementById('rtt').textContent = deviceInfo.rtt;
+    document.getElementById('save-data').textContent = deviceInfo.saveData;
+  } else {
+    document.getElementById('connection-type').textContent = 'Not available';
+    document.getElementById('downlink-speed').textContent = 'Not available';
+    document.getElementById('rtt').textContent = 'Not available';
+    document.getElementById('save-data').textContent = 'Not available';
+    deviceInfo.connectionType = 'Not available';
+    deviceInfo.downlinkSpeed = 'Not available';
+    deviceInfo.rtt = 'Not available';
+    deviceInfo.saveData = 'Not available';
+  }
+
+  // Battery info
+  if (navigator.getBattery) {
+    navigator.getBattery().then(function(battery) {
+      function updateBattery() {
+        deviceInfo.batteryLevel = Math.round(battery.level * 100) + '%';
+        deviceInfo.chargingStatus = battery.charging ? 'Charging' : 'Not Charging';
+        deviceInfo.chargingTime = battery.charging ? (battery.chargingTime === Infinity ? 'Unknown' : Math.round(battery.chargingTime / 60) + ' min') : 'N/A';
+        deviceInfo.dischargingTime = !battery.charging ? (battery.dischargingTime === Infinity ? 'Unknown' : Math.round(battery.dischargingTime / 60) + ' min') : 'N/A';
+
+        document.getElementById('battery-level').textContent = deviceInfo.batteryLevel;
+        document.getElementById('charging-status').textContent = deviceInfo.chargingStatus;
+        document.getElementById('charging-status').className = 'info-value ' + (battery.charging ? 'success' : '');
+        document.getElementById('charging-time').textContent = deviceInfo.chargingTime;
+        document.getElementById('discharging-time').textContent = deviceInfo.dischargingTime;
+      }
+      updateBattery();
+      battery.addEventListener('levelchange', updateBattery);
+      battery.addEventListener('chargingchange', updateBattery);
+    }).catch(function() {
+      document.getElementById('battery-level').textContent = 'Not available';
+      document.getElementById('charging-status').textContent = 'Not available';
+      document.getElementById('charging-time').textContent = 'Not available';
+      document.getElementById('discharging-time').textContent = 'Not available';
+      deviceInfo.batteryLevel = 'Not available';
+      deviceInfo.chargingStatus = 'Not available';
+      deviceInfo.chargingTime = 'Not available';
+      deviceInfo.dischargingTime = 'Not available';
+    });
+  } else {
+    document.getElementById('battery-level').textContent = 'API not supported';
+    document.getElementById('charging-status').textContent = 'API not supported';
+    document.getElementById('charging-time').textContent = 'API not supported';
+    document.getElementById('discharging-time').textContent = 'API not supported';
+    deviceInfo.batteryLevel = 'API not supported';
+    deviceInfo.chargingStatus = 'API not supported';
+    deviceInfo.chargingTime = 'API not supported';
+    deviceInfo.dischargingTime = 'API not supported';
+  }
+
+  // WebGL info
+  function getWebGLInfo() {
+    var canvas = document.createElement('canvas');
+    var gl = canvas.getContext('webgl2') || canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+    if (!gl) {
+      return { version: 'Not supported', renderer: 'Not supported', vendor: 'Not supported', maxTextureSize: 'Not supported' };
+    }
+
+    var debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
+    var version = gl.getParameter(gl.VERSION);
+    var renderer = debugInfo ? gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL) : gl.getParameter(gl.RENDERER);
+    var vendor = debugInfo ? gl.getParameter(debugInfo.UNMASKED_VENDOR_WEBGL) : gl.getParameter(gl.VENDOR);
+    var maxTextureSize = gl.getParameter(gl.MAX_TEXTURE_SIZE);
+
+    return {
+      version: version,
+      renderer: renderer,
+      vendor: vendor,
+      maxTextureSize: maxTextureSize + ' × ' + maxTextureSize
+    };
+  }
+
+  var webglInfo = getWebGLInfo();
+  deviceInfo.webglVersion = webglInfo.version;
+  deviceInfo.webglRenderer = webglInfo.renderer;
+  deviceInfo.webglVendor = webglInfo.vendor;
+  deviceInfo.maxTextureSize = webglInfo.maxTextureSize;
+
+  document.getElementById('webgl-version').textContent = deviceInfo.webglVersion;
+  document.getElementById('webgl-renderer').textContent = deviceInfo.webglRenderer;
+  document.getElementById('webgl-vendor').textContent = deviceInfo.webglVendor;
+  document.getElementById('max-texture-size').textContent = deviceInfo.maxTextureSize;
+
+  // Copy functions
+  function copyText(text, msg) {
+    if (window.copyToClipboard) window.copyToClipboard(text);
+    else navigator.clipboard.writeText(text);
+    window.showToast && window.showToast(msg);
+  }
+
+  document.getElementById('copy-markdown').addEventListener('click', function() {
+    var md = '| Property | Value |\n|----------|-------|\n';
+    md += '| Screen Resolution | ' + deviceInfo.screenResolution + ' |\n';
+    md += '| Available Screen | ' + deviceInfo.screenAvailable + ' |\n';
+    md += '| Device Pixel Ratio | ' + deviceInfo.dpr + ' |\n';
+    md += '| Color Depth | ' + deviceInfo.colorDepth + ' |\n';
+    md += '| Viewport | ' + window.innerWidth + ' × ' + window.innerHeight + ' |\n';
+    md += '| Browser Language | ' + deviceInfo.browserLanguage + ' |\n';
+    md += '| Online Status | ' + deviceInfo.onlineStatus + ' |\n';
+    md += '| Cookies Enabled | ' + deviceInfo.cookiesEnabled + ' |\n';
+    md += '| CPU Cores | ' + deviceInfo.cpuCores + ' |\n';
+    md += '| Device Memory | ' + deviceInfo.deviceMemory + ' |\n';
+    md += '| Touch Support | ' + deviceInfo.touchSupport + ' |\n';
+    md += '| Connection Type | ' + deviceInfo.connectionType + ' |\n';
+    md += '| Downlink Speed | ' + deviceInfo.downlinkSpeed + ' |\n';
+    md += '| Battery Level | ' + (deviceInfo.batteryLevel || 'Unknown') + ' |\n';
+    md += '| WebGL Renderer | ' + deviceInfo.webglRenderer + ' |\n';
+    copyText(md, 'Markdown copied');
+  });
+
+  document.getElementById('copy-text').addEventListener('click', function() {
+    var txt = 'Screen Resolution: ' + deviceInfo.screenResolution + '\n';
+    txt += 'Available Screen: ' + deviceInfo.screenAvailable + '\n';
+    txt += 'Device Pixel Ratio: ' + deviceInfo.dpr + '\n';
+    txt += 'Color Depth: ' + deviceInfo.colorDepth + '\n';
+    txt += 'Viewport: ' + window.innerWidth + ' × ' + window.innerHeight + '\n';
+    txt += 'Browser Language: ' + deviceInfo.browserLanguage + '\n';
+    txt += 'Online Status: ' + deviceInfo.onlineStatus + '\n';
+    txt += 'Cookies Enabled: ' + deviceInfo.cookiesEnabled + '\n';
+    txt += 'CPU Cores: ' + deviceInfo.cpuCores + '\n';
+    txt += 'Device Memory: ' + deviceInfo.deviceMemory + '\n';
+    txt += 'Touch Support: ' + deviceInfo.touchSupport + '\n';
+    txt += 'Connection Type: ' + deviceInfo.connectionType + '\n';
+    txt += 'Battery Level: ' + (deviceInfo.batteryLevel || 'Unknown') + '\n';
+    txt += 'WebGL Renderer: ' + deviceInfo.webglRenderer + '\n';
+    copyText(txt, 'Text copied');
+  });
+
+  document.getElementById('copy-json').addEventListener('click', function() {
+    var json = {
+      screen: {
+        resolution: deviceInfo.screenResolution,
+        available: deviceInfo.screenAvailable,
+        dpr: deviceInfo.dpr,
+        colorDepth: deviceInfo.colorDepth,
+        viewport: window.innerWidth + ' × ' + window.innerHeight
+      },
+      browser: {
+        userAgent: deviceInfo.userAgent,
+        language: deviceInfo.browserLanguage,
+        online: deviceInfo.onlineStatus,
+        cookies: deviceInfo.cookiesEnabled,
+        platform: deviceInfo.platform
+      },
+      hardware: {
+        cpuCores: deviceInfo.cpuCores,
+        memory: deviceInfo.deviceMemory,
+        touch: deviceInfo.touchSupport,
+        maxTouchPoints: deviceInfo.maxTouchPoints
+      },
+      network: {
+        type: deviceInfo.connectionType,
+        downlink: deviceInfo.downlinkSpeed,
+        rtt: deviceInfo.rtt
+      },
+      battery: {
+        level: deviceInfo.batteryLevel || 'Unknown',
+        charging: deviceInfo.chargingStatus || 'Unknown'
+      },
+      webgl: {
+        version: deviceInfo.webglVersion,
+        renderer: deviceInfo.webglRenderer,
+        vendor: deviceInfo.webglVendor
+      }
+    };
+    copyText(JSON.stringify(json, null, 2), 'JSON copied');
+  });
+})();
+</script>
+</body>
+</html>

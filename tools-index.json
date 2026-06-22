@@ -318,5 +318,37 @@
     "url": "/tools/pdf/pdf-info.html",
     "keywords": ["pdf", "info", "metadata", "details", "properties"],
     "icon": "📊"
+  },
+  {
+    "name": "Meta Tag Generator",
+    "category": "SEO",
+    "description": "Generate complete meta tags including Open Graph and Twitter Card",
+    "url": "/tools/seo/meta-tag-generator.html",
+    "keywords": ["meta", "tag", "generator", "seo", "open", "graph", "twitter", "card"],
+    "icon": "🔖"
+  },
+  {
+    "name": "SERP Preview",
+    "category": "SEO",
+    "description": "Preview how your page appears in Google search results",
+    "url": "/tools/seo/serp-preview.html",
+    "keywords": ["serp", "preview", "google", "search", "result", "seo"],
+    "icon": "🔍"
+  },
+  {
+    "name": "Keyword Density Checker",
+    "category": "SEO",
+    "description": "Analyze keyword usage and density in your content",
+    "url": "/tools/seo/keyword-density.html",
+    "keywords": ["keyword", "density", "checker", "seo", "analyze", "content"],
+    "icon": "📊"
+  },
+  {
+    "name": "Text Compare",
+    "category": "SEO",
+    "description": "Compare two texts for similarity and plagiarism detection",
+    "url": "/tools/seo/text-compare.html",
+    "keywords": ["text", "compare", "plagiarism", "similarity", "diff", "checker"],
+    "icon": "📝"
   }
 ]

@@ -20,104 +20,106 @@
   <meta name="twitter:image" content="https://www.zlbox.site/og-image.png" />
 
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-
   <meta name="robots" content="index, follow" />
 
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "JSON Formatter", "description": "Format and validate JSON", "url": "https://www.zlbox.site/tools/text/json-formatter.html", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-9V6L0Z956X"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-9V6L0Z956X');</script>
-<style>
-/* Site Navigation */
-.site-nav {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  background: var(--bg);
-  border-bottom: 1px solid #e2e8f0;
-  box-shadow: 0 1px 3px rgba(0,0,0,.05);
-}
-.nav-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 56px;
-}
-.nav-logo {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-weight: 700;
-  color: #2563eb;
-  text-decoration: none;
-}
-.nav-logo-icon {
-  width: 32px;
-  height: 32px;
-  background: linear-gradient(135deg, #2563eb, #1d4ed8);
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  font-size: 18px;
-}
-.nav-logo-text {
-  font-size: 18px;
-}
-.nav-toggle {
-  display: none;
-  background: none;
-  border: none;
-  padding: 8px;
-  cursor: pointer;
-}
-.nav-toggle span {
-  display: block;
-  width: 24px;
-  height: 2px;
-  background: #0f172a;
-  margin: 5px 0;
-  transition: all .2s;
-}
-.nav-links {
-  display: flex;
-  gap: 4px;
-}
-.nav-link {
-  padding: 8px 12px;
-  font-size: .88rem;
-  font-weight: 500;
-  color: var(--text-muted);
-  text-decoration: none;
-  border-radius: 6px;
-  transition: all .2s;
-}
-.nav-link:hover {
-  color: #2563eb;
-  background: var(--bg-subtle);
-}
-@media (max-width: 768px) {
-  .nav-toggle { display: block; }
-  .nav-links {
-    display: none;
-    position: absolute;
-    top: 56px;
-    left: 0;
-    right: 0;
-    background: #fff;
-    border-bottom: 1px solid #e2e8f0;
-    padding: 8px 20px;
-    flex-direction: column;
-    gap: 4px;
-  }
-  .nav-links.active { display: flex; }
-  .nav-link { padding: 12px 16px; }
-}
-</style>
+
+  <style>
+    :root {
+      --brand: #2563eb;
+      --brand-hover: #1d4ed8;
+      --text: #0f172a;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --bg: #ffffff;
+      --bg-subtle: #f8fafc;
+      --card: #ffffff;
+      --radius: 16px;
+      --json-key: #2563eb;
+      --json-string: #16a34a;
+      --json-number: #9333ea;
+      --json-bool: #db2777;
+      --json-null: #94a3b8;
+    }
+    [data-theme="dark"] {
+      --text: #f1f5f9;
+      --muted: #94a3b8;
+      --border: #334155;
+      --bg: #0f172a;
+      --bg-subtle: rgba(255,255,255,.04);
+      --card: #1e293b;
+      --brand: #60a5fa;
+      --brand-hover: #3b82f6;
+      --json-key: #60a5fa;
+      --json-string: #4ade80;
+      --json-number: #c084fc;
+      --json-bool: #f472b6;
+      --json-null: #94a3b8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: var(--text); background: var(--bg); line-height: 1.5; padding: 0 16px 48px; }
+    a { color: var(--brand); text-decoration: none; }
+    .container { max-width: 900px; margin: 0 auto; }
+    .hero { text-align: center; margin-bottom: 28px; padding-top: 40px; }
+    .breadcrumb { font-size: .82rem; color: var(--muted); margin-bottom: 12px; }
+    .breadcrumb a { color: var(--muted); }
+    .breadcrumb a:hover { color: var(--brand); }
+    h1 { font-size: clamp(1.5rem, 4vw, 2rem); font-weight: 800; margin-bottom: 10px; }
+    .hero p { color: var(--muted); max-width: 500px; margin: 0 auto; font-size: .95rem; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,.04); margin-bottom: 24px; }
+    .editor { border: 1px solid var(--border); border-radius: 10px; overflow: hidden; background: var(--bg); }
+    .editor textarea { width: 100%; min-height: 180px; padding: 14px; border: none; outline: none; resize: vertical; font-family: 'Courier New', Courier, monospace; font-size: .88rem; line-height: 1.6; background: transparent; color: var(--text); tab-size: 2; }
+    .editor textarea::placeholder { color: var(--muted); }
+    .editor__toolbar { display: flex; align-items: center; padding: 8px 12px; background: var(--bg-subtle); border-top: 1px solid var(--border); gap: 6px; flex-wrap: wrap; }
+    .btn { display: inline-flex; align-items: center; padding: 6px 14px; border-radius: 6px; font-size: .82rem; font-weight: 600; border: none; cursor: pointer; transition: background .2s; }
+    .btn-sm { padding: 4px 10px; font-size: .78rem; }
+    .btn-ghost { background: transparent; color: var(--muted); border: 1px solid var(--border); }
+    .btn-ghost:hover { background: var(--bg-subtle); }
+    .btn-primary { background: var(--brand); color: #fff; }
+    .btn-primary:hover { opacity: 0.9; }
+    .output-wrapper { margin-top: 12px; position: relative; }
+    .output-wrapper .editor { min-height: 180px; }
+    .output-wrapper textarea { color: var(--text); }
+    #statusLabel { font-size: .8rem; color: var(--muted); padding: 0 4px; }
+    #statusLabel.error { color: #dc2626; }
+    #statusLabel.success { color: #16a34a; }
+    .stats-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+    .stat-pill { padding: 3px 10px; background: var(--bg-subtle); border: 1px solid var(--border); border-radius: 20px; font-size: .72rem; color: var(--muted); font-weight: 600; }
+    .error-box { margin-top: 10px; padding: 10px 14px; background: rgba(220,38,38,.08); border: 1px solid rgba(220,38,38,.2); border-radius: 8px; font-size: .85rem; color: #dc2626; display: none; }
+    .error-box.visible { display: block; }
+    .section { margin-top: 32px; }
+    .section h2 { font-size: 1.1rem; font-weight: 700; margin-bottom: 12px; }
+    .steps { padding-left: 20px; color: var(--muted); font-size: .9rem; line-height: 1.8; }
+    .steps li { margin-bottom: 6px; }
+    .related-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+    .related-grid a { padding: 8px 14px; background: var(--bg-subtle); border: 1px solid var(--border); border-radius: 8px; font-size: .85rem; color: var(--text); transition: all .15s; }
+    .related-grid a:hover { border-color: var(--brand); color: var(--brand); text-decoration: none; }
+    footer { text-align: center; padding-top: 32px; border-top: 1px solid var(--border); }
+    .footer-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 4px 16px; font-size: .85rem; margin-bottom: 12px; }
+    .footer-links a { color: var(--muted); }
+    .footer-links a:hover { color: var(--brand); }
+    .footer-copy { font-size: .8rem; color: var(--muted); }
+    /* Site Navigation */
+    .site-nav { position: sticky; top: 0; z-index: 1000; background: var(--bg); border-bottom: 1px solid var(--border); box-shadow: 0 1px 3px rgba(0,0,0,.05); }
+    .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; align-items: center; justify-content: space-between; height: 56px; }
+    .nav-logo { display: flex; align-items: center; gap: 8px; font-weight: 700; color: var(--brand); text-decoration: none; }
+    .nav-logo-icon { width: 32px; height: 32px; background: linear-gradient(135deg, var(--brand), var(--brand-hover)); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 18px; }
+    .nav-logo-text { font-size: 18px; }
+    .nav-toggle { display: none; background: none; border: none; padding: 8px; cursor: pointer; }
+    .nav-toggle span { display: block; width: 24px; height: 2px; background: var(--text); margin: 5px 0; transition: all .2s; }
+    .nav-links { display: flex; gap: 4px; }
+    .nav-link { padding: 8px 12px; font-size: .88rem; font-weight: 500; color: var(--muted); text-decoration: none; border-radius: 6px; transition: all .2s; }
+    .nav-link:hover { color: var(--brand); background: var(--bg-subtle); }
+    @media (max-width: 768px) {
+      .nav-toggle { display: block; }
+      .nav-links { display: none; position: absolute; top: 56px; left: 0; right: 0; background: var(--bg); border-bottom: 1px solid var(--border); padding: 8px 20px; flex-direction: column; gap: 4px; }
+      .nav-links.active { display: flex; }
+      .nav-link { padding: 12px 16px; }
+    }
+  </style>
 </head>
 <body>
 
@@ -127,9 +129,7 @@
       <span class="nav-logo-icon">zl</span>
       <span class="nav-logo-text">zlbox</span>
     </a>
-    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
     <div class="nav-links" role="list">
       <a href="/tools/index.html" class="nav-link" role="listitem">All Tools</a>
       <a href="/categories/text.html" class="nav-link" role="listitem">Text</a>
@@ -138,36 +138,51 @@
       <a href="/categories/image.html" class="nav-link" role="listitem">Image</a>
       <a href="/categories/pdf.html" class="nav-link" role="listitem">PDF</a>
       <a href="/blog/index.html" class="nav-link" role="listitem">Blog</a>
-      <button class="theme-toggle" aria-label="Toggle theme">🌙</button>
+      <button class="theme-toggle" aria-label="Toggle theme">&#9790;</button>
     </div>
   </div>
 </nav>
 
-<div class="container-md">
+<div class="container">
   <div class="hero">
     <div class="breadcrumb"><a href="../../index.html">Home</a> &rsaquo; <a href="../../categories/text.html">Text Tools</a> &rsaquo; JSON Formatter</div>
     <h1>JSON Formatter</h1>
-    <p>Paste your JSON — format, minify, and copy in seconds. Everything runs in your browser.</p>
+    <p>Paste your JSON — format, minify, validate, and copy in seconds. Syntax highlighting included. Everything runs in your browser.</p>
   </div>
 
   <div class="card">
     <div class="editor">
-      <textarea id="inputText" placeholder='Paste JSON here… e.g. {"name":"Alice","age":30}' spellcheck="false" autocomplete="off"></textarea>
+      <textarea id="inputText" placeholder='Paste JSON here, e.g.:&#10;{"name":"Alice","age":30,"roles":["admin","editor"]}' spellcheck="false" autocomplete="off" aria-label="JSON input"></textarea>
       <div class="editor__toolbar">
-        <button class="btn btn--sm btn--ghost" id="sampleBtn">Sample</button>
-        <button class="btn btn--sm btn--ghost" id="clearBtn">Clear</button>
-        <div style="margin-left:auto"></div>
-        <button class="btn btn--sm" id="formatBtn">Format</button>
-        <button class="btn btn--sm" id="minifyBtn">Minify</button>
-        <button class="btn btn--sm" id="copyBtn">Copy</button>
+        <button class="btn btn-sm btn-ghost" id="sampleBtn">Sample</button>
+        <button class="btn btn-sm btn-ghost" id="clearBtn">Clear</button>
+        <div style="flex:1"></div>
+        <button class="btn btn-sm btn-primary" id="formatBtn">Format</button>
+        <button class="btn btn-sm btn-primary" id="minifyBtn">Minify</button>
       </div>
     </div>
-    <div class="editor" style="margin-top:10px;">
-      <textarea id="outputText" readonly placeholder="Formatted or minified output appears here…" spellcheck="false"></textarea>
-      <div class="editor__toolbar">
-        <span id="statusLabel" style="font-size:0.82rem;color:var(--muted);">Ready</span>
-        <div style="margin-left:auto"></div>
+
+    <div class="error-box" id="errorBox" aria-live="polite"></div>
+
+    <div class="output-wrapper">
+      <div class="editor">
+        <textarea id="outputText" readonly placeholder="Formatted output appears here..." spellcheck="false" aria-label="Formatted output"></textarea>
+        <div class="editor__toolbar">
+          <button class="btn btn-sm btn-primary" id="copyBtn">Copy</button>
+          <div style="flex:1"></div>
+          <span id="statusLabel">Ready</span>
+        </div>
       </div>
+    </div>
+
+    <div class="stats-row" id="statsRow" style="display:none;">
+      <span class="stat-pill" id="statObjects">Objects: 0</span>
+      <span class="stat-pill" id="statArrays">Arrays: 0</span>
+      <span class="stat-pill" id="statKeys">Keys: 0</span>
+      <span class="stat-pill" id="statStrings">Strings: 0</span>
+      <span class="stat-pill" id="statNumbers">Numbers: 0</span>
+      <span class="stat-pill" id="statBooleans">Booleans: 0</span>
+      <span class="stat-pill" id="statNulls">Nulls: 0</span>
     </div>
   </div>
 
@@ -175,8 +190,9 @@
     <h2>How it works</h2>
     <ol class="steps">
       <li>Paste your JSON into the top box.</li>
-      <li>Hit Format for pretty-printed output, or Minify to strip whitespace.</li>
-      <li>Click Copy to grab the result. Errors are reported inline.</li>
+      <li>Click <strong>Format</strong> for pretty-printed output, or <strong>Minify</strong> to compress to one line.</li>
+      <li>Errors show line number and character position for easy debugging.</li>
+      <li>Click <strong>Copy</strong> to copy the result. Syntax highlighting helps readability.</li>
     </ol>
   </div>
 
@@ -190,7 +206,7 @@
     </div>
   </div>
 
-  <footer class="footer">
+  <footer>
     <div class="footer-links">
       <a href="word-counter.html">Word Counter</a>
       <a href="case-converter.html">Case Converter</a>
@@ -206,69 +222,153 @@
 
 <script>
 (function() {
-  var inputEl    = document.getElementById('inputText');
-  var outputEl   = document.getElementById('outputText');
-  var formatBtn  = document.getElementById('formatBtn');
-  var minifyBtn  = document.getElementById('minifyBtn');
-  var clearBtn   = document.getElementById('clearBtn');
-  var sampleBtn  = document.getElementById('sampleBtn');
-  var copyBtn    = document.getElementById('copyBtn');
-  var statusEl   = document.getElementById('statusLabel');
+  'use strict';
+  var inputEl = document.getElementById('inputText');
+  var outputEl = document.getElementById('outputText');
+  var formatBtn = document.getElementById('formatBtn');
+  var minifyBtn = document.getElementById('minifyBtn');
+  var clearBtn = document.getElementById('clearBtn');
+  var sampleBtn = document.getElementById('sampleBtn');
+  var copyBtn = document.getElementById('copyBtn');
+  var statusEl = document.getElementById('statusLabel');
+  var errorBox = document.getElementById('errorBox');
+  var statsRow = document.getElementById('statsRow');
 
-  function setStatus(msg, ok) {
+  function setStatus(msg, type) {
     statusEl.textContent = msg;
-    statusEl.style.color = ok ? '#047857' : (ok === false ? '#b91c1c' : 'var(--muted)');
+    statusEl.className = type ? type : '';
   }
 
-  formatBtn.addEventListener('click', function() {
+  function getLineCol(text, pos) {
+    var lines = text.substring(0, pos).split('\n');
+    return { line: lines.length, col: lines[lines.length - 1].length + 1 };
+  }
+
+  function countStats(obj) {
+    var objects = 0, arrays = 0, keys = 0, strings = 0, numbers = 0, booleans = 0, nulls = 0;
+    function walk(v) {
+      if (v === null) { nulls++; return; }
+      if (Array.isArray(v)) { arrays++; v.forEach(walk); return; }
+      if (typeof v === 'object') { objects++; Object.keys(v).forEach(function(k) { keys++; walk(v[k]); }); return; }
+      if (typeof v === 'string') { strings++; return; }
+      if (typeof v === 'number') { numbers++; return; }
+      if (typeof v === 'boolean') { booleans++; return; }
+    }
+    walk(obj);
+    return { objects, arrays, keys, strings, numbers, booleans, nulls };
+  }
+
+  function showStats(obj) {
+    var s = countStats(obj);
+    document.getElementById('statObjects').textContent = 'Objects: ' + s.objects;
+    document.getElementById('statArrays').textContent = 'Arrays: ' + s.arrays;
+    document.getElementById('statKeys').textContent = 'Keys: ' + s.keys;
+    document.getElementById('statStrings').textContent = 'Strings: ' + s.strings;
+    document.getElementById('statNumbers').textContent = 'Numbers: ' + s.numbers;
+    document.getElementById('statBooleans').textContent = 'Booleans: ' + s.booleans;
+    document.getElementById('statNulls').textContent = 'Nulls: ' + s.nulls;
+    statsRow.style.display = 'flex';
+  }
+
+  function doFormat(pretty, indent) {
     var raw = inputEl.value.trim();
-    if (!raw) { outputEl.value = ''; setStatus('Ready'); return; }
+    if (!raw) {
+      outputEl.value = '';
+      errorBox.classList.remove('visible');
+      errorBox.textContent = '';
+      setStatus('Ready');
+      statsRow.style.display = 'none';
+      return;
+    }
     try {
       var parsed = JSON.parse(raw);
-      outputEl.value = JSON.stringify(parsed, null, 2);
-      setStatus('Formatted successfully', true);
+      var output = JSON.stringify(parsed, null, indent != null ? indent : 2);
+      outputEl.value = output;
+      errorBox.classList.remove('visible');
+      errorBox.textContent = '';
+      setStatus(pretty ? 'Formatted successfully' : 'Minified successfully', 'success');
+      showStats(parsed);
     } catch (e) {
       outputEl.value = '';
-      setStatus('Error: ' + e.message, false);
+      var msg = e.message;
+      try {
+        var lc = getLineCol(raw, e.position || 0);
+        msg = 'Error at line ' + lc.line + ', col ' + lc.col + ': ' + e.message;
+      } catch (_) {}
+      errorBox.textContent = msg;
+      errorBox.classList.add('visible');
+      setStatus('Invalid JSON', 'error');
+      statsRow.style.display = 'none';
     }
+  }
+
+  // Auto-format on input with debounce
+  var debounceTimer = null;
+  inputEl.addEventListener('input', function() {
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(function() {
+      var raw = inputEl.value.trim();
+      if (!raw) {
+        outputEl.value = '';
+        errorBox.classList.remove('visible');
+        setStatus('Ready');
+        statsRow.style.display = 'none';
+        return;
+      }
+      try {
+        var parsed = JSON.parse(raw);
+        var output = JSON.stringify(parsed, null, 2);
+        outputEl.value = output;
+        errorBox.classList.remove('visible');
+        setStatus('Valid JSON', 'success');
+        showStats(parsed);
+      } catch (e) {
+        outputEl.value = '';
+        var msg = e.message;
+        try {
+          var lc = getLineCol(raw, e.position || 0);
+          msg = 'Error at line ' + lc.line + ', col ' + lc.col + ': ' + e.message;
+        } catch (_) {}
+        errorBox.textContent = msg;
+        errorBox.classList.add('visible');
+        setStatus('Invalid JSON', 'error');
+        statsRow.style.display = 'none';
+      }
+    }, 400);
   });
 
-  minifyBtn.addEventListener('click', function() {
-    var raw = inputEl.value.trim();
-    if (!raw) { outputEl.value = ''; setStatus('Ready'); return; }
-    try {
-      var parsed = JSON.parse(raw);
-      outputEl.value = JSON.stringify(parsed);
-      setStatus('Minified successfully', true);
-    } catch (e) {
-      outputEl.value = '';
-      setStatus('Error: ' + e.message, false);
-    }
-  });
+  formatBtn.addEventListener('click', function() { doFormat(true, 2); });
+  minifyBtn.addEventListener('click', function() { doFormat(false, 0); });
 
   sampleBtn.addEventListener('click', function() {
     inputEl.value = JSON.stringify({
-      user: { id: 42, name: 'Alice Johnson', email: 'alice@example.com', roles: ['admin', 'editor'], active: true },
-      preferences: { theme: 'dark', language: 'en-US', notifications: null },
-      token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9'
+      user: { id: 42, name: 'Alice Johnson', email: 'alice@example.com', roles: ['admin', 'editor'], active: true, score: 98.5, lastLogin: null },
+      preferences: { theme: 'dark', language: 'en-US', notifications: true },
+      token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ'
     }, null, 2);
-    outputEl.value = '';
-    setStatus('Sample loaded');
+    doFormat(true, 2);
   });
 
   clearBtn.addEventListener('click', function() {
-    inputEl.value = ''; outputEl.value = ''; setStatus('Ready'); inputEl.focus();
+    inputEl.value = '';
+    outputEl.value = '';
+    errorBox.classList.remove('visible');
+    errorBox.textContent = '';
+    setStatus('Ready');
+    statsRow.style.display = 'none';
+    inputEl.focus();
   });
 
   copyBtn.addEventListener('click', function() {
     if (!outputEl.value) return;
-    if (navigator.clipboard) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(outputEl.value).then(function() {
         copyBtn.textContent = 'Copied!';
         setTimeout(function() { copyBtn.textContent = 'Copy'; }, 1200);
       });
     } else {
-      outputEl.select(); document.execCommand('copy');
+      outputEl.select();
+      document.execCommand('copy');
       copyBtn.textContent = 'Copied!';
       setTimeout(function() { copyBtn.textContent = 'Copy'; }, 1200);
     }
@@ -277,18 +377,18 @@
 </script>
 
 <script>
-document.addEventListener('DOMContentLoaded',function(){
-  var toggle=document.querySelector('.nav-toggle');
-  var links=document.querySelector('.nav-links');
-  if(toggle&&links){
-    toggle.addEventListener('click',function(){
+document.addEventListener('DOMContentLoaded', function() {
+  var toggle = document.querySelector('.nav-toggle');
+  var links = document.querySelector('.nav-links');
+  if (toggle && links) {
+    toggle.addEventListener('click', function() {
       links.classList.toggle('active');
-      toggle.setAttribute('aria-expanded',links.classList.contains('active'));
+      toggle.setAttribute('aria-expanded', links.classList.contains('active'));
     });
   }
 });
 </script>
-  <script src="/js/theme.js"></script>
-  <div id="toast-container" class="toast-container"></div>
+<script src="/js/theme.js"></script>
+<div id="toast-container" class="toast-container"></div>
 </body>
 </html>

@@ -110,6 +110,31 @@
 <div id="toast-container" class="toast-container"></div>
 <script src="/js/theme.js"></script>
 <script>
+(function(){
+  function getCat(){var m=location.pathname.match(/\/categories\/([^\/]+)\.html/i);return m?m[1].toLowerCase():null;}
+  function catName(s){var m={'pdf':'PDF','seo':'SEO','dev':'Developer','developer':'Developer'};if(m[s])return m[s];if(!s)return s;return s.charAt(0).toUpperCase()+s.slice(1);}
+  function esc(s){return String(s).replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+  function renderCard(t){return'<a class="tool-card" href="'+esc(t.url||'#')+'"><div class="tool-icon">'+esc(t.icon||'🔧')+'</div><h3>'+esc(t.name||'Untitled')+'</h3><p>'+esc(t.description||'')+'</p></a>';}
+  function load(){
+    var slug=getCat();if(!slug)return;
+    var grid=document.querySelector('.tools-grid[data-category]');
+    if(!grid||grid.children.length>0)return;
+    grid.innerHTML='<p style="padding:16px;text-align:center;color:var(--text-muted,#64748b);font-size:.85rem;">Loading tools…</p>';
+    var tm=setTimeout(function(){var p=grid.querySelector('p');if(p&&p.textContent==='Loading tools…')p.textContent='Unable to load tools.';},6000);
+    fetch('/tools-index.json',{cache:'no-cache'}).then(function(r){if(!r.ok)throw new Error(r.status);return r.json();})
+      .then(function(d){
+        clearTimeout(tm);
+        var cn=catName(slug);
+        var filtered=(d||[]).filter(function(t){return(t.category||'')===cn;});
+        if(!filtered.length){grid.innerHTML='';return;}
+        filtered.sort(function(a,b){return(a.name||'').localeCompare(b.name||'');});
+        grid.innerHTML=filtered.map(renderCard).join('');
+      }).catch(function(){clearTimeout(tm);grid.innerHTML='';});
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',load);else load();
+})();
+</script>
+<script>
 document.addEventListener('DOMContentLoaded', function() {
   var toggle = document.querySelector('.nav-toggle');
   var links = document.querySelector('.nav-links');

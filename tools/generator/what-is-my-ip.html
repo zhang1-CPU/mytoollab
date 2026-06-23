@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>What Is My IP – Public IPv4, IPv6 &amp; Browser Info | zlbox</title>
+  <title>What Is My IP – Public IPv4, IPv6 & Browser Info | zlbox</title>
   <meta name="description" content="Free online What Is My IP tool: reveal your public IPv4 and IPv6 address, location, ISP, browser, screen, viewport, timezone and language. All browser-based, 100% private." />
   <link rel="stylesheet" href="../../css/components.css" />
   <link rel="stylesheet" href="/css/theme.css" />
@@ -28,35 +28,49 @@
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-9V6L0Z956X');</script>
 
   <style>
+    :root {
+      --bg: #ffffff;
+      --text: #0f172a;
+      --text-muted: #64748b;
+      --card: #ffffff;
+      --border: #e2e8f0;
+      --primary: #2563eb;
+      --bg-subtle: #f8fafc;
+    }
+    [data-theme="dark"] {
+      --bg: #0f172a;
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+      --card: #1e293b;
+      --border: #334155;
+      --primary: #60a5fa;
+      --bg-subtle: rgba(255,255,255,.04);
+    }
     .ip-page { max-width: 760px; margin: 0 auto; padding: 24px 16px; }
     .ip-hero { text-align: center; margin-bottom: 20px; }
-    .ip-hero h1 { font-size: 1.8rem; margin: 0 0 8px; color: var(--text, #0f172a); }
-    .ip-hero p { color: var(--text-muted, #64748b); margin: 0; }
-    .ip-card { background: var(--card, #fff); border: 1px solid var(--border, #e2e8f0); border-radius: 12px; padding: 20px; box-shadow: 0 1px 3px rgba(0,0,0,.04); }
-    .ip-main-row { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; padding: 16px; background: var(--bg-subtle, #f8fafc); border-radius: 10px; margin-bottom: 16px; }
-    .ip-main-row .ip-label { font-size: .85rem; color: var(--text-muted, #64748b); text-transform: uppercase; letter-spacing: .04em; font-weight: 600; }
-    .ip-main-row .ip-value { font-size: 1.6rem; font-weight: 700; color: #2563eb; font-family: ui-monospace, Consolas, Menlo, monospace; word-break: break-all; }
+    .ip-hero h1 { font-size: 1.8rem; margin: 0 0 8px; color: var(--text); }
+    .ip-hero p { color: var(--text-muted); margin: 0; }
+    .ip-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; box-shadow: 0 1px 3px rgba(0,0,0,.04); }
+    .ip-main-row { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; padding: 16px; background: var(--bg-subtle); border-radius: 10px; margin-bottom: 16px; }
+    .ip-main-row .ip-label { font-size: .85rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: .04em; font-weight: 600; }
+    .ip-main-row .ip-value { font-size: 1.6rem; font-weight: 700; color: var(--primary); font-family: ui-monospace, Consolas, Menlo, monospace; word-break: break-all; }
     .ip-main-row .ip-value.is-blocked { color: #dc2626; font-size: 1rem; }
-    .ip-btn { background: #2563eb; color: #fff; border: none; padding: 8px 14px; border-radius: 8px; font-size: .85rem; font-weight: 600; cursor: pointer; transition: all .2s; }
-    .ip-btn:hover { background: #1d4ed8; }
-    .ip-btn:disabled { background: var(--border, #e2e8f0); color: var(--text-muted, #64748b); cursor: not-allowed; }
-    .ip-info { display: grid; grid-template-columns: 1fr; gap: 0; }
-    .ip-info .row { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 10px 0; border-top: 1px solid var(--border, #e2e8f0); }
+    .ip-btn { background: var(--primary); color: #fff; border: none; padding: 8px 14px; border-radius: 8px; font-size: .85rem; font-weight: 600; cursor: pointer; transition: all .2s; }
+    .ip-btn:hover { opacity: 0.9; }
+    .ip-btn:disabled { background: var(--border); color: var(--text-muted); cursor: not-allowed; }
+    .ip-info .row { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 10px 0; border-top: 1px solid var(--border); }
     .ip-info .row:first-child { border-top: 0; }
-    .ip-info label { color: var(--text-muted, #64748b); font-size: .9rem; font-weight: 500; flex-shrink: 0; }
-    .ip-info .val { color: var(--text, #0f172a); font-family: ui-monospace, Consolas, Menlo, monospace; font-size: .9rem; text-align: right; word-break: break-all; max-width: 65%; }
-    .ip-note { margin: 14px 0 0; padding: 12px 14px; background: var(--bg-subtle, #f8fafc); border-left: 3px solid #2563eb; border-radius: 6px; font-size: .88rem; color: var(--text-muted, #64748b); }
-    .ip-warning { margin: 14px 0 0; padding: 14px 16px; background: rgba(220, 38, 38, .08); border-left: 3px solid #dc2626; border-radius: 6px; font-size: .9rem; color: var(--text, #0f172a); }
+    .ip-info label { color: var(--text-muted); font-size: .9rem; font-weight: 500; flex-shrink: 0; }
+    .ip-info .val { color: var(--text); font-family: ui-monospace, Consolas, Menlo, monospace; font-size: .9rem; text-align: right; word-break: break-all; max-width: 65%; }
+    .ip-note { margin: 14px 0 0; padding: 12px 14px; background: var(--bg-subtle); border-left: 3px solid var(--primary); border-radius: 6px; font-size: .88rem; color: var(--text-muted); }
+    .ip-warning { margin: 14px 0 0; padding: 14px 16px; background: rgba(220, 38, 38, .08); border-left: 3px solid #dc2626; border-radius: 6px; font-size: .9rem; color: var(--text); }
     .ip-warning strong { color: #dc2626; display: block; margin-bottom: 4px; }
     .ip-spinner { display: inline-block; width: 12px; height: 12px; border: 2px solid currentColor; border-right-color: transparent; border-radius: 50%; animation: ip-spin .8s linear infinite; vertical-align: middle; margin-right: 6px; }
     @keyframes ip-spin { to { transform: rotate(360deg); } }
-
-    [data-theme="dark"] .ip-card { background: var(--card, #1e293b); border-color: var(--border, #334155); }
+    [data-theme="dark"] .ip-card { background: var(--card); border-color: var(--border); }
     [data-theme="dark"] .ip-main-row { background: rgba(255,255,255,.03); }
-    [data-theme="dark"] .ip-main-row .ip-value { color: #60a5fa; }
-    [data-theme="dark"] .ip-warning { background: rgba(220, 38, 38, .12); color: var(--text, #f1f5f9); }
+    [data-theme="dark"] .ip-warning { background: rgba(220, 38, 38, .12); }
     [data-theme="dark"] .ip-note { background: rgba(255,255,255,.03); }
-
     @media (max-width: 480px) {
       .ip-main-row .ip-value { font-size: 1.3rem; }
       .ip-info .row { flex-direction: column; align-items: flex-start; gap: 4px; }
@@ -75,19 +89,18 @@
   <div class="ip-card">
     <div class="ip-main-row">
       <div>
-        <div class="ip-label">Public IP (IPv4)</div>
+        <div class="ip-label">Public IP Address</div>
         <div class="ip-value" id="public-ip"><span class="ip-spinner"></span>Detecting...</div>
       </div>
-      <button class="ip-btn" id="copy-btn" disabled>Copy</button>
+      <button class="ip-btn" id="copy-btn" disabled>Copy IP</button>
     </div>
 
     <div class="ip-info">
       <div class="row"><label>Location</label><span class="val" id="location"><span class="ip-spinner"></span>Detecting...</span></div>
-      <div class="row"><label>ISP</label><span class="val" id="isp"><span class="ip-spinner"></span>Detecting...</span></div>
+      <div class="row"><label>ISP / Organization</label><span class="val" id="isp"><span class="ip-spinner"></span>Detecting...</span></div>
       <div class="row"><label>Browser / Platform</label><span class="val" id="browser">—</span></div>
-      <div class="row"><label>User Agent</label><span class="val" id="ua">—</span></div>
       <div class="row"><label>Screen Size</label><span class="val" id="screen">—</span></div>
-      <div class="row"><label>Viewport Size</label><span class="val" id="viewport">—</span></div>
+      <div class="row"><label>Viewport</label><span class="val" id="viewport">—</span></div>
       <div class="row"><label>Timezone</label><span class="val" id="tz">—</span></div>
       <div class="row"><label>Language</label><span class="val" id="lang">—</span></div>
     </div>
@@ -95,21 +108,21 @@
     <div class="ip-note" id="note">Detecting your IP address and browser information...</div>
     <div class="ip-warning" id="warning" style="display:none;">
       <strong>IP Detection Blocked</strong>
-      <span id="warning-text">Your IP cannot be detected automatically. This is usually caused by an ad blocker or private network. Try disabling your ad blocker for this page, or check your network settings.</span>
+      <span id="warning-text">Your IP cannot be detected automatically. This is usually caused by an ad blocker, browser privacy extension, or private network. Try disabling your ad blocker for this page, using a different browser, or checking your network/firewall settings.</span>
     </div>
   </div>
 
   <div style="text-align:center;margin-top:18px;">
-    <button class="ip-btn" id="refresh-btn">Re-detect</button>
+    <button class="ip-btn" id="refresh-btn">Re-detect IP</button>
   </div>
 
   <div class="ip-card" style="margin-top:20px;">
-    <h2 style="font-size:1.1rem;margin:0 0 10px;color:var(--text,#0f172a);">How it works</h2>
-    <ol style="margin:0;padding-left:20px;color:var(--text-muted,#64748b);font-size:.9rem;line-height:1.7;">
-      <li>Your browser tries several public IP services in sequence to fetch your IPv4 address.</li>
-      <li>After an IP is found, the service ipapi.co is queried for location and ISP details.</li>
-      <li>Other information (browser, screen, timezone) is read directly from your browser.</li>
-      <li>No data is stored on any server. Detection happens entirely client-side.</li>
+    <h2 style="font-size:1.1rem;margin:0 0 10px;color:var(--text);">How it works</h2>
+    <ol style="margin:0;padding-left:20px;color:var(--text-muted);font-size:.9rem;line-height:1.7;">
+      <li>Your browser tries multiple public IP services in sequence (api.ipify.org, checkip.amazonaws.com, icanhazip.com) to fetch your IPv4 address.</li>
+      <li>After an IP is found, ipapi.co is queried for location and ISP details.</li>
+      <li>Browser, screen, and timezone info is read directly from your browser.</li>
+      <li>No data is stored on any server. All detection is 100% client-side.</li>
     </ol>
   </div>
 </div>
@@ -121,7 +134,6 @@
 (function(){
   'use strict';
 
-  // -- Utility: fetch with timeout (returns text) --
   function fetchText(url, timeout) {
     return new Promise(function(resolve, reject) {
       var controller = (typeof AbortController !== 'undefined') ? new AbortController() : null;
@@ -148,19 +160,16 @@
     });
   }
 
-  // -- Utility: fetch with timeout (returns JSON) --
   function fetchJSON(url, timeout) {
     return fetchText(url, timeout).then(function(text) {
       try { return JSON.parse(text); } catch(e) { throw new Error('bad json'); }
     });
   }
 
-  // -- Validate IPv4/IPv6 string --
   function isValidIP(s) {
     if (!s || typeof s !== 'string') return false;
     var t = s.trim();
     if (!t) return false;
-    // IPv4
     if (/^(\d{1,3}\.){3}\d{1,3}$/.test(t)) {
       var parts = t.split('.');
       for (var i = 0; i < parts.length; i++) {
@@ -169,12 +178,10 @@
       }
       return true;
     }
-    // IPv6 (very loose check)
     if (/^[0-9a-fA-F:]+$/.test(t) && t.indexOf(':') !== -1) return true;
     return false;
   }
 
-  // -- Serial fallback: try each source in order, return first valid IP --
   function detectIPSerial(sources, perTimeout) {
     return new Promise(function(resolve, reject) {
       var idx = 0;
@@ -185,15 +192,12 @@
           var ip = (src.parse || function(t){ return t.trim(); })(text);
           if (isValidIP(ip)) { resolve(ip); }
           else { tryNext(); }
-        }).catch(function() {
-          tryNext();
-        });
+        }).catch(function() { tryNext(); });
       }
       tryNext();
     });
   }
 
-  // -- DOM refs --
   function $(id) { return document.getElementById(id); }
   var publicIpEl = $('public-ip');
   var locationEl = $('location');
@@ -203,7 +207,6 @@
   var copyBtn = $('copy-btn');
   var refreshBtn = $('refresh-btn');
 
-  // -- Browser / device info (synchronous, always available) --
   function detectBrowser() {
     var ua = navigator.userAgent || '';
     var b = 'Unknown';
@@ -229,8 +232,8 @@
   function fillBrowserInfo() {
     setText('ua', navigator.userAgent || '—');
     setText('browser', detectBrowser());
-    setText('screen', (screen.width || '?') + ' × ' + (screen.height || '?'));
-    setText('viewport', window.innerWidth + ' × ' + window.innerHeight);
+    setText('screen', (screen.width || '?') + ' \u00d7 ' + (screen.height || '?'));
+    setText('viewport', window.innerWidth + ' \u00d7 ' + window.innerHeight);
     try {
       var tz = Intl.DateTimeFormat().resolvedOptions().timeZone || '—';
       var offset = -new Date().getTimezoneOffset() / 60;
@@ -240,13 +243,11 @@
   }
   fillBrowserInfo();
   window.addEventListener('resize', function() {
-    setText('viewport', window.innerWidth + ' × ' + window.innerHeight);
+    setText('viewport', window.innerWidth + ' \u00d7 ' + window.innerHeight);
   });
 
-  // -- IP sources (in order, serial fallback) --
   var ipv4Sources = [
     { url: 'https://api.ipify.org?format=json', parse: function(t){ try { return JSON.parse(t).ip; } catch(e){ return null; } } },
-    { url: 'https://api64.ipify.org?format=json', parse: function(t){ try { var d = JSON.parse(t); return (d && d.ip) || null; } catch(e){ return null; } } },
     { url: 'https://checkip.amazonaws.com', parse: function(t){ return t.trim(); } },
     { url: 'https://icanhazip.com', parse: function(t){ return t.trim(); } }
   ];
@@ -262,23 +263,25 @@
     }
   }
 
-  function showBlocked() {
-    publicIpEl.textContent = 'Blocked by ad blocker or network policy';
+  function showBlocked(reason) {
+    publicIpEl.textContent = 'Blocked by ad blocker';
     publicIpEl.classList.add('is-blocked');
     locationEl.textContent = 'Unavailable';
     ispEl.textContent = 'Unavailable';
     noteEl.textContent = 'Detection failed.';
     warningEl.style.display = 'block';
+    if (reason) {
+      $('warning-text').textContent = 'Your IP cannot be detected automatically. This is usually caused by an ad blocker, browser privacy extension, or private network. Try disabling your ad blocker for this page, using a different browser, or checking your network settings.';
+    }
   }
 
   function showUnknown() {
-    locationEl.textContent = locationEl.textContent.replace(/Detecting\.\.\./g, '').trim() || 'Unknown';
-    if (!locationEl.textContent) locationEl.textContent = 'Unknown';
-    ispEl.textContent = ispEl.textContent.replace(/Detecting\.\.\./g, '').trim() || 'Unknown';
-    if (!ispEl.textContent) ispEl.textContent = 'Unknown';
+    var locText = locationEl.textContent.replace(/Detecting\.\.\./g, '').trim();
+    if (!locText || locText === '\u2014') locationEl.textContent = 'Unknown';
+    var ispText = ispEl.textContent.replace(/Detecting\.\.\./g, '').trim();
+    if (!ispText || ispText === '\u2014') ispEl.textContent = 'Unknown';
   }
 
-  // -- Main detection flow --
   function detect() {
     setBusy(true);
     publicIpEl.classList.remove('is-blocked');
@@ -289,7 +292,6 @@
       copyBtn.disabled = false;
       copyBtn.dataset.ip = ip;
 
-      // Location / ISP via ipapi.co (5s)
       fetchJSON('https://ipapi.co/' + encodeURIComponent(ip) + '/json/', 5000).then(function(d) {
         if (!d || d.error) { showUnknown(); return; }
         var city = d.city || '';
@@ -302,17 +304,14 @@
         var locText = locParts.join(', ') || 'Unknown';
         locationEl.textContent = locText;
         ispEl.textContent = d.org || d.asn || 'Unknown';
-      }).catch(function() {
-        showUnknown();
-      });
-    }).catch(function() {
-      showBlocked();
-    });
+      }).catch(function() { showUnknown(); });
+
+    }).catch(function() { showBlocked(true); });
   }
 
   copyBtn.addEventListener('click', function() {
     var ip = copyBtn.dataset.ip;
-    if (!ip) { return; }
+    if (!ip) return;
     var showCopied = function() { noteEl.textContent = 'Copied: ' + ip; };
     if (navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(ip).then(showCopied).catch(function() { noteEl.textContent = 'Copy failed'; });
@@ -329,8 +328,6 @@
   });
 
   refreshBtn.addEventListener('click', detect);
-
-  // Start detection 0.5s after page load
   setTimeout(detect, 500);
 })();
 </script>

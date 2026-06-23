@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Word Counter – Instant Word & Character Count Online | zlbox</title>
-  <meta name="description" content="Free real-time word and character counter. Paste or type your text and instantly see total words, characters, and trimmed length — no button clicks needed. Perfect for writers, students, developers, and content creators." />
+  <meta name="description" content="Free real-time word and character counter. Paste or type your text and instantly see total words, characters, sentences, paragraphs, and reading time. No button clicks needed." />
   <link rel="canonical" href="https://www.zlbox.site/tools/text/word-counter.html" />
   <meta name="google-site-verification" content="google4bd1e08685667667" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
@@ -20,104 +20,96 @@
   <meta name="twitter:image" content="https://www.zlbox.site/og-image.png" />
 
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-
   <meta name="robots" content="index, follow" />
 
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Word Counter", "description": "Count words and characters", "url": "https://www.zlbox.site/tools/text/word-counter.html", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-9V6L0Z956X"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-9V6L0Z956X');</script>
-<style>
-/* Site Navigation */
-.site-nav {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  background: var(--bg);
-  border-bottom: 1px solid #e2e8f0;
-  box-shadow: 0 1px 3px rgba(0,0,0,.05);
-}
-.nav-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 56px;
-}
-.nav-logo {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-weight: 700;
-  color: #2563eb;
-  text-decoration: none;
-}
-.nav-logo-icon {
-  width: 32px;
-  height: 32px;
-  background: linear-gradient(135deg, #2563eb, #1d4ed8);
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  font-size: 18px;
-}
-.nav-logo-text {
-  font-size: 18px;
-}
-.nav-toggle {
-  display: none;
-  background: none;
-  border: none;
-  padding: 8px;
-  cursor: pointer;
-}
-.nav-toggle span {
-  display: block;
-  width: 24px;
-  height: 2px;
-  background: #0f172a;
-  margin: 5px 0;
-  transition: all .2s;
-}
-.nav-links {
-  display: flex;
-  gap: 4px;
-}
-.nav-link {
-  padding: 8px 12px;
-  font-size: .88rem;
-  font-weight: 500;
-  color: var(--text-muted);
-  text-decoration: none;
-  border-radius: 6px;
-  transition: all .2s;
-}
-.nav-link:hover {
-  color: #2563eb;
-  background: var(--bg-subtle);
-}
-@media (max-width: 768px) {
-  .nav-toggle { display: block; }
-  .nav-links {
-    display: none;
-    position: absolute;
-    top: 56px;
-    left: 0;
-    right: 0;
-    background: #fff;
-    border-bottom: 1px solid #e2e8f0;
-    padding: 8px 20px;
-    flex-direction: column;
-    gap: 4px;
-  }
-  .nav-links.active { display: flex; }
-  .nav-link { padding: 12px 16px; }
-}
-</style>
+
+  <style>
+    :root {
+      --brand: #2563eb;
+      --brand-hover: #1d4ed8;
+      --text: #0f172a;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --bg: #ffffff;
+      --bg-subtle: #f8fafc;
+      --card: #ffffff;
+      --radius: 16px;
+    }
+    [data-theme="dark"] {
+      --text: #f1f5f9;
+      --muted: #94a3b8;
+      --border: #334155;
+      --bg: #0f172a;
+      --bg-subtle: rgba(255,255,255,.04);
+      --card: #1e293b;
+      --brand: #60a5fa;
+      --brand-hover: #3b82f6;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: var(--text); background: var(--bg); line-height: 1.5; padding: 0 16px 48px; }
+    a { color: var(--brand); text-decoration: none; }
+    .container { max-width: 760px; margin: 0 auto; }
+    .hero { text-align: center; margin-bottom: 28px; padding-top: 40px; }
+    .breadcrumb { font-size: .82rem; color: var(--muted); margin-bottom: 12px; }
+    .breadcrumb a { color: var(--muted); }
+    .breadcrumb a:hover { color: var(--brand); }
+    h1 { font-size: clamp(1.5rem, 4vw, 2rem); font-weight: 800; margin-bottom: 10px; }
+    .hero p { color: var(--muted); max-width: 500px; margin: 0 auto; font-size: .95rem; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,.04); margin-bottom: 24px; }
+    .editor { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; background: var(--bg); }
+    .editor textarea { width: 100%; min-height: 200px; padding: 16px; border: none; outline: none; resize: vertical; font-family: inherit; font-size: 1rem; line-height: 1.7; background: transparent; color: var(--text); }
+    .editor textarea::placeholder { color: var(--muted); }
+    .editor__toolbar { display: flex; align-items: center; padding: 8px 12px; background: var(--bg-subtle); border-top: 1px solid var(--border); gap: 8px; }
+    .btn { display: inline-flex; align-items: center; padding: 6px 14px; border-radius: 6px; font-size: .82rem; font-weight: 600; border: none; cursor: pointer; transition: background .2s; }
+    .btn-sm { padding: 4px 10px; font-size: .78rem; }
+    .btn-ghost { background: transparent; color: var(--muted); border: 1px solid var(--border); }
+    .btn-ghost:hover { background: var(--bg-subtle); }
+    .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 12px; margin-top: 16px; }
+    .stat-card { background: var(--bg-subtle); border: 1px solid var(--border); border-radius: 12px; padding: 18px 14px; text-align: center; transition: transform .15s; }
+    .stat-card:hover { transform: translateY(-2px); }
+    .stat-card .stat-icon { font-size: 1.4rem; margin-bottom: 8px; display: block; }
+    .stat-card .stat__value { font-size: 1.8rem; font-weight: 800; color: var(--text); line-height: 1; margin-bottom: 6px; }
+    .stat-card .stat__label { font-size: .7rem; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; font-weight: 600; }
+    .section { margin-top: 32px; }
+    .section h2 { font-size: 1.1rem; font-weight: 700; margin-bottom: 12px; }
+    .steps { padding-left: 20px; color: var(--muted); font-size: .9rem; line-height: 1.8; }
+    .steps li { margin-bottom: 6px; }
+    .related-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+    .related-grid a { padding: 8px 14px; background: var(--bg-subtle); border: 1px solid var(--border); border-radius: 8px; font-size: .85rem; color: var(--text); transition: all .15s; }
+    .related-grid a:hover { border-color: var(--brand); color: var(--brand); text-decoration: none; }
+    footer { text-align: center; padding-top: 32px; border-top: 1px solid var(--border); }
+    .footer-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 4px 16px; font-size: .85rem; margin-bottom: 12px; }
+    .footer-links a { color: var(--muted); }
+    .footer-links a:hover { color: var(--brand); }
+    .footer-copy { font-size: .8rem; color: var(--muted); }
+    /* Site Navigation */
+    .site-nav { position: sticky; top: 0; z-index: 1000; background: var(--bg); border-bottom: 1px solid var(--border); box-shadow: 0 1px 3px rgba(0,0,0,.05); }
+    .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; align-items: center; justify-content: space-between; height: 56px; }
+    .nav-logo { display: flex; align-items: center; gap: 8px; font-weight: 700; color: var(--brand); text-decoration: none; }
+    .nav-logo-icon { width: 32px; height: 32px; background: linear-gradient(135deg, var(--brand), var(--brand-hover)); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 18px; }
+    .nav-logo-text { font-size: 18px; }
+    .nav-toggle { display: none; background: none; border: none; padding: 8px; cursor: pointer; }
+    .nav-toggle span { display: block; width: 24px; height: 2px; background: var(--text); margin: 5px 0; transition: all .2s; }
+    .nav-links { display: flex; gap: 4px; }
+    .nav-link { padding: 8px 12px; font-size: .88rem; font-weight: 500; color: var(--muted); text-decoration: none; border-radius: 6px; transition: all .2s; }
+    .nav-link:hover { color: var(--brand); background: var(--bg-subtle); }
+    @media (max-width: 768px) {
+      .nav-toggle { display: block; }
+      .nav-links { display: none; position: absolute; top: 56px; left: 0; right: 0; background: var(--bg); border-bottom: 1px solid var(--border); padding: 8px 20px; flex-direction: column; gap: 4px; }
+      .nav-links.active { display: flex; }
+      .nav-link { padding: 12px 16px; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+      .stat-card { padding: 14px 10px; }
+      .stat-card .stat__value { font-size: 1.5rem; }
+    }
+  </style>
 </head>
 <body>
 
@@ -127,9 +119,7 @@
       <span class="nav-logo-icon">zl</span>
       <span class="nav-logo-text">zlbox</span>
     </a>
-    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
     <div class="nav-links" role="list">
       <a href="/tools/index.html" class="nav-link" role="listitem">All Tools</a>
       <a href="/categories/text.html" class="nav-link" role="listitem">Text</a>
@@ -138,12 +128,12 @@
       <a href="/categories/image.html" class="nav-link" role="listitem">Image</a>
       <a href="/categories/pdf.html" class="nav-link" role="listitem">PDF</a>
       <a href="/blog/index.html" class="nav-link" role="listitem">Blog</a>
-      <button class="theme-toggle" aria-label="Toggle theme">🌙</button>
+      <button class="theme-toggle" aria-label="Toggle theme">&#9790;</button>
     </div>
   </div>
 </nav>
 
-<div class="container-md">
+<div class="container">
   <div class="hero">
     <div class="breadcrumb"><a href="../../index.html">Home</a> &rsaquo; <a href="../../categories/text.html">Text Tools</a> &rsaquo; Word Counter</div>
     <h1>Word Counter</h1>
@@ -152,16 +142,44 @@
 
   <div class="card">
     <div class="editor">
-      <textarea id="inputText" placeholder="Start typing or paste your text here…" spellcheck="true"></textarea>
+      <textarea id="inputText" placeholder="Start typing or paste your text here..." spellcheck="true" aria-label="Text input"></textarea>
       <div class="editor__toolbar">
-        <button class="btn btn--sm btn--ghost" id="clearBtn">Clear</button>
-        <div style="margin-left:auto"></div>
+        <button class="btn btn-ghost btn-sm" id="clearBtn">Clear</button>
+        <div style="margin-left:auto;font-size:.75rem;color:var(--muted);" id="charCountLabel">0 characters</div>
       </div>
     </div>
-    <div class="stats-grid" id="stats">
-      <div class="stat"><div class="stat__value" id="wordCount">0</div><div class="stat__label">Words</div></div>
-      <div class="stat"><div class="stat__value" id="charCount">0</div><div class="stat__label">Characters</div></div>
-      <div class="stat"><div class="stat__value" id="trimmedCount">0</div><div class="stat__label">Trimmed</div></div>
+
+    <div class="stats-grid">
+      <div class="stat-card">
+        <span class="stat-icon">&#128221;</span>
+        <div class="stat__value" id="wordCount">0</div>
+        <div class="stat__label">Words</div>
+      </div>
+      <div class="stat-card">
+        <span class="stat-icon">&#128203;</span>
+        <div class="stat__value" id="charCountSpaces">0</div>
+        <div class="stat__label">Characters</div>
+      </div>
+      <div class="stat-card">
+        <span class="stat-icon">&#128203;</span>
+        <div class="stat__value" id="charCountNoSpaces">0</div>
+        <div class="stat__label">No Spaces</div>
+      </div>
+      <div class="stat-card">
+        <span class="stat-icon">&#129514;</span>
+        <div class="stat__value" id="sentences">0</div>
+        <div class="stat__label">Sentences</div>
+      </div>
+      <div class="stat-card">
+        <span class="stat-icon">&#182;</span>
+        <div class="stat__value" id="paragraphs">0</div>
+        <div class="stat__label">Paragraphs</div>
+      </div>
+      <div class="stat-card">
+        <span class="stat-icon">&#128337;</span>
+        <div class="stat__value" id="readingTime">0</div>
+        <div class="stat__label">Min Read</div>
+      </div>
     </div>
   </div>
 
@@ -169,7 +187,7 @@
     <h2>How it works</h2>
     <ol class="steps">
       <li>Paste or type your text into the box above.</li>
-      <li>Word count, character count, and trimmed length update as you type.</li>
+      <li>Word count, character count, sentences, paragraphs, and reading time update instantly as you type.</li>
       <li>Hit Clear to reset. Everything runs in your browser — nothing is uploaded.</li>
     </ol>
   </div>
@@ -184,7 +202,7 @@
     </div>
   </div>
 
-  <footer class="footer">
+  <footer>
     <div class="footer-links">
       <a href="word-counter.html">Word Counter</a>
       <a href="case-converter.html">Case Converter</a>
@@ -199,37 +217,81 @@
 </div>
 
 <script>
-  const input     = document.getElementById('inputText');
-  const wordEl    = document.getElementById('wordCount');
-  const charEl    = document.getElementById('charCount');
-  const trimmedEl = document.getElementById('trimmedCount');
-  const clearBtn  = document.getElementById('clearBtn');
-  function update() {
-    const raw     = input.value;
-    const trimmed = raw.trim();
-    const words   = trimmed === '' ? 0 : trimmed.split(/\s+/).length;
-    wordEl.textContent    = words.toLocaleString();
-    charEl.textContent    = raw.length.toLocaleString();
-    trimmedEl.textContent = trimmed.length.toLocaleString();
+(function(){
+  'use strict';
+  var input = document.getElementById('inputText');
+  var wordEl = document.getElementById('wordCount');
+  var charSpacesEl = document.getElementById('charCountSpaces');
+  var charNoSpacesEl = document.getElementById('charCountNoSpaces');
+  var sentencesEl = document.getElementById('sentences');
+  var paragraphsEl = document.getElementById('paragraphs');
+  var readingTimeEl = document.getElementById('readingTime');
+  var charCountLabel = document.getElementById('charCountLabel');
+  var clearBtn = document.getElementById('clearBtn');
+
+  var WORDS_PER_MINUTE = 200;
+
+  function countWords(text) {
+    var trimmed = text.trim();
+    if (!trimmed) return 0;
+    return trimmed.split(/\s+/).length;
   }
+
+  function countSentences(text) {
+    if (!text.trim()) return 0;
+    // Split on . ! ? that are not part of numbers (1.2), URLs, etc.
+    var s = text.match(/[.!?]+(?=\s|$)/g);
+    return s ? s.length : 0;
+  }
+
+  function countParagraphs(text) {
+    if (!text.trim()) return 0;
+    // Split on double newlines or single newlines followed by capital letter
+    var paras = text.split(/\n\s*\n|\n(?=[A-Z])/);
+    return paras.filter(function(p) { return p.trim().length > 0; }).length;
+  }
+
+  function update() {
+    var raw = input.value;
+    var trimmed = raw.trim();
+
+    var words = countWords(trimmed);
+    var sentences = countSentences(trimmed);
+    var paragraphs = countParagraphs(trimmed);
+    var readingMin = Math.ceil(words / WORDS_PER_MINUTE);
+
+    wordEl.textContent = words.toLocaleString();
+    charSpacesEl.textContent = raw.length.toLocaleString();
+    charNoSpacesEl.textContent = trimmed.replace(/\s/g, '').length.toLocaleString();
+    sentencesEl.textContent = sentences.toLocaleString();
+    paragraphsEl.textContent = paragraphs.toLocaleString();
+    readingTimeEl.textContent = readingMin.toLocaleString();
+    charCountLabel.textContent = raw.length.toLocaleString() + ' character' + (raw.length !== 1 ? 's' : '');
+  }
+
   input.addEventListener('input', update);
-  clearBtn.addEventListener('click', () => { input.value = ''; update(); input.focus(); });
+  clearBtn.addEventListener('click', function() {
+    input.value = '';
+    update();
+    input.focus();
+  });
   update();
+})();
 </script>
 
 <script>
-document.addEventListener('DOMContentLoaded',function(){
-  var toggle=document.querySelector('.nav-toggle');
-  var links=document.querySelector('.nav-links');
-  if(toggle&&links){
-    toggle.addEventListener('click',function(){
+document.addEventListener('DOMContentLoaded', function() {
+  var toggle = document.querySelector('.nav-toggle');
+  var links = document.querySelector('.nav-links');
+  if (toggle && links) {
+    toggle.addEventListener('click', function() {
       links.classList.toggle('active');
-      toggle.setAttribute('aria-expanded',links.classList.contains('active'));
+      toggle.setAttribute('aria-expanded', links.classList.contains('active'));
     });
   }
 });
 </script>
-  <script src="/js/theme.js"></script>
-  <div id="toast-container" class="toast-container"></div>
+<script src="/js/theme.js"></script>
+<div id="toast-container" class="toast-container"></div>
 </body>
 </html>

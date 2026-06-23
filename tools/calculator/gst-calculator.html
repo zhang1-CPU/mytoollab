@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GST Calculator – Calculate Goods and Services Tax | zlbox</title>
+    <meta name="description" content="Calculate GST (Goods and Services Tax) inclusive or exclusive amounts. Add or remove GST at 5%, 12%, 18%, or custom rates.">
+    <link rel="canonical" href="https://www.zlbox.site/tools/calculator/gst-calculator.html">
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+        .container { max-width: 900px; margin: 0 auto; padding: 2rem 1rem; }
+        h1 { font-size: 2rem; margin-bottom: 0.5rem; color: var(--text); }
+        .subtitle { color: var(--text-secondary); margin-bottom: 2rem; }
+        
+        .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem; }
+        
+        .mode-tabs { display: flex; gap: 0.5rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+        .mode-tab { padding: 0.75rem 1.25rem; border: 1px solid var(--border); border-radius: 8px; background: var(--bg); color: var(--text); cursor: pointer; font-weight: 600; transition: all 0.2s; }
+        .mode-tab.active { background: var(--primary); color: white; border-color: var(--primary); }
+        
+        .input-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; }
+        .input-group { margin-bottom: 1rem; }
+        .input-group label { display: block; font-weight: 600; margin-bottom: 0.5rem; color: var(--text); }
+        
+        input, select {
+            width: 100%; padding: 0.75rem 1rem;
+            border: 1px solid var(--border); border-radius: 8px;
+            background: var(--bg); color: var(--text); font-size: 1.1rem;
+        }
+        input:focus, select:focus { outline: none; border-color: var(--primary); }
+        
+        .preset-buttons { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 1rem; }
+        .preset-btn { padding: 0.5rem 1rem; border: 1px solid var(--border); border-radius: 6px; background: var(--bg); color: var(--text); cursor: pointer; font-size: 0.9rem; transition: all 0.2s; }
+        .preset-btn:hover { border-color: var(--primary); color: var(--primary); }
+        .preset-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
+        
+        .btn-row { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1.5rem; }
+        .btn { padding: 0.75rem 1.5rem; border: none; border-radius: 8px; cursor: pointer; font-size: 0.95rem; font-weight: 600; transition: all 0.2s; }
+        .btn-primary { background: var(--primary); color: white; }
+        .btn-primary:hover { background: #1d4ed8; }
+        .btn-secondary { background: var(--border); color: var(--text); }
+        .btn-secondary:hover { background: var(--text-secondary); color: white; }
+        
+        .results-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; }
+        .result-card { background: var(--bg); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem; text-align: center; }
+        .result-value { font-size: 1.5rem; font-weight: 700; color: var(--primary); }
+        .result-label { font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.5rem; }
+        
+        .breakdown-card { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; margin-top: 1.5rem; }
+        .breakdown-row { display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid var(--border); }
+        .breakdown-row:last-child { border-bottom: none; font-weight: 600; }
+        .breakdown-row span:last-child { font-family: monospace; }
+        
+        .info-box { background: rgba(37, 99, 235, 0.1); border: 1px solid var(--primary); border-radius: 8px; padding: 1rem; margin-top: 1.5rem; }
+        
+        .gst-rates { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-top: 1rem; }
+        .gst-rate-card { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; text-align: center; cursor: pointer; transition: all 0.2s; }
+        .gst-rate-card:hover { border-color: var(--primary); }
+        .gst-rate-card.selected { background: var(--primary); color: white; border-color: var(--primary); }
+        .gst-rate-card .rate { font-size: 1.5rem; font-weight: 700; }
+        .gst-rate-card .desc { font-size: 0.8rem; opacity: 0.8; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="/" class="logo">zlzlbox</a>
+        <div class="nav-links">
+            <a href="/tools/index.html">All Tools</a>
+            <a href="/categories/calculator.html">Calculator</a>
+        </div>
+        <button id="themeToggle" class="theme-toggle">🌙</button>
+    </nav>
+
+    <main class="container">
+        <h1>GST Calculator</h1>
+        <p class="subtitle">Calculate GST (Goods and Services Tax) amounts. Add or remove GST from any amount at standard rates.</p>
+
+        <div class="card">
+            <div class="mode-tabs">
+                <button class="mode-tab active" onclick="switchMode('add')">Add GST (Exclusive)</button>
+                <button class="mode-tab" onclick="switchMode('remove')">Remove GST (Inclusive)</button>
+            </div>
+
+            <div class="input-grid">
+                <div class="input-group">
+                    <label>Amount</label>
+                    <input type="number" id="amount" value="1000" min="0" placeholder="Enter amount">
+                </div>
+                <div class="input-group">
+                    <label>GST Rate (%)</label>
+                    <input type="number" id="gstRate" value="18" min="0" max="100" step="0.1">
+                </div>
+            </div>
+
+            <div class="preset-buttons">
+                <button class="preset-btn" onclick="setRate(5)">5%</button>
+                <button class="preset-btn" onclick="setRate(12)">12%</button>
+                <button class="preset-btn active" onclick="setRate(18)">18%</button>
+                <button class="preset-btn" onclick="setRate(28)">28%</button>
+            </div>
+
+            <div class="btn-row">
+                <button class="btn btn-primary" onclick="calculate()">Calculate GST</button>
+                <button class="btn btn-secondary" onclick="reset()">Reset</button>
+            </div>
+        </div>
+
+        <div id="results" style="display: none;">
+            <div class="card">
+                <h3 style="margin-bottom: 1rem;">Results</h3>
+                <div class="results-grid">
+                    <div class="result-card">
+                        <div class="result-value" id="baseAmount">₹0</div>
+                        <div class="result-label" id="baseLabel">Base Amount</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-value" id="gstAmount">₹0</div>
+                        <div class="result-label">GST Amount</div>
+                    </div>
+                    <div class="result-card" style="background: linear-gradient(135deg, var(--primary), #1d4ed8); border: none;">
+                        <div class="result-value" id="totalAmount" style="color: white;">₹0</div>
+                        <div class="result-label" style="color: rgba(255,255,255,0.8);">Total Amount</div>
+                    </div>
+                </div>
+
+                <div class="breakdown-card">
+                    <div class="breakdown-row">
+                        <span id="breakdownBase">Base Amount (100%)</span>
+                        <span id="breakdownBaseValue">₹0</span>
+                    </div>
+                    <div class="breakdown-row">
+                        <span id="breakdownGST">GST (<span id="gstRateDisplay">18</span>%)</span>
+                        <span id="breakdownGSTValue">₹0</span>
+                    </div>
+                    <div class="breakdown-row">
+                        <span>Total</span>
+                        <span id="breakdownTotal">₹0</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 style="margin-bottom: 1rem;">Common GST Rates in India</h3>
+                <div class="gst-rates">
+                    <div class="gst-rate-card" onclick="setRate(0)">
+                        <div class="rate">0%</div>
+                        <div class="desc">Exempt items</div>
+                    </div>
+                    <div class="gst-rate-card" onclick="setRate(5)">
+                        <div class="rate">5%</div>
+                        <div class="desc">Essential items</div>
+                    </div>
+                    <div class="gst-rate-card" onclick="setRate(12)">
+                        <div class="rate">12%</div>
+                        <div class="desc">Standard goods</div>
+                    </div>
+                    <div class="gst-rate-card" onclick="setRate(18)">
+                        <div class="rate">18%</div>
+                        <div class="desc">Most items</div>
+                    </div>
+                    <div class="gst-rate-card" onclick="setRate(28)">
+                        <div class="rate">28%</div>
+                        <div class="desc">Luxury items</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <p><strong>About GST:</strong> GST (Goods and Services Tax) is an indirect tax imposed in India on the supply of goods and services. It replaced multiple taxes like VAT, excise duty, and service tax. The current GST rates include 5%, 12%, 18%, and 28%.</p>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 zlbox. All rights reserved. <a href="/privacy.html">Privacy Policy</a></p>
+    </footer>
+
+    <script>
+        let mode = 'add';
+
+        function switchMode(m) {
+            mode = m;
+            document.querySelectorAll('.mode-tab').forEach(t => t.classList.remove('active'));
+            event.target.classList.add('active');
+            document.getElementById('baseLabel').textContent = mode === 'add' ? 'Base Amount' : 'Net Amount';
+            document.getElementById('breakdownBase').textContent = mode === 'add' ? 'Base Amount (100%)' : 'Net Amount (100%)';
+            calculate();
+        }
+
+        function setRate(rate) {
+            document.getElementById('gstRate').value = rate;
+            document.querySelectorAll('.preset-btn').forEach(btn => {
+                btn.classList.toggle('active', parseInt(btn.textContent) === rate);
+            });
+            document.querySelectorAll('.gst-rate-card').forEach(card => {
+                card.classList.toggle('selected', parseFloat(card.querySelector('.rate').textContent) === rate);
+            });
+            calculate();
+        }
+
+        function formatCurrency(num) {
+            return '₹' + num.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        }
+
+        function calculate() {
+            const amount = parseFloat(document.getElementById('amount').value) || 0;
+            const rate = parseFloat(document.getElementById('gstRate').value) || 0;
+
+            let baseAmount, gstAmount, total;
+
+            if (mode === 'add') {
+                // Add GST to base amount
+                baseAmount = amount;
+                gstAmount = amount * (rate / 100);
+                total = baseAmount + gstAmount;
+            } else {
+                // Remove GST from inclusive amount
+                total = amount;
+                baseAmount = amount / (1 + rate / 100);
+                gstAmount = total - baseAmount;
+            }
+
+            document.getElementById('baseAmount').textContent = formatCurrency(baseAmount);
+            document.getElementById('gstAmount').textContent = formatCurrency(gstAmount);
+            document.getElementById('totalAmount').textContent = formatCurrency(total);
+            
+            document.getElementById('gstRateDisplay').textContent = rate;
+            document.getElementById('breakdownBaseValue').textContent = formatCurrency(baseAmount);
+            document.getElementById('breakdownGSTValue').textContent = formatCurrency(gstAmount);
+            document.getElementById('breakdownTotal').textContent = formatCurrency(total);
+
+            document.getElementById('results').style.display = 'block';
+        }
+
+        function reset() {
+            document.getElementById('amount').value = 1000;
+            document.getElementById('gstRate').value = 18;
+            setRate(18);
+        }
+
+        // Auto-calculate on input change
+        document.getElementById('amount').addEventListener('input', calculate);
+        document.getElementById('gstRate').addEventListener('input', () => {
+            document.querySelectorAll('.preset-btn').forEach(btn => btn.classList.remove('active'));
+            calculate();
+        });
+
+        // Theme toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && prefersDark)) {
+            document.body.classList.add('dark');
+        }
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark');
+            localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
+            themeToggle.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
+        });
+        themeToggle.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
+    </script>
+</body>
+</html>

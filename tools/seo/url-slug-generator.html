@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Slug Generator – Create SEO-Friendly URLs | zlbox</title>
+    <meta name="description" content="Convert any text into SEO-friendly URL slugs. Perfect for blog posts, product pages, and website URLs.">
+    <link rel="canonical" href="https://www.zlbox.site/tools/seo/url-slug-generator.html">
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+        .container { max-width: 900px; margin: 0 auto; padding: 2rem 1rem; }
+        h1 { font-size: 2rem; margin-bottom: 0.5rem; color: var(--text); }
+        .subtitle { color: var(--text-secondary); margin-bottom: 2rem; }
+        
+        .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem; }
+        
+        .input-group { margin-bottom: 1.5rem; }
+        .input-group label { display: block; font-weight: 600; margin-bottom: 0.5rem; color: var(--text); }
+        
+        textarea, input {
+            width: 100%; padding: 0.75rem 1rem;
+            border: 1px solid var(--border); border-radius: 8px;
+            background: var(--bg); color: var(--text); font-size: 1rem;
+        }
+        textarea { min-height: 100px; resize: vertical; }
+        textarea:focus, input:focus { outline: none; border-color: var(--primary); }
+        
+        .slug-preview { background: var(--bg); border: 2px dashed var(--primary); border-radius: 8px; padding: 1.5rem; text-align: center; }
+        .slug-label { font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.5rem; }
+        .slug-value { font-size: 1.2rem; font-family: monospace; word-break: break-all; color: var(--primary); font-weight: 600; }
+        
+        .btn-row { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1.5rem; }
+        .btn { padding: 0.75rem 1.5rem; border: none; border-radius: 8px; cursor: pointer; font-size: 0.95rem; font-weight: 600; transition: all 0.2s; }
+        .btn-primary { background: var(--primary); color: white; }
+        .btn-primary:hover { background: #1d4ed8; }
+        .btn-secondary { background: var(--border); color: var(--text); }
+        .btn-secondary:hover { background: var(--text-secondary); color: white; }
+        
+        .options-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+        .option-item { display: flex; align-items: center; gap: 0.75rem; cursor: pointer; }
+        .option-item input { width: auto; }
+        
+        .result-section { margin-top: 1.5rem; }
+        .result-item { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; margin-bottom: 0.75rem; }
+        .result-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; }
+        .result-label { font-weight: 600; font-size: 0.9rem; }
+        .result-value { font-family: monospace; font-size: 0.95rem; word-break: break-all; color: var(--primary); }
+        .copy-btn { padding: 0.25rem 0.75rem; background: var(--primary); color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.8rem; }
+        
+        .examples { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; margin-top: 1.5rem; }
+        .examples h4 { margin-bottom: 0.75rem; }
+        .example-item { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0; border-bottom: 1px solid var(--border); }
+        .example-item:last-child { border-bottom: none; }
+        .example-input { color: var(--text-secondary); font-size: 0.9rem; }
+        .example-arrow { color: var(--text-secondary); margin: 0 0.5rem; }
+        .example-output { font-family: monospace; font-size: 0.9rem; color: var(--primary); }
+        
+        .info-box { background: rgba(37, 99, 235, 0.1); border: 1px solid var(--primary); border-radius: 8px; padding: 1rem; margin-top: 1.5rem; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="/" class="logo">zlzlbox</a>
+        <div class="nav-links">
+            <a href="/tools/index.html">All Tools</a>
+            <a href="/categories/seo.html">SEO</a>
+        </div>
+        <button id="themeToggle" class="theme-toggle">🌙</button>
+    </nav>
+
+    <main class="container">
+        <h1>URL Slug Generator</h1>
+        <p class="subtitle">Convert any text into clean, SEO-friendly URL slugs. Perfect for blog posts, product pages, and website URLs.</p>
+
+        <div class="card">
+            <div class="input-group">
+                <label>Enter your title or text</label>
+                <textarea id="textInput" placeholder="e.g., How to Create SEO-Friendly URLs for Your Blog Posts in 2024"></textarea>
+            </div>
+
+            <div class="slug-preview">
+                <div class="slug-label">Your URL Slug</div>
+                <div class="slug-value" id="slugOutput">-</div>
+            </div>
+
+            <div class="options-grid">
+                <label class="option-item">
+                    <input type="checkbox" id="lowercase" checked onchange="generateSlug()">
+                    <span>Lowercase</span>
+                </label>
+                <label class="option-item">
+                    <input type="checkbox" id="removeNumbers" onchange="generateSlug()">
+                    <span>Remove numbers</span>
+                </label>
+                <label class="option-item">
+                    <input type="checkbox" id="removeSpecial" checked onchange="generateSlug()">
+                    <span>Remove special chars</span>
+                </label>
+                <label class="option-item">
+                    <input type="checkbox" id="removeStopWords" onchange="generateSlug()">
+                    <span>Remove stop words (a, the, in)</span>
+                </label>
+            </div>
+
+            <div class="btn-row">
+                <button class="btn btn-primary" onclick="copySlug()">📋 Copy Slug</button>
+                <button class="btn btn-secondary" onclick="copyFullUrl()">🔗 Copy Full URL</button>
+                <button class="btn btn-secondary" onclick="clearText()">Clear</button>
+            </div>
+        </div>
+
+        <div class="result-section">
+            <div class="result-item">
+                <div class="result-header">
+                    <span class="result-label">Clean Slug</span>
+                    <button class="copy-btn" onclick="copyText(document.getElementById('cleanSlug').textContent)">Copy</button>
+                </div>
+                <div class="result-value" id="cleanSlug">-</div>
+            </div>
+            <div class="result-item">
+                <div class="result-header">
+                    <span class="result-label">Short Slug (max 50 chars)</span>
+                    <button class="copy-btn" onclick="copyText(document.getElementById('shortSlug').textContent)">Copy</button>
+                </div>
+                <div class="result-value" id="shortSlug">-</div>
+            </div>
+            <div class="result-item">
+                <div class="result-header">
+                    <span class="result-label">URL Encoded</span>
+                    <button class="copy-btn" onclick="copyText(document.getElementById('urlEncoded').textContent)">Copy</button>
+                </div>
+                <div class="result-value" id="urlEncoded">-</div>
+            </div>
+        </div>
+
+        <div class="examples">
+            <h4>Examples</h4>
+            <div class="example-item">
+                <span class="example-input">10 Best Tips for SEO</span>
+                <span class="example-arrow">→</span>
+                <span class="example-output">10-best-tips-for-seo</span>
+            </div>
+            <div class="example-item">
+                <span class="example-input">What's New in JavaScript?</span>
+                <span class="example-arrow">→</span>
+                <span class="example-output">whats-new-in-javascript</span>
+            </div>
+            <div class="example-item">
+                <span class="example-input">E-commerce vs. Online Shopping</span>
+                <span class="example-arrow">→</span>
+                <span class="example-output">ecommerce-vs-online-shopping</span>
+            </div>
+            <div class="example-item">
+                <span class="example-input">The Ultimate Guide to REST APIs</span>
+                <span class="example-arrow">→</span>
+                <span class="example-output">ultimate-guide-rest-apis</span>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <p><strong>What is a URL slug?</strong> A URL slug is the part of a URL that identifies a specific page. It should be descriptive, easy to read, and contain keywords for SEO. For example, in <code>/blog/how-to-write-seo-slugs</code>, the slug is "how-to-write-seo-slugs".</p>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 zlbox. All rights reserved. <a href="/privacy.html">Privacy Policy</a></p>
+    </footer>
+
+    <script>
+        const stopWords = ['a', 'an', 'the', 'and', 'or', 'but', 'in', 'on', 'at', 'to', 'for', 'of', 'with', 'by', 'is', 'are', 'was', 'were', 'be', 'been', 'being', 'have', 'has', 'had', 'do', 'does', 'did', 'will', 'would', 'could', 'should', 'may', 'might', 'must', 'can', 'this', 'that', 'these', 'those', 'i', 'you', 'he', 'she', 'it', 'we', 'they'];
+
+        document.getElementById('textInput').addEventListener('input', generateSlug);
+
+        function generateSlug() {
+            let text = document.getElementById('textInput').value;
+            
+            if (!text.trim()) {
+                document.getElementById('slugOutput').textContent = '-';
+                document.getElementById('cleanSlug').textContent = '-';
+                document.getElementById('shortSlug').textContent = '-';
+                document.getElementById('urlEncoded').textContent = '-';
+                return;
+            }
+
+            // Remove HTML tags
+            text = text.replace(/<[^>]*>/g, '');
+            
+            // Convert to lowercase if option checked
+            if (document.getElementById('lowercase').checked) {
+                text = text.toLowerCase();
+            }
+            
+            // Remove numbers if option checked
+            if (document.getElementById('removeNumbers').checked) {
+                text = text.replace(/[0-9]/g, '');
+            }
+            
+            // Remove special characters
+            text = text.replace(/[^\w\s-]/g, '');
+            
+            // Remove stop words if option checked
+            if (document.getElementById('removeStopWords').checked) {
+                let words = text.split(/\s+/);
+                words = words.filter(word => !stopWords.includes(word.toLowerCase()));
+                text = words.join(' ');
+            }
+            
+            // Replace spaces and multiple dashes with single dash
+            text = text.replace(/\s+/g, '-');
+            text = text.replace(/-+/g, '-');
+            
+            // Remove leading/trailing dashes
+            text = text.replace(/^-+|-+$/g, '');
+            
+            // Update displays
+            const cleanSlug = text;
+            const shortSlug = text.length > 50 ? text.substring(0, 50) : text;
+            const urlEncoded = encodeURIComponent(text);
+            
+            document.getElementById('slugOutput').textContent = cleanSlug;
+            document.getElementById('cleanSlug').textContent = cleanSlug;
+            document.getElementById('shortSlug').textContent = shortSlug;
+            document.getElementById('urlEncoded').textContent = urlEncoded;
+        }
+
+        function copySlug() {
+            const slug = document.getElementById('slugOutput').textContent;
+            if (slug !== '-') {
+                copyText(slug);
+            }
+        }
+
+        function copyFullUrl() {
+            const slug = document.getElementById('slugOutput').textContent;
+            if (slug !== '-') {
+                const fullUrl = window.location.origin + '/blog/' + slug;
+                copyText(fullUrl);
+            }
+        }
+
+        function copyText(text) {
+            navigator.clipboard.writeText(text);
+            
+            const btn = event.target;
+            const originalText = btn.textContent;
+            btn.textContent = '✓ Copied!';
+            setTimeout(() => btn.textContent = originalText, 2000);
+        }
+
+        function clearText() {
+            document.getElementById('textInput').value = '';
+            generateSlug();
+        }
+
+        // Theme toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && prefersDark)) {
+            document.body.classList.add('dark');
+        }
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark');
+            localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
+            themeToggle.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
+        });
+        themeToggle.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
+    </script>
+</body>
+</html>

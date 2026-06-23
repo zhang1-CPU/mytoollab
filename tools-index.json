@@ -478,5 +478,61 @@
     "url": "/tools/generator/terms-generator.html",
     "keywords": ["terms", "conditions", "legal", "generator", "website", "agreement"],
     "icon": "📜"
+  },
+  {
+    "name": "SIP Calculator",
+    "category": "Calculator",
+    "description": "Calculate returns on systematic investment plans",
+    "url": "/tools/calculator/sip-calculator.html",
+    "keywords": ["sip", "calculator", "investment", "mutual fund", "returns"],
+    "icon": "📈"
+  },
+  {
+    "name": "Compound Interest Calculator",
+    "category": "Calculator",
+    "description": "Calculate compound interest and investment growth",
+    "url": "/tools/calculator/compound-interest.html",
+    "keywords": ["compound", "interest", "calculator", "investment", "growth"],
+    "icon": "💰"
+  },
+  {
+    "name": "GST Calculator",
+    "category": "Calculator",
+    "description": "Calculate GST inclusive and exclusive amounts",
+    "url": "/tools/calculator/gst-calculator.html",
+    "keywords": ["gst", "tax", "calculator", "goods", "services", "india"],
+    "icon": "🧮"
+  },
+  {
+    "name": "Instagram Hashtag Generator",
+    "category": "Social Media",
+    "description": "Generate trending hashtags for Instagram posts",
+    "url": "/tools/social/hashtag-generator.html",
+    "keywords": ["hashtag", "instagram", "social", "media", "trending"],
+    "icon": "#️⃣"
+  },
+  {
+    "name": "YouTube Thumbnail Downloader",
+    "category": "Social Media",
+    "description": "Download YouTube video thumbnails in HD quality",
+    "url": "/tools/social/thumbnail-downloader.html",
+    "keywords": ["youtube", "thumbnail", "download", "video", "image"],
+    "icon": "🎬"
+  },
+  {
+    "name": "AI Content Detector",
+    "category": "SEO",
+    "description": "Detect if content was written by AI or human",
+    "url": "/tools/seo/ai-content-detector.html",
+    "keywords": ["ai", "detector", "content", "chatgpt", "gpt", "seo"],
+    "icon": "🤖"
+  },
+  {
+    "name": "URL Slug Generator",
+    "category": "SEO",
+    "description": "Create SEO-friendly URL slugs from any text",
+    "url": "/tools/seo/url-slug-generator.html",
+    "keywords": ["url", "slug", "seo", "friendly", "permalink"],
+    "icon": "🔗"
   }
 ]

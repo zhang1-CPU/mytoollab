@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Tools – Free Online Utilities | zlbox</title>
+    <meta name="description" content="Free social media tools for content creators. Generate hashtags, download thumbnails, and more. No signup required.">
+    <link rel="canonical" href="https://www.zlbox.site/categories/social.html">
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+        .container { max-width: 1200px; margin: 0 auto; padding: 2rem 1rem; }
+        .header { text-align: center; margin-bottom: 3rem; }
+        h1 { font-size: 2.5rem; margin-bottom: 0.5rem; color: var(--text); }
+        .subtitle { color: var(--text-secondary); font-size: 1.1rem; }
+        .tools-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 3rem; }
+        .tool-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; text-decoration: none; color: inherit; transition: all 0.2s; }
+        .tool-card:hover { border-color: var(--primary); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        .tool-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+        .tool-name { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--text); }
+        .tool-desc { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="/" class="logo">zlzlbox</a>
+        <div class="nav-links">
+            <a href="/tools/index.html">All Tools</a>
+            <a href="/categories/calculator.html">Calculator</a>
+            <a href="/categories/text.html">Text</a>
+            <a href="/categories/seo.html">SEO</a>
+        </div>
+        <button id="themeToggle" class="theme-toggle">🌙</button>
+    </nav>
+
+    <main class="container">
+        <div class="header">
+            <h1>Social Media Tools</h1>
+            <p class="subtitle">Free tools for content creators. Grow your audience and create better content.</p>
+        </div>
+
+        <div class="tools-grid" id="toolsGrid">
+            <!-- Tools will be loaded dynamically -->
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 zlbox. All rights reserved. <a href="/privacy.html">Privacy Policy</a></p>
+    </footer>
+
+    <script>
+        fetch('/tools-index.json')
+            .then(r => r.json())
+            .then(tools => {
+                const socialTools = tools.filter(t => t.category === 'Social Media').sort((a, b) => a.name.localeCompare(b.name));
+                const grid = document.getElementById('toolsGrid');
+                grid.innerHTML = socialTools.map(tool => `
+                    <a href="${tool.url}" class="tool-card">
+                        <div class="tool-icon">${tool.icon}</div>
+                        <div class="tool-name">${tool.name}</div>
+                        <div class="tool-desc">${tool.description}</div>
+                    </a>
+                `).join('');
+            })
+            .catch(() => {});
+    </script>
+
+    <script>
+        const themeToggle = document.getElementById('themeToggle');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && prefersDark)) {
+            document.body.classList.add('dark');
+        }
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark');
+            localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
+            themeToggle.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
+        });
+        themeToggle.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
+    </script>
+</body>
+</html>

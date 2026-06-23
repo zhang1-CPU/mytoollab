@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Thumbnail Downloader – Free HD Download | zlbox</title>
+    <meta name="description" content="Download any YouTube video thumbnail in multiple resolutions. Get HD, SD, and custom size thumbnails instantly.">
+    <link rel="canonical" href="https://www.zlbox.site/tools/social/thumbnail-downloader.html">
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+        .container { max-width: 900px; margin: 0 auto; padding: 2rem 1rem; }
+        h1 { font-size: 2rem; margin-bottom: 0.5rem; color: var(--text); }
+        .subtitle { color: var(--text-secondary); margin-bottom: 2rem; }
+        
+        .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem; }
+        
+        .input-group { margin-bottom: 1.5rem; }
+        .input-group label { display: block; font-weight: 600; margin-bottom: 0.5rem; color: var(--text); }
+        
+        .input-row { display: flex; gap: 0.75rem; }
+        input {
+            flex: 1; padding: 0.75rem 1rem;
+            border: 1px solid var(--border); border-radius: 8px;
+            background: var(--bg); color: var(--text); font-size: 1rem;
+        }
+        input:focus { outline: none; border-color: var(--primary); }
+        
+        .btn { padding: 0.75rem 1.5rem; border: none; border-radius: 8px; cursor: pointer; font-size: 0.95rem; font-weight: 600; transition: all 0.2s; }
+        .btn-primary { background: var(--primary); color: white; }
+        .btn-primary:hover { background: #1d4ed8; }
+        .btn-secondary { background: var(--border); color: var(--text); }
+        .btn-secondary:hover { background: var(--text-secondary); color: white; }
+        
+        .results { display: none; }
+        .results.active { display: block; }
+        
+        .video-preview { display: flex; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+        .thumbnail-preview { flex: 1; min-width: 200px; }
+        .thumbnail-preview img { width: 100%; border-radius: 8px; }
+        
+        .video-info { flex: 1; min-width: 200px; }
+        .video-info h3 { font-size: 1.1rem; margin-bottom: 0.5rem; }
+        .video-info p { color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 0.25rem; }
+        
+        .quality-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-bottom: 1.5rem; }
+        .quality-card { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; text-align: center; transition: all 0.2s; cursor: pointer; }
+        .quality-card:hover { border-color: var(--primary); transform: translateY(-2px); }
+        .quality-card.best { border-color: var(--primary); background: rgba(37, 99, 235, 0.1); }
+        .quality-badge { display: inline-block; padding: 0.25rem 0.5rem; background: var(--primary); color: white; border-radius: 4px; font-size: 0.75rem; margin-bottom: 0.5rem; }
+        .quality-card.best .quality-badge { background: #059669; }
+        .quality-resolution { font-weight: 700; font-size: 1rem; }
+        .quality-size { color: var(--text-secondary); font-size: 0.8rem; }
+        .quality-card img { width: 100%; border-radius: 4px; margin-bottom: 0.5rem; }
+        
+        .download-btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; background: var(--primary); color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 0.85rem; font-weight: 600; transition: all 0.2s; }
+        .download-btn:hover { background: #1d4ed8; }
+        
+        .info-box { background: rgba(37, 99, 235, 0.1); border: 1px solid var(--primary); border-radius: 8px; padding: 1rem; margin-top: 1.5rem; }
+        
+        .error-message { background: #fef2f2; border: 1px solid #fecaca; color: #dc2626; padding: 1rem; border-radius: 8px; margin-top: 1rem; display: none; }
+        .error-message.active { display: block; }
+        
+        .paste-hint { font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.5rem; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="/" class="logo">zlzlbox</a>
+        <div class="nav-links">
+            <a href="/tools/index.html">All Tools</a>
+            <a href="/categories/social.html">Social Media</a>
+        </div>
+        <button id="themeToggle" class="theme-toggle">🌙</button>
+    </nav>
+
+    <main class="container">
+        <h1>YouTube Thumbnail Downloader</h1>
+        <p class="subtitle">Download any YouTube video thumbnail in HD, SD, or custom quality. Just paste a YouTube URL.</p>
+
+        <div class="card">
+            <div class="input-group">
+                <label>YouTube Video URL</label>
+                <div class="input-row">
+                    <input type="url" id="videoUrl" placeholder="https://www.youtube.com/watch?v=... or https://youtu.be/...">
+                    <button class="btn btn-primary" onclick="fetchThumbnail()">Fetch</button>
+                </div>
+                <p class="paste-hint">💡 Tip: You can paste a full URL or just the video ID (e.g., dQw4w9WgXcQ)</p>
+            </div>
+        </div>
+
+        <div class="error-message" id="errorMessage"></div>
+
+        <div class="results" id="results">
+            <div class="card">
+                <div class="video-preview">
+                    <div class="thumbnail-preview">
+                        <img id="previewImage" src="" alt="Thumbnail Preview">
+                    </div>
+                    <div class="video-info">
+                        <h3 id="videoTitle">Video Title</h3>
+                        <p id="videoId">Video ID: -</p>
+                        <p id="videoChannel">Channel: -</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 style="margin-bottom: 1rem;">Download Thumbnail</h3>
+                <div class="quality-grid" id="qualityGrid"></div>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <p><strong>How to use:</strong> Paste a YouTube video URL and click Fetch. You'll see all available thumbnail sizes. Click any thumbnail to download it to your device.</p>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 zlbox. All rights reserved. <a href="/privacy.html">Privacy Policy</a></p>
+    </footer>
+
+    <script>
+        function extractVideoId(url) {
+            // Handle various URL formats
+            const patterns = [
+                /(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/|youtube\.com\/v\/)([^&\n?#]+)/,
+                /^([a-zA-Z0-9_-]{11})$/
+            ];
+            
+            for (const pattern of patterns) {
+                const match = url.match(pattern);
+                if (match) return match[1];
+            }
+            return null;
+        }
+
+        function fetchThumbnail() {
+            const input = document.getElementById('videoUrl').value.trim();
+            const videoId = extractVideoId(input);
+            
+            if (!videoId) {
+                showError('Invalid YouTube URL. Please enter a valid YouTube video link.');
+                return;
+            }
+
+            hideError();
+            
+            // Set preview image (max resolution)
+            const previewUrl = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
+            document.getElementById('previewImage').src = previewUrl;
+            document.getElementById('videoId').textContent = `Video ID: ${videoId}`;
+            document.getElementById('videoTitle').textContent = 'YouTube Video';
+            document.getElementById('videoChannel').textContent = 'Channel: -';
+
+            // Generate thumbnail options
+            const qualities = [
+                { name: 'maxresdefault', label: 'HD', resolution: '1280×720', badge: 'Best Quality' },
+                { name: 'sddefault', label: 'SD', resolution: '640×480', badge: '' },
+                { name: 'hqdefault', label: 'HQ', resolution: '480×360', badge: '' },
+                { name: 'mqdefault', label: 'MQ', resolution: '320×180', badge: '' },
+                { name: 'default', label: 'Small', resolution: '120×90', badge: '' }
+            ];
+
+            const grid = document.getElementById('qualityGrid');
+            grid.innerHTML = '';
+
+            qualities.forEach((q, index) => {
+                const url = `https://img.youtube.com/vi/${videoId}/${q.name}.jpg`;
+                const isBest = index === 0;
+                
+                const card = document.createElement('div');
+                card.className = `quality-card ${isBest ? 'best' : ''}`;
+                card.innerHTML = `
+                    ${q.badge ? `<span class="quality-badge">${q.badge}</span>` : ''}
+                    <img src="${url}" alt="${q.label}" onerror="this.style.display='none'">
+                    <div class="quality-resolution">${q.label}</div>
+                    <div class="quality-size">${q.resolution}</div>
+                    <button class="download-btn" onclick="downloadImage('${url}', '${videoId}_${q.label}.jpg')">
+                        ⬇️ Download
+                    </button>
+                `;
+                card.onclick = (e) => {
+                    if (e.target.tagName !== 'BUTTON') {
+                        downloadImage(url, `${videoId}_${q.label}.jpg`);
+                    }
+                };
+                grid.appendChild(card);
+            });
+
+            document.getElementById('results').classList.add('active');
+        }
+
+        function downloadImage(url, filename) {
+            fetch(url)
+                .then(response => response.blob())
+                .then(blob => {
+                    const blobUrl = URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = blobUrl;
+                    a.download = filename;
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                    URL.revokeObjectURL(blobUrl);
+                })
+                .catch(err => {
+                    showError('Failed to download image. Please try again.');
+                });
+        }
+
+        function showError(message) {
+            const errorEl = document.getElementById('errorMessage');
+            errorEl.textContent = message;
+            errorEl.classList.add('active');
+            document.getElementById('results').classList.remove('active');
+        }
+
+        function hideError() {
+            document.getElementById('errorMessage').classList.remove('active');
+        }
+
+        // Handle Enter key
+        document.getElementById('videoUrl').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') fetchThumbnail();
+        });
+
+        // Theme toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && prefersDark)) {
+            document.body.classList.add('dark');
+        }
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark');
+            localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
+            themeToggle.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
+        });
+        themeToggle.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
+    </script>
+</body>
+</html>

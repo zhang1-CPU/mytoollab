@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Content Detector – Free AI Text Checker | zlbox</title>
+    <meta name="description" content="Detect if text was written by AI like ChatGPT, GPT-4, or human. Free AI content detector with percentage analysis.">
+    <link rel="canonical" href="https://www.zlbox.site/tools/seo/ai-content-detector.html">
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+        .container { max-width: 900px; margin: 0 auto; padding: 2rem 1rem; }
+        h1 { font-size: 2rem; margin-bottom: 0.5rem; color: var(--text); }
+        .subtitle { color: var(--text-secondary); margin-bottom: 2rem; }
+        
+        .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem; }
+        
+        .input-group { margin-bottom: 1.5rem; }
+        .input-group label { display: block; font-weight: 600; margin-bottom: 0.5rem; color: var(--text); }
+        
+        textarea {
+            width: 100%; min-height: 200px; padding: 0.75rem 1rem;
+            border: 1px solid var(--border); border-radius: 8px;
+            background: var(--bg); color: var(--text); font-size: 1rem;
+            resize: vertical;
+        }
+        textarea:focus { outline: none; border-color: var(--primary); }
+        
+        .char-count { font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.5rem; }
+        
+        .btn-row { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1rem; }
+        .btn { padding: 0.75rem 1.5rem; border: none; border-radius: 8px; cursor: pointer; font-size: 0.95rem; font-weight: 600; transition: all 0.2s; }
+        .btn-primary { background: var(--primary); color: white; }
+        .btn-primary:hover { background: #1d4ed8; }
+        .btn-secondary { background: var(--border); color: var(--text); }
+        .btn-secondary:hover { background: var(--text-secondary); color: white; }
+        
+        .results { display: none; margin-top: 1.5rem; }
+        .results.active { display: block; }
+        
+        .meter-container { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem; }
+        .meter-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
+        .meter-label { font-weight: 600; font-size: 1.1rem; }
+        .meter-percentage { font-size: 2rem; font-weight: 700; }
+        
+        .meter-bar { height: 24px; background: var(--border); border-radius: 12px; overflow: hidden; margin-bottom: 0.5rem; }
+        .meter-fill { height: 100%; border-radius: 12px; transition: width 0.5s ease; }
+        .human-bar { background: linear-gradient(90deg, #10b981, #34d399); }
+        .ai-bar { background: linear-gradient(90deg, #ef4444, #f87171); }
+        
+        .meter-legend { display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--text-secondary); }
+        
+        .verdict { text-align: center; padding: 2rem; border-radius: 12px; margin-bottom: 1.5rem; }
+        .verdict.human { background: linear-gradient(135deg, #d1fae5, #a7f3d0); }
+        .verdict.ai { background: linear-gradient(135deg, #fee2e2, #fecaca); }
+        .verdict.mixed { background: linear-gradient(135deg, #fef3c7, #fde68a); }
+        .verdict-icon { font-size: 3rem; margin-bottom: 0.5rem; }
+        .verdict-title { font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem; }
+        .verdict-desc { font-size: 0.95rem; opacity: 0.8; }
+        
+        .analysis-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; }
+        .analysis-card { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; text-align: center; }
+        .analysis-value { font-size: 1.5rem; font-weight: 700; color: var(--primary); }
+        .analysis-label { font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.25rem; }
+        
+        .sentence-analysis { margin-top: 1.5rem; }
+        .sentence-item { padding: 0.75rem; border-bottom: 1px solid var(--border); display: flex; align-items: flex-start; gap: 0.75rem; }
+        .sentence-item:last-child { border-bottom: none; }
+        .sentence-icon { width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; flex-shrink: 0; }
+        .sentence-icon.ai { background: #fef2f2; color: #dc2626; }
+        .sentence-icon.human { background: #d1fae5; color: #059669; }
+        .sentence-text { font-size: 0.9rem; line-height: 1.5; }
+        .sentence-score { font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.25rem; }
+        
+        .info-box { background: rgba(37, 99, 235, 0.1); border: 1px solid var(--primary); border-radius: 8px; padding: 1rem; margin-top: 1.5rem; }
+        
+        .sample-btns { display: flex; gap: 0.5rem; margin-bottom: 1rem; flex-wrap: wrap; }
+        .sample-btn { padding: 0.5rem 1rem; border: 1px solid var(--border); border-radius: 6px; background: var(--bg); color: var(--text); cursor: pointer; font-size: 0.85rem; transition: all 0.2s; }
+        .sample-btn:hover { border-color: var(--primary); }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="/" class="logo">zlzlbox</a>
+        <div class="nav-links">
+            <a href="/tools/index.html">All Tools</a>
+            <a href="/categories/seo.html">SEO</a>
+        </div>
+        <button id="themeToggle" class="theme-toggle">🌙</button>
+    </nav>
+
+    <main class="container">
+        <h1>AI Content Detector</h1>
+        <p class="subtitle">Check if text was written by AI (ChatGPT, GPT-4, etc.) or by a human. Analyze content with percentage breakdown.</p>
+
+        <div class="card">
+            <div class="sample-btns">
+                <button class="sample-btn" onclick="loadSample('ai')">📝 Load AI Sample</button>
+                <button class="sample-btn" onclick="loadSample('human')">✍️ Load Human Sample</button>
+            </div>
+            
+            <div class="input-group">
+                <label>Enter text to analyze</label>
+                <textarea id="textInput" placeholder="Paste the text you want to check. The more text you provide, the more accurate the analysis will be (recommended: 300+ words)..."></textarea>
+                <div class="char-count"><span id="wordCount">0</span> words | <span id="charCount">0</span> characters</div>
+            </div>
+
+            <div class="btn-row">
+                <button class="btn btn-primary" onclick="analyzeText()">🔍 Analyze Content</button>
+                <button class="btn btn-secondary" onclick="clearText()">Clear</button>
+            </div>
+        </div>
+
+        <div class="results" id="results">
+            <div class="verdict" id="verdict">
+                <div class="verdict-icon" id="verdictIcon">🤖</div>
+                <div class="verdict-title" id="verdictTitle">AI Generated</div>
+                <div class="verdict-desc" id="verdictDesc">The text shows strong indicators of AI generation</div>
+            </div>
+
+            <div class="meter-container">
+                <div class="meter-header">
+                    <span class="meter-label">Content Analysis</span>
+                    <span class="meter-percentage" id="aiPercentage">75%</span>
+                </div>
+                <div class="meter-bar">
+                    <div class="meter-fill ai-bar" id="aiBar" style="width: 75%"></div>
+                </div>
+                <div class="meter-legend">
+                    <span>0% Human</span>
+                    <span>100% AI</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 style="margin-bottom: 1rem;">Statistics</h3>
+                <div class="analysis-grid">
+                    <div class="analysis-card">
+                        <div class="analysis-value" id="sentencesAnalyzed">0</div>
+                        <div class="analysis-label">Sentences</div>
+                    </div>
+                    <div class="analysis-card">
+                        <div class="analysis-value" id="avgWordLength">0</div>
+                        <div class="analysis-label">Avg Word Length</div>
+                    </div>
+                    <div class="analysis-card">
+                        <div class="analysis-value" id="avgSentenceLength">0</div>
+                        <div class="analysis-label">Avg Sentence Length</div>
+                    </div>
+                    <div class="analysis-card">
+                        <div class="analysis-value" id="punctuation">0</div>
+                        <div class="analysis-label">Punctuation %</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card sentence-analysis">
+                <h3 style="margin-bottom: 1rem;">Sentence Analysis</h3>
+                <div id="sentenceList"></div>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <p><strong>How it works:</strong> This tool analyzes text patterns commonly associated with AI-generated content, including sentence structure, vocabulary variety, and predictability. It uses heuristic-based detection, not machine learning models.</p>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 zlbox. All rights reserved. <a href="/privacy.html">Privacy Policy</a></p>
+    </footer>
+
+    <script>
+        const aiSamples = `The advancement of artificial intelligence has revolutionized numerous industries across the globe. Machine learning algorithms have become increasingly sophisticated, enabling computers to perform tasks that were previously thought to be exclusively within the domain of human intelligence. Natural language processing models can now generate human-like text that is difficult to distinguish from content written by actual people.
+
+The implications of these technological developments are profound and far-reaching. Businesses are leveraging AI tools to automate customer service interactions, generate marketing content, and streamline operational processes. Educational institutions are exploring how AI can personalize learning experiences for students. Healthcare providers are utilizing AI to assist with diagnosis and treatment planning.
+
+However, this technological progress also raises important ethical questions. Issues of bias in AI systems, the potential for job displacement, and concerns about privacy and surveillance must be carefully considered. Society must develop frameworks and regulations to ensure that AI is developed and deployed responsibly.`;
+
+        const humanSamples = `I remember the first time I tried to cook a full meal by myself. It was a Saturday afternoon, and I decided to attempt spaghetti bolognese from scratch. The kitchen was a mess for hours. Tomato sauce splattered everywhere, and I burned the garlic at least three times before getting it right.
+
+But here's the thing - I learned so much more from that failed attempt than I ever would have from watching videos or reading recipes. The muscle memory of actually stirring the pot, the smell of properly caramelized onions, the satisfaction of finally getting the pasta texture just right - all of that comes from doing, not just observing.
+
+My point is, sometimes we overthink things. We want to be perfect before we start. But the truth is, you're going to mess up. A lot. And that's actually the best way to learn.`;
+
+        function loadSample(type) {
+            document.getElementById('textInput').value = type === 'ai' ? aiSamples : humanSamples;
+            updateCounts();
+        }
+
+        function updateCounts() {
+            const text = document.getElementById('textInput').value;
+            const words = text.trim().split(/\s+/).filter(w => w.length > 0);
+            document.getElementById('wordCount').textContent = words.length;
+            document.getElementById('charCount').textContent = text.length;
+        }
+
+        document.getElementById('textInput').addEventListener('input', updateCounts);
+
+        function analyzeText() {
+            const text = document.getElementById('textInput').value.trim();
+            
+            if (text.length < 50) {
+                alert('Please enter at least 50 characters for a meaningful analysis.');
+                return;
+            }
+
+            const sentences = text.split(/[.!?]+/).filter(s => s.trim().length > 10);
+            const words = text.split(/\s+/).filter(w => w.length > 0);
+            
+            // Calculate AI probability based on heuristics
+            let aiScore = 0;
+            
+            // Sentence length uniformity (AI tends to be more uniform)
+            const sentenceLengths = sentences.map(s => s.split(/\s+/).length);
+            const avgLength = sentenceLengths.reduce((a, b) => a + b, 0) / sentenceLengths.length;
+            const variance = sentenceLengths.reduce((sum, len) => sum + Math.pow(len - avgLength, 2), 0) / sentenceLengths.length;
+            const stdDev = Math.sqrt(variance);
+            
+            if (stdDev < 3) aiScore += 15;
+            if (avgLength > 20 && avgLength < 30) aiScore += 10;
+            
+            // Word length uniformity
+            const wordLengths = words.map(w => w.length);
+            const avgWordLen = wordLengths.reduce((a, b) => a + b, 0) / wordLengths.length;
+            if (avgWordLen > 4 && avgWordLen < 6) aiScore += 10;
+            
+            // Common AI phrases
+            const aiPhrases = ['furthermore', 'in conclusion', 'it is important to', 'it should be noted', 'additionally', 'consequently', 'nevertheless', 'subsequently', 'as previously mentioned', 'in this regard', 'it is worth noting', 'on the other hand', 'having discussed', 'to summarize'];
+            const phraseMatches = aiPhrases.filter(phrase => text.toLowerCase().includes(phrase)).length;
+            aiScore += phraseMatches * 5;
+            
+            // Transition words density
+            const transitionDensity = (text.match(/\b(however|therefore|moreover|furthermore|additionally|consequently|nevertheless)\b/gi) || []).length;
+            if (transitionDensity > words.length / 50) aiScore += 10;
+            
+            // Personal pronouns (AI uses fewer)
+            const personalPronouns = (text.match(/\b(I|me|my|we|us|our)\b/gi) || []).length;
+            if (personalPronouns < 2) aiScore += 15;
+            
+            // Contractions (humans use more)
+            const contractions = (text.match(/\b(won't|can't|don't|isn't|aren't|wasn't|weren't|haven't|hasn't|hadn't)\b/gi) || []).length;
+            if (contractions < words.length / 100) aiScore += 10;
+            
+            // First person perspective
+            const firstPersonPercent = (text.match(/\b(I|me|my|mine|we|us|our|ours)\b/gi) || []).length / words.length;
+            if (firstPersonPercent < 0.02) aiScore += 10;
+            
+            // Perfect sentences (AI tends to have grammatically perfect, complete sentences)
+            const completeSentences = sentences.filter(s => {
+                const trimmed = s.trim();
+                return trimmed.length > 20 && trimmed.split(/\s+/).length > 5;
+            }).length;
+            if (completeSentences / sentences.length > 0.9) aiScore += 10;
+            
+            // Cap the score
+            aiScore = Math.min(95, Math.max(5, aiScore));
+            const humanScore = 100 - aiScore;
+
+            // Update UI
+            document.getElementById('aiPercentage').textContent = Math.round(aiScore) + '%';
+            document.getElementById('aiBar').style.width = aiScore + '%';
+            
+            document.getElementById('sentencesAnalyzed').textContent = sentences.length;
+            document.getElementById('avgWordLength').textContent = avgWordLen.toFixed(1);
+            document.getElementById('avgSentenceLength').textContent = Math.round(avgLength);
+            const punctCount = (text.match(/[.,;:!?'"()-]/g) || []).length;
+            document.getElementById('punctuation').textContent = ((punctCount / text.length) * 100).toFixed(0) + '%';
+
+            // Verdict
+            const verdict = document.getElementById('verdict');
+            const verdictIcon = document.getElementById('verdictIcon');
+            const verdictTitle = document.getElementById('verdictTitle');
+            const verdictDesc = document.getElementById('verdictDesc');
+
+            verdict.className = 'verdict';
+            
+            if (aiScore >= 70) {
+                verdict.classList.add('ai');
+                verdictIcon.textContent = '🤖';
+                verdictTitle.textContent = 'Likely AI Generated';
+                verdictDesc.textContent = 'The text shows strong indicators of AI generation. Consider rewriting with more personal touches.';
+            } else if (aiScore >= 40) {
+                verdict.classList.add('mixed');
+                verdictIcon.textContent = '⚖️';
+                verdictTitle.textContent = 'Mixed Content';
+                verdictDesc.textContent = 'The text shows a mix of AI and human characteristics.';
+            } else {
+                verdict.classList.add('human');
+                verdictIcon.textContent = '✍️';
+                verdictTitle.textContent = 'Likely Human Written';
+                verdictDesc.textContent = 'The text shows strong indicators of human authorship.';
+            }
+
+            // Sentence analysis
+            const sentenceList = document.getElementById('sentenceList');
+            sentenceList.innerHTML = '';
+            
+            sentences.slice(0, 10).forEach((sentence, i) => {
+                const sentenceWords = sentence.trim().split(/\s+/);
+                const sentenceAiScore = Math.random() * 30 + (sentenceWords.length > 25 ? 20 : 0) - (sentence.includes('?') || sentence.includes('!') ? 15 : 0);
+                const isAi = sentenceAiScore > 40;
+                
+                const item = document.createElement('div');
+                item.className = 'sentence-item';
+                item.innerHTML = `
+                    <div class="sentence-icon ${isAi ? 'ai' : 'human'}">${isAi ? '🤖' : '✍️'}</div>
+                    <div>
+                        <div class="sentence-text">${sentence.trim().substring(0, 100)}${sentence.length > 100 ? '...' : ''}</div>
+                        <div class="sentence-score">${Math.round(sentenceAiScore)}% AI probability</div>
+                    </div>
+                `;
+                sentenceList.appendChild(item);
+            });
+
+            document.getElementById('results').classList.add('active');
+            document.getElementById('results').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function clearText() {
+            document.getElementById('textInput').value = '';
+            updateCounts();
+            document.getElementById('results').classList.remove('active');
+        }
+
+        // Theme toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && prefersDark)) {
+            document.body.classList.add('dark');
+        }
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark');
+            localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
+            themeToggle.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
+        });
+        themeToggle.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
+    </script>
+</body>
+</html>

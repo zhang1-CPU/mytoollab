@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Word Counter – Instant Word & Character Count Online | zlbox</title>
-  <meta name="description" content="Free real-time word and character counter. Paste or type your text and instantly see total words, characters, sentences, paragraphs, and reading time. No button clicks needed." />
+  <meta name="description" content="Free real-time word and character counter. Paste or type your text and instantly see total words, characters, sentences, paragraphs, and reading time." />
   <link rel="canonical" href="https://www.zlbox.site/tools/text/word-counter.html" />
   <meta name="google-site-verification" content="google4bd1e08685667667" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
@@ -29,204 +29,112 @@
 
   <style>
     :root {
-      --brand: #2563eb;
-      --brand-hover: #1d4ed8;
-      --text: #0f172a;
-      --muted: #64748b;
-      --border: #e2e8f0;
       --bg: #ffffff;
-      --bg-subtle: #f8fafc;
+      --text: #0f172a;
+      --text-muted: #64748b;
       --card: #ffffff;
-      --radius: 16px;
+      --border: #e2e8f0;
+      --primary: #2563eb;
+      --bg-subtle: #f8fafc;
     }
     [data-theme="dark"] {
-      --text: #f1f5f9;
-      --muted: #94a3b8;
-      --border: #334155;
       --bg: #0f172a;
-      --bg-subtle: rgba(255,255,255,.04);
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
       --card: #1e293b;
-      --brand: #60a5fa;
-      --brand-hover: #3b82f6;
+      --border: #334155;
+      --primary: #60a5fa;
+      --bg-subtle: rgba(255,255,255,.04);
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: var(--text); background: var(--bg); line-height: 1.5; padding: 0 16px 48px; }
-    a { color: var(--brand); text-decoration: none; }
-    .container { max-width: 760px; margin: 0 auto; }
-    .hero { text-align: center; margin-bottom: 28px; padding-top: 40px; }
-    .breadcrumb { font-size: .82rem; color: var(--muted); margin-bottom: 12px; }
-    .breadcrumb a { color: var(--muted); }
-    .breadcrumb a:hover { color: var(--brand); }
-    h1 { font-size: clamp(1.5rem, 4vw, 2rem); font-weight: 800; margin-bottom: 10px; }
-    .hero p { color: var(--muted); max-width: 500px; margin: 0 auto; font-size: .95rem; }
-    .card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,.04); margin-bottom: 24px; }
-    .editor { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; background: var(--bg); }
-    .editor textarea { width: 100%; min-height: 200px; padding: 16px; border: none; outline: none; resize: vertical; font-family: inherit; font-size: 1rem; line-height: 1.7; background: transparent; color: var(--text); }
-    .editor textarea::placeholder { color: var(--muted); }
-    .editor__toolbar { display: flex; align-items: center; padding: 8px 12px; background: var(--bg-subtle); border-top: 1px solid var(--border); gap: 8px; }
-    .btn { display: inline-flex; align-items: center; padding: 6px 14px; border-radius: 6px; font-size: .82rem; font-weight: 600; border: none; cursor: pointer; transition: background .2s; }
-    .btn-sm { padding: 4px 10px; font-size: .78rem; }
-    .btn-ghost { background: transparent; color: var(--muted); border: 1px solid var(--border); }
-    .btn-ghost:hover { background: var(--bg-subtle); }
-    .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 12px; margin-top: 16px; }
-    .stat-card { background: var(--bg-subtle); border: 1px solid var(--border); border-radius: 12px; padding: 18px 14px; text-align: center; transition: transform .15s; }
-    .stat-card:hover { transform: translateY(-2px); }
-    .stat-card .stat-icon { font-size: 1.4rem; margin-bottom: 8px; display: block; }
-    .stat-card .stat__value { font-size: 1.8rem; font-weight: 800; color: var(--text); line-height: 1; margin-bottom: 6px; }
-    .stat-card .stat__label { font-size: .7rem; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; font-weight: 600; }
-    .section { margin-top: 32px; }
-    .section h2 { font-size: 1.1rem; font-weight: 700; margin-bottom: 12px; }
-    .steps { padding-left: 20px; color: var(--muted); font-size: .9rem; line-height: 1.8; }
-    .steps li { margin-bottom: 6px; }
-    .related-grid { display: flex; flex-wrap: wrap; gap: 8px; }
-    .related-grid a { padding: 8px 14px; background: var(--bg-subtle); border: 1px solid var(--border); border-radius: 8px; font-size: .85rem; color: var(--text); transition: all .15s; }
-    .related-grid a:hover { border-color: var(--brand); color: var(--brand); text-decoration: none; }
-    footer { text-align: center; padding-top: 32px; border-top: 1px solid var(--border); }
-    .footer-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 4px 16px; font-size: .85rem; margin-bottom: 12px; }
-    .footer-links a { color: var(--muted); }
-    .footer-links a:hover { color: var(--brand); }
-    .footer-copy { font-size: .8rem; color: var(--muted); }
-    /* Site Navigation */
-    .site-nav { position: sticky; top: 0; z-index: 1000; background: var(--bg); border-bottom: 1px solid var(--border); box-shadow: 0 1px 3px rgba(0,0,0,.05); }
-    .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; align-items: center; justify-content: space-between; height: 56px; }
-    .nav-logo { display: flex; align-items: center; gap: 8px; font-weight: 700; color: var(--brand); text-decoration: none; }
-    .nav-logo-icon { width: 32px; height: 32px; background: linear-gradient(135deg, var(--brand), var(--brand-hover)); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 18px; }
-    .nav-logo-text { font-size: 18px; }
-    .nav-toggle { display: none; background: none; border: none; padding: 8px; cursor: pointer; }
-    .nav-toggle span { display: block; width: 24px; height: 2px; background: var(--text); margin: 5px 0; transition: all .2s; }
-    .nav-links { display: flex; gap: 4px; }
-    .nav-link { padding: 8px 12px; font-size: .88rem; font-weight: 500; color: var(--muted); text-decoration: none; border-radius: 6px; transition: all .2s; }
-    .nav-link:hover { color: var(--brand); background: var(--bg-subtle); }
-    @media (max-width: 768px) {
-      .nav-toggle { display: block; }
-      .nav-links { display: none; position: absolute; top: 56px; left: 0; right: 0; background: var(--bg); border-bottom: 1px solid var(--border); padding: 8px 20px; flex-direction: column; gap: 4px; }
-      .nav-links.active { display: flex; }
-      .nav-link { padding: 12px 16px; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--text); margin: 0; padding: 16px; min-height: 100vh; }
+    .container { max-width: 800px; margin: 0 auto; }
+    header { text-align: center; margin-bottom: 24px; }
+    h1 { font-size: 1.8rem; margin: 0 0 8px; color: var(--text); }
+    .subtitle { color: var(--text-muted); font-size: .95rem; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin-bottom: 20px; }
+    .editor { border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+    .editor textarea { width: 100%; min-height: 200px; padding: 16px; border: none; outline: none; resize: vertical; font-family: inherit; font-size: 1rem; line-height: 1.6; background: var(--bg); color: var(--text); box-sizing: border-box; }
+    .editor textarea::placeholder { color: var(--text-muted); }
+    .editor-footer { display: flex; justify-content: space-between; align-items: center; padding: 10px 16px; background: var(--bg-subtle); border-top: 1px solid var(--border); }
+    .char-count { font-size: .8rem; color: var(--text-muted); }
+    .btn { background: var(--primary); color: #fff; border: none; padding: 8px 14px; border-radius: 8px; font-size: .85rem; font-weight: 600; cursor: pointer; transition: opacity .2s; }
+    .btn:hover { opacity: 0.9; }
+    .btn-secondary { background: transparent; color: var(--text-muted); border: 1px solid var(--border); }
+    .btn-secondary:hover { background: var(--bg-subtle); }
+    .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; }
+    .stat-card { background: var(--bg-subtle); border: 1px solid var(--border); border-radius: 10px; padding: 16px; text-align: center; }
+    .stat-value { font-size: 2rem; font-weight: 700; color: var(--text); line-height: 1; margin-bottom: 4px; }
+    .stat-label { font-size: .75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: .04em; font-weight: 600; }
+    footer { text-align: center; margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--border); color: var(--text-muted); font-size: .85rem; }
+    footer a { color: var(--primary); }
+    @media (max-width: 600px) {
       .stats-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 480px) {
-      .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
-      .stat-card { padding: 14px 10px; }
-      .stat-card .stat__value { font-size: 1.5rem; }
+      .stat-value { font-size: 1.6rem; }
     }
   </style>
 </head>
 <body>
 
-<nav class="site-nav" aria-label="Main navigation">
-  <div class="nav-inner">
-    <a href="/" class="nav-logo" aria-label="zlbox Home">
-      <span class="nav-logo-icon">zl</span>
-      <span class="nav-logo-text">zlbox</span>
-    </a>
-    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
-    <div class="nav-links" role="list">
-      <a href="/tools/index.html" class="nav-link" role="listitem">All Tools</a>
-      <a href="/categories/text.html" class="nav-link" role="listitem">Text</a>
-      <a href="/categories/calculator.html" class="nav-link" role="listitem">Calculator</a>
-      <a href="/categories/generator.html" class="nav-link" role="listitem">Generator</a>
-      <a href="/categories/image.html" class="nav-link" role="listitem">Image</a>
-      <a href="/categories/pdf.html" class="nav-link" role="listitem">PDF</a>
-      <a href="/blog/index.html" class="nav-link" role="listitem">Blog</a>
-      <button class="theme-toggle" aria-label="Toggle theme">&#9790;</button>
-    </div>
-  </div>
-</nav>
-
 <div class="container">
-  <div class="hero">
-    <div class="breadcrumb"><a href="../../index.html">Home</a> &rsaquo; <a href="../../categories/text.html">Text Tools</a> &rsaquo; Word Counter</div>
+  <header>
     <h1>Word Counter</h1>
-    <p>Type or paste your text — stats update in real time. No button needed, no data sent anywhere.</p>
-  </div>
+    <p class="subtitle">Type or paste your text — stats update in real time.</p>
+  </header>
 
   <div class="card">
     <div class="editor">
-      <textarea id="inputText" placeholder="Start typing or paste your text here..." spellcheck="true" aria-label="Text input"></textarea>
-      <div class="editor__toolbar">
-        <button class="btn btn-ghost btn-sm" id="clearBtn">Clear</button>
-        <div style="margin-left:auto;font-size:.75rem;color:var(--muted);" id="charCountLabel">0 characters</div>
+      <textarea id="inputText" placeholder="Type or paste your text here..." spellcheck="true"></textarea>
+      <div class="editor-footer">
+        <span class="char-count" id="charCount">0 characters</span>
+        <button class="btn btn-secondary" id="clearBtn">Clear</button>
       </div>
     </div>
 
-    <div class="stats-grid">
+    <div class="stats-grid" style="margin-top: 20px;">
       <div class="stat-card">
-        <span class="stat-icon">&#128221;</span>
-        <div class="stat__value" id="wordCount">0</div>
-        <div class="stat__label">Words</div>
+        <div class="stat-value" id="wordCount">0</div>
+        <div class="stat-label">Words</div>
       </div>
       <div class="stat-card">
-        <span class="stat-icon">&#128203;</span>
-        <div class="stat__value" id="charCountSpaces">0</div>
-        <div class="stat__label">Characters</div>
+        <div class="stat-value" id="charWithSpaces">0</div>
+        <div class="stat-label">Characters (with spaces)</div>
       </div>
       <div class="stat-card">
-        <span class="stat-icon">&#128203;</span>
-        <div class="stat__value" id="charCountNoSpaces">0</div>
-        <div class="stat__label">No Spaces</div>
+        <div class="stat-value" id="charWithoutSpaces">0</div>
+        <div class="stat-label">Characters (no spaces)</div>
       </div>
       <div class="stat-card">
-        <span class="stat-icon">&#129514;</span>
-        <div class="stat__value" id="sentences">0</div>
-        <div class="stat__label">Sentences</div>
+        <div class="stat-value" id="sentenceCount">0</div>
+        <div class="stat-label">Sentences</div>
       </div>
       <div class="stat-card">
-        <span class="stat-icon">&#182;</span>
-        <div class="stat__value" id="paragraphs">0</div>
-        <div class="stat__label">Paragraphs</div>
+        <div class="stat-value" id="paragraphCount">0</div>
+        <div class="stat-label">Paragraphs</div>
       </div>
       <div class="stat-card">
-        <span class="stat-icon">&#128337;</span>
-        <div class="stat__value" id="readingTime">0</div>
-        <div class="stat__label">Min Read</div>
+        <div class="stat-value" id="readingTime">0</div>
+        <div class="stat-label">Min Read</div>
       </div>
-    </div>
-  </div>
-
-  <div class="section">
-    <h2>How it works</h2>
-    <ol class="steps">
-      <li>Paste or type your text into the box above.</li>
-      <li>Word count, character count, sentences, paragraphs, and reading time update instantly as you type.</li>
-      <li>Hit Clear to reset. Everything runs in your browser — nothing is uploaded.</li>
-    </ol>
-  </div>
-
-  <div class="section">
-    <h2>Related tools</h2>
-    <div class="related-grid">
-      <a href="case-converter.html">Case Converter</a>
-      <a href="lorem-ipsum.html">Lorem Ipsum</a>
-      <a href="base64.html">Base64 Encode/Decode</a>
-      <a href="json-formatter.html">JSON Formatter</a>
     </div>
   </div>
 
   <footer>
-    <div class="footer-links">
-      <a href="word-counter.html">Word Counter</a>
-      <a href="case-converter.html">Case Converter</a>
-      <a href="json-formatter.html">JSON Formatter</a>
-      <span style="color:var(--border);margin:0 6px">|</span>
-      <a href="../../about.html">About</a>
-      <a href="../../privacy.html">Privacy</a>
-      <a href="../../disclaimer.html">Disclaimer</a>
-    </div>
-    <p class="footer-copy">&copy; 2026 zlbox. All rights reserved.</p>
+    <p>All processing happens in your browser. <a href="/privacy.html">Privacy Policy</a></p>
   </footer>
 </div>
 
 <script>
-(function(){
+(function() {
   'use strict';
+
   var input = document.getElementById('inputText');
-  var wordEl = document.getElementById('wordCount');
-  var charSpacesEl = document.getElementById('charCountSpaces');
-  var charNoSpacesEl = document.getElementById('charCountNoSpaces');
-  var sentencesEl = document.getElementById('sentences');
-  var paragraphsEl = document.getElementById('paragraphs');
-  var readingTimeEl = document.getElementById('readingTime');
-  var charCountLabel = document.getElementById('charCountLabel');
+  var wordCount = document.getElementById('wordCount');
+  var charWithSpaces = document.getElementById('charWithSpaces');
+  var charWithoutSpaces = document.getElementById('charWithoutSpaces');
+  var sentenceCount = document.getElementById('sentenceCount');
+  var paragraphCount = document.getElementById('paragraphCount');
+  var readingTime = document.getElementById('readingTime');
+  var charCount = document.getElementById('charCount');
   var clearBtn = document.getElementById('clearBtn');
 
   var WORDS_PER_MINUTE = 200;
@@ -234,64 +142,54 @@
   function countWords(text) {
     var trimmed = text.trim();
     if (!trimmed) return 0;
-    return trimmed.split(/\s+/).length;
+    var words = trimmed.split(/[\s\.\,\!\?\;\:\(\)\"]+/);
+    return words.filter(function(w) { return w.length > 0; }).length;
   }
 
   function countSentences(text) {
     if (!text.trim()) return 0;
-    // Split on . ! ? that are not part of numbers (1.2), URLs, etc.
-    var s = text.match(/[.!?]+(?=\s|$)/g);
-    return s ? s.length : 0;
+    var matches = text.match(/[.!?]+(?=\s|$)/g);
+    return matches ? matches.length : 0;
   }
 
   function countParagraphs(text) {
     if (!text.trim()) return 0;
-    // Split on double newlines or single newlines followed by capital letter
-    var paras = text.split(/\n\s*\n|\n(?=[A-Z])/);
+    var paras = text.split(/\n+/);
     return paras.filter(function(p) { return p.trim().length > 0; }).length;
   }
 
-  function update() {
-    var raw = input.value;
-    var trimmed = raw.trim();
+  function updateStats() {
+    var text = input.value;
+    var trimmed = text.trim();
 
-    var words = countWords(trimmed);
-    var sentences = countSentences(trimmed);
-    var paragraphs = countParagraphs(trimmed);
-    var readingMin = Math.ceil(words / WORDS_PER_MINUTE);
+    var words = countWords(text);
+    var charsWith = text.length;
+    var charsWithout = trimmed.replace(/\s/g, '').length;
+    var sentences = countSentences(text);
+    var paragraphs = countParagraphs(text);
+    var readTime = Math.max(1, Math.ceil(words / WORDS_PER_MINUTE));
 
-    wordEl.textContent = words.toLocaleString();
-    charSpacesEl.textContent = raw.length.toLocaleString();
-    charNoSpacesEl.textContent = trimmed.replace(/\s/g, '').length.toLocaleString();
-    sentencesEl.textContent = sentences.toLocaleString();
-    paragraphsEl.textContent = paragraphs.toLocaleString();
-    readingTimeEl.textContent = readingMin.toLocaleString();
-    charCountLabel.textContent = raw.length.toLocaleString() + ' character' + (raw.length !== 1 ? 's' : '');
+    wordCount.textContent = words.toLocaleString();
+    charWithSpaces.textContent = charsWith.toLocaleString();
+    charWithoutSpaces.textContent = charsWithout.toLocaleString();
+    sentenceCount.textContent = sentences.toLocaleString();
+    paragraphCount.textContent = paragraphs.toLocaleString();
+    readingTime.textContent = readTime + ' min';
+    charCount.textContent = charsWith.toLocaleString() + ' character' + (charsWith !== 1 ? 's' : '');
   }
 
-  input.addEventListener('input', update);
+  input.addEventListener('input', updateStats);
+  
   clearBtn.addEventListener('click', function() {
     input.value = '';
-    update();
+    updateStats();
     input.focus();
   });
-  update();
+
+  updateStats();
 })();
 </script>
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  var toggle = document.querySelector('.nav-toggle');
-  var links = document.querySelector('.nav-links');
-  if (toggle && links) {
-    toggle.addEventListener('click', function() {
-      links.classList.toggle('active');
-      toggle.setAttribute('aria-expanded', links.classList.contains('active'));
-    });
-  }
-});
-</script>
 <script src="/js/theme.js"></script>
-<div id="toast-container" class="toast-container"></div>
 </body>
 </html>

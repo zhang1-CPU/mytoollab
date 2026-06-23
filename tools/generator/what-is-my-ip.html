@@ -46,290 +46,270 @@
       --primary: #60a5fa;
       --bg-subtle: rgba(255,255,255,.04);
     }
-    .ip-page { max-width: 760px; margin: 0 auto; padding: 24px 16px; }
-    .ip-hero { text-align: center; margin-bottom: 20px; }
-    .ip-hero h1 { font-size: 1.8rem; margin: 0 0 8px; color: var(--text); }
-    .ip-hero p { color: var(--text-muted); margin: 0; }
-    .ip-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; box-shadow: 0 1px 3px rgba(0,0,0,.04); }
-    .ip-main-row { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; padding: 16px; background: var(--bg-subtle); border-radius: 10px; margin-bottom: 16px; }
-    .ip-main-row .ip-label { font-size: .85rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: .04em; font-weight: 600; }
-    .ip-main-row .ip-value { font-size: 1.6rem; font-weight: 700; color: var(--primary); font-family: ui-monospace, Consolas, Menlo, monospace; word-break: break-all; }
-    .ip-main-row .ip-value.is-blocked { color: #dc2626; font-size: 1rem; }
-    .ip-btn { background: var(--primary); color: #fff; border: none; padding: 8px 14px; border-radius: 8px; font-size: .85rem; font-weight: 600; cursor: pointer; transition: all .2s; }
-    .ip-btn:hover { opacity: 0.9; }
-    .ip-btn:disabled { background: var(--border); color: var(--text-muted); cursor: not-allowed; }
-    .ip-info .row { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 10px 0; border-top: 1px solid var(--border); }
-    .ip-info .row:first-child { border-top: 0; }
-    .ip-info label { color: var(--text-muted); font-size: .9rem; font-weight: 500; flex-shrink: 0; }
-    .ip-info .val { color: var(--text); font-family: ui-monospace, Consolas, Menlo, monospace; font-size: .9rem; text-align: right; word-break: break-all; max-width: 65%; }
-    .ip-note { margin: 14px 0 0; padding: 12px 14px; background: var(--bg-subtle); border-left: 3px solid var(--primary); border-radius: 6px; font-size: .88rem; color: var(--text-muted); }
-    .ip-warning { margin: 14px 0 0; padding: 14px 16px; background: rgba(220, 38, 38, .08); border-left: 3px solid #dc2626; border-radius: 6px; font-size: .9rem; color: var(--text); }
-    .ip-warning strong { color: #dc2626; display: block; margin-bottom: 4px; }
-    .ip-spinner { display: inline-block; width: 12px; height: 12px; border: 2px solid currentColor; border-right-color: transparent; border-radius: 50%; animation: ip-spin .8s linear infinite; vertical-align: middle; margin-right: 6px; }
-    @keyframes ip-spin { to { transform: rotate(360deg); } }
-    [data-theme="dark"] .ip-card { background: var(--card); border-color: var(--border); }
-    [data-theme="dark"] .ip-main-row { background: rgba(255,255,255,.03); }
-    [data-theme="dark"] .ip-warning { background: rgba(220, 38, 38, .12); }
-    [data-theme="dark"] .ip-note { background: rgba(255,255,255,.03); }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--text); margin: 0; padding: 16px; min-height: 100vh; }
+    .container { max-width: 700px; margin: 0 auto; }
+    header { text-align: center; margin-bottom: 24px; }
+    h1 { font-size: 1.8rem; margin: 0 0 8px; color: var(--text); }
+    .subtitle { color: var(--text-muted); font-size: .95rem; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin-bottom: 20px; }
+    .ip-section { display: flex; justify-content: space-between; align-items: center; padding: 16px; background: var(--bg-subtle); border-radius: 10px; margin-bottom: 16px; flex-wrap: wrap; gap: 12px; }
+    .ip-label { font-size: .75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: .04em; font-weight: 600; }
+    .ip-value { font-size: 1.5rem; font-weight: 700; color: var(--primary); font-family: ui-monospace, monospace; word-break: break-all; }
+    .ip-value.error { color: #dc2626; font-size: 1rem; }
+    .btn { background: var(--primary); color: #fff; border: none; padding: 8px 14px; border-radius: 8px; font-size: .85rem; font-weight: 600; cursor: pointer; transition: opacity .2s; }
+    .btn:hover { opacity: 0.9; }
+    .btn:disabled { background: var(--border); color: var(--text-muted); cursor: not-allowed; }
+    .info-list { padding: 0; margin: 0; }
+    .info-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-top: 1px solid var(--border); gap: 12px; }
+    .info-row:first-child { border-top: none; }
+    .info-label { color: var(--text-muted); font-size: .85rem; font-weight: 500; }
+    .info-value { color: var(--text); font-family: ui-monospace, monospace; font-size: .85rem; text-align: right; word-break: break-all; max-width: 65%; }
+    .warning-box { display: none; margin-top: 14px; padding: 12px 14px; background: rgba(220,38,38,.08); border-left: 3px solid #dc2626; border-radius: 6px; font-size: .85rem; color: var(--text); }
+    .warning-box strong { color: #dc2626; display: block; margin-bottom: 4px; }
+    .spinner { display: inline-block; width: 12px; height: 12px; border: 2px solid currentColor; border-right-color: transparent; border-radius: 50%; animation: spin .8s linear infinite; vertical-align: middle; margin-right: 6px; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    footer { text-align: center; margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--border); color: var(--text-muted); font-size: .85rem; }
+    footer a { color: var(--primary); }
     @media (max-width: 480px) {
-      .ip-main-row .ip-value { font-size: 1.3rem; }
-      .ip-info .row { flex-direction: column; align-items: flex-start; gap: 4px; }
-      .ip-info .val { text-align: left; max-width: 100%; }
+      .ip-section { flex-direction: column; align-items: flex-start; }
+      .ip-value { font-size: 1.2rem; }
+      .info-row { flex-direction: column; align-items: flex-start; }
+      .info-value { text-align: left; max-width: 100%; }
     }
   </style>
 </head>
 <body>
 
-<div class="ip-page">
-  <div class="ip-hero">
+<div class="container">
+  <header>
     <h1>What Is My IP</h1>
-    <p>Detect your public IP address and view useful browser information. Everything runs in your browser — nothing is stored.</p>
-  </div>
+    <p class="subtitle">Detect your public IP address and browser information. All runs in your browser.</p>
+  </header>
 
-  <div class="ip-card">
-    <div class="ip-main-row">
+  <div class="card">
+    <div class="ip-section">
       <div>
         <div class="ip-label">Public IP Address</div>
-        <div class="ip-value" id="public-ip"><span class="ip-spinner"></span>Detecting...</div>
+        <div class="ip-value" id="ipDisplay"><span class="spinner"></span>Detecting...</div>
       </div>
-      <button class="ip-btn" id="copy-btn" disabled>Copy IP</button>
+      <button class="btn" id="copyBtn" disabled>Copy IP</button>
     </div>
 
-    <div class="ip-info">
-      <div class="row"><label>Location</label><span class="val" id="location"><span class="ip-spinner"></span>Detecting...</span></div>
-      <div class="row"><label>ISP / Organization</label><span class="val" id="isp"><span class="ip-spinner"></span>Detecting...</span></div>
-      <div class="row"><label>Browser / Platform</label><span class="val" id="browser">—</span></div>
-      <div class="row"><label>Screen Size</label><span class="val" id="screen">—</span></div>
-      <div class="row"><label>Viewport</label><span class="val" id="viewport">—</span></div>
-      <div class="row"><label>Timezone</label><span class="val" id="tz">—</span></div>
-      <div class="row"><label>Language</label><span class="val" id="lang">—</span></div>
+    <div class="info-list">
+      <div class="info-row"><span class="info-label">Location</span><span class="info-value" id="location"><span class="spinner"></span>Detecting...</span></div>
+      <div class="info-row"><span class="info-label">ISP</span><span class="info-value" id="isp"><span class="spinner"></span>Detecting...</span></div>
+      <div class="info-row"><span class="info-label">Browser</span><span class="info-value" id="browser">—</span></div>
+      <div class="info-row"><span class="info-label">Screen</span><span class="info-value" id="screen">—</span></div>
+      <div class="info-row"><span class="info-label">Viewport</span><span class="info-value" id="viewport">—</span></div>
+      <div class="info-row"><span class="info-label">Timezone</span><span class="info-value" id="timezone">—</span></div>
+      <div class="info-row"><span class="info-label">Language</span><span class="info-value" id="language">—</span></div>
     </div>
 
-    <div class="ip-note" id="note">Detecting your IP address and browser information...</div>
-    <div class="ip-warning" id="warning" style="display:none;">
+    <div class="warning-box" id="warning">
       <strong>IP Detection Blocked</strong>
-      <span id="warning-text">Your IP cannot be detected automatically. This is usually caused by an ad blocker, browser privacy extension, or private network. Try disabling your ad blocker for this page, using a different browser, or checking your network/firewall settings.</span>
+      <span>Your IP cannot be detected automatically. This is usually caused by an ad blocker, browser privacy extension, or private network. Try disabling your ad blocker for this page.</span>
     </div>
   </div>
 
-  <div style="text-align:center;margin-top:18px;">
-    <button class="ip-btn" id="refresh-btn">Re-detect IP</button>
-  </div>
+  <button class="btn" style="width:100%; margin-bottom:20px;" id="refreshBtn">Re-detect IP</button>
 
-  <div class="ip-card" style="margin-top:20px;">
-    <h2 style="font-size:1.1rem;margin:0 0 10px;color:var(--text);">How it works</h2>
-    <ol style="margin:0;padding-left:20px;color:var(--text-muted);font-size:.9rem;line-height:1.7;">
-      <li>Your browser tries multiple public IP services in sequence (api.ipify.org, checkip.amazonaws.com, icanhazip.com) to fetch your IPv4 address.</li>
-      <li>After an IP is found, ipapi.co is queried for location and ISP details.</li>
-      <li>Browser, screen, and timezone info is read directly from your browser.</li>
-      <li>No data is stored on any server. All detection is 100% client-side.</li>
+  <div class="card">
+    <h2 style="font-size:1.1rem;margin:0 0 12px;color:var(--text);">How it works</h2>
+    <ol style="margin:0;padding-left:20px;color:var(--text-muted);font-size:.85rem;line-height:1.6;">
+      <li>Your browser tries multiple public IP services in sequence to fetch your address.</li>
+      <li>After an IP is found, location and ISP details are retrieved.</li>
+      <li>Browser and system info is read directly from your device.</li>
+      <li>No data is stored on any server.</li>
     </ol>
   </div>
+
+  <footer>
+    <p>All detection happens in your browser. <a href="/privacy.html">Privacy Policy</a></p>
+  </footer>
 </div>
 
-<script src="/js/theme.js"></script>
-<div id="toast-container" class="toast-container"></div>
-
 <script>
-(function(){
+(function() {
   'use strict';
 
-  function fetchText(url, timeout) {
+  var ipDisplay = document.getElementById('ipDisplay');
+  var locationEl = document.getElementById('location');
+  var ispEl = document.getElementById('isp');
+  var copyBtn = document.getElementById('copyBtn');
+  var refreshBtn = document.getElementById('refreshBtn');
+  var warning = document.getElementById('warning');
+
+  function setText(elId, text) {
+    var el = document.getElementById(elId);
+    if (el) el.textContent = text;
+  }
+
+  function clearSpinner(el) {
+    el.innerHTML = '';
+  }
+
+  function showBlocked() {
+    ipDisplay.innerHTML = 'Blocked by ad blocker';
+    ipDisplay.classList.add('error');
+    locationEl.textContent = 'Unavailable';
+    ispEl.textContent = 'Unavailable';
+    warning.style.display = 'block';
+    copyBtn.disabled = true;
+  }
+
+  function fetchWithTimeout(url, timeoutMs) {
     return new Promise(function(resolve, reject) {
-      var controller = (typeof AbortController !== 'undefined') ? new AbortController() : null;
-      var done = false;
+      var controller = new AbortController();
       var timer = setTimeout(function() {
-        done = true;
-        if (controller) { try { controller.abort(); } catch(e){} }
+        controller.abort();
         reject(new Error('timeout'));
-      }, timeout);
-      var opts = controller ? { signal: controller.signal, cache: 'no-store' } : { cache: 'no-store' };
-      fetch(url, opts).then(function(response) {
-        if (done) return;
-        if (!response.ok) { clearTimeout(timer); done = true; reject(new Error('http ' + response.status)); return; }
-        return response.text();
-      }).then(function(text) {
-        if (done || text == null) return;
-        clearTimeout(timer); done = true;
-        resolve(text);
-      }).catch(function(err) {
-        if (done) return;
-        clearTimeout(timer); done = true;
-        reject(err);
-      });
+      }, timeoutMs);
+
+      fetch(url, { signal: controller.signal, cache: 'no-store' })
+        .then(function(response) {
+          clearTimeout(timer);
+          if (!response.ok) throw new Error('HTTP ' + response.status);
+          return response.text();
+        })
+        .then(resolve)
+        .catch(function(err) {
+          clearTimeout(timer);
+          reject(err);
+        });
     });
   }
 
-  function fetchJSON(url, timeout) {
-    return fetchText(url, timeout).then(function(text) {
-      try { return JSON.parse(text); } catch(e) { throw new Error('bad json'); }
-    });
-  }
+  var sources = [
+    { url: 'https://api.ipify.org?format=json', parse: function(t) { try { return JSON.parse(t).ip; } catch(e) { return null; } } },
+    { url: 'https://checkip.amazonaws.com', parse: function(t) { return t.trim(); } },
+    { url: 'https://icanhazip.com', parse: function(t) { return t.trim(); } }
+  ];
 
-  function isValidIP(s) {
-    if (!s || typeof s !== 'string') return false;
-    var t = s.trim();
-    if (!t) return false;
-    if (/^(\d{1,3}\.){3}\d{1,3}$/.test(t)) {
-      var parts = t.split('.');
-      for (var i = 0; i < parts.length; i++) {
+  function validateIP(ip) {
+    if (!ip || typeof ip !== 'string') return false;
+    var trimmed = ip.trim();
+    if (/^(\d{1,3}\.){3}\d{1,3}$/.test(trimmed)) {
+      var parts = trimmed.split('.');
+      for (var i = 0; i < 4; i++) {
         var n = parseInt(parts[i], 10);
         if (isNaN(n) || n < 0 || n > 255) return false;
       }
       return true;
     }
-    if (/^[0-9a-fA-F:]+$/.test(t) && t.indexOf(':') !== -1) return true;
-    return false;
+    return /^[0-9a-fA-F:]+$/.test(trimmed) && trimmed.indexOf(':') !== -1;
   }
 
-  function detectIPSerial(sources, perTimeout) {
-    return new Promise(function(resolve, reject) {
-      var idx = 0;
-      function tryNext() {
-        if (idx >= sources.length) { reject(new Error('all-failed')); return; }
-        var src = sources[idx++];
-        fetchText(src.url, perTimeout).then(function(text) {
-          var ip = (src.parse || function(t){ return t.trim(); })(text);
-          if (isValidIP(ip)) { resolve(ip); }
-          else { tryNext(); }
-        }).catch(function() { tryNext(); });
+  function detectIP() {
+    warning.style.display = 'none';
+    ipDisplay.innerHTML = '<span class="spinner"></span>Detecting...';
+    ipDisplay.classList.remove('error');
+    locationEl.innerHTML = '<span class="spinner"></span>Detecting...';
+    ispEl.innerHTML = '<span class="spinner"></span>Detecting...';
+    copyBtn.disabled = true;
+
+    function trySource(index) {
+      if (index >= sources.length) {
+        showBlocked();
+        return;
       }
-      tryNext();
-    });
-  }
 
-  function $(id) { return document.getElementById(id); }
-  var publicIpEl = $('public-ip');
-  var locationEl = $('location');
-  var ispEl = $('isp');
-  var noteEl = $('note');
-  var warningEl = $('warning');
-  var copyBtn = $('copy-btn');
-  var refreshBtn = $('refresh-btn');
+      var src = sources[index];
+      fetchWithTimeout(src.url, 4000)
+        .then(function(data) {
+          var ip = src.parse(data);
+          if (validateIP(ip)) {
+            ipDisplay.textContent = ip;
+            copyBtn.disabled = false;
+            copyBtn.dataset.ip = ip;
 
-  function detectBrowser() {
-    var ua = navigator.userAgent || '';
-    var b = 'Unknown';
-    if (/Edg\//.test(ua)) b = 'Edge';
-    else if (/OPR\/|Opera/.test(ua)) b = 'Opera';
-    else if (/Chrome\//.test(ua) && !/Chromium/.test(ua)) b = 'Chrome';
-    else if (/Firefox\//.test(ua)) b = 'Firefox';
-    else if (/Safari\//.test(ua) && !/Chrome\//.test(ua)) b = 'Safari';
-    var p = '';
-    if (/Windows NT/.test(ua)) p = 'Windows';
-    else if (/Mac OS X/.test(ua) && !/iPhone|iPad|iPod/.test(ua)) p = 'macOS';
-    else if (/Android/.test(ua)) p = 'Android';
-    else if (/iPhone|iPad|iPod/.test(ua)) p = 'iOS';
-    else if (/Linux/.test(ua)) p = 'Linux';
-    return b + (p ? ' · ' + p : '');
-  }
+            fetchWithTimeout('https://ipapi.co/' + encodeURIComponent(ip) + '/json/', 5000)
+              .then(function(jsonText) {
+                try {
+                  var locData = JSON.parse(jsonText);
+                  var city = locData.city || '';
+                  var region = locData.region || '';
+                  var country = locData.country_name || locData.country || '';
+                  var locParts = [];
+                  if (city) locParts.push(city);
+                  if (region && region !== city) locParts.push(region);
+                  if (country) locParts.push(country);
+                  locationEl.textContent = locParts.join(', ') || 'Unknown';
+                  ispEl.textContent = locData.org || locData.asn || 'Unknown';
+                } catch(e) {
+                  locationEl.textContent = 'Unknown';
+                  ispEl.textContent = 'Unknown';
+                }
+              })
+              .catch(function() {
+                locationEl.textContent = 'Unknown';
+                ispEl.textContent = 'Unknown';
+              });
+          } else {
+            trySource(index + 1);
+          }
+        })
+        .catch(function(err) {
+          console.error('IP source ' + index + ' failed:', err);
+          trySource(index + 1);
+        });
+    }
 
-  function setText(id, text) {
-    var el = $(id);
-    if (el) el.textContent = text;
+    trySource(0);
   }
 
   function fillBrowserInfo() {
-    setText('ua', navigator.userAgent || '—');
-    setText('browser', detectBrowser());
-    setText('screen', (screen.width || '?') + ' \u00d7 ' + (screen.height || '?'));
-    setText('viewport', window.innerWidth + ' \u00d7 ' + window.innerHeight);
+    var ua = navigator.userAgent || '';
+    var browser = 'Unknown';
+    if (/Edg\//.test(ua)) browser = 'Edge';
+    else if (/OPR\/|Opera/.test(ua)) browser = 'Opera';
+    else if (/Chrome\//.test(ua) && !/Chromium/.test(ua)) browser = 'Chrome';
+    else if (/Firefox\//.test(ua)) browser = 'Firefox';
+    else if (/Safari\//.test(ua) && !/Chrome\//.test(ua)) browser = 'Safari';
+
+    var platform = '';
+    if (/Windows NT/.test(ua)) platform = 'Windows';
+    else if (/Mac OS X/.test(ua) && !/iPhone|iPad|iPod/.test(ua)) platform = 'macOS';
+    else if (/Android/.test(ua)) platform = 'Android';
+    else if (/iPhone|iPad|iPod/.test(ua)) platform = 'iOS';
+    else if (/Linux/.test(ua)) platform = 'Linux';
+
+    setText('browser', browser + (platform ? ' · ' + platform : ''));
+    setText('screen', (screen.width || '?') + ' × ' + (screen.height || '?'));
+    setText('viewport', window.innerWidth + ' × ' + window.innerHeight);
+    setText('language', navigator.language || '—');
+
     try {
       var tz = Intl.DateTimeFormat().resolvedOptions().timeZone || '—';
       var offset = -new Date().getTimezoneOffset() / 60;
-      setText('tz', tz + ' (UTC' + (offset >= 0 ? '+' : '') + offset + ')');
-    } catch(e) { setText('tz', '—'); }
-    setText('lang', navigator.language || '—');
+      setText('timezone', tz + ' (UTC' + (offset >= 0 ? '+' : '') + offset + ')');
+    } catch(e) {
+      setText('timezone', '—');
+    }
   }
+
   fillBrowserInfo();
   window.addEventListener('resize', function() {
-    setText('viewport', window.innerWidth + ' \u00d7 ' + window.innerHeight);
+    setText('viewport', window.innerWidth + ' × ' + window.innerHeight);
   });
-
-  var ipv4Sources = [
-    { url: 'https://api.ipify.org?format=json', parse: function(t){ try { return JSON.parse(t).ip; } catch(e){ return null; } } },
-    { url: 'https://checkip.amazonaws.com', parse: function(t){ return t.trim(); } },
-    { url: 'https://icanhazip.com', parse: function(t){ return t.trim(); } }
-  ];
-
-  function setBusy(busy) {
-    if (busy) {
-      publicIpEl.innerHTML = '<span class="ip-spinner"></span>Detecting...';
-      locationEl.innerHTML = '<span class="ip-spinner"></span>Detecting...';
-      ispEl.innerHTML = '<span class="ip-spinner"></span>Detecting...';
-      noteEl.textContent = 'Detecting your IP address...';
-      warningEl.style.display = 'none';
-      copyBtn.disabled = true;
-    }
-  }
-
-  function showBlocked(reason) {
-    publicIpEl.textContent = 'Blocked by ad blocker';
-    publicIpEl.classList.add('is-blocked');
-    locationEl.textContent = 'Unavailable';
-    ispEl.textContent = 'Unavailable';
-    noteEl.textContent = 'Detection failed.';
-    warningEl.style.display = 'block';
-    if (reason) {
-      $('warning-text').textContent = 'Your IP cannot be detected automatically. This is usually caused by an ad blocker, browser privacy extension, or private network. Try disabling your ad blocker for this page, using a different browser, or checking your network settings.';
-    }
-  }
-
-  function showUnknown() {
-    var locText = locationEl.textContent.replace(/Detecting\.\.\./g, '').trim();
-    if (!locText || locText === '\u2014') locationEl.textContent = 'Unknown';
-    var ispText = ispEl.textContent.replace(/Detecting\.\.\./g, '').trim();
-    if (!ispText || ispText === '\u2014') ispEl.textContent = 'Unknown';
-  }
-
-  function detect() {
-    setBusy(true);
-    publicIpEl.classList.remove('is-blocked');
-
-    detectIPSerial(ipv4Sources, 4000).then(function(ip) {
-      publicIpEl.textContent = ip;
-      noteEl.textContent = 'IP detected: ' + ip;
-      copyBtn.disabled = false;
-      copyBtn.dataset.ip = ip;
-
-      fetchJSON('https://ipapi.co/' + encodeURIComponent(ip) + '/json/', 5000).then(function(d) {
-        if (!d || d.error) { showUnknown(); return; }
-        var city = d.city || '';
-        var region = d.region || '';
-        var country = d.country_name || d.country || '';
-        var locParts = [];
-        if (city) locParts.push(city);
-        if (region && region !== city) locParts.push(region);
-        if (country) locParts.push(country);
-        var locText = locParts.join(', ') || 'Unknown';
-        locationEl.textContent = locText;
-        ispEl.textContent = d.org || d.asn || 'Unknown';
-      }).catch(function() { showUnknown(); });
-
-    }).catch(function() { showBlocked(true); });
-  }
 
   copyBtn.addEventListener('click', function() {
     var ip = copyBtn.dataset.ip;
     if (!ip) return;
-    var showCopied = function() { noteEl.textContent = 'Copied: ' + ip; };
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(ip).then(showCopied).catch(function() { noteEl.textContent = 'Copy failed'; });
-    } else {
-      var ta = document.createElement('textarea');
-      ta.value = ip;
-      ta.style.position = 'fixed';
-      ta.style.opacity = '0';
-      document.body.appendChild(ta);
-      ta.select();
-      try { document.execCommand('copy'); showCopied(); } catch(e) { noteEl.textContent = 'Copy failed'; }
-      document.body.removeChild(ta);
-    }
+    navigator.clipboard.writeText(ip).then(function() {
+      copyBtn.textContent = 'Copied!';
+      setTimeout(function() { copyBtn.textContent = 'Copy IP'; }, 2000);
+    }).catch(function() {
+      copyBtn.textContent = 'Copy failed';
+      setTimeout(function() { copyBtn.textContent = 'Copy IP'; }, 2000);
+    });
   });
 
-  refreshBtn.addEventListener('click', detect);
-  setTimeout(detect, 500);
+  refreshBtn.addEventListener('click', detectIP);
+
+  setTimeout(detectIP, 100);
 })();
 </script>
+
+<script src="/js/theme.js"></script>
 </body>
 </html>

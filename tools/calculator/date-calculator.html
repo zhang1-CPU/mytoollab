@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date Calculator – Calculate Days Between Dates | zlbox</title>
+    <meta name="description" content="Calculate the difference between two dates, add or subtract days, find weekdays or business days. Free online date calculator.">
+    <link rel="canonical" href="https://www.zlbox.site/tools/calculator/date-calculator.html">
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+        .container { max-width: 900px; margin: 0 auto; padding: 2rem 1rem; }
+        h1 { font-size: 2rem; margin-bottom: 0.5rem; color: var(--text); }
+        .subtitle { color: var(--text-secondary); margin-bottom: 2rem; }
+        
+        .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem; }
+        
+        .mode-tabs { display: flex; gap: 0.5rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+        .mode-tab { padding: 0.75rem 1.25rem; border: 1px solid var(--border); border-radius: 8px; background: var(--bg); color: var(--text); cursor: pointer; font-weight: 600; transition: all 0.2s; }
+        .mode-tab.active { background: var(--primary); color: white; border-color: var(--primary); }
+        .mode-tab:hover:not(.active) { border-color: var(--primary); }
+        
+        .input-group { margin-bottom: 1.5rem; }
+        .input-group label { display: block; font-weight: 600; margin-bottom: 0.5rem; color: var(--text); }
+        
+        .input-row { display: flex; gap: 1rem; flex-wrap: wrap; }
+        .input-row input, .input-row select { flex: 1; min-width: 200px; }
+        
+        input, select {
+            width: 100%; padding: 0.75rem 1rem;
+            border: 1px solid var(--border); border-radius: 8px;
+            background: var(--bg); color: var(--text); font-size: 1rem;
+        }
+        input:focus, select:focus { outline: none; border-color: var(--primary); }
+        
+        .btn-row { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1rem; }
+        .btn {
+            padding: 0.75rem 1.5rem; border: none; border-radius: 8px;
+            cursor: pointer; font-size: 0.95rem; font-weight: 600;
+            transition: all 0.2s;
+        }
+        .btn-primary { background: var(--primary); color: white; }
+        .btn-primary:hover { background: #1d4ed8; }
+        .btn-secondary { background: var(--border); color: var(--text); }
+        .btn-secondary:hover { background: var(--text-secondary); color: white; }
+        
+        .results-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
+        .result-card { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 1.25rem; text-align: center; }
+        .result-value { font-size: 2.5rem; font-weight: 700; color: var(--primary); }
+        .result-label { font-size: 0.9rem; color: var(--text-secondary); margin-top: 0.5rem; }
+        
+        .calendar-preview { margin-top: 1.5rem; }
+        .calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; }
+        .calendar-header { font-weight: 600; text-align: center; padding: 0.5rem; color: var(--text-secondary); font-size: 0.85rem; }
+        .calendar-day { aspect-ratio: 1; display: flex; align-items: center; justify-content: center; border-radius: 4px; font-size: 0.85rem; }
+        .calendar-day.start { background: var(--primary); color: white; }
+        .calendar-day.end { background: var(--primary); color: white; }
+        .calendar-day.in-range { background: rgba(37, 99, 235, 0.2); }
+        .calendar-day.empty { background: transparent; }
+        
+        .info-box { background: rgba(37, 99, 235, 0.1); border: 1px solid var(--primary); border-radius: 8px; padding: 1rem; margin-top: 1.5rem; }
+        
+        .section-title { font-size: 1.1rem; font-weight: 600; margin-bottom: 1rem; color: var(--text); }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="/" class="logo">zlzlbox</a>
+        <div class="nav-links">
+            <a href="/tools/index.html">All Tools</a>
+            <a href="/categories/calculator.html">Calculator</a>
+            <a href="/categories/text.html">Text</a>
+        </div>
+        <button id="themeToggle" class="theme-toggle">🌙</button>
+    </nav>
+
+    <main class="container">
+        <h1>Date Calculator</h1>
+        <p class="subtitle">Calculate the difference between dates, add or subtract days, and find business days. Works with any date range.</p>
+
+        <div class="card">
+            <div class="mode-tabs">
+                <button class="mode-tab active" onclick="switchMode('diff')">Date Difference</button>
+                <button class="mode-tab" onclick="switchMode('add')">Add/Subtract Days</button>
+                <button class="mode-tab" onclick="switchMode('business')">Business Days</button>
+                <button class="mode-tab" onclick="switchMode('weekday')">Weekday Counter</button>
+            </div>
+
+            <!-- Date Difference -->
+            <div id="modeDiff">
+                <div class="input-row">
+                    <div class="input-group">
+                        <label>Start Date</label>
+                        <input type="date" id="startDate">
+                    </div>
+                    <div class="input-group">
+                        <label>End Date</label>
+                        <input type="date" id="endDate">
+                    </div>
+                </div>
+                <div class="btn-row">
+                    <button class="btn btn-primary" onclick="calculateDiff()">Calculate Difference</button>
+                    <button class="btn btn-secondary" onclick="setToday()">Set Today</button>
+                </div>
+            </div>
+
+            <!-- Add/Subtract Days -->
+            <div id="modeAdd" style="display: none;">
+                <div class="input-group">
+                    <label>Starting Date</label>
+                    <input type="date" id="addStartDate">
+                </div>
+                <div class="input-row">
+                    <div class="input-group">
+                        <label>Add/Subtract Days</label>
+                        <input type="number" id="addDays" placeholder="e.g., 30 or -15" value="7">
+                    </div>
+                    <div class="input-group">
+                        <label>Or select preset</label>
+                        <select id="addPreset" onchange="setAddPreset()">
+                            <option value="">Custom</option>
+                            <option value="1">+1 Day</option>
+                            <option value="7">+1 Week</option>
+                            <option value="30">+1 Month</option>
+                            <option value="90">+3 Months</option>
+                            <option value="365">+1 Year</option>
+                            <option value="-1">-1 Day</option>
+                            <option value="-7">-1 Week</option>
+                            <option value="-30">-1 Month</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="btn-row">
+                    <button class="btn btn-primary" onclick="calculateAdd()">Calculate New Date</button>
+                </div>
+            </div>
+
+            <!-- Business Days -->
+            <div id="modeBusiness" style="display: none;">
+                <div class="input-row">
+                    <div class="input-group">
+                        <label>Start Date</label>
+                        <input type="date" id="bizStartDate">
+                    </div>
+                    <div class="input-group">
+                        <label>End Date</label>
+                        <input type="date" id="bizEndDate">
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label>Exclude Weekends</label>
+                    <select id="excludeWeekends">
+                        <option value="yes">Yes (exclude Saturday & Sunday)</option>
+                        <option value="no">No (count all days)</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>Exclude Holidays (optional - comma separated)</label>
+                    <input type="text" id="holidays" placeholder="2026-01-01, 2026-12-25">
+                </div>
+                <div class="btn-row">
+                    <button class="btn btn-primary" onclick="calculateBusinessDays()">Calculate Business Days</button>
+                </div>
+            </div>
+
+            <!-- Weekday Counter -->
+            <div id="modeWeekday" style="display: none;">
+                <div class="input-row">
+                    <div class="input-group">
+                        <label>Start Date</label>
+                        <input type="date" id="weekStartDate">
+                    </div>
+                    <div class="input-group">
+                        <label>End Date</label>
+                        <input type="date" id="weekEndDate">
+                    </div>
+                </div>
+                <div class="btn-row">
+                    <button class="btn btn-primary" onclick="calculateWeekdays()">Count Weekdays</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" id="resultsCard" style="display: none;">
+            <div class="section-title">Results</div>
+            <div class="results-grid" id="resultsGrid"></div>
+        </div>
+
+        <div class="card" id="calendarCard" style="display: none;">
+            <div class="section-title">Calendar Preview</div>
+            <div id="calendarContent"></div>
+        </div>
+
+        <div class="info-box">
+            <p><strong>Tips:</strong> Click "Set Today" to quickly set both dates to today for easy calculations. The date difference includes the start date but not the end date by default.</p>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 zlbox. All rights reserved. <a href="/privacy.html">Privacy Policy</a></p>
+    </footer>
+
+    <script>
+        let currentMode = 'diff';
+
+        function init() {
+            // Set default dates
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('startDate').value = today;
+            document.getElementById('endDate').value = today;
+            document.getElementById('addStartDate').value = today;
+            document.getElementById('bizStartDate').value = today;
+            document.getElementById('bizEndDate').value = today;
+            document.getElementById('weekStartDate').value = today;
+            document.getElementById('weekEndDate').value = today;
+        }
+
+        function switchMode(mode) {
+            currentMode = mode;
+            document.querySelectorAll('.mode-tab').forEach(tab => tab.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            document.getElementById('modeDiff').style.display = mode === 'diff' ? 'block' : 'none';
+            document.getElementById('modeAdd').style.display = mode === 'add' ? 'block' : 'none';
+            document.getElementById('modeBusiness').style.display = mode === 'business' ? 'block' : 'none';
+            document.getElementById('modeWeekday').style.display = mode === 'weekday' ? 'block' : 'none';
+            
+            document.getElementById('resultsCard').style.display = 'none';
+            document.getElementById('calendarCard').style.display = 'none';
+        }
+
+        function setToday() {
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('startDate').value = today;
+            document.getElementById('endDate').value = today;
+        }
+
+        function setAddPreset() {
+            const preset = document.getElementById('addPreset').value;
+            if (preset) {
+                document.getElementById('addDays').value = preset;
+            }
+        }
+
+        function calculateDiff() {
+            const startStr = document.getElementById('startDate').value;
+            const endStr = document.getElementById('endDate').value;
+            
+            if (!startStr || !endStr) {
+                alert('Please select both dates');
+                return;
+            }
+
+            const start = new Date(startStr);
+            const end = new Date(endStr);
+            
+            const diffTime = end - start;
+            const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+            const diffWeeks = Math.floor(diffDays / 7);
+            const diffMonths = Math.floor(diffDays / 30);
+            const diffYears = Math.floor(diffDays / 365);
+            
+            const resultsGrid = document.getElementById('resultsGrid');
+            resultsGrid.innerHTML = `
+                <div class="result-card">
+                    <div class="result-value">${Math.abs(diffDays)}</div>
+                    <div class="result-label">${diffDays >= 0 ? 'Days' : 'Days (past)'}</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-value">${Math.abs(diffWeeks)}</div>
+                    <div class="result-label">Weeks</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-value">${Math.abs(diffMonths)}</div>
+                    <div class="result-label">Months (approx)</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-value">${Math.abs(diffYears)}</div>
+                    <div class="result-label">Years (approx)</div>
+                </div>
+            `;
+            
+            document.getElementById('resultsCard').style.display = 'block';
+            showCalendar(start, end);
+        }
+
+        function calculateAdd() {
+            const startStr = document.getElementById('addStartDate').value;
+            const days = parseInt(document.getElementById('addDays').value);
+            
+            if (!startStr || isNaN(days)) {
+                alert('Please enter a valid date and number of days');
+                return;
+            }
+
+            const start = new Date(startStr);
+            const end = new Date(start.getTime() + days * 24 * 60 * 60 * 1000);
+            
+            const resultsGrid = document.getElementById('resultsGrid');
+            resultsGrid.innerHTML = `
+                <div class="result-card">
+                    <div class="result-value">${formatDate(start)}</div>
+                    <div class="result-label">Start Date</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-value">${days > 0 ? '+' : ''}${days}</div>
+                    <div class="result-label">Days ${days > 0 ? 'Added' : 'Subtracted'}</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-value">${formatDate(end)}</div>
+                    <div class="result-label">Result Date</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-value">${end.toLocaleDateString('en-US', { weekday: 'long' })}</div>
+                    <div class="result-label">Day of Week</div>
+                </div>
+            `;
+            
+            document.getElementById('resultsCard').style.display = 'block';
+        }
+
+        function calculateBusinessDays() {
+            const startStr = document.getElementById('bizStartDate').value;
+            const endStr = document.getElementById('bizEndDate').value;
+            const excludeWeekends = document.getElementById('excludeWeekends').value === 'yes';
+            const holidaysStr = document.getElementById('holidays').value;
+            
+            if (!startStr || !endStr) {
+                alert('Please select both dates');
+                return;
+            }
+
+            const start = new Date(startStr);
+            const end = new Date(endStr);
+            
+            // Parse holidays
+            const holidays = [];
+            if (holidaysStr) {
+                holidaysStr.split(',').forEach(h => {
+                    const trimmed = h.trim();
+                    if (trimmed) holidays.push(new Date(trimmed));
+                });
+            }
+
+            let businessDays = 0;
+            let totalDays = 0;
+            let weekendDays = 0;
+            let holidayDays = 0;
+            
+            const current = new Date(Math.min(start, end));
+            const endDate = new Date(Math.max(start, end));
+            
+            while (current <= endDate) {
+                totalDays++;
+                const dayOfWeek = current.getDay();
+                const isWeekend = dayOfWeek === 0 || dayOfWeek === 6;
+                const isHoliday = holidays.some(h => h.toDateString() === current.toDateString());
+                
+                if (!isWeekend) {
+                    if (!isHoliday) {
+                        businessDays++;
+                    } else {
+                        holidayDays++;
+                    }
+                } else {
+                    weekendDays++;
+                }
+                
+                current.setDate(current.getDate() + 1);
+            }
+
+            const resultsGrid = document.getElementById('resultsGrid');
+            resultsGrid.innerHTML = `
+                <div class="result-card">
+                    <div class="result-value">${businessDays}</div>
+                    <div class="result-label">Business Days</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-value">${weekendDays}</div>
+                    <div class="result-label">Weekend Days</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-value">${holidayDays}</div>
+                    <div class="result-label">Holidays Excluded</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-value">${totalDays}</div>
+                    <div class="result-label">Total Days</div>
+                </div>
+            `;
+            
+            document.getElementById('resultsCard').style.display = 'block';
+        }
+
+        function calculateWeekdays() {
+            const startStr = document.getElementById('weekStartDate').value;
+            const endStr = document.getElementById('weekEndDate').value;
+            
+            if (!startStr || !endStr) {
+                alert('Please select both dates');
+                return;
+            }
+
+            const start = new Date(startStr);
+            const end = new Date(endStr);
+            
+            const weekdays = { Sunday: 0, Monday: 0, Tuesday: 0, Wednesday: 0, Thursday: 0, Friday: 0, Saturday: 0 };
+            
+            const current = new Date(Math.min(start, end));
+            const endDate = new Date(Math.max(start, end));
+            
+            while (current <= endDate) {
+                const dayName = current.toLocaleDateString('en-US', { weekday: 'long' });
+                weekdays[dayName]++;
+                current.setDate(current.getDate() + 1);
+            }
+
+            const resultsGrid = document.getElementById('resultsGrid');
+            resultsGrid.innerHTML = Object.entries(weekdays).map(([day, count]) => `
+                <div class="result-card">
+                    <div class="result-value">${count}</div>
+                    <div class="result-label">${day}s</div>
+                </div>
+            `).join('');
+            
+            document.getElementById('resultsCard').style.display = 'block';
+        }
+
+        function showCalendar(start, end) {
+            const calendarContent = document.getElementById('calendarContent');
+            const startDate = new Date(Math.min(start, end));
+            const endDate = new Date(Math.max(start, end));
+            
+            // Show month containing start date
+            const monthStart = new Date(startDate.getFullYear(), startDate.getMonth(), 1);
+            const monthEnd = new Date(startDate.getFullYear(), startDate.getMonth() + 1, 0);
+            
+            const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+            
+            let html = `<div style="font-weight: 600; margin-bottom: 0.5rem;">${monthStart.toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}</div>`;
+            html += '<div class="calendar-grid">';
+            
+            // Day headers
+            days.forEach(day => {
+                html += `<div class="calendar-header">${day}</div>`;
+            });
+            
+            // Empty cells before first day
+            for (let i = 0; i < monthStart.getDay(); i++) {
+                html += '<div class="calendar-day empty"></div>';
+            }
+            
+            // Days of month
+            for (let day = 1; day <= monthEnd.getDate(); day++) {
+                const date = new Date(monthStart.getFullYear(), monthStart.getMonth(), day);
+                const isStart = date.toDateString() === startDate.toDateString();
+                const isEnd = date.toDateString() === endDate.toDateString();
+                const isInRange = date > startDate && date < endDate;
+                
+                let classes = 'calendar-day';
+                if (isStart || isEnd) classes += ' start';
+                else if (isInRange) classes += ' in-range';
+                
+                html += `<div class="${classes}">${day}</div>`;
+            }
+            
+            html += '</div>';
+            calendarContent.innerHTML = html;
+            document.getElementById('calendarCard').style.display = 'block';
+        }
+
+        function formatDate(date) {
+            return date.toLocaleDateString('en-US', { 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
+            });
+        }
+
+        // Theme toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && prefersDark)) {
+            document.body.classList.add('dark');
+        }
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark');
+            localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
+            themeToggle.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
+        });
+        themeToggle.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
+
+        init();
+    </script>
+</body>
+</html>

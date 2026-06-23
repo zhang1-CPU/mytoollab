@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Terms & Conditions Generator – Website Terms | zlbox</title>
+    <meta name="description" content="Generate professional terms and conditions for your website. Free, instant, and customizable legal document.">
+    <link rel="canonical" href="https://www.zlbox.site/tools/generator/terms-generator.html">
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+        .container { max-width: 900px; margin: 0 auto; padding: 2rem 1rem; }
+        h1 { font-size: 2rem; margin-bottom: 0.5rem; color: var(--text); }
+        .subtitle { color: var(--text-secondary); margin-bottom: 2rem; }
+        
+        .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem; }
+        
+        .input-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+        
+        .input-group { margin-bottom: 1rem; }
+        .input-group label { display: block; font-weight: 600; margin-bottom: 0.5rem; color: var(--text); }
+        .input-group label span { font-weight: 400; color: var(--text-secondary); font-size: 0.85rem; }
+        
+        input, select, textarea {
+            width: 100%; padding: 0.75rem 1rem;
+            border: 1px solid var(--border); border-radius: 8px;
+            background: var(--bg); color: var(--text); font-size: 1rem;
+        }
+        textarea { min-height: 100px; resize: vertical; }
+        input:focus, select:focus, textarea:focus { outline: none; border-color: var(--primary); }
+        
+        .btn-row { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1.5rem; }
+        .btn {
+            padding: 0.75rem 1.5rem; border: none; border-radius: 8px;
+            cursor: pointer; font-size: 0.95rem; font-weight: 600;
+            transition: all 0.2s;
+        }
+        .btn-primary { background: var(--primary); color: white; }
+        .btn-primary:hover { background: #1d4ed8; }
+        .btn-secondary { background: var(--border); color: var(--text); }
+        .btn-secondary:hover { background: var(--text-secondary); color: white; }
+        
+        .output-section { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; }
+        .output-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem; }
+        .output-header h3 { margin: 0; color: var(--text); }
+        
+        .output-content {
+            background: var(--bg); border: 1px solid var(--border);
+            border-radius: 8px; padding: 1.5rem; max-height: 500px;
+            overflow-y: auto; white-space: pre-wrap; font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        
+        .char-count { font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.5rem; }
+        
+        .info-box { background: rgba(37, 99, 235, 0.1); border: 1px solid var(--primary); border-radius: 8px; padding: 1rem; margin-top: 1.5rem; }
+        
+        .disclaimer { font-size: 0.85rem; color: var(--text-secondary); margin-top: 1rem; font-style: italic; }
+        
+        .checkbox-group { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; }
+        .checkbox-item { display: flex; align-items: center; gap: 0.5rem; cursor: pointer; }
+        .checkbox-item input { width: auto; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="/" class="logo">zlzlbox</a>
+        <div class="nav-links">
+            <a href="/tools/index.html">All Tools</a>
+            <a href="/categories/generator.html">Generators</a>
+            <a href="/categories/seo.html">SEO</a>
+        </div>
+        <button id="themeToggle" class="theme-toggle">🌙</button>
+    </nav>
+
+    <main class="container">
+        <h1>Terms & Conditions Generator</h1>
+        <p class="subtitle">Create a professional terms and conditions agreement for your website or app. Fill in the details below and get an instant, customizable policy.</p>
+
+        <div class="card">
+            <div class="input-grid">
+                <div class="input-group">
+                    <label>Website/App Name</label>
+                    <input type="text" id="siteName" placeholder="My Awesome Website">
+                </div>
+                <div class="input-group">
+                    <label>Website URL</label>
+                    <input type="url" id="siteUrl" placeholder="https://example.com">
+                </div>
+                <div class="input-group">
+                    <label>Company Name <span>(optional)</span></label>
+                    <input type="text" id="companyName" placeholder="Your Company Inc.">
+                </div>
+                <div class="input-group">
+                    <label>Contact Email</label>
+                    <input type="email" id="contactEmail" placeholder="legal@example.com">
+                </div>
+                <div class="input-group">
+                    <label>Effective Date</label>
+                    <input type="date" id="effectiveDate">
+                </div>
+                <div class="input-group">
+                    <label>Governing Law <span>(country/state)</span></label>
+                    <input type="text" id="governingLaw" placeholder="United States" value="United States">
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label>What type of service do you provide?</label>
+                <select id="serviceType">
+                    <option value="general">General Website/Blog</option>
+                    <option value="ecommerce">E-commerce/Online Store</option>
+                    <option value="saas">SaaS/Software Service</option>
+                    <option value="app">Mobile App</option>
+                    <option value="forum">Forum/Community</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label>Additional services or notes</label>
+                <textarea id="additionalNotes" placeholder="Any specific terms or conditions you'd like to add..."></textarea>
+            </div>
+
+            <div class="btn-row">
+                <button class="btn btn-primary" onclick="generateTerms()">Generate Terms</button>
+                <button class="btn btn-secondary" onclick="resetForm()">Reset</button>
+            </div>
+        </div>
+
+        <div class="output-section" id="outputSection" style="display: none;">
+            <div class="output-header">
+                <h3>Your Terms & Conditions</h3>
+                <div class="btn-row" style="margin: 0;">
+                    <button class="btn btn-primary" onclick="copyTerms()">Copy to Clipboard</button>
+                    <button class="btn btn-secondary" onclick="downloadTerms()">Download as TXT</button>
+                </div>
+            </div>
+            <div class="output-content" id="termsContent"></div>
+            <div class="char-count" id="charCount"></div>
+            <p class="disclaimer">Disclaimer: This is a template and should be reviewed by a legal professional. It may not cover all legal requirements for your specific situation and jurisdiction.</p>
+        </div>
+
+        <div class="info-box">
+            <p><strong>Why do you need Terms & Conditions?</strong> Terms & Conditions protect your business, set rules for users, limit your liability, and are essential for e-commerce, SaaS, and content websites. While not always legally required, they help prevent disputes and protect your rights.</p>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 zlbox. All rights reserved. <a href="/privacy.html">Privacy Policy</a></p>
+    </footer>
+
+    <script>
+        function init() {
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('effectiveDate').value = today;
+        }
+
+        function generateTerms() {
+            const siteName = document.getElementById('siteName').value || 'Our Website';
+            const siteUrl = document.getElementById('siteUrl').value || 'https://example.com';
+            const companyName = document.getElementById('companyName').value;
+            const contactEmail = document.getElementById('contactEmail').value || 'legal@example.com';
+            const effectiveDate = document.getElementById('effectiveDate').value || new Date().toLocaleDateString();
+            const governingLaw = document.getElementById('governingLaw').value || 'United States';
+            const serviceType = document.getElementById('serviceType').value;
+            const additionalNotes = document.getElementById('additionalNotes').value;
+
+            const siteOrApp = serviceType === 'app' ? 'app' : 'website';
+
+            let terms = `TERMS AND CONDITIONS
+
+Last updated: ${effectiveDate}
+
+---
+
+1. AGREEMENT TO TERMS
+
+These Terms and Conditions ("Terms") govern your use of ${siteName} (the "${siteOrApp === 'app' ? 'App' : 'Website'}") ${companyName ? `operated by ${companyName}` : ''} ("us", "we", or "our").
+
+By accessing or using the ${siteOrApp}, you agree to be bound by these Terms. If you disagree with any part of these terms, you may not access the ${siteOrApp}.
+
+---
+
+2. USE OF THE SERVICE
+
+By using this ${siteOrApp}, you agree to:
+
+• Use the ${siteOrApp} only for lawful purposes and in accordance with these Terms
+• Not use the ${siteOrApp} in any way that violates applicable laws or regulations
+• Not attempt to gain unauthorized access to any part of the ${siteOrApp}
+• Not interfere with or disrupt the ${siteOrApp} or servers connected to the ${siteOrApp}
+• Not transmit any viruses, worms, or other malicious code`;
+
+            if (serviceType === 'saas') {
+                terms += `
+• Use the software services in accordance with the applicable documentation
+• Not sublicense, sell, or distribute access to the software
+• Maintain the security of your account credentials`;
+            } else if (serviceType === 'ecommerce') {
+                terms += `
+• Provide accurate and complete information when placing orders
+• Not use fraudulent or false information
+• Honor pricing and availability as displayed on the ${siteOrApp}`;
+            }
+
+            terms += `
+
+---
+
+3. INTELLECTUAL PROPERTY
+
+The ${siteOrApp} and its original content, features, and functionality are and will remain the exclusive property of ${companyName || 'us'} ${companyName ? '' : 'and our licensors'}. The ${siteOrApp} is protected by copyright, trademark, and other laws. Our trademarks may not be used in connection with any product or service without prior written consent.
+
+You retain ownership of any content you submit, post, or display on or through the ${siteOrApp} ("User Content"). By submitting User Content, you grant us a worldwide, non-exclusive, royalty-free license to use, reproduce, modify, and distribute such content.`;
+
+            if (serviceType === 'ecommerce') {
+                terms += `
+
+---
+
+4. PRODUCTS AND ORDERS
+
+All products displayed on our ${siteOrApp} are subject to availability. We reserve the right to limit quantities, discontinue products, or refuse orders at our discretion.
+
+Prices for products are displayed in [YOUR CURRENCY] and are subject to change without notice. We are not responsible for typographical errors in product descriptions or pricing.
+
+You are responsible for any taxes associated with your purchase.`;
+
+                terms += `
+
+---
+
+5. PAYMENT TERMS
+
+We accept the following payment methods: [LIST PAYMENT METHODS]
+
+Payment must be received in full before orders are processed. If payment is not received, we reserve the right to cancel the order.
+
+All transactions are processed securely through third-party payment processors. We do not store your complete credit card information.`;
+            } else if (serviceType === 'saas') {
+                terms += `
+
+---
+
+4. SUBSCRIPTION AND PAYMENT
+
+Access to certain features of our service requires a paid subscription. Subscription fees are billed [monthly/annually] in advance.
+
+You authorize us to charge your chosen payment method for all fees. Subscriptions automatically renew unless cancelled before the renewal date.
+
+We reserve the right to modify subscription pricing with 30 days' notice.`;
+
+                terms += `
+
+---
+
+5. SERVICE LEVELS
+
+We strive to maintain 99.9% uptime for our service. Scheduled maintenance will be communicated in advance when possible. We are not liable for downtime beyond our control.`;
+            }
+
+            terms += `
+
+---
+
+6. ACCOUNTS
+
+When you create an account with us, you must provide accurate and complete information. You are solely responsible for maintaining the confidentiality of your account and password.
+
+You agree to accept responsibility for all activities that occur under your account. We reserve the right to suspend or terminate accounts that violate these Terms.
+
+You must notify us immediately of any unauthorized use of your account.`;
+
+            terms += `
+
+---
+
+7. LINKS TO OTHER WEBSITES
+
+Our ${siteOrApp} may contain links to third-party ${siteOrApp === 'app' ? 'apps' : 'websites'} or services that are not owned or controlled by us.
+
+We have no control over and assume no responsibility for the content, privacy policies, or practices of any third-party ${siteOrApp === 'app' ? 'apps' : 'websites'} or services. You acknowledge and agree that we shall not be responsible or liable for any damage or loss caused by your use of any such content or services.`;
+
+            terms += `
+
+---
+
+8. TERMINATION
+
+We may terminate or suspend your access to the ${siteOrApp} immediately, without prior notice or liability, for any reason, including without limitation if you breach these Terms.
+
+Upon termination, your right to use the ${siteOrApp} will cease immediately. All provisions of these Terms which by their nature should survive termination shall survive.`;
+
+            terms += `
+
+---
+
+9. LIMITATION OF LIABILITY
+
+To the fullest extent permitted by law, in no event shall ${companyName || 'we'} be liable for any indirect, incidental, special, consequential, or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from:
+
+• Your access to or use of (or inability to access or use) the ${siteOrApp}
+• Any content obtained from the ${siteOrApp}
+• Unauthorized access, use, or alteration of your transmissions or content`;
+
+            terms += `
+
+---
+
+10. INDEMNIFICATION
+
+You agree to defend, indemnify, and hold harmless ${companyName || 'us'} and our affiliates, licensors, and service providers from and against any claims, liabilities, damages, judgments, awards, losses, costs, expenses, or fees arising out of or relating to your violation of these Terms or your use of the ${siteOrApp}.`;
+
+            terms += `
+
+---
+
+11. GOVERNING LAW
+
+These Terms shall be governed by and construed in accordance with the laws of ${governingLaw}, without regard to its conflict of law provisions.
+
+Any disputes arising from these Terms or your use of the ${siteOrApp} shall be resolved in the courts of ${governingLaw}.`;
+
+            if (serviceType === 'ecommerce') {
+                terms += `
+
+---
+
+12. SHIPPING AND DELIVERY
+
+[Add your shipping policies here, including estimated delivery times, shipping costs, and international shipping options if applicable.]`;
+
+                terms += `
+
+---
+
+13. RETURNS AND REFUNDS
+
+[Add your return and refund policy here. Include information about how customers can request returns, timeframes, and any conditions.]`;
+            }
+
+            if (serviceType === 'forum') {
+                terms += `
+
+---
+
+14. USER-GENERATED CONTENT
+
+Users may post content on our forum/community. By posting, you agree to:
+
+• Not post defamatory, abusive, or illegal content
+• Not spam or promote commercial products
+• Grant us a license to use, modify, and distribute your posts
+• Accept that we may remove content at our discretion
+
+Users who violate these rules may have their accounts suspended or terminated.`;
+            }
+
+            terms += `
+
+---
+
+15. CHANGES TO TERMS
+
+We reserve the right to modify or replace these Terms at any time at our sole discretion. If a revision is material, we will provide at least 30 days' notice prior to any new terms taking effect.
+
+By continuing to access or use the ${siteOrApp} after any revisions become effective, you agree to be bound by the revised terms.`;
+
+            terms += `
+
+---
+
+16. CONTACT US
+
+If you have any questions about these Terms, please contact us:
+
+• By email: ${contactEmail}
+• By visiting this page on our website: ${siteUrl}`;
+
+            if (additionalNotes) {
+                terms += `
+
+---
+
+17. ADDITIONAL TERMS
+
+${additionalNotes}`;
+            }
+
+            terms += `
+
+---
+
+* * *
+
+By using this ${siteOrApp}, you acknowledge that you have read and understood these Terms and agree to be bound by them.`;
+
+            // Display the terms
+            document.getElementById('termsContent').textContent = terms;
+            document.getElementById('charCount').textContent = `Approximately ${Math.ceil(terms.length / 1500)} min read | ${terms.length.toLocaleString()} characters`;
+            document.getElementById('outputSection').style.display = 'block';
+            
+            document.getElementById('outputSection').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function copyTerms() {
+            const terms = document.getElementById('termsContent').textContent;
+            navigator.clipboard.writeText(terms);
+            
+            const btn = event.target;
+            const originalText = btn.textContent;
+            btn.textContent = 'Copied!';
+            setTimeout(() => btn.textContent = originalText, 2000);
+        }
+
+        function downloadTerms() {
+            const terms = document.getElementById('termsContent').textContent;
+            const siteName = document.getElementById('siteName').value || 'terms';
+            const blob = new Blob([terms], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `${siteName.toLowerCase().replace(/\s+/g, '-')}-terms-and-conditions.txt`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        function resetForm() {
+            document.querySelectorAll('input, textarea').forEach(el => {
+                if (el.type === 'checkbox') el.checked = false;
+                else el.value = '';
+            });
+            document.getElementById('serviceType').value = 'general';
+            document.getElementById('governingLaw').value = 'United States';
+            document.getElementById('effectiveDate').value = new Date().toISOString().split('T')[0];
+            document.getElementById('outputSection').style.display = 'none';
+        }
+
+        // Theme toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && prefersDark)) {
+            document.body.classList.add('dark');
+        }
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark');
+            localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
+            themeToggle.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
+        });
+        themeToggle.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
+
+        init();
+    </script>
+</body>
+</html>

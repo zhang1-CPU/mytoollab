@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Privacy Policy Generator – Create Legal Privacy Policy | zlbox</title>
+    <meta name="description" content="Generate a professional privacy policy for your website or app. Free, instant, and customizable. No signup required.">
+    <link rel="canonical" href="https://www.zlbox.site/tools/generator/privacy-policy-generator.html">
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+        .container { max-width: 900px; margin: 0 auto; padding: 2rem 1rem; }
+        h1 { font-size: 2rem; margin-bottom: 0.5rem; color: var(--text); }
+        .subtitle { color: var(--text-secondary); margin-bottom: 2rem; }
+        
+        .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem; }
+        
+        .input-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+        
+        .input-group { margin-bottom: 1rem; }
+        .input-group label { display: block; font-weight: 600; margin-bottom: 0.5rem; color: var(--text); }
+        .input-group label span { font-weight: 400; color: var(--text-secondary); font-size: 0.85rem; }
+        
+        input, select, textarea {
+            width: 100%; padding: 0.75rem 1rem;
+            border: 1px solid var(--border); border-radius: 8px;
+            background: var(--bg); color: var(--text); font-size: 1rem;
+        }
+        textarea { min-height: 120px; resize: vertical; }
+        input:focus, select:focus, textarea:focus { outline: none; border-color: var(--primary); }
+        
+        .btn-row { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1.5rem; }
+        .btn {
+            padding: 0.75rem 1.5rem; border: none; border-radius: 8px;
+            cursor: pointer; font-size: 0.95rem; font-weight: 600;
+            transition: all 0.2s;
+        }
+        .btn-primary { background: var(--primary); color: white; }
+        .btn-primary:hover { background: #1d4ed8; }
+        .btn-secondary { background: var(--border); color: var(--text); }
+        .btn-secondary:hover { background: var(--text-secondary); color: white; }
+        
+        .output-section { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; }
+        .output-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem; }
+        .output-header h3 { margin: 0; color: var(--text); }
+        
+        .output-content {
+            background: var(--bg); border: 1px solid var(--border);
+            border-radius: 8px; padding: 1.5rem; max-height: 500px;
+            overflow-y: auto; white-space: pre-wrap; font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        
+        .char-count { font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.5rem; }
+        
+        .info-box { background: rgba(37, 99, 235, 0.1); border: 1px solid var(--primary); border-radius: 8px; padding: 1rem; margin-top: 1.5rem; }
+        .info-box strong { color: var(--primary); }
+        
+        .checkbox-group { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; }
+        .checkbox-item { display: flex; align-items: center; gap: 0.5rem; cursor: pointer; }
+        .checkbox-item input { width: auto; }
+        
+        .disclaimer { font-size: 0.85rem; color: var(--text-secondary); margin-top: 1rem; font-style: italic; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="/" class="logo">zlzlbox</a>
+        <div class="nav-links">
+            <a href="/tools/index.html">All Tools</a>
+            <a href="/categories/generator.html">Generators</a>
+            <a href="/categories/seo.html">SEO</a>
+        </div>
+        <button id="themeToggle" class="theme-toggle">🌙</button>
+    </nav>
+
+    <main class="container">
+        <h1>Privacy Policy Generator</h1>
+        <p class="subtitle">Create a professional privacy policy for your website or app. Fill in the details below and get an instant, customizable policy.</p>
+
+        <div class="card">
+            <div class="input-grid">
+                <div class="input-group">
+                    <label>Website/App Name</label>
+                    <input type="text" id="siteName" placeholder="My Awesome Website">
+                </div>
+                <div class="input-group">
+                    <label>Website URL</label>
+                    <input type="url" id="siteUrl" placeholder="https://example.com">
+                </div>
+                <div class="input-group">
+                    <label>Company Name <span>(optional)</span></label>
+                    <input type="text" id="companyName" placeholder="Your Company Inc.">
+                </div>
+                <div class="input-group">
+                    <label>Contact Email</label>
+                    <input type="email" id="contactEmail" placeholder="privacy@example.com">
+                </div>
+                <div class="input-group">
+                    <label>Effective Date</label>
+                    <input type="date" id="effectiveDate">
+                </div>
+                <div class="input-group">
+                    <label>Data Protection Officer <span>(optional)</span></label>
+                    <input type="text" id="dpoName" placeholder="Jane Smith">
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label>What type of data do you collect?</label>
+                <div class="checkbox-group">
+                    <label class="checkbox-item"><input type="checkbox" id="collectPersonal" checked> Personal Info (name, email)</label>
+                    <label class="checkbox-item"><input type="checkbox" id="collectUsage"> Usage Analytics</label>
+                    <label class="checkbox-item"><input type="checkbox" id="collectCookies"> Cookies</label>
+                    <label class="checkbox-item"><input type="checkbox" id="collectPayment"> Payment Info</label>
+                    <label class="checkbox-item"><input type="checkbox" id="collectLocation"> Location Data</label>
+                    <label class="checkbox-item"><input type="checkbox" id="collectThirdParty"> Third-party Services</label>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label>Do you sell data to third parties?</label>
+                <select id="sellData">
+                    <option value="no">No, we do not sell data</option>
+                    <option value="limited">Limited sharing (advertising partners)</option>
+                    <option value="yes">Yes, we share/sell data</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label>Additional Notes <span>(optional)</span></label>
+                <textarea id="additionalNotes" placeholder="Any specific privacy practices you'd like to mention..."></textarea>
+            </div>
+
+            <div class="btn-row">
+                <button class="btn btn-primary" onclick="generatePolicy()">Generate Privacy Policy</button>
+                <button class="btn btn-secondary" onclick="resetForm()">Reset</button>
+            </div>
+        </div>
+
+        <div class="output-section" id="outputSection" style="display: none;">
+            <div class="output-header">
+                <h3>Your Privacy Policy</h3>
+                <div class="btn-row" style="margin: 0;">
+                    <button class="btn btn-primary" onclick="copyPolicy()">Copy to Clipboard</button>
+                    <button class="btn btn-secondary" onclick="downloadPolicy()">Download as TXT</button>
+                </div>
+            </div>
+            <div class="output-content" id="policyContent"></div>
+            <div class="char-count" id="charCount"></div>
+            <p class="disclaimer">Disclaimer: This is a template and should be reviewed by a legal professional. It may not cover all legal requirements for your specific situation.</p>
+        </div>
+
+        <div class="info-box">
+            <p><strong>Why do you need a Privacy Policy?</strong> A privacy policy is required by law in many jurisdictions (GDPR, CCPA, etc.) if you collect personal data from users. It helps build trust with your users and protects your business legally.</p>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 zlbox. All rights reserved. <a href="/privacy.html">Privacy Policy</a></p>
+    </footer>
+
+    <script>
+        function init() {
+            // Set default date to today
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('effectiveDate').value = today;
+        }
+
+        function generatePolicy() {
+            const siteName = document.getElementById('siteName').value || 'Our Website';
+            const siteUrl = document.getElementById('siteUrl').value || 'https://example.com';
+            const companyName = document.getElementById('companyName').value;
+            const contactEmail = document.getElementById('contactEmail').value || 'privacy@example.com';
+            const effectiveDate = document.getElementById('effectiveDate').value || new Date().toLocaleDateString();
+            const dpoName = document.getElementById('dpoName').value;
+            const additionalNotes = document.getElementById('additionalNotes').value;
+            const sellData = document.getElementById('sellData').value;
+
+            const collectPersonal = document.getElementById('collectPersonal').checked;
+            const collectUsage = document.getElementById('collectUsage').checked;
+            const collectCookies = document.getElementById('collectCookies').checked;
+            const collectPayment = document.getElementById('collectPayment').checked;
+            const collectLocation = document.getElementById('collectLocation').checked;
+            const collectThirdParty = document.getElementById('collectThirdParty').checked;
+
+            let policy = `PRIVACY POLICY
+
+Last updated: ${effectiveDate}
+
+${companyName ? `This Privacy Policy applies to ${companyName} (` : `This Privacy Policy applies to`} "${siteName}") ${companyName ? `operated by ${companyName}` : ''}. This page informs you of our policies regarding the collection, use, and disclosure of personal data when you use our service and the choices you have associated with that data.
+
+By accessing or using the service, you agree to the collection and use of information in accordance with this policy.
+
+---
+
+1. INFORMATION WE COLLECT
+
+We collect several different types of information for various purposes to provide and improve our service to you.`;
+
+            let dataTypes = [];
+            if (collectPersonal) {
+                dataTypes.push(`• **Personal Data**: While using our service, we may ask you to provide us with certain personally identifiable information that can be used to contact or identify you ("Personal Data"). Personally identifiable information may include, but is not limited to: Email address, Name, Address, Phone number`);
+            }
+            if (collectUsage) {
+                dataTypes.push(`• **Usage Data**: We may also collect information about how the service is accessed and used ("Usage Data"). This Usage Data may include information such as your computer's Internet Protocol address (e.g., IP address), browser type, browser version, the pages of our service that you visit, the time and date of your visit, the time spent on those pages, unique device identifiers and other diagnostic data.`);
+            }
+            if (collectCookies) {
+                dataTypes.push(`• **Cookies and Tracking Data**: We use cookies and similar tracking technologies to track the activity on our service and hold certain information. Cookies are files with a small amount of data which may include an anonymous unique identifier.`);
+            }
+            if (collectPayment) {
+                dataTypes.push(`• **Payment Data**: If you make purchases through our service, we may collect payment information, including credit card numbers and related billing information.`);
+            }
+            if (collectLocation) {
+                dataTypes.push(`• **Location Data**: We may use and store information about your location if you give us permission to do so. We use this data to provide features of our service and to improve and customize our service.`);
+            }
+            if (collectThirdParty) {
+                dataTypes.push(`• **Third-Party Services**: We may employ third-party companies and individuals to facilitate our service, provide service on our behalf, perform service-related services, or assist us in analyzing how our service is used.`);
+            }
+
+            if (dataTypes.length > 0) {
+                policy += `\n\n${dataTypes.join('\n\n')}`;
+            }
+
+            policy += `
+
+---
+
+2. USE OF DATA
+
+${companyName ? 'We' : 'I'} use the collected data for various purposes:
+
+• To provide and maintain our service
+• To notify you about changes to our service
+• To provide customer support
+• To gather analysis or valuable information so that ${companyName ? 'we can' : 'I can'} improve our service
+• To monitor the usage of our service
+• To detect, prevent and address technical issues
+• To provide you with news, special offers and general information about other goods, services and events which ${companyName ? 'we' : 'I'} offer that are similar to those that you have already purchased or enquired about`;
+
+            if (collectCookies) {
+                policy += `
+
+---
+
+3. COOKIES
+
+We use cookies and similar tracking technologies to track the activity on our service and hold certain information.
+
+Cookies are files with a small amount of data which may include an anonymous unique identifier. You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent.
+
+The types of cookies we use:
+
+• **Essential Cookies**: Required for the service to function properly
+• **Analytics Cookies**: Help us understand how visitors interact with our service
+• **Advertising Cookies**: Used to deliver relevant advertisements`;
+            }
+
+            let dataSharing = sellData === 'no' 
+                ? `We do not sell, trade, or otherwise transfer your personal information to third parties without your consent, except as described in this policy.`
+                : sellData === 'limited'
+                ? `We may share your information with our advertising partners who assist us in delivering relevant advertisements. These partners are committed to protecting your privacy and only use the information for the purpose of delivering ads.`
+                : `We may share your personal information with third parties, including advertising partners, data brokers, and analytics providers. Please review their privacy policies to understand how they use your information.`;
+
+            policy += `
+
+---
+
+4. DATA SHARING
+
+${dataSharing}
+
+We may disclose your information if required to do so by law or if you violate our Terms of Service.`;
+
+            if (sellData === 'no') {
+                policy += `
+
+---
+
+5. THIRD-PARTY SERVICES
+
+We may use third-party Service Providers to monitor and analyze the use of our service:
+
+• **Google Analytics**: A web analytics service offered by Google that tracks and reports website traffic. Google uses the data collected to track and monitor the use of our service.
+• **Advertising Partners**: Third-party advertisers may use cookies and similar technologies to collect information about your browsing activities.
+
+These third parties have their own privacy policies governing their use of your information.`;
+            }
+
+            policy += `
+
+---
+
+6. SECURITY OF DATA
+
+The security of your data is important to us. We strive to use commercially acceptable means to protect your Personal Data, but remember that no method of transmission over the Internet or method of electronic storage is 100% secure.`;
+
+            policy += `
+
+---
+
+7. YOUR DATA PROTECTION RIGHTS
+
+Depending on your location, you may have certain data protection rights, including:
+
+• **Right to Access**: You can request copies of your personal data.
+• **Right to Rectification**: You can request that we correct any information you believe is inaccurate.
+• **Right to Erasure**: You can request that we erase your personal data under certain conditions.
+• **Right to Restrict Processing**: You can request that we restrict the processing of your data.
+• **Right to Data Portability**: You can request that we transfer your data to another organization or directly to you.
+• **Right to Object**: You can object to our processing of your personal data.
+
+To exercise these rights, please contact us at: ${contactEmail}`;
+
+            if (dpoName) {
+                policy += `
+
+Our Data Protection Officer can be contacted at: ${dpoName}`;
+            }
+
+            policy += `
+
+---
+
+8. CHILDREN'S PRIVACY
+
+Our service does not address anyone under the age of 18 ("Children"). We do not knowingly collect personally identifiable information from anyone under the age of 18.`;
+
+            policy += `
+
+---
+
+9. LINKS TO OTHER SITES
+
+Our service may contain links to other sites that are not operated by us. If you click on a third party link, you will be directed to that third party's site. We strongly advise you to review the Privacy Policy of every site you visit. We have no control over and assume no responsibility for the content, privacy policies or practices of any third party sites or services.`;
+
+            policy += `
+
+---
+
+10. CHANGES TO THIS PRIVACY POLICY
+
+We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last updated" date.
+
+You are advised to review this Privacy Policy periodically for any changes.`;
+
+            policy += `
+
+---
+
+11. CONTACT US
+
+If you have any questions about this Privacy Policy, please contact us:
+
+• By email: ${contactEmail}
+• By visiting this page on our website: ${siteUrl}`;
+
+            if (additionalNotes) {
+                policy += `
+
+---
+
+12. ADDITIONAL INFORMATION
+
+${additionalNotes}`;
+            }
+
+            // Display the policy
+            document.getElementById('policyContent').textContent = policy;
+            document.getElementById('charCount').textContent = `Approximately ${Math.ceil(policy.length / 1500)} min read | ${policy.length.toLocaleString()} characters`;
+            document.getElementById('outputSection').style.display = 'block';
+            
+            // Scroll to output
+            document.getElementById('outputSection').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function copyPolicy() {
+            const policy = document.getElementById('policyContent').textContent;
+            navigator.clipboard.writeText(policy);
+            
+            const btn = event.target;
+            const originalText = btn.textContent;
+            btn.textContent = 'Copied!';
+            setTimeout(() => btn.textContent = originalText, 2000);
+        }
+
+        function downloadPolicy() {
+            const policy = document.getElementById('policyContent').textContent;
+            const siteName = document.getElementById('siteName').value || 'privacy-policy';
+            const blob = new Blob([policy], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `${siteName.toLowerCase().replace(/\s+/g, '-')}-privacy-policy.txt`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        function resetForm() {
+            document.querySelectorAll('input, textarea').forEach(el => {
+                if (el.type === 'checkbox') el.checked = false;
+                else el.value = '';
+            });
+            document.getElementById('sellData').value = 'no';
+            document.getElementById('collectPersonal').checked = true;
+            document.getElementById('effectiveDate').value = new Date().toISOString().split('T')[0];
+            document.getElementById('outputSection').style.display = 'none';
+        }
+
+        // Theme toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && prefersDark)) {
+            document.body.classList.add('dark');
+        }
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark');
+            localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
+            themeToggle.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
+        });
+        themeToggle.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
+
+        init();
+    </script>
+</body>
+</html>

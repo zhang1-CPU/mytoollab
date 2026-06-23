@@ -446,5 +446,37 @@
     "url": "/tools/dev/code-minifier.html",
     "keywords": ["css", "js", "minifier", "formatter", "compress", "developer"],
     "icon": "🗜️"
+  },
+  {
+    "name": "Timestamp Converter",
+    "category": "Developer",
+    "description": "Convert Unix timestamps to dates and vice versa",
+    "url": "/tools/dev/timestamp-converter.html",
+    "keywords": ["timestamp", "unix", "convert", "date", "time", "epoch", "developer"],
+    "icon": "⏱️"
+  },
+  {
+    "name": "Date Calculator",
+    "category": "Calculator",
+    "description": "Calculate days between dates, add/subtract days, business days",
+    "url": "/tools/calculator/date-calculator.html",
+    "keywords": ["date", "calculator", "days", "business", "weekday", "calendar"],
+    "icon": "📅"
+  },
+  {
+    "name": "Privacy Policy Generator",
+    "category": "Generator",
+    "description": "Generate a privacy policy for your website",
+    "url": "/tools/generator/privacy-policy-generator.html",
+    "keywords": ["privacy", "policy", "legal", "generator", "website", "gdpr"],
+    "icon": "🔒"
+  },
+  {
+    "name": "Terms & Conditions Generator",
+    "category": "Generator",
+    "description": "Generate terms and conditions for your website",
+    "url": "/tools/generator/terms-generator.html",
+    "keywords": ["terms", "conditions", "legal", "generator", "website", "agreement"],
+    "icon": "📜"
   }
 ]

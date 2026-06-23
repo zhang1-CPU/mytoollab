@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timestamp Converter – Unix Time & Date Conversion | zlbox</title>
+    <meta name="description" content="Convert Unix timestamps to dates and vice versa. Supports multiple formats, timezones, and real-time updates. Free online timestamp converter.">
+    <link rel="canonical" href="https://www.zlbox.site/tools/dev/timestamp-converter.html">
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+        .container { max-width: 800px; margin: 0 auto; padding: 2rem 1rem; }
+        h1 { font-size: 2rem; margin-bottom: 0.5rem; color: var(--text); }
+        .subtitle { color: var(--text-secondary); margin-bottom: 2rem; }
+        
+        .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem; }
+        
+        .input-group { margin-bottom: 1.5rem; }
+        .input-group label { display: block; font-weight: 600; margin-bottom: 0.5rem; color: var(--text); }
+        
+        .input-row { display: flex; gap: 1rem; flex-wrap: wrap; }
+        .input-row input, .input-row select { flex: 1; min-width: 200px; }
+        
+        input, select {
+            width: 100%; padding: 0.75rem 1rem;
+            border: 1px solid var(--border); border-radius: 8px;
+            background: var(--bg); color: var(--text); font-size: 1rem;
+        }
+        input:focus, select:focus { outline: none; border-color: var(--primary); }
+        
+        .btn-row { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1rem; }
+        
+        .btn {
+            padding: 0.75rem 1.5rem; border: none; border-radius: 8px;
+            cursor: pointer; font-size: 0.95rem; font-weight: 600;
+            transition: all 0.2s;
+        }
+        .btn-primary { background: var(--primary); color: white; }
+        .btn-primary:hover { background: #1d4ed8; }
+        .btn-secondary { background: var(--border); color: var(--text); }
+        .btn-secondary:hover { background: var(--text-secondary); color: white; }
+        
+        .results { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; }
+        .results h3 { margin-bottom: 1rem; color: var(--text); }
+        
+        .result-item { padding: 0.75rem; border-bottom: 1px solid var(--border); }
+        .result-item:last-child { border-bottom: none; }
+        .result-label { font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.25rem; }
+        .result-value { font-size: 1.1rem; font-weight: 600; color: var(--text); font-family: monospace; word-break: break-all; }
+        .result-value .copy-btn {
+            margin-left: 0.5rem; padding: 0.25rem 0.5rem;
+            font-size: 0.75rem; background: var(--primary); color: white;
+            border: none; border-radius: 4px; cursor: pointer;
+        }
+        
+        .formats-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+        .format-card { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; }
+        .format-card label { font-size: 0.85rem; color: var(--text-secondary); display: block; margin-bottom: 0.5rem; }
+        .format-card code { font-size: 0.9rem; color: var(--text); word-break: break-all; }
+        
+        .now-timestamp { font-size: 3rem; font-weight: 700; color: var(--primary); text-align: center; margin: 1.5rem 0; }
+        .now-label { text-align: center; color: var(--text-secondary); margin-bottom: 0.5rem; }
+        
+        .info-box { background: rgba(37, 99, 235, 0.1); border: 1px solid var(--primary); border-radius: 8px; padding: 1rem; margin-top: 1.5rem; }
+        .info-box p { margin: 0; color: var(--text); font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="/" class="logo">zlzlbox</a>
+        <div class="nav-links">
+            <a href="/tools/index.html">All Tools</a>
+            <a href="/categories/dev.html">Developer</a>
+            <a href="/categories/text.html">Text</a>
+        </div>
+        <button id="themeToggle" class="theme-toggle">🌙</button>
+    </nav>
+
+    <main class="container">
+        <h1>Unix Timestamp Converter</h1>
+        <p class="subtitle">Convert Unix timestamps to human-readable dates and vice versa. Supports multiple formats and timezones.</p>
+
+        <div class="card">
+            <div class="now-label">Current Unix Timestamp</div>
+            <div class="now-timestamp" id="nowTimestamp">Loading...</div>
+            <div class="btn-row" style="justify-content: center;">
+                <button class="btn btn-secondary" onclick="copyNow()">Copy</button>
+                <button class="btn btn-secondary" onclick="refreshNow()">Refresh</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="input-group">
+                <label for="timestampInput">Unix Timestamp (seconds or milliseconds)</label>
+                <div class="input-row">
+                    <input type="text" id="timestampInput" placeholder="Enter timestamp (e.g., 1735689600 or 1735689600000)">
+                    <select id="timestampType">
+                        <option value="auto">Auto-detect</option>
+                        <option value="seconds">Seconds</option>
+                        <option value="milliseconds">Milliseconds</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label for="dateInput">Or Enter a Date & Time</label>
+                <div class="input-row">
+                    <input type="datetime-local" id="dateInput">
+                    <select id="timezoneInput">
+                        <option value="local">Local Time</option>
+                        <option value="UTC">UTC</option>
+                        <option value="America/New_York">New York (EST/EDT)</option>
+                        <option value="America/Los_Angeles">Los Angeles (PST/PDT)</option>
+                        <option value="Europe/London">London (GMT/BST)</option>
+                        <option value="Europe/Paris">Paris (CET/CEST)</option>
+                        <option value="Asia/Tokyo">Tokyo (JST)</option>
+                        <option value="Asia/Shanghai">Shanghai (CST)</option>
+                        <option value="Asia/Kolkata">Mumbai (IST)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="btn-row">
+                <button class="btn btn-primary" onclick="convertToDate()">Convert to Date</button>
+                <button class="btn btn-primary" onclick="convertToTimestamp()">Convert to Timestamp</button>
+                <button class="btn btn-secondary" onclick="clearAll()">Clear</button>
+            </div>
+        </div>
+
+        <div class="results" id="results" style="display: none;">
+            <h3>Conversion Results</h3>
+            <div id="resultsContent"></div>
+            
+            <h3 style="margin-top: 1.5rem;">Other Formats</h3>
+            <div class="formats-grid" id="formatsGrid"></div>
+        </div>
+
+        <div class="info-box">
+            <p><strong>What is Unix Timestamp?</strong> Unix timestamp is the number of seconds that have elapsed since January 1, 1970 (midnight UTC/GMT). It's commonly used in programming and databases. Note: Some systems use milliseconds (multiply by 1000).</p>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 zlbox. All rights reserved. <a href="/privacy.html">Privacy Policy</a></p>
+    </footer>
+
+    <script>
+        let nowInterval;
+
+        function init() {
+            refreshNow();
+            nowInterval = setInterval(refreshNow, 1000);
+            
+            document.getElementById('timestampInput').addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') convertToDate();
+            });
+        }
+
+        function refreshNow() {
+            const now = Math.floor(Date.now() / 1000);
+            document.getElementById('nowTimestamp').textContent = now;
+            document.getElementById('nowTimestamp').dataset.timestamp = now;
+        }
+
+        function copyNow() {
+            const timestamp = document.getElementById('nowTimestamp').dataset.timestamp;
+            navigator.clipboard.writeText(timestamp);
+        }
+
+        function convertToDate() {
+            const input = document.getElementById('timestampInput').value.trim();
+            const type = document.getElementById('timestampType').value;
+            
+            if (!input) {
+                alert('Please enter a timestamp');
+                return;
+            }
+
+            let timestamp = parseInt(input);
+            if (isNaN(timestamp)) {
+                alert('Invalid timestamp');
+                return;
+            }
+
+            // Auto-detect milliseconds vs seconds
+            if (type === 'auto') {
+                if (timestamp > 1e12) timestamp = Math.floor(timestamp / 1000);
+            } else if (type === 'milliseconds') {
+                timestamp = Math.floor(timestamp / 1000);
+            }
+
+            const date = new Date(timestamp * 1000);
+            displayResults(timestamp, date);
+        }
+
+        function convertToTimestamp() {
+            const dateInput = document.getElementById('dateInput').value;
+            const timezone = document.getElementById('timezoneInput').value;
+            
+            if (!dateInput) {
+                alert('Please enter a date and time');
+                return;
+            }
+
+            let date;
+            if (timezone === 'local') {
+                date = new Date(dateInput);
+            } else {
+                // Create date in specified timezone
+                const localDate = new Date(dateInput);
+                const timezoneOffset = getTimezoneOffset(timezone);
+                date = new Date(localDate.getTime() + timezoneOffset * 60000);
+            }
+
+            const timestamp = Math.floor(date.getTime() / 1000);
+            displayResults(timestamp, date);
+        }
+
+        function getTimezoneOffset(timezone) {
+            const now = new Date();
+            const utcDate = new Date(now.toLocaleString('en-US', { timeZone: 'UTC' }));
+            const tzDate = new Date(now.toLocaleString('en-US', { timeZone: timezone }));
+            return (utcDate - tzDate);
+        }
+
+        function displayResults(timestamp, date) {
+            const results = document.getElementById('results');
+            const resultsContent = document.getElementById('resultsContent');
+            const formatsGrid = document.getElementById('formatsGrid');
+
+            results.style.display = 'block';
+
+            // Main results
+            resultsContent.innerHTML = `
+                <div class="result-item">
+                    <div class="result-label">Unix Timestamp (seconds)</div>
+                    <div class="result-value">
+                        ${timestamp}
+                        <button class="copy-btn" onclick="copyText('${timestamp}')">Copy</button>
+                    </div>
+                </div>
+                <div class="result-item">
+                    <div class="result-label">Unix Timestamp (milliseconds)</div>
+                    <div class="result-value">
+                        ${timestamp * 1000}
+                        <button class="copy-btn" onclick="copyText('${timestamp * 1000}')">Copy</button>
+                    </div>
+                </div>
+                <div class="result-item">
+                    <div class="result-label">ISO 8601</div>
+                    <div class="result-value">
+                        ${date.toISOString()}
+                        <button class="copy-btn" onclick="copyText('${date.toISOString()}')">Copy</button>
+                    </div>
+                </div>
+                <div class="result-item">
+                    <div class="result-label">UTC</div>
+                    <div class="result-value">
+                        ${date.toUTCString()}
+                        <button class="copy-btn" onclick="copyText('${date.toUTCString()}')">Copy</button>
+                    </div>
+                </div>
+                <div class="result-item">
+                    <div class="result-label">Local Date</div>
+                    <div class="result-value">
+                        ${date.toLocaleString()}
+                        <button class="copy-btn" onclick="copyText('${date.toLocaleString()}')">Copy</button>
+                    </div>
+                </div>
+                <div class="result-item">
+                    <div class="result-label">Relative Time</div>
+                    <div class="result-value">
+                        ${getRelativeTime(date)}
+                    </div>
+                </div>
+            `;
+
+            // Other formats
+            const formats = [
+                { label: 'YYYY-MM-DD', value: formatDate(date, 'YYYY-MM-DD') },
+                { label: 'YYYY/MM/DD', value: formatDate(date, 'YYYY/MM/DD') },
+                { label: 'DD-MM-YYYY', value: formatDate(date, 'DD-MM-YYYY') },
+                { label: 'MM/DD/YYYY', value: formatDate(date, 'MM/DD/YYYY') },
+                { label: 'HH:mm:ss', value: formatDate(date, 'HH:mm:ss') },
+                { label: 'HH:mm', value: formatDate(date, 'HH:mm') },
+                { label: 'Day of Week', value: date.toLocaleDateString('en-US', { weekday: 'long' }) },
+                { label: 'Day of Year', value: getDayOfYear(date) },
+            ];
+
+            formatsGrid.innerHTML = formats.map(f => `
+                <div class="format-card">
+                    <label>${f.label}</label>
+                    <code>${f.value}</code>
+                </div>
+            `).join('');
+        }
+
+        function formatDate(date, format) {
+            const y = date.getFullYear();
+            const m = String(date.getMonth() + 1).padStart(2, '0');
+            const d = String(date.getDate()).padStart(2, '0');
+            const h = String(date.getHours()).padStart(2, '0');
+            const min = String(date.getMinutes()).padStart(2, '0');
+            const s = String(date.getSeconds()).padStart(2, '0');
+
+            return format
+                .replace('YYYY', y)
+                .replace('MM', m)
+                .replace('DD', d)
+                .replace('HH', h)
+                .replace('mm', min)
+                .replace('ss', s);
+        }
+
+        function getDayOfYear(date) {
+            const start = new Date(date.getFullYear(), 0, 0);
+            const diff = date - start;
+            const oneDay = 1000 * 60 * 60 * 24;
+            return Math.floor(diff / oneDay);
+        }
+
+        function getRelativeTime(date) {
+            const now = new Date();
+            const diff = now - date;
+            const seconds = Math.floor(diff / 1000);
+            const minutes = Math.floor(seconds / 60);
+            const hours = Math.floor(minutes / 60);
+            const days = Math.floor(hours / 24);
+
+            if (Math.abs(seconds) < 60) return seconds + ' seconds ago';
+            if (Math.abs(minutes) < 60) return minutes + ' minutes ago';
+            if (Math.abs(hours) < 24) return hours + ' hours ago';
+            return days + ' days ago';
+        }
+
+        function copyText(text) {
+            navigator.clipboard.writeText(text.toString());
+        }
+
+        function clearAll() {
+            document.getElementById('timestampInput').value = '';
+            document.getElementById('dateInput').value = '';
+            document.getElementById('results').style.display = 'none';
+        }
+
+        // Theme toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && prefersDark)) {
+            document.body.classList.add('dark');
+        }
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark');
+            localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
+            themeToggle.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
+        });
+        themeToggle.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
+
+        init();
+    </script>
+</body>
+</html>

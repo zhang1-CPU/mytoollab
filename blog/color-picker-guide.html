@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Color Picker Guide: Choosing Colors for Web Design | zlbox</title>
+  <meta name="description" content="Learn how to choose and convert colors for web design. Our complete guide covers hex color pickers, RGB, HSL, color conversion, and best practices for beautiful, accessible color schemes." />
+  <meta name="keywords" content="color picker, hex color picker, rgb color picker, hsl color picker, color converter, free color tool, web color picker, hex to rgb, color theory for web design, accessible color schemes" />
+  <link rel="canonical" href="https://www.zlbox.site/blog/color-picker-guide.html" />
+  <meta name="google-site-verification" content="google4bd1e08685667667" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
+  <meta property="og:title" content="Color Picker Guide: Choosing Colors for Web Design" />
+  <meta property="og:description" content="Learn how to choose and convert colors for web design. Our guide covers hex, RGB, HSL, color conversion, and best practices for accessible color schemes." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://www.zlbox.site/blog/color-picker-guide.html" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9V6L0Z956X"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9V6L0Z956X');
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Article","headline":"Color Picker Guide: Choosing Colors for Web Design","description":"Learn how to choose and convert colors for web design. Our complete guide covers hex color pickers, RGB, HSL, color conversion, and best practices.","datePublished":"2026-06-18","author":{"@type":"Organization","name":"zlbox"},"publisher":{"@type":"Organization","name":"zlbox"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.zlbox.site/blog/color-picker-guide.html"}}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.zlbox.site/index.html"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://www.zlbox.site/blog/index.html"},{"@type":"ListItem","position":3,"name":"Color Picker Guide"}]}
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --brand:#2563eb; --brand-hover:#1d4ed8; --text:#1e293b; --muted:#64748b; --border:#e2e8f0; --bg:#ffffff; --bg-subtle:#f8fafc; --surface:#ffffff; --radius:12px; --max-w:860px; }
+    body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; color:var(--text); background:var(--bg); line-height:1.45; }
+    a { color:var(--brand); text-decoration:none; } a:hover { color:var(--brand-hover); text-decoration:underline; }
+    .container { max-width:var(--max-w); margin:0 auto; padding:0 20px; width:100%; }
+    .site-header { padding:14px 0; border-bottom:1px solid var(--border); background:var(--surface); position:sticky; top:0; z-index:10; }
+    .site-header__inner { display:flex; align-items:center; justify-content:space-between; gap:16px; }
+    .brand { font-weight:700; color:var(--text); font-size:1.05rem; text-decoration:none; } .brand span { color:var(--brand); } .brand:hover { text-decoration:none; color:var(--text); }
+    .top-nav { display:flex; gap:18px; font-size:.9rem; flex-wrap:wrap; } .top-nav a { color:var(--muted); } .top-nav a:hover { color:var(--brand); text-decoration:none; }
+    .breadcrumb { font-size:.88rem; color:var(--muted); margin:20px 0 10px; } .breadcrumb a { color:var(--muted); } .breadcrumb a:hover { color:var(--brand); }
+    .breadcrumb .sep { margin:0 8px; color:#cbd5e1; } .breadcrumb .current { color:var(--text); }
+    .article-hero { padding:10px 0 20px; }
+    .article-hero .meta-row { display:flex; flex-wrap:wrap; gap:10px 16px; align-items:center; font-size:.85rem; color:var(--muted); margin-bottom:14px; }
+    .article-hero .cat-tag { display:inline-block; font-size:.72rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--brand); background:#eff6ff; padding:5px 10px; border-radius:999px; }
+    .article-hero h1 { font-size:clamp(1.8rem,5vw,2.4rem); font-weight:800; line-height:1.2; margin-bottom:14px; color:var(--text); }
+    .article-hero .lead { font-size:1.05rem; color:var(--muted); line-height:1.7; }
+    article { padding:14px 0 10px; }
+    article h2 { font-size:1.55rem; font-weight:700; margin:34px 0 12px; line-height:1.3; color:var(--text); }
+    article h3 { font-size:1.15rem; font-weight:700; margin:22px 0 10px; color:var(--text); }
+    article p, article li { font-size:1rem; color:#334155; line-height:1.8; margin-bottom:14px; }
+    article ul, article ol { padding-left:22px; margin-bottom:14px; }
+    article ul li { list-style:disc; } article ol li { list-style:decimal; }
+    article strong { color:var(--text); font-weight:700; }
+    .ad-block { margin:28px auto; text-align:center; padding:12px; background:var(--bg-subtle); border-radius:var(--radius); }
+    .tip-box { background:#eff6ff; border-left:4px solid var(--brand); padding:16px 18px; border-radius:var(--radius); margin:20px 0; font-size:.96rem; color:#1e3a8a; }
+    .tip-box strong { color:var(--brand); display:block; margin-bottom:4px; }
+    pre { background:#1e293b; color:#e2e8f0; padding:16px 18px; border-radius:var(--radius); font-family:"JetBrains Mono","Fira Code",Menlo,Consolas,monospace; font-size:.88rem; line-height:1.55; overflow-x:auto; margin:16px 0 20px; }
+    .section-divider { border:none; border-top:1px solid var(--border); margin:40px 0 10px; }
+    .section-title { font-size:1.35rem; font-weight:800; margin:0 0 14px; color:var(--text); }
+    .related-articles { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin:12px 0 26px; }
+    .article-card { display:flex; flex-direction:column; background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:18px; text-decoration:none; color:var(--text); transition:border-color .2s, transform .15s, box-shadow .2s; }
+    .article-card:hover { border-color:var(--brand); transform:translateY(-2px); box-shadow:0 10px 24px rgba(15,23,42,.08); text-decoration:none; }
+    .article-card__cat { font-size:.72rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--brand); margin-bottom:6px; }
+    .article-card__title { font-size:1rem; font-weight:700; line-height:1.35; margin-bottom:8px; color:var(--text); }
+    .article-card__date { font-size:.8rem; color:var(--muted); margin-bottom:8px; }
+    .article-card__excerpt { color:#475569; font-size:.88rem; line-height:1.45; flex:1; margin-bottom:8px; }
+    .article-card__read { font-size:.85rem; font-weight:600; color:var(--brand); }
+    .related-tools { display:grid; grid-template-columns:repeat(auto-fill, minmax(200px,1fr)); gap:12px; margin:14px 0 26px; }
+    .tool-card { display:flex; align-items:center; gap:12px; padding:14px 16px; background:var(--surface); border:1px solid var(--border); border-radius:10px; text-decoration:none; color:var(--text); font-size:.92rem; font-weight:500; transition:border-color .2s, box-shadow .2s; }
+    .tool-card:hover { border-color:var(--brand); text-decoration:none; box-shadow:0 2px 8px rgba(37,99,235,.1); }
+    .tool-card .ico { font-size:1.2rem; } .tool-card .txt { display:flex; flex-direction:column; line-height:1.3; } .tool-card .txt small { color:var(--muted); font-weight:400; font-size:.8rem; }
+    .faq-item { margin-bottom:18px; padding-bottom:18px; border-bottom:1px solid var(--border); }
+    .faq-item:last-child { border-bottom:none; margin-bottom:0; padding-bottom:0; }
+    .faq-item h3 { margin-top:0; margin-bottom:8px; }
+    footer { margin-top:30px; padding:30px 0 22px; border-top:1px solid var(--border); text-align:center; background:var(--bg-subtle); }
+    .footer-tagline { font-size:.9rem; color:var(--muted); margin-bottom:12px; } .footer-tagline strong { color:var(--text); }
+    .footer-links { display:flex; justify-content:center; flex-wrap:wrap; gap:4px 18px; font-size:.88rem; margin-bottom:10px; } .footer-links a { color:var(--muted); }
+    .footer-tool-links { display:flex; flex-wrap:wrap; justify-content:center; gap:4px 18px; font-size:.82rem; margin:6px 0 14px; } .footer-tool-links a { color:var(--muted); }
+    .footer-copy { font-size:.78rem; color:#94a3b8; margin-top:8px; } .footer-divider { width:1px; height:10px; background:var(--border); display:inline-block; vertical-align:middle; margin:0 4px; }
+    @media (max-width:780px){ .related-articles { grid-template-columns:1fr; } .site-header__inner { flex-direction:column; align-items:flex-start; } }
+    @media (max-width:520px){ .article-hero h1 { font-size:1.65rem; } article h2 { font-size:1.25rem; } }
+
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: var(--bg);
+  border-bottom: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px rgba(0,0,0,.05);
+}
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px;
+}
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  color: #2563eb;
+  text-decoration: none;
+}
+.nav-logo-icon {
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 18px;
+}
+.nav-logo-text {
+  font-size: 18px;
+}
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+}
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: #0f172a;
+  margin: 5px 0;
+  transition: all .2s;
+}
+.nav-links {
+  display: flex;
+  gap: 4px;
+}
+.nav-link {
+  padding: 8px 12px;
+  font-size: .88rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-decoration: none;
+  border-radius: 6px;
+  transition: all .2s;
+}
+.nav-link:hover {
+  color: #2563eb;
+  background: var(--bg-subtle);
+}
+@media (max-width: 768px) {
+  .nav-toggle { display: block; }
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 56px;
+    left: 0;
+    right: 0;
+    background: #fff;
+    border-bottom: 1px solid #e2e8f0;
+    padding: 8px 20px;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .nav-links.active { display: flex; }
+  .nav-link { padding: 12px 16px; }
+}
+
+  </style>
+
+  <meta property="og:image" content="https://www.zlbox.site/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Color Picker Guide" />
+  <meta name="twitter:description" content="Choosing colors for web design." />
+  <meta name="twitter:image" content="https://www.zlbox.site/og-image.png" />
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="stylesheet" href="/css/theme.css" />
+</head>
+<body>
+
+<nav class="site-nav" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo" aria-label="zlbox Home">
+      <span class="nav-logo-icon">zl</span>
+      <span class="nav-logo-text">zlbox</span>
+    </a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links" role="list">
+      <a href="/tools/index.html" class="nav-link" role="listitem">All Tools</a>
+      <a href="/categories/text.html" class="nav-link" role="listitem">Text</a>
+      <a href="/categories/calculator.html" class="nav-link" role="listitem">Calculator</a>
+      <a href="/categories/generator.html" class="nav-link" role="listitem">Generator</a>
+      <a href="/categories/image.html" class="nav-link" role="listitem">Image</a>
+      <a href="/categories/pdf.html" class="nav-link" role="listitem">PDF</a>
+      <a href="/blog/index.html" class="nav-link" role="listitem">Blog</a>
+      <button class="theme-toggle" aria-label="Toggle theme">🌙</button>
+    </div>
+  </div>
+</nav>
+
+  <header class="site-header"><div class="container site-header__inner"><a href="../index.html" class="brand">zl<span>box</span></a><nav class="top-nav"><a href="../categories/pdf.html">PDF</a><a href="../categories/image.html">Image</a><a href="../categories/text.html">Text</a><a href="../categories/generator.html">Generators</a><a href="index.html">Blog</a></nav></div></header>
+
+  <div class="container"><nav class="breadcrumb"><a href="../index.html">Home</a><span class="sep">/</span><a href="index.html">Blog</a><span class="sep">/</span><span class="current">Color Picker Guide</span></nav></div>
+
+  <section class="article-hero"><div class="container">
+    <div class="meta-row"><span class="cat-tag">Design</span><span>June 18, 2026</span><span>&middot;</span><span>8 min read</span></div>
+    <h1>Color Picker Guide: Choosing Colors for Web Design</h1>
+    <p class="lead">Color is one of the most powerful tools in web design. It sets mood, guides attention, communicates brand identity, and affects accessibility. But choosing the right colors — and converting between hex, RGB, and HSL — can be challenging. This guide covers everything you need to know about picking colors for the web.</p>
+  </div></section>
+
+  <div class="container"><div class="ad-block"><ins class="adsbygoogle" style="display:block;width:100%;max-width:728px;height:auto;margin:0 auto;" data-ad-client="ca-pub-5420550088713746" data-ad-slot="8899001122" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div>
+
+  <div class="container">
+  <article>
+    <h2>Understanding Web Color Formats</h2>
+    <p>Colors on the web can be described in several different formats. Each has its own strengths and use cases. A good color picker tool will let you switch between them effortlessly.</p>
+
+    <h3>HEX (Hexadecimal)</h3>
+    <p>HEX colors are the most common format on the web. They use a six-digit hexadecimal number preceded by a hash symbol, representing red, green, and blue channels (RRGGBB). Each channel goes from 00 (no color) to FF (full intensity).</p>
+    <pre>#2563eb  /* brand blue */
+#ff0000  /* pure red */
+#ffffff  /* white */
+#000000  /* black */
+#ffffff80 /* white with 50% opacity (8-digit hex) */</pre>
+    <p>HEX is compact, widely supported, and the default format for most design tools. Its main downside is that values are not very human-readable — it is hard to look at a HEX code and immediately know what color it is.</p>
+
+    <h3>RGB and RGBA</h3>
+    <p>RGB colors represent red, green, and blue as numbers from 0 to 255. RGBA adds a fourth value — alpha — for opacity, ranging from 0 (fully transparent) to 1 (fully opaque).</p>
+    <pre>rgb(37, 99, 235)      /* brand blue */
+rgba(37, 99, 235, 0.5) /* 50% opaque blue */
+rgb(255, 0, 0)         /* pure red */</pre>
+    <p>RGB is more human-readable than HEX because you can see the individual channel values. RGBA is essential when you need transparent colors for overlays, shadows, or glass-morphism effects.</p>
+
+    <h3>HSL and HSLA</h3>
+    <p>HSL stands for Hue, Saturation, and Lightness. This color model is often considered the most intuitive for humans to work with:</p>
+    <ul>
+      <li><strong>Hue:</strong> The color on the color wheel, from 0 to 360 degrees (0 = red, 120 = green, 240 = blue).</li>
+      <li><strong>Saturation:</strong> How vibrant the color is, from 0% (gray) to 100% (full color).</li>
+      <li><strong>Lightness:</strong> How light or dark the color is, from 0% (black) to 100% (white).</li>
+    </ul>
+    <pre>hsl(221, 83%, 53%)  /* brand blue */
+hsl(0, 100%, 50%)   /* pure red */
+hsl(221, 83%, 70%)  /* lighter version of brand blue */</pre>
+    <p>HSL is fantastic for creating color schemes because you can easily make lighter or darker versions of a color by adjusting just the lightness value, or create harmonious colors by shifting the hue.</p>
+
+    <div class="tip-box"><strong>Need to convert colors quickly?</strong> Use our <a href="../tools/image/color-picker.html">free color picker and converter</a> from zlbox. Pick a color, see it in HEX, RGB, and HSL instantly, and copy the format you need — all in your browser.</div>
+
+    <div class="ad-block"><ins class="adsbygoogle" style="display:block;width:100%;max-width:728px;height:auto;margin:0 auto;" data-ad-client="ca-pub-5420550088713746" data-ad-slot="9900112233" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+
+    <h2>Color Theory Basics for Web Design</h2>
+    <p>You do not need a degree in fine art to choose good colors for the web. Understanding a few basic concepts will take you a long way:</p>
+
+    <h3>The Color Wheel</h3>
+    <p>The color wheel is a circular arrangement of colors organized by hue. It is the foundation of color theory. Key relationships include:</p>
+    <ul>
+      <li><strong>Complementary:</strong> Colors opposite each other on the wheel (like blue and orange). They create high contrast and visual interest.</li>
+      <li><strong>Analogous:</strong> Colors next to each other on the wheel (like blue, teal, and green). They create harmonious, low-contrast palettes.</li>
+      <li><strong>Triadic:</strong> Three colors evenly spaced around the wheel. They provide balanced contrast while remaining harmonious.</li>
+    </ul>
+
+    <h3>Color Psychology</h3>
+    <p>Different colors evoke different emotional responses. While cultural and personal variations exist, these general associations hold for most Western audiences:</p>
+    <ul>
+      <li><strong>Blue:</strong> Trust, professionalism, calm, technology. Used by banks, tech companies, and healthcare.</li>
+      <li><strong>Red:</strong> Energy, urgency, passion, danger. Used for calls to action, sales, and alerts.</li>
+      <li><strong>Green:</strong> Nature, growth, health, money. Used for environmental brands, finance, and wellness.</li>
+      <li><strong>Purple:</strong> Luxury, creativity, royalty. Used by premium brands and creative companies.</li>
+      <li><strong>Orange:</strong> Friendliness, enthusiasm, affordability. Used by value brands and food companies.</li>
+    </ul>
+
+    <h3>Value and Contrast</h3>
+    <p>Value (lightness or darkness) is often more important than hue for creating clear, readable interfaces. The difference in value between text and background — contrast — determines how readable your content is. Aim for high contrast for body text and important UI elements.</p>
+
+    <h2>Building a Web Color Palette</h2>
+    <p>A good web design color palette typically includes these key colors:</p>
+
+    <h3>Primary Color</h3>
+    <p>Your main brand color — the one people associate with your product. It is used for buttons, links, logos, and key UI elements. Most sites use blue as their primary color because it conveys trust and is easy on the eyes.</p>
+
+    <h3>Secondary Colors (Accents)</h3>
+    <p>One or two accent colors used to highlight important elements, draw attention to calls to action, and add visual variety. Good accent colors complement the primary color without clashing.</p>
+
+    <h3>Neutral Colors</h3>
+    <p>Shades of white, gray, and black form the foundation of your interface. They are used for text, backgrounds, borders, and most UI elements. A good set of neutrals — from near-white to near-black with several steps in between — is essential for a polished design.</p>
+
+    <h3>Semantic Colors</h3>
+    <p>Colors that communicate meaning: green for success, red for error, yellow for warning, blue for information. These are used for alerts, form validation, status indicators, and notifications.</p>
+
+    <div class="tip-box"><strong>Start with 6-8 colors.</strong> You do not need dozens of colors. A primary, a secondary, 4-6 neutral shades, and a few semantic colors are usually enough. You can always add more tints and shades later.</div>
+
+    <h2>Color Accessibility: A Non-Negotiable</h2>
+    <p>Beautiful colors mean nothing if people cannot read your content. Color accessibility is both an ethical requirement and often a legal one. Here is what you need to know:</p>
+
+    <h3>Contrast Ratios</h3>
+    <p>The Web Content Accessibility Guidelines (WCAG) define minimum contrast ratios for text:</p>
+    <ul>
+      <li><strong>AA standard:</strong> 4.5:1 for normal text, 3:1 for large text (18pt+ or 14pt+ bold)</li>
+      <li><strong>AAA standard:</strong> 7:1 for normal text, 4.5:1 for large text</li>
+    </ul>
+    <p>Always check the contrast ratio between your text color and background color. An RGB color picker that shows contrast ratios makes this easy.</p>
+
+    <h3>Do Not Rely on Color Alone</h3>
+    <p>About 8% of men have some form of color vision deficiency. Never use color as the only way to convey information. Always pair color with icons, text labels, or patterns. For example, a success message should have both a green color and a checkmark icon.</p>
+
+    <h3>Test in Grayscale</h3>
+    <p>A quick way to check if your design works without color is to view it in grayscale. If the layout is clear and the information hierarchy is obvious in black and white, your color choices are supporting the design rather than carrying it.</p>
+
+    <div class="ad-block"><ins class="adsbygoogle" style="display:block;width:100%;max-width:728px;height:auto;margin:0 auto;" data-ad-client="ca-pub-5420550088713746" data-ad-slot="7711223344" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+
+    <h2>How to Use a Color Picker Effectively</h2>
+    <p>A web color picker is one of the most used tools in a designer's toolkit. Here is how to get the most out of one:</p>
+    <ol>
+      <li><strong>Pick a base color.</strong> Start with your primary color. Use the color picker to find the exact shade you want, or paste in a HEX code if you already have a brand color.</li>
+      <li><strong>Convert between formats.</strong> Use the color converter to get the same color in HEX, RGB, and HSL. Copy whichever format you need for your CSS or design tool.</li>
+      <li><strong>Create tints and shades.</strong> Use the HSL lightness slider to create lighter and darker versions of your primary color for hover states, active states, and gradient backgrounds.</li>
+      <li><strong>Check contrast.</strong> Verify that your text and background colors have sufficient contrast ratio. Most good color tools show this automatically.</li>
+      <li><strong>Build your palette.</strong> Work through your primary, secondary, neutrals, and semantic colors, saving the codes for each.</li>
+    </ol>
+
+    <h2>Common Color Mistakes to Avoid</h2>
+    <ul>
+      <li><strong>Too many colors.</strong> Using more than 3-4 major colors in an interface creates visual chaos. Restraint is key.</li>
+      <li><strong>Poor contrast.</strong> Light gray text on a white background might look "clean" but it is unreadable for many people. Always test contrast.</li>
+      <li><strong>Clashing hues.</strong> Colors that fight each other for attention are tiring to look at. Use a color harmony system (complementary, analogous, etc.) to guide your choices.</li>
+      <li><strong>Overusing saturated colors.</strong> Highly saturated colors are great for buttons and accents but overwhelming in large areas. Use desaturated colors for backgrounds and large surfaces.</li>
+      <li><strong>Ignoring dark mode.</strong> Colors that look great on white often do not work well on dark backgrounds. Test your palette in both light and dark modes.</li>
+      <li><strong>Being inconsistent.</strong> Use the same blue for all links, the same green for all success states. Inconsistent color usage confuses users and makes your product feel unpolished.</li>
+    </ul>
+
+    <h2>Color Workflow Tips for Web Designers</h2>
+    <ol>
+      <li><strong>Define your palette early.</strong> Establish your color system at the beginning of a project and use it consistently. It is much harder to fix color issues late in the process.</li>
+      <li><strong>Use CSS variables.</strong> Define your colors as CSS custom properties so you can change them in one place. This is essential for supporting dark mode and maintaining consistency.</li>
+      <li><strong>Create a scale of neutrals.</strong> Do not just pick one gray. Create a scale of 8-10 steps from white to black so you always have the right shade for borders, backgrounds, secondary text, and more.</li>
+      <li><strong>Steal like an artist.</strong> Look at well-designed websites and apps you admire. Use a hex color picker browser extension to sample colors and see what works. Then adapt what you learn to your own project.</li>
+      <li><strong>Iterate.</strong> Your first color choice is rarely your best. Try several variations, test them in context, and refine. Small adjustments to saturation or lightness can make a huge difference.</li>
+      <li><strong>Use a color converter.</strong> When working between design tools and code, you often need the same color in different formats. A good online color converter saves time and prevents typos.</li>
+    </ol>
+
+    <p>Ready to start picking colors? Try our <a href="../tools/image/color-picker.html">free web color picker</a> — it supports HEX, RGB, and HSL, shows instant conversions, and runs entirely in your browser for fast, private color exploration.</p>
+
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="faq-item">
+      <h3>What is the difference between HEX, RGB, and HSL?</h3>
+      <p>All three represent the same colors but in different ways. HEX uses six hexadecimal digits (#RRGGBB), RGB uses three numbers from 0-255 for red, green, and blue, and HSL uses hue (0-360 degrees), saturation (0-100%), and lightness (0-100%). HEX is the most common on the web, RGB is good for transparency (RGBA), and HSL is the most intuitive for creating color variations.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>How do I convert hex to RGB?</h3>
+      <p>You can convert manually by splitting the hex code into red, green, and blue pairs and converting each pair from hexadecimal to decimal. But it is much easier to use a color converter tool — just paste your hex code and get the RGB values instantly. zlbox's color picker does this conversion automatically in real time.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>What makes a good website color palette?</h3>
+      <p>A good web color palette has a clear primary color, one or two accent colors, a range of neutral grays, and semantic colors for status states. Most importantly, it has sufficient contrast for accessibility, creates a clear visual hierarchy, and supports the brand and purpose of the website without overwhelming the content.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>How many colors should I use on my website?</h3>
+      <p>For most websites, 1-2 primary/secondary colors plus 5-8 neutral shades plus 3-4 semantic colors (success, warning, error, info) is plenty. The actual total number of color values will be higher when you include tints, shades, and hover states, but the number of distinct hues should be small.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>What is the WCAG contrast ratio requirement?</h3>
+      <p>WCAG 2.1 AA requires a contrast ratio of at least 4.5:1 for normal text and 3:1 for large text (18pt or larger, or 14pt or larger if bold). The AAA standard requires 7:1 and 4.5:1 respectively. Always test your text and background colors with a contrast checker before shipping.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>Is there a free color picker tool I can use?</h3>
+      <p>Yes, zlbox offers a free online color picker that lets you select colors visually, paste HEX/RGB/HSL values, and instantly convert between formats. It runs entirely in your browser, so it is fast and private, and it shows contrast ratio to help you design accessible interfaces.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>How do I choose a primary color for my brand?</h3>
+      <p>Start by thinking about the personality you want to convey and the associations different colors have. Consider your industry and competitors — you may want to fit in or stand out. Test several options, create full palettes from each, and see which one works best across different use cases (buttons, backgrounds, icons, etc.).</p>
+    </div>
+  </article>
+  </div>
+
+  <div class="container"><div class="ad-block"><ins class="adsbygoogle" style="display:block;width:100%;max-width:728px;height:auto;margin:0 auto;" data-ad-client="ca-pub-5420550088713746" data-ad-slot="7711223344" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div>
+
+  <div class="container"><hr class="section-divider"><h2 class="section-title">Related Articles</h2>
+    <div class="related-articles">
+      <a class="article-card" href="color-design-basics.html"><span class="article-card__cat">Design</span><h3 class="article-card__title">Color Basics for Designers and Content Creators</h3><div class="article-card__date">May 15, 2026 &middot; 6 min read</div><p class="article-card__excerpt">Understanding HEX, RGB, and HSL color formats. Practical color theory for non-designers.</p><span class="article-card__read">Read article &rarr;</span></a>
+      <a class="article-card" href="lorem-ipsum-guide.html"><span class="article-card__cat">Design</span><h3 class="article-card__title">Lorem Ipsum Generator: Why Designers Use Placeholder Text</h3><div class="article-card__date">June 19, 2026 &middot; 7 min read</div><p class="article-card__excerpt">Discover why designers use lorem ipsum dummy text and how it helps create better designs.</p><span class="article-card__read">Read article &rarr;</span></a>
+      <a class="article-card" href="image-compression-guide.html"><span class="article-card__cat">Image</span><h3 class="article-card__title">Image Compression Guide: Faster Websites Without Quality Loss</h3><div class="article-card__date">June 10, 2026 &middot; 6 min read</div><p class="article-card__excerpt">How to compress images properly for faster page load times while maintaining visual quality.</p><span class="article-card__read">Read article &rarr;</span></a>
+      <a class="article-card" href="batch-image-processing.html"><span class="article-card__cat">Image</span><h3 class="article-card__title">Batch Image Processing: Save Time on Repetitive Tasks</h3><div class="article-card__date">June 5, 2026 &middot; 5 min read</div><p class="article-card__excerpt">How to process multiple images at once — resizing, compressing, converting formats in bulk.</p><span class="article-card__read">Read article &rarr;</span></a>
+    </div>
+  </div>
+
+  <div class="container"><h2 class="section-title">Tools Mentioned in This Article</h2>
+    <div class="related-tools">
+      <a class="tool-card" href="../tools/image/color-picker.html"><span class="ico">&#127912;</span><span class="txt">Color Picker<small>Pick & convert colors</small></span></a>
+      <a class="tool-card" href="../tools/generator/lorem-ipsum.html"><span class="ico">&#128221;</span><span class="txt">Lorem Ipsum Generator<small>Placeholder text</small></span></a>
+      <a class="tool-card" href="../tools/image/image-compressor.html"><span class="ico">&#128444;</span><span class="txt">Image Compressor<small>Compress images</small></span></a>
+      <a class="tool-card" href="../tools/text/word-counter.html"><span class="ico">&#128203;</span><span class="txt">Word Counter<small>Count words & chars</small></span></a>
+      <a class="tool-card" href="../tools/text/case-converter.html"><span class="ico">&#8597;</span><span class="txt">Case Converter<small>Change text case</small></span></a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p class="footer-tagline"><strong>zlbox</strong> &mdash; Free online tools for everyone.</p>
+      <div class="footer-links"><a href="../about.html">About</a><span class="footer-divider"></span><a href="../contact.html">Contact</a><span class="footer-divider"></span><a href="../privacy.html">Privacy</a><span class="footer-divider"></span><a href="../disclaimer.html">Disclaimer</a></div>
+      <div class="footer-tool-links"><a href="../categories/pdf.html">PDF Tools</a><span class="footer-divider"></span><a href="../categories/image.html">Image Tools</a><span class="footer-divider"></span><a href="../categories/text.html">Text Tools</a><span class="footer-divider"></span><a href="../categories/generator.html">Generators</a></div>
+      <p class="footer-copy">&copy; 2026 zlbox. All rights reserved.</p>
+    </div>
+  </footer>
+
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+  var toggle=document.querySelector('.nav-toggle');
+  var links=document.querySelector('.nav-links');
+  if(toggle&&links){
+    toggle.addEventListener('click',function(){
+      links.classList.toggle('active');
+      toggle.setAttribute('aria-expanded',links.classList.contains('active'));
+    });
+  }
+});
+</script>
+  <script src="/js/theme.js"></script>
+  <div id="toast-container" class="toast-container"></div>
+</body>
+</html>

@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JWT Decoder: How to Debug JSON Web Tokens | zlbox</title>
+  <meta name="description" content="Learn how to decode JWT tokens and debug JSON Web Tokens safely. Understand JWT structure, verify signatures, and use a free JWT decoder for development and troubleshooting." />
+  <meta name="keywords" content="jwt decoder, decode jwt online, json web token decoder, jwt debugger, verify jwt, jwt token explained, free jwt tool, jwt payload decoder, jwt signature verification, jwt security best practices" />
+  <link rel="canonical" href="https://www.zlbox.site/blog/jwt-decoder-guide.html" />
+  <meta name="google-site-verification" content="google4bd1e08685667667" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
+  <meta property="og:title" content="JWT Decoder: How to Debug JSON Web Tokens" />
+  <meta property="og:description" content="Learn how to decode JWT tokens, understand JWT structure, verify signatures, and debug JSON Web Tokens safely with our complete guide." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://www.zlbox.site/blog/jwt-decoder-guide.html" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9V6L0Z956X"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9V6L0Z956X');
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Article","headline":"JWT Decoder: How to Debug JSON Web Tokens","description":"Learn how to decode JWT tokens and debug JSON Web Tokens safely. Understand JWT structure, verify signatures, and use a free JWT decoder for development.","datePublished":"2026-06-21","author":{"@type":"Organization","name":"zlbox"},"publisher":{"@type":"Organization","name":"zlbox"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.zlbox.site/blog/jwt-decoder-guide.html"}}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.zlbox.site/index.html"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://www.zlbox.site/blog/index.html"},{"@type":"ListItem","position":3,"name":"JWT Decoder Guide"}]}
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --brand:#2563eb; --brand-hover:#1d4ed8; --text:#1e293b; --muted:#64748b; --border:#e2e8f0; --bg:#ffffff; --bg-subtle:#f8fafc; --surface:#ffffff; --radius:12px; --max-w:860px; }
+    body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; color:var(--text); background:var(--bg); line-height:1.45; }
+    a { color:var(--brand); text-decoration:none; } a:hover { color:var(--brand-hover); text-decoration:underline; }
+    .container { max-width:var(--max-w); margin:0 auto; padding:0 20px; width:100%; }
+    .site-header { padding:14px 0; border-bottom:1px solid var(--border); background:var(--surface); position:sticky; top:0; z-index:10; }
+    .site-header__inner { display:flex; align-items:center; justify-content:space-between; gap:16px; }
+    .brand { font-weight:700; color:var(--text); font-size:1.05rem; text-decoration:none; } .brand span { color:var(--brand); } .brand:hover { text-decoration:none; color:var(--text); }
+    .top-nav { display:flex; gap:18px; font-size:.9rem; flex-wrap:wrap; } .top-nav a { color:var(--muted); } .top-nav a:hover { color:var(--brand); text-decoration:none; }
+    .breadcrumb { font-size:.88rem; color:var(--muted); margin:20px 0 10px; } .breadcrumb a { color:var(--muted); } .breadcrumb a:hover { color:var(--brand); }
+    .breadcrumb .sep { margin:0 8px; color:#cbd5e1; } .breadcrumb .current { color:var(--text); }
+    .article-hero { padding:10px 0 20px; }
+    .article-hero .meta-row { display:flex; flex-wrap:wrap; gap:10px 16px; align-items:center; font-size:.85rem; color:var(--muted); margin-bottom:14px; }
+    .article-hero .cat-tag { display:inline-block; font-size:.72rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--brand); background:#eff6ff; padding:5px 10px; border-radius:999px; }
+    .article-hero h1 { font-size:clamp(1.8rem,5vw,2.4rem); font-weight:800; line-height:1.2; margin-bottom:14px; color:var(--text); }
+    .article-hero .lead { font-size:1.05rem; color:var(--muted); line-height:1.7; }
+    article { padding:14px 0 10px; }
+    article h2 { font-size:1.55rem; font-weight:700; margin:34px 0 12px; line-height:1.3; color:var(--text); }
+    article h3 { font-size:1.15rem; font-weight:700; margin:22px 0 10px; color:var(--text); }
+    article p, article li { font-size:1rem; color:#334155; line-height:1.8; margin-bottom:14px; }
+    article ul, article ol { padding-left:22px; margin-bottom:14px; }
+    article ul li { list-style:disc; } article ol li { list-style:decimal; }
+    article strong { color:var(--text); font-weight:700; }
+    .ad-block { margin:28px auto; text-align:center; padding:12px; background:var(--bg-subtle); border-radius:var(--radius); }
+    .tip-box { background:#eff6ff; border-left:4px solid var(--brand); padding:16px 18px; border-radius:var(--radius); margin:20px 0; font-size:.96rem; color:#1e3a8a; }
+    .tip-box strong { color:var(--brand); display:block; margin-bottom:4px; }
+    pre { background:#1e293b; color:#e2e8f0; padding:16px 18px; border-radius:var(--radius); font-family:"JetBrains Mono","Fira Code",Menlo,Consolas,monospace; font-size:.88rem; line-height:1.55; overflow-x:auto; margin:16px 0 20px; }
+    .section-divider { border:none; border-top:1px solid var(--border); margin:40px 0 10px; }
+    .section-title { font-size:1.35rem; font-weight:800; margin:0 0 14px; color:var(--text); }
+    .related-articles { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin:12px 0 26px; }
+    .article-card { display:flex; flex-direction:column; background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:18px; text-decoration:none; color:var(--text); transition:border-color .2s, transform .15s, box-shadow .2s; }
+    .article-card:hover { border-color:var(--brand); transform:translateY(-2px); box-shadow:0 10px 24px rgba(15,23,42,.08); text-decoration:none; }
+    .article-card__cat { font-size:.72rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--brand); margin-bottom:6px; }
+    .article-card__title { font-size:1rem; font-weight:700; line-height:1.35; margin-bottom:8px; color:var(--text); }
+    .article-card__date { font-size:.8rem; color:var(--muted); margin-bottom:8px; }
+    .article-card__excerpt { color:#475569; font-size:.88rem; line-height:1.45; flex:1; margin-bottom:8px; }
+    .article-card__read { font-size:.85rem; font-weight:600; color:var(--brand); }
+    .related-tools { display:grid; grid-template-columns:repeat(auto-fill, minmax(200px,1fr)); gap:12px; margin:14px 0 26px; }
+    .tool-card { display:flex; align-items:center; gap:12px; padding:14px 16px; background:var(--surface); border:1px solid var(--border); border-radius:10px; text-decoration:none; color:var(--text); font-size:.92rem; font-weight:500; transition:border-color .2s, box-shadow .2s; }
+    .tool-card:hover { border-color:var(--brand); text-decoration:none; box-shadow:0 2px 8px rgba(37,99,235,.1); }
+    .tool-card .ico { font-size:1.2rem; } .tool-card .txt { display:flex; flex-direction:column; line-height:1.3; } .tool-card .txt small { color:var(--muted); font-weight:400; font-size:.8rem; }
+    .faq-item { margin-bottom:18px; padding-bottom:18px; border-bottom:1px solid var(--border); }
+    .faq-item:last-child { border-bottom:none; margin-bottom:0; padding-bottom:0; }
+    .faq-item h3 { margin-top:0; margin-bottom:8px; }
+    footer { margin-top:30px; padding:30px 0 22px; border-top:1px solid var(--border); text-align:center; background:var(--bg-subtle); }
+    .footer-tagline { font-size:.9rem; color:var(--muted); margin-bottom:12px; } .footer-tagline strong { color:var(--text); }
+    .footer-links { display:flex; justify-content:center; flex-wrap:wrap; gap:4px 18px; font-size:.88rem; margin-bottom:10px; } .footer-links a { color:var(--muted); }
+    .footer-tool-links { display:flex; flex-wrap:wrap; justify-content:center; gap:4px 18px; font-size:.82rem; margin:6px 0 14px; } .footer-tool-links a { color:var(--muted); }
+    .footer-copy { font-size:.78rem; color:#94a3b8; margin-top:8px; } .footer-divider { width:1px; height:10px; background:var(--border); display:inline-block; vertical-align:middle; margin:0 4px; }
+    @media (max-width:780px){ .related-articles { grid-template-columns:1fr; } .site-header__inner { flex-direction:column; align-items:flex-start; } }
+    @media (max-width:520px){ .article-hero h1 { font-size:1.65rem; } article h2 { font-size:1.25rem; } }
+
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: var(--bg);
+  border-bottom: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px rgba(0,0,0,.05);
+}
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px;
+}
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  color: #2563eb;
+  text-decoration: none;
+}
+.nav-logo-icon {
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 18px;
+}
+.nav-logo-text {
+  font-size: 18px;
+}
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+}
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: #0f172a;
+  margin: 5px 0;
+  transition: all .2s;
+}
+.nav-links {
+  display: flex;
+  gap: 4px;
+}
+.nav-link {
+  padding: 8px 12px;
+  font-size: .88rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-decoration: none;
+  border-radius: 6px;
+  transition: all .2s;
+}
+.nav-link:hover {
+  color: #2563eb;
+  background: var(--bg-subtle);
+}
+@media (max-width: 768px) {
+  .nav-toggle { display: block; }
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 56px;
+    left: 0;
+    right: 0;
+    background: #fff;
+    border-bottom: 1px solid #e2e8f0;
+    padding: 8px 20px;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .nav-links.active { display: flex; }
+  .nav-link { padding: 12px 16px; }
+}
+
+  </style>
+
+  <meta property="og:image" content="https://www.zlbox.site/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="JWT Decoder Guide" />
+  <meta name="twitter:description" content="How to debug JSON Web Tokens." />
+  <meta name="twitter:image" content="https://www.zlbox.site/og-image.png" />
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="stylesheet" href="/css/theme.css" />
+</head>
+<body>
+
+<nav class="site-nav" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo" aria-label="zlbox Home">
+      <span class="nav-logo-icon">zl</span>
+      <span class="nav-logo-text">zlbox</span>
+    </a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links" role="list">
+      <a href="/tools/index.html" class="nav-link" role="listitem">All Tools</a>
+      <a href="/categories/text.html" class="nav-link" role="listitem">Text</a>
+      <a href="/categories/calculator.html" class="nav-link" role="listitem">Calculator</a>
+      <a href="/categories/generator.html" class="nav-link" role="listitem">Generator</a>
+      <a href="/categories/image.html" class="nav-link" role="listitem">Image</a>
+      <a href="/categories/pdf.html" class="nav-link" role="listitem">PDF</a>
+      <a href="/blog/index.html" class="nav-link" role="listitem">Blog</a>
+      <button class="theme-toggle" aria-label="Toggle theme">🌙</button>
+    </div>
+  </div>
+</nav>
+
+  <header class="site-header"><div class="container site-header__inner"><a href="../index.html" class="brand">zl<span>box</span></a><nav class="top-nav"><a href="../categories/pdf.html">PDF</a><a href="../categories/image.html">Image</a><a href="../categories/text.html">Text</a><a href="../categories/generator.html">Generators</a><a href="index.html">Blog</a></nav></div></header>
+
+  <div class="container"><nav class="breadcrumb"><a href="../index.html">Home</a><span class="sep">/</span><a href="index.html">Blog</a><span class="sep">/</span><span class="current">JWT Decoder Guide</span></nav></div>
+
+  <section class="article-hero"><div class="container">
+    <div class="meta-row"><span class="cat-tag">Development</span><span>June 21, 2026</span><span>&middot;</span><span>7 min read</span></div>
+    <h1>JWT Decoder: How to Debug JSON Web Tokens</h1>
+    <p class="lead">JSON Web Tokens (JWT) are everywhere in modern web authentication, but they can be tricky to debug when something goes wrong. A good JWT decoder lets you inspect token contents, verify signatures, and troubleshoot authentication issues quickly. This guide covers JWT structure, common problems, and how to decode JWT tokens safely.</p>
+  </div></section>
+
+  <div class="container"><div class="ad-block"><ins class="adsbygoogle" style="display:block;width:100%;max-width:728px;height:auto;margin:0 auto;" data-ad-client="ca-pub-5420550088713746" data-ad-slot="8899001122" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div>
+
+  <div class="container">
+  <article>
+    <h2>What Is a JSON Web Token (JWT)?</h2>
+    <p>A JSON Web Token, or JWT (pronounced "jot"), is a compact, URL-safe standard for representing claims securely between two parties. JWTs are widely used for authentication and authorization in web applications, APIs, and microservices.</p>
+    <p>The key idea behind JWT is that the server can issue a token containing claims about a user — like their user ID, role, and email — and the client can send this token with subsequent requests to prove its identity. The token is digitally signed, so the server can verify that the claims have not been tampered with.</p>
+
+    <h2>JWT Structure: The Three Parts</h2>
+    <p>A JWT consists of three parts separated by dots: the header, the payload, and the signature. Each part is Base64URL-encoded JSON (with the exception of the signature, which is binary data also encoded in Base64URL).</p>
+    <pre>// JWT format: header.payload.signature
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c</pre>
+
+    <h3>Header</h3>
+    <p>The header typically contains two fields: the algorithm used for signing (like HS256 or RS256) and the type of token, which is "JWT".</p>
+    <pre>{
+  "alg": "HS256",
+  "typ": "JWT"
+}</pre>
+
+    <h3>Payload</h3>
+    <p>The payload contains the claims — statements about the user and additional metadata. There are three types of claims: registered (standard fields like iss, exp, sub), public, and private claims.</p>
+    <pre>{
+  "sub": "1234567890",
+  "name": "John Doe",
+  "iat": 1516239022,
+  "exp": 1516242622,
+  "role": "admin"
+}</pre>
+
+    <h3>Signature</h3>
+    <p>The signature is created by taking the encoded header, the encoded payload, a secret key, and running them through the signing algorithm specified in the header. The signature verifies that the token has not been modified in transit.</p>
+
+    <div class="tip-box"><strong>Important: JWT payloads are not encrypted.</strong> Anyone can decode a JWT and read the payload. The signature only proves the token has not been tampered with — it does not hide the data. Never put sensitive information like passwords or credit card numbers in a JWT payload.</div>
+
+    <div class="ad-block"><ins class="adsbygoogle" style="display:block;width:100%;max-width:728px;height:auto;margin:0 auto;" data-ad-client="ca-pub-5420550088713746" data-ad-slot="9900112233" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+
+    <h2>Common JWT Claims You Should Know</h2>
+    <p>JWT defines several standard (registered) claims that have specific meanings. Here are the most important ones:</p>
+    <ul>
+      <li><strong>iss (Issuer):</strong> The entity that issued the token — usually your authentication server.</li>
+      <li><strong>sub (Subject):</strong> The subject of the token — typically the user ID.</li>
+      <li><strong>aud (Audience):</strong> The intended recipients of the token. Used to prevent tokens from one service being used on another.</li>
+      <li><strong>exp (Expiration Time):</strong> The timestamp after which the token is no longer valid. Always check this!</li>
+      <li><strong>nbf (Not Before):</strong> The timestamp before which the token must not be accepted.</li>
+      <li><strong>iat (Issued At):</strong> The timestamp when the token was issued.</li>
+      <li><strong>jti (JWT ID):</strong> A unique identifier for the token, useful for revoking tokens and preventing replay attacks.</li>
+    </ul>
+
+    <h2>How to Use a JWT Decoder</h2>
+    <p>A JWT decoder is an essential tool for any developer working with JSON Web Tokens. Here is how to use one effectively:</p>
+    <ol>
+      <li><strong>Paste the token.</strong> Copy your JWT and paste it into a JWT payload decoder. The tool will immediately decode the header and payload sections into human-readable JSON.</li>
+      <li><strong>Inspect the header.</strong> Check the algorithm (alg field). Make sure it is what you expect — HS256 for HMAC, RS256 for RSA, etc. Be suspicious of "none" algorithm tokens.</li>
+      <li><strong>Examine the payload.</strong> Look at all the claims. Is the exp (expiration) time correct? Does the sub (subject) match the expected user? Are there any unexpected claims?</li>
+      <li><strong>Verify the signature (if possible).</strong> If you have the secret key or public key, a good JWT debugger will let you verify the signature to ensure the token has not been tampered with.</li>
+      <li><strong>Check timestamps.</strong> Most JWT decoders will convert Unix timestamps to human-readable dates. Verify that exp is in the future and iat is in the past.</li>
+    </ol>
+
+    <h2>Common JWT Problems and How to Debug Them</h2>
+
+    <h3>Token Expired</h3>
+    <p>This is the most common JWT issue. If the current time is past the exp claim, the token is expired. Check the exp timestamp in your JWT decoder — if it is in the past, your user needs to log in again or use a refresh token.</p>
+
+    <h3>Invalid Signature</h3>
+    <p>If signature verification fails, the token may have been tampered with, or you might be using the wrong key. Double-check that you are using the correct algorithm and the correct secret or public key. Use a JWT debugger that supports signature verification to test this.</p>
+
+    <h3>Wrong Algorithm</h3>
+    <p>If your server expects RS256 but the token is signed with HS256 (or vice versa), verification will fail. Always check the alg field in the header and make sure it matches what your server expects. The "none" algorithm should always be rejected by production systems.</p>
+
+    <h3>Audience Mismatch</h3>
+    <p>If your API checks the aud claim and the token's audience does not match, authentication will fail. This is an important security check to prevent tokens issued for one service from being used on another.</p>
+
+    <h3>Token Format Issues</h3>
+    <p>JWTs use Base64URL encoding, not standard Base64. If you try to decode a JWT with a standard Base64 decoder, you might get errors. Use a proper JSON web token decoder that handles the URL-safe variant automatically.</p>
+
+    <div class="tip-box"><strong>Need to debug a JWT right now?</strong> Try our <a href="../tools/dev/jwt-decoder.html">free online JWT decoder</a>. It decodes the header and payload instantly, shows timestamp conversions, and lets you verify signatures — all in your browser with no data sent to a server.</div>
+
+    <h2>JWT Security Best Practices</h2>
+    <p>JWTs are secure when used correctly, but there are many common pitfalls. Follow these best practices:</p>
+    <ol>
+      <li><strong>Always verify the signature.</strong> Never trust a JWT payload without verifying the signature first. An attacker can modify the payload if the signature is not checked.</li>
+      <li><strong>Use short-lived access tokens.</strong> If a token is stolen, it can only be used until it expires. Short expiration times (15 minutes to 1 hour) limit the damage window.</li>
+      <li><strong>Use HTTPS everywhere.</strong> JWTs should only be transmitted over HTTPS to prevent interception. Use Secure and HttpOnly cookies for storing tokens in browsers.</li>
+      <li><strong>Never put secrets in the payload.</strong> JWT payloads are Base64-encoded, not encrypted. Anyone can read them. Do not store passwords, API keys, or other sensitive data in JWT claims.</li>
+      <li><strong>Reject the "none" algorithm.</strong> Make sure your JWT library is configured to reject tokens with alg: "none". This is a common attack vector.</li>
+      <li><strong>Validate all standard claims.</strong> Check exp, nbf, iss, and aud on every request. Do not skip these validations — they are important security checks.</li>
+      <li><strong>Use asymmetric algorithms for distributed systems.</strong> RS256 (RSA) or ES256 (ECDSA) let the auth server sign tokens with a private key while services verify with a public key. This is more secure than shared secrets.</li>
+      <li><strong>Implement proper token revocation.</strong> JWTs are stateless by default, but you still need a way to revoke tokens early (for logout, password changes, etc.). Consider a token blocklist or short-lived tokens with refresh tokens.</li>
+    </ol>
+
+    <div class="ad-block"><ins class="adsbygoogle" style="display:block;width:100%;max-width:728px;height:auto;margin:0 auto;" data-ad-client="ca-pub-5420550088713746" data-ad-slot="7711223344" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+
+    <h2>HS256 vs RS256: Which Algorithm Should You Use?</h2>
+    <p>The two most common JWT signing algorithms are HS256 (HMAC-SHA256) and RS256 (RSA-SHA256). Here is how to choose:</p>
+
+    <h3>HS256 (HMAC with SHA-256)</h3>
+    <p>HS256 uses a shared secret key to both sign and verify tokens. It is simpler and faster, but everyone who needs to verify tokens also needs the secret key — which means they can also forge tokens. Best for simple systems where only one server issues and verifies tokens.</p>
+
+    <h3>RS256 (RSA with SHA-256)</h3>
+    <p>RS256 uses asymmetric cryptography: a private key signs tokens, and a public key verifies them. The public key can be safely distributed to any service that needs to verify tokens without giving them the ability to create new ones. Best for microservices, distributed systems, and any scenario where multiple services need to verify tokens.</p>
+
+    <h2>What to Look for in a Good Online JWT Decoder</h2>
+    <p>Not all JWT tools are created equal. Here is what to look for in a great JWT decoder:</p>
+    <ul>
+      <li><strong>Instant decoding.</strong> The tool should decode the header and payload as soon as you paste the token, with no button to click.</li>
+      <li><strong>Pretty-printed JSON.</strong> The decoded JSON should be properly formatted and syntax-highlighted for readability.</li>
+      <li><strong>Timestamp conversion.</strong> Unix timestamps (iat, exp, nbf) should be automatically converted to human-readable dates and times.</li>
+      <li><strong>Signature verification.</strong> The ability to verify the token signature using a secret key or public key is essential for debugging authentication issues.</li>
+      <li><strong>Privacy.</strong> JWTs contain user data. A good JWT tool runs entirely in the browser and never sends your token to a server.</li>
+      <li><strong>Error messages.</strong> If your token is malformed, the tool should give a clear error message explaining what is wrong.</li>
+    </ul>
+
+    <h2>JWT in Different Programming Languages</h2>
+    <p>Every major language has solid JWT libraries. Here are the most popular ones:</p>
+    <ul>
+      <li><strong>JavaScript / Node.js:</strong> jsonwebtoken, jose</li>
+      <li><strong>Python:</strong> PyJWT, python-jose</li>
+      <li><strong>Java:</strong> JJWT, Nimbus JOSE + JWT</li>
+      <li><strong>Go:</strong> golang-jwt (jwt-go fork)</li>
+      <li><strong>Ruby:</strong> ruby-jwt</li>
+    </ul>
+    <p>Always use a well-maintained library instead of implementing JWT yourself. JWT has many subtle security pitfalls that are easy to get wrong.</p>
+
+    <p>Ready to debug a token? Head over to our <a href="../tools/dev/jwt-decoder.html">JWT decoder</a> and paste your token to instantly see the header, payload, and timestamps. It is free, private, and runs entirely in your browser.</p>
+
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="faq-item">
+      <h3>Is it safe to paste my JWT into an online decoder?</h3>
+      <p>It depends on the tool. JWTs contain user data and can sometimes be used to impersonate a user. Only use online JWT decoders that run entirely in your browser and never send your token to a server. zlbox's JWT decoder runs client-side, so your token never leaves your device.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>Can anyone decode a JWT?</h3>
+      <p>Yes, anyone can decode the header and payload of a JWT — that is the point. JWT is designed for tamper-evidence, not secrecy. The signature verifies that the token has not been modified, but it does not encrypt the data. Never put sensitive information in a JWT payload.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>How do I verify a JWT signature?</h3>
+      <p>To verify a JWT signature, you need the signing key (for HS256) or the public key (for RS256). A JWT debugger with signature verification support will let you paste the key and check if the signature is valid. Always verify signatures in production code — never trust an unverified token.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>What is the difference between JWT, JWS, and JWE?</h3>
+      <p>JWT (JSON Web Token) is the general term. JWS (JSON Web Signature) is a signed JWT — the kind you see most often, with three parts. JWE (JSON Web Encryption) is an encrypted JWT that actually hides the payload contents. Most "JWTs" you encounter in practice are JWS tokens.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>How long should a JWT last?</h3>
+      <p>Access tokens should be short-lived — typically 15 minutes to 1 hour. Refresh tokens can last longer (days or weeks) but should be revocable. The exact duration depends on your security requirements. Shorter lifetimes reduce the window of opportunity if a token is stolen.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>Can JWTs be revoked?</h3>
+      <p>JWTs are stateless by design, so they cannot be revoked in the traditional sense without additional infrastructure. Common approaches include maintaining a token blocklist (checked on every request), using very short-lived access tokens with refresh tokens, or storing token state server-side.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>Is there a free JWT tool for debugging tokens?</h3>
+      <p>Yes, zlbox offers a free online JWT decoder that works entirely in your browser. It decodes the header and payload, converts timestamps to readable dates, supports signature verification, and never sends your token data to any server.</p>
+    </div>
+  </article>
+  </div>
+
+  <div class="container"><div class="ad-block"><ins class="adsbygoogle" style="display:block;width:100%;max-width:728px;height:auto;margin:0 auto;" data-ad-client="ca-pub-5420550088713746" data-ad-slot="7711223344" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div>
+
+  <div class="container"><hr class="section-divider"><h2 class="section-title">Related Articles</h2>
+    <div class="related-articles">
+      <a class="article-card" href="json-formatter-developers.html"><span class="article-card__cat">Development</span><h3 class="article-card__title">JSON Formatter: Essential Tool for Developers</h3><div class="article-card__date">May 25, 2026 &middot; 7 min read</div><p class="article-card__excerpt">Why every developer needs a good JSON formatter for debugging, API development, and data analysis.</p><span class="article-card__read">Read article &rarr;</span></a>
+      <a class="article-card" href="base64-encoding-guide.html"><span class="article-card__cat">Development</span><h3 class="article-card__title">Base64 Encoding Explained: What It Is and When to Use It</h3><div class="article-card__date">June 23, 2026 &middot; 7 min read</div><p class="article-card__excerpt">Learn what Base64 encoding is, how it works, and when you should use encode and decode tools.</p><span class="article-card__read">Read article &rarr;</span></a>
+      <a class="article-card" href="password-security.html"><span class="article-card__cat">Security</span><h3 class="article-card__title">Strong Password Security Guide</h3><div class="article-card__date">May 26, 2026 &middot; 7 min read</div><p class="article-card__excerpt">How strong passwords are created, what makes a password secure, and common mistakes to avoid.</p><span class="article-card__read">Read article &rarr;</span></a>
+      <a class="article-card" href="uuid-generator-guide.html"><span class="article-card__cat">Development</span><h3 class="article-card__title">UUID Generator: Everything You Need to Know</h3><div class="article-card__date">June 22, 2026 &middot; 7 min read</div><p class="article-card__excerpt">Learn about UUID versions, use cases, and how to generate unique identifiers for your applications.</p><span class="article-card__read">Read article &rarr;</span></a>
+    </div>
+  </div>
+
+  <div class="container"><h2 class="section-title">Tools Mentioned in This Article</h2>
+    <div class="related-tools">
+      <a class="tool-card" href="../tools/dev/jwt-decoder.html"><span class="ico">&#128273;</span><span class="txt">JWT Decoder<small>Decode JWT tokens</small></span></a>
+      <a class="tool-card" href="../tools/dev/json-formatter.html"><span class="ico">&#123; &#125;</span><span class="txt">JSON Formatter<small>Pretty print JSON</small></span></a>
+      <a class="tool-card" href="../tools/dev/base64-encoder.html"><span class="ico">&#128290;</span><span class="txt">Base64 Encoder<small>Encode & decode</small></span></a>
+      <a class="tool-card" href="../tools/generator/uuid-generator.html"><span class="ico">&#9733;</span><span class="txt">UUID Generator<small>Generate unique IDs</small></span></a>
+      <a class="tool-card" href="../tools/generator/password-generator.html"><span class="ico">&#128272;</span><span class="txt">Password Generator<small>Secure passwords</small></span></a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p class="footer-tagline"><strong>zlbox</strong> &mdash; Free online tools for everyone.</p>
+      <div class="footer-links"><a href="../about.html">About</a><span class="footer-divider"></span><a href="../contact.html">Contact</a><span class="footer-divider"></span><a href="../privacy.html">Privacy</a><span class="footer-divider"></span><a href="../disclaimer.html">Disclaimer</a></div>
+      <div class="footer-tool-links"><a href="../categories/pdf.html">PDF Tools</a><span class="footer-divider"></span><a href="../categories/image.html">Image Tools</a><span class="footer-divider"></span><a href="../categories/text.html">Text Tools</a><span class="footer-divider"></span><a href="../categories/generator.html">Generators</a></div>
+      <p class="footer-copy">&copy; 2026 zlbox. All rights reserved.</p>
+    </div>
+  </footer>
+
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+  var toggle=document.querySelector('.nav-toggle');
+  var links=document.querySelector('.nav-links');
+  if(toggle&&links){
+    toggle.addEventListener('click',function(){
+      links.classList.toggle('active');
+      toggle.setAttribute('aria-expanded',links.classList.contains('active'));
+    });
+  }
+});
+</script>
+  <script src="/js/theme.js"></script>
+  <div id="toast-container" class="toast-container"></div>
+</body>
+</html>

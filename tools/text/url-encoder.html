@@ -24,6 +24,7 @@
   <meta name="robots" content="index, follow" />
 
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "URL Encoder", "description": "Encode URL strings", "url": "https://www.zlbox.site/tools/text/url-encoder.html", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What does URL encoding do?","acceptedAnswer":{"@type":"Answer","text":"URL encoding converts special characters into a format that can be transmitted over the internet. Spaces become %20, special characters become %XX hexadecimal values."}},{"@type":"Question","name":"What characters need to be encoded?","acceptedAnswer":{"@type":"Answer","text":"Characters like spaces, &, =, ?, /, #, and non-ASCII characters must be encoded. Letters, numbers, and some safe characters (-_.~) don't need encoding."}},{"@type":"Question","name":"What's the difference between encodeURI and encodeURIComponent?","acceptedAnswer":{"@type":"Answer","text":"encodeURI doesn't encode reserved characters like : / ? & = that are needed for URLs structure. encodeURIComponent encodes everything except alphanumeric characters."}},{"@type":"Question","name":"Can I decode a URL-encoded string?","acceptedAnswer":{"@type":"Answer","text":"Yes. Click the Decode tab, paste your encoded string, and click Process to get the original text."}},{"@type":"Question","name":"What does 'invalid percent-encoding' mean?","acceptedAnswer":{"@type":"Answer","text":"This error means the string contains % followed by non-hex characters or incomplete hex values. Valid encoding must have % followed by exactly two hexadecimal digits."}}]}</script>
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-9V6L0Z956X"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-9V6L0Z956X');</script>
@@ -189,6 +190,17 @@
       <a href="json-formatter.html">JSON Formatter</a>
       <a href="case-converter.html">Case Converter</a>
       <a href="word-counter.html">Word Counter</a>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq">
+      <details><summary>What does URL encoding do?</summary><p>URL encoding converts special characters into a format that can be transmitted over the internet. Spaces become %20, special characters become %XX hexadecimal values.</p></details>
+      <details><summary>What characters need to be encoded?</summary><p>Characters like spaces, &, =, ?, /, #, and non-ASCII characters must be encoded. Letters, numbers, and some safe characters (-_.~) don't need encoding.</p></details>
+      <details><summary>What's the difference between encodeURI and encodeURIComponent?</summary><p>encodeURI doesn't encode reserved characters like : / ? & = that are needed for URLs structure. encodeURIComponent encodes everything except alphanumeric characters.</p></details>
+      <details><summary>Can I decode a URL-encoded string?</summary><p>Yes. Click the Decode tab, paste your encoded string, and click Process to get the original text.</p></details>
+      <details><summary>What does 'invalid percent-encoding' mean?</summary><p>This error means the string contains % followed by non-hex characters or incomplete hex values. Valid encoding must have % followed by exactly two hexadecimal digits.</p></details>
     </div>
   </div>
 

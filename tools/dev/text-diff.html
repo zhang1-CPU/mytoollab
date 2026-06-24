@@ -13,6 +13,8 @@
   <meta property="og:image" content="https://www.zlbox.site/og-image.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Text Diff","description":"Compare two texts or code snippets side by side","url":"https://www.zlbox.site/tools/dev/text-diff.html","applicationCategory":"UtilityApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How does the diff algorithm work?","acceptedAnswer":{"@type":"Answer","text":"The tool uses the Longest Common Subsequence (LCS) algorithm to find the minimum set of additions and deletions needed to transform one text into another."}},{"@type":"Question","name":"What view modes are available?","acceptedAnswer":{"@type":"Answer","text":"There are two modes: 'Side by Side' shows both texts with differences highlighted in parallel columns. 'Inline' shows all changes in a single column with +/- prefixes."}},{"@type":"Question","name":"What do the colors mean?","acceptedAnswer":{"@type":"Answer","text":"Green (Added) indicates new lines. Red (Removed) indicates deleted lines. Yellow (Changed) indicates modified lines (shown in inline view only)."}},{"@type":"Question","name":"Can I copy the diff result?","acceptedAnswer":{"@type":"Answer","text":"Yes. Click 'Copy Result' to copy the diff in a plain text format with +/- prefixes for easy reading."}},{"@type":"Question","name":"Can I download the diff?","acceptedAnswer":{"@type":"Answer","text":"Yes. Click 'Download Diff' to save the comparison results as a .txt file."}}]}</script>
+
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-9V6L0Z956X"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-9V6L0Z956X');</script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
@@ -128,6 +130,17 @@
       <div class="legend-item"><div class="legend-color legend-change"></div> Changed</div>
     </div>
     <div id="diff-output" class="diff-output"></div>
+  </div>
+
+  <div class="section">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq">
+      <details><summary>How does the diff algorithm work?</summary><p>The tool uses the Longest Common Subsequence (LCS) algorithm to find the minimum set of additions and deletions needed to transform one text into another.</p></details>
+      <details><summary>What view modes are available?</summary><p>There are two modes: 'Side by Side' shows both texts with differences highlighted in parallel columns. 'Inline' shows all changes in a single column with +/- prefixes.</p></details>
+      <details><summary>What do the colors mean?</summary><p>Green (Added) indicates new lines. Red (Removed) indicates deleted lines. Yellow (Changed) indicates modified lines (shown in inline view only).</p></details>
+      <details><summary>Can I copy the diff result?</summary><p>Yes. Click 'Copy Result' to copy the diff in a plain text format with +/- prefixes for easy reading.</p></details>
+      <details><summary>Can I download the diff?</summary><p>Yes. Click 'Download Diff' to save the comparison results as a .txt file.</p></details>
+    </div>
   </div>
 
   <div class="section">

@@ -7,6 +7,8 @@
     <meta name="description" content="Calculate GST (Goods and Services Tax) inclusive or exclusive amounts. Add or remove GST at 5%, 12%, 18%, or custom rates.">
     <link rel="canonical" href="https://www.zlbox.site/tools/calculator/gst-calculator.html">
     <link rel="stylesheet" href="/styles.css">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "GST Calculator", "description": "Calculate GST amounts", "url": "https://www.zlbox.site/tools/calculator/gst-calculator.html", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the difference between Add GST and Remove GST?","acceptedAnswer":{"@type":"Answer","text":"Add GST (Exclusive) adds tax to a base amount. Remove GST (Inclusive) extracts the tax component from a price that already includes GST."}},{"@type":"Question","name":"What are the standard GST rates in India?","acceptedAnswer":{"@type":"Answer","text":"Standard GST rates in India are: 0% (exempt items), 5% (essential items), 12% (standard goods), 18% (most items), and 28% (luxury items)."},{"@type":"Question","name":"How is GST calculated?","acceptedAnswer":{"@type":"Answer","text":"For adding GST: Total = Base Amount + (Base Amount × GST Rate %). For removing GST: Base Amount = Total / (1 + GST Rate %). The GST amount is the difference."}},{"@type":"Question","name":"Can I use custom GST rates?","acceptedAnswer":{"@type":"Answer","text":"Yes. While preset buttons are available for 5%, 12%, 18%, and 28%, you can enter any custom rate in the GST Rate input field."}}]}</script>
     <style>
         .container { max-width: 900px; margin: 0 auto; padding: 2rem 1rem; }
         h1 { font-size: 2rem; margin-bottom: 0.5rem; color: var(--text); }
@@ -168,6 +170,34 @@
 
         <div class="info-box">
             <p><strong>About GST:</strong> GST (Goods and Services Tax) is an indirect tax imposed in India on the supply of goods and services. It replaced multiple taxes like VAT, excise duty, and service tax. The current GST rates include 5%, 12%, 18%, and 28%.</p>
+        </div>
+
+        <div class="section" style="margin-top: 2rem;">
+            <h2 style="font-size: 1.5rem; margin-bottom: 1rem;">Related Tools</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px;">
+                <a href="compound-interest.html" style="background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1rem; text-decoration: none; color: var(--text); transition: all 0.2s;">
+                    <h4 style="margin: 0 0 0.5rem; color: var(--primary);">Compound Interest Calculator</h4>
+                    <p style="margin: 0; font-size: 0.9rem; color: var(--text-secondary);">Calculate investment growth over time</p>
+                </a>
+                <a href="loan-calculator.html" style="background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1rem; text-decoration: none; color: var(--text); transition: all 0.2s;">
+                    <h4 style="margin: 0 0 0.5rem; color: var(--primary);">Loan Calculator</h4>
+                    <p style="margin: 0; font-size: 0.9rem; color: var(--text-secondary);">Calculate loan EMIs and interest</p>
+                </a>
+                <a href="percentage-calculator.html" style="background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1rem; text-decoration: none; color: var(--text); transition: all 0.2s;">
+                    <h4 style="margin: 0 0 0.5rem; color: var(--primary);">Percentage Calculator</h4>
+                    <p style="margin: 0; font-size: 0.9rem; color: var(--text-secondary);">Calculate percentages easily</p>
+                </a>
+            </div>
+        </div>
+
+        <div class="section" style="margin-top: 2rem;">
+            <h2 style="font-size: 1.5rem; margin-bottom: 1rem;">Frequently Asked Questions</h2>
+            <div class="faq" style="background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem;">
+                <details style="margin-bottom: 1rem;"><summary style="cursor: pointer; font-weight: 600;">What is the difference between Add GST and Remove GST?</summary><p style="margin-top: 0.5rem;">Add GST (Exclusive) adds tax to a base amount. Remove GST (Inclusive) extracts the tax component from a price that already includes GST.</p></details>
+                <details style="margin-bottom: 1rem;"><summary style="cursor: pointer; font-weight: 600;">What are the standard GST rates in India?</summary><p style="margin-top: 0.5rem;">Standard GST rates in India are: 0% (exempt items), 5% (essential items), 12% (standard goods), 18% (most items), and 28% (luxury items).</p></details>
+                <details style="margin-bottom: 1rem;"><summary style="cursor: pointer; font-weight: 600;">How is GST calculated?</summary><p style="margin-top: 0.5rem;">For adding GST: Total = Base Amount + (Base Amount × GST Rate %). For removing GST: Base Amount = Total / (1 + GST Rate %). The GST amount is the difference.</p></details>
+                <details><summary style="cursor: pointer; font-weight: 600;">Can I use custom GST rates?</summary><p style="margin-top: 0.5rem;">Yes. While preset buttons are available for 5%, 12%, 18%, and 28%, you can enter any custom rate in the GST Rate input field.</p></details>
+            </div>
         </div>
     </main>
 

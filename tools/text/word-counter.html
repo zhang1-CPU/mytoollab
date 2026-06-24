@@ -23,8 +23,7 @@
   <meta name="robots" content="index, follow" />
 
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Word Counter", "description": "Count words and characters", "url": "https://www.zlbox.site/tools/text/word-counter.html", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
-
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9V6L0Z956X"></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Does the counter update in real time?","acceptedAnswer":{"@type":"Answer","text":"Yes. Stats update automatically as you type or paste text into the text area. No need to click any button."}},{"@type":"Question","name":"How are words counted?","acceptedAnswer":{"@type":"Answer","text":"Words are counted by splitting text on whitespace and common punctuation. Multiple spaces don't create extra words, and punctuation attached to words is handled correctly."}},{"@type":"Question","name":"What determines reading time?","acceptedAnswer":{"@type":"Answer","text":"Reading time assumes an average reading speed of 200 words per minute, which is typical for adults reading non-technical content."}},{"@type":"Question","name":"Does it count characters with or without spaces?","acceptedAnswer":{"@type":"Answer","text":"Both counts are shown. Characters (with spaces) includes all characters including spaces. Characters (no spaces) excludes spaces and is useful for social media character limits."}},{"@type":"Question","name":"How are paragraphs counted?","acceptedAnswer":{"@type":"Answer","text":"Paragraphs are separated by blank lines (double newlines). A single line break doesn't create a new paragraph."}}]}</script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-9V6L0Z956X');</script>
 
   <style>
@@ -115,6 +114,17 @@
         <div class="stat-value" id="readingTime">0</div>
         <div class="stat-label">Min Read</div>
       </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq">
+      <details><summary>Does the counter update in real time?</summary><p>Yes. Stats update automatically as you type or paste text into the text area. No need to click any button.</p></details>
+      <details><summary>How are words counted?</summary><p>Words are counted by splitting text on whitespace and common punctuation. Multiple spaces don't create extra words, and punctuation attached to words is handled correctly.</p></details>
+      <details><summary>What determines reading time?</summary><p>Reading time assumes an average reading speed of 200 words per minute, which is typical for adults reading non-technical content.</p></details>
+      <details><summary>Does it count characters with or without spaces?</summary><p>Both counts are shown. 'Characters (with spaces)' includes all characters including spaces. 'Characters (no spaces)' excludes spaces and is useful for social media character limits.</p></details>
+      <details><summary>How are paragraphs counted?</summary><p>Paragraphs are separated by blank lines (double newlines). A single line break doesn't create a new paragraph.</p></details>
     </div>
   </div>
 

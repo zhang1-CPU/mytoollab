@@ -13,6 +13,8 @@
   <meta property="og:image" content="https://www.zlbox.site/og-image.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"JWT Decoder","description":"Decode JSON Web Tokens","url":"https://www.zlbox.site/tools/dev/jwt-decoder.html","applicationCategory":"UtilityApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a JWT?","acceptedAnswer":{"@type":"Answer","text":"JWT (JSON Web Token) is a compact, URL-safe way to transmit information as a JSON object. It consists of Header, Payload, and Signature parts."}},{"@type":"Question","name":"What information does a JWT contain?","acceptedAnswer":{"@type":"Answer","text":"The Header contains the algorithm. The Payload contains claims like user ID, email, roles, and expiration time. The Signature verifies the token hasn't been tampered with."}},{"@type":"Question","name":"Can I decode a JWT without a secret key?","acceptedAnswer":{"@type":"Answer","text":"Yes. The header and payload are Base64-encoded but not encrypted. Anyone can decode them, but only the signature holder can create valid tokens."}},{"@type":"Question","name":"What does 'expired' mean?","acceptedAnswer":{"@type":"Answer","text":"The 'exp' claim sets a token's expiration time. If the current time is past this value, the token is considered expired and should not be trusted."}},{"@type":"Question","name":"Is this tool secure?","acceptedAnswer":{"@type":"Answer","text":"Yes. All decoding happens locally in your browser. Your tokens are never sent to any server."}}]}</script>
+
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-9V6L0Z956X"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-9V6L0Z956X');</script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
@@ -103,6 +105,17 @@
         <span class="decoded-title">Signature</span>
       </div>
       <div id="signature-content" class="signature-text"></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq">
+      <details><summary>What is a JWT?</summary><p>JWT (JSON Web Token) is a compact, URL-safe way to transmit information as a JSON object. It consists of Header, Payload, and Signature parts.</p></details>
+      <details><summary>What information does a JWT contain?</summary><p>The Header contains the algorithm. The Payload contains claims like user ID, email, roles, and expiration time. The Signature verifies the token hasn't been tampered with.</p></details>
+      <details><summary>Can I decode a JWT without a secret key?</summary><p>Yes. The header and payload are Base64-encoded but not encrypted. Anyone can decode them, but only the signature holder can create valid tokens.</p></details>
+      <details><summary>What does 'expired' mean?</summary><p>The 'exp' claim sets a token's expiration time. If the current time is past this value, the token is considered expired and should not be trusted.</p></details>
+      <details><summary>Is this tool secure?</summary><p>Yes. All decoding happens locally in your browser. Your tokens are never sent to any server.</p></details>
     </div>
   </div>
 

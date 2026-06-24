@@ -7,6 +7,8 @@
     <meta name="description" content="Calculate returns on your SIP investments. See how your monthly investments grow over time with compound interest.">
     <link rel="canonical" href="https://www.zlbox.site/tools/calculator/sip-calculator.html">
     <link rel="stylesheet" href="/styles.css">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "SIP Calculator", "description": "Calculate SIP investment returns", "url": "https://www.zlbox.site/tools/calculator/sip-calculator.html", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is SIP?","acceptedAnswer":{"@type":"Answer","text":"SIP (Systematic Investment Plan) allows you to invest a fixed amount regularly (monthly) into mutual funds or other investments. The returns are compounded, meaning you earn returns on your returns over time."}},{"@type":"Question","name":"What return rate should I expect?","acceptedAnswer":{"@type":"Answer","text":"Expected returns vary based on the investment type. Equity mutual funds historically return 10-15% annually, debt funds 6-9%, and fixed deposits 5-7%. Enter your expected rate to calculate potential growth."}},{"@type":"Question","name":"How is SIP return calculated?","acceptedAnswer":{"@type":"Answer","text":"SIP uses the future value formula: FV = P × [(1 + r)^n - 1] / r × (1 + r), where P is monthly investment, r is monthly interest rate, and n is total months."}},{"@type":"Question","name":"Does the calculator account for inflation?","acceptedAnswer":{"@type":"Answer","text":"No, the calculator shows nominal returns. To get real returns (adjusted for inflation), subtract the inflation rate from your expected return rate."}}]}</script>
     <style>
         .container { max-width: 900px; margin: 0 auto; padding: 2rem 1rem; }
         h1 { font-size: 2rem; margin-bottom: 0.5rem; color: var(--text); }
@@ -151,6 +153,34 @@
 
         <div class="info-box">
             <p><strong>How SIP works:</strong> SIP (Systematic Investment Plan) allows you to invest a fixed amount regularly (monthly) into mutual funds or other investments. The returns are compounded, meaning you earn returns on your returns over time.</p>
+        </div>
+
+        <div class="section" style="margin-top: 2rem;">
+            <h2 style="font-size: 1.5rem; margin-bottom: 1rem;">Related Tools</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px;">
+                <a href="compound-interest.html" style="background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1rem; text-decoration: none; color: var(--text); transition: all 0.2s;">
+                    <h4 style="margin: 0 0 0.5rem; color: var(--primary);">Compound Interest Calculator</h4>
+                    <p style="margin: 0; font-size: 0.9rem; color: var(--text-secondary);">Calculate investment growth over time</p>
+                </a>
+                <a href="loan-calculator.html" style="background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1rem; text-decoration: none; color: var(--text); transition: all 0.2s;">
+                    <h4 style="margin: 0 0 0.5rem; color: var(--primary);">Loan Calculator</h4>
+                    <p style="margin: 0; font-size: 0.9rem; color: var(--text-secondary);">Calculate loan EMIs and interest</p>
+                </a>
+                <a href="gst-calculator.html" style="background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1rem; text-decoration: none; color: var(--text); transition: all 0.2s;">
+                    <h4 style="margin: 0 0 0.5rem; color: var(--primary);">GST Calculator</h4>
+                    <p style="margin: 0; font-size: 0.9rem; color: var(--text-secondary);">Calculate GST amounts</p>
+                </a>
+            </div>
+        </div>
+
+        <div class="section" style="margin-top: 2rem;">
+            <h2 style="font-size: 1.5rem; margin-bottom: 1rem;">Frequently Asked Questions</h2>
+            <div class="faq" style="background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem;">
+                <details style="margin-bottom: 1rem;"><summary style="cursor: pointer; font-weight: 600;">What is SIP?</summary><p style="margin-top: 0.5rem;">SIP (Systematic Investment Plan) allows you to invest a fixed amount regularly (monthly) into mutual funds or other investments. The returns are compounded, meaning you earn returns on your returns over time.</p></details>
+                <details style="margin-bottom: 1rem;"><summary style="cursor: pointer; font-weight: 600;">What return rate should I expect?</summary><p style="margin-top: 0.5rem;">Expected returns vary based on the investment type. Equity mutual funds historically return 10-15% annually, debt funds 6-9%, and fixed deposits 5-7%. Enter your expected rate to calculate potential growth.</p></details>
+                <details style="margin-bottom: 1rem;"><summary style="cursor: pointer; font-weight: 600;">How is SIP return calculated?</summary><p style="margin-top: 0.5rem;">SIP uses the future value formula: FV = P × [(1 + r)^n - 1] / r × (1 + r), where P is monthly investment, r is monthly interest rate, and n is total months.</p></details>
+                <details><summary style="cursor: pointer; font-weight: 600;">Does the calculator account for inflation?</summary><p style="margin-top: 0.5rem;">No, the calculator shows nominal returns. To get real returns (adjusted for inflation), subtract the inflation rate from your expected return rate.</p></details>
+            </div>
         </div>
     </main>
 

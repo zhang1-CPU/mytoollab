@@ -7,6 +7,8 @@
     <meta name="description" content="Calculate compound interest and see your investment grow over time. Supports monthly contributions and different compounding frequencies.">
     <link rel="canonical" href="https://www.zlbox.site/tools/calculator/compound-interest.html">
     <link rel="stylesheet" href="/styles.css">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Compound Interest Calculator", "description": "Calculate compound interest and investment growth", "url": "https://www.zlbox.site/tools/calculator/compound-interest.html", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is compound interest?","acceptedAnswer":{"@type":"Answer","text":"Compound interest is interest calculated on both the initial principal and the accumulated interest from previous periods. It's often called 'interest on interest' and can significantly grow your investments over time."}},{"@type":"Question","name":"What compounding frequencies are available?","acceptedAnswer":{"@type":"Answer","text":"You can choose from: Annually (1x/year), Semi-annually (2x/year), Quarterly (4x/year), Monthly (12x/year), or Daily (365x/year). More frequent compounding results in slightly higher returns."}},{"@type":"Question","name":"What is the difference between Lump Sum and SIP modes?","acceptedAnswer":{"@type":"Answer","text":"Lump Sum mode calculates returns on a one-time investment. SIP (Systematic Investment Plan) mode includes regular monthly contributions in addition to your initial investment."}},{"@type":"Question","name":"Is the displayed chart accurate?","acceptedAnswer":{"@type":"Answer","text":"Yes. The chart shows a comparison between your total invested amount (principal + contributions) and the final portfolio value including earned interest."}}]}</script>
     <style>
         .container { max-width: 900px; margin: 0 auto; padding: 2rem 1rem; }
         h1 { font-size: 2rem; margin-bottom: 0.5rem; color: var(--text); }
@@ -160,6 +162,34 @@
 
         <div class="info-box">
             <p><strong>What is Compound Interest?</strong> Compound interest is interest on a loan or deposit calculated based on both the initial principal and the accumulated interest from previous periods. It's often called "interest on interest" and can significantly grow your investments over time.</p>
+        </div>
+
+        <div class="section" style="margin-top: 2rem;">
+            <h2 style="font-size: 1.5rem; margin-bottom: 1rem;">Related Tools</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px;">
+                <a href="sip-calculator.html" style="background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1rem; text-decoration: none; color: var(--text); transition: all 0.2s;">
+                    <h4 style="margin: 0 0 0.5rem; color: var(--primary);">SIP Calculator</h4>
+                    <p style="margin: 0; font-size: 0.9rem; color: var(--text-secondary);">Calculate systematic investment plan returns</p>
+                </a>
+                <a href="loan-calculator.html" style="background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1rem; text-decoration: none; color: var(--text); transition: all 0.2s;">
+                    <h4 style="margin: 0 0 0.5rem; color: var(--primary);">Loan Calculator</h4>
+                    <p style="margin: 0; font-size: 0.9rem; color: var(--text-secondary);">Calculate loan EMIs and total interest</p>
+                </a>
+                <a href="gst-calculator.html" style="background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1rem; text-decoration: none; color: var(--text); transition: all 0.2s;">
+                    <h4 style="margin: 0 0 0.5rem; color: var(--primary);">GST Calculator</h4>
+                    <p style="margin: 0; font-size: 0.9rem; color: var(--text-secondary);">Calculate GST amounts and totals</p>
+                </a>
+            </div>
+        </div>
+
+        <div class="section" style="margin-top: 2rem;">
+            <h2 style="font-size: 1.5rem; margin-bottom: 1rem;">Frequently Asked Questions</h2>
+            <div class="faq" style="background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem;">
+                <details style="margin-bottom: 1rem;"><summary style="cursor: pointer; font-weight: 600;">What is compound interest?</summary><p style="margin-top: 0.5rem;">Compound interest is interest calculated on both the initial principal and the accumulated interest from previous periods. It's often called 'interest on interest' and can significantly grow your investments over time.</p></details>
+                <details style="margin-bottom: 1rem;"><summary style="cursor: pointer; font-weight: 600;">What compounding frequencies are available?</summary><p style="margin-top: 0.5rem;">You can choose from: Annually (1x/year), Semi-annually (2x/year), Quarterly (4x/year), Monthly (12x/year), or Daily (365x/year). More frequent compounding results in slightly higher returns.</p></details>
+                <details style="margin-bottom: 1rem;"><summary style="cursor: pointer; font-weight: 600;">What is the difference between Lump Sum and SIP modes?</summary><p style="margin-top: 0.5rem;">Lump Sum mode calculates returns on a one-time investment. SIP (Systematic Investment Plan) mode includes regular monthly contributions in addition to your initial investment.</p></details>
+                <details><summary style="cursor: pointer; font-weight: 600;">Is the displayed chart accurate?</summary><p style="margin-top: 0.5rem;">Yes. The chart shows a comparison between your total invested amount (principal + contributions) and the final portfolio value including earned interest.</p></details>
+            </div>
         </div>
     </main>
 

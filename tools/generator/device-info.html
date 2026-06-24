@@ -13,6 +13,7 @@
   <meta property="og:image" content="https://www.zlbox.site/og-image.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Device Info Detector","description":"Detect screen, browser, and hardware information","url":"https://www.zlbox.site/tools/generator/device-info.html","applicationCategory":"UtilityApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What device information is detected?","acceptedAnswer":{"@type":"Answer","text":"The tool detects browser name and version, operating system, screen resolution, viewport size, device type (mobile/desktop), timezone, language, and whether JavaScript and cookies are enabled."}},{"@type":"Question","name":"How does device detection work?","acceptedAnswer":{"@type":"Answer","text":"It uses the Web APIs available in your browser like navigator.userAgent, screen, and window properties to gather device information."}},{"@type":"Question","name":"Is my data sent to any server?","acceptedAnswer":{"@type":"Answer","text":"No. All device information is collected and displayed locally in your browser using client-side JavaScript. No data is transmitted to any server."}},{"@type":"Question","name":"Why is my device shown as 'Unknown'?","acceptedAnswer":{"@type":"Answer","text":"Some device properties may not be available in all browsers due to privacy restrictions. The tool shows 'Unknown' when a specific property cannot be determined."}},{"@type":"Question","name":"Can I copy the device info?","acceptedAnswer":{"@type":"Answer","text":"Yes. Click 'Copy Info' to copy all device information to your clipboard in a formatted text format."}}]}</script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-9V6L0Z956X"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-9V6L0Z956X');</script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
@@ -253,6 +254,17 @@
     <button class="action-btn primary" id="copy-markdown">Copy as Markdown Table</button>
     <button class="action-btn" id="copy-text">Copy as Plain Text</button>
     <button class="action-btn" id="copy-json">Copy as JSON</button>
+  </div>
+
+  <div class="section">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq">
+      <details><summary>What device information is detected?</summary><p>The tool detects browser name and version, operating system, screen resolution, viewport size, device type (mobile/desktop), timezone, language, and whether JavaScript and cookies are enabled.</p></details>
+      <details><summary>How does device detection work?</summary><p>It uses the Web APIs available in your browser like navigator.userAgent, screen, and window properties to gather device information.</p></details>
+      <details><summary>Is my data sent to any server?</summary><p>No. All device information is collected and displayed locally in your browser using client-side JavaScript. No data is transmitted to any server.</p></details>
+      <details><summary>Why is my device shown as 'Unknown'?</summary><p>Some device properties may not be available in all browsers due to privacy restrictions. The tool shows 'Unknown' when a specific property cannot be determined.</p></details>
+      <details><summary>Can I copy the device info?</summary><p>Yes. Click 'Copy Info' to copy all device information to your clipboard in a formatted text format.</p></details>
+    </div>
   </div>
 
   <section class="related-tools">

@@ -24,6 +24,7 @@
   <meta name="robots" content="index, follow" />
 
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Hash Generator", "description": "MD5, SHA-1, SHA-256 hash generator", "url": "https://www.zlbox.site/tools/generator/hash-generator.html", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What hashing algorithms are available?","acceptedAnswer":{"@type":"Answer","text":"The tool generates MD5, SHA-1, SHA-256, SHA-384, and SHA-512 hashes. SHA-256 is recommended for most security purposes as it offers a good balance of security and performance."}},{"@type":"Question","name":"Can I hash files?","acceptedAnswer":{"@type":"Answer","text":"Yes. Click 'Choose File' to select any file from your device. Large files (over 50MB) are not recommended for browser processing."}},{"@type":"Question","name":"How does file hashing work?","acceptedAnswer":{"@type":"Answer","text":"Files are read in your browser using the FileReader API. SHA hashes use the browser's Web Crypto API for secure, efficient processing."}},{"@type":"Question","name":"Why are there two output formats?","acceptedAnswer":{"@type":"Answer","text":"Hashes are displayed in hexadecimal (most common) and Base64 (useful for encoding in URLs, JSON, or email). Click 'Copy hex' or 'Copy base64' to copy each format."}},{"@type":"Question","name":"Is hashing the same as encryption?","acceptedAnswer":{"@type":"Answer","text":"No. Hashing is one-way - you cannot reverse a hash to get the original input. Encryption is two-way and can be decrypted with a key."}}]}</script>
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-9V6L0Z956X"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-9V6L0Z956X');</script>
@@ -245,6 +246,17 @@
       <a href="../text/base64.html">Base64 Encoder</a>
       <a href="../text/number-base-converter.html">Number Base Converter</a>
       <a href="../text/csv-to-json.html">CSV to JSON Converter</a>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq">
+      <details><summary>What hashing algorithms are available?</summary><p>The tool generates MD5, SHA-1, SHA-256, SHA-384, and SHA-512 hashes. SHA-256 is recommended for most security purposes as it offers a good balance of security and performance.</p></details>
+      <details><summary>Can I hash files?</summary><p>Yes. Click 'Choose File' to select any file from your device. Large files (over 50MB) are not recommended for browser processing.</p></details>
+      <details><summary>How does file hashing work?</summary><p>Files are read in your browser using the FileReader API. SHA hashes use the browser's Web Crypto API for secure, efficient processing.</p></details>
+      <details><summary>Why are there two output formats?</summary><p>Hashes are displayed in hexadecimal (most common) and Base64 (useful for encoding in URLs, JSON, or email). Click 'Copy hex' or 'Copy base64' to copy each format.</p></details>
+      <details><summary>Is hashing the same as encryption?</summary><p>No. Hashing is one-way - you cannot reverse a hash to get the original input. Encryption is two-way and can be decrypted with a key.</p></details>
     </div>
   </div>
 

@@ -24,6 +24,7 @@
   <meta name="robots" content="index, follow" />
 
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Number Base Converter", "description": "Convert number bases", "url": "https://www.zlbox.site/tools/text/number-base-converter.html", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What bases are supported?","acceptedAnswer":{"@type":"Answer","text":"Supported bases range from 2 (binary) to 36. Digits use 0-9 followed by a-z for bases greater than 10."}},{"@type":"Question","name":"What is Base32 and Base36?","acceptedAnswer":{"@type":"Answer","text":"Base32 uses digits 0-9 and letters A-V (32 unique symbols). Base36 uses 0-9 and A-Z (36 unique symbols), offering more compact representation than hexadecimal."}},{"@type":"Question","name":"Can this handle very large numbers?","acceptedAnswer":{"@type":"Answer","text":"Yes. The tool uses JavaScript BigInt, so integers can be arbitrarily large without overflow issues."}},{"@type":"Question","name":"How do I enter negative numbers?","acceptedAnswer":{"@type":"Answer","text":"Simply prefix your number with a minus sign (-). The tool will handle negative values correctly in all bases."}},{"@type":"Question","name":"What does 'Invalid digits for base' mean?","acceptedAnswer":{"@type":"Answer","text":"This error appears when you enter a digit that doesn't exist in the selected base. For example, '2' is invalid in binary (base 2)."}}]}</script>
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-9V6L0Z956X"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-9V6L0Z956X');</script>
@@ -218,6 +219,17 @@
       <a href="csv-to-json.html">CSV to JSON Converter</a>
       <a href="case-converter.html">Case Converter</a>
       <a href="../calculator/scientific-calculator.html">Scientific Calculator</a>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq">
+      <details><summary>What bases are supported?</summary><p>Supported bases range from 2 (binary) to 36. Digits use 0-9 followed by a-z for bases greater than 10.</p></details>
+      <details><summary>What is Base32 and Base36?</summary><p>Base32 uses digits 0-9 and letters A-V (32 unique symbols). Base36 uses 0-9 and A-Z (36 unique symbols), offering more compact representation than hexadecimal.</p></details>
+      <details><summary>Can this handle very large numbers?</summary><p>Yes. The tool uses JavaScript BigInt, so integers can be arbitrarily large without overflow issues.</p></details>
+      <details><summary>How do I enter negative numbers?</summary><p>Simply prefix your number with a minus sign (-). The tool will handle negative values correctly in all bases.</p></details>
+      <details><summary>What does 'Invalid digits for base' mean?</summary><p>This error appears when you enter a digit that doesn't exist in the selected base. For example, '2' is invalid in binary (base 2).</p></details>
     </div>
   </div>
 

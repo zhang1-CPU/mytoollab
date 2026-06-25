@@ -9,9 +9,18 @@
   <link rel="stylesheet" href="/css/theme.css" />
   <link rel="canonical" href="https://www.zlbox.site/tools/dev/jwt-decoder.html" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <meta name="robots" content="index, follow" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-video-preview:-1" />
+  <meta property="og:title" content="JWT Decoder — Decode JSON Web Tokens Online | zlbox" />
+  <meta property="og:description" content="Free online JWT decoder. Decode JSON Web Tokens instantly. View header and payload in formatted JSON. Check expiration and claims. No data sent to server." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.zlbox.site/tools/dev/jwt-decoder.html" />
+  <meta property="og:site_name" content="zlbox" />
   <meta property="og:image" content="https://www.zlbox.site/og-image.png" />
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="JWT Decoder — Decode JSON Web Tokens Online" />
+  <meta name="twitter:description" content="Free online JWT decoder. Decode JSON Web Tokens instantly. View header and payload in formatted JSON." />
+  <meta name="twitter:image" content="https://www.zlbox.site/og-image.png" />
+  <meta name="keywords" content="jwt decoder, json web token decoder, decode jwt online, jwt parser, jwt viewer, jwt header decoder, jwt payload decoder, jwt expiration checker, jwt claims viewer, bearer token decoder, oauth token decoder, jwt decode base64" />
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"JWT Decoder","description":"Decode JSON Web Tokens","url":"https://www.zlbox.site/tools/dev/jwt-decoder.html","applicationCategory":"UtilityApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a JWT?","acceptedAnswer":{"@type":"Answer","text":"JWT (JSON Web Token) is a compact, URL-safe way to transmit information as a JSON object. It consists of Header, Payload, and Signature parts."}},{"@type":"Question","name":"What information does a JWT contain?","acceptedAnswer":{"@type":"Answer","text":"The Header contains the algorithm. The Payload contains claims like user ID, email, roles, and expiration time. The Signature verifies the token hasn't been tampered with."}},{"@type":"Question","name":"Can I decode a JWT without a secret key?","acceptedAnswer":{"@type":"Answer","text":"Yes. The header and payload are Base64-encoded but not encrypted. Anyone can decode them, but only the signature holder can create valid tokens."}},{"@type":"Question","name":"What does 'expired' mean?","acceptedAnswer":{"@type":"Answer","text":"The 'exp' claim sets a token's expiration time. If the current time is past this value, the token is considered expired and should not be trusted."}},{"@type":"Question","name":"Is this tool secure?","acceptedAnswer":{"@type":"Answer","text":"Yes. All decoding happens locally in your browser. Your tokens are never sent to any server."}}]}</script>
 
@@ -134,6 +143,36 @@
         <h4>Markdown Editor</h4>
         <p>Edit and preview Markdown</p>
       </a>
+    </div>
+  </div>
+
+  <div class="section tool-info">
+    <h2>About JWT Decoder</h2>
+    <p>Our free JWT decoder is an essential developer tool for debugging and inspecting JSON Web Tokens without sending them to any external server. JWTs are commonly used for authentication and authorization in modern web applications, and developers often need to quickly inspect the claims, check expiration times, or verify the token structure during development. Paste your JWT token and instantly see the decoded header and payload in human-readable JSON format.</p>
+    <p>The JWT format consists of three parts separated by dots: the header (algorithm and token type), the payload (claims data), and the signature (verification). While the signature requires a secret key to verify, the header and payload are Base64-encoded and can be decoded by anyone. Our tool leverages this to show you exactly what information a JWT contains, including standard claims like iss (issuer), sub (subject), exp (expiration), and any custom claims your application uses.</p>
+    <h3>Key Features</h3>
+    <ul class="usecase-list">
+      <li><strong>Instant decoding:</strong> Paste any JWT and see the decoded header and payload immediately.</li>
+      <li><strong>Formatted JSON display:</strong> View decoded data in properly formatted, syntax-highlighted JSON.</li>
+      <li><strong>Expiration checking:</strong> Automatically detects and highlights expired tokens based on the exp claim.</li>
+      <li><strong>Standard claims display:</strong> Shows common JWT claims like iat, exp, sub, iss, and aud with explanations.</li>
+      <li><strong>100% client-side:</strong> No token data is ever sent to a server. All processing happens locally in your browser.</li>
+      <li><strong>Developer friendly:</strong> Clean, monospace display matching how tokens appear in code.</li>
+    </ul>
+    <h3>Frequently Asked Questions</h3>
+    <div class="faq">
+      <details><summary>What is a JWT?</summary><p>JWT (JSON Web Token) is a compact, URL-safe way to transmit information as a JSON object. It consists of Header, Payload, and Signature parts.</p></details>
+      <details><summary>What information does a JWT contain?</summary><p>The Header contains the algorithm. The Payload contains claims like user ID, email, roles, and expiration time. The Signature verifies the token hasn't been tampered with.</p></details>
+      <details><summary>Can I decode a JWT without a secret key?</summary><p>Yes. The header and payload are Base64-encoded but not encrypted. Anyone can decode them, but only the signature holder can create valid tokens.</p></details>
+      <details><summary>What does 'expired' mean?</summary><p>The 'exp' claim sets a token's expiration time. If the current time is past this value, the token is considered expired and should not be trusted.</p></details>
+      <details><summary>Is this tool secure?</summary><p>Yes. All decoding happens locally in your browser. Your tokens are never sent to any server.</p></details>
+    </div>
+    <h3>Related Tools</h3>
+    <div class="related-grid">
+      <a href="base64.html">Base64 Encoder/Decoder</a>
+      <a href="json-formatter.html">JSON Formatter</a>
+      <a href="regex-tester.html">Regex Tester</a>
+      <a href="text-diff.html">Text Diff</a>
     </div>
   </div>
 

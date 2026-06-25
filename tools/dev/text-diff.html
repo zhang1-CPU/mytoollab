@@ -9,9 +9,18 @@
   <link rel="stylesheet" href="/css/theme.css" />
   <link rel="canonical" href="https://www.zlbox.site/tools/dev/text-diff.html" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <meta name="robots" content="index, follow" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-video-preview:-1" />
+  <meta property="og:title" content="Text Diff — Compare Code & Text Online | zlbox" />
+  <meta property="og:description" content="Free online text diff tool. Compare two texts or code snippets side by side. Highlight added, removed, and changed lines. Perfect for code review and document comparison." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.zlbox.site/tools/dev/text-diff.html" />
+  <meta property="og:site_name" content="zlbox" />
   <meta property="og:image" content="https://www.zlbox.site/og-image.png" />
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Text Diff — Compare Code & Text Online" />
+  <meta name="twitter:description" content="Free online text diff tool. Compare two texts or code snippets side by side. Highlight added, removed, and changed lines." />
+  <meta name="twitter:image" content="https://www.zlbox.site/og-image.png" />
+  <meta name="keywords" content="text diff, text compare, diff tool, compare text, text comparison tool, code diff, code comparison, line by line compare, text difference finder, diff checker, text matcher, unified diff, side by side diff, online diff tool" />
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Text Diff","description":"Compare two texts or code snippets side by side","url":"https://www.zlbox.site/tools/dev/text-diff.html","applicationCategory":"UtilityApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How does the diff algorithm work?","acceptedAnswer":{"@type":"Answer","text":"The tool uses the Longest Common Subsequence (LCS) algorithm to find the minimum set of additions and deletions needed to transform one text into another."}},{"@type":"Question","name":"What view modes are available?","acceptedAnswer":{"@type":"Answer","text":"There are two modes: 'Side by Side' shows both texts with differences highlighted in parallel columns. 'Inline' shows all changes in a single column with +/- prefixes."}},{"@type":"Question","name":"What do the colors mean?","acceptedAnswer":{"@type":"Answer","text":"Green (Added) indicates new lines. Red (Removed) indicates deleted lines. Yellow (Changed) indicates modified lines (shown in inline view only)."}},{"@type":"Question","name":"Can I copy the diff result?","acceptedAnswer":{"@type":"Answer","text":"Yes. Click 'Copy Result' to copy the diff in a plain text format with +/- prefixes for easy reading."}},{"@type":"Question","name":"Can I download the diff?","acceptedAnswer":{"@type":"Answer","text":"Yes. Click 'Download Diff' to save the comparison results as a .txt file."}}]}</script>
 
@@ -158,6 +167,36 @@
         <h4>Markdown Editor</h4>
         <p>Edit and preview Markdown</p>
       </a>
+    </div>
+  </div>
+
+  <div class="section tool-info">
+    <h2>About Text Diff</h2>
+    <p>Our free text diff tool helps you quickly identify differences between two versions of text or code. Whether you are comparing code changes, reviewing document revisions, or finding differences between configuration files, our tool provides a clear visual comparison using the Longest Common Subsequence algorithm to find the minimum set of changes needed to transform one text into another. Choose between side-by-side view for a clear parallel comparison or inline view for a compact unified diff format.</p>
+    <p>The tool highlights added lines in green, removed lines in red, and modified lines in inline view with clear +/- prefixes. This makes it easy to spot exactly what changed between versions at a glance. Perfect for code reviews, debugging, tracking document changes, or comparing configuration files. All processing happens locally in your browser, so your text data is never sent to any server.</p>
+    <h3>Key Features</h3>
+    <ul class="usecase-list">
+      <li><strong>Side-by-side view:</strong> Compare texts in parallel columns for clear visual comparison.</li>
+      <li><strong>Inline view:</strong> See all changes in a single column with +/- prefixes for each line.</li>
+      <li><strong>Color-coded differences:</strong> Green for added, red for removed, yellow for modified lines.</li>
+      <li><strong>LCS algorithm:</strong> Uses Longest Common Subsequence for optimal diff results.</li>
+      <li><strong>Copy and download:</strong> Copy diff results to clipboard or download as a .txt file.</li>
+      <li><strong>100% private:</strong> All text comparison happens locally. No data is transmitted to any server.</li>
+    </ul>
+    <h3>Frequently Asked Questions</h3>
+    <div class="faq">
+      <details><summary>How does the diff algorithm work?</summary><p>The tool uses the Longest Common Subsequence (LCS) algorithm to find the minimum set of additions and deletions needed to transform one text into another.</p></details>
+      <details><summary>What view modes are available?</summary><p>There are two modes: 'Side by Side' shows both texts with differences highlighted in parallel columns. 'Inline' shows all changes in a single column with +/- prefixes.</p></details>
+      <details><summary>What do the colors mean?</summary><p>Green (Added) indicates new lines. Red (Removed) indicates deleted lines. Yellow (Changed) indicates modified lines (shown in inline view only).</p></details>
+      <details><summary>Can I copy the diff result?</summary><p>Yes. Click 'Copy Result' to copy the diff in a plain text format with +/- prefixes for easy reading.</p></details>
+      <details><summary>Can I download the diff?</summary><p>Yes. Click 'Download Diff' to save the comparison results as a .txt file.</p></details>
+    </div>
+    <h3>Related Tools</h3>
+    <div class="related-grid">
+      <a href="regex-tester.html">Regex Tester</a>
+      <a href="json-formatter.html">JSON Formatter</a>
+      <a href="markdown-editor.html">Markdown Editor</a>
+      <a href="html-formatter.html">HTML Formatter</a>
     </div>
   </div>
 

@@ -11,17 +11,23 @@
   <meta name="google-site-verification" content="google4bd1e08685667667" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
 
+  <meta property="og:title" content="Number Base Converter – Binary, Octal, Decimal, Hex, Base32, Base36 | zlbox" />
+  <meta property="og:description" content="Convert numbers between binary, octal, decimal, hexadecimal, Base32, and Base36. Supports arbitrarily large integers using BigInt." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.zlbox.site/tools/text/number-base-converter.html" />
+  <meta property="og:site_name" content="zlbox" />
   <meta property="og:image" content="https://www.zlbox.site/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Number Base Converter" />
-  <meta name="twitter:description" content="Convert number bases" />
+  <meta name="twitter:description" content="Convert numbers between binary, octal, decimal, hexadecimal, Base32, and Base36." />
   <meta name="twitter:image" content="https://www.zlbox.site/og-image.png" />
 
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
-  <meta name="robots" content="index, follow" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-video-preview:-1" />
+  <meta name="keywords" content="number base converter, binary converter, hex converter, decimal converter, octal converter, base 32 converter, base 36 converter, numeral system converter, binary decimal hex converter, bigint converter" />
 
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Number Base Converter", "description": "Convert number bases", "url": "https://www.zlbox.site/tools/text/number-base-converter.html", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What bases are supported?","acceptedAnswer":{"@type":"Answer","text":"Supported bases range from 2 (binary) to 36. Digits use 0-9 followed by a-z for bases greater than 10."}},{"@type":"Question","name":"What is Base32 and Base36?","acceptedAnswer":{"@type":"Answer","text":"Base32 uses digits 0-9 and letters A-V (32 unique symbols). Base36 uses 0-9 and A-Z (36 unique symbols), offering more compact representation than hexadecimal."}},{"@type":"Question","name":"Can this handle very large numbers?","acceptedAnswer":{"@type":"Answer","text":"Yes. The tool uses JavaScript BigInt, so integers can be arbitrarily large without overflow issues."}},{"@type":"Question","name":"How do I enter negative numbers?","acceptedAnswer":{"@type":"Answer","text":"Simply prefix your number with a minus sign (-). The tool will handle negative values correctly in all bases."}},{"@type":"Question","name":"What does 'Invalid digits for base' mean?","acceptedAnswer":{"@type":"Answer","text":"This error appears when you enter a digit that doesn't exist in the selected base. For example, '2' is invalid in binary (base 2)."}}]}</script>
@@ -230,6 +236,37 @@
       <details><summary>Can this handle very large numbers?</summary><p>Yes. The tool uses JavaScript BigInt, so integers can be arbitrarily large without overflow issues.</p></details>
       <details><summary>How do I enter negative numbers?</summary><p>Simply prefix your number with a minus sign (-). The tool will handle negative values correctly in all bases.</p></details>
       <details><summary>What does 'Invalid digits for base' mean?</summary><p>This error appears when you enter a digit that doesn't exist in the selected base. For example, '2' is invalid in binary (base 2).</p></details>
+    </div>
+  </div>
+
+  <div class="section tool-info">
+    <h2>About Number Base Converter</h2>
+    <p>Our free number base converter is a practical utility for programmers, computer science students, and anyone working with different numeral systems. It instantly converts integers between binary, octal, decimal, hexadecimal, Base32, and Base36, displaying all results simultaneously so you can compare representations at a glance. Built-in BigInt support means you can work with numbers of any size without worrying about overflow limitations.</p>
+    <p>The tool is especially useful when debugging code, understanding how computers represent data, or working with encoding schemes like Base32 used in email attachments and Base36 used in compact URL-friendly identifiers. Simply enter your number, select its current base, and see the equivalent values across all supported bases immediately.</p>
+    <h3>Key Features</h3>
+    <ul class="usecase-list">
+      <li><strong>Six bases in one view:</strong> Enter a number in any base from 2 to 36 and instantly see its binary, octal, decimal, hex, Base32, and Base36 representations.</li>
+      <li><strong>Arbitrarily large numbers:</strong> Using JavaScript BigInt, the converter handles integers of any size without overflow errors or precision loss.</li>
+      <li><strong>Bidirectional conversion:</strong> Select the input base to interpret your number correctly, whether it comes from hex dumps, binary files, or everyday decimal values.</li>
+      <li><strong>Negative number support:</strong> Enter negative numbers by prefixing with a minus sign — the tool handles two's complement-style conversions correctly across all bases.</li>
+      <li><strong>Live conversion:</strong> Results update in real time as you type or change the input base selection.</li>
+      <li><strong>Case-insensitive input:</strong> Enter hex values using either uppercase or lowercase letters — the output display defaults to uppercase for readability.</li>
+    </ul>
+    <h3>Frequently Asked Questions</h3>
+    <div class="faq">
+      <details><summary>What is the difference between Base32 and Base36?</summary><p>Base32 uses 32 symbols (0-9 plus A-V) and is commonly used in encoding schemes like Google's email attachments. Base36 uses 36 symbols (0-9 plus A-Z), providing more compact representation than hexadecimal for the same value.</p></details>
+      <details><summary>Why does my large hex number show as Error?</summary><p>This occurs when you enter a digit invalid for the selected input base. For example, entering 'G' while the input base is set to hexadecimal (16) would be valid, but 'G' in base 8 (octal) would cause an error.</p></details>
+      <details><summary>How is hexadecimal used in programming?</summary><p>Hexadecimal is widely used in programming because each hex digit represents exactly four binary digits (bits), making it a compact way to display byte values, memory addresses, and color codes.</p></details>
+      <details><summary>Can I convert fractional or decimal numbers?</summary><p>Currently this tool handles only integer values. For fractional number conversion, you would need to separately convert the integer and fractional parts using different methods.</p></details>
+      <details><summary>What base does the output use for letters?</summary><p>Output always uses lowercase input letters for bases 11-36 (a-z representing values 10-35). Display defaults to uppercase for hex, Base32, and Base36 output for clarity.</p></details>
+    </div>
+    <h3>Related Tools</h3>
+    <div class="related-grid">
+      <a href="base64.html">Base64 Encoder</a>
+      <a href="../generator/hash-generator.html">Hash Generator</a>
+      <a href="html-encoder.html">HTML Encoder</a>
+      <a href="csv-to-json.html">CSV to JSON Converter</a>
+      <a href="case-converter.html">Case Converter</a>
     </div>
   </div>
 

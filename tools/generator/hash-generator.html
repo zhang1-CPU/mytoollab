@@ -21,7 +21,8 @@
 
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
-  <meta name="robots" content="index, follow" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="keywords" content="hash generator, md5 generator, sha-1 generator, sha-256 generator, sha-384 generator, sha-512 generator, file hash, text hash, checksum generator, cryptographic hash, hash calculator, hash tool online, hash generator free" />
 
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Hash Generator", "description": "MD5, SHA-1, SHA-256 hash generator", "url": "https://www.zlbox.site/tools/generator/hash-generator.html", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What hashing algorithms are available?","acceptedAnswer":{"@type":"Answer","text":"The tool generates MD5, SHA-1, SHA-256, SHA-384, and SHA-512 hashes. SHA-256 is recommended for most security purposes as it offers a good balance of security and performance."}},{"@type":"Question","name":"Can I hash files?","acceptedAnswer":{"@type":"Answer","text":"Yes. Click 'Choose File' to select any file from your device. Large files (over 50MB) are not recommended for browser processing."}},{"@type":"Question","name":"How does file hashing work?","acceptedAnswer":{"@type":"Answer","text":"Files are read in your browser using the FileReader API. SHA hashes use the browser's Web Crypto API for secure, efficient processing."}},{"@type":"Question","name":"Why are there two output formats?","acceptedAnswer":{"@type":"Answer","text":"Hashes are displayed in hexadecimal (most common) and Base64 (useful for encoding in URLs, JSON, or email). Click 'Copy hex' or 'Copy base64' to copy each format."}},{"@type":"Question","name":"Is hashing the same as encryption?","acceptedAnswer":{"@type":"Answer","text":"No. Hashing is one-way - you cannot reverse a hash to get the original input. Encryption is two-way and can be decrypted with a key."}}]}</script>
@@ -226,6 +227,21 @@
         <button class="btn btn--ghost" style="margin-top:6px;padding:4px 10px;font-size:0.78rem;" data-copy="sha512-b64">Copy base64</button>
       </div>
     </div>
+  </div>
+
+  <div class="section tool-info">
+    <h2>About Hash Generator</h2>
+    <p>Hash Generator is a free cryptographic tool that creates hash values from any text or file input. Supporting MD5, SHA-1, SHA-256, SHA-384, and SHA-512 algorithms, this utility is essential for developers verifying data integrity, security professionals auditing passwords, and anyone needing to generate checksums quickly. The processing happens entirely in your browser with no server uploads.</p>
+    <p>Hash functions convert input data into fixed-length alphanumeric strings that uniquely represent the original content. Whether you need to verify a downloaded file matches the original, store passwords securely, or create digital signatures, our Hash Generator provides instant, accurate results. Simply paste your text or upload a file, select your desired algorithm, and get your hash instantly.</p>
+    <h3>Key Features</h3>
+    <ul class="usecase-list">
+      <li>Multiple hash algorithms: MD5, SHA-1, SHA-256, SHA-384, SHA-512</li>
+      <li>Text-to-hash conversion with instant results</li>
+      <li>File hashing support for any file type</li>
+      <li>Bulk text hashing for multiple lines</li>
+      <li>Copy hash output with one click</li>
+      <li>Compare hash values side by side</li>
+    </ul>
   </div>
 
   <div class="section">

@@ -11,17 +11,23 @@
   <meta name="google-site-verification" content="google4bd1e08685667667" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
 
+  <meta property="og:title" content="HTML Encoder / Decoder – Escape &amp; Unescape HTML Entities | zlbox" />
+  <meta property="og:description" content="Encode special characters to HTML entities (&lt; &gt; &amp; &quot; &#39;) and decode them back — including numeric and common named entities." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.zlbox.site/tools/text/html-encoder.html" />
+  <meta property="og:site_name" content="zlbox" />
   <meta property="og:image" content="https://www.zlbox.site/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="HTML Encoder" />
-  <meta name="twitter:description" content="Encode HTML entities" />
+  <meta name="twitter:title" content="HTML Encoder / Decoder" />
+  <meta name="twitter:description" content="Encode special characters to HTML entities and decode them back safely." />
   <meta name="twitter:image" content="https://www.zlbox.site/og-image.png" />
 
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
-  <meta name="robots" content="index, follow" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-video-preview:-1" />
+  <meta name="keywords" content="html encoder, html decoder, html entity encoder, escape html, unescape html, special characters encoder, html entities converter, web safe encoding, xss prevention, character entity encoder" />
 
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "HTML Encoder", "description": "Encode HTML entities", "url": "https://www.zlbox.site/tools/text/html-encoder.html", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is HTML encoding?","acceptedAnswer":{"@type":"Answer","text":"HTML encoding converts special characters (like <, >, &, \") into safe character entities (like &lt;, &gt;, &amp;, &quot;) that can be displayed in HTML without being interpreted as code."}},{"@type":"Question","name":"When should I use HTML encoding?","acceptedAnswer":{"@type":"Answer","text":"Use HTML encoding when displaying user-generated content on a webpage to prevent XSS attacks, or when including special characters in HTML attributes."}},{"@type":"Question","name":"What's the difference between Encode and Decode?","acceptedAnswer":{"@type":"Answer","text":"Encode converts special characters to HTML entities. Decode reverses this, converting entities back to their original characters."}},{"@type":"Question","name":"Does it encode all special characters?","acceptedAnswer":{"@type":"Answer","text":"The Encode option encodes all HTML special characters: &, <, >, \", and '. The 'Encode All' option also encodes regular ASCII characters."}},{"@type":"Question","name":"How do I use this for blog comments?","acceptedAnswer":{"@type":"Answer","text":"Paste your comment text, click Encode, then copy the encoded output and paste it into your blog or website's HTML view."}}]}</script>
@@ -202,6 +208,37 @@
       <details><summary>What's the difference between Encode and Decode?</summary><p>Encode converts special characters to HTML entities. Decode reverses this, converting entities back to their original characters.</p></details>
       <details><summary>Does it encode all special characters?</summary><p>The Encode option encodes all HTML special characters: &, <, >, ", and '. The 'Encode All' option also encodes regular ASCII characters.</p></details>
       <details><summary>How do I use this for blog comments?</summary><p>Paste your comment text, click Encode, then copy the encoded output and paste it into your blog or website's HTML view.</p></details>
+    </div>
+  </div>
+
+  <div class="section tool-info">
+    <h2>About HTML Encoder / Decoder</h2>
+    <p>Our free HTML encoder and decoder is an essential tool for web developers, bloggers, and content creators who need to safely embed special characters in HTML documents. Whether you are preventing cross-site scripting (XSS) attacks, formatting user-generated content, or working with content management systems, this tool handles the conversion between readable text and web-safe character entities instantly in your browser.</p>
+    <p>The tool supports all standard HTML special characters including ampersands, angle brackets, quotes, and apostrophes. It also recognizes hundreds of named entities like &nbsp;, &copy;, &euro;, and numeric entities in both decimal and hexadecimal formats. With encode, decode, and swap functions, you can convert text in either direction without retyping, making it perfect for cleaning up content from external sources.</p>
+    <h3>Key Features</h3>
+    <ul class="usecase-list">
+      <li><strong>Encode and decode special characters:</strong> Convert &lt;, &gt;, &amp;, &quot;, and &#39; to their entity equivalents and reverse the process instantly.</li>
+      <li><strong>Named and numeric entity support:</strong> Recognizes common named entities (&amp;nbsp;, &amp;copy;, &amp;euro;) and numeric entities in decimal (&amp;#65;) and hex (&amp;#x41;) formats.</li>
+      <li><strong>Browser-based processing:</strong> All encoding and decoding happens locally in your browser — no data is sent to any server.</li>
+      <li><strong>Swap function:</strong> Quickly exchange input and output content with one click to reverse the conversion direction.</li>
+      <li><strong>Copy to clipboard:</strong> Copy either the encoded or decoded result with dedicated copy buttons for fast workflow integration.</li>
+      <li><strong>Real-time preview:</strong> See the encoded or decoded result immediately as you work with the input text.</li>
+    </ul>
+    <h3>Frequently Asked Questions</h3>
+    <div class="faq">
+      <details><summary>What is the difference between HTML encoding and URL encoding?</summary><p>HTML encoding converts special characters for safe display within HTML markup (like &lt; becomes &amp;lt;). URL encoding encodes characters for inclusion in URLs (like space becomes %20). This tool handles HTML encoding specifically.</p></details>
+      <details><summary>Can I encode entire web pages with this tool?</summary><p>Yes. Paste the HTML source code into the input and click Encode to convert all special characters. This is useful for embedding code snippets in blog posts or documentation.</p></details>
+      <details><summary>What happens to characters that are not special characters?</summary><p>The standard Encode function leaves regular alphanumeric characters unchanged. Use the Encode All option if you need to convert every character to numeric entities.</p></details>
+      <details><summary>Is this tool safe for preventing XSS attacks?</summary><p>Yes. Encoding user input with this tool before displaying it on a webpage prevents browsers from interpreting it as HTML or JavaScript code, effectively blocking most XSS attacks.</p></details>
+      <details><summary>Why are some entity numbers like 8203 and 8204 not converting?</summary><p>These are invisible Unicode characters like zero-width spaces (&amp;#8203;) that may not render visibly but can affect text processing. They are valid entities that this tool can encode and decode.</p></details>
+    </div>
+    <h3>Related Tools</h3>
+    <div class="related-grid">
+      <a href="base64.html">Base64 Encoder</a>
+      <a href="url-encoder.html">URL Encoder</a>
+      <a href="csv-to-json.html">CSV to JSON Converter</a>
+      <a href="json-formatter.html">JSON Formatter</a>
+      <a href="case-converter.html">Case Converter</a>
     </div>
   </div>
 

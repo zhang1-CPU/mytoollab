@@ -1,4 +1,15 @@
+# zlbox robots.txt - Optimized for SEO
 User-agent: *
 Allow: /
 
+# Allow AI crawlers for better indexing
+User-agent: Google-Extended
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
 Sitemap: https://www.zlbox.site/sitemap.xml
+
+# Crawl-delay for polite crawling
+Crawl-delay: 1

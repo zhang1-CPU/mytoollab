@@ -5,8 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Social Media Tools – Free Online Utilities | zlbox</title>
     <meta name="description" content="Free social media tools for content creators. Generate hashtags, download thumbnails, and more. No signup required.">
+    <meta name="robots" content="index, follow">
+    <meta name="google-site-verification" content="4bd1e08685667667">
     <link rel="canonical" href="https://www.zlbox.site/categories/social.html">
-    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5420550088713746" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9V6L0Z956X"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-9V6L0Z956X');</script>
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="/css/theme.css">
     <style>
         .container { max-width: 1200px; margin: 0 auto; padding: 2rem 1rem; }
         .header { text-align: center; margin-bottom: 3rem; }
@@ -18,16 +25,23 @@
         .tool-icon { font-size: 2.5rem; margin-bottom: 1rem; }
         .tool-name { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--text); }
         .tool-desc { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5; }
+        .search-box { max-width: 600px; margin: 0 auto 2rem; }
     </style>
 </head>
 <body>
-    <nav class="navbar">
-        <a href="/" class="logo">zlzlbox</a>
+    <nav class="site-nav">
+        <a href="/" class="logo">zlbox</a>
         <div class="nav-links">
             <a href="/tools/index.html">All Tools</a>
-            <a href="/categories/calculator.html">Calculator</a>
             <a href="/categories/text.html">Text</a>
+            <a href="/categories/calculator.html">Calculator</a>
+            <a href="/categories/generator.html">Generator</a>
+            <a href="/categories/image.html">Image</a>
+            <a href="/categories/pdf.html">PDF</a>
             <a href="/categories/seo.html">SEO</a>
+            <a href="/categories/dev.html">Dev</a>
+            <a href="/categories/social.html">Social</a>
+            <a href="/blog/index.html">Blog</a>
         </div>
         <button id="themeToggle" class="theme-toggle">🌙</button>
     </nav>
@@ -38,32 +52,49 @@
             <p class="subtitle">Free tools for content creators. Grow your audience and create better content.</p>
         </div>
 
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Search 68+ tools..." oninput="filterTools()">
+        </div>
+
         <div class="tools-grid" id="toolsGrid">
-            <!-- Tools will be loaded dynamically -->
         </div>
     </main>
 
-    <footer>
-        <p>&copy; 2026 zlbox. All rights reserved. <a href="/privacy.html">Privacy Policy</a></p>
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>zlbox</h3>
+                <p>— Free online tools for everyone.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="/tools/index.html">All Tools</a></li>
+                    <li><a href="/about.html">About</a></li>
+                    <li><a href="/privacy.html">Privacy</a></li>
+                    <li><a href="/disclaimer.html">Disclaimer</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Categories</h4>
+                <ul>
+                    <li><a href="/categories/text.html">Text</a></li>
+                    <li><a href="/categories/calculator.html">Calculator</a></li>
+                    <li><a href="/categories/generator.html">Generator</a></li>
+                    <li><a href="/categories/image.html">Image</a></li>
+                    <li><a href="/categories/pdf.html">PDF</a></li>
+                    <li><a href="/categories/seo.html">SEO</a></li>
+                    <li><a href="/categories/dev.html">Dev</a></li>
+                    <li><a href="/categories/social.html">Social</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 zlbox. All rights reserved.</p>
+        </div>
     </footer>
 
-    <script>
-        fetch('/tools-index.json')
-            .then(r => r.json())
-            .then(tools => {
-                const socialTools = tools.filter(t => t.category === 'Social Media').sort((a, b) => a.name.localeCompare(b.name));
-                const grid = document.getElementById('toolsGrid');
-                grid.innerHTML = socialTools.map(tool => `
-                    <a href="${tool.url}" class="tool-card">
-                        <div class="tool-icon">${tool.icon}</div>
-                        <div class="tool-name">${tool.name}</div>
-                        <div class="tool-desc">${tool.description}</div>
-                    </a>
-                `).join('');
-            })
-            .catch(() => {});
-    </script>
-
+    <script src="/js/category-loader.js"></script>
     <script>
         const themeToggle = document.getElementById('themeToggle');
         const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;

@@ -24,7 +24,8 @@
       'pdf': 'PDF',
       'seo': 'SEO',
       'dev': 'Developer',
-      'developer': 'Developer'
+      'developer': 'Developer',
+      'social': 'Social Media'
     };
     if (map[slug]) return map[slug];
     return capitalize(slug);

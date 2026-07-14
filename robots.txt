@@ -10,6 +10,3 @@ User-agent: GPTBot
 Allow: /
 
 Sitemap: https://www.zlbox.site/sitemap.xml
-
-# Crawl-delay for polite crawling
-Crawl-delay: 1
